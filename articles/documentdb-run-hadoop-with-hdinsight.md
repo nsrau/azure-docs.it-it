@@ -207,7 +207,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
     <p>In primo luogo, creare una tabella Hive dalla raccolta DocumentDB. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di includere il parametro DocumentDB.query facoltativo per ridurre i documenti semplicemente a _ts e _rid. </p>
 
     > [AZURE.NOTE] **La denominazione DocumentDB.inputCollections non è stata un errore.** È effettivamente possibile aggiungere più raccolte come input: </br>
-    '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola.
+    '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -223,7 +223,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 3.  Successivamente, si passa alla creazione di una tabella Hive per la raccolta di output. Le proprietà del documento di output saranno mese, giorno, ora, minuti e numero totale di occorrenze.
 
 	> [AZURE.NOTE] **Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** È effettivamente possibile aggiungere più raccolte come output: </br>
-    '*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola. </br></br>
+    '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola. </br></br>
     Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -303,7 +303,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
     <p>In primo luogo, caricare i documenti da DocumentDB in HDInsight. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di aggiungere una query di DocumentDB al parametro di query DocumentDB facoltativo per ridurre i documenti semplicemente a _ts e _rid.</p>
 
     > [AZURE.NOTE] È effettivamente possibile aggiungere più raccolte come input: </br>
-    '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*'</br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola. </b>
+    '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola. </b>
 
 	Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
@@ -324,7 +324,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 4. Infine, si archivieranno i risultati nella nuova raccolta di output.
 
     > [AZURE.NOTE] È effettivamente possibile aggiungere più raccolte come output: </br>
-    '\<DocumentDB Output Collection Name 1\>,\<DocumentDB Output Collection Name 2\>'</br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola.</br>
+    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> I nomi di raccolta sono separati senza spazi, per mezzo di una singola virgola.</br>
     Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Store output data to DocumentDB.

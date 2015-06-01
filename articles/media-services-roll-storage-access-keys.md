@@ -60,9 +60,9 @@ Aggiornare Servizi multimediali per l'uso della chiave di accesso alle risorse d
 		
 		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
 		    {
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Flush();
 		    }
 		

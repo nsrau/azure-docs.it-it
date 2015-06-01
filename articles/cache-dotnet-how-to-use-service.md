@@ -95,12 +95,12 @@ Dopo aver richiamato il cmdlet PowerShell, la creazione della cache può richied
 
 È possibile monitorare l'avanzamento del processo di creazione nella finestra Azure PowerShell. Una volta che la cache è pronta per essere usata, il cmdlet [New-AzureManagedCache][] ne visualizza le informazioni, come mostrato nell'esempio seguente.
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Dopo aver richiamato il cmdlet PowerShell, la creazione della cache può richied
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -259,7 +259,7 @@ Se il progetto è un progetto Web, viene aggiunto anche il riferimento all'assem
 
 -	Microsoft.Web.DistributedCache.dll.
 
->Questi assembly si trovano nella cartella C:\Programmi\Microsoft SDKs\Windows Azure\.NET SDK\[versione sdk]\ref\Caching\.
+>Questi assembly si trovano nella cartella C:\Programmi\Microsoft SDKs\Windows Azure\.NET SDK[versione sdk]\ref\Caching\.
 
 Dopo avere configurato il progetto client per la memorizzazione nella cache, è possibile usare le tecniche descritte nelle sezioni seguenti per usare la cache.
 

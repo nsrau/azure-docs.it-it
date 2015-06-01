@@ -32,7 +32,7 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 
 - È possibile usare le API Analytics, Monitor e Segments per verificare se i dati che non vengono visualizzati nell'interfaccia utente sono visibili tramite le API.
 - Se Azure Mobile Engagement SDK non è stato integrato correttamente nell'app, non sarà possibile visualizzare le informazioni nell'analisi, nella segmentazione, nel monitoraggio o nei dashboard.
-- Una volta creati, i segmenti possono essere soltanto "clonati" \(copiati\) o "distrutti" \(eliminati\). I segmenti possono contenere solo 10 criteri.
+- Una volta creati, i segmenti possono essere soltanto "clonati" (copiati) o "distrutti" (eliminati). I segmenti possono contenere solo 10 criteri.
 - Il modo migliore per verificare le informazioni non visualizzate nel monitoraggio consiste nel configurare un dispositivo di test, disinstallare l'app dal dispositivo e/o reinstallarla.
 - Le informazioni vengono aggiornate ogni 24 ore per l'analisi, la segmentazione o i dashboard.
 - È possibile che le informazioni nei nuovi segmenti vengano visualizzate solo dopo 24 ore dal momento della creazione, anche se il segmento si basa su informazioni precedenti.

@@ -70,7 +70,7 @@ Per scaricare questi dati in modo programmatico, usare l'[API REST dell'archivio
 
 In alternativa, considerare [DataFactory](http://azure.microsoft.com/services/data-factory/), in cui è possibile impostare pipeline per la gestione di dati su larga scala.
 
-La scrittura di un nuovo BLOB viene avviata a tutte le ore \(se vengono ricevuti gli eventi\). Di conseguenza, è necessario sempre eseguire elaborazioni fino all'ora precedente, ma attendere l'ora corrente per il completamento.
+La scrittura di un nuovo BLOB viene avviata a tutte le ore (se vengono ricevuti gli eventi). Di conseguenza, è necessario sempre eseguire elaborazioni fino all'ora precedente, ma attendere l'ora corrente per il completamento.
 
 [Esempio di codice][exportcode]
 

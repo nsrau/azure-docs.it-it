@@ -107,7 +107,7 @@ Per aggiungere Brock al ruolo di collaboratore del gruppo di risorse Prod, fare 
 
 Le assegnazioni dei ruoli possono inoltre essere gestite utilizzando il modulo di Microsoft Azure per Windows PowerShell. Segue un esempio dell'aggiunta di un account di Brock utilizzando il cmdlet New-AzureRoleAssignment al posto del portale:
 
-	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Per ulteriori informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
@@ -119,7 +119,7 @@ Le assegnazioni possono essere rimosse facilmente. Prendiamo l'esempio della rim
 
 Segue un esempio di come rimuovere Brad Adams usando il cmdlet Remove-AzureRoleAssignment:
 
-	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 <h3><a id="addremoveext"></a>Aggiungere o rimuovere l'accesso per utenti esterni</h3>
 

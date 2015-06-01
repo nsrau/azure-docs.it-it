@@ -123,7 +123,7 @@ Per i server fisici o le macchine virtuali VMWare protette che eseguono Windows 
 
 - Sistema operativo a 64 bit supportato, quale Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 o successivo.
 - Nome host, punti di montaggio, nomi dispositivo, percorso di sistema di Windows (ad esempio, C:\Windows) dovranno essere specificati solo con caratteri dell'alfabeto latino.
-- Il sistema operativo dovrà essere installato nell'unità C:\.
+- Il sistema operativo dovrà essere installato nell'unità C:.
 - Sono supportate le normali opzioni di archiviazione per i server Windows.
 - Le regole del firewall nei computer protetti devono consentire a tali computer di raggiungere i server di configurazione e di destinazione master in Azure. 
 - Dopo il failover, per connettersi alle macchine virtuali Windows in Azure con Desktop remoto, accertarsi che per il computer locale sia abilitato Desktop remoto. Se non si effettuano connessioni tramite VPN, le regole del firewall dovranno permettere l'esecuzione di connessioni Desktop remoto tramite Internet.

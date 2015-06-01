@@ -18,7 +18,7 @@
 
 #Novità dell’ultimo aggiornamento di Ricerca di Azure#
 
-Ricerca di Azure è ora disponibile a livello genere, offrendo un contratto a livello del servizio \(SLA\) con disponibilità del 99,9% per le configurazioni supportate della [versione del 28/02/2015 dell'API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Ricerca di Azure è ora disponibile a livello genere, offrendo un contratto a livello del servizio (SLA) con disponibilità del 99,9% per le configurazioni supportate della [versione del 28/02/2015 dell'API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Controllo delle versioni e distribuzione delle funzionalità
 
@@ -44,9 +44,9 @@ La prima versione pubblica di .NET SDK per Ricerca di Azure. Include una libreri
 
 Non comprende:
 
-- [Indicizzatori](http://go.microsoft.com/fwlink/p/?LinkId=528173) \(questa funzionalità non è più esclusa nella versione 0.10.0-anteprima\)
+- [Indicizzatori](http://go.microsoft.com/fwlink/p/?LinkId=528173) (questa funzionalità non è più esclusa nella versione 0.10.0-anteprima)
 - [API REST di gestione ](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- Funzionalità della versione di [anteprima del 28/02/2015](search-api-2015-02-28-Preview.md) \(attualmente le funzionalità di sola anteprima sono costituite dai processori del linguaggio naturale di Microsoft e `moreLikeThis`\).
+- Funzionalità della versione di [anteprima del 28/02/2015](search-api-2015-02-28-Preview.md) (attualmente le funzionalità di sola anteprima sono costituite dai processori del linguaggio naturale di Microsoft e `moreLikeThis`).
 
 Visitare [Come utilizzare Ricerca di Azure in .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) per istruzioni sull'installazione e l'utilizzo del SDK.
 
@@ -68,9 +68,9 @@ Visitare [Come utilizzare Ricerca di Azure in .NET](http://go.microsoft.com/fwli
 
 - [Indexers](http://go.microsoft.com/fwlink/p/?LinkID=528210) è una nuova funzionalità che semplifica enormemente l'indicizzazione da origini dati nel database SQL di Azure, Azure DocumentDB e SQL Server in macchine virtuali di Azure.
 
-- [Suggesters](https://msdn.microsoft.com/library/azure/dn798936.aspx) sostituisce il supporto più limitato della query di suggerimento per la digitazione fornito nell'implementazione precedente \(in cui venivano trovate solo le corrispondenze dei prefissi\) aggiungendo il supporto per la corrispondenza degli infissi. Con questa implementazione vengono trovate corrispondenze con qualsiasi punto di un termine e sono supportate anche le corrispondenze fuzzy.
+- [Suggesters](https://msdn.microsoft.com/library/azure/dn798936.aspx) sostituisce il supporto più limitato della query di suggerimento per la digitazione fornito nell'implementazione precedente (in cui venivano trovate solo le corrispondenze dei prefissi) aggiungendo il supporto per la corrispondenza degli infissi. Con questa implementazione vengono trovate corrispondenze con qualsiasi punto di un termine e sono supportate anche le corrispondenze fuzzy.
 
-- [Tag boosting](http://go.microsoft.com/fwlink/p/?LinkId=528212) offre a un nuovo scenario per i profili di punteggio. In particolare, sfrutta i dati persistenti \(ad esempio le preferenze di acquisto\) in modo da migliorare i risultati della ricerca per i singoli utenti in base ad informazioni personalizzate.
+- [Tag boosting](http://go.microsoft.com/fwlink/p/?LinkId=528212) offre a un nuovo scenario per i profili di punteggio. In particolare, sfrutta i dati persistenti (ad esempio le preferenze di acquisto) in modo da migliorare i risultati della ricerca per i singoli utenti in base ad informazioni personalizzate.
 
 Visitare [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p/?LinkId=528211) per l'annuncio del servizio nel blog di Azure che illustra tutte queste funzionalità.
 

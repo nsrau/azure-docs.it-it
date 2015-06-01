@@ -54,7 +54,7 @@ Per associare il dominio personalizzato a un'app Web in Servizio app di Azure, �
 
 4. Dopo aver trovato la pagina di gestione del nome di dominio, cercare un collegamento che consenta di modificare i record DNS. Tale collegamento può essere elencato come **File di zona**, **Record DNS** o come un collegamento di configurazione **avanzata**.
 
-	* La pagina conterrà molto probabilmente alcuni record già creati, ad esempio una voce per associare '**@**' o '\*' a una pagina  'domain parking'. Può inoltre contenere record per sottodomini comuni, ad esempio **www**.
+	* La pagina conterrà molto probabilmente alcuni record già creati, ad esempio una voce per associare '**@**' o '*' a una pagina  'domain parking'. Può inoltre contenere record per sottodomini comuni, ad esempio **www**.
 	* Nella pagina saranno presenti voci per **record CNAME** oppure verrà visualizzato un elenco a discesa per selezionare il tipo di record. È anche possibile che siano presenti voci per altri record, ad esempio **record A** e **record MX**. In alcuni casi, i record CNAME avranno una denominazione diversa, come ad esempio nel caso dei **record Alias**.
 	* La pagina conterrà inoltre campi che consentono di eseguire il **mapping** da un **nome host** o **nome di dominio** a un altro nome di dominio.
 

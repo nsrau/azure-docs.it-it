@@ -21,7 +21,7 @@
 
 ## Interfaccia della riga di comando di Azure
 
-Il modo più semplice e rapido per individuare un'immagine da usare con `azure vm quick-create` o per creare un file dei modelli di gruppi di risorse consiste nel chiamare il comando `azure vm image list` e passare il percorso, il nome dell'editore \(non distingue tra maiuscole e minuscole\) e, se è nota, un'offerta. Contrariamente a molti elenchi, solitamente lunghi, l'elenco seguente rappresenta un breve esempio, in cui si sa che "Canonical" è un editore per l'offerta "UbuntuServer".
+Il modo più semplice e rapido per individuare un'immagine da usare con `azure vm quick-create` o per creare un file dei modelli di gruppi di risorse consiste nel chiamare il comando `azure vm image list` e passare il percorso, il nome dell'editore (non distingue tra maiuscole e minuscole) e, se è nota, un'offerta. Contrariamente a molti elenchi, solitamente lunghi, l'elenco seguente rappresenta un breve esempio, in cui si sa che "Canonical" è un editore per l'offerta "UbuntuServer".
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@ Il modo più semplice e rapido per individuare un'immagine da usare con `azure v
     
 La colonna **Urn** rappresenta il formato che verrà passato a `azure vm quick-create`.
     
-Tuttavia, spesso non si conoscono gli elementi disponibili. In questo caso, è possibile spostarsi tra le immagini individuando gli editori tramite `azure vm image list-publishers` e rispondendo alla richiesta di percorso con un percorso al data center che si prevede di usare per il gruppo di risorse. Ad esempio, di seguito sono elencati tutti gli editori di immagini nel percorso degli Stati Uniti occidentali \(per passare l'argomento location, usare caratteri minuscoli e rimuovere gli spazi dai percorsi standard\)
+Tuttavia, spesso non si conoscono gli elementi disponibili. In questo caso, è possibile spostarsi tra le immagini individuando gli editori tramite `azure vm image list-publishers` e rispondendo alla richiesta di percorso con un percorso al data center che si prevede di usare per il gruppo di risorse. Ad esempio, di seguito sono elencati tutti gli editori di immagini nel percorso degli Stati Uniti occidentali (per passare l'argomento location, usare caratteri minuscoli e rimuovere gli spazi dai percorsi standard)
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -149,8 +149,8 @@ Nella visualizzazione del comando **Get-AzureVMImageSku** si hanno tutte le info
 
 Di seguito è fornito un esempio.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@ Di seguito è fornito un esempio.
 
 Per l'editore "MicrosoftWindowsServer":
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@ Per l'editore "MicrosoftWindowsServer":
 
 Per l'offerta "WindowsServer":
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

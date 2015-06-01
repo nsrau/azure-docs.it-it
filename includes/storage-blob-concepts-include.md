@@ -23,7 +23,7 @@ Il servizio BLOB è composto dai componenti seguenti:
 -   **BLOB:** file di qualsiasi tipo e dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per ulteriori informazioni sui BLOB, vedere [Informazioni su BLOB in blocchi e BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 -   **Formato dell’URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente: http://`<storage
-    account>`.blob.core.windows.net/`<container>`/`<blob>\`
+    account>`.blob.core.windows.net/`<container>`/`<blob>`
       
     Il seguente URL di esempio potrebbe essere utilizzato per fare riferimento a uno dei BLOB nel diagramma sopra riportato: `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 

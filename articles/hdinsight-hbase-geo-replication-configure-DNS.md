@@ -29,11 +29,11 @@ Informazioni su come aggiungere e configurare i server DNS nelle reti virtuali d
 Questa esercitazione fa parte della seconda parte della [serie][hdinsight-hbase-geo-replication] sulla creazione di replica geografica di HBase.
 
 - [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-vnet]
-- Configurare il server DNS tra reti virtuali \(questa esercitazione\)
+- Configurare il server DNS tra reti virtuali (questa esercitazione)
 - [Configurare la replica geografica di HBase][hdinsight-hbase-geo-replication]
 
 
-Il diagramma seguente illustra le due reti virtuali create nell'articolo su come [configurare una connettività VPN tra due reti virtuali][hdinsight-hbase-geo-replication-vnet]\:
+Il diagramma seguente illustra le due reti virtuali create nell'articolo su come [configurare una connettività VPN tra due reti virtuali][hdinsight-hbase-geo-replication-vnet]:
 
 ![Grafico della rete virtuale di replica di HBase in HDInsight][img-vnet-diagram]
 
@@ -69,21 +69,21 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- **NUOVA PASSWORD**: 
 4.	Digitare:
 	- **SERVIZIO CLOUD**: creare un nuovo servizio cloud
-	- **AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE**: \(selezionare Contoso-VNet-EU\)
+	- **AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE**: (selezionare Contoso-VNet-EU)
 	- **SUBNET DELLA RETE VIRTUALE**: Subnet-1
 	- **ACCOUNT DI ARCHIVIAZIONE**: usare un account di archiviazione generato automaticamente
 	
 		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
 
 		The storage account is used to store the virtual machine image file. 
-	- **ENDPOINT**: \(scorrere verso il basso e selezionare **DNS**\) 
+	- **ENDPOINT**: (scorrere verso il basso e selezionare **DNS**) 
 
 Dopo aver creato la macchina virtuale, individuare l'IP interno e l'IP esterno.
 
 1.	Fare clic sul nome della macchina virtuale **Contoso-DNS-EU**.
 2.	Fare clic su **Dashboard**.
 3.	Annotare quanto segue:
-	- INDIRIZZO IP VIRTUALE PUBBLICO \(VIP\)
+	- INDIRIZZO IP VIRTUALE PUBBLICO (VIP)
 	- INDIRIZZO IP INTERNO
 
 
@@ -94,7 +94,7 @@ Dopo aver creato la macchina virtuale, individuare l'IP interno e l'IP esterno.
 	- AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE: selezionare Contoso-VNet-US
 	- SUBNET DELLA RETE VIRTUALE: Subnet-1
 	- ACCOUNT DI ARCHIVIAZIONE: usare un account di archiviazione generato automaticamente
-	- ENDPOINT: \(selezionare DNS\)
+	- ENDPOINT: (selezionare DNS)
 
 ##Impostare gli indirizzi IP statici per le due macchine virtuali
 
@@ -129,7 +129,7 @@ Per i server DNS sono necessari gli indirizzi IP statici. Questo passaggio non p
 4.	Fare clic su **Aggiungi ruoli e funzionalità**.
 5.	Fare clic su **Avanti**
 6.	Selezionare **Installazione basata su ruoli o basata su funzionalità** e fare clic su **Avanti**.
-7.	Selezionare la macchina virtuale DNS \(deve essere già evidenziata\) e quindi fare clic su **Avanti**.
+7.	Selezionare la macchina virtuale DNS (deve essere già evidenziata) e quindi fare clic su **Avanti**.
 8.	Selezionare **Server DNS**.
 9.	Fare clic su **Aggiungi funzionalità** e quindi su **Continua**.
 10.	Fare clic su **Avanti** tre volte e quindi fare clic su **Installa**. 
@@ -202,7 +202,7 @@ Per configurare il server di inoltro condizionale, è necessario conoscere i suf
 
 ##Testare la risoluzione dei nomi tra le reti virtuali
 
-A questo punto è possibile testare la risoluzione dei nomi tra le reti virtuali. Per impostazione predefinita il comando ping viene bloccato dal firewall. È possibile usare nslookup per risolvere le macchine virtuali del server DNS \(è necessario usare FQDN\) nelle reti peer.
+A questo punto è possibile testare la risoluzione dei nomi tra le reti virtuali. Per impostazione predefinita il comando ping viene bloccato dal firewall. È possibile usare nslookup per risolvere le macchine virtuali del server DNS (è necessario usare FQDN) nelle reti peer.
 
 
 ##Passaggi successivi

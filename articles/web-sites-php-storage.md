@@ -279,7 +279,7 @@ L'app di elenco attività è in grado di contrassegnare un elemento come complet
 
 * Il primo passaggio dell'aggiornamento di un'entità è il suo recupero dalla tabella:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 

@@ -18,7 +18,7 @@
 
 
 # Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack
-In questa esercitazione viene illustrato come usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni \(HPC\) ibrido. Il cluster sarà composto da un nodo head locale \(un computer che esegue il sistema operativo Windows Server e HPC Pack\) e alcuni nodi di calcolo distribuiti su richiesta come istanze del ruolo di lavoro in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
+In questa esercitazione viene illustrato come usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni (HPC) ibrido. Il cluster sarà composto da un nodo head locale (un computer che esegue il sistema operativo Windows Server e HPC Pack) e alcuni nodi di calcolo distribuiti su richiesta come istanze del ruolo di lavoro in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
 
 ![Cluster HPC ibrido][Overview]
 
@@ -40,7 +40,7 @@ Per completare l'esercitazione, è necessario anche quanto segue.
 
 	* Verificare che non siano installati ulteriori ruoli server o servizi di ruolo.
 
-	* Per supportare HPC Pack, è necessario che il sistema operativo sia installato in una delle lingue seguenti: inglese, giapponese o cinese \(semplificato\).
+	* Per supportare HPC Pack, è necessario che il sistema operativo sia installato in una delle lingue seguenti: inglese, giapponese o cinese (semplificato).
 
 	* Verificare che siano installati gli aggiornamenti importanti.
 
@@ -87,9 +87,9 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 ## Preparazione della sottoscrizione di Azure
 Usare il [portale di gestione di Azure](https://manage.windowsazure.com) per eseguire le operazioni seguenti con la sottoscrizione di Azure. Queste operazioni sono necessarie per poter successivamente distribuire i nodi di Azure dal nodo head locale.
 
-- Caricamento del certificato di gestione \(necessario per le connessioni sicure tra il nodo head e i servizi di Azure\)
+- Caricamento del certificato di gestione (necessario per le connessioni sicure tra il nodo head e i servizi di Azure)
 
-- Creazione di un servizio cloud di Azure in cui verranno eseguiti i nodi di Azure \(istanze del ruolo di lavoro\)
+- Creazione di un servizio cloud di Azure in cui verranno eseguiti i nodi di Azure (istanze del ruolo di lavoro)
 
 - Creare un account di archiviazione di Azure
 
@@ -144,7 +144,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	![Configurazione della rete][config_hpc2]
 
-3. Nella configurazione guidata rete selezionare **All nodes only on an enterprise network** \(Topologia 5\).
+3. Nella configurazione guidata rete selezionare **All nodes only on an enterprise network** (Topologia 5).
 
 	![Topologia 5][config_hpc3]
 
@@ -178,7 +178,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	b. Fare clic su **Next** per accettare il nome di modello predefinito.
 
-	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure \(disponibile nelle proprie <a href="[https://account.windowsazure.com/Subscriptions">informazioni account</a> di Azure\). Quindi, in **Management certificate**, fare clic su **Browse** e selezionare **Default HPC Azure Management.** Quindi fare clic su **Next**.
+	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure (disponibile nelle proprie <a href="[https://account.windowsazure.com/Subscriptions">informazioni account</a> di Azure). Quindi, in **Management certificate**, fare clic su **Browse** e selezionare **Default HPC Azure Management.** Quindi fare clic su **Next**.
 
 	![Modello di nodo][config_hpc12]
 
@@ -188,11 +188,11 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	e. Fare clic su **Next** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Create** per creare il modello di nodo.
 
-	>[AZURE.NOTE]Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio \(provisioning\) e l'interruzione manuale dei nodi. È anche possibile configurare una pianificazione per l'avvio e l'interruzione automatica dei nodi di Azure.
+	>[AZURE.NOTE]Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio (provisioning) e l'interruzione manuale dei nodi. È anche possibile configurare una pianificazione per l'avvio e l'interruzione automatica dei nodi di Azure.
 
 ## Aggiunta di nodi di Azure al cluster
 
-A questo punto si usa il modello di nodo per aggiungere nodi di Azure al cluster. L'aggiunta di nodi al cluster determina l'archiviazione delle relative informazioni di configurazione per consentirne l'avvio \(provisioning\) in qualsiasi momento come istanze del ruolo nel servizio cloud. I costi relativi ai nodi di Azure vengono addebitati nella sottoscrizione solo dopo l'esecuzione delle istanze del ruolo nel servizio cloud.
+A questo punto si usa il modello di nodo per aggiungere nodi di Azure al cluster. L'aggiunta di nodi al cluster determina l'archiviazione delle relative informazioni di configurazione per consentirne l'avvio (provisioning) in qualsiasi momento come istanze del ruolo nel servizio cloud. I costi relativi ai nodi di Azure vengono addebitati nella sottoscrizione solo dopo l'esecuzione delle istanze del ruolo nel servizio cloud.
 
 In questa esercitazione verranno aggiunti due piccoli nodi.
 
@@ -204,7 +204,7 @@ In questa esercitazione verranno aggiunti due piccoli nodi.
 
 	![Aggiunta di un nodo di Azure][add_node1_1]
 
-3. Nella pagina **Specify New Nodes** selezionare il modello di nodo di Azure creato in precedenza \(denominato per impostazione predefinita **Default AzureNode Template**\). Specificare quindi **2** nodi di dimensioni **Small**, quindi fare clic su **Next**.
+3. Nella pagina **Specify New Nodes** selezionare il modello di nodo di Azure creato in precedenza (denominato per impostazione predefinita **Default AzureNode Template**). Specificare quindi **2** nodi di dimensioni **Small**, quindi fare clic su **Next**.
 
 	![Specifica dei nodi][add_node2]
 
@@ -217,7 +217,7 @@ In questa esercitazione verranno aggiunti due piccoli nodi.
 	![Nodi aggiunti][add_node3]
 
 ## Nodi di Azure
-Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager per avviare i nodi di Azure \(eseguire il provisioning\) e portarli online.
+Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager per avviare i nodi di Azure (eseguire il provisioning) e portarli online.
 
 1.	In HPC Cluster Manager fare clic su uno o entrambi i nodi in **Node Management**, quindi nel riquadro **Actions** fare clic su **Start**.
 
@@ -237,7 +237,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 	![Esecuzione delle istanze][view_instances1]
 
-	Saranno presenti due istanze del ruolo di lavoro in esecuzione nel servizio. HPC Pack distribuisce automaticamente anche due istanze **HpcProxy** \(dimensione media\) per gestire la comunicazione tra il nodo head e Azure.
+	Saranno presenti due istanze del ruolo di lavoro in esecuzione nel servizio. HPC Pack distribuisce automaticamente anche due istanze **HpcProxy** (dimensione media) per gestire la comunicazione tra il nodo head e Azure.
 
 5. Per portare online i nodi di Azure per l'esecuzione dei processi cluster, selezionare i nodi, fare clic con il pulsante destro del mouse e scegliere **Bring Online**.
 
@@ -260,13 +260,13 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 ## Esecuzione di un processo di test
 
-È possibile inviare un processo di test che viene eseguito nel cluster ibrido. In questo esempio si usa un semplice processo "sweep parametrico" \(un tipo di calcolo intrinsecamente parallelo\) che esegue sottoattività che aggiungono un numero intero a se stesso usando il comando **set /a**. Tutti i nodi nel cluster contribuiscono a completare le sottoattività per i numeri interi da 1 a 100.
+È possibile inviare un processo di test che viene eseguito nel cluster ibrido. In questo esempio si usa un semplice processo "sweep parametrico" (un tipo di calcolo intrinsecamente parallelo) che esegue sottoattività che aggiungono un numero intero a se stesso usando il comando **set /a**. Tutti i nodi nel cluster contribuiscono a completare le sottoattività per i numeri interi da 1 a 100.
 
 1. In HPC Cluster Manager, in **Job Management** nel riquadro **Actions**, fare clic su **New Parametric Sweep Job**.
 
 	![Nuovo processo][test_job1]
 
-2. Nella finestra di dialogo **New Parametric Sweep Job**, in **Command line**, digitare `set /a *+*` \(sovrascrivendo la riga di comando predefinita visualizzata\). Lasciare i valori predefiniti per le impostazioni rimanenti, quindi fare clic su **Submit** per inviare il processo.
+2. Nella finestra di dialogo **New Parametric Sweep Job**, in **Command line**, digitare `set /a *+*` (sovrascrivendo la riga di comando predefinita visualizzata). Lasciare i valori predefiniti per le impostazioni rimanenti, quindi fare clic su **Submit** per inviare il processo.
 
 	![Sweep parametrico][param_sweep1]
 
@@ -276,7 +276,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 	![Risultati delle attività][view_job361]
 
-5. Per visualizzare il nodo che ha eseguito il calcolo per tale sottoattività, fare clic su **Allocated Nodes** \(il nome del nodo nel proprio cluster potrebbe essere diverso\).
+5. Per visualizzare il nodo che ha eseguito il calcolo per tale sottoattività, fare clic su **Allocated Nodes** (il nome del nodo nel proprio cluster potrebbe essere diverso).
 
 	![Risultati delle attività][view_job362]
 

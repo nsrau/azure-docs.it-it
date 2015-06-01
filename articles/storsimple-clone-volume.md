@@ -50,7 +50,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
 5. In **Specificare gli host che possono utilizzare questo volume**:
 
-  1. Specificare un record di controllo di accesso \(ACR\) per il clone. È possibile aggiungere un nuovo ACR o scegliere dall'elenco esistente.
+  1. Specificare un record di controllo di accesso (ACR) per il clone. È possibile aggiungere un nuovo ACR o scegliere dall'elenco esistente.
   2. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-clone-volume/HCS_CheckIcon.png)per completare l’operazione.
 
 6. Verrà avviato un processo di clonazione e quando il clone viene creato correttamente si riceverà una notifica. Fare clic su **Visualizza processo** per monitorare il processo di clonazione nella pagina **Processi**.

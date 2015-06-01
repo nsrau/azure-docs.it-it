@@ -17,16 +17,16 @@
 	ms.author="spelluru"/>
 
 # Creazione di avvisi per gli eventi di Azure
-Gli eventi di Azure forniscono utili informazioni su quanto accade alle risorse di Azure. Azure registra eventi utente quando una risorsa di Azure \(ad esempio, una data factory\) viene creata, aggiornata o eliminata. Quando si usa Data factory di Azure, vengono generati eventi quando:
+Gli eventi di Azure forniscono utili informazioni su quanto accade alle risorse di Azure. Azure registra eventi utente quando una risorsa di Azure (ad esempio, una data factory) viene creata, aggiornata o eliminata. Quando si usa Data factory di Azure, vengono generati eventi quando:
  
 1.	Data factory di Azure viene creata/aggiornata/eliminata.
-2.	L'elaborazione dati \(esecuzione\) è stata avviata/completata.
+2.	L'elaborazione dati (esecuzione) è stata avviata/completata.
 3.	Quando un cluster HDInsight su richiesta viene creato e rimosso.
 
 È possibile creare avvisi per questi eventi utente e configurarli per l'invio di notifiche tramite posta elettronica all'amministratore e ai coamministratori della sottoscrizione. Inoltre, è possibile specificare altri indirizzi di posta elettronica di utenti che devono ricevere notifiche tramite posta elettronica quando vengono soddisfatte le condizioni.
 
 ## Specifica di una definizione di avviso
-Per specificare una definizione di avviso, creare un file JSON che descrive le operazioni per cui si desidera essere avvisati. Nell'esempio seguente, l'avviso invierà una notifica tramite posta elettronica per l'operazione **RunFinished**. In particolare, viene inviata una notifica tramite posta elettronica quando un'esecuzione nella data factory viene completata, ma l'esito è negativo \(stato = FailedExecution\).
+Per specificare una definizione di avviso, creare un file JSON che descrive le operazioni per cui si desidera essere avvisati. Nell'esempio seguente, l'avviso invierà una notifica tramite posta elettronica per l'operazione **RunFinished**. In particolare, viene inviata una notifica tramite posta elettronica quando un'esecuzione nella data factory viene completata, ma l'esito è negativo (stato = FailedExecution).
 
 	{
     	"contentVersion": "1.0.0.0",
@@ -67,7 +67,7 @@ Per specificare una definizione di avviso, creare un file JSON che descrive le o
 
 **subStatus** può essere rimosso dalla definizione JSON precedente se non si desidera ricevere un avviso in caso di errore specifico.
 
-Vedere [Operazioni e stati disponibili](#AvailableOperationsStatuses) per l'elenco di operazioni e di stati \(e degli stati secondari\).
+Vedere [Operazioni e stati disponibili](#AvailableOperationsStatuses) per l'elenco di operazioni e di stati (e degli stati secondari).
 
 ## Distribuzione dell'avviso
 Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureResourceGroupDeployment**, come mostrato nell'esempio seguente:

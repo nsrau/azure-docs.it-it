@@ -101,7 +101,7 @@ A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta
 ## Inizializzare l'emulatore di archiviazione usando lo strumento da riga di comando
 È possibile usare lo strumento da riga di comando emulatore di archiviazione per inizializzare l'emulatore di archiviazione in modo che punti a un'istanza di database diverso da quella predefinita. Se si vuole usare l'istanza di database LocalDB predefinita, non è necessario eseguire un passaggio di inizializzazione separato.
 
-Questo strumento viene installato per impostazione predefinita nella directory C:\Programmi (x86)\Microsoft SDKs\Azure\Emulatore di archiviazione\. L'inizializzazione viene eseguita automaticamente al primo avvio dell'emulatore.
+Questo strumento viene installato per impostazione predefinita nella directory C:\Programmi (x86)\Microsoft SDKs\Azure\Emulatore di archiviazione. L'inizializzazione viene eseguita automaticamente al primo avvio dell'emulatore.
 
 > [AZURE.NOTE] Per eseguire il comando 'init' descritto di seguito è necessario avere i privilegi amministrativi.
 

@@ -90,13 +90,13 @@ L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si 
 
 ## Filtri a livello di pagina ##
 
-Se la progettazione della soluzione include pagine di ricerca dedicate per specifici tipi di contenuto \(ad esempio un'applicazione di vendita in linea con servizi elencati nella parte superiore della pagina\), è possibile inserire un'espressione di filtro insieme a un evento **onClick** per aprire una pagina in uno stato prefiltrato.
+Se la progettazione della soluzione include pagine di ricerca dedicate per specifici tipi di contenuto (ad esempio un'applicazione di vendita in linea con servizi elencati nella parte superiore della pagina), è possibile inserire un'espressione di filtro insieme a un evento **onClick** per aprire una pagina in uno stato prefiltrato.
 
 È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Vedere [Ricerca nei documenti \(API di Ricerca di Azure\)](http://msdn.microsoft.com/library/azure/dn798927.aspx) per ulteriori informazioni sulle espressioni `$filter`.
+Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) per ulteriori informazioni sulle espressioni `$filter`.
 
 ## Vedere anche ##
 

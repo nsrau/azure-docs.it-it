@@ -70,7 +70,7 @@ Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inseri
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/Android3.png)
 
-4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft \(LiveID\) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
+4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
 
 ![Pagina degli inviti](./media/remoteapp-clients/Android4.png)
 
@@ -98,7 +98,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Prompt di accesso](./media/remoteapp-clients/IOS2.png)
 
-3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft \(LiveID\) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
+3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
 
 ![Pagina degli inviti](./media/remoteapp-clients/IOS3.png)
 
@@ -130,7 +130,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/Mac3.png)
 
-4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft \(LiveID\) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e chiudere la finestra di dialogo.
+4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e chiudere la finestra di dialogo.
 
 ![Pagina degli inviti](./media/remoteapp-clients/Mac4.png)
 
@@ -146,7 +146,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
 
-## Windows \(tutte le versioni supportate, ad eccezione di Windows Phone\)
+## Windows (tutte le versioni supportate, ad eccezione di Windows Phone)
 
 Il client viene avviato automaticamente al termine dell'installazione, tuttavia per accedervi in seguito è disponibile nell'elenco di app con il nome **Azure RemoteApp**.
 
@@ -158,7 +158,7 @@ Il client viene avviato automaticamente al termine dell'installazione, tuttavia 
 
 ![Prompt iniziale di Azure Active Directory](./media/remoteapp-clients/Windows2.png)
 
-3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft \(LiveID\) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e fare clic su **Fine**.
+3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e fare clic su **Fine**.
 
 ![Pagina degli inviti del client di RemoteApp di Azure](./media/remoteapp-clients/Windows3.png)
 
@@ -190,7 +190,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
 
-5. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft \(LiveID\) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare **salva**.
+5. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare **salva**.
 
 ![Pagina degli inviti](./media/remoteapp-clients/WinPhone5.png)
 

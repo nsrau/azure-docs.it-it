@@ -23,13 +23,13 @@ Gli endpoint del servizio Web in Azure Machine Learning dispongono di livelli di
 Esistono due fattori che controllano la quantità di limitazione in un endpoint - Livello di limitazione: Basso o Elevato. Solo i clienti paganti sono autorizzati a impostare il livello di limitazione su Elevato - Numero massimo d chiamate simultanee pari a 4 per il livello di limitazione Basso e pari a 20-200 per il livello di limitazione Elevato
 
 
-Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una bassa latenza. La latenza qui indica il tempo impiegato dall'API per completare una richiesta e non tiene in considerazione i ritardi di rete. Si supponga di disporre di un'API con una latenza di 50 ms. Per utilizzare appieno la capacità disponibile con il livello di limitazione Elevato e il numero massimo di chiamate simultanee pari a 20, è necessario chiamare l'API 20 \* 1000 / 50 = 400 volte al secondo. Estendendo ulteriormente tale capacità, un numero massimo di chiamate simultanee pari a 200 consentirà di chiamare l'API 4000 volte al secondo, supponendo una latenza di 50 ms.
+Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una bassa latenza. La latenza qui indica il tempo impiegato dall'API per completare una richiesta e non tiene in considerazione i ritardi di rete. Si supponga di disporre di un'API con una latenza di 50 ms. Per utilizzare appieno la capacità disponibile con il livello di limitazione Elevato e il numero massimo di chiamate simultanee pari a 20, è necessario chiamare l'API 20 * 1000 / 50 = 400 volte al secondo. Estendendo ulteriormente tale capacità, un numero massimo di chiamate simultanee pari a 200 consentirà di chiamare l'API 4000 volte al secondo, supponendo una latenza di 50 ms.
 
 Se si prevede di chiamare l'API con un carico superiore rispetto a quanto supportato da un numero massimo di chiamate simultanee pari a 200, è consigliabile creare più endpoint nello stesso servizio Web e distribuire il carico in modo casuale tra tutti gli endpoint.
 
 Si tenga presente che l'uso di un numero molto elevato di chiamate simultanee può essere dannoso se non si raggiunge l'API con una frequenza altrettanto elevata. Se si inserisce un carico relativamente basso in un'API configurata per un carico elevato, è possibile che si verifichino timeout sporadici e/o picchi della latenza.
 
-Si noti che la modifica delle impostazioni di limitazione influisce solo sul comportamento dell'API sincrona. Se nell'API sincrona vengono visualizzate frequenti risposte di servizio non disponibile \(503\), è consigliabile modificare tali impostazioni.
+Si noti che la modifica delle impostazioni di limitazione influisce solo sul comportamento dell'API sincrona. Se nell'API sincrona vengono visualizzate frequenti risposte di servizio non disponibile (503), è consigliabile modificare tali impostazioni.
 
 La gestione dell'interfaccia utente consente di attivare e disattivare il livello di limitazione. Per un numero di concorrenza personalizzato adatto al livello di limitazione Elevato, usare l'API Patch Endpoint.
 

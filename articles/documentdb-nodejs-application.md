@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un&#39;applicazione Node.js con DocumentDB | Azure" 
-	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare e accedere ai dati da un&#39;applicazione Web Node.js Express ospitata in Siti Web di Azure." 
+	pageTitle="Creare un'applicazione Node.js con DocumentDB | Azure" 
+	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -43,7 +43,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
 - Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
 - [Node.js][] v0.10.29 o versioni successive.
-- [Generatore di Express](http://www.expressjs.com/starter/generator.html) \(è possibile installarlo tramite `npm install express-generator -g`\)
+- [Generatore di Express](http://www.expressjs.com/starter/generator.html) (è possibile installarlo tramite `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Passaggio 1: Creare un account di database di DocumentDB
@@ -93,7 +93,7 @@ Il file **package.json** è uno di quelli creati nella radice del progetto. Ques
 
 	![Schermata della scheda package.json](./media/documentdb-nodejs-application/image17.png)
 
-Ciò indicherà a Node \(e più avanti ad Azure\) che l'applicazione dipende da questi moduli aggiuntivi.
+       Ciò indicherà a Node (e più avanti ad Azure) che l'applicazione dipende da questi moduli aggiuntivi.
 
 ## <a name="_Toc395783180"></a>Passaggio 4: Uso del servizio DocumentDB in un'applicazione Node
 
@@ -176,7 +176,8 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection accetta un parametro requestOptions facoltativo che può essere usato per specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore requestOptions.offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection accetta un parametro requestOptions facoltativo che può essere usato per specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore requestOptions.offerType, la raccolta verrà creata usando il tipo di offerta predefinito.
+> Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
 		
 3. Salvare e chiudere il file **docdbUtils.js**.
 
@@ -389,7 +390,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		
 		module.exports = config;
 
-3. Nel file **config.js** aggiornare i valori HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di Microsoft Azure](http://portal.azure.com):
+3. Nel file **config.js** aggiornare i valori HOST e AUTH_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di Microsoft Azure](http://portal.azure.com):
 
 4. Salvare e chiudere il file **config.js**.
  
@@ -423,7 +424,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Queste righe definiscono una nuova istanza dell'oggetto **TaskDao**, con una nuova connessione a DocumentDB \(usando i valori letti dal file **config.js**\), inizializzano l'oggetto task e quindi associano le azioni modulo ai metodi nel controller **TaskList**. 
+6. Queste righe definiscono una nuova istanza dell'oggetto **TaskDao**, con una nuova connessione a DocumentDB (usando i valori letti dal file **config.js**), inizializzano l'oggetto task e quindi associano le azioni modulo ai metodi nel controller **TaskList**. 
 
 7. Infine, salvare e chiudere il file **app.js**. La procedura è quasi terminata.
  
@@ -450,8 +451,8 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 
 
-	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
-	Save and close this **layout.jade** file.
+	Ciò in effetti comunica al motore **Jade** di eseguire il rendering di una parte di HTML per l'applicazione e crea un "**blocco**" denominato "**content**" tramite cui è possibile fornire il layout per le pagine di contenuto.
+	Salvare e chiudere questo file **layout.jade**.
 
 4. Aprire il file **index.jade**, la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con quanto segue:
 
@@ -495,7 +496,9 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 	Ciò estende il layout e fornisce contenuto per il segnaposto **content** già visto in precedenza nel file **layout.jade**.
 	
-	In questo layout sono stati creati due moduli HTML. Il primo modulo contiene una tabella per i dati e un pulsante che consente di aggiornare gli elementi mediante la pubblicazione nel metodo **/completetask** del controller. Il secondo modulo contiene due campi di input e un pulsante che consente di creare un nuovo elemento tramite la pubblicazione nel metodo **/addtask** del controller.
+	In questo layout sono stati creati due moduli HTML. 
+	Il primo modulo contiene una tabella per i dati e un pulsante che consente di aggiornare gli elementi mediante la pubblicazione nel metodo **/completetask** del controller.
+	Il secondo modulo contiene due campi di input e un pulsante che consente di creare un nuovo elemento tramite la pubblicazione nel metodo **/addtask** del controller.
 	
 	Ciò è tutto quanto è necessario per il funzionamento dell'applicazione.
 

@@ -385,13 +385,13 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 -	La rete ha un terzo livello nascosto, Hid3, che è completamente connesso al secondo livello nascosto, Conv2.
 -	Il livello di output, Digit, è connesso solo al terzo livello nascosto, Hid3. La parola chiave **all** indica che il livello di output è completamente connesso a Hid3.
 -	Il grado della convoluzione è uguale a tre, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape**, **Stride** e **Sharing**). 
--	Il numero di pesi per kernel è 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300.
+-	Il numero di pesi per kernel è 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300.
 -	È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: **MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5
--	Poiché **Sharing**[d] è impostata su False solo per d == 0, il numero di kernel è **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
+-	Poiché **Sharing**[d] è impostata su False solo per d == 0, il numero di kernel è **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
 

@@ -24,7 +24,7 @@ Questa esercitazione descrive i passaggi necessari per eseguire il failover di u
 
 ![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-## Ripristino di emergenza \(DR\) e failover del dispositivo
+## Ripristino di emergenza (DR) e failover del dispositivo
 In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*. Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione.
 
 ## Considerazioni per il failover del dispositivo
@@ -86,7 +86,7 @@ Se si dispone di un solo dispositivo ed è necessario eseguire un failover, eseg
 												
 	>[AZURE.IMPORTANT]**Se non viene prima completata la configurazione minima, il ripristino di emergenza avrà esito negativo a causa di un bug nell'implementazione corrente. Questo problema verrà risolto in una versione successiva.**
 
-1. Selezionare il dispositivo precedente \(stato offline\) e fare clic su **Failover**. Nella procedura guidata che viene visualizzata, eseguire il failover di questo dispositivo e specificare come dispositivo di destinazione il dispositivo appena registrato. Per istruzioni dettagliate, fare riferimento a [Failover su un altro dispositivo fisico](#fail-over-to-another-physical-device).
+1. Selezionare il dispositivo precedente (stato offline) e fare clic su **Failover**. Nella procedura guidata che viene visualizzata, eseguire il failover di questo dispositivo e specificare come dispositivo di destinazione il dispositivo appena registrato. Per istruzioni dettagliate, fare riferimento a [Failover su un altro dispositivo fisico](#fail-over-to-another-physical-device).
 
 1. Verrà creato un processo di ripristino del dispositivo che è possibile monitorare da **Processi**.
 

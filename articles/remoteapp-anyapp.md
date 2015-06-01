@@ -18,9 +18,9 @@
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con RemoteApp
 
-Questa esercitazione illustrerà come eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo \(come Windows XP\) per quelle poche applicazioni.
+Questa esercitazione illustrerà come eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
 
-Grazie a RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows \(o con i dispositivi Windows Phone\). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet. Ecco come procedere.
+Grazie a RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet. Ecco come procedere.
 
 Per questa esercitazione si condividerà Access con tutti gli utenti. Poiché Access è un database e come tale è necessario che sia utile, si eseguiranno alcuni passaggi aggiuntivi per consentire agli utenti di accedere alla condivisione dei dati di Access.
 
@@ -57,7 +57,7 @@ Se durante la creazione della raccolta ci si è spostati dal nodo di Azure Remot
 4. Selezionare dall'elenco le app da pubblicare. Per questa esercitazione si è scelto Access. Fare clic su **Operazione completata**. Attendere che venga completata la pubblicazione delle app. ![Pubblicazione di Access in RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
-1. Al termine della pubblicazione dell'app, passare alla scheda **Accesso utente** per aggiungere tutti gli utenti che richiedono l'accesso alle app. Immettere i nomi utente \(indirizzo di posta elettronica\) degli utenti e quindi fare clic su **Salva**. ![Aggiungere utenti a RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
+1. Al termine della pubblicazione dell'app, passare alla scheda **Accesso utente** per aggiungere tutti gli utenti che richiedono l'accesso alle app. Immettere i nomi utente (indirizzo di posta elettronica) degli utenti e quindi fare clic su **Salva**. ![Aggiungere utenti a RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
 1. A questo punto, è necessario informare gli utenti che sono disponibili nuove app e indicare come accedervi. Per eseguire questa operazione, inviare agli utenti un messaggio di posta elettronica che punta all'URL di download del client Desktop remoto. ![URL di download del client per RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
@@ -68,10 +68,10 @@ Alcune app richiedono una configurazione aggiuntiva dopo la distribuzione tramit
 
 La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovranno essere eseguiti dagli utenti.
 
-1. Iniziare con la pubblicazione dell'interfaccia della riga di comando \(cmd.exe\). Nella scheda **Pubblicazione** selezionare **cmd** e quindi fare clic su **Pubblica \> Pubblica i programmi usando il percorso**.
+1. Iniziare con la pubblicazione dell'interfaccia della riga di comando (cmd.exe). Nella scheda **Pubblicazione** selezionare **cmd** e quindi fare clic su **Pubblica > Pubblica i programmi usando il percorso**.
 2. Immettere il nome dell'app e il percorso. Per questa esercitazione, usare "Esplora file" come nome e "%SYSTEMDRIVE%\\windows\\explorer.exe" come percorso. ![Pubblicare il file cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. È necessario creare un [account di archiviazione](storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo \(può essere presente un solo archivio "accessstorage"\). ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione \(percorso dell'endpoint\), che verrà usato tra poco, quindi assicurarsi di copiarlo. ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+3. È necessario creare un [account di archiviazione](storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo (può essere presente un solo archivio "accessstorage"). ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo. ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria.
 6. Impostare il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
    
@@ -87,7 +87,7 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 Di seguito sono elencati i passaggi che dovrà eseguire l'utente. Innanzitutto chiedere agli utenti di installare un [client RemoteApp](remoteapp-clients.md). Dovranno quindi connettere un'unità dall'account alla condivisione file di Azure creata dall'amministratore e aggiungere i file di Access. Ecco come eseguire questa operazione:
 
 1. Nel client RemoteApp accedere alle app pubblicate. Avviare il programma cmd.exe.
-2. Eseguire il comando seguente per connettere un'unità dal computer alla condivisione file: net use z: \\<accountname>.file.core.windows.net\<nome condivisione\> /u:<user name> <account key>
+2. Eseguire il comando seguente per connettere un'unità dal computer alla condivisione file: net use z: <accountname>.file.core.windows.net<nome condivisione> /u:<user name> <account key>
 1. Avviare l'app Esplora file da RemoteApp. Copiare i file di Access che si desidera usare nell'app condivisa nella condivisione file. ![Inserimento dei file di Access in una condivisione di Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Infine aprire Access e quindi il database appena condiviso. I dati saranno visualizzati in Access in esecuzione nel cloud. ![Database Access reale in esecuzione dal cloud](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 

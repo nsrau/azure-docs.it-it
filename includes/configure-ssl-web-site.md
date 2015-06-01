@@ -5,11 +5,11 @@
 
 È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. In questo articolo sarà illustrato come configurare HTTPS per un'app Web in Servizio app di Azure. 
 
-##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio \*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio *.azurewebsites.net
 
-Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio *.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTP è già abilitato nel sito con un certificato fornito di Microsoft. È possibile usare **https://mywebsite.azurewebsites.net** per accedere all'app  tuttavia \*.azurewebsites.net è un dominio con caratteri jolly. Come [tutti i domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato. 
+Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio *.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTP è già abilitato nel sito con un certificato fornito di Microsoft. È possibile usare **https://mywebsite.azurewebsites.net** per accedere all'app  tuttavia *.azurewebsites.net è un dominio con caratteri jolly. Come [tutti i domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato. 
 
-In questo documento sono inoltre disponibili informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o **\*.contoso.com**
+In questo documento sono inoltre disponibili informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o ***.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Abilitare SSL per il dominio personalizzato
 
@@ -39,7 +39,7 @@ Per ottenere un certificato SSL da usare con Servizio app di Azure, è necessari
 - [Ottenere un certificato SubjectAltName tramite OpenSSL](#bkmk_subjectaltname)
 - [Generare certificati autofirmati (solo per scopi di test)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE] Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere \*.nomedominio (ad esempio, \*.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale \*.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
+> [AZURE.NOTE] Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere *.nomedominio (ad esempio, *.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale *.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
 >
 > I certificati di crittografia a curva ellittica (ECC) sono supportati in Servizi app di Azure, ma sono relativamente nuovi e per la procedura esatta per la richiesta di firma del certificato è opportuno rivolgersi alla propria Autorità di certificazione.
 

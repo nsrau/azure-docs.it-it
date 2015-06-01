@@ -31,7 +31,7 @@ Sono necessari gli elementi seguenti:
 * [ Eclipse IDE per sviluppatori Java EE](http://www.eclipse.org/downloads/), Indigo o versioni successive.
 * Windows 7 o versioni successive o Windows Server 2008 o versioni successive
 
-## Installare SDK su Eclipse \(una volta\)
+## Installare SDK su Eclipse (una volta)
 
 È sufficiente eseguire questa operazione una volta per ogni macchina. Con questo passaggio viene installato un toolkit che può quindi aggiungere SDK a ciascun progetto Web dinamico.Con questo passaggio viene installato un toolkit che può quindi aggiungere SDK a ciascun Dynamic Web Project.
 
@@ -120,7 +120,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 ## Log di diagnostica
 
-Se si usa Logback o Log4J \(v1.2 o v2.0\) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
+Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
 
 [Altre informazioni sui log di diagnostica][javalogs]
 

@@ -118,7 +118,7 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
 - Questo comando creerà un'assegnazione di ruolo a livello di gruppo di risorse:
 
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - Questo comando creerà un'assegnazione di ruolo a livello di risorsa:
 
@@ -128,8 +128,8 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
 Dopo aver controllato che il proprio account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni concesse da tali assegnazioni eseguendo:
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si dispone dell'autorizzazione di lettura. Inoltre, verranno visualizzate anche le autorizzazioni di cui si dispone.
 

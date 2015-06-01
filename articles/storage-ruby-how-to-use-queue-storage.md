@@ -53,7 +53,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 
 ## Configurare una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::QueueService** con il codice seguente:
+Il modulo di Azure leggerà le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::QueueService** con il codice seguente:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -87,7 +87,7 @@ Per inserire un messaggio in una coda, usare il metodo **create_message()** per 
 
 ## Procedura: Visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()**. Per impostazione predefinita, **peek\_messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek_messages()**. Per impostazione predefinita, **peek_messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -96,11 +96,11 @@ Per inserire un messaggio in una coda, usare il metodo **create_message()** per 
 
 È possibile rimuovere un messaggio da una coda in due passaggi.
 
-1. Per impostazione predefinita, **list\_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. Un messaggio restituito da **list\_messages()** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
+1. Per impostazione predefinita, **list_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. Un messaggio restituito da **list_messages()** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
 
 2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message()**.
 
-Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete\_message()** immediatamente dopo l'elaborazione del messaggio.
+Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message()** immediatamente dopo l'elaborazione del messaggio.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -123,7 +123,7 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 
 2. È possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio.
 
-Nell'esempio di codice seguente viene usato il metodo **list\_messages()** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene stampato ed eliminato. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+Nell'esempio di codice seguente viene usato il metodo **list_messages()** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene stampato ed eliminato. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -133,14 +133,14 @@ Nell'esempio di codice seguente viene usato il metodo **list\_messages()** per r
 
 ## Procedura: Recuperare la lunghezza della coda
 
-È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **get\_queue\_metadata()** chiede al servizio di accodamento di restituire il conteggio approssimativo dei messaggi e i metadati relativi alla coda.
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **get_queue_metadata()** chiede al servizio di accodamento di restituire il conteggio approssimativo dei messaggi e i metadati relativi alla coda.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## Procedura: Eliminare una coda
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete\_queue()** sull'oggetto coda.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete_queue()** sull'oggetto coda.
 
 	azure_queue_service.delete_queue("test-queue")
 

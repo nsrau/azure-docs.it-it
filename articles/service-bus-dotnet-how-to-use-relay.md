@@ -177,7 +177,7 @@ Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione de
     Console.ReadLine();
     sh.Close();
 
-Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che il pacchetto **NuGet** ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. Il seguente frammento di codice, che è l'esatto equivalente del codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo frammento di codice si presuppone che il nome dello spazio dei nomi del progetto C\# sia "Service".
+Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che il pacchetto **NuGet** ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. Il seguente frammento di codice, che è l'esatto equivalente del codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo frammento di codice si presuppone che il nome dello spazio dei nomi del progetto C# sia "Service".
 Sostituire i segnaposto con la chiave SAS e lo spazio dei nomi del servizio del bus di servizio.
 
     <services>

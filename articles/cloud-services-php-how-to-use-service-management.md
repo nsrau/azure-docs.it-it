@@ -485,7 +485,7 @@ Per creare un gruppo di affinità, sono necessari un nome, un'etichetta (con cod
 
 Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anziché una località) durante la [creazione di un gruppo di archiviazione](#CreateStorageService).
 
-È possibile elencare gruppi di affinità e ispezionarne le proprietà chiamando il metodo **listAffinityGroups** e quindi chiamando i metodi appropriati sulla classe [AffinityGroup]\:
+È possibile elencare gruppi di affinità e ispezionarne le proprietà chiamando il metodo **listAffinityGroups** e quindi chiamando i metodi appropriati sulla classe [AffinityGroup]:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 	

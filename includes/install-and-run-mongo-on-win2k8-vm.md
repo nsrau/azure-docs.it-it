@@ -6,24 +6,24 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**.  In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere <i>http://*.mongodb.org</i> all'elenco di siti attendibili.
 3. Passare alla pagina dei [download di MongoDB] [MongoDownloads].
 4. Individuare la versione più recente nella sezione **Production Release (Recommended)** e fare clic sul collegamento ***2008+** nella colonna relativa a Windows a 64 bit.  Fare clic su **Salva con nome** e salvare il file con estensione zip sul desktop.
-5. Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto**  Specificare "C:\" e fare clic su **Estrai**.  Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo,  come ad esempio "MongoDB".
+5. Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto**  Specificare "C:" e fare clic su **Estrai**.  Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo,  come ad esempio "MongoDB".
 6. Creare le directory dei dati e dei log di MongoDB nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Nel menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi.  Digitare:
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+		C:> F:
+		F:> mkdir \MongoData
+		F:> mkdir \MongoLogs
 
 7. Per eseguire il database: 
 
-		F:\> C:
-		C:\> cd \MongoDB\bin
+		F:> C:
+		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	Tutti i messaggi di log verranno indirizzati al file  *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
 
 8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le seguenti informazioni:
 
-		C:\> cd \my_mongo_dir\bin  
+		C:> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  

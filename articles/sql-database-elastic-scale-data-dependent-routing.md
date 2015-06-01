@@ -76,7 +76,7 @@ Il metodo **OpenConnectionForKeyAsync** è disponibile anche se l'applicazione c
 
 ## Integrazione con la gestione degli errori temporanei 
 
-Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel cloud consiste nel garantire che gli errori temporanei durante la connessione o l'esecuzione di query al database vengano rilevati dall'app e che le operazioni vengono ripetute più volte prima di generare un errore. La gestione degli errori temporanei per le applicazioni cloud è illustrata nella pagina relativa alla [gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
+Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel cloud consiste nel garantire che gli errori temporanei durante la connessione o l'esecuzione di query al database vengano rilevati dall'app e che le operazioni vengono ripetute più volte prima di generare un errore. La gestione degli errori temporanei per le applicazioni cloud è illustrata nella pagina relativa alla [gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx). 
  
 La gestione degli errori temporanei può coesistere naturalmente con il modello di routing dipendente dai dati. Il requisito principale consiste nel ripetere l'intera richiesta di accesso ai dati, incluso il blocco **using** che ha ottenuto la connessione di routing dipendente dai dati. L'esempio precedente potrebbe essere riscritto come riportato di seguito (notare la modifica evidenziata). 
 

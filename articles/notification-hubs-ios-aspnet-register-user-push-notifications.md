@@ -191,7 +191,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
 		    // build JSON
-		    NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
+		    NSString* json = [NSString stringWithFormat:@"{"platform":"ios", "instId":"%@", "deviceToken":"%@"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
 
 		    // build auth string
 		    NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];

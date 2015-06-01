@@ -26,7 +26,7 @@ La possibilità di definire i destinatari tramite criteri specifici con il pulsa
 - [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
 
 ## I criteri dei destinatari possono includere:
-- **Informazioni tecniche: \*\* è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16] - **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari \(queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK\). **Vedere anche:** [Documentazione dell'SDK - iOS - Integrazione][Link 5], [Documentazione dell'SDK - Android - Integrazione][Link 5]
+- **Informazioni tecniche: ** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16] - **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari (queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK). **Vedere anche:** [Documentazione dell'SDK - iOS - Integrazione][Link 5], [Documentazione dell'SDK - Android - Integrazione][Link 5]
 - **Feedback di copertura:** è possibile definire i destinatari sulla base del loro feedback sulle precedenti notifiche di copertura usando il feedback di copertura derivante da annunci, sondaggi e push di dati. In questo modo, dopo due o tre campagne di copertura è possibile definire meglio i destinatari rispetto alla prima campagna. Il feedback può inoltre essere usato per filtrare gli utenti che hanno già ricevuto una notifica con contenuto simile, impostando una campagna che NON deve essere inviata agli utenti che hanno già ricevuto una specifica campagna precedente. È anche possibile escludere gli utenti inclusi in una campagna specifica ancora attiva in modo che non ricevano nuove notifiche push. **Vedere anche:** [Documentazione dell'interfaccia utente - Reach - Contenuti del push][Link 29]
 - **Rilevamento installazione:** è possibile rilevare le informazioni in base alla posizione in cui gli utenti hanno installato l'app. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
 - **Profilo utente:** è possibile definire i destinatari in base alle informazioni standard sugli utenti e a informazioni sulle app create personalmente. Per la definizione del profilo utente, anziché prendere in considerazione solo la risposta alle campagne precedenti, vengono inclusi gli utenti attualmente connessi e quelli che hanno risposto a domande specifiche direttamente nell'app. Tutte le informazioni sull'app definite per l'app stessa vengono visualizzate nell'elenco.
@@ -38,11 +38,11 @@ Se si desidera eseguire il push di un annuncio solo per un sottoinsieme di utent
 
 1. Andare alla pagina delle impostazioni dell'applicazione, selezionare il menu "Informazioni sull'app" e selezionare "Nuove informazioni sull'app".
 2. Registrare nuove informazioni booleane sull'app definite "inAppPurchase"
-3. Fare in modo che l'applicazione imposti tali informazioni su "true" quando l'utente esegue correttamente un acquisto in-app tramite la funzione sendAppInfo \("inAppPurchase",...\)
+3. Fare in modo che l'applicazione imposti tali informazioni su "true" quando l'utente esegue correttamente un acquisto in-app tramite la funzione sendAppInfo ("inAppPurchase",...)
 4. Se non si desidera eseguire questa operazione dall'applicazione, è possibile effettuarla dal back-end tramite l'API dispositivo
 5. È quindi sufficiente creare l'annuncio con un criterio di limitazione dei destinatari agli utenti con "inAppPurchase" impostato su "true"
  
-> Note: per la definizione dei destinatari in base a criteri diversi dai tag delle informazioni sulle app, è necessario che Azure Mobile Engagement raccolga informazioni dai dispositivi degli utenti prima che il push venga inviato, con conseguente possibile ritardo. Anche le opzioni di configurazione push complesse \(ad esempio l'aggiornamento dei badge\) possono determinare ritardi dei push. L'uso di una campagna "one-shot" dall'API Push è in assoluto il metodo di push più veloce offerto da Azure Mobile Engagement. L'uso dei soli tag delle informazioni sulle app come criteri di push per una campagna di copertura \(dall'API Copertura o dall'interfaccia utente\) è il secondo metodo più rapido, perché i tag delle informazioni sulle app vengono memorizzati nel server. L'uso di altri criteri di definizione dei destinatari per una campagna push è il metodo di push più flessibile ma più lento, poiché Azure Mobile Engagement deve interrogare i dispositivi per inviare la campagna.
+> Note: per la definizione dei destinatari in base a criteri diversi dai tag delle informazioni sulle app, è necessario che Azure Mobile Engagement raccolga informazioni dai dispositivi degli utenti prima che il push venga inviato, con conseguente possibile ritardo. Anche le opzioni di configurazione push complesse (ad esempio l'aggiornamento dei badge) possono determinare ritardi dei push. L'uso di una campagna "one-shot" dall'API Push è in assoluto il metodo di push più veloce offerto da Azure Mobile Engagement. L'uso dei soli tag delle informazioni sulle app come criteri di push per una campagna di copertura (dall'API Copertura o dall'interfaccia utente) è il secondo metodo più rapido, perché i tag delle informazioni sulle app vengono memorizzati nel server. L'uso di altri criteri di definizione dei destinatari per una campagna push è il metodo di push più flessibile ma più lento, poiché Azure Mobile Engagement deve interrogare i dispositivi per inviare la campagna.
  
 ![Reach-Criterion1][29]
 
@@ -60,7 +60,7 @@ Se si desidera eseguire il push di un annuncio solo per un sottoinsieme di utent
 - Dimensioni schermo: dimensioni dello schermo
 - **Posizione**      
 - Ultima area nota: paese, regione, località
-- Geo-fencing in tempo reale: elenco di punti di interesse \(nome, azioni\), POI circolare \(nome, latitudine, longitudine, raggio in metri\)
+- Geo-fencing in tempo reale: elenco di punti di interesse (nome, azioni), POI circolare (nome, latitudine, longitudine, raggio in metri)
 - **Feedback di copertura**     
 - Feedback annuncio: annuncio, feedback
 - Feedback sondaggio: sondaggio, feedback
@@ -79,7 +79,7 @@ Se si desidera eseguire il push di un annuncio solo per un sottoinsieme di utent
 - Numero intero: operatore, numero, non definito
 - Booleano: true o false, non definito
 - **Segmento**    
-- Nome di segmenti \(dall'elenco a discesa\), esclusione \(utenti di destinazione che non fanno parte del segmento\).
+- Nome di segmenti (dall'elenco a discesa), esclusione (utenti di destinazione che non fanno parte del segmento).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

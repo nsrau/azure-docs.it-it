@@ -139,9 +139,9 @@ Sostituire i valori tra parentesi quadre con quelli specifici del proprio ambien
 
 Accedere al portale di gestione.
 
--   **[subscriptionname]\:**scegliere un nome descrittivo per la sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
+-   **[subscriptionname]:**scegliere un nome descrittivo per la sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
 
--   **[subscriptionid]\:** ID univoco della sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
+-   **[subscriptionid]:** ID univoco della sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
 
     1.  Nel portale di gestione di Azure fare clic su **Cloud Services**.
 
@@ -150,7 +150,7 @@ Accedere al portale di gestione.
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix]\:** prefisso DNS del servizio ospitato in cui si desidera usare la scalabilità automatica.
+	-   **[hostedservicednsprefix]:** prefisso DNS del servizio ospitato in cui si desidera usare la scalabilità automatica.
 
     1.  Nel portale di gestione di Azure fare clic su **Cloud Services**.
 
@@ -158,7 +158,7 @@ Accedere al portale di gestione.
 
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename]\:** nome del ruolo di destinazione delle regole di scalabilità automatica.
+	-   **[targetrolename]:** nome del ruolo di destinazione delle regole di scalabilità automatica.
 
     1.  Nel portale di gestione di Azure fare clic su **Cloud Services**.
 
@@ -167,7 +167,7 @@ Accedere al portale di gestione.
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** e **[storageaccountkey]\:** nome dell'account di archiviazione di Azure usato per l'applicazione Azure di destinazione.
+	-   **[storageaccountname]** e **[storageaccountkey]:** nome dell'account di archiviazione di Azure usato per l'applicazione Azure di destinazione.
 
     1.  Nel portale di gestione di Azure fare clic su **Storage**.
 
@@ -178,7 +178,7 @@ Accedere al portale di gestione.
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]\:** l'**identificazione personale** del certificato di gestione che il blocco userà per proteggere le richieste di scalabilità all'applicazione di destinazione.
+	-   **[managementcertificatethumbprint]:** l'**identificazione personale** del certificato di gestione che il blocco userà per proteggere le richieste di scalabilità all'applicazione di destinazione.
 
     1.  Nel portale di gestione di Azure fare clic su **Settings**.
 

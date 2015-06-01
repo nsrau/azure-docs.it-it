@@ -23,8 +23,8 @@
 
 Visual Studio Application Insights consente di monitorare un'applicazione monitorata per le operazioni seguenti:
 
-* [**Uso**][windowsUsage]\: acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
-* [**Arresti anomali**][windowsCrash]\: ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
+* [**Uso**][windowsUsage]: acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
+* [**Arresti anomali**][windowsCrash]: ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
 
 ![](./media/appinsights/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 * Una sottoscrizione a [Microsoft Azure][azure].
 * Visual Studio 2013 o versione successiva.
 
-## 1\. Creare una risorsa Application Insights 
+## 1. Creare una risorsa Application Insights 
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
@@ -50,7 +50,7 @@ La chiave identifica la risorsa. È necessaria subito per configurare SDK per l'
 ![Aprire il cassetto a discesa Informazioni di base e selezionare la chiave di strumentazione](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Aggiungere Application Insights SDK alle app
+## 2. Aggiungere Application Insights SDK alle app
 
 In Visual Studio aggiungere l'SDK appropriato al progetto.
 
@@ -68,9 +68,9 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
    * Application Insights per applicazioni Windows: *per app di Windows Store*
    * Application Insights per applicazioni Windows Phone
    * Application Insights per app Web: *usare questa opzione per un'applicazione desktop* 
-4. Modificare ApplicationInsights.config \(che è stato aggiunto dall'installazione di NuGet\). Inserire questo comando immediatamente prima del tag di chiusura:
+4. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
-    `<InstrumentationKey>`\*the key you copied\*`</InstrumentationKey>`
+    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
 
 **App Windows universali**: ripetere i passaggi per il progetto di Phone e Store.
 
@@ -116,7 +116,7 @@ Se si preferisce usare Visual Studio per eseguire i passaggi di installazione, �
 
 Nella finestra di dialogo Nuovo progetto selezionare Application Insights.
 
-Se viene chiesto l'accesso, usare le credenziali dell'account Azure \(che è diverso dall'account di Visual Studio Online\).
+Se viene chiesto l'accesso, usare le credenziali dell'account Azure (che è diverso dall'account di Visual Studio Online).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

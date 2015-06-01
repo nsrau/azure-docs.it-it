@@ -21,7 +21,7 @@
 
 Questo documento contiene le note sulla versione per Azure SDK per .NET 2.6.
 
-Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud \(PaaS\) che fanno riferimento a .NET 4.5.2 o .NET 4.6, purché si installi manualmente la versione di .NET Framework di destinazione nel Ruolo servizio cloud. Vedere [Installare .NET in un ruolo del servizio cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
+Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che fanno riferimento a .NET 4.5.2 o .NET 4.6, purché si installi manualmente la versione di .NET Framework di destinazione nel Ruolo servizio cloud. Vedere [Installare .NET in un ruolo del servizio cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
 
 
 ##Aggiornamenti al bus di servizio
@@ -36,7 +36,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud \(PaaS\) che
 
 - **Miglioramento per IntelliSense**: suggerimento di metadati remoti
 
-	HDInsight Tools per Visual Studio supporta ora il recupero di metadati remoti durante la modifica dello script Hive. Ad esempio, se si digita **SELECT \* FROM** verranno visualizzati tutti i nomi di tabella. Dopo avere specificato una tabella verranno anche visualizzati i nomi di colonna.
+	HDInsight Tools per Visual Studio supporta ora il recupero di metadati remoti durante la modifica dello script Hive. Ad esempio, se si digita **SELECT * FROM** verranno visualizzati tutti i nomi di tabella. Dopo avere specificato una tabella verranno anche visualizzati i nomi di colonna.
 
 - **Supporto per HDInsight Emulator**
 
@@ -44,7 +44,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud \(PaaS\) che
 
 	Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
-- **Supporto di HDInsight Tools per Visual Studio per i cluster Hadoop generici** \(anteprima\)
+- **Supporto di HDInsight Tools per Visual Studio per i cluster Hadoop generici** (anteprima)
 
 	HDInsight Tools per Visual Studio supporta ora i cluster Hadoop generici. È quindi possibile usare HDInsight Tools per Visual Studio per eseguire le operazioni seguenti:
 
@@ -69,7 +69,7 @@ Gli elementi seguenti sono stati aggiornati nella versione Azure SDK 2.6.
 - Pubblicazione di Azure migliorata per includere le app per le API Azure come destinazione di distribuzione.
 - Funzionalità di provisioning delle app per le API per offrire la funzionalità di creazione e provisioning delle app per le API agli utenti.
 - Esplora server modificato per riflettere il nuovo nodo App Service, con app Web, mobili e per le API raggruppate in base a Gruppo di risorse.
-- Gesto Aggiungi client di app per le API di Azure aggiunto alla maggior parte dei progetti C\# che permetteranno la generazione automatica di app per le API abilitate per Swagger in esecuzione nella sottoscrizione di Azure di un utente.
+- Gesto Aggiungi client di app per le API di Azure aggiunto alla maggior parte dei progetti C# che permetteranno la generazione automatica di app per le API abilitate per Swagger in esecuzione nella sottoscrizione di Azure di un utente.
 - Gli strumenti delle app per le API e il nodo App Service in Esplora server sono disponibili solo in Visual Studio 2013. 
 
 ##Aggiornamenti agli strumenti di Gestione risorse di Azure
@@ -78,9 +78,9 @@ Gli strumenti di Gestione risorse di Azure sono stati aggiornati per includere i
 
 ##Miglioramenti alla diagnostica per Servizi cloud
 
-Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di diagnostica nell'emulatore di calcolo di Azure e per il trasferimento dei log nell'archiviazione per lo sviluppo. Eventuali log di diagnostica \(inclusi i log di traccia dell'applicazione, i log ETW \(Event Tracing for Windows\), i contatori delle prestazioni, i log di infrastruttura e i registri eventi di Windows\) generati durante l'esecuzione dell'applicazione nell'emulatore possono essere trasferiti all'archiviazione per lo sviluppo per verificare il funzionamento corretto della registrazione di diagnostica nella macchina locale.
+Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di diagnostica nell'emulatore di calcolo di Azure e per il trasferimento dei log nell'archiviazione per lo sviluppo. Eventuali log di diagnostica (inclusi i log di traccia dell'applicazione, i log ETW (Event Tracing for Windows), i contatori delle prestazioni, i log di infrastruttura e i registri eventi di Windows) generati durante l'esecuzione dell'applicazione nell'emulatore possono essere trasferiti all'archiviazione per lo sviluppo per verificare il funzionamento corretto della registrazione di diagnostica nella macchina locale.
 
-È ora possibile specificare l'account di archiviazione della diagnostica nel file di configurazione del servizio \(con estensione cscfg\), semplificando l'uso di diversi account di archiviazione della diagnostica per diversi ambienti. Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e Azure SDK 2.6. Per altre informazioni su come usare la stringa di connessione dell'archiviazione di Diagnostica e sul relativo impatto sui progetti, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkID=532784).
+È ora possibile specificare l'account di archiviazione della diagnostica nel file di configurazione del servizio (con estensione cscfg), semplificando l'uso di diversi account di archiviazione della diagnostica per diversi ambienti. Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e Azure SDK 2.6. Per altre informazioni su come usare la stringa di connessione dell'archiviazione di Diagnostica e sul relativo impatto sui progetti, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkID=532784).
 
 ##Modifiche di rilievo
 

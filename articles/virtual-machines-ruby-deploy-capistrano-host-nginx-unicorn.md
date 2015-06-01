@@ -421,7 +421,7 @@ A questo punto l'applicazione dovrebbe essere pronta per la distribuzione.
 
 	Capistrano si connetterà alla VM usando SSH e quindi creerà la directory (~/apps) in cui distribuire l'applicazione. Se si tratta della prima distribuzione, la gemma capistrano-postgresql creerà anche un ruolo e un database in PostgreSQL nel server. Creerà inoltre un file di configurazione database.yml che verrà usato da Rails per la connessione al database.
 
-	> [AZURE.NOTE] Se durante la distribuzione viene visualizzato un errore relativo alla **lettura della lunghezza della risposta da un socket di autenticazione**, può essere necessario avviare l'agente SSH nell'ambiente di sviluppo usando il comando `ssh-agent`. Ad esempio, aggiungere `eval $(ssh-agent)` al file ~/.bash\_profile.
+	> [AZURE.NOTE] Se durante la distribuzione viene visualizzato un errore relativo alla **lettura della lunghezza della risposta da un socket di autenticazione**, può essere necessario avviare l'agente SSH nell'ambiente di sviluppo usando il comando `ssh-agent`. Ad esempio, aggiungere `eval $(ssh-agent)` al file ~/.bash_profile.
 	> 
 	> Può anche essere necessario aggiungere la chiave SSH alla cache dell'agente usando il comando `ssh-add`.
 

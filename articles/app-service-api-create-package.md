@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un pacchetto dell&#39;app per le API" 
-	description="Informazioni su come creare un pacchetto dell&#39;app per le API." 
+	pageTitle="Creare un pacchetto dell'app per le API" 
+	description="Informazioni su come creare un pacchetto dell'app per le API." 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"
@@ -27,7 +27,7 @@ Questo articolo descrive come creare un pacchetto dell'app per le API da pubblic
 
 ## Struttura di cartelle
 
-Un pacchetto NuGet \( file con estensione nupkg\) per un'app per le API include i file e le cartelle seguenti nella cartella *Content*:
+Un pacchetto NuGet ( file con estensione nupkg) per un'app per le API include i file e le cartelle seguenti nella cartella *Content*:
 
     apiapp.json
     Metadata
@@ -51,15 +51,15 @@ Le sezioni seguenti descrivono i file e le cartelle nella struttura di cartelle 
 
 File manifesto per l'app per le API.
 
-|Nome \(grassetto=obbligatorio\)|Tipo|Formato|Descrizione|
+|Nome (grassetto=obbligatorio)|Tipo|Formato|Descrizione|
 |:---------------------|:-----|:-------|:------------|
-|**id**|string|[a-zA-Z0-9\_.]|ID di questo pacchetto. Deve essere univoco all'interno di uno spazio dei nomi e può contenere solo caratteri alfanumerici, "\_" e ".". Deve iniziare con un carattere alfanumerico.|
+|**id**|string|[a-zA-Z0-9_.]|ID di questo pacchetto. Deve essere univoco all'interno di uno spazio dei nomi e può contenere solo caratteri alfanumerici, "_" e ".". Deve iniziare con un carattere alfanumerico.|
 |**namespace**|string|nome di dominio|Spazio dei nomi che, con la proprietà **id**, identifica in modo univoco l'app per le API. Deve essere uno dei nomi di dominio del tenant AAD dell'editore.|
 |**version**|string|[semver](http://docs.nuget.org/Create/Versioning)|Versione del pacchetto. Quando gli utenti abilitano l'aggiornamento automatico per il pacchetto, questo verrà applicato solo alle nuove versioni all'interno della stessa versione principale.|
 |**gateway**|string|2015-01-14|Versione API del gateway usata dal pacchetto. Un gateway è una speciale app Web attraverso la quale vengono instradate tutte le richieste alle app per le API in un gruppo di risorse. Una delle sue funzioni principali è gestire l'autenticazione. Attualmente l'unica versione del gateway è 2015-01-14. In futuro, quando verranno rilasciate nuove versioni del gateway, questa proprietà consentirà di evitare modifiche a posteriori e di continuare a usare l'API del gateway precedente.| 
 |**title**|string||Nome visualizzato dell'app per le API.|
 |**summary**|string|max. 100 caratteri|Breve riepilogo dell'app per le API.
-|description|string|max. 1500 caratteri|Descrizione completa dell'app per le API. Può contenere codice HTML. Gli elementi e gli attributi consentiti sono "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target\|href]", "br", "strong", "em", "b", "i".|
+|description|string|max. 1500 caratteri|Descrizione completa dell'app per le API. Può contenere codice HTML. Gli elementi e gli attributi consentiti sono "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b", "i".|
 |**author**|string|max. 256 caratteri|Autore/i dell'app per le API.|
 |homepage|string|URL|Home page dell'app per le API.|
 |endpoints|oggetto||Elenco di endpoint su cui la piattaforma di app per le API può eseguire query per ottenere informazioni sui metodi e sullo stato dell'app per le API.|
@@ -83,9 +83,9 @@ File manifesto per l'app per le API.
 
 Qui è possibile specificare un file JSON Swagger 2.0 statico per esporre la definizione dell'API dell'app per le API. La piattaforma verificherà innanzitutto se la proprietà **endpoints.apiDefinition** è configurata in **apiapp.json**. In caso affermativo, otterrà la definizione dell'API dall'URL specificato nella proprietà. In caso contrario, tenterà di trovare il file.
 
-- Per informazioni sullo standard Swagger 2.0, vedere [http://swagger.io/](http://swagger.io/). \<!--todo specificare gli URL
+- Per informazioni sullo standard Swagger 2.0, vedere [http://swagger.io/](http://swagger.io/). <!--todo specificare gli URL
 - Per informazioni su come personalizzare la definizione dell'API e ottimizzarla per le app per la logica, vedere [titolo del documento]().
-- Per informazioni su come esporre una definizione dell'API dinamica, vedere [titolo del documento](). --\>
+- Per informazioni su come esporre una definizione dell'API dinamica, vedere [titolo del documento](). -->
 
 ## metadata/icons
 
@@ -107,13 +107,13 @@ Qui è possibile specificare un file JSON Swagger 2.0 statico per esporre la def
 
 |File|Larghezza|Altezza|Descrizione|
 |:--------------------|:----|:-----|:----------|
-|metadata/screenshots/\*.png|533px|324px|Catture di schermata del pacchetto dell'app per le API.|
+|metadata/screenshots/*.png|533px|324px|Catture di schermata del pacchetto dell'app per le API.|
 
 ## metadata/deploymentTemplates
 
 Talvolta, un pacchetto dell'app per le API richiede alcune configurazioni personalizzate durante la distribuzione. Ad esempio, il [connettore BLOB di Archiviazione di Azure](http://azure.microsoft.com/marketplace/partners/microsoft_com/azurestorageblobconnector/) richiede l'URI del contenitore BLOB di archiviazione di Azure. Facoltativamente, è possibile configurare una chiave di accesso.
 
-Per supportare questo scenario, è possibile aggiungere un elenco di file JSON di modello di Gestione risorse di Azure in questa cartella per personalizzare la distribuzione di app per le API. La piattaforma App per le API consente di unire i modelli di Gestione risorse di Azure personalizzati al modello di sistema per generare un modello finale per la distribuzione. Tutti i parametri definiti nei modelli di Gestione risorse di Azure \(ad eccezione di **$system**\) verranno anche richiesti automaticamente nel pannello **crea** del portale di anteprima di Azure, in modo che gli utenti dell'app per le API possano immettere i valori.
+Per supportare questo scenario, è possibile aggiungere un elenco di file JSON di modello di Gestione risorse di Azure in questa cartella per personalizzare la distribuzione di app per le API. La piattaforma App per le API consente di unire i modelli di Gestione risorse di Azure personalizzati al modello di sistema per generare un modello finale per la distribuzione. Tutti i parametri definiti nei modelli di Gestione risorse di Azure (ad eccezione di **$system**) verranno anche richiesti automaticamente nel pannello **crea** del portale di anteprima di Azure, in modo che gli utenti dell'app per le API possano immettere i valori.
 
 Di seguito è riportato un modello di Gestione risorse di Azure che mostra come richiedere l'URI del contenitore BLOB e la chiave di accesso durante la distribuzione di app per le API.
 

@@ -137,7 +137,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 - Posizione in cui verranno salvati i log dell'applicazione, relativi alla radice Web.
 
-- Valore predefinito:.. \.. \\LogFiles\\Application
+- Valore predefinito:.. .. \\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

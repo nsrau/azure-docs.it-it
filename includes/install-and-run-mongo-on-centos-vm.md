@@ -2,7 +2,7 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
 > [AZURE.WARNING]Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
-1. Configurare il sistema di gestione dei pacchetti \(YUM\) in modo da poter installare MongoDB. Creare un file */etc/yum.repos.d/10gen.repo* per conservare le informazioni relative all'archivio e aggiungere quanto segue:
+1. Configurare il sistema di gestione dei pacchetti (YUM) in modo da poter installare MongoDB. Creare un file */etc/yum.repos.d/10gen.repo* per conservare le informazioni relative all'archivio e aggiungere quanto segue:
 
 		[10gen]
 		name=10gen Repository

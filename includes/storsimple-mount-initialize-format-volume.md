@@ -32,14 +32,14 @@
 
 7. Nella finestra di dialogo **Esegui**, digitare **Diskmgmt.msc**. Fare clic su **OK**, quindi viene visualizzata la finestra di dialogo **Gestione disco**. Nel riquadro destro vengono visualizzati i volumi sul proprio host.
 
-8. Nella finestra **Gestione disco**, i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato \(fare clic sul nome del disco\) e fare clic su **Online**.
+8. Nella finestra **Gestione disco**, i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
 
      ![Avvia formattazione volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png)
 
-9. Fare nuovamente clic con il pulsante destro del mouse sul volume \(fare clic sul nome del disco\) e fare clic su **Online**.
+9. Fare nuovamente clic con il pulsante destro del mouse sul volume (fare clic sul nome del disco) e fare clic su **Online**.
 
 10. Per formattare un volume semplice, attenersi alla seguente procedura:
-  1. Fare clic con il pulsante destro del mouse sul volume per selezionarlo \(fare clic nell'area destra\) e scegliere **Nuovo Volume semplice**.
+  1. Fare clic con il pulsante destro del mouse sul volume per selezionarlo (fare clic nell'area destra) e scegliere **Nuovo Volume semplice**.
   2. Nella procedura guidata Nuovo volume semplice, specificare la dimensione del volume e la lettera di unità, quindi configurare il volume come file system NTFS.
   3. Specificare una dimensione unità di allocazione pari a 64 KB. Queste dimensioni unità di allocazione funzionano correttamente con gli algoritmi di deduplicazione utilizzati nella soluzione StorSimple.
   4. Eseguire una formattazione veloce.

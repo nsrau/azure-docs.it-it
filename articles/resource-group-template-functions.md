@@ -22,7 +22,7 @@ Questo argomento descrive tutte le funzioni che è possibile usare in un modello
 
 ## base64
 
-**base64 \(inputString\)**
+**base64 (inputString)**
 
 Restituisce la rappresentazione base64 della stringa di input.
 
@@ -39,7 +39,7 @@ L'esempio seguente mostra come usare la funzione base64.
 
 ## concat
 
-**concat \(arg1, arg2, arg3, ...\)**
+**concat (arg1, arg2, arg3, ...)**
 
 Combina più valori di stringa e restituisce il valore di stringa risultante. Questa funzione può accettare qualsiasi numero di argomenti.
 
@@ -54,7 +54,7 @@ L'esempio seguente mostra come combinare più valori per restituirne uno solo.
 
 ## listKeys
 
-**listKeys \(resourceName o resourceIdentifier, [apiVersion]\)**
+**listKeys (resourceName o resourceIdentifier, [apiVersion])**
 
 Restituisce le chiavi di un account di archiviazione. È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **providerNamespace/resourceType/resourceName**. È possibile usare la funzione per ottenere i valori primaryKey e secondaryKey.
   
@@ -74,7 +74,7 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
 
 ## parameters
 
-**parameters \(parameterName\)**
+**parameters (parameterName)**
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
 
@@ -100,7 +100,7 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 
 ## provider
 
-**provider \(providerNamespace, [resourceType]\)**
+**provider (providerNamespace, [resourceType])**
 
 Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non viene specificato un tipo, vengono restituiti tutti i tipi supportati.
 
@@ -128,7 +128,7 @@ L'esempio seguente mostra come usare la funzione provider:
 
 ## reference
 
-**reference \(resourceName o resourceIdentifier, [apiVersion]\)**
+**reference (resourceName o resourceIdentifier, [apiVersion])**
 
 Consente a un'espressione di derivare il valore dallo stato di runtime di un'altra risorsa.
 
@@ -150,7 +150,7 @@ Usando l'espressione di riferimento è possibile dichiarare che una risorsa dipe
 
 ## resourceGroup
 
-**resourceGroup\(\)**
+**resourceGroup()**
 
 Restituisce un oggetto strutturato che rappresenta il gruppo di risorse corrente. L'oggetto sarà nel seguente formato:
 
@@ -174,7 +174,7 @@ L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percor
 
 ## resourceId
 
-**resourceId \([resourceGroupName], resourceType, resourceName1, [resourceName2]...\)**
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. L'identificatore viene restituito nel formato seguente:
 
@@ -238,7 +238,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 
 ## sottoscrizione
 
-**subscription\(\)**
+**subscription()**
 
 Restituisce informazioni dettagliate sulla sottoscrizione nel formato seguente.
 
@@ -258,7 +258,7 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 
 ## variables
 
-**variables \(variableName\)**
+**variables (variableName)**
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 

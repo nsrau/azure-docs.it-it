@@ -23,7 +23,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 ## Problemi di sintassi
 
 ### Problema
-- Errori di sintassi durante l'uso dell'API \(o comportamento imprevisto\).
+- Errori di sintassi durante l'uso dell'API (o comportamento imprevisto).
 
 ### Cause
 

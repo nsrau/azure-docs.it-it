@@ -47,7 +47,7 @@ In Avvio rapido, ottenere lo script per le pagine Web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
+Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared_Layout.cshtml
 
 ## <a name="usage"></a>Analisi dell'utilizzo
 

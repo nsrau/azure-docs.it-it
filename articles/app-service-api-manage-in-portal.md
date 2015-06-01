@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire un&#39;app per le API" 
+	pageTitle="Gestire un'app per le API" 
 	description="Informazioni su come gestire le app per le API nel portale di anteprima di Azure e in Esplora server in Visual Studio." 
 	services="app-service\api" 
 	documentationCenter="" 
@@ -30,10 +30,10 @@ Ogni gruppo di risorse che contiene almeno un'app per le API include anche un *g
 
 Usare il pannello **App per le API** per eseguire queste attività:
 
-- Configurare il livello di accesso: fare clic su **Impostazioni \> Impostazioni applicazione**. Il valore predefinito è Interno: solo alle altre app per le API dello stesso gruppo di risorse è consentito chiamare l'app per le API. Per altre informazioni, vedere [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md).   
-- Configurare i criteri di aggiornamento: fare clic su **Impostazioni \> Impostazioni applicazione**. Il valore predefinito è **Attivato**. Questo significa che quando una nuova versione dell'app per le API viene pubblicata nel Marketplace, l'app per le API in uso verrà automaticamente aggiornata alla nuova versione, se si tratta di una modifica non sostanziale.  
-- Configurare l'autenticazione per le chiamate in uscita dall'app per le API: fare clic su  **Impostazioni \> Autenticazione**. Se l'app per le API effettua chiamate a un servizio esterno che richiede l'autenticazione, è necessario immettere i valori di configurazione necessari in questa sezione. Ad esempio, un connettore Dropbox richiede un ID client e un segreto client per accedere al servizio Dropbox.
-- Configurare il [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): fare clic su **Impostazioni \> Utenti**. L'accesso utente configurato in questa sezione determina solo gli utenti che possono accedere alle funzionalità specifiche dell'app per le API. Per configurare il Controllo degli accessi in base al ruolo per le funzionalità dell'app Web, usare il pannello **Host app per le API**. In genere, si tende a mantenere sincronizzate le impostazioni di Controllo degli accessi in base al ruolo per l'app per le API e per l'host dell'app per le API. Se si concede a un utente l'accesso all'app per le API ma non all'host dell'app per le API, l'utente non potrà usare le funzionalità disponibili nel pannello **App per le API** che si riferiscono all'host dell'app per le API. La relazione tra il pannello **App per le API** e il pannello **Host app per le API** è spiegata più avanti.
+- Configurare il livello di accesso: fare clic su **Impostazioni > Impostazioni applicazione**. Il valore predefinito è Interno: solo alle altre app per le API dello stesso gruppo di risorse è consentito chiamare l'app per le API. Per altre informazioni, vedere [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md).   
+- Configurare i criteri di aggiornamento: fare clic su **Impostazioni > Impostazioni applicazione**. Il valore predefinito è **Attivato**. Questo significa che quando una nuova versione dell'app per le API viene pubblicata nel Marketplace, l'app per le API in uso verrà automaticamente aggiornata alla nuova versione, se si tratta di una modifica non sostanziale.  
+- Configurare l'autenticazione per le chiamate in uscita dall'app per le API: fare clic su  **Impostazioni > Autenticazione**. Se l'app per le API effettua chiamate a un servizio esterno che richiede l'autenticazione, è necessario immettere i valori di configurazione necessari in questa sezione. Ad esempio, un connettore Dropbox richiede un ID client e un segreto client per accedere al servizio Dropbox.
+- Configurare il [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): fare clic su **Impostazioni > Utenti**. L'accesso utente configurato in questa sezione determina solo gli utenti che possono accedere alle funzionalità specifiche dell'app per le API. Per configurare il Controllo degli accessi in base al ruolo per le funzionalità dell'app Web, usare il pannello **Host app per le API**. In genere, si tende a mantenere sincronizzate le impostazioni di Controllo degli accessi in base al ruolo per l'app per le API e per l'host dell'app per le API. Se si concede a un utente l'accesso all'app per le API ma non all'host dell'app per le API, l'utente non potrà usare le funzionalità disponibili nel pannello **App per le API** che si riferiscono all'host dell'app per le API. La relazione tra il pannello **App per le API** e il pannello **Host app per le API** è spiegata più avanti.
 - Visualizzare la definizione dell'API: fare clic su **Definizione API** nella sezione **Riepilogo** per visualizzare un elenco dei metodi esposti dall'**app per le API**.
 
 ### Funzionalità comuni dei pannelli App per le API e Host app per le API 
@@ -50,8 +50,8 @@ Usare il pannello **Host app per le API** per tutte le attività da eseguire per
 
 Usare il pannello **Gateway** per eseguire queste attività:
 
-- Configurazione del provider di autenticazione per le chiamate in ingresso alle app per le API: fare clic su **Impostazioni \> Identità**. Se il gateway deve autenticare gli utenti prima di consentire loro di chiamare le app per le API nel gruppo di risorse, immettere qui i valori di configurazione necessari. Per altre informazioni, vedere [Configurare e testare un connettore SaaS nel servizio app di Azure](app-service-api-connnect-your-app-to-saas-connector.md). 
-- Configurare il [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): fare clic su **Impostazioni \> Utenti**. I commenti precedenti che illustrano la relazione tra la configurazione del controllo degli accessi in base al ruolo immessa nel pannello App per le API e nel pannello Host app per le API si applica anche ai pannelli Gateway e Host gateway.
+- Configurazione del provider di autenticazione per le chiamate in ingresso alle app per le API: fare clic su **Impostazioni > Identità**. Se il gateway deve autenticare gli utenti prima di consentire loro di chiamare le app per le API nel gruppo di risorse, immettere qui i valori di configurazione necessari. Per altre informazioni, vedere [Configurare e testare un connettore SaaS nel servizio app di Azure](app-service-api-connnect-your-app-to-saas-connector.md). 
+- Configurare il [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): fare clic su **Impostazioni > Utenti**. I commenti precedenti che illustrano la relazione tra la configurazione del controllo degli accessi in base al ruolo immessa nel pannello App per le API e nel pannello Host app per le API si applica anche ai pannelli Gateway e Host gateway.
 
 ### Attività del pannello Host gateway
 
@@ -59,7 +59,7 @@ Usare il pannello **Host gateway** per tutte le attività da eseguire per le app
 
 ## Passare al pannello App per le API 
 
-Per passare al pannello **App per le API** usare la funzionalità Sfoglia nel portale di anteprima di Azure. Nella home page del portale fare clic su **Sfoglia \> App per le API** per visualizzare tutte le app per le API che si possono gestire.
+Per passare al pannello **App per le API** usare la funzionalità Sfoglia nel portale di anteprima di Azure. Nella home page del portale fare clic su **Sfoglia > App per le API** per visualizzare tutte le app per le API che si possono gestire.
 
 ![](./media/app-service-api-manage-in-portal/browse.png)
 
@@ -97,7 +97,7 @@ Per passare al pannello **Host gateway**, fare clic sul collegamento **Host gate
 
 Da Esplora server in Visual Studio è possibile avviare una sessione di debug remoto, visualizzare i log in streaming e fare clic su una voce di menu che apre il pannello App per le API nel portale.
 
-Per passare a un'app per le API in Esplora server, fare clic su **Azure \> Servizio app \> [nome del gruppo di risorse] \> [nome dell'app per le API]**, come mostrato nella figura.
+Per passare a un'app per le API in Esplora server, fare clic su **Azure > Servizio app > [nome del gruppo di risorse] > [nome dell'app per le API]**, come mostrato nella figura.
 
 ![](./media/app-service-api-manage-in-portal/se.png)
 

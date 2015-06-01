@@ -2,7 +2,7 @@
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
-#Operazioni sull'indicizzatore \(API REST di Ricerca di Azure: 2014-10-20-Preview\)
+#Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)
 
 > [AZURE.NOTE]Questo articolo descrive un prototipo di nuove funzionalità non presenti nella versione rilasciata dell'API. Altre informazioni sulle versioni e sul supporto sono disponibili in [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx) su MSDN. Per altre informazioni sulle funzionalità disponibili in questa API di anteprima, vedere [Versione dell'API REST di Ricerca di Azure: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
@@ -49,7 +49,7 @@ Di seguito sono indicati i passaggi tipici per impostare l'indicizzazione automa
 Per informazioni dettagliate, vedere la pagina [Limiti e vincoli](http://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ## Operazioni sull'origine dati
-È possibile creare e gestire le origini dati in Ricerca di Azure tramite semplici richieste HTTP \(POST, GET, PUT, DELETE\) su una risorsa origine dati specifica.
+È possibile creare e gestire le origini dati in Ricerca di Azure tramite semplici richieste HTTP (POST, GET, PUT, DELETE) su una risorsa origine dati specifica.
 
 ### Creare un'origine dati
 
@@ -105,7 +105,7 @@ La richiesta può contenere le proprietà seguenti:
 - `description`: descrizione facoltativa. 
 - `type`: elemento obbligatorio. Usare `azuresql` per un'origine dati di SQL Azure e `docdb` per un'origine dati di DocumentDB.
 - `container`: 
-	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione \(per l'origine dati di SQL Azure\) o la raccolta \(per l'origine dati di DocumentDB\) che sarà indicizzata. 
+	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione (per l'origine dati di SQL Azure) o la raccolta (per l'origine dati di DocumentDB) che sarà indicizzata. 
 	- Le origini dati di DocumentDB supportano anche una proprietà `query` facoltativa che consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.   
 - I criteri facoltativi `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritti di seguito.
 
@@ -282,9 +282,9 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 
 Un indicizzatore è la risorsa che connette le origini dati agli indici di ricerca di destinazione. È consigliabile pianificare la creazione di un indicizzatore per ogni combinazione di indice di destinazione e origine dati. È possibile che più indicizzatori eseguano operazioni di scrittura nello stesso indice. Tuttavia, un indicizzatore può eseguire operazioni di scrittura in un solo indice.
 
-È possibile creare e gestire gli indicizzatori tramite semplici richieste HTTP \(POST, GET, PUT, DELETE\) su una risorsa indicizzatore specifica.
+È possibile creare e gestire gli indicizzatori tramite semplici richieste HTTP (POST, GET, PUT, DELETE) su una risorsa indicizzatore specifica.
 
-Dopo aver creato un indicizzatore, è possibile ottenere il relativo stato di esecuzione mediante l'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus). È inoltre possibile eseguire un indicizzatore in qualsiasi momento \(anziché o oltre a eseguirlo periodicamente in base a una pianificazione\) usando l'operazione di [esecuzione di un indicizzatore](#RunIndexer).
+Dopo aver creato un indicizzatore, è possibile ottenere il relativo stato di esecuzione mediante l'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus). È inoltre possibile eseguire un indicizzatore in qualsiasi momento (anziché o oltre a eseguirlo periodicamente in base a una pianificazione) usando l'operazione di [esecuzione di un indicizzatore](#RunIndexer).
 
 ### Creare un indicizzatore
 
@@ -320,7 +320,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" \(un subset limitato di un valore di durata [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -516,13 +516,13 @@ Il risultato dell'esecuzione dell'indicizzatore contiene le proprietà seguenti:
 
 - `errors`: elenco di errori a livello di elemento, se presenti.
 
-- `itemsProcessed`: numero di elementi di origine dati \(ad esempio, righe di tabella\) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
+- `itemsProcessed`: numero di elementi di origine dati (ad esempio, righe di tabella) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
 
 - `itemsFailed`: numero di elementi non riusciti durante questa esecuzione.
  
-- `initialTrackingState`: sempre `null` per la prima esecuzione dell'indicizzatore o se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. Se i criteri sono abilitati, nelle esecuzioni successive questo valore indica il primo \(minimo\) valore di rilevamento delle modifiche elaborato da questa esecuzione.
+- `initialTrackingState`: sempre `null` per la prima esecuzione dell'indicizzatore o se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. Se i criteri sono abilitati, nelle esecuzioni successive questo valore indica il primo (minimo) valore di rilevamento delle modifiche elaborato da questa esecuzione.
 
-- `finalTrackingState`: sempre `null` se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. In caso contrario, indica l'ultimo \(massimo\) valore di rilevamento delle modifiche elaborato correttamente da questa esecuzione.
+- `finalTrackingState`: sempre `null` se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. In caso contrario, indica l'ultimo (massimo) valore di rilevamento delle modifiche elaborato correttamente da questa esecuzione.
 
 <a name="IndexerExecutionStatus"></a> **Stato di esecuzione dell'indicizzatore**
 
@@ -534,9 +534,9 @@ Lo stato di esecuzione dell'indicizzatore acquisisce lo stato di una singola ese
 
 - `transientFailure` indica che la chiamata all'indicizzatore non è riuscita, ma l'errore può essere temporaneo. Le chiamate all'indicizzatore continuano in base alla pianificazione, se presente.
 
-- `persistentFailure` indica che l'indicizzatore non è riuscito ed è richiesto l'intervento dell'utente \(ad esempio, a causa di incompatibilità di schemi tra l'origine dati e l'indice di destinazione\). Le esecuzioni pianificate dell'indicizzatore vengono arrestate. È richiesto l'intervento dell'utente per risolvere il problema \(descritto nella proprietà `errorMessage`\) e riavviare l'esecuzione dell'indicizzatore.
+- `persistentFailure` indica che l'indicizzatore non è riuscito ed è richiesto l'intervento dell'utente (ad esempio, a causa di incompatibilità di schemi tra l'origine dati e l'indice di destinazione). Le esecuzioni pianificate dell'indicizzatore vengono arrestate. È richiesto l'intervento dell'utente per risolvere il problema (descritto nella proprietà `errorMessage`) e riavviare l'esecuzione dell'indicizzatore.
 
-- `reset` indica che l'indicizzatore è stato reimpostato tramite una chiamata all'API di reimpostazione di un indicizzatore \(vedere la sezione seguente\).
+- `reset` indica che l'indicizzatore è stato reimpostato tramite una chiamata all'API di reimpostazione di un indicizzatore (vedere la sezione seguente).
 
 <a name="ResetIndexer"></a>
 ### Reimpostare un indicizzatore

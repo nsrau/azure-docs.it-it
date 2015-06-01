@@ -69,7 +69,7 @@ Successivamente, si elaborerà ciò che è stato completato nell'ultimo passaggi
 ![][4]
  
 ## Pubblicazione di documenti in un indice di Ricerca di Azure con Postman ##
-Dopo aver creato l'indice, caricare il documento al suo interno. A tale scopo, vengono pubblicati un gruppo di documenti in un batch utilizzando i dati di cinque sentieri della banca dati USGS \(United States Geological Survey\):
+Dopo aver creato l'indice, caricare il documento al suo interno. A tale scopo, vengono pubblicati un gruppo di documenti in un batch utilizzando i dati di cinque sentieri della banca dati USGS (United States Geological Survey):
 
 1. Modificare l'URL: `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28` utilizzando il nome del servizio di ricerca. Si noti che l'URL include un percorso all’indice appena creato.
 2. Modificare il tipo HTTP in `POST`.
@@ -104,7 +104,7 @@ Nella risposta verranno visualizzati i risultati della ricerca JSON restituiti d
 Ora che sono state esaminate tutte le nozioni fondamentali dell’utilizzo di Ricerca di Azure con Postman, esistono alcune operazioni per completare i passaggi successivi:
 
 1. Postman supporta `Collections`, che rappresentano un modo pratico per salvare richieste comunemente emesse. È possibile condividere raccolte con altre persone, da eseguire nella propria copia di Postman.
-2. Nella documentazione di Ricerca di Azure, assicurarsi di prendere nota del tipo di richiesta HTTP \(`GET`, `PUT` e così via\) associata a ogni chiamata e modificarla in maniera appropriata in Postman.
+2. Nella documentazione di Ricerca di Azure, assicurarsi di prendere nota del tipo di richiesta HTTP (`GET`, `PUT` e così via) associata a ogni chiamata e modificarla in maniera appropriata in Postman.
 
 La documentazione per l'API REST è disponibile in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 

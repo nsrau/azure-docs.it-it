@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all&#39;automazione di Azure" 
-	description="Informazioni sull&#39;importazione e sull&#39;esecuzione di un processo di automazione in Azure." 
+	pageTitle="Introduzione all'automazione di Azure" 
+	description="Informazioni sull'importazione e sull'esecuzione di un processo di automazione in Azure." 
 	services="automation" 
 	documentationCenter="" 
 	authors="bwren" 
@@ -56,7 +56,7 @@ La [raccolta di runbook](http://aka.ms/runbookgallery) include runbook di esempi
 
 	![Scheda Runbook](./media/automation/automation_04_RunbooksTab.png)
   
-6.	Fare clic su **Nuovo** \> **Runbook** \> **Da raccolta**.
+6.	Fare clic su **Nuovo** > **Runbook** > **Da raccolta**.
 
 	![Raccolta di runbook](./media/automation/automation_05_ImportGallery.png)
 

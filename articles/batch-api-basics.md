@@ -229,15 +229,15 @@ Per usare il servizio Batch è necessario un account di Batch e per pianificare 
 
 Ogni attività dispone di una directory di lavoro in cui può creare directory e file per archiviare il programma eseguito da un'attività, i dati elaborati da un'attività e l'output dell'elaborazione eseguita da un'attività. Tali directory e file sono quindi disponibili per l'uso da altre attività durante l'esecuzione di un processo. Tutte le attività e le directory nonché tutti i file di una TVM sono di proprietà di un singolo account utente.
 
-Il servizio Batch espone una parte del file system a una TVM come directory radice. La directory radice della TVM è disponibile per un'attività tramite la variabile di ambiente WATASK\_TVM\_ROOT\_DIR. Per altre informazioni sull'uso delle variabili di ambiente, vedere Impostazioni di ambiente per le attività.
+Il servizio Batch espone una parte del file system a una TVM come directory radice. La directory radice della TVM è disponibile per un'attività tramite la variabile di ambiente WATASK_TVM_ROOT_DIR. Per altre informazioni sull'uso delle variabili di ambiente, vedere Impostazioni di ambiente per le attività.
 
 La directory radice contiene le sottodirectory seguenti:
 
-- **Attività**: il percorso in cui vengono archiviati tutti i file che appartengono alle attività eseguite sulla TVM. Per ogni attività, il servizio Batch crea una directory di lavoro con il percorso univoco nel formato %WATASK\_TVM\_ROOT\_DIR%/tasks/workitemName/jobName/taskName/. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory viene mantenuta in base al vincolo RetentionTime specificato per l'attività.
+- **Attività**: il percorso in cui vengono archiviati tutti i file che appartengono alle attività eseguite sulla TVM. Per ogni attività, il servizio Batch crea una directory di lavoro con il percorso univoco nel formato %WATASK_TVM_ROOT_DIR%/tasks/workitemName/jobName/taskName/. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory viene mantenuta in base al vincolo RetentionTime specificato per l'attività.
 
-- **Condiviso**: tale percorso è una directory condivisa per tutte le attività dell'account. Nella TVM la directory condivisa è % WATASK\_TVM\_ROOT\_DIR%/shared. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory.
+- **Condiviso**: tale percorso è una directory condivisa per tutte le attività dell'account. Nella TVM la directory condivisa è % WATASK_TVM_ROOT_DIR%/shared. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory.
 
-- **Start**: questo percorso viene usato da un'attività di avvio come directory di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Nella TVM la directory di avvio è % WATASK\_TVM\_ROOT\_DIR%/start. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory può essere usata dalle attività di avvio per configurare il sistema operativo.
+- **Start**: questo percorso viene usato da un'attività di avvio come directory di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Nella TVM la directory di avvio è % WATASK_TVM_ROOT_DIR%/start. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory può essere usata dalle attività di avvio per configurare il sistema operativo.
 
 Quando una TVM viene rimossa dal pool, vengono rimossi tutti i file archiviati nella TVM.
 

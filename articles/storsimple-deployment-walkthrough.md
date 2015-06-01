@@ -41,9 +41,9 @@ L’elenco di controllo pre-installazione seguente descrive le informazioni che 
 | 3 | Accesso seriale | Configurazione iniziale del dispositivo | Sì/No |
 | 4 | Indirizzi IP del server DNS | Necessari per connettersi a Microsoft Azure: 2 totali necessari per la disponibilità elevata | |
 | 5 | Indirizzi IP del server NTP | Necessari per sincronizzare l'ora con Azure: 1 necessario, 1 facoltativo | |
-| 6 | Server proxy \(facoltativo\) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
+| 6 | Server proxy (facoltativo) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
 | 7 | Account di archiviazione di Azure | Credenziali di accesso quali nome dell'account e chiave di accesso per ogni account di archiviazione | |
-| 8 | Chiave di crittografia di archiviazione cloud \(consigliata\) | Per ogni contenitore di volumi | |
+| 8 | Chiave di crittografia di archiviazione cloud (consigliata) | Per ogni contenitore di volumi | |
 | 9 | Nome qualificato iSCSI dell'host | Per ogni host | |
 
 ## Prerequisiti di distribuzione
@@ -184,7 +184,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 
 ## Ottenere il nome qualificato iSCSI di un host di Windows Server
 
-Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI \(IQN\) di un host di Windows che esegue Windows Server® 2012.
+Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un host di Windows che esegue Windows Server® 2012.
 
 [AZURE.INCLUDE [Creazione di un backup manuale](../includes/storsimple-get-iqn.md)]
 
@@ -196,7 +196,7 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un backup manual
 
 ## Configurare MPIO
 
-Multipath I/O \(MPIO\) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
+Multipath I/O (MPIO) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
 
 > [AZURE.NOTE]La funzionalità MPIO non è supportata in un dispositivo virtuale StorSimple.
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Applicazione .NET multilivello - Esercitazione di Azure"
-	description="Un&#39;esercitazione che consente di sviluppare un&#39;applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli. Esempi in .NET."
+	description="Un'esercitazione che consente di sviluppare un'applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli. Esempi in .NET."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -55,9 +55,9 @@ Il bus di servizio offre due entità per il supporto della messaggistica negozia
 
 Questo meccanismo di comunicazione presenta alcuni vantaggi rispetto alla messaggistica diretta, inclusi i seguenti:
 
--   **Disaccoppiamento temporaneo.** Grazie al modello di messaggistica asincrono, non è necessario che produttori e consumer siano online nello stesso momento. I messaggi vengono archiviati in modo affidabile nel bus di servizio fino a quando il consumer non sarà pronto per riceverli. Questo consente la disconnessione volontaria \(ad esempio, per attività di manutenzione\) o involontaria \(a seguito di un guasto\) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. È inoltre possibile che l'applicazione consumer debba essere online solo in determinati orari.
+-   **Disaccoppiamento temporaneo.** Grazie al modello di messaggistica asincrono, non è necessario che produttori e consumer siano online nello stesso momento. I messaggi vengono archiviati in modo affidabile nel bus di servizio fino a quando il consumer non sarà pronto per riceverli. Questo consente la disconnessione volontaria (ad esempio, per attività di manutenzione) o involontaria (a seguito di un guasto) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. È inoltre possibile che l'applicazione consumer debba essere online solo in determinati orari.
 
--   **Livellamento del carico.** In molte applicazioni il carico del sistema varia in base al momento, mentre il tempo di elaborazione richiesto per ogni unità di lavoro è in genere costante. L'interposizione di una coda tra producer e consumer di messaggi implica che è necessario solo eseguire il provisioning dell'applicazione consumer \(il ruolo di lavoro\) per consentire a quest'ultima di gestire un carico medio anziché il carico massimo. In base alla variazione del carico in ingresso, si verificherà un incremento o una riduzione della profondità della coda, con un risparmio diretto in termini economici rispetto alle risorse infrastrutturali richieste per gestire il carico dell'applicazione.
+-   **Livellamento del carico.** In molte applicazioni il carico del sistema varia in base al momento, mentre il tempo di elaborazione richiesto per ogni unità di lavoro è in genere costante. L'interposizione di una coda tra producer e consumer di messaggi implica che è necessario solo eseguire il provisioning dell'applicazione consumer (il ruolo di lavoro) per consentire a quest'ultima di gestire un carico medio anziché il carico massimo. In base alla variazione del carico in ingresso, si verificherà un incremento o una riduzione della profondità della coda, con un risparmio diretto in termini economici rispetto alle risorse infrastrutturali richieste per gestire il carico dell'applicazione.
 
 -   **Bilanciamento del carico.** Con l'aumento del carico, è possibile aggiungere altri processi di lavoro per la lettura della coda. Ciascun messaggio viene elaborato da un solo processo di lavoro. Inoltre, il bilanciamento del carico di tipo pull consente un utilizzo ottimale delle macchine di lavoro anche quando queste presentano una potenza di elaborazione diversa. Ogni macchina effettuerà infatti il pull dei messaggi alla propria velocità massima. Questo modello viene spesso definito modello del consumer concorrente.
 
@@ -153,14 +153,14 @@ In questa sezione verrà creato il front-end dell'applicazione. Verranno innanzi
 
 ### Creare il progetto
 
-1.  Usando privilegi di amministratore, avviare Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 \(o Microsoft Visual Studio Express\)**, quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questa guida, è necessario che Visual Studio sia avviato con privilegi di amministratore.
+1.  Usando privilegi di amministratore, avviare Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questa guida, è necessario che Visual Studio sia avviato con privilegi di amministratore.
 
     In Visual Studio, nel menu **File** scegliere **Nuovo**, quindi fare clic su **Progetto**.
 
     ![][8]
 
 
-2.  Da **Modelli installati**, in **Visual C\#**, fare clic su **Cloud** e quindi su **Servizio cloud Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
+2.  Da **Modelli installati**, in **Visual C#**, fare clic su **Cloud** e quindi su **Servizio cloud Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
 
     ![][9]
 
@@ -178,7 +178,7 @@ In questa sezione verrà creato il front-end dell'applicazione. Verranno innanzi
 
 6.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Gestisci pacchetti NuGet** oppure **Aggiungi riferimento a pacchetto di librerie**.
 
-7.  Selezionare **Online** nella parte sinistra della finestra di dialogo. Eseguire la ricerca di "\*\*Bus di servizio\*\*" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Completare quindi l'installazione e chiudere la finestra di dialogo.
+7.  Selezionare **Online** nella parte sinistra della finestra di dialogo. Eseguire la ricerca di "**Bus di servizio**" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Completare quindi l'installazione e chiudere la finestra di dialogo.
 
     ![][13]
 
@@ -260,7 +260,7 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
 
 4.  Dal menu **Compila** scegliere **Compila soluzione**.
 
-5.  Verrà ora creata la visualizzazione per il metodo **Submit\(\)** creato in precedenza. Fare clic con il pulsante destro del mouse nel metodo Submit\(\), quindi scegliere **Aggiungi visualizzazione**
+5.  Verrà ora creata la visualizzazione per il metodo **Submit()** creato in precedenza. Fare clic con il pulsante destro del mouse nel metodo Submit(), quindi scegliere **Aggiungi visualizzazione**
 
     ![][14]
 
@@ -270,7 +270,7 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
 
 7.  Fare clic su **Aggiungi**.
 
-8.  Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\\Shared\\\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
+8.  Modificare ora il nome visualizzato dell'applicazione. In **Esplora soluzioni** fare doppio clic sul file **Views\\Shared\_Layout.cshtml** per aprirlo nell'editor di Visual Studio.
 
 9.  Sostituire tutte le occorrenze di **My ASP.NET Application** con **LITWARE'S Products**.
 
@@ -278,7 +278,7 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
 
 	![][28]
 
-11. Modificare infine la pagina di invio in modo da includere informazioni sulla coda. In **Esplora soluzioni** fare doppio clic sul file **Views\\Home\\Submit.cshtml** per aprirlo nell'editor di Visual Studio. Aggiungere la riga seguente dopo **&lt;h2\>Submit&lt;/h2\>**. Per il momento, il valore **ViewBag.MessageCount** è vuoto. Il valore verrà inserito successivamente.
+11. Modificare infine la pagina di invio in modo da includere informazioni sulla coda. In **Esplora soluzioni** fare doppio clic sul file **Views\\Home\\Submit.cshtml** per aprirlo nell'editor di Visual Studio. Aggiungere la riga seguente dopo **&lt;h2>Submit&lt;/h2>**. Per il momento, il valore **ViewBag.MessageCount** è vuoto. Il valore verrà inserito successivamente.
 
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
 
@@ -295,7 +295,7 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
 
 2.  Assegnare alla classe il nome **QueueConnector.cs**. Fare clic su **Aggiungi** per creare la classe.
 
-3.  A questo punto si aggiungerà codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** \(lo spazio dei nomi del servizio\) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di gestione di Azure][Azure Management Portal].
+3.  A questo punto si aggiungerà codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** (lo spazio dei nomi del servizio) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di gestione di Azure][Azure Management Portal].
 
         using System;
         using System.Collections.Generic;
@@ -359,13 +359,13 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
 
 4.  Si farà ora in modo di assicurare che il metodo **Initialize** venga chiamato. In **Esplora soluzioni** fare doppio clic su **Global.asax\\Global.asax.cs**.
 
-5.  Aggiungere la riga seguente alla fine del metodo **Application\_Start**:
+5.  Aggiungere la riga seguente alla fine del metodo **Application_Start**:
 
         FrontendWebRole.QueueConnector.Initialize();
 
 6.  Verrà infine aggiornato il codice Web creato in precedenza, in modo da inviare elementi alla coda. In **Esplora soluzioni** fare doppio clic su **Controllers\\HomeController.cs** creato in precedenza.
 
-7.  Aggiornare il metodo **Submit\(\)** come indicato di seguito, in modo da ottenere il conteggio dei messaggi per la coda:
+7.  Aggiornare il metodo **Submit()** come indicato di seguito, in modo da ottenere il conteggio dei messaggi per la coda:
 
         public ActionResult Submit()
         {
@@ -380,7 +380,7 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
             return View();
         }
 
-8.  Aggiornare il metodo **Submit\(OnlineOrder order\)** come indicato di seguito per inviare le informazioni sull'ordine alla coda:
+8.  Aggiornare il metodo **Submit(OnlineOrder order)** come indicato di seguito per inviare le informazioni sull'ordine alla coda:
 
         public ActionResult Submit(OnlineOrder order)
         {

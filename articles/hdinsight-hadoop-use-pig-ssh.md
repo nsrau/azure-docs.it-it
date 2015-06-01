@@ -48,7 +48,7 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 ###PuTTY (client basati su Windows)
 
-Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>.
+Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
 Per altre informazioni sull'uso di PuTTY, vedere la sezione **Usare PuTTY per connettersi a un computer Linux** in <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Come usare SSH con Linux in Azure</a>.
 

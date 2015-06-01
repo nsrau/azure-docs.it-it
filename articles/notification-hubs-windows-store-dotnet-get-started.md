@@ -22,7 +22,7 @@
 
 ##Panoramica
 
-Questo argomento illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione di Windows Store o per Windows Phone 8.1 \(non Silverlight\). Se si sviluppano app per Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](notification-hubs-windows-phone-get-started.md). In questa esercitazione si creerà un'app di Windows Store vuota che riceve notifiche push tramite Servizi notifica Push Windows. Al termine, sarà possibile trasmettere le notifiche push a tutti i dispositivi che eseguono l'app tramite l'hub di notifica.
+Questo argomento illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione di Windows Store o per Windows Phone 8.1 (non Silverlight). Se si sviluppano app per Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](notification-hubs-windows-phone-get-started.md). In questa esercitazione si creerà un'app di Windows Store vuota che riceve notifiche push tramite Servizi notifica Push Windows. Al termine, sarà possibile trasmettere le notifiche push a tutti i dispositivi che eseguono l'app tramite l'hub di notifica.
 
 In questa esercitazione viene illustrato uno scenario di trasmissione semplice tramite Hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici.
 
@@ -53,7 +53,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    Verrà creata una nuova registrazione a Windows Store per l'app.
 
-3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C\# usando il modello **Applicazione vuota**.
+3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C# usando il modello **Applicazione vuota**.
 
    ![][2]
 
@@ -71,7 +71,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
 
-7. \(Facoltativo\) Ripetere i passaggi da 4 a 6 per il progetto di app di Windows Phone Store.  
+7. (Facoltativo) Ripetere i passaggi da 4 a 6 per il progetto di app di Windows Phone Store.  
 
 7. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
@@ -81,11 +81,12 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    ![][17]
 
-9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto \(SID\)**. 
+9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**. 
 
    ![][6]
 
- \>[AZURE.NOTE] **Nota sulla sicurezza**: il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
+ 	>[AZURE.NOTE] **Nota sulla sicurezza**:
+	il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
 
 ##Configurare l'hub di notifica
 
@@ -99,7 +100,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    ![][8]
 
-4. Fare clic sullo spazio dei nomi appena creato \(in genere ***nome hub di notifica*-ns**\), quindi fare clic sulla scheda **Configure** nella parte superiore.
+4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic sulla scheda **Configure** nella parte superiore.
 
    ![][9]
 
@@ -172,28 +173,27 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
 
    Scegliere **Salva tutto** dal menu **File**.
 
-7. \(Facoltativo\) Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
+7. (Facoltativo) Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
 
 8. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
    
    ![][19]
 
-9. \(Facoltativo\) Ripetere il passaggio precedente per eseguire l'altro progetto.
+9. (Facoltativo) Ripetere il passaggio precedente per eseguire l'altro progetto.
 
 L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 ##Inviare notifiche dal back-end
 
-È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** \([Back-end .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) \| [Back-end JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)\). Per un esempio di invio di notifiche con le API REST, vedere **Come usare Hub di notifica da Java/PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** ([Back-end .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)). Per un esempio di invio di notifiche con le API REST, vedere **Come usare Hub di notifica da Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C\#** fare clic su **Windows** e **Applicazione console** e infine fare clic su **OK**. 
+1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine fare clic su **OK**. 
 
    ![][13]
 
-	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
+	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata. 
 
-4. In Visual Studio fare clic su **Strumenti**, quindi selezionare **Gestione pacchetti NuGet
-** e infine **Console di Gestione pacchetti**. 
+4. In Visual Studio fare clic su **Strumenti**, quindi selezionare **Gestione pacchetti NuGet** e infine **Console di Gestione pacchetti**. 
 
 	In questo modo viene visualizzata la console di Gestione pacchetti in Visual Studio.
 
@@ -219,7 +219,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
    Assicurarsi di sostituire il segnaposto relativo al nome dell'hub con il nome dell'hub di notifica visualizzato nella scheda **Hub di notifica** del portale. Sostituire inoltre il segnaposto relativo alla stringa di connessione con la stringa di connessione denominata **DefaultFullSharedAccessSignature** ottenuta nella sezione Configurazione dell'hub di notifica.
 
-	>[AZURE.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE]Assicurarsi di usare la stringa di connessione con accesso **Full**, non con accesso **Listen**. La stringa con accesso di tipo Listen non è autorizzata all'invio di notifiche.	
 
 7. Aggiungere quindi le righe seguenti nel metodo **Main**:
 
@@ -230,7 +230,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
    ![][14]
 
-	You will receive a toast notification on all registered devices. Clicking or taping on the toast banner loads the app.
+	Tutti i dispositivi registrati riceveranno una notifica di tipo avviso popup. Facendo clic o toccando il banner dell'avviso popup l'app viene caricata.
 
 Per trovare tutti i payload supportati, è possibile consultare gli argomenti relativi al [catalogo degli avvisi popup], al [catalogo dei riquadri] e alla [panoramica delle notifiche] su MSDN.
 

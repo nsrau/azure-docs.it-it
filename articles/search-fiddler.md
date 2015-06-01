@@ -34,7 +34,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
 
 2. Selezionare **PUT**.
 
-3. Immettere un URL che specifichi l'URL del servizio \(disponibile nella pagina delle proprietà\), gli attributi della richiesta e la versione dell'API. Tenere presente quanto segue:
+3. Immettere un URL che specifichi l'URL del servizio (disponibile nella pagina delle proprietà), gli attributi della richiesta e la versione dell'API. Tenere presente quanto segue:
    + Usare HTTP come prefisso
    + L'attributo della richiesta è "/indexes/hotels". In questo modo si comunica al servizio di ricerca di creare un indice denominato 'hotels'.
    + La versione API è in lettere minuscole, specificata come "?api-version=2015-02-28". Le versioni API sono importanti perché Ricerca di Azure distribuisce aggiornamenti su base regolare. In rare occasioni, un aggiornamento del servizio potrebbe introdurre modifiche significative all'API. Con le versioni API, è possibile continuare a usare la versione esistente ed effettuare l'aggiornamento a una più recente nel momento più opportuno.
@@ -73,7 +73,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
 
 Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 201 nell'elenco della sessione che indica che la creazione dell'indice è stata eseguita correttamente.
 
-Se viene restituita una risposta HTTP 504, verificare se nell'URL è specificato HTTPS. Se viene visualizzata la risposta HTTP 400 o 404, esaminare il corpo della richiesta per verificare che le operazioni di copia e incolla sono state eseguite correttamente. Una risposta HTTP 403 indica in genere che si è verificato un problema con la chiave API \(chiave non valida o problema di sintassi nella specifica della chiave API\).
+Se viene restituita una risposta HTTP 504, verificare se nell'URL è specificato HTTPS. Se viene visualizzata la risposta HTTP 400 o 404, esaminare il corpo della richiesta per verificare che le operazioni di copia e incolla sono state eseguite correttamente. Una risposta HTTP 403 indica in genere che si è verificato un problema con la chiave API (chiave non valida o problema di sintassi nella specifica della chiave API).
 
 ## Caricare i documenti
 
@@ -83,11 +83,11 @@ Nella scheda Composer la richiesta di pubblicazione dei documenti avrà un aspet
 
 1. Selezionare **POST**.
 
-2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/\<'indexname'\>/docs/index?api-version=2015-02-28". L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente:
+2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
-3.	L'intestazione della richiesta deve essere come quella precedente. Ricordare che i valori di host e chiave api \(lettere minuscole\) sono stati sostituiti con valori validi per il servizio corrente.
+3.	L'intestazione della richiesta deve essere come quella precedente. Ricordare che i valori di host e chiave api (lettere minuscole) sono stati sostituiti con valori validi per il servizio corrente.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -169,13 +169,13 @@ Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query 
 
 1.	Selezionare **GET**.
 
-2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/\<'nome indice'\>/docs?", seguito dai parametri di query. A esempio, usare l'URL seguente, sostituendo il nome host di esempio con un nome host valido per il proprio servizio.
+2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/<'nome indice'>/docs?", seguito dai parametri di query. A esempio, usare l'URL seguente, sostituendo il nome host di esempio con un nome host valido per il proprio servizio.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     Questa query esegue la ricerca del termine "motel" e recupera le categorie facet per le valutazioni.
 
-3.	L'intestazione della richiesta deve essere come quella precedente. Ricordare che i valori di host e chiave api \(lettere minuscole\) sono stati sostituiti con valori validi per il servizio corrente.
+3.	L'intestazione della richiesta deve essere come quella precedente. Ricordare che i valori di host e chiave api (lettere minuscole) sono stati sostituiti con valori validi per il servizio corrente.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -186,7 +186,7 @@ Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe 
  
    ![][4]
 
-La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca \(API Ricerca di Azure\)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
+La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
 
 **Prima della sostituzione degli spazi:**
 
@@ -219,7 +219,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 5.	Fare clic su **Execute**. Entro pochi secondi si dovrebbe visualizzare un codice di stato HTTP 200 nell'elenco della sessione. Selezionare la voce inserita per il comando.
 
-6.	Fare clic sulla scheda **Inspectors** \| **Headers**, quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione \(in KB\).
+6.	Fare clic sulla scheda **Inspectors** | **Headers**, quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
 
 ## Passaggi successivi
 

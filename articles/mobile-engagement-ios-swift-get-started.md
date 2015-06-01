@@ -25,7 +25,7 @@
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md) 
 
-Questo argomento descrive come usare Azure Mobile Engagement per comprendere l'utilizzo delle app e inviare notifiche push a utenti segmentati di un'applicazione iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System \(APNS\). Al termine, si sarà in grado di trasmettere notifiche push a tutti i dispositivi o a utenti specifici in base alle proprietà dei loro dispositivi.
+Questo argomento descrive come usare Azure Mobile Engagement per comprendere l'utilizzo delle app e inviare notifiche push a utenti segmentati di un'applicazione iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS). Al termine, si sarà in grado di trasmettere notifiche push a tutti i dispositivi o a utenti specifici in base alle proprietà dei loro dispositivi.
 
 Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Seguire anche l'esercitazione successiva per imparare a usare Mobile Engagement per rivolgersi a gruppi di dispositivi e a utenti specifici.
 
@@ -33,7 +33,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 + Xcode, che è possibile installare da App Store MAC
 + [Mobile Engagement iOS SDK]
-+ Certificato per notifiche push \(.p12\), che è possibile ottenere nell'Apple Dev Center.
++ Certificato per notifiche push (.p12), che è possibile ottenere nell'Apple Dev Center.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app per iOS.
 
@@ -58,9 +58,9 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
    	![][8]
 
 	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione per l'app \(\*\*iOS\*\*\). Se destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma. 
+	- **Piattaforma**: selezionare la piattaforma di destinazione per l'app (**iOS**). Se destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma. 
 	- **Nome della risorse dell'applicazione**: nome tramite cui l'applicazione è accessibile mediante API e URL. È necessario usare solo caratteri URL convenzionali. Il nome generato automaticamente deve fornire una base sicura. È anche necessario aggiungere il nome della piattaforma per evitare conflitti tra i nomi in quanto questo nome deve essere univoco.
-	- **Percorso**: selezionare il data center dove l'applicazione \(e soprattutto la relativa raccolta\) verrà ospitata.
+	- **Percorso**: selezionare il data center dove l'applicazione (e soprattutto la relativa raccolta) verrà ospitata.
 	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
 	- **Nome della raccolta**: rappresenta il gruppo di applicazioni. Garantisce, inoltre, che tutte le app si trovino in un gruppo che consentirà calcoli aggregati delle metriche. Se applicabile, è possibile usare il nome della società o del reparto.
 
@@ -114,7 +114,7 @@ Xcode creerà l'app demo in cui verrà integrato Mobile Engagement.
 
 	![][19]
 
-6. Creare un'intestazione provvisoria per poter usare le API Objective-C dell'SDK scegliendo File \> New \> File \> iOS \> Source \> Header File.
+6. Creare un'intestazione provvisoria per poter usare le API Objective-C dell'SDK scegliendo File > New > File > iOS > Source > Header File.
 
 	![][41]
 
@@ -130,7 +130,7 @@ Xcode creerà l'app demo in cui verrà integrato Mobile Engagement.
 		#import "EngagementViewController.h"
 		#import "AEIdfaProvider.h"
 
-8. In Build Settings assicurarsi che per l'impostazione di compilazione Objective-C Bridging Header in Swift Compiler - Code Generation sia definito un percorso a questa intestazione. Di seguito è illustrato un esempio di percorso: **$\(SRCROOT\)/MySuperApp/MySuperApp-Bridging-Header.h \(a seconda del percorso\)**
+8. In Build Settings assicurarsi che per l'impostazione di compilazione Objective-C Bridging Header in Swift Compiler - Code Generation sia definito un percorso a questa intestazione. Di seguito è illustrato un esempio di percorso: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (a seconda del percorso)**
 
 9. Tornare al portale di Azure nella pagina *Informazioni di connessione* dell'app e copiare la stringa di connessione.
 
@@ -147,7 +147,7 @@ Xcode creerà l'app demo in cui verrà integrato Mobile Engagement.
 
 ##<a id="monitor"></a>Abilitazione del monitoraggio in tempo reale
 
-Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata \(Attività\) al back-end di Mobile Engagement.
+Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Attività) al back-end di Mobile Engagement.
 
 - Aprire il file `ViewController.h`, importare `EngagementViewController.h` e sostituire la super classe dell'interfaccia `ViewController` con `EngagementViewController`.
 

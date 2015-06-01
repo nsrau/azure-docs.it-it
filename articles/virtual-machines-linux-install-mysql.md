@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come installare MySQL in Azure"
-	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l&#39;installazione in Ubuntu o CentOS."
+	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l'installazione in Ubuntu o CentOS."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -81,7 +81,7 @@ Gli endpoint in Microsoft azure sono costituiti da un protocollo, insieme a una 
 
    ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
-- Prima di selezionare Open, fare clic sulla scheda Connection \> SSH \> AUTH per individuare il file generato da Puttygen e che contiene la chiave privata. Per informazioni sul campo da compilare, vedere la schermata seguente.
+- Prima di selezionare Open, fare clic sulla scheda Connection > SSH > AUTH per individuare il file generato da Puttygen e che contiene la chiave privata. Per informazioni sul campo da compilare, vedere la schermata seguente.
 
    ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p07.png)
  
@@ -126,19 +126,19 @@ Verrà utilizzato Ubuntu 14.04 LTS come esempio per questo articolo.
     
     Dopo l'accesso, assicurarsi che il servizio MySQL sia in esecuzione, è possibile indicare all’utente di utilizzare i comandi per avviare e riavviare il servizio.
 
-    \(a\) Per ottenere lo stato del servizio MySQL
+    (a) Per ottenere lo stato del servizio MySQL
 
              #sudo service mysql status
 
-    \(b\) Per avviare il servizio MySQL
+    (b) Per avviare il servizio MySQL
 
              #sudo service mysql start
 
-    \(b\) Per arrestare il servizio MySQL
+    (b) Per arrestare il servizio MySQL
 
              #sudo service mysql stop
 
-    \(b\) Per riavviare il servizio MySQL
+    (b) Per riavviare il servizio MySQL
 
              #sudo service mysql restart
 
@@ -156,7 +156,7 @@ Verrà utilizzato Ubuntu 14.04 LTS come esempio per questo articolo.
 
     Si tratta di una voce tipica per il subrepository di una serie di rilascio nel file:
 
-        \# *Enable to use MySQL 5.6*
+        # *Enable to use MySQL 5.6*
 
         [mysql56-community]
         name=MySQL 5.6 Community Server

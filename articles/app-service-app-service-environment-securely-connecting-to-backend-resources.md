@@ -25,7 +25,7 @@ Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster
 
 Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere connessi ad Azure tramite connessioni [da sito a sito][SiteToSite] o connessioni [Azure ExpressRoute][ExpressRoute]. In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
 
-Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse. Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale \(o connessi alla stessa rete virtuale\) transiterà solo attraverso la rete virtuale. Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
+Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse. Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale. Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
 
 
 ## Connessione a un'istanza di SQL Server
@@ -36,7 +36,7 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 È possibile usare due approcci per limitare il traffico a questo endpoint:
 
 
-- [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] \(ACL di rete\)
+- [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] (ACL di rete)
 
 - [Gruppi di sicurezza di rete][NetworkSecurityGroups]
 
@@ -45,7 +45,7 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 
 È possibile proteggere la porta 1433 usando un elenco di controllo di accesso di rete. L'esempio seguente illustra come consentire gli indirizzi client originati dall'interno di una rete virtuale e bloccare l'accesso a tutti gli altri client.
 
-![Esempio di elenco di controllo di accesso di rete \(ACL\)][NetworkAccessControlListExample]
+![Esempio di elenco di controllo di accesso di rete (ACL)][NetworkAccessControlListExample]
 
 Tutte le applicazioni in esecuzione nell'ambiente del servizio app all'interno della stessa rete virtuale di SQL Server potranno connettersi all'istanza di SQL Server usando l'indirizzo IP **interno della rete virtuale** per la macchina virtuale SQL Server.
 

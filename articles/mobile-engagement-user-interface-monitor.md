@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Interfaccia utente di Azure Mobile Engagement - Monitoraggio" 
-   description="Informazioni su come monitorare in tempo reale i dati dell&#39;applicazione usando Azure Mobile Engagement" 
+   description="Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -44,7 +44,7 @@ La generazione di un evento nell'applicazione dal dispositivo di test e la relat
 ![Monitor3][16]
 
 ## Monitoraggio - Avvisi
-È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea \(sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple\). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore \(\>\) o minore \(\<\) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore. È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di tempo che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica ogni X minuti.
+È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea (sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore (>) o minore (<) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore. È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di tempo che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica ogni X minuti.
  
 ![Monitor4][17]
 

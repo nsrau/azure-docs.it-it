@@ -36,11 +36,11 @@ Dopo aver installato e configurato i cmdlet di PowerShell, è necessario specifi
 
 Per ottenere un elenco delle sottoscrizioni disponibili, eseguire il seguente cmdlet:
 
-	PS C:\> Get-AzureSubscription
+	PS C:> Get-AzureSubscription
 
 Selezionare quindi una sottoscrizione eseguendo il seguente comando:
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	PS C:> Select-AzureSubscription "TestSubscription"
 
  
 ## Ottenere il nome dell'account di archiviazione
@@ -73,14 +73,14 @@ In questo esempio viene usato un account di archiviazione esistente. Il cmdlet [
 Per creare un nuovo account di Servizi multimediali di Azure, usare il cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) che fornisce il nome dell'account, il percorso del data center in cui verrà creato e il nome dell'account di archiviazione. 
 
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ## Ottenere gli account di Servizi multimediali
 
 Una volta creato uno o più account di Servizi multimediali, è possibile elencare le informazioni tramite il cmdlet [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
 
 	
-	PS C:\> Get-AzureMediaServicesAccount
+	PS C:> Get-AzureMediaServicesAccount
 	
 	AccountId		Name				State
 	---------       ----       			 -----
@@ -88,7 +88,7 @@ Una volta creato uno o più account di Servizi multimediali, è possibile elenca
 
 Fornendo il parametro Name si otterranno informazioni più dettagliate, incluse le chiavi dell'account.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+	PS C:> Get-AzureMediaServicesAccount -Name amstestaccount001
 
 ## Rigenerare le chiavi di accesso a Servizi multimediali
 
@@ -97,13 +97,13 @@ Per aggiornare la chiave di accesso primaria o secondaria a Servizi multimediali
 
 Se non si desidera che PowerShell ponga domande di conferma, specificare un'opzione -Force.
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+	PS C:> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
 
 ## Rimuovere l'account di Servizi multimediali
 
 Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
 
 

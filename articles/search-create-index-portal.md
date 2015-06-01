@@ -27,7 +27,7 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
 	- Nell'indice, fare clic su **Home page**. La home page dispone di sezioni per ogni servizio incluso nella sottoscrizione. Fare clic sull'icona per aprire il dashboard del servizio.
-	- Nell'indice fare clic su **Sfoglia** \| **Filtra per** \| **Servizi di ricerca** per trovare il servizio di ricerca nell'elenco. 
+	- Nell'indice fare clic su **Sfoglia** | **Filtra per** | **Servizi di ricerca** per trovare il servizio di ricerca nell'elenco. 
 
 3. Nel dashboard del servizio, verrà visualizzata una barra dei comandi nella parte superiore, compresa una per l’**aggiunta dell’indice**.
 	
@@ -45,7 +45,7 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
 6. Fare clic su *hotel* per aprire il pannello di definizione degli indici.
 
-	Quando si crea un indice nel portale, un \(ID\) campo obbligatorio viene creato automaticamente. Questo è il campo chiave utilizzato per identificare in modo univoco ogni documento. Esiste un solo campo per ogni chiave \(nessuna chiave composta\) ed è sempre una stringa.
+	Quando si crea un indice nel portale, un (ID) campo obbligatorio viene creato automaticamente. Questo è il campo chiave utilizzato per identificare in modo univoco ogni documento. Esiste un solo campo per ogni chiave (nessuna chiave composta) ed è sempre una stringa.
 
 	Se si desidera rinominare il campo chiave, è importante eseguire questo passaggio in questo momento durante la creazione dell'indice. Non sarà possibile rinominare un campo dopo la creazione dell'indice.
 
@@ -55,11 +55,11 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
 8. Sostituire *ID* con *Idhotel*.
 
-9. Fare clic su **OK** su ogni pannello \(campi e indice\) per creare l'indice.
+9. Fare clic su **OK** su ogni pannello (campi e indice) per creare l'indice.
 
 ##Aggiungere campi
 
-In Ricerca di Azure gli attributi di indice, quali searchable, facetable e filterable sono abilitati per impostazione predefinita. In genere, quando si imposta questi attributi, si disattivano i comportamenti di ricerca che non hanno senso \(ad esempio, l'ordinamento o esplorazione in base a facet di una descrizione\).
+In Ricerca di Azure gli attributi di indice, quali searchable, facetable e filterable sono abilitati per impostazione predefinita. In genere, quando si imposta questi attributi, si disattivano i comportamenti di ricerca che non hanno senso (ad esempio, l'ordinamento o esplorazione in base a facet di una descrizione).
 
 Il portale è diverso. Nel portale i comportamenti di ricerca sono disattivati per impostazione predefinita in modo che sia possibile selezionare tutti i comportamenti che si applicano, da campo a campo.
 

@@ -18,7 +18,7 @@
 
 # Panoramica del portale di anteprima di Microsoft Azure
 
-Il portale di anteprima di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione fornisce informazioni generali sul portale e mostra come usare alcune delle funzionalità chiave: - Un **Marketplace completo** che permette di esplorare migliaia di elementi offerti da Microsoft e da altri fornitori e che possono essere acquistati e/o sottoposti a provisioning. - Un'**esperienza di esplorazione unificata e scalabile** che semplifica l'individuazione delle risorse desiderate e l'esecuzione di diverse operazioni di gestione. - **Pagine di gestione coerenti** \(o pannelli\) che permettono di gestire la vasta gamma di servizi di Azure tramite una modalità coerente di esposizione di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e altro ancora. - Un'**esperienza personale** che permette di creare una schermata di avvio personalizzata che mostra le informazioni desiderate a ogni accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
+Il portale di anteprima di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione fornisce informazioni generali sul portale e mostra come usare alcune delle funzionalità chiave: - Un **Marketplace completo** che permette di esplorare migliaia di elementi offerti da Microsoft e da altri fornitori e che possono essere acquistati e/o sottoposti a provisioning. - Un'**esperienza di esplorazione unificata e scalabile** che semplifica l'individuazione delle risorse desiderate e l'esecuzione di diverse operazioni di gestione. - **Pagine di gestione coerenti** (o pannelli) che permettono di gestire la vasta gamma di servizi di Azure tramite una modalità coerente di esposizione di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e altro ancora. - Un'**esperienza personale** che permette di creare una schermata di avvio personalizzata che mostra le informazioni desiderate a ogni accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
 
  ![Orientamento dell'interfaccia utente del portale di Azure][UIOrientation]
 
@@ -47,7 +47,7 @@ L'hub di notifica avviserà l'utente quando la risorsa è stata creata e verrà 
 
 ## Come gestire e delegare l'accesso a una risorsa
 
-Questo pannello permette di connettersi alla macchina virtuale usando il desktop remoto, monitorare le metriche delle prestazioni chiave, controllare l'accesso a questa macchina virtuale usando il controllo degli accessi in base al ruolo \(RBAC, Role Based Access Control\), configurare la VM ed eseguire altre importanti attività di gestione. La delega dell'accesso in base al ruolo è essenziale per la gestione su vasta scala. Per altre informazioni, fare clic [qui](role-based-access-control-configure.md). Per delegare l'accesso a una risorsa, eseguire le operazioni seguenti:
+Questo pannello permette di connettersi alla macchina virtuale usando il desktop remoto, monitorare le metriche delle prestazioni chiave, controllare l'accesso a questa macchina virtuale usando il controllo degli accessi in base al ruolo (RBAC, Role Based Access Control), configurare la VM ed eseguire altre importanti attività di gestione. La delega dell'accesso in base al ruolo è essenziale per la gestione su vasta scala. Per altre informazioni, fare clic [qui](role-based-access-control-configure.md). Per delegare l'accesso a una risorsa, eseguire le operazioni seguenti:
 
 1.	Passare alla risorsa.
 2.	Nella sezione Informazioni di base fare clic su 'Tutte le impostazioni'.
@@ -70,7 +70,7 @@ Azure preconfigura i pannelli per le risorse, ma l'utente può personalizzare i 
 
 ## Come ottenere assistenza
 
-In caso di problemi, sono disponibili numerose opzioni per il supporto. Il portale include una pagina Guida e supporto, che può fornire le indicazioni necessarie. In base al [piano di supporto](http://azure.microsoft.com/support/plans/) attivato, è anche possibile creare ticket di supporto direttamente nel portale. Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vita del ticket dal portale. Per visualizzare la pagina Guida e supporto, passare a Sfoglia -\> Guida e supporto.
+In caso di problemi, sono disponibili numerose opzioni per il supporto. Il portale include una pagina Guida e supporto, che può fornire le indicazioni necessarie. In base al [piano di supporto](http://azure.microsoft.com/support/plans/) attivato, è anche possibile creare ticket di supporto direttamente nel portale. Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vita del ticket dal portale. Per visualizzare la pagina Guida e supporto, passare a Sfoglia -> Guida e supporto.
 
 ![Guida e supporto][HelpSupport]
 

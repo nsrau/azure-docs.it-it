@@ -21,7 +21,7 @@
 ## Installare curl, wget o altro strumento di download
 Questo argomento viene utilizzato **curl**. Utilizzare Gestione pacchetti del sistema operativo o scaricarlo da [qui](http://curl.haxx.se/download.html).
 
-## Scaricare il file di parametri di modello \(o il modello, se necessario\)
+## Scaricare il file di parametri di modello (o il modello, se necessario)
 
 I passaggi seguenti consentono di distribuire un modello di Azure, anche se è complessa. In questo argomento viene utilizzato il modello crea un server Ubuntu base con l'estensione VM customscript installato come un esempio. I file sono inclusi anche alla fine dell'argomento di riferimento.
 
@@ -33,7 +33,7 @@ Scaricare il file azuredeploy parameters.json se ne esiste per il modello che si
     
 ## Immettere le informazioni sulla distribuzione gruppo di risorse
     
-Aprire il file con l'editor preferito. Noterete che è necessario specificare un valore per molte delle chiavi, in particolare **adminUsername**, **adminPassword** \(tenere presente che le regole di complessità!\) e il nome account di archiviazione e i nomi DNS che si desidera.
+Aprire il file con l'editor preferito. Noterete che è necessario specificare un valore per molte delle chiavi, in particolare **adminUsername**, **adminPassword** (tenere presente che le regole di complessità!) e il nome account di archiviazione e i nomi DNS che si desidera.
     
     {
       "newStorageAccountName": {
@@ -89,7 +89,7 @@ parametri per impostare o potrebbero essere già una parte del modello, a second
 Se il modello contiene i parametri direttamente o si desidera estrarre manualmente i dati dei parametri. Per ulteriori informazioni sulla struttura dei modelli, vedere [lingua del modello di gestione delle risorse Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json \(o solo il file azuredeploy parameters.json\) È possibile estrarre sia la sezione di parametri del modello, nel qual caso sarà necessario salvarlo nuovamente all'interno del modello stesso o come file separato azuredeploy-parameters.json. È necessario passare a ottenere i valori da inserire nei parametri.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (o solo il file azuredeploy parameters.json) È possibile estrarre sia la sezione di parametri del modello, nel qual caso sarà necessario salvarlo nuovamente all'interno del modello stesso o come file separato azuredeploy-parameters.json. È necessario passare a ottenere i valori da inserire nei parametri.
 
 ## Modificare il file azuredeploy templates.json
 

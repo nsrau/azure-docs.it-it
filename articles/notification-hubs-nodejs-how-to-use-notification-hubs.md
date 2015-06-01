@@ -56,7 +56,7 @@ comunicano con i servizi REST.
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  È possibile eseguire manualmente il comando **ls** o **dir** per verificare che sia stata creata una cartella **node\_modules**. All'internon di tale cartella trovare il pacchetto **azure**, che contiene le librerie necessarie per accedere a Hub di notifica.
+3.  È possibile eseguire manualmente il comando **ls** o **dir** per verificare che sia stata creata una cartella **node_modules**. All'internon di tale cartella trovare il pacchetto **azure**, che contiene le librerie necessarie per accedere a Hub di notifica.
 
 ### Importare il modulo
 

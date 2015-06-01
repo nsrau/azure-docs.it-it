@@ -26,14 +26,14 @@ Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
 
 ## Informazioni sui modelli di risorse di Azure e sui gruppi di risorse
 
-La maggior parte delle applicazioni, distribuite ed eseguite da Microsoft Azure, vengono create da una combinazione di tipi diversi di risorse cloud \(ad esempio, uno o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete CDN\). I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse tra loro tramite una descrizione contenuta nel file JSON delle risorse e dei relativi parametri di configurazione e distribuzione.
+La maggior parte delle applicazioni, distribuite ed eseguite da Microsoft Azure, vengono create da una combinazione di tipi diversi di risorse cloud (ad esempio, uno o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete CDN). I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse tra loro tramite una descrizione contenuta nel file JSON delle risorse e dei relativi parametri di configurazione e distribuzione.
 
 Dopo aver definito un modello di risorsa basata su JSON, è possibile eseguirla e sono le risorse definito all'interno di distribuirlo in Azure utilizzando un comando di PowerShell. È possibile eseguire questi comandi in modo autonomo nell’ambito della shell dei comandi PowerShell o integrandoli all'interno di uno script che contenga la logica di automazione aggiuntiva.
 
 Le risorse create mediante i modelli di Gestione risorse di Azure verranno distribuite in un gruppo di risorse Azure nuovo o esistente. Un *gruppo di risorse Azure* consente di gestire più risorse distribuite insieme come gruppo logico: in questo modo è possibile gestire il ciclo di vita complessivo del gruppo o dell’applicazione e fornire le API di gestione che consentono quanto segue:
 
 - Arrestare, avviare o eliminare tutte le risorse all'interno del gruppo contemporaneamente. 
-- Applicare le regole di controllo degli accessi in base al ruolo \(RBAC\) per bloccare le autorizzazioni di sicurezza su di essi. 
+- Applicare le regole di controllo degli accessi in base al ruolo (RBAC) per bloccare le autorizzazioni di sicurezza su di essi. 
 - Controllare le operazioni. 
 - Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente. 
 
@@ -292,7 +292,7 @@ Verrà visualizzata una schermata simile alla seguente:
 
 ## Attività comuni: creare un'immagine di macchina virtuale personalizzata
 
-Utilizzare le istruzioni incluse in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse utilizzato in Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale \(VHD\) specificato.
+Utilizzare le istruzioni incluse in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse utilizzato in Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
 ### Passaggio 1: esaminare il file JSON per il modello.
 
@@ -383,7 +383,7 @@ Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un
 
 ### Passaggio 3: creare la macchina virtuale con il modello.
 
-Per creare una nuova macchina virtuale basata su disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore \("\< \>"\) con le informazioni specifiche ed eseguire questi comandi:
+Per creare una nuova macchina virtuale basata su disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore ("< >") con le informazioni specifiche ed eseguire questi comandi:
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"

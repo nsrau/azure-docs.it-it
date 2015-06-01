@@ -91,7 +91,7 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
 	![Espandere Servizi file e archiviazione in Server Manager](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Disco 0 è il disco del sistema operativo, disco 1 è un disco di risorse temporaneo \(che non deve essere usato per l'archiviazione dei dati\) e disco 2 è il disco dati connesso alla macchina virtuale. Si noti che il disco dati ha una capacità di 5 GB come specificato in precedenza. Fare clic con il pulsante destro del mouse sul disco 2 e quindi scegliere **Inizializza**.
+10. Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Disco 0 è il disco del sistema operativo, disco 1 è un disco di risorse temporaneo (che non deve essere usato per l'archiviazione dei dati) e disco 2 è il disco dati connesso alla macchina virtuale. Si noti che il disco dati ha una capacità di 5 GB come specificato in precedenza. Fare clic con il pulsante destro del mouse sul disco 2 e quindi scegliere **Inizializza**.
 
 	![Avviare l'inizializzazione](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 

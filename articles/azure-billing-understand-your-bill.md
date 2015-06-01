@@ -76,7 +76,7 @@ Per visualizzare o scaricare una fattura:
 
  **NOME DELL'OFFERTA** | **TIPO DI OFFERTA** | **INCLUDE SERVIZI GRATUITI** | **DOWNLOAD** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Programma di vantaggi | Sì\* | [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Azure MSDN-Visual Studio Ultimate| Programma di vantaggi | Sì* | [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Pagamento in base al consumo | Consumo | No| [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
 Utilizzo dettagliato - CSV | N/D | N/D | [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
@@ -95,7 +95,7 @@ Intervallo di tempo durante il quale è avvenuto l'utilizzo.
 Data in cui è stata generata la fattura.
 
 ### Metodo di pagamento
-Tipo di pagamento usato per l'account \(fattura o carta di credito\).
+Tipo di pagamento usato per l'account (fattura o carta di credito).
 
 ### Indirizzo di fatturazione
 Indirizzo per i pagamenti per Microsoft Azure.
@@ -118,8 +118,8 @@ Il saldo precedente è l'importo totale dovuto nell'ultima fattura.
 ### Pagamenti
 I pagamenti sono i pagamenti totali applicati all'ultima fattura.
 
-### Saldo in sospeso \(dal ciclo di fatturazione precedente\)
-Eventuali rettifiche della fattura \(crediti o saldi\) applicate all'account dopo l'ultima fattura.
+### Saldo in sospeso (dal ciclo di fatturazione precedente)
+Eventuali rettifiche della fattura (crediti o saldi) applicate all'account dopo l'ultima fattura.
 
 
 ## Comprendere gli addebiti attuali
@@ -168,7 +168,7 @@ In questa colonna un servizio di Azure può essere definito ulteriormente in bas
 Identifica l'unità di misura per la risorsa consumata.
 
 ### Region
-Aree in cui i dati sull'utilizzo si applicano a e riguardano prevalentemente Servizi cloud, Macchine virtuali e i trasferimenti di dati \(esclusa la rete CDN\), in quanto queste tariffe possono variare a seconda dell'area. L'area per CDN è mappata alla posizione del data center da cui è stato gestito il traffico.
+Aree in cui i dati sull'utilizzo si applicano a e riguardano prevalentemente Servizi cloud, Macchine virtuali e i trasferimenti di dati (esclusa la rete CDN), in quanto queste tariffe possono variare a seconda dell'area. L'area per CDN è mappata alla posizione del data center da cui è stato gestito il traffico.
 
 ### Consumato
 Indica la quantità di risorsa consumata durante il periodo di fatturazione.

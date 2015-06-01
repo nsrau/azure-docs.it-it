@@ -23,7 +23,7 @@ Questo documento include informazioni sulla funzionalità di registrazione dei s
 -	Come abilitare la registrazione nei servizi Web:   
 	-	Per abilitare la registrazione, è necessario accedere al dashboard del servizio Web nel portale di Azure, fare clic sul pulsante Sì e quindi su Salva.  
 -	Effetto dell'abilitazione della registrazione:  
-	-	Quando la registrazione è abilitata, tutti i dati di diagnostica e gli errori dall'endpoint predefinito vengono registrati nell'account di archiviazione di Azure collegato con l'area di lavoro dell'utente. È possibile visualizzare questo account di archiviazione nella visualizzazione Dashboard del portale di Azure \(nella parte inferiore della sezione Riepilogo rapido\) dell'area di lavoro.  
+	-	Quando la registrazione è abilitata, tutti i dati di diagnostica e gli errori dall'endpoint predefinito vengono registrati nell'account di archiviazione di Azure collegato con l'area di lavoro dell'utente. È possibile visualizzare questo account di archiviazione nella visualizzazione Dashboard del portale di Azure (nella parte inferiore della sezione Riepilogo rapido) dell'area di lavoro.  
 -	Endpoint in cui l'abilitazione è disponibile:  
 	-	Attualmente è possibile abilitare la registrazione per l'endpoint predefinito del servizio Web. Questa funzionalità sarà presto disponibile anche per gli endpoint aggiuntivi che è possibile creare nel portale di Azure.  
 -	Come visualizzare i log:  

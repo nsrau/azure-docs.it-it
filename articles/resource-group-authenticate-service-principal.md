@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Autenticazione di un&#39;entità servizio con Gestione risorse di Azure"
-   description="Descrive come concedere l&#39;accesso e autenticare un&#39;entità servizio mediante il controllo degli accessi in base al ruolo. Mostra come eseguire queste attività con PowerShell e l&#39;interfaccia della riga di comando di Azure."
+   pageTitle="Autenticazione di un'entità servizio con Gestione risorse di Azure"
+   description="Descrive come concedere l'accesso e autenticare un'entità servizio mediante il controllo degli accessi in base al ruolo. Mostra come eseguire queste attività con PowerShell e l'interfaccia della riga di comando di Azure."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -18,11 +18,11 @@
 
 # Autenticazione di un'entità servizio con Gestione risorse di Azure
 
-Questo argomento mostra come consentire un'entità servizio \(ad esempio un processo, un'applicazione o un servizio automatizzato\) per accedere ad altre risorse nella sottoscrizione. Con Gestione risorse di Azure è possibile usare il controllo degli accessi in base al ruolo per l'esecuzione di azioni consentite in un'entità servizio e l'autenticazione di tale entità. Questo argomento mostra come usare PowerShell e l'interfaccia della riga di comando di Azure per assegnare un ruolo e autenticazione un'entità servizio.
+Questo argomento mostra come consentire un'entità servizio (ad esempio un processo, un'applicazione o un servizio automatizzato) per accedere ad altre risorse nella sottoscrizione. Con Gestione risorse di Azure è possibile usare il controllo degli accessi in base al ruolo per l'esecuzione di azioni consentite in un'entità servizio e l'autenticazione di tale entità. Questo argomento mostra come usare PowerShell e l'interfaccia della riga di comando di Azure per assegnare un ruolo e autenticazione un'entità servizio.
 
 
 ## Concetti
-1. Azure Active Directory \(AAD\): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](./active-directory-whatis.md)
+1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](./active-directory-whatis.md)
 2. Entità servizio: istanza di un'applicazione in una directory.
 3. Applicazione AD: record di directory che identifica un'applicazione in AAD. Per altre informazioni, vedere [Nozioni di base sull'autenticazione in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -32,9 +32,9 @@ Se Azure PowerShell non è installato, vedere [Come installare e configurare Azu
 
 Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applicazione nella directory. Questa sezione fornisce spiegazioni su come creare una nuova applicazione nella directory.
 
-1. Creare una nuova applicazione AAD eseguendo il comando **New-AzureADApplication**. Specificare un nome visualizzato per l'applicazione, l'URI a una pagina che descrive l'applicazione \(il collegamento non è verificato\), gli URI che identificano l'applicazione e la password per l'identità dell'applicazione.
+1. Creare una nuova applicazione AAD eseguendo il comando **New-AzureADApplication**. Specificare un nome visualizzato per l'applicazione, l'URI a una pagina che descrive l'applicazione (il collegamento non è verificato), gli URI che identificano l'applicazione e la password per l'identità dell'applicazione.
 
-        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+        PS C:> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
    Viene restituita l'applicazione Azure AD:
 
@@ -70,23 +70,23 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
 3. Creare un'entità servizio per l'applicazione.
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
    È stata creata un'entità servizio nella directory, ma al servizio non sono assegnate autorizzazioni o ambiti. È necessario concedere esplicitamente le autorizzazioni dell'entità servizio per eseguire operazioni in un ambito.
 
 4. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 5. Recuperare la sottoscrizione in cui è stata creata l'assegnazione di ruolo. La sottoscrizione verrà usata successivamente per ottenere il **TenantId** del tenant in cui si trova l'assegnazione di ruolo dell'entità servizio.
 
-        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
 
    Se l'assegnazione di ruolo è stata creata in una sottoscrizione diversa da quella attualmente selezionata, è possibile specificare il parametro **SubscriptoinId** o **SubscriptionName** per recuperare una sottoscrizione diversa.
 
 6. Creare un nuovo oggetto **PSCredential** che contenga le credenziali eseguendo il comando **Get-Credential**.
 
-        PS C:\> $creds = Get-Credential
+        PS C:> $creds = Get-Credential
 
    Verrà richiesto di immettere le credenziali.
 
@@ -96,7 +96,7 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
 7. Usare le credenziali immesse come input per il cmdlet **Add-AzureAccount**, che effettuerà l'accesso dell'entità servizio:
 
-        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
 
    A questo punto dovrebbe essere stata eseguita l'autenticazione per l'applicazione AAD creata come entità servizio.
 

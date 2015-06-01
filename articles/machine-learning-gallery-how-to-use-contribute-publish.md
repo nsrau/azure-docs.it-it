@@ -22,7 +22,7 @@ La raccolta di Azure Machine Learning è un sito di community in cui è possibil
 
 Nella raccolta è possibile anche trovare e copiare esperimenti realizzati dal team di Microsoft Azure Machine Learning.
 
-**[VAI ALLA RACCOLTA \>\>](http://gallery.azureml.net)**
+**[VAI ALLA RACCOLTA >>](http://gallery.azureml.net)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ La raccolta di Azure Machine Learning consente di copiare un esperimento nella p
 
 A tale scopo, seguire questa procedura:
 
-- Accedere a Studio usando il proprio account Microsoft \(accertarsi che il nome e l'immagine del profilo presenti nelle impostazioni dell’account Microsoft siano quelli che si desidera mostrare\)
+- Accedere a Studio usando il proprio account Microsoft (accertarsi che il nome e l'immagine del profilo presenti nelle impostazioni dell’account Microsoft siano quelli che si desidera mostrare)
 - Creare l’esperimento ed eseguirlo
 - Quando l'esperimento è pronto per essere pubblicato nella raccolta, fare clic su "Publish to Gallery" nella barra di colore nero inferiore di Studio. ![Pubblica](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Buon lavoro.
 
@@ -86,7 +86,7 @@ Per modificare questi campi, fare clic sull'esperimento che si desidera aggiorna
 
 **Ho aggiornato l'immagine del profilo nelle impostazioni di configurazione dell'account Microsoft ma negli esperimenti della raccolta l'immagine del profilo non risulta ancora aggiornata. Perché?**
 
-Se si desidera che nei propri esperimenti vengano riflesse le ultime modifiche apportate al profilo \(ad esempio il nome, il cognome o l'immagine\), è necessario pubblicare nuovamente nella raccolta tutti i propri esperimenti. In particolare, è necessario eliminare le copie degli esperimenti create con le precedenti impostazioni del profilo.
+Se si desidera che nei propri esperimenti vengano riflesse le ultime modifiche apportate al profilo (ad esempio il nome, il cognome o l'immagine), è necessario pubblicare nuovamente nella raccolta tutti i propri esperimenti. In particolare, è necessario eliminare le copie degli esperimenti create con le precedenti impostazioni del profilo.
 
 **Quali sono i requisiti del file di immagine a cui attenersi quando si invia o si modifica l'immagine associata a un esperimento?**
 
@@ -108,6 +108,6 @@ Per delimitare i tag è possibile usare la tabulazione.
 
 La funzionalità di rendering per descrizioni dettagliate non è ancora disponibile per tutti gli utenti della raccolta, ma si sta lavorando per rendere disponibile questa funzione tramite il supporto per il rendering del markdown.
 
-**[VAI ALLA RACCOLTA \>\>](http://gallery.azureml.net)**
+**[VAI ALLA RACCOLTA >>](http://gallery.azureml.net)**
 
 <!--HONumber=54-->

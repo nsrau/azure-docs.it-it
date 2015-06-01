@@ -262,7 +262,7 @@ Quando la tabella Hive dispone di un campo di testo con una stringa di parole de
 
 La query descritte in questa sezione possono essere applicate direttamente ai dati relativi ai tragitti dei taxi di NYC. Lo scopo della query è quello di dimostrare come applicare una funzione matematica incorporata in Hive, al fine di creare funzionalità. 
 
-I campi utilizzati nella query corrispondono alle coordinate GPS relative ai luoghi in cui si sale e si scende dal taxi, denominati pickup\_longitude, pickup\_latitude, dropoff\_longitude e dropoff\_latitude. Le query che consentono di calcolare la distanza diretta tra questi due punti sono:
+I campi utilizzati nella query corrispondono alle coordinate GPS relative ai luoghi in cui si sale e si scende dal taxi, denominati pickup_longitude, pickup_latitude, dropoff_longitude e dropoff_latitude. Le query che consentono di calcolare la distanza diretta tra questi due punti sono:
 
 		set R=3959;
 		set pi=radians(180);

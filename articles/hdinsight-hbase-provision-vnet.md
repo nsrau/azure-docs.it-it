@@ -129,7 +129,7 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 	<tr><td>Dimensione nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
 	<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
 	<tr><td>Dimensione Zookeeper</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo Zookeeper.</p></td></tr>
-</table>>[AZURE.NOTE]Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+</table>[AZURE.NOTE]Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 	Fare clic sul pulsante a destra.
 

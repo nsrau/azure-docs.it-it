@@ -74,7 +74,7 @@ L'esempio seguente mostra come impostare criteri di indicizzazione personalizzat
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ L'esempio seguente mostra come impostare criteri di indicizzazione personalizzat
 
 **Nota:** i criteri di indicizzazione di una raccolta devono essere specificati al momento della creazione. La modifica di tali criteri dopo la creazione della raccolta non è attualmente consentita, ma sarà supportata in una futura versione di DocumentDB.
 
-**Nota:** per impostazione predefinita, DocumentDB indicizza tutti i percorsi nei documenti in maniera coerente con un indice Hash. Il percorso di Timestamp (\_ts) interno viene archiviato con un indice Range.
+**Nota:** per impostazione predefinita, DocumentDB indicizza tutti i percorsi nei documenti in maniera coerente con un indice Hash. Il percorso di Timestamp (_ts) interno viene archiviato con un indice Range.
 
 ### Indicizzazione automatica
 
@@ -285,7 +285,7 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ L'esempio seguente esclude dall'indicizzazione un sottoalbero di percorsi usando
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ Ottimizzazione delle prestazioni
 
 Quando si valutano le diverse configurazioni dei criteri di indicizzazione, è consigliabile valutare le implicazioni di archiviazione e velocità effettiva dei criteri tramite le API di DocumentDB.
 
-Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire una richiesta HEAD o GET sulla risorsa della raccolta ed esaminare le intestazioni x-ms-request-quota e x-ms-request-usage. In.NET SDK, le proprietà [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
+Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire una richiesta HEAD o GET sulla risorsa della raccolta ed esaminare le intestazioni x-ms-request-quota e x-ms-request-usage. In.NET SDK, le proprietà [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire u
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (create, update o delete), esaminare l'intestazione x-ms-request-charge (o l'equivalente proprietà [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) di [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK) per determinare il numero di unità di richiesta usate da queste operazioni.
+Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (create, update o delete), esaminare l'intestazione x-ms-request-charge (o l'equivalente proprietà [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) di [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK) per determinare il numero di unità di richiesta usate da queste operazioni.
 
 
  	// Measure the performance (request units) of writes.     

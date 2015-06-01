@@ -24,7 +24,7 @@ In questo argomento vengono descritti gli obiettivi di scalabilità e prestazion
 
 >[AZURE.IMPORTANT]Gli obiettivi di scalabilità e prestazioni elencati di seguito sono di fascia alta, ma possono essere conseguiti. In tutti i casi, la velocità e la larghezza di banda richieste e ottenute dall’account di archiviazione dipendono dalla dimensione degli oggetti archiviati, dai modelli di accesso utilizzati e dal tipo di carico di lavoro eseguito dall’applicazione. Assicurarsi di eseguire il test del servizio per determinare se le prestazioni soddisfano i requisiti. Se possibile, evitare picchi improvvisi nella frequenza di traffico e assicurarsi che questo sia ben distribuito tra le partizioni.
 
->Quando l'applicazione raggiunge il limite in termini di carico di lavoro che può essere gestito da una partizione, Archiviazione di Azure inizierà a restituire il codice di errore 503 \(Server occupato\) o 500 \(Timeout operazione\). In questo caso, l'applicazione deve utilizzare un criterio di backoff esponenziale per i nuovi tentativi. Il backoff esponenziale consente di ridurre il carico sulla partizione e di uniformare i picchi di traffico verso tale partizione.
+>Quando l'applicazione raggiunge il limite in termini di carico di lavoro che può essere gestito da una partizione, Archiviazione di Azure inizierà a restituire il codice di errore 503 (Server occupato) o 500 (Timeout operazione). In questo caso, l'applicazione deve utilizzare un criterio di backoff esponenziale per i nuovi tentativi. Il backoff esponenziale consente di ridurre il carico sulla partizione e di uniformare i picchi di traffico verso tale partizione.
 
 Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è necessario compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra gli account. Per ogni sottoscrizione di Azure sono consentiti 100 account di archiviazione. Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
@@ -58,9 +58,9 @@ Nella tabella seguente vengono descritti gli obiettivi di scalabilità per gli a
 </tr>
 </table>
 
-*Si intendono in ingresso tutti i dati \(richieste\) inviati a un account di archiviazione. 
+*Si intendono in ingresso tutti i dati (richieste) inviati a un account di archiviazione. 
 
-*Si intendono in uscita tutti i dati \(risposte\) ricevuti da un account di archiviazione. 
+*Si intendono in uscita tutti i dati (risposte) ricevuti da un account di archiviazione. 
 
 ### Obiettivi di scalabilità per account di archiviazione standard nelle aree europee e asiatiche
 
@@ -86,9 +86,9 @@ Nella tabella seguente vengono descritti gli obiettivi di scalabilità per accou
 </tr>
 </table>
 
-*Si intendono in ingresso tutti i dati \(richieste\) inviati a un account di archiviazione. 
+*Si intendono in ingresso tutti i dati (richieste) inviati a un account di archiviazione. 
 
-*Si intendono in uscita tutti i dati \(risposte\) ricevuti da un account di archiviazione. 
+*Si intendono in uscita tutti i dati (risposte) ricevuti da un account di archiviazione. 
 
 ### Obiettivi di scalabilità per gli account di Archiviazione Premium
 
@@ -106,9 +106,9 @@ Nella tabella seguente vengono illustrati gli obiettivi di scalabilità per gli 
 <td>Fino a 50 gigabit al secondo per dati in ingresso e in uscita</td>
 </table>
 
-*Si intendono in ingresso tutti i dati \(richieste\) inviati a un account di archiviazione. 
+*Si intendono in ingresso tutti i dati (richieste) inviati a un account di archiviazione. 
 
-*Si intendono in uscita tutti i dati \(risposte\) ricevuti da un account di archiviazione.
+*Si intendono in uscita tutti i dati (risposte) ricevuti da un account di archiviazione.
 
 Per informazioni sui dischi di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali Azure](storage-premium-storage-preview-portal.md).
 
@@ -128,7 +128,7 @@ Nella tabella seguente vengono descritti gli obiettivi di prestazioni per una si
 <td>Fino a 60 MB al secondo</td>
 </table>
 
-Ogni oggetto che contiene i dati archiviati in Archiviazione di Azure \(BLOB, messaggi, entità e file\) appartiene a una partizione ed è identificato da una chiave di partizione. La partizione determina il modo in cui Archiviazione di Azure bilancia il carico di BLOB, messaggi, entità e i file tra i server per soddisfare le esigenze di traffico di tali oggetti. La chiave di partizione è univoca all'interno dell'account di archiviazione e viene utilizzata per individuare un BLOB, un messaggio o un’entità.
+Ogni oggetto che contiene i dati archiviati in Archiviazione di Azure (BLOB, messaggi, entità e file) appartiene a una partizione ed è identificato da una chiave di partizione. La partizione determina il modo in cui Archiviazione di Azure bilancia il carico di BLOB, messaggi, entità e i file tra i server per soddisfare le esigenze di traffico di tali oggetti. La chiave di partizione è univoca all'interno dell'account di archiviazione e viene utilizzata per individuare un BLOB, un messaggio o un’entità.
 
 Per le tabelle, tutte le entità con lo stesso valore di chiave di partizione vengono raggruppate nella stessa partizione e vengono archiviate nello stesso server partizioni. Si tratta di un punto importante da considerare nella progettazione dell'applicazione. L'applicazione deve bilanciare i vantaggi di scalabilità della distribuzione delle entità in più partizioni con i vantaggi di accesso ai dati derivanti dal raggruppamento di entità in una singola partizione. Un vantaggio chiave derivante dal raggruppamento delle entità in partizioni consiste nella possibilità di eseguire operazioni atomiche tra le entità nella stessa partizione, in quanto una partizione è presente in un singolo server.
 

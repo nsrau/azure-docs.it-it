@@ -54,7 +54,7 @@ Run these commands:
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch 
 -->
 
@@ -70,14 +70,14 @@ Eseguire questo comando:
 
     Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]Utilizzare questo **parametro** per mantenere l'IP virtuale \(VIP\) del servizio cloud, qualora fosse l'ultima macchina virtuale inclusa nel servizio cloud specifico. Se si utilizza questo parametro, verrà ancora configurato per la macchina virtuale.
+>[AZURE.IMPORTANT]Utilizzare questo **parametro** per mantenere l'IP virtuale (VIP) del servizio cloud, qualora fosse l'ultima macchina virtuale inclusa nel servizio cloud specifico. Se si utilizza questo parametro, verrà ancora configurato per la macchina virtuale.
 
 ## Avviare una macchina virtuale
 
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
 ## Collegamento di un disco dati
-Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la \* \* \* Add-AzureDataDisk \* \* \* cmdlet per aggiungere il disco per l'oggetto $vm, quindi si utilizza il cmdlet Update-AzureVM per aggiornare la configurazione della macchina virtuale.
+Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la * * * Add-AzureDataDisk * * * cmdlet per aggiungere il disco per l'oggetto $vm, quindi si utilizza il cmdlet Update-AzureVM per aggiornare la configurazione della macchina virtuale.
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 

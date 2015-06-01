@@ -46,7 +46,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 	**Nota**: le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Collocando più macchine virtuali in un set di disponibilità è possibile garantire la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati.
 
-15.  In **Endpoint** verificare che i nuovi endpoint che verranno creati consentano le connessioni alla macchina virtuale, ad esempio tramite Desktop remoto o un client Secure Shell \(SSH\). È inoltre possibile aggiungere subito gli endpoint o crearli in un secondo momento. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines-set-up-endpoints.md).
+15.  In **Endpoint** verificare che i nuovi endpoint che verranno creati consentano le connessioni alla macchina virtuale, ad esempio tramite Desktop remoto o un client Secure Shell (SSH). È inoltre possibile aggiungere subito gli endpoint o crearli in un secondo momento. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines-set-up-endpoints.md).
 
 16.  In **Agente di macchine virtuali** scegliere se installare l'agente VM. Tale agente offre l'ambiente per installare le estensioni che consentono di interagire con la macchina virtuale. Per informazioni dettagliate, vedere [Gestire le estensioni](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

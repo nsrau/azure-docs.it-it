@@ -118,7 +118,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 <tr><td>Area/Rete virtuale</td><td><p>Selezionare la stessa area geografica specificata per l'account di archiviazione creato in precedenza. HDInsight richiede che l'account di archiviazione si trovi nella stessa area geografica. Più avanti nella configurazione sarà possibile selezionare un account di archiviazione situato nella stessa area geografica specificata qui.</p></td></tr>
 <tr><td>Dimensioni nodo head</td><td><p>Selezionare le dimensioni di una macchina virtuale (VM) per il nodo head.</p></td></tr>
 <tr><td>Dimensioni nodo dati</td><td><p>Selezionare le dimensioni di una VM per il nodo dati.</p></td></tr>
-</table>>[AZURE.NOTE]Il costo potrebbe variare in base alla scelta delle VM. HDInsight usa tutte VM di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle VM influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+</table>[AZURE.NOTE]Il costo potrebbe variare in base alla scelta delle VM. HDInsight usa tutte VM di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle VM influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 
 5. Nella pagina **Configura utente cluster** digitare o scegliere il valore seguente:
@@ -142,7 +142,8 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 	<tr><td>Immettere metastore Hive/Oozie</td>
 		<td>Selezionare questa casella di controllo per specificare un database SQL nello stesso data center del cluster, da usare come metastore Hive/Oozie. Se si seleziona questa casella di controllo, è necessario specificare i dettagli relativi al database SQL di Azure nelle pagine successive della procedura guidata. Ciò risulta utile se si vogliono conservare i metadati sui progetti Hive/Oozie anche dopo aver eliminato un cluster.</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]È consigliabile usare l'autenticazione tramite chiave pubblica SSH con SSH, perché è più sicura rispetto all'autenticazione tramite password.
+	</table>
+> [AZURE.NOTE]È consigliabile usare l'autenticazione tramite chiave pubblica SSH con SSH, perché è più sicura rispetto all'autenticazione tramite password.
 
 	Fare clic sulla freccia destra.
 

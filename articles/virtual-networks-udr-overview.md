@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Definito dall&#39;utente IP Cenni preliminari sull&#39;inoltro e route"
-   description="Route (UDR) definito dall&#39;utente e Cenni preliminari sull&#39;inoltro IP"
+   pageTitle="Definito dall'utente IP Cenni preliminari sull'inoltro e route"
+   description="Route (UDR) definito dall'utente e Cenni preliminari sull'inoltro IP"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"
@@ -48,7 +48,7 @@ Non è possibile visualizzare le route predefinite specificate in precedenza nel
 - 
 Negli scenari precedenti, è necessario creare una tabella di route e aggiungervi route definite dall'utente. È possibile avere più tabelle di routing e la stessa tabella di route può essere associata a una o più subnet. E ogni subnet può essere associato a una tabella singola route. Tutte le macchine virtuali e servizi cloud in uso una subnet la tabella di route associato a tale subnet.
 
-Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta esiste un'associazione, routing viene eseguito in base su più lunga del prefisso corrispondenza \(LPM\) tra le route definite dall'utente e route predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
+Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta esiste un'associazione, routing viene eseguito in base su più lunga del prefisso corrispondenza (LPM) tra le route definite dall'utente e route predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
 
 1. Route definita utente
 1. Route BGP (quando viene utilizzato ExpressRoute)

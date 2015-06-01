@@ -59,7 +59,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella
-    **node\_modules**. Nella cartella si trova il pacchetto
+    **node_modules**. Nella cartella si trova il pacchetto
     **azure-storage**, che contiene le librerie necessarie per accedere
     all'archiviazione.
 

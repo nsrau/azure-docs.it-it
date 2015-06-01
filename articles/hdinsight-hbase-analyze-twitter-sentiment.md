@@ -102,7 +102,8 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 <tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
 <tr><td>Descrizione</td><td>MyHDInsightHBaseApp</td></tr>
 <tr><td>Sito Wen</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
+</table>
+> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
 
 4. Fare clic su **Yes, I agree**, quindi scegliere **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions**. L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione. 
@@ -220,7 +221,7 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', '\', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase

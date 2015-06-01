@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso di canali abilitati per l&#39;esecuzione della codifica live con Servizi multimediali di Azure" 
+	pageTitle="Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure" 
 	description="Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,14 +16,14 @@
 	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
-#Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure \(anteprima\)
+#Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure (anteprima)
 
 ##Panoramica
 
 In Servizi multimediali di Azure un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
-- Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** \(MP4 frammentato\) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-- Un flusso a velocità in bit singola \(in uno dei seguenti formati: **RTP** \(MPEG-TS\)\), **RTMP** o **Smooth Streaming** \(MP4 frammentato\)\) viene inviato al **canale** abilitato per l'esecuzione della codifica live con Servizi multimediali. Il **canale** esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit \(adattivo\). Quando richiesto, Servizi multimediali invia il flusso ai clienti. 
+- Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+- Un flusso a velocità in bit singola (in uno dei seguenti formati: **RTP** (MPEG-TS)), **RTMP** o **Smooth Streaming** (MP4 frammentato)) viene inviato al **canale** abilitato per l'esecuzione della codifica live con Servizi multimediali. Il **canale** esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti. 
 
 	La codifica di un flusso live con Servizi multimediali è attualmente in **anteprima**.
 
@@ -31,13 +31,13 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 
 - **Nessuno**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a più velocità in bit. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Per informazioni più dettagliate dell'uso dei canali di questo tipo, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
-- **Standard** \(anteprima\): scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit.
+- **Standard** (anteprima): scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit.
 
 	La codifica di un flusso live con Servizi multimediali è attualmente in anteprima.
 
->[AZURE.NOTE]Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live \(tipo di codifica \*\*Standard\*\*\). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live (tipo di codifica **Standard**). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
-Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP \(MPEG-TS\), quindi ne esegue la codifica in un flusso a più velocità in bit.
+Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS), quindi ne esegue la codifica in un flusso a più velocità in bit.
 
 ![Flusso di lavoro live][live-overview]
 
@@ -52,7 +52,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
@@ -81,19 +81,19 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 La sezione relativa alle [attività di streaming live](media-services-manage-channels-overview.md#tasks) include collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 
 
-##<a id="channel"></a>Configurazioni di input \(inserimento\) del canale
+##<a id="channel"></a>Configurazioni di input (inserimento) del canale
 
 ###<a id="Ingest_Protocols"></a>Protocollo di streaming di inserimento
 
 Se **Tipo di codificatore** è impostato su **Standard**, le opzioni valide sono le seguenti:
 
-- **RTP** \(MPEG-TS\): MPEG-2 Transport Stream su RTP.  
+- **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.  
 - **RTMP** a velocità in bit singola
-- **MP4 frammentato** \(Smooth Streaming\) a velocità in bit singola
+- **MP4 frammentato** (Smooth Streaming) a velocità in bit singola
 
 Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-####RTP \(MPEG-TS\): MPEG-2 Transport Stream su RTP.  
+####RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.  
 
 Caso di utilizzo tipico:
 
@@ -101,7 +101,7 @@ Per inviare un flusso, le emittenti professionali usano in genere codificatori l
 
 Considerazioni:
 
-- È consigliabile usare l'input di un singolo flusso di trasporto del programma \(SPTS\). È tuttavia supportato l'uso di tracce audio in più lingue.
+- È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS). È tuttavia supportato l'uso di tracce audio in più lingue.
 - Il flusso video dovrà avere una velocità in bit media inferiore a 15 Mbps.
 - La velocità in bit media aggregata dei flussi video e audio dovrà essere inferiore a 1 Mbps.
 - Di seguito sono elencati i codec supportati:
@@ -174,7 +174,7 @@ Considerazioni:
 	- Flash Media Live Encoder
 	- Tricaster
 
-####MP4 frammentato \(Smooth Streaming\) a velocità in bit singola
+####MP4 frammentato (Smooth Streaming) a velocità in bit singola
 
 Caso di utilizzo tipico:
 
@@ -190,17 +190,17 @@ Come per [RTMP a velocità in bit singola](media-services-manage-live-encoder-en
 - La risoluzione massima per il flusso video in ingresso è 1920x1080 e al massimo 60 campi/seconde se interlacciato o 30 fotogrammi/secondo se progressivo.
 
 
-###URL di inserimento \(endpoint\) 
+###URL di inserimento (endpoint) 
 
-Un canale fornisce un endpoint di input \(URL di inserimento\) specificato dall'utente nel codificatore live, in modo che il codificatore possa eseguire il push dei flussi nei canali.
+Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'utente nel codificatore live, in modo che il codificatore possa eseguire il push dei flussi nei canali.
 
 È possibile ottenere gli URL di inserimento dopo aver creato un canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione**. Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, questo dovrà essere nello stato **In esecuzione**. Una volta avviato l'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile inserire un flusso live MP4 frammentato \(Smooth Streaming\) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS.
+È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS.
 
 ###Indirizzi IP consentiti
 
-È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1\(255.255.252.0\)'\).
+È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)').
 
 Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 
@@ -209,17 +209,17 @@ Se non viene specificato alcun indirizzo IP e non è presente una definizione de
 
 ###URL di anteprima
 
-I canali forniscono anche un endpoint di anteprima \(URL di anteprima\) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
+I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
 È possibile ottenere l'URL di anteprima quando si crea il canale. Per ottenere l'URL, non è necessario che il canale sia nello stato **In esecuzione**.
 
 Una volta che il canale inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
-**Nota**: attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato \(Smooth Streaming\), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di gestione di Azure.
+**Nota**: attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di gestione di Azure.
 
 ###Indirizzi IP consentiti
 
-È possibile definire gli indirizzi IP autorizzati a connettersi all'endpoint di anteprima. Se non viene specificato alcun indirizzo IP, sarà consentito qualsiasi indirizzo IP. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1\(255.255.252.0\)'\).
+È possibile definire gli indirizzi IP autorizzati a connettersi all'endpoint di anteprima. Se non viene specificato alcun indirizzo IP, sarà consentito qualsiasi indirizzo IP. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)').
 
 ##Impostazioni per la codifica live
 
@@ -229,39 +229,39 @@ Questa sezione descrive come è possibile modificare le impostazioni del codific
 
 È possibile specificare l'origine per i segnali dei marcatori di annunci. Il valore predefinito è **Api**. Indica che il codificatore live all'interno del canale deve restare in attesa di un'**API Ad Marker** asincrona.
 
-L'altra opzione valida è **Scte35** \(consentita solo se il protocollo di streaming di inserimento è impostato su RTP \(MPEG-TS\). Quando è specificato Scte35, il codificatore live analizza i segnali SCTE-35 dal flusso di input RTP \(MPEG-TS\).
+L'altra opzione valida è **Scte35** (consentita solo se il protocollo di streaming di inserimento è impostato su RTP (MPEG-TS). Quando è specificato Scte35, il codificatore live analizza i segnali SCTE-35 dal flusso di input RTP (MPEG-TS).
 
 ###Sottotitoli codificati CEA-708
 
-Flag facoltativo che indica al codificatore live di ignorare i dati di tutti i sottotitoli codificati CEA 708 incorporati nel video in ingresso. Quando il flag è impostato su false \(impostazione predefinita\), il codificatore rileva e reinserisce i dati CEA 708 nei flussi video di output.
+Flag facoltativo che indica al codificatore live di ignorare i dati di tutti i sottotitoli codificati CEA 708 incorporati nel video in ingresso. Quando il flag è impostato su false (impostazione predefinita), il codificatore rileva e reinserisce i dati CEA 708 nei flussi video di output.
 
 ###Flusso video
 
-Facoltativo. Descrive il flusso video di input. Se questo campo non è specificato, viene usato il valore predefinito. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP \(MPEG-TS\).
+Facoltativo. Descrive il flusso video di input. Se questo campo non è specificato, viene usato il valore predefinito. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
 
 ####Indice
 
-Indice in base zero che specifica quale flusso video di input dovrà essere elaborato dal codificatore live all'interno del canale. Questa impostazione si applica solo se il protocollo di streaming di inserimento è RTP \(MPEG-TS\).
+Indice in base zero che specifica quale flusso video di input dovrà essere elaborato dal codificatore live all'interno del canale. Questa impostazione si applica solo se il protocollo di streaming di inserimento è RTP (MPEG-TS).
 
-Il valore predefinito è zero. È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma \(SPTS\). Se il flusso di input contiene più programmi, il codificatore live analizza la tabella di mappa dei programmi \(PMT, Program Map Table\) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 Video o H.264 e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
+Il valore predefinito è zero. È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 Video o H.264 e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
 ###Flusso audio
 
-Facoltativo. Descrive i flussi audio di input. Se questo campo non è specificato, si applica il valore predefinito specificato. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP \(MPEG-TS\).
+Facoltativo. Descrive i flussi audio di input. Se questo campo non è specificato, si applica il valore predefinito specificato. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
 
 ####Indice
 
-È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma \(SPTS\). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi \(PMT, Program Map Table\) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
+È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
 ####Lingua
 
-Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad esempio ITA. Se non è presente, il valore predefinito è UND \(undefined\).
+Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad esempio ITA. Se non è presente, il valore predefinito è UND (undefined).
 
 È possibile specificare un massimo di 8 set di flussi audio se l'input per il canale è MPEG-2 TS su RTP. Tuttavia, non possono essere presenti due voci con lo stesso valore di indice.
 
 ###<a id="preset"></a>Set di impostazioni del sistema
 
-Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** \(impostazione predefinita\).
+Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
 Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
@@ -285,11 +285,11 @@ L'audio viene codificato nel formato stereo AAC-LC a 64 kbps, frequenza di campi
 
 ##Segnalazione di annunci
 
-Quando nel canale è abilitata la codifica live, nella pipeline è presente un componente che elabora il flusso video ed è in grado di modificarlo. È possibile impostare il segnale in modo che il canale inserisca slate e/o annunci nel flusso in uscita a velocità in bit adattiva. Gli slate sono immagini fisse che è possibile usare per coprire feed live di input in determinati casi \(ad esempio durante un'interruzione pubblicitaria\). I segnali pubblicitari sono segnali con sincronizzazione temporale incorporati nel flusso in uscita, per indicare al lettore video di eseguire un'azione speciale, ad esempio passare a un annuncio al momento opportuno. Per una panoramica del meccanismo di segnalazione SCTE-35 usato a questo scopo, vedere questo [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/). Di seguito è illustrato uno scenario tipico che è possibile implementare in un evento live.
+Quando nel canale è abilitata la codifica live, nella pipeline è presente un componente che elabora il flusso video ed è in grado di modificarlo. È possibile impostare il segnale in modo che il canale inserisca slate e/o annunci nel flusso in uscita a velocità in bit adattiva. Gli slate sono immagini fisse che è possibile usare per coprire feed live di input in determinati casi (ad esempio durante un'interruzione pubblicitaria). I segnali pubblicitari sono segnali con sincronizzazione temporale incorporati nel flusso in uscita, per indicare al lettore video di eseguire un'azione speciale, ad esempio passare a un annuncio al momento opportuno. Per una panoramica del meccanismo di segnalazione SCTE-35 usato a questo scopo, vedere questo [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/). Di seguito è illustrato uno scenario tipico che è possibile implementare in un evento live.
 
 1. Fare in modo che gli utenti ottengano un'immagine PRE-EVENTO prima dell'avvio dell'evento.
 1. Fare in modo che gli utenti ottengano un'immagine POST-EVENTO al termine dell'evento.
-1. Fare in modo che gli utenti ottengano un'immagine EVENTO-DI-ERRORE in caso di errore durante l'evento \(ad esempio, interruzione dell'alimentazione allo stadio\).
+1. Fare in modo che gli utenti ottengano un'immagine EVENTO-DI-ERRORE in caso di errore durante l'evento (ad esempio, interruzione dell'alimentazione allo stadio).
 1. Inviare un'immagine INTERRUZIONE-PUBBLICITARIA per nascondere l'evento live durante un'interruzione pubblicitaria.
 
 Di seguito sono elencate le proprietà che è possibile usare quando si inviano segnali pubblicitari.
@@ -326,7 +326,7 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 Facoltativa. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null.
 
-**Nota**: prima di creare il canale, è necessario caricare l'immagine dello slate \(con una risoluzione massima di 1920x1080, in formato JPEG e con dimensioni massime di 3 MB\) come asset dedicato, nel quale non dovranno essere presenti altri file. L'estensione di file dovrà essere *JPG e questo AssetFile dovrà essere contrassegnato come file primario dell'asset. L'asset non può essere crittografato per l'archiviazione.
+**Nota**: prima di creare il canale, è necessario caricare l'immagine dello slate (con una risoluzione massima di 1920x1080, in formato JPEG e con dimensioni massime di 3 MB) come asset dedicato, nel quale non dovranno essere presenti altri file. L'estensione di file dovrà essere *JPG e questo AssetFile dovrà essere contrassegnato come file primario dell'asset. L'asset non può essere crittografato per l'archiviazione.
 
 Se non si specifica l'**ID asset dello slate predefinito** e **Inserisci slate su marcatore di annuncio** è impostato su **true**, per nascondere il flusso video di input verrà usata un'immagine predefinita di Servizi multimediali di Azure. Durante la visualizzazione dello slate viene disattivato anche l'audio.
 
@@ -425,7 +425,7 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 ###Protezione degli asset
 
-Per crittografare un asset associato a un programma tramite AES \(Advanced Encryption Standard\) usando chiavi di crittografia a 128 bit oppure con DRM PlayReady, è necessario creare una chiave simmetrica.
+Per crittografare un asset associato a un programma tramite AES (Advanced Encryption Standard) usando chiavi di crittografia a 128 bit oppure con DRM PlayReady, è necessario creare una chiave simmetrica.
 
 Usare **.NET** o **API REST** per creare le chiavi.
 

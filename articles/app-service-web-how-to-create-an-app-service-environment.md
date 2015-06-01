@@ -24,8 +24,8 @@ Gli ambienti del servizio app sono un'opzione del servizio Premium del servizio 
 
 In breve, la funzionalità Ambiente del servizio app distribuisce il servizio app di Azure nella rete virtuale del cliente. A tale scopo, il cliente deve disporre di quanto segue:
 
-- Una rete virtuale regionale con oltre 512 \(/23\) o più indirizzi
-- Una subnet all'interno della rete virtuale con oltre 256 \(24\) più indirizzi
+- Una rete virtuale regionale con oltre 512 (/23) o più indirizzi
+- Una subnet all'interno della rete virtuale con oltre 256 (24) più indirizzi
 
 Se non si ha già una rete virtuale da usare per ospitare l'ambiente del servizio app, è possibile crearne una al momento della creazione dell'ambiente del servizio app.
 
@@ -33,12 +33,12 @@ Ogni distribuzione dell'ambiente del servizio app è un servizio ospitato gestit
 
 ## Creazione dell'ambiente del servizio app ##
 
-È possibile accedere all'interfaccia utente di creazione dell'ambiente del servizio app in due modi. È possibile trovarla cercando ***Ambiente del servizio app*** in Azure Marketplace o facendo clic su Nuovo -\> Web e dispositivi mobili.
+È possibile accedere all'interfaccia utente di creazione dell'ambiente del servizio app in due modi. È possibile trovarla cercando ***Ambiente del servizio app*** in Azure Marketplace o facendo clic su Nuovo -> Web e dispositivi mobili.
 
 ### Creazione rapida ###
 Per creare un ambiente del servizio app nell'interfaccia utente di creazione, immettere un nome per la distribuzione. Verrà quindi creata una rete virtuale con 512 indirizzi, una subnet con 256 indirizzi all'interno della rete virtuale e un ambiente del servizio app con 2 server front-end e 2 processi di lavoro nel pool di lavoro 1. Assicurarsi di selezionare la località in cui deve essere creato il sistema e la sottoscrizione in cui si vuole includere l'ambiente. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
 
-Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome del servizio app è appsvcenvdemo, il nome di dominio sarà .\*appsvcenvdemo.p.azurewebsites.net\*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
+Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome del servizio app è appsvcenvdemo, il nome di dominio sarà .*appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
 
 
 ![][1]
@@ -102,10 +102,10 @@ Per impostazione predefinita, un ambiente del servizio app include 1 indirizzo I
 
 Dopo la creazione dell'ambiente del servizio app è possibile modificare:
 
-- Quantità di server front-end \(minimo: 2\)
-- Quantità di processi di lavoro \(minimo: 2\)
+- Quantità di server front-end (minimo: 2)
+- Quantità di processi di lavoro (minimo: 2)
 - Quantità di indirizzi IP
-- Dimensioni delle risorse di calcolo usate dai server front-end o dai processi di lavoro \(dimensioni minime per i front-end: P2\)
+- Dimensioni delle risorse di calcolo usate dai server front-end o dai processi di lavoro (dimensioni minime per i front-end: P2)
 
 Non è possibile modificare:
 

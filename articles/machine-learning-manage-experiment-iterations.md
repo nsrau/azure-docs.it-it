@@ -30,7 +30,7 @@ Lo sviluppo di un modello di analisi predittive è un processo iterativo: man ma
 
 Dopo aver aperto un esperimento che è stato eseguito almeno una volta, è possibile visualizzarne l'esecuzione precedente facendo clic su **Prior Run** nel riquadro delle proprietà.
 
-Si supponga ad esempio di creare un esperimento e di eseguirne tre versioni, alle 11:23, alle 11:42 e alle 11:55. Se si apre l'ultima esecuzione dell'esperimento \(11:55\) e si fa clic su **Prior Run**, verrà aperta la versione eseguita alle 11:42.
+Si supponga ad esempio di creare un esperimento e di eseguirne tre versioni, alle 11:23, alle 11:42 e alle 11:55. Se si apre l'ultima esecuzione dell'esperimento (11:55) e si fa clic su **Prior Run**, verrà aperta la versione eseguita alle 11:42.
 
 ##Visualizzazione della cronologia delle esecuzioni
 
@@ -53,7 +53,7 @@ Fare clic su una di queste esecuzioni per visualizzare uno snapshot dell'esperim
 
 > [AZURE.TIP]Per documentarne le iterazioni dell'esperimento, è possibile modificarne il titolo ogni volta che viene eseguito, aggiornare il **Summary** nel riquadro delle proprietà e aggiungere o aggiornare i commenti relativi ai singoli moduli per registrare le modifiche. Il titolo, il riepilogo e i commenti relativi al modulo vengono salvati a ogni esecuzione dell'esperimento.
 
-Nell'elenco degli esperimenti nella scheda **EXPERIMENTS** in ML Studio viene visualizzata sempre la versione più recente di un esperimento. Se si apre un'esecuzione precedente dell'esperimento \(usando **Prior Run** o **VIEW RUN HISTORY**\), è possibile tornare alla versione bozza facendo clic su **VIEW RUN HISTORY** e selezionando l'iterazione il cui **STATE** è **Editable**.
+Nell'elenco degli esperimenti nella scheda **EXPERIMENTS** in ML Studio viene visualizzata sempre la versione più recente di un esperimento. Se si apre un'esecuzione precedente dell'esperimento (usando **Prior Run** o **VIEW RUN HISTORY**), è possibile tornare alla versione bozza facendo clic su **VIEW RUN HISTORY** e selezionando l'iterazione il cui **STATE** è **Editable**.
 
 ##Iterazione dell'esecuzione precedente 
 

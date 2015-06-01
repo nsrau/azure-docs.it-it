@@ -45,8 +45,8 @@ Microsoft è da tempo impegnata nella tutela della privacy, che costituisce part
 
 ###Passaggi successivi:
 
-[Guida introduttiva \(responsabili marketing\)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Guida introduttiva (responsabili marketing)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
-[Guida introduttiva \(sviluppatori\)](/documentation/services/mobile-engagement/)
+[Guida introduttiva (sviluppatori)](/documentation/services/mobile-engagement/)
 
 <!--HONumber=54-->

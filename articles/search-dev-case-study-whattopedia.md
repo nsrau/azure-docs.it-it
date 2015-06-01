@@ -36,23 +36,23 @@ La nostra attività consiste nell’attrarre acquirenti tramite un'esperienza di
 
  ![][7]
 
-Dopo essersi registrati per una sottoscrizione, il rivenditore prende in carico il proprio profilo esistente \(creato inizialmente da noi dai dati acquistati\) e lo aggiorna con altri dati sulle promozioni, i marchi disponibili o con degli annunci. È possibile segnalare in maniera autonoma le capacità in-house, le lingue parlate, le valute accettate, gli acquisti senza tasse, in modo da attirare meglio gli acquirenti alla ricerca di questi servizi.
+Dopo essersi registrati per una sottoscrizione, il rivenditore prende in carico il proprio profilo esistente (creato inizialmente da noi dai dati acquistati) e lo aggiorna con altri dati sulle promozioni, i marchi disponibili o con degli annunci. È possibile segnalare in maniera autonoma le capacità in-house, le lingue parlate, le valute accettate, gli acquisti senza tasse, in modo da attirare meglio gli acquirenti alla ricerca di questi servizi.
 
 ## Chi siamo
 
-Mi chiamo Thomas Segato \(Microsoft Consulting\) e ho collaborato con Jesper Boelling, Lead Developer presso WhatToPedia per progettare la soluzione.
+Mi chiamo Thomas Segato (Microsoft Consulting) e ho collaborato con Jesper Boelling, Lead Developer presso WhatToPedia per progettare la soluzione.
 
-WhatToPedia è una start-up, che esegue il test del marketing del nuovo portale aziendale in Svezia, dove la maggior parte dei 60.000 rivenditori è rappresentato da PMI \(piccole e medie imprese\) di tipo tradizionale. Poiché è noto che una persona che acquista in Europa parla più lingue e utilizza più valute, creiamo soluzioni adatte a un acquirente multilingua. Avevamo bisogno \(e lo abbiamo trovato\) di un motore di ricerca in grado di supportare i nostri requisiti multilingua in Ricerca di Azure.
+WhatToPedia è una start-up, che esegue il test del marketing del nuovo portale aziendale in Svezia, dove la maggior parte dei 60.000 rivenditori è rappresentato da PMI (piccole e medie imprese) di tipo tradizionale. Poiché è noto che una persona che acquista in Europa parla più lingue e utilizza più valute, creiamo soluzioni adatte a un acquirente multilingua. Avevamo bisogno (e lo abbiamo trovato) di un motore di ricerca in grado di supportare i nostri requisiti multilingua in Ricerca di Azure.
 
 Ricerca di Azure ha rappresentato un cambiamento radicale per il nostro progetto. Prima che fosse disponibile di Ricerca di Azure, abbiamo investito una notevole quantità di energia nel risolvere i problemi legati alla creazione di un nostro motore di ricerca. La possibilità di utilizzare Ricerca di Azure come servizio online ha eliminato il principale ostacolo tecnico e amministrativo dalla nostra soluzione, comportando un’immissione sul mercato più rapida e con un'esperienza di ricerca più affidabile.
 
 ## Il processo di creazione
 
-Il nostro obiettivo era quello di creare un’infrastruttura completa basata unicamente su servizi cloud. Microsoft è stata scelta come piattaforma strategica perché era il provider che offriva i servizi necessari \(sia per la collaborazione che per lo sviluppo\), la scalabilità su richiesta e prezzi accessibili.
+Il nostro obiettivo era quello di creare un’infrastruttura completa basata unicamente su servizi cloud. Microsoft è stata scelta come piattaforma strategica perché era il provider che offriva i servizi necessari (sia per la collaborazione che per lo sviluppo), la scalabilità su richiesta e prezzi accessibili.
  
 ### Componenti di alto livello
 
-Abbiamo creato un'azienda, non soltanto un sito. Per supportare tutto il lavoro, è stato necessario ricorrere a una vasta gamma di strumenti e applicazioni. Abbiamo adottato Visual Studio e Visual Studio Online per lo sviluppo, Team Foundation Service \(TFS\) Online per il controllo del codice sorgente e la gestione di scrum, Office 365 per la comunicazione e la collaborazione e naturalmente Microsoft Azure per tutte le operazioni relative al sito e all'archiviazione. Con Visual Studio, l’IDE ha fornito il provisioning diretto in Azure, mentre l'integrazione di TFS Online ha garantito un aumento ulteriore della produttività.
+Abbiamo creato un'azienda, non soltanto un sito. Per supportare tutto il lavoro, è stato necessario ricorrere a una vasta gamma di strumenti e applicazioni. Abbiamo adottato Visual Studio e Visual Studio Online per lo sviluppo, Team Foundation Service (TFS) Online per il controllo del codice sorgente e la gestione di scrum, Office 365 per la comunicazione e la collaborazione e naturalmente Microsoft Azure per tutte le operazioni relative al sito e all'archiviazione. Con Visual Studio, l’IDE ha fornito il provisioning diretto in Azure, mentre l'integrazione di TFS Online ha garantito un aumento ulteriore della produttività.
 
 Nel diagramma seguente sono illustrati i componenti di alto livello utilizzati nell'infrastruttura di WhatToPedia.
 
@@ -87,9 +87,9 @@ Per i rivenditori, la faccenda è diversa. In questo caso, archiviamo le informa
 
 Per essere certi che i rivenditori visualizzino solo i propri dati, è stato creato un ID rivenditore per ogni rivenditore, che viene utilizzato successivamente in tutte le operazioni di lettura e scrittura che includono dati specifici del rivenditore. Grazie a questo approccio, abbiamo riscontrato che non era necessario concedere autorizzazioni di database ai singoli rivenditori. Tutti i rivenditori interagiscono con il sistema in un unico ruolo di database, con l'ID del rivenditore come tecnica di isolamento dei dati.
 
-Poiché la nostra azienda è incentrata completamente sugli effetti a valle \(aumento del business per i rivenditori, creazione di incentivi per la pubblicità e le sottoscrizioni\), possiamo prefiggerci di gestire gli acquisti sul Web. Pertanto, sul nostro sito non sarà presente un carrello della spesa, e questo semplifica le nostre esigenze di protezione.
+Poiché la nostra azienda è incentrata completamente sugli effetti a valle (aumento del business per i rivenditori, creazione di incentivi per la pubblicità e le sottoscrizioni), possiamo prefiggerci di gestire gli acquisti sul Web. Pertanto, sul nostro sito non sarà presente un carrello della spesa, e questo semplifica le nostre esigenze di protezione.
 
-Un’altra semplificazione che abbiamo impiegato è stato l'outsourcing delle operazioni di fatturazione e di contabilità dei fornitori. Indirizzando le informazioni di pagamento dei clienti direttamente a una terza parte \([SveaWebPay](http://www.sveawebpay.se/)\), riduciamo i rischi associati all’archiviazione e alla protezione dei dati sensibili nei nostri archivi dati.
+Un’altra semplificazione che abbiamo impiegato è stato l'outsourcing delle operazioni di fatturazione e di contabilità dei fornitori. Indirizzando le informazioni di pagamento dei clienti direttamente a una terza parte ([SveaWebPay](http://www.sveawebpay.se/)), riduciamo i rischi associati all’archiviazione e alla protezione dei dati sensibili nei nostri archivi dati.
 
 ### Motore di ricerca
 
@@ -110,26 +110,26 @@ Di seguito viene descritto come abbiamo creato il prototipo.
 
 **Configurazione del servizio Ricerca di Azure**
 
-1. Abbiamo effettuato l’accesso al portale di Azure e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo utilizzato la versione condivisa \(gratuita con la sottoscrizione\).
-2. Creazione di un indice. Per il prototipo, abbiamo utilizzato l'interfaccia utente del portale per definire i campi di ricerca e creare i profili di assegnazione dei punteggi. Il nostro profilo di assegnazione dei punteggi si basa sui dati di posizione: paese \| città \|indirizzo \(vedere: Aggiunta di profili di assegnazione dei punteggi\).
+1. Abbiamo effettuato l’accesso al portale di Azure e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo utilizzato la versione condivisa (gratuita con la sottoscrizione).
+2. Creazione di un indice. Per il prototipo, abbiamo utilizzato l'interfaccia utente del portale per definire i campi di ricerca e creare i profili di assegnazione dei punteggi. Il nostro profilo di assegnazione dei punteggi si basa sui dati di posizione: paese | città |indirizzo (vedere: Aggiunta di profili di assegnazione dei punteggi).
 3. Copia dell’URL del servizio e della chiave API di amministrazione nei file di configurazione. Questa chiave si trova nella pagina del servizio di ricerca del portale e viene utilizzata per l'autenticazione al servizio.
 	
 **Sviluppo di un processo di indicizzatore di ricerca: console di Windows**
 
 1. Lettura di tutti i rivenditori del database.
-2. Chiamata all'API del servizio Ricerca di Azure per caricare i rivenditori uno alla volta \(vedere: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Impostazione di una proprietà nel database in cui il rivenditore è indicizzato per l’indicizzazione incrementale. Tale operazione è stata eseguita aggiungendo un campo relativo all’indicizzatore nel quale viene archiviato lo stato dell’indice di ciascun profilo \(indicizzato oppure no\). 
+2. Chiamata all'API del servizio Ricerca di Azure per caricare i rivenditori uno alla volta (vedere: http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Impostazione di una proprietà nel database in cui il rivenditore è indicizzato per l’indicizzazione incrementale. Tale operazione è stata eseguita aggiungendo un campo relativo all’indicizzatore nel quale viene archiviato lo stato dell’indice di ciascun profilo (indicizzato oppure no). 
 
 Vedere l'appendice per il frammento di codice che consente di compilare il processo dell'indicizzatore.
 
 **Sviluppo di un portale Web di ricerca – MVC**
 
-1. Chiamata del servizio di Ricerca di Azure per ottenere tutti i documenti dalla ricerca \(vedere: http://msdn.microsoft.com/library/azure/dn798927.aspx\)
-2. Estrazione degli elementi indicati di seguito dalla risposta del servizio di ricerca \(tramite json.net http://james.newtonking.com/json\)
+1. Chiamata del servizio di Ricerca di Azure per ottenere tutti i documenti dalla ricerca (vedere: http://msdn.microsoft.com/library/azure/dn798927.aspx)
+2. Estrazione degli elementi indicati di seguito dalla risposta del servizio di ricerca (tramite json.net http://james.newtonking.com/json)
    - Risultati
    - Facet
    - Conteggio dei risultati
-   - Sviluppo di un'interfaccia utente per la visualizzazione di risultati della ricerca, facet e conteggi \(già disponibile\).
+   - Sviluppo di un'interfaccia utente per la visualizzazione di risultati della ricerca, facet e conteggi (già disponibile).
 
 Questo è il codice che è stato utilizzato per ottenere i risultati di Ricerca di Azure:
 
@@ -156,7 +156,7 @@ Ogni documento ha una proprietà nascosta denominata "cities", basata sul tipo d
 
 ###Archiviazione dei dati
 
-Tutti i dati \(profilo, sottoscrizione e contabilità\) vengono archiviati nel database SQL. Tutti i file multimediali vengono archiviati nell'archiviazione BLOB di Azure, inclusi immagini e video forniti dal rivenditore. L’uso dell'archiviazione BLOB separata isola gli effetti del caricamento dei file. I file non vengono mai confusi con il sito Web, pertanto non è necessario ricompilare il sito quando si aggiungono file.
+Tutti i dati (profilo, sottoscrizione e contabilità) vengono archiviati nel database SQL. Tutti i file multimediali vengono archiviati nell'archiviazione BLOB di Azure, inclusi immagini e video forniti dal rivenditore. L’uso dell'archiviazione BLOB separata isola gli effetti del caricamento dei file. I file non vengono mai confusi con il sito Web, pertanto non è necessario ricompilare il sito quando si aggiungono file.
 
 Un vantaggio importante della progettazione della nostra archiviazione consiste nel fatto che più sviluppatori possono condividere un singolo archivio di sviluppo. Uno dei requisiti per il progetto WhatToPedia consisteva nell’essere in grado di creare un ambiente di sviluppo entro 15 minuti, includendo i dati, le immagini e i video del rivenditore. Grazie alla possibilità di ottenere i dati più aggiornati da TFS Online, di eseguire uno script SQL e il processo di importazione, è possibile mettere in piedi un ambiente completo in brevissimo tempo. Questa pratica migliora anche il processo di gestione temporanea.
 
@@ -175,11 +175,11 @@ Il processo è pianificato per essere eseguito ogni 5 minuti come attività Web 
 
 ###Strategia di backup
 
-Abbiamo progettato una strategia di backup a più livelli per il ripristino da una gamma di scenari, dall’errore irreversibile, fino al ripristino di una singola transazione. Le risorse per la protezione includono tre tipi di dati \(sito Web, dati del sottoscrittore e file multimediali\).
+Abbiamo progettato una strategia di backup a più livelli per il ripristino da una gamma di scenari, dall’errore irreversibile, fino al ripristino di una singola transazione. Le risorse per la protezione includono tre tipi di dati (sito Web, dati del sottoscrittore e file multimediali).
 
 In primo luogo, mantenendo il codice sorgente del sito Web in TFS Online, sappiamo che se il sito diventa inattivo, è possibile ricompilarlo mediante la ripubblicazione da TFS.
 
-I dati del sottoscrittore nel database SQL di Azure rappresentano la risorsa più sensibile. Il backup di questi dati viene eseguito utilizzando la funzionalità integrata \(vedere [Backup e ripristino del database SQL di Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)\). La pianificazione di backup consiste nel backup completo del database una volta alla settimana, dei backup differenziali del database una volta al giorno e dei backup del log delle transazioni ogni 5 minuti. Date le dimensioni dei dati, questa soluzione è più che sufficiente per i volumi di dati immediati e proiettati.
+I dati del sottoscrittore nel database SQL di Azure rappresentano la risorsa più sensibile. Il backup di questi dati viene eseguito utilizzando la funzionalità integrata (vedere [Backup e ripristino del database SQL di Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)). La pianificazione di backup consiste nel backup completo del database una volta alla settimana, dei backup differenziali del database una volta al giorno e dei backup del log delle transazioni ogni 5 minuti. Date le dimensioni dei dati, questa soluzione è più che sufficiente per i volumi di dati immediati e proiettati.
 
 In terzo luogo, i file di immagini e video vengono archiviati nell'archiviazione BLOB di Azure. Stiamo ancora valutando il piano di backup finale per questi dati, considerando Cloudberry Explorer for Azure come potenziale soluzione. Per ora, viene utilizzato un processo Web di Azure WebJobs per copiare immagini e video in un'altra posizione.
 
@@ -187,7 +187,7 @@ In terzo luogo, i file di immagini e video vengono archiviati nell'archiviazione
 
 Poiché i dati erano già in nostro possesso, è stato semplice definire il modello di prova. In poche ore, avevamo un prototipo con facet, contatori, paging, profili classificati e risultati di ricerca. I risultati della ricerca erano così precisi, che abbiamo deciso di rimuovere alcuni dei filtri presentati al cliente finale.
 
-La sorpresa più grande per noi è stata la velocità di apprendimento di Ricerca di Azure e i risultati che abbiamo ottenuto. Abbiamo definito il modello di prova realmente in poche ore \(vedere la nota seguente\), sostituendo 500 righe di codice con tre righe di codice nell'applicazione front-end \(più un nuovo processo Web\) e ottenendo risultati migliori.
+La sorpresa più grande per noi è stata la velocità di apprendimento di Ricerca di Azure e i risultati che abbiamo ottenuto. Abbiamo definito il modello di prova realmente in poche ore (vedere la nota seguente), sostituendo 500 righe di codice con tre righe di codice nell'applicazione front-end (più un nuovo processo Web) e ottenendo risultati migliori.
 
 In precedenza, il nostro codice implementava paging, conteggi, e altri comportamenti standard per la ricerca. Grazie all’utilizzo di Ricerca di Azure, i risultati che vengono restituiti includono risultati della ricerca, facet, dati di paging e conteggi, tutti ciò di cui avevamo bisogno e a cui dovevamo provvedere da soli. Erano inoltre inclusi l’elevazione della priorità e l’esplorazione in base ai facet integrata, che non erano presenti nella soluzione originale.
 
@@ -207,7 +207,7 @@ Ricerca di Azure non è stata l’unica sorpresa piacevole per noi. Abbiamo scop
 
 ###Esplora archivi BLOB di Azure per l'aggiornamento delle immagini
 
-Abbiamo trovato molto utile l’utilizzo di [Esplora archivi BLOB di Azure](https://azurestorageexplorer.codeplex.com/) \(disponibile su CodePlex\) nella gestione degli aggiornamenti di immagini e video per il sito. Questa funzionalità viene utilizzata come strumento di sviluppo per aggiornare manualmente immagini e video che fanno parte del nostro sito principale. Lo abbiamo trovato più flessibile rispetto alla distribuzione delle modifiche al portale. Inoltre, consente di eliminare un'iterazione di test completa ogni volta che è necessario aggiornare un'immagine.
+Abbiamo trovato molto utile l’utilizzo di [Esplora archivi BLOB di Azure](https://azurestorageexplorer.codeplex.com/) (disponibile su CodePlex) nella gestione degli aggiornamenti di immagini e video per il sito. Questa funzionalità viene utilizzata come strumento di sviluppo per aggiornare manualmente immagini e video che fanno parte del nostro sito principale. Lo abbiamo trovato più flessibile rispetto alla distribuzione delle modifiche al portale. Inoltre, consente di eliminare un'iterazione di test completa ogni volta che è necessario aggiornare un'immagine.
 
 ##Conclusione
 

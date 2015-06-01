@@ -18,7 +18,7 @@
 # Introduzione all'insieme di credenziali chiave di Azure #
 
 ## Introduzione  
-Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali chiave di Azure \(attualmente in anteprima\) per creare un contenitore finalizzato \(un insieme di credenziali\) in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure. Verrà inoltre descritto come usare Windows PowerShell per creare un insieme di credenziali contenente una chiave o una password che sarà possibile usare con un'applicazione Azure. L'esercitazione spiega poi come un'applicazione può usare questa chiave o password.
+Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali chiave di Azure (attualmente in anteprima) per creare un contenitore finalizzato (un insieme di credenziali) in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure. Verrà inoltre descritto come usare Windows PowerShell per creare un insieme di credenziali contenente una chiave o una password che sarà possibile usare con un'applicazione Azure. L'esercitazione spiega poi come un'applicazione può usare questa chiave o password.
 
 **Tempo previsto per il completamento:** 20 minuti
 
@@ -154,7 +154,7 @@ Questo passaggio di solito viene eseguito da uno sviluppatore, su un computer se
 Le applicazioni che usano un insieme di credenziali chiave devono eseguire l'autenticazione con un token di Azure Active Directory. A tale scopo, il proprietario dell'applicazione deve innanzitutto registrare l'applicazione in Azure Active Directory. Al termine della registrazione, il proprietario dell'applicazione ottiene i valori seguenti:
 
 
-- Un **ID applicazione** \(chiamato anche ID client\) e una **chiave di autenticazione** \(chiamata anche segreto condiviso\). L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'applicazione di esempio dell'insieme di credenziali chiave, il proprietario dell'applicazione imposta questi valori nel file app.config.
+- Un **ID applicazione** (chiamato anche ID client) e una **chiave di autenticazione** (chiamata anche segreto condiviso). L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'applicazione di esempio dell'insieme di credenziali chiave, il proprietario dell'applicazione imposta questi valori nel file app.config.
 
 
 
@@ -165,8 +165,8 @@ Per registrare l'applicazione in Azure Active Directory:
 
 3. Fare clic su **APPLICAZIONI**. Se nessuna app è stata aggiunta alla directory, questa pagina mostrerà solo il collegamento **Aggiungi app**. Fare clic sul collegamento. In alternativa, è possibile fare clic su **AGGIUNGI** sulla barra dei comandi.
 4.	Nella procedura guidata **AGGIUNGI APPLICAZIONE**, nella pagina **Come procedere** fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
-5.	Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e selezionare **APPLICAZIONE WEB E/O API WEB** \(pagina predefinita\). Fare clic sull'icona Avanti.
-6.	Nella pagina **Proprietà dell'app** specificare **URL ACCESSO** e **URI ID APP** per l'applicazione Web. Se l'applicazione non dispone di questi valori, è possibile crearli per questo passaggio \(ad esempio, è possibile specificare http://test1.contoso.com per entrambe le caselle\). Non è importante se questi siti esistono. Ciò che conta è che ogni applicazione nella directory abbia un URI ID app diverso. La directory usa questa stringa per identificare l'app.
+5.	Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e selezionare **APPLICAZIONE WEB E/O API WEB** (pagina predefinita). Fare clic sull'icona Avanti.
+6.	Nella pagina **Proprietà dell'app** specificare **URL ACCESSO** e **URI ID APP** per l'applicazione Web. Se l'applicazione non dispone di questi valori, è possibile crearli per questo passaggio (ad esempio, è possibile specificare http://test1.contoso.com per entrambe le caselle). Non è importante se questi siti esistono. Ciò che conta è che ogni applicazione nella directory abbia un URI ID app diverso. La directory usa questa stringa per identificare l'app.
 7.	Fare clic sull'icona Completa per salvare le modifiche nella procedura guidata.
 8.	Nella pagina Avvio rapido fare clic su **CONFIGURA**. 
 9.	Scorrere fino alla sezione **chiavi**, selezionare la durata e quindi fare clic su **SALVA**. La pagina viene aggiornata e mostra un valore chiave. È necessario configurare l'applicazione con questo valore chiave e con il valore **ID CLIENT**. Le istruzioni per questa configurazione saranno specifiche dell'applicazione.
@@ -188,7 +188,7 @@ Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applic
 
 ## <a id="HSM"></a>Per usare un modulo di protezione hardware ##
 
-Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware \(HSM\) che rimangono sempre entro il limite HSM. I moduli HSM sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).
+Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli HSM sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).
 
 Per creare queste chiavi HSM protette, è necessaria una [sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette](../../../pricing/free-trial).
 
@@ -197,7 +197,7 @@ Quando si crea l'insieme di credenziali, aggiungere il parametro 'SKU':
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-È possibile aggiungere a questo insieme di credenziali chiavi protette tramite software \(come illustrato in precedenza\) e chiavi HSM protette. Per creare una chiave HSM protetta, impostare il parametro Destination su 'HSM':
+È possibile aggiungere a questo insieme di credenziali chiavi protette tramite software (come illustrato in precedenza) e chiavi HSM protette. Per creare una chiave HSM protetta, impostare il parametro Destination su 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@ Quando si crea l'insieme di credenziali, aggiungere il parametro 'SKU':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-Il comando successivo importa un pacchetto "bring your own key" \(BYOK\). Ciò consente di generare la chiave nel modulo HSM locale e di trasferirlo in moduli HSM nel servizio dell'insieme di credenziali chiave, senza che la chiave esca dal limite HSM:
+Il comando successivo importa un pacchetto "bring your own key" (BYOK). Ciò consente di generare la chiave nel modulo HSM locale e di trasferirlo in moduli HSM nel servizio dell'insieme di credenziali chiave, senza che la chiave esca dal limite HSM:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@ Altri comandi che potrebbero essere utili per la gestione dell'insieme di creden
 
 Per un elenco di cmdlet di Windows PowerShell per l'insieme di credenziali chiave di Azure, vedere [Cmdlet per l'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C\# dell'insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 

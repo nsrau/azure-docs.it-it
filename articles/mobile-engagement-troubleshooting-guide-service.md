@@ -29,10 +29,10 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
 ### Cause
 - I problemi che sembrano dovuti a interruzioni del servizio Azure Mobile Engagement possono avere diverse cause:
     - Problemi isolati visualizzati originariamente come sistemici in Azure Mobile Engagement.
-    - Problemi noti causati da interruzioni del server \(non sempre visualizzati nello stato del server\).
+    - Problemi noti causati da interruzioni del server (non sempre visualizzati nello stato del server).
 	- Ritardi di pianificazione, errori di destinazione, problemi nell'aggiornamento del badge, interruzione della raccolta dei dati da parte dei sistemi statistici, interruzione del funzionamento delle notifiche push e delle API, impossibilità di creazione di nuovi utenti o app, errori DNS e di timeout nell'interfaccia utente, nell'API o nelle app del dispositivo.
-    - Interruzioni della dipendenza cloud [Stato di Azure](http://status.azure.com/), [Stato di Amazon Web Services \(AWS\)](http://status.aws.amazon.com/). 
-    - Interruzioni della dipendenza dei servizi di notifica push \(PNS\) [Google - Servizio](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Servizio](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/).
+    - Interruzioni della dipendenza cloud [Stato di Azure](http://status.azure.com/), [Stato di Amazon Web Services (AWS)](http://status.aws.amazon.com/). 
+    - Interruzioni della dipendenza dei servizi di notifica push (PNS) [Google - Servizio](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Servizio](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/).
     - Interruzioni di App Store [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/).
 
 *Per verificare se il problema è sistemico, eseguire il test della stessa funzione da un elemento differente:*
@@ -91,10 +91,10 @@ Per verificare se il problema riguarda gli aggiornamenti relativi al sistema ope
     - Confermare che il problema non è relativo a un solo computer o alla propria rete locale.
     - Confermare che il servizio Azure Mobile Engagement non ha riportato interruzioni.
     - Confermare che i file relativi al tag di informazioni sull'app seguono tutte le regole seguenti:
-        - Usare solo il set di caratteri UTF8 \(set di caratteri ANSI non supportato\).
+        - Usare solo il set di caratteri UTF8 (set di caratteri ANSI non supportato).
         - Usare la virgola "," come separatore. È possibile aprire una richiesta di assistenza per richiedere di non usare la virgola "," come separatore, ma un altro carattere, ad esempio il punto e virgola ";".
         - Usare tutte le lettere minuscole per i valori Boolean "true" e "false".
-        - Usare un file di dimensioni inferiori a 35 MB \(limite consentito\).
+        - Usare un file di dimensioni inferiori a 35 MB (limite consentito).
 
 ### Vedere anche
 

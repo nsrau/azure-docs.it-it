@@ -55,7 +55,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 <tr><td>Nome di accesso al database SQL di Azure</td><td>$sqlDatabaseLogin</td><td></td><td>Nome di accesso del database SQL di Azure.</td></tr>
 <tr><td>Password di accesso al database SQL di Azure</td><td>$sqlDatabasePassword</td><td></td><td>Password di accesso del database SQL di Azure.</td></tr>
 <tr><td>Nome del database SQL di Azure</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure nel quale Sqoop esporterà o dal quale importerà i dati. </td></tr>
-</table>> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
+</table>
+> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
 
 * **SQL Server**: se il cluster HDInsight si trova sulla stessa rete virtuale di Azure di SQL Server, è possibile usare la procedura descritta in questo articolo per importare ed esportare i dati in un database SQL Server.
 
@@ -615,9 +616,9 @@ In questa sezione si importeranno nuovamente in HDInsight i file di log log4j (e
 
 In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazioni, vedere:
 
-- [Usare Oozie con HDInsight][hdinsight-use-oozie]\: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
-- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]\: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
-- [Caricare i dati in HDInsight][hdinsight-upload-data]\: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
+- [Usare Oozie con HDInsight][hdinsight-use-oozie]: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
+- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
+- [Caricare i dati in HDInsight][hdinsight-upload-data]: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 
 
  

@@ -257,12 +257,12 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 
             // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
+            var alert = "{"aps":{"alert":"Hello"}}";
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
 
 
             // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
+            var notif = "{ "data" : {"msg":"Hello"}}";
             await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
 
 

@@ -111,7 +111,7 @@ Dopo aver eseguito un esperimento in Machine Learning Studio, è possibile acced
 
 È possibile accedere ai set di dati intermedi sono se si trovano in un formato compatibile con la libreria client Python.
 
-Sono supportati i formati seguenti \(le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`\):
+Sono supportati i formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`):
 
  - PlainText
  - GenericCSV
@@ -187,7 +187,7 @@ Per enumerare solo i set di dati di esempio:
     for ds in ws.example_datasets:
         print(ds.name)
 
-È possibile accedere a un set di dati per nome \(si applica la distinzione maiuscole/minuscole\):
+È possibile accedere a un set di dati per nome (si applica la distinzione maiuscole/minuscole):
 
     ds = ws.datasets['my dataset name']
 
@@ -198,7 +198,7 @@ In alternativa, è possibile accedere tramite indice:
 
 ### Metadata
 
-I set di dati sono composti non solo dal contenuto ma anche da metadati \(i set di dati intermedi rappresentano un'eccezione a questa regola poiché non contengono metadati\).
+I set di dati sono composti non solo dal contenuto ma anche da metadati (i set di dati intermedi rappresentano un'eccezione a questa regola poiché non contengono metadati).
 
 Alcuni valori di metadati vengono assegnati dall'utente in fase di creazione:
 
@@ -264,7 +264,7 @@ Se invece i dati sono già serializzati, è possibile usare:
         description='my description'
     )
 
-La libreria client Python è in grado di serializzare un oggetto DataFrame Pandas nei formati seguenti \(le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`\):
+La libreria client Python è in grado di serializzare un oggetto DataFrame Pandas nei formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`):
 
  - PlainText
  - GenericCSV

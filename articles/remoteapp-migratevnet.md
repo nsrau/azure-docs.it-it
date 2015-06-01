@@ -20,12 +20,12 @@
 
 # Come eseguire la migrazione di una raccolta ibrida da una rete virtuale RemoteApp a una rete virtuale di Azure
 
-Ottime notizie! Ora è possibile distribuire raccolte ibride di RemoteApp direttamente nelle reti virtuali di Azure esistenti invece di creare reti virtuali RemoteApp specifiche. In questo modo è possibile sfruttare le nuove funzionalità delle reti virtuali \(come ExpressRoute\) e concedere alle raccolte ibride l'accesso diretto alla rete per altri servizi e macchine virtuali di Azure distribuiti in a tale rete virtuale. È così possibile migliorare le prestazioni e facilitare l'installazione rispetto alle configurazioni tra reti virtuali.
+Ottime notizie! Ora è possibile distribuire raccolte ibride di RemoteApp direttamente nelle reti virtuali di Azure esistenti invece di creare reti virtuali RemoteApp specifiche. In questo modo è possibile sfruttare le nuove funzionalità delle reti virtuali (come ExpressRoute) e concedere alle raccolte ibride l'accesso diretto alla rete per altri servizi e macchine virtuali di Azure distribuiti in a tale rete virtuale. È così possibile migliorare le prestazioni e facilitare l'installazione rispetto alle configurazioni tra reti virtuali.
 
 
 Si supponga di avere già creato una raccolta RemoteApp ibrida denominata *RaccoltaOriginale* con una rete virtuale RemoteApp denominata *ReteVirtualeRemoteApp*. Di seguito è riportata la procedura per eseguirne la migrazione a una nuova rete virtuale di Azure denominata *ReteVirtualeAzure*.
 
-1.	Nella scheda **Reti** del [portale di gestione](http://manage.windowsazure.com/) creare una rete virtuale denominata *ReteVirtualeAzure* usando lo stesso percorso, la stessa configurazione del DNS e lo stesso spazio di indirizzi \(per almeno una delle subnet di *ReteVirtualeAzure*\) usati per *ReteVirtualeRemoteApp*.
+1.	Nella scheda **Reti** del [portale di gestione](http://manage.windowsazure.com/) creare una rete virtuale denominata *ReteVirtualeAzure* usando lo stesso percorso, la stessa configurazione del DNS e lo stesso spazio di indirizzi (per almeno una delle subnet di *ReteVirtualeAzure*) usati per *ReteVirtualeRemoteApp*.
 2.	Configurare *ReteVirtualeAzure* per ospitare o avere la connettività di rete alla distribuzione di Active Directory in cui *RaccoltaOriginale* è aggiunta al dominio.
 3.	Nella scheda **RemoteApp** creare una nuova raccolta RemoteApp denominata *NuovaRaccolta*. Usare l'opzione **Crea con VPN**, non **Creazione rapida**.
 3.	Configurare *NuovaRaccolta* per la distribuzione a una subnet in *ReteVirtualeAzure*.

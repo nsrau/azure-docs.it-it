@@ -33,7 +33,7 @@ Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](h
 
 Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione della replica geografica di HBase.
 
-- Configurare una connessione VPN tra due reti virtuali \(questa esercitazione\)
+- Configurare una connessione VPN tra due reti virtuali (questa esercitazione)
 - [Configurare il server DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-DNS]
 - [Configurare la replica geografica di HBase][hdinsight-hbase-geo-replication]
 
@@ -74,20 +74,20 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- **NOME**: Contoso-VNet-EU
 	- **LOCALITÀ**: Europa settentrionale
 
-		This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
+		In questa esercitazione vengono utilizzati i centri dati del Nord Europa e degli Stati Uniti orientali. È possibile scegliere altri centri dati.
 4.	Digitare:
 
-	- **SERVER DNS**: \(lasciare vuoto\) 
+	- **SERVER DNS**: (lasciare vuoto) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		Sarà necessario il proprio server DNS per la risoluzione dei nomi nelle reti virtuali. Per ulteriori informazioni su quando utilizzare la risoluzione dei nomi fornita da Azure e quando utilizzare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Per istruzioni sulla configurazione della risoluzione dei nomi tra VNet, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
   
-	- **Configurare una VPN Point-to-Site**: \(deselezionato\)
+	- **Configurare una VPN Point-to-Site**: (deselezionato)
 
-		Point-to-site doesn't apply to this scenario.
+		Point-to-site non si applica a questo scenario.
 
- \- **Configurare una VPN Site-to-Site**: \(deselezionato\)
+ 	- **Configurare una VPN Site-to-Site**: (deselezionato)
  	
-		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
+		Sarà configurata una connessione VPN tra siti alla rete virtuale di Azure nel centro dati degli Stati Uniti orientali.
 5.	Digitare:
 
 	- 	**IP INIZIALE SPAZIO DI INDIRIZZI**: 10.1.0.0
@@ -104,9 +104,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- **NOME**: Contoso-VNet-US
 	- **LOCALITÀ**: Stati Uniti orientali
 	 
-	- **SERVER DNS**: \(lasciare vuoto\)
-	- **Configurare una VPN Point-to-Site**: \(deselezionato\)
-	- **Configurare una VPN Site-to-Site**: \(deselezionato\)
+	- **SERVER DNS**: (lasciare vuoto)
+	- **Configurare una VPN Point-to-Site**: (deselezionato)
+	- **Configurare una VPN Site-to-Site**: (deselezionato)
 	 
 	- **IP INIZIALE SPAZIO DI INDIRIZZI**: 10.2.0.0
 	- **CIDR SPAZIO DI INDIRIZZI**: /16
@@ -144,9 +144,9 @@ Quando si crea una configurazione tra reti virtuali, è necessario configurare c
 3. Digitare:
 
 	- **NAME**: Contoso-LNet-EU
-	- **INDIRIZZO IP DISPOSITIVO VPN**: 192.168.0.1 \(questo indirizzo verrà aggiornato in seguito\)
+	- **INDIRIZZO IP DISPOSITIVO VPN**: 192.168.0.1 (questo indirizzo verrà aggiornato in seguito)
 
-		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
+		In genere, si utilizza l'indirizzo IP esterno effettivo per un dispositivo VPN. Per le configurazioni VNet-VNet, si utilizza l'indirizzo IP del gateway VPN. Dal momento che non sono stati ancora creati i gateway VPN per i due VNet, si immette un indirizzo IP arbitrario da correggere in un secondo momento.
 4.	Digitare:
 
 	- **IP INIZIALE SPAZIO DI INDIRIZZI:** 10.1.0.0
@@ -159,7 +159,7 @@ Quando si crea una configurazione tra reti virtuali, è necessario configurare c
 - Ripetere l'ultima procedura con i parametri seguenti:
 
 	- **NAME**: Contoso-LNet-US
-	- **INDIRIZZO IP DISPOSITIVO VPN**: 192.168.0.1 \(questo indirizzo verrà aggiornato in seguito\)
+	- **INDIRIZZO IP DISPOSITIVO VPN**: 192.168.0.1 (questo indirizzo verrà aggiornato in seguito)
 	 
 	- **IP INIZIALE SPAZIO DI INDIRIZZI**: 10.2.0.0
 	- **CIDR SPAZIO DI INDIRIZZI**: /16

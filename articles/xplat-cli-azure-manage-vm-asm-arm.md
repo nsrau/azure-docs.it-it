@@ -18,7 +18,7 @@
 
 
 # Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure
-In questo articolo vengono elencati i comandi equivalenti interfaccia della riga di comando di Azure \(Azure CLI\) per creare e gestire macchine virtuali di Azure in modalità di gestione dei servizi \(asm\) in modalità di gestione risorse \(arm\). Utilizzare come guida utile per la migrazione degli script dalla modalità uno comando a altro.
+In questo articolo vengono elencati i comandi equivalenti interfaccia della riga di comando di Azure (Azure CLI) per creare e gestire macchine virtuali di Azure in modalità di gestione dei servizi (asm) in modalità di gestione risorse (arm). Utilizzare come guida utile per la migrazione degli script dalla modalità uno comando a altro.
 
 * Se non già installato Azure CLI e connesso alla sottoscrizione, vedere [installare CLI Azure per Mac, Linux e Windows](xplat-cli-install.md) e [connettersi a una sottoscrizione Azure da CLI per Mac, Linux e Windows Azure](xplat-cli-connect.md). Assicurarsi di connettersi con il metodo di accesso quando si utilizzano i comandi di modalità arm.
 

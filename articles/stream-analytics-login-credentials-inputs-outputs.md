@@ -70,7 +70,7 @@ Per altri input/output, andare alla Parte 2.
 10. Fare clic sul comando Gestisci: ![graphic22][graphic22]
 11. immettere il nome utente, la password e fare clic su Accedi: ![graphic23][graphic23]
 12. Fare clic su Nuova query: ![graphic24][graphic24]
-13. Immettere la query seguente sostituendo <user_name> con il nome con cui identificare l’accesso nel contesto di questo database \(è possibile fornire lo stesso valore assegnato per <login_name>, ad esempio\) e sostituendo <login_name> con il nuovo nome utente: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Immettere la query seguente sostituendo <user_name> con il nome con cui identificare l’accesso nel contesto di questo database (è possibile fornire lo stesso valore assegnato per <login_name>, ad esempio) e sostituendo <login_name> con il nuovo nome utente: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Fare clic su Esegui: ![graphic25][graphic25]
 15. A questo punto è necessario assegnare al nuovo utente gli stessi ruoli e privilegi che aveva l’utente originale.
 16. Continuare con la Parte 2.
@@ -119,7 +119,7 @@ Per altri input/output, andare alla Parte 2.
 4.	Andare alla Parte 5.  
 
 ##Parte 5: rimozione del set di credenziali precedente
-Questa parte è applicabile ai seguenti input/output: \* Archiviazione BLOB \* Hub eventi \* Database SQL \* Archiviazione tabelle
+Questa parte è applicabile ai seguenti input/output: * Archiviazione BLOB * Hub eventi * Database SQL * Archiviazione tabelle
 
 ###Archiviazione BLOB/Archiviazione tabelle
 Ripetere la Parte 1 per la chiave di accesso usata in precedenza dal processo per rinnovare la chiave di accesso ora inutilizzata.

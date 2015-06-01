@@ -18,13 +18,13 @@
 
 # Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
  
-È possibile usare la sezione Contenuto di una nuova campagna Reach per modificare il contenuto di annunci, sondaggi, push di dati e riquadri \(solo per Windows Phone\). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
+È possibile usare la sezione Contenuto di una nuova campagna Reach per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
  
 ### Tipi di contenuti:
 - Annunci
 - Sondaggi
 - Push di dati
-- Riquadri \(solo per Windows Phone\)
+- Riquadri (solo per Windows Phone)
  
 ## Contenuto degli annunci
  ![Reach-Content1][30]
@@ -38,64 +38,64 @@
 - [Reach - Procedure - Annunci][Link 3] 
 
 ### Informazioni sugli annunci di visualizzazione Web:
-Le ricorrenze del modello "{deviceid}" nel codice HTML o nel codice JavaScript fornito in questa sezione verranno automaticamente sostituite dall'identificatore del dispositivo che visualizza l'annuncio. Si tratta di un metodo semplice per recuperare gli identificatori dei dispositivi di Azure Mobile Engagement in un servizio Web esterno ospitato sul back-office. Se si desidera creare una visualizzazione Web a schermo intero \(senza i pulsanti di azione e uscita predefiniti forniti\), è possibile usare le funzioni seguenti dal codice JavaScript dell'annuncio di visualizzazione Web:
+Le ricorrenze del modello "{deviceid}" nel codice HTML o nel codice JavaScript fornito in questa sezione verranno automaticamente sostituite dall'identificatore del dispositivo che visualizza l'annuncio. Si tratta di un metodo semplice per recuperare gli identificatori dei dispositivi di Azure Mobile Engagement in un servizio Web esterno ospitato sul back-office. Se si desidera creare una visualizzazione Web a schermo intero (senza i pulsanti di azione e uscita predefiniti forniti), è possibile usare le funzioni seguenti dal codice JavaScript dell'annuncio di visualizzazione Web:
 
--    Per eseguire l'azione di annuncio: ReachContent.actionContent\(\)
--    Per uscire dall'annuncio: ReachContent.exitContent\(\)
+-    Per eseguire l'azione di annuncio: ReachContent.actionContent()
+-    Per uscire dall'annuncio: ReachContent.exitContent()
  
 ### Scegliere l'azione:
 
 ### Informazioni sugli URL di azione:
-qualsiasi URL che può essere interpretato dal sistema operativo di un dispositivo di destinazione può essere usato come un URL di azione. Qualsiasi URL dedicato che potrebbe essere supportato dall'applicazione \(ad esempio per far sì che gli utenti passino a una schermata specifica\) può essere usato anche come URL di azione. Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'identificatore del dispositivo che esegue l'azione. Questo metodo consente di recuperare facilmente gli identificatori dei dispositivi di Azure Mobile Engagement tramite un servizio Web esterno ospitato sul back-office.
+qualsiasi URL che può essere interpretato dal sistema operativo di un dispositivo di destinazione può essere usato come un URL di azione. Qualsiasi URL dedicato che potrebbe essere supportato dall'applicazione (ad esempio per far sì che gli utenti passino a una schermata specifica) può essere usato anche come URL di azione. Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'identificatore del dispositivo che esegue l'azione. Questo metodo consente di recuperare facilmente gli identificatori dei dispositivi di Azure Mobile Engagement tramite un servizio Web esterno ospitato sul back-office.
 
 - **Azioni di Android e iOS**
     - Aprire una pagina Web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
-    - mailto:\[destinatario\]?subject=\[oggetto\]&body=\[messaggio\] 
+    - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
     - Esempio:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Inviare un SMS
-    - sms:\[numero di telefono\] 
+    - sms:[numero di telefono] 
     - Esempio:sms:2125551212
     - Comporre un numero di telefono
-    - tel:\[numero di telefono\] 
+    - tel:[numero di telefono] 
     - Esempio:tel:2125551212
 - **Azioni solo di Android**
     - Scaricare un'applicazione in Play Store
-    - market://details?id=\[app pacchetto\] 
+    - market://details?id=[app pacchetto] 
     - Esempio:market://details?id=com.microsoft.office.word
     - Avviare una ricerca di localizzazione geografica
-    - geo:0,0?q=\[query di ricerca\] 
+    - geo:0,0?q=[query di ricerca] 
     - Esempio:geo:0,0?q=starbucks,paris
 - **Azioni solo di iOS**
     - Scaricare un'applicazione in App Store
-    - http://itunes.apple.com/[country]/app/[app nome\]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app nome]/id[app id]?mt=8 
     - Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Azioni di Windows
     - Aprire una pagina Web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
-    - mailto:\[destinatario\]?subject=\[oggetto\]&body=\[messaggio\] 
+    - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
     - Esempio:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Inviare un SMS \(è necessario Skype Store App\)
-    - sms:\[numero di telefono\] 
+    - Inviare un SMS (è necessario Skype Store App)
+    - sms:[numero di telefono] 
     - Esempio:sms:2125551212
-    - Comporre un numero di telefono \(è necessario Skype Store App\)
-    - tel:\[numero di telefono\] 
+    - Comporre un numero di telefono (è necessario Skype Store App)
+    - tel:[numero di telefono] 
     - Esempio:tel:2125551212
     - Scaricare un'applicazione in Play Store
-    - ms-windows-store:PDP?PFN=\[ID pacchetto app\] 
+    - ms-windows-store:PDP?PFN=[ID pacchetto app] 
     - Esempio:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Avviare una ricerca in Bing Mappe
-    - bingmaps:?q=\[query di ricerca\] 
+    - bingmaps:?q=[query di ricerca] 
     - Esempio:bingmaps:?q=starbucks,paris
     - Usare uno schema personalizzato
-    - \[schema personalizzato\]://\[parametri schema personalizzato\] 
+    - [schema personalizzato]://[parametri schema personalizzato] 
     - Esempio:myCustomProtocol://myCustomParams
-    - Usare dati di un pacchetto \(è necessario App Store per la lettura dell'estensione\)
-    - \[cartella\]\[dati\].\[estensione\] 
+    - Usare dati di un pacchetto (è necessario App Store per la lettura dell'estensione)
+    - [cartella][dati].[estensione] 
     - Esempio:myfolderdata.txt
  
 ### Creare un URL di rilevamento:
@@ -129,11 +129,11 @@ Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È poss
 ### Vedere anche
 - [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
 
-## Contenuto dei riquadri \(solo per Windows Phone\)
+## Contenuto dei riquadri (solo per Windows Phone)
 ![Reach-Content4][33]
 
 ### Definire il contenuto del riquadro
-Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone. Un push di riquadri è la versione Servizio di notifica Push di Microsoft \(MPNS\) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri.
+Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone. Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri.
 
 ### Vedere anche
 - [Documentazione dell'API - API Reach - Push nativo][Link 4]

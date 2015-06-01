@@ -109,7 +109,7 @@ Di seguito è fornito un esempio:
 
 ### Microsoft.Network/virtualNetworks
 
-Questa sezione viene creata una rete virtuale solo cloud con quattro subnet \(uno per ogni livello della distribuzione\), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
+Questa sezione viene creata una rete virtuale solo cloud con quattro subnet (uno per ogni livello della distribuzione), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -130,7 +130,7 @@ Questa sezione viene creata una rete virtuale solo cloud con quattro subnet \(un
 
 ### Microsoft.Network/loadBalancers
 
-Queste sezioni crea istanze del servizio di bilanciamento del carico per ogni macchina virtuale fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e una regola per consentire il traffico web in ingresso \(porta TCP 80\) da Internet per i server di livello web. Ecco un esempio per il server di livello web:
+Queste sezioni crea istanze del servizio di bilanciamento del carico per ogni macchina virtuale fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e una regola per consentire il traffico web in ingresso (porta TCP 80) da Internet per i server di livello web. Ecco un esempio per il server di livello web:
 
         {
             "apiVersion": "2014-12-01-preview",
@@ -341,15 +341,15 @@ Ulteriori **"Microsoft.Compute/virtualMachines/extensions"** sezioni chiamare gl
 
 Si noti l'organizzazione generale delle sottosezioni del **"risorse"** sezione del file JSON:
 
-1.	Creare gli elementi dell'infrastruttura di Azure che sono necessari per il supporto di più macchine virtuali \(un account di archiviazione, gli indirizzi IP pubblici, i set di disponibilità, una rete virtuale, interfacce di rete, istanze del servizio di bilanciamento del carico\).
+1.	Creare gli elementi dell'infrastruttura di Azure che sono necessari per il supporto di più macchine virtuali (un account di archiviazione, gli indirizzi IP pubblici, i set di disponibilità, una rete virtuale, interfacce di rete, istanze del servizio di bilanciamento del carico).
 2.	Creare il dominio controller macchine virtuali, utilizzare gli elementi comuni e specifici creato in precedenza dell'infrastruttura di Azure, aggiungere dischi dati ed eseguire gli script di PowerShell. Inoltre, aggiornare la rete virtuale per utilizzare gli indirizzi IP statici dei controller di dominio.
 3.	Creare le macchine virtuali del cluster SQL Server che utilizzano gli elementi comuni e specifici creato in precedenza dell'infrastruttura di Azure creato per i controller di dominio, aggiungere dischi dati ed eseguire gli script di PowerShell per configurare il cluster e i gruppi di disponibilità AlwaysOn di SQL Server.
 4.	Creare le macchine virtuali di SharePoint server, che consente di utilizzare gli elementi comuni e specifici creato in precedenza dell'infrastruttura di Azure, aggiungere dischi dati ed eseguire gli script di PowerShell per configurare la farm di SharePoint.
 
 Un modello JSON per compilare un'infrastruttura a più livelli in Azure deve seguire la stessa procedura:
 
-1.	Creare il comune \(account di archiviazione, rete virtuale\), livello specifico \(set di disponibilità\) e macchina virtuale specifico \(indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico\) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
-2.	Per ogni livello dell'applicazione \(ad esempio l'autenticazione web, database\), creare e configurare i server in tale livello mediante comuni \(account di archiviazione, rete virtuale\), livello specifico \(set di disponibilità\) ed elementi specifici della macchina virtuale \(indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico\).
+1.	Creare il comune (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) e macchina virtuale specifico (indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
+2.	Per ogni livello dell'applicazione (ad esempio l'autenticazione web, database), creare e configurare i server in tale livello mediante comuni (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) ed elementi specifici della macchina virtuale (indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico).
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 

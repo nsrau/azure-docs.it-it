@@ -42,7 +42,7 @@ Selezionare qualsiasi elemento di dati di telemetria per visualizzare i campi ch
 
 ![Aprire la ricerca diagnostica](./media/app-insights-diagnostic-search/10-detail.png)
 
-Per trovare il set completo di campi, usare stringhe normali \(senza caratteri jolly\). I campi disponibili dipendono dal tipo di dati di telemetria.
+Per trovare il set completo di campi, usare stringhe normali (senza caratteri jolly). I campi disponibili dipendono dal tipo di dati di telemetria.
 
 ## I tipi di eventi sono i seguenti:
 
@@ -57,8 +57,8 @@ I tipi di eventi sono i seguenti:
 * **Traccia**: log di diagnostica con chiamate TrackTrace, log4Net, NLog e System.Diagnostic.Trace.
 * **Richiesta**: richieste HTTP ricevute dall'applicazione server, tra cui pagine, script, immagini, file di stile e dati. Questi eventi vengono usati per creare grafici di panoramica di richieste e risposte.
 * **Visualizzazione pagina**: i dati di telemetria inviati al client Web, usati per creare report di visualizzazioni pagine. 
-* **Evento personalizzato**: se sono state inserite chiamate in TrackEvent\(\) per [tenere traccia dell'utilizzo][track], è possibile cercarle qui.
-* **Eccezione**: eccezioni non rilevate nel server e quelle che si registrano con TrackException\(\).
+* **Evento personalizzato**: se sono state inserite chiamate in TrackEvent() per [tenere traccia dell'utilizzo][track], è possibile cercarle qui.
+* **Eccezione**: eccezioni non rilevate nel server e quelle che si registrano con TrackException().
 
 ## Filtrare in base ai valori delle proprietà
 
@@ -101,7 +101,7 @@ Trovare tutti gli elementi con lo stesso valore della proprietà:
 
 ## Eseguire ricerca in base al valore della metrica
 
-Ottenere il tempo di risposta di tutte le richiesta \> 5s. I tempi sono rappresentati in tick: 10 000 tick = 1 ms.
+Ottenere il tempo di risposta di tutte le richiesta > 5s. I tempi sono rappresentati in tick: 10 000 tick = 1 ms.
 
 !["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
@@ -115,13 +115,13 @@ Ottenere il tempo di risposta di tutte le richiesta \> 5s. I tempi sono rapprese
 
 ![Aprire la ricerca diagnostica](./media/appinsights/appinsights-311search.png)
 
-Eseguire la ricerca di termini, non di sottostringhe. I termini sono stringhe alfanumeriche che includono segni di punteggiatura quali '.' e '\_'. Ad esempio:
+Eseguire la ricerca di termini, non di sottostringhe. I termini sono stringhe alfanumeriche che includono segni di punteggiatura quali '.' e '_'. Ad esempio:
 
 Termine|*non* corrisponde a|ma corrisponde a
 ---|---|---
-ControllerHome.Info|info<br/>home|h\*info<br/>home\*
-ÈLocale|locale<br/>è<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n\* AND r\*
+ControllerHome.Info|info<br/>home|h*info<br/>home*
+ÈLocale|locale<br/>è<br/>*local|isl*<br/>islocal<br/>i*l*
+Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n* AND r*
 
 
 È possibile usare espressioni di ricerca quali le seguenti:
@@ -129,13 +129,13 @@ Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n\* AND r\*
 Query di esempio | Effetto 
 ---|---
 lento|Individuazione di tutti gli eventi nell'intervallo di dati i cui campi includono il termine "lento".
-database??|Trova la corrispondenza con database01, databaseAB,...<br/>Il punto interrogativo \(?\) non è consentito all'inizio di un termine di ricerca.
-database\*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco \(\*\) non è consentito all'inizio di un termine di ricerca.
+database??|Trova la corrispondenza con database01, databaseAB,...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
+database*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
 mela OR banana<br/>mela banana|Individuazione degli eventi che contengono uno dei termini. Usare "OR", non "or".</br/>Forma breve.
 mela NOT banana<br/>mela -banana|Individuare eventi che contengono un termine ma non l'altro.<br/>Forma breve.
-me\* AND banana-\(uva pera\)|Operatori logici e parentesi.
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | Trovare gli eventi che contengono la misura denominata all'interno dell'intervallo di valori.
+me* AND banana-(uva pera)|Operatori logici e parentesi.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Trovare gli eventi che contengono la misura denominata all'interno dell'intervallo di valori.
 
 
 ## Salvare la ricerca

@@ -53,8 +53,8 @@ Dichiarare una classe denominata **StorageSample** e includere la parentesi aper
 
     public class StorageSample {
 
-All'interno della classe **StorageSample** dichiarare una variabile di tipo stringa che conterrà il protocollo endpoint predefinito, il nome account di archiviazione e la chiave di accesso alle risorse di archiviazione, come specificato nell'account di archiviazione di Azure. Sostituire i valori dei segnaposto **your\_account\_name** e
-**your\_account\_key** rispettivamente con il nome e la chiave dell'account.
+All'interno della classe **StorageSample** dichiarare una variabile di tipo stringa che conterrà il protocollo endpoint predefinito, il nome account di archiviazione e la chiave di accesso alle risorse di archiviazione, come specificato nell'account di archiviazione di Azure. Sostituire i valori dei segnaposto **your_account_name** e
+**your_account_key** rispettivamente con il nome e la chiave dell'account.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Chiudere **MakeHTMLPage** inserendo una parentesi chiusa **}**
 
 Chiudere **StorageSample** inserendo una parentesi chiusa **}**
 
-Di seguito è riportato il codice completo per questo esempio. Modificare i valori dei segnaposto **your\_account\_name** e
-**your\_account\_key** sostituendoli rispettivamente con il nome e la chiave dell'account.
+Di seguito è riportato il codice completo per questo esempio. Modificare i valori dei segnaposto **your_account_name** e
+**your_account_key** sostituendoli rispettivamente con il nome e la chiave dell'account.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

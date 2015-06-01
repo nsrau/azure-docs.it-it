@@ -16,7 +16,7 @@
 	 ms.date="04/28/2015"
 	 ms.author="larryfr"/>
 
-# Usare Power BI \(anteprima\) per visualizzare i dati da una topologia Storm
+# Usare Power BI (anteprima) per visualizzare i dati da una topologia Storm
 
 L'anteprima di Power BI permette di mostrare visivamente i dati sotto forma di report o dashboard. L'API REST di Power BI permette di usare con facilità i dati da una topologia in esecuzione su Apache Storm in un cluster HDInsight in Power BI.
 
@@ -28,7 +28,7 @@ In questo documento verrà illustrato come usare Power BI per creare un report e
 
 * Un utente di Azure Active Directory con accesso [Power BI](https://powerbi.com)
 
-* Visual Studio \(una delle versioni seguenti\)
+* Visual Studio (una delle versioni seguenti)
 
     * Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -40,7 +40,7 @@ In questo documento verrà illustrato come usare Power BI per creare un report e
 
 ## Funzionamento
 
-Questo esempio include una topologia C\# Storm che genera in modo casuale una frase, la suddivide in parole, conta le parole e invia il conteggio delle parole all'API REST di Power BI. Il pacchetto NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) viene usato per comunicare con Power BI.
+Questo esempio include una topologia C# Storm che genera in modo casuale una frase, la suddivide in parole, conta le parole e invia il conteggio delle parole all'API REST di Power BI. Il pacchetto NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) viene usato per comunicare con Power BI.
 
 I file seguenti nel progetto implementano la funzionalità specifica di Power BI:
 
@@ -48,7 +48,7 @@ I file seguenti nel progetto implementano la funzionalità specifica di Power BI
 
 * **Data.cs**: descrive l'oggetto dati o la riga da inviare a Power BI.
 
-> [AZURE.WARNING]Sembra che Power BI permetta la creazione di più set di dati con lo stesso nome. È possibile che ciò si verifichi se il set di dati non esiste e la topologia crea più istanze del Bolt di Power BI. Per evitare questo problema, impostare l'hint di parallelismo del Bolt su 1 \(come illustrato in questo esempio\) oppure creare il set di dati prima di distribuire la topologia.
+> [AZURE.WARNING]Sembra che Power BI permetta la creazione di più set di dati con lo stesso nome. È possibile che ciò si verifichi se il set di dati non esiste e la topologia crea più istanze del Bolt di Power BI. Per evitare questo problema, impostare l'hint di parallelismo del Bolt su 1 (come illustrato in questo esempio) oppure creare il set di dati prima di distribuire la topologia.
 >
 > L'applicazione console **CreateDataset** inclusa in questa soluzione viene fornita come esempio relativo a come creare il set di dati all'esterno della topologia.
 
@@ -62,7 +62,7 @@ I file seguenti nel progetto implementano la funzionalità specifica di Power BI
 
 ## Scaricare l'esempio
 
-Scaricare l'[esempio di Power BI per C\# Storm in HDInsight](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Per scaricarlo, biforcarlo o clonarlo mediante [git](http://git-scm.com/) oppure usare il collegamento **Download** per scaricare un file con estensione zip dell'archivio.
+Scaricare l'[esempio di Power BI per C# Storm in HDInsight](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Per scaricarlo, biforcarlo o clonarlo mediante [git](http://git-scm.com/) oppure usare il collegamento **Download** per scaricare un file con estensione zip dell'archivio.
 
 ## Configurare l'esempio
 
@@ -74,7 +74,7 @@ Scaricare l'[esempio di Power BI per C\# Storm in HDInsight](https://github.com/
 
     * **Password**: password per l'account Azure Active Directory.
 
-2. \(Facoltativo\). Il nome predefinito per il set di dati usato da questo progetto è **Words**. Per cambiare il nome, fare clic con il pulsante destro del mouse sul progetto **WordCount** in **Esplora soluzioni**, scegliere **Proprietà** e quindi selezionare **Impostazioni**. Modificare la voce **DatasetName** specificando il valore desiderato.
+2. (Facoltativo). Il nome predefinito per il set di dati usato da questo progetto è **Words**. Per cambiare il nome, fare clic con il pulsante destro del mouse sul progetto **WordCount** in **Esplora soluzioni**, scegliere **Proprietà** e quindi selezionare **Impostazioni**. Modificare la voce **DatasetName** specificando il valore desiderato.
 
 2. Salvare e chiudere i file.
 

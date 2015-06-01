@@ -53,7 +53,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 
 ## Configurare una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::TableService** con il codice seguente:
+Il modulo di Azure leggerà le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::TableService** con il codice seguente:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -70,7 +70,7 @@ Per ottenere questi valori:
 
 ## Come creare una tabella
 
-L'oggetto **Azure::TableService** consente di usare le tabelle e le entità. Per creare una tabella, usare il metodo **create\_table()**. Nell'esempio seguente viene creata una tabella o stampato l'eventuale errore.
+L'oggetto **Azure::TableService** consente di usare le tabelle e le entità. Per creare una tabella, usare il metodo **create_table()**. Nell'esempio seguente viene creata una tabella o stampato l'eventuale errore.
 
 	azure_table_service = Azure::TableService.new
 	begin
@@ -91,22 +91,22 @@ Per aggiungere un'entità, creare innanzitutto un oggetto hash che definisca le 
 
 Esistono vari metodi per aggiornare un'entità esistente:
 
-* **update\_entity():** consente di aggiornare un'entità esistente sostituendola.
-* **merge\_entity():** consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà.
-* **insert\_or\_merge\_entity():** consente di aggiornare un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova:
-* **insert\_or\_replace\_entity():**consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
+* **update_entity():** consente di aggiornare un'entità esistente sostituendola.
+* **merge_entity():** consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà.
+* **insert_or_merge_entity():** consente di aggiornare un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova:
+* **insert_or_replace_entity():**consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
 
-Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'uso di **update\_entity()**:
+Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'uso di **update_entity()**:
 
 	entity = { "content" => "test entity with updated content", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.update_entity("testtable", entity)
 
-Con **update\_entity()** e **merge\_entity()**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, è necessario usare **insert\_or\_replace\_entity()** oppure **insert\_or\_merge\_entity()**.
+Con **update_entity()** e **merge_entity()**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, è necessario usare **insert_or_replace_entity()** oppure **insert_or_merge_entity()**.
 
 ## Procedura: Usare i gruppi di entità
 
-È talvolta consigliabile inviare più operazioni in un batch per garantire l'elaborazione atomica da parte del server. A tale scopo, è necessario prima creare un oggetto **Batch** e quindi usare il metodo **execute\_batch()** su **TableService**. Nell'esempio seguente viene dimostrato l'invio di due entità con RowKey 2 e 3 in un batch. Si noti che funziona solo per le entità con lo stesso oggetto PartitionKey.
+È talvolta consigliabile inviare più operazioni in un batch per garantire l'elaborazione atomica da parte del server. A tale scopo, è necessario prima creare un oggetto **Batch** e quindi usare il metodo **execute_batch()** su **TableService**. Nell'esempio seguente viene dimostrato l'invio di due entità con RowKey 2 e 3 in un batch. Si noti che funziona solo per le entità con lo stesso oggetto PartitionKey.
 
 	azure_table_service = Azure::TableService.new
 	batch = Azure::Storage::Table::Batch.new("testtable", 
@@ -118,14 +118,14 @@ Con **update\_entity()** e **merge\_entity()**, se l'entità da aggiornare non e
 
 ## Procedura: Eseguire query su un'entità
 
-Per eseguire una query su un'entità in una tabella, usare il metodo **get\_entity()** passando il nome tabella e i parametri **PartitionKey** e **RowKey**.
+Per eseguire una query su un'entità in una tabella, usare il metodo **get_entity()** passando il nome tabella e i parametri **PartitionKey** e **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
 ## Procedura: Eseguire query su un set di entità
 
-Per eseguire query su un set di entità in una tabella, creare un oggetto hash di query e usare il metodo **query\_entities()**. Nell'esempio seguente viene dimostrato l'invio di tutte le entità con lo stesso oggetto **PartitionKey**:
+Per eseguire query su un set di entità in una tabella, creare un oggetto hash di query e usare il metodo **query_entities()**. Nell'esempio seguente viene dimostrato l'invio di tutte le entità con lo stesso oggetto **PartitionKey**:
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -142,13 +142,13 @@ Mediante una query su una tabella è possibile recuperare solo alcune proprietà
 
 ## Procedura: Eliminare un'entità
 
-Per eliminare un'entità usare il metodo **delete\_entity()**. È necessario passare il nome della tabella contenente l'entità e i parametri PartitionKey e RowKey dell'entità.
+Per eliminare un'entità usare il metodo **delete_entity()**. È necessario passare il nome della tabella contenente l'entità e i parametri PartitionKey e RowKey dell'entità.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
 ## Procedura: Eliminare una tabella
 
-Per eliminare una tabella usare il metodo **delete\_table()** e passare il nome della tabella che si desidera eliminare.
+Per eliminare una tabella usare il metodo **delete_table()** e passare il nome della tabella che si desidera eliminare.
 
 		azure_table_service.delete_table("testtable")
 

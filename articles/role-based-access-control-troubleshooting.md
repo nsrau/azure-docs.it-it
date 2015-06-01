@@ -23,7 +23,7 @@
 
 [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md) è uno strumento efficace che consente di delegare con estrema precisione l'accesso alle risorse in Azure. Ciò significa che si può accordare a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
 
-Questo documento illustra gli effetti prodotti dall'uso di alcuni dei nuovi ruoli nel portale di Azure. Esistono tre ruoli predefiniti inclusi in questa versione: \* Proprietario \* Collaboratore \* Lettore
+Questo documento illustra gli effetti prodotti dall'uso di alcuni dei nuovi ruoli nel portale di Azure. Esistono tre ruoli predefiniti inclusi in questa versione: * Proprietario * Collaboratore * Lettore
 
 Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, con la differenza che il contributore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. [Vedere questo articolo](role-based-access-control-configure.md) per maggiori dettagli sulle modalità di concessione dell'accesso.
 
@@ -38,7 +38,7 @@ Se si concede a un utente l'accesso in sola lettura a un'unica app Web, o si dis
 3. Accesso a credenziali di pubblicazione e altri segreti, quali le impostazioni delle app e le stringhe di connessione.
 4. Streaming dei log
 5. Configurazione dei log di diagnostica
-6. Console \(prompt dei comandi\)
+6. Console (prompt dei comandi)
 7. Distribuzioni attive e recenti, per la distribuzione continua del Git locale
 8. Spesa prevista
 9. Test Web
@@ -55,8 +55,8 @@ La complessità delle app Web è accentuata dalle interazioni tra alcune risorse
 Di conseguenza, se si concede l'accesso al solo sito Web, molte funzionalità del blade del sito Web saranno completamente disabilitate.
  
 1. Gli elementi seguenti richiedono l'accesso al **piano del servizio app** corrispondente al sito Web in questione:  
-    * Visualizzazione del livello di prezzo dell'app Web \(ad esempio Free o Standard\).
-    * Configurazione di scala \(ossia numero di istanze, dimensione della macchina virtuale, impostazioni di scalabilità automatica\).
+    * Visualizzazione del livello di prezzo dell'app Web (ad esempio Free o Standard).
+    * Configurazione di scala (ossia numero di istanze, dimensione della macchina virtuale, impostazioni di scalabilità automatica).
     * Quote, ad esempio memoria, larghezza di banda, CPU.
 2. I seguenti elementi richiedono l'accesso all'intero **Gruppo di risorse** che contiene il sito Web:  
     * Certificati e associazioni SSL: i certificati SSL possono infatti essere condivisi tra siti appartenenti allo stesso gruppo di risorse e area geografica.
@@ -69,7 +69,7 @@ Di conseguenza, se si concede l'accesso al solo sito Web, molte funzionalità de
 
 Analogamente a quanto accade con le app Web, alcune funzionalità del blade della macchina virtuale richiedono l'accesso in scrittura alla macchina virtuale o ad altre risorse del gruppo di risorse.
 
-Le risorse correlate delle macchine virtuali sono: \* Nomi di dominio \* Reti virtuali \* Account di archiviazione \* Regole di avviso
+Le risorse correlate delle macchine virtuali sono: * Nomi di dominio * Reti virtuali * Account di archiviazione * Regole di avviso
 
 1. I seguenti elementi richiedono l'accesso **in scrittura** alla Macchina virtuale:  
     * Endpoint

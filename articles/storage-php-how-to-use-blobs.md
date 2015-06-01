@@ -135,7 +135,7 @@ Un oggetto **BlobRestProxy** consente di creare un contenitore BLOB con il metod
 		echo $code.": ".$error_message."<br />";
 	}
 
-Con la chiamata a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** il contenitore e i dati BLOB diventano accessibili tramite richieste anonime. Con la chiamata a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, invece, solo i dati BLOB diventano accessibili tramite richieste anonime. Per altre informazioni sugli elenchi ACL del contenitore, vedere [Impostare l'ACL del contenitore (API REST)][container-acl].
+Con la chiamata a **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** il contenitore e i dati BLOB diventano accessibili tramite richieste anonime. Con la chiamata a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, invece, solo i dati BLOB diventano accessibili tramite richieste anonime. Per altre informazioni sugli elenchi ACL del contenitore, vedere [Impostare l'ACL del contenitore (API REST)][container-acl].
 
 Per altre informazioni sui codici di errore del servizio BLOB, vedere [Codici di errore del servizio BLOB][error-codes].
 
@@ -168,7 +168,7 @@ Per caricare un file come BLOB, usare il metodo **BlobRestProxy->createBlockBlob
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si noti che nell'esempio precedente un BLOB viene caricato come flusso. Un BLOB può tuttavia essere caricato anche come stringa, ad esempio mediante la funzione [file\_get\_contents][file_get_contents]. A questo scopo, sostituire `$content = fopen("c:\myfile.txt", "r");`API dell'esempio precedente con `$content = fopen("c:\myfile.txt", "r");`.
+Si noti che nell'esempio precedente un BLOB viene caricato come flusso. Un BLOB può tuttavia essere caricato anche come stringa, ad esempio mediante la funzione [file_get_contents][file_get_contents]. A questo scopo, sostituire `$content = fopen("c:\myfile.txt", "r");`API dell'esempio precedente con `$content = fopen("c:\myfile.txt", "r");`.
 
 ## Procedura: Elencare i BLOB in un contenitore
 
@@ -230,7 +230,7 @@ Per scaricare un BLOB, chiamare il metodo **BlobRestProxy->getBlob**, quindi chi
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si noti che con l'esempio precedente si ottiene un BLOB come risorsa di flusso (comportamento predefinito). È tuttavia possibile usare la funzione [stream\_get\_contents][stream-get-contents] per convertire il flusso restituito in una stringa.
+Si noti che con l'esempio precedente si ottiene un BLOB come risorsa di flusso (comportamento predefinito). È tuttavia possibile usare la funzione [stream_get_contents][stream-get-contents] per convertire il flusso restituito in una stringa.
 
 ## Procedura: Eliminare un BLOB
 

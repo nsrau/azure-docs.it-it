@@ -1,6 +1,6 @@
 #Configurazione di un nome di dominio personalizzato per un sito Web di Azure
 
-Quando si crea un sito Web, Microsoft Azure fornisce un sottodominio descrittivo nel dominio azurewebsites.net in modo che gli utenti possano accedere al sito Web tramite un URL come http://&lt;mysite\> azurewebsites.net. Se tuttavia si configurano i siti Web per la modalità condivisa o standard, è possibile eseguire il mapping del sito Web al proprio nome di dominio personalizzato.
+Quando si crea un sito Web, Microsoft Azure fornisce un sottodominio descrittivo nel dominio azurewebsites.net in modo che gli utenti possano accedere al sito Web tramite un URL come http://&lt;mysite> azurewebsites.net. Se tuttavia si configurano i siti Web per la modalità condivisa o standard, è possibile eseguire il mapping del sito Web al proprio nome di dominio personalizzato.
 
 Facoltativamente, è possibile usare Traffic Manager di Azure per bilanciare il carico del traffico in ingresso nel sito Web. Per altre informazioni sul funzionamento di Gestione traffico con i siti Web, vedere [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure][trafficmanager].
 
@@ -18,21 +18,21 @@ Contenuto dell'articolo:
 
 <h2><a name="understanding-records"></a>Informazioni sui record CNAME e A</h2>
 
-I record CNAME \(o record Alias\) e i record A consentono entrambi di associare un nome di dominio a un sito Web, tuttavia, le modalità di funzionamento sono diverse.
+I record CNAME (o record Alias) e i record A consentono entrambi di associare un nome di dominio a un sito Web, tuttavia, le modalità di funzionamento sono diverse.
 
 ###Record CNAME o Alias
 
-Un record CNAME consente di eseguire il mapping di un dominio *specifico*, ad esempio **contoso.com** o **www.contoso.com**, a un nome di dominio canonico. In questo caso il nome di dominio canonico è **&lt;myapp\>.azurewebsites.net** nel sito Web di Azure o **&lt;myapp\>.trafficmgr.com** del profilo di Gestione traffico. Dopo la creazione, il record CNAME crea un alias per il nome di dominio**&lt;myapp\>.azurewebsites.net** o **&lt;myapp\>.trafficmgr.com**. La voce CNAME viene risolta automaticamente nell'indirizzo IP del nome di dominio **&lt;myapp\>.azurewebsites.net** o **&lt;myapp\>.trafficmgr.com**, quindi se l'indirizzo IP del sito Web cambia non sarà necessaria alcuna azione.
+Un record CNAME consente di eseguire il mapping di un dominio *specifico*, ad esempio **contoso.com** o **www.contoso.com**, a un nome di dominio canonico. In questo caso il nome di dominio canonico è **&lt;myapp>.azurewebsites.net** nel sito Web di Azure o **&lt;myapp>.trafficmgr.com** del profilo di Gestione traffico. Dopo la creazione, il record CNAME crea un alias per il nome di dominio**&lt;myapp>.azurewebsites.net** o **&lt;myapp>.trafficmgr.com**. La voce CNAME viene risolta automaticamente nell'indirizzo IP del nome di dominio **&lt;myapp>.azurewebsites.net** o **&lt;myapp>.trafficmgr.com**, quindi se l'indirizzo IP del sito Web cambia non sarà necessaria alcuna azione.
 
 > [AZURE.NOTE]Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si usa un record CNAME, ad esempio www.contoso.com, e non dei nomi radice come contoso.com. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la <a href="http://en.wikipedia.org/wiki/CNAME_record">voce di Wikipedia sui record CNAME</a> oppure il documento di IETF relativo a <a href="http://tools.ietf.org/html/rfc1035">implementazione e specifiche dei nomi di dominio</a>.
 
 ###Record A
 
-Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio **\*.contoso.com**, a un indirizzo IP. Nel caso di un sito Web di Azure, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per il sito. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
+Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio ***.contoso.com**, a un indirizzo IP. Nel caso di un sito Web di Azure, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per il sito. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, non sarà possibile risolvere automaticamente le modifiche apportate all'indirizzo IP del sito Web. Quando si configurano le impostazioni di un nome di dominio personalizzato per il sito Web, viene fornito un indirizzo IP da usare con i record A. Questo valore può però cambiare se si elimina e si ricrea il sito Web o nel caso in cui lo si riporti in modalità gratuita.
 
-> [AZURE.NOTE].\[WACOM.NOTE\] Non è possibile usare i record A per il bilanciamento del carico con Gestione traffico. Per altre informazioni, vedere [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure][trafficmanager].
+> [AZURE.NOTE].[WACOM.NOTE] Non è possibile usare i record A per il bilanciamento del carico con Gestione traffico. Per altre informazioni, vedere [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure][trafficmanager].
  
 <a name="bkmk_configsharedmode"></a><h2>Configurare i siti Web per la modalità condivisa o standard</h2>
 
@@ -61,7 +61,7 @@ L'impostazione di un nome di dominio personalizzato in un sito Web è disponibil
 
 	**Nota**<br /> Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per il sito Web 'nome sito Web' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni.
 
-<a name="trafficmanager"></a><h2>\(Facoltativo\) Aggiungere i siti Web a Gestione traffico</h2>
+<a name="trafficmanager"></a><h2>(Facoltativo) Aggiungere i siti Web a Gestione traffico</h2>
 
 Se si desidera usare il sito Web con Traffic Manager, attenersi alla procedura seguente.
 
@@ -92,7 +92,7 @@ Il record CNAME seguente, ad esempio, inoltra tutto il traffico da **www.contoso
 </tr>
 </table>
 
-A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale \(contoso.azurewebsite.net\), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
+A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale (contoso.azurewebsite.net), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
 
 > [AZURE.NOTE]Se si usa Gestione traffico con un sito Web, non è necessario eseguire i passaggi delle sezioni seguenti, ossia '**Aggiungere un record CNAME per il dominio personalizzato**' e '**Aggiungere un record A per il dominio personalizzato**'. Il record CNAME creato nei passaggi precedenti indirizzerà il traffico a Traffic Manager, che a sua volta lo indirizzerà agli endpoint del sito Web.
 
@@ -135,7 +135,7 @@ Il record CNAME seguente, ad esempio, inoltra tutto il traffico da **www.contoso
 </tr>
 </table>
 
-A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale \(contoso.azurewebsite.net\), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
+A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale (contoso.azurewebsite.net), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
 
 > [AZURE.NOTE]L'esempio precedente si applica solo al sottodominio __www__. Poiché non è possibile usare caratteri jolly con i record CNAME, è necessario crearne uno per ogni dominio/sottodominio. Se si vuole indirizzare traffico da sottodomini, ad esempio *.contoso.com, all'indirizzo azurewebsite.net, è possibile configurare una voce di __reindirizzamento URL__ o __Inoltro URL__ nelle impostazioni DNS oppure creare un record A.
 
@@ -197,7 +197,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del si
 
 7. Procedere come descritto di seguito per creare il record A:
 
-	1. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_\*\_\_'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+	1. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
 		Si desea crear un registro D para el dominio raíz, debe aparecer con un símbolo '**@**' en las herramientas DNS del registrador.
 

@@ -22,7 +22,7 @@ La funzionalità di aggiornamento StorSimple consentono di tenere aggiornato il 
 
 È possibile applicare due tipi di aggiornamenti del dispositivo:
 
-- Aggiornamenti regolari \(o in modalità normale\)
+- Aggiornamenti regolari (o in modalità normale)
 - Aggiornamenti in modalità manutenzione
 
 È possibile installare aggiornamenti regolari tramite il portale di gestione o Windows PowerShell; tuttavia, è necessario utilizzare Windows PowerShell per installare gli aggiornamenti in modalità manutenzione.
@@ -55,13 +55,13 @@ Per informazioni dettagliate su come installare gli aggiornamenti in modalità m
 
 ## Installare aggiornamenti regolari tramite Windows PowerShell per StorSimple
 
-In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti regolari \(modalità normale\).
+In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti regolari (modalità normale).
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## Per installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple
 
-Utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti in modalità manutenzione al dispositivo StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile \(NVRAM\) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o esce dalla modalità. Quando si esce da questa modalità, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
+Utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti in modalità manutenzione al dispositivo StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o esce dalla modalità. Quando si esce da questa modalità, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
 
 Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di gestione riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [Per uscire dalla modalità manutenzione](#to-exit-maintenance-mode).
 

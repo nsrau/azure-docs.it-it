@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introduzione a DocumentDB .NET SDK | Azure" 
-	description="Informazioni su come creare e configurare un account DocumentDB, creare database, creare raccolte e archiviare documenti JSON nell&#39;account del database di documenti NoSQL." 
+	description="Informazioni su come creare e configurare un account DocumentDB, creare database, creare raccolte e archiviare documenti JSON nell'account del database di documenti NoSQL." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="AndrewHoh" 
@@ -20,7 +20,7 @@
 
 Questa esercitazione illustra come iniziare a usare [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) e [DocumentDB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). È possibile compilare un'applicazione console che crea ed esegue una query sulle risorse DocumentDB e scrive l'output nella finestra della console.
 
-DocumentDB è un servizio di database di documenti NoSQL per il quale sono disponibili una [serie di API e SDK](https://msdn.microsoft.com/library/dn781482.aspx). Il codice riportato in questo articolo è scritto in C\# ed è basato su DocumentDB .NET SDK, che è distribuito come pacchetto NuGet.
+DocumentDB è un servizio di database di documenti NoSQL per il quale sono disponibili una [serie di API e SDK](https://msdn.microsoft.com/library/dn781482.aspx). Il codice riportato in questo articolo è scritto in C# ed è basato su DocumentDB .NET SDK, che è distribuito come pacchetto NuGet.
 
 In questo articolo vengono trattati i seguenti scenari:
 
@@ -51,7 +51,7 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si disp
 
 1. Aprire **Visual Studio** nel computer.
 2. Selezionare **Nuovo** dal menu **File** e scegliere **Progetto**.
-3. Nella **finestra di dialogo Nuovo progetto**, selezionare **Modelli** / **Visual C\#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **Aggiungi**.
+3. Nella **finestra di dialogo Nuovo progetto**, selezionare **Modelli** / **Visual C#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **Aggiungi**.
 4. In **Esplora soluzioni**, fare clic sulla nuova applicazione console che si trova nella soluzione di Visual Studio.
 5. Senza lasciare il menu fare clic su **Gestisci pacchetti NuGet...**
 6. Nel riquadro sinistro della finestra **Gestisci pacchetti NuGet** fare clic su **Online** / **nuget.org**.
@@ -62,7 +62,7 @@ L'installazione è riuscita. A questo punto si è pronti per iniziare a usare Do
 
 ##<a id="Connect"></a> Passaggio 3: Connettersi a un account DocumentDB
 
-Si inizia creando una nuova istanza della classe [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) per stabilire una connessione all'account DocumentDB. All'inizio dell'applicazione C\# sono necessari i seguenti riferimenti:
+Si inizia creando una nuova istanza della classe [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) per stabilire una connessione all'account DocumentDB. All'inizio dell'applicazione C# sono necessari i seguenti riferimenti:
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -123,10 +123,10 @@ Dopo aver appreso come connettersi a un account DocumentDB e creare un'istanza d
 
 È possibile creare una [raccolta](documentdb-resources.md#collections) usando il metodo [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. La raccolta appena creata verrà mappata a un [livello di prestazioni S1](documentdb-performance-levels.md). Il database creato nel passaggio precedente ha diverse proprietà, una delle quali è [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Con queste informazioni ora è possibile creare una raccolta dopo la creazione del database.
 
-	// Create a document collection. DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync\(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" }\);
+	// Create a document collection. DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" });
     
 ##<a id="CreateDoc"></a>Passaggio 6: Creare documenti
-È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente \(arbitrario\). La raccolta creata nel passaggio precedente ha diverse proprietà, una delle quali è [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Con queste informazioni ora è possibile inserire uno o più documenti.
+È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). La raccolta creata nel passaggio precedente ha diverse proprietà, una delle quali è [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Con queste informazioni ora è possibile inserire uno o più documenti.
 
 Prima di tutto è necessario creare una classe **Parent**, **Child**, **Pet**, **Address** e **Family**. Creare queste classi aggiungendo le classi secondarie interne seguenti.
 
@@ -239,7 +239,7 @@ DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSO
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -300,7 +300,7 @@ La parola chiave [FROM](documentdb-sql-query.md/#from-clause) è facoltativa nel
 
 ##<a id="DeleteDatabase"></a>Passaggio 8: Eliminare il database
 
-Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio \(raccolte, documenti e così via\). È possibile eliminare il database e il client di documenti aggiungendo il frammento di codice seguente alla fine del metodo asincrono **GetStartedDemo**.
+Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via). È possibile eliminare il database e il client di documenti aggiungendo il frammento di codice seguente alla fine del metodo asincrono **GetStartedDemo**.
 
     // Clean up/delete the database
     await client.DeleteDatabaseAsync(database.SelfLink);
@@ -351,7 +351,7 @@ A questo punto si visualizzerà l'output dell'app di avvio. L'output visualizzer
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -389,7 +389,7 @@ A questo punto si visualizzerà l'output dell'app di avvio. L'output visualizzer
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -427,7 +427,7 @@ A questo punto si visualizzerà l'output dell'app di avvio. L'output visualizzer
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 	{

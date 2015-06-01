@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come ridimensionare un&#39;app Web in un ambiente del servizio app" 
-	description="Ridimensionamento di un&#39;app Web in un ambiente del servizio app" 
+	pageTitle="Come ridimensionare un'app Web in un ambiente del servizio app" 
+	description="Ridimensionamento di un'app Web in un ambiente del servizio app" 
 	services="app-services\web" 
 	documentationCenter="" 
 	authors="ccompy" 
@@ -25,7 +25,7 @@ In poche parole, quando si modifica un attributo di ridimensionamento per un'app
 La procedura di ridimensionamento di un'app Web in ambiente del servizio app è simile a quella usata normalmente per ridimensionare le app Web. Nel servizio app di Azure è possibile ridimensionare tre aspetti:
 
 - piano tariffario
-- dimensioni dei processi di lavoro \(per le istanze dedicate\)
+- dimensioni dei processi di lavoro (per le istanze dedicate)
 - numero di istanze.
 
 In un ambiente del servizio app non è necessario selezionare o modificare il piano tariffario. In termini di funzionalità il livello è già quello del piano tariffario Premium. In un ambiente del servizio app non esistono inoltre processi di lavoro condivisi, in quanto tutti i processi di lavoro sono dedicati. L'amministratore dell'ambiente del servizio app può quindi assegnare le dimensioni della risorsa di elaborazione da usare per ogni pool di lavoro, invece di assegnare dimensioni fisse. Questo significa che, se necessario, è possibile avere il pool di lavoro 1 con risorse di calcolo P4 e il pool di lavoro 2 con risorse di calcolo P1, di conseguenza non è necessario che i pool siano ordinati in base alle dimensioni. Per informazioni dettagliate sulle dimensioni e sui relativi prezzi, leggere il documento [Prezzi del servizio app di Azure][AppServicePricing]. In tal modo le opzioni di ridimensionamento per app Web e piani di servizio app in un ambiente del servizio app sono:

@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit \(anteprima\)
+#Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)
 
 ##Panoramica
 
@@ -29,7 +29,7 @@ Questa esercitazione illustra i passaggi per creare un **canale** che riceve un 
 
 I seguenti passaggi descrivono le attività relative alla creazione di applicazioni comuni di streaming live.
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
@@ -47,7 +47,7 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 	
 	1. 	Creare una chiave simmetrica. 
 	1. 	Configurare i criteri di autorizzazione della chiave simmetrica.
-1. Configurare i criteri di distribuzione degli asset \(usati per la creazione dinamica dei pacchetti e la crittografia dinamica\).
+1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
 3. Creare un programma e specificare di usare l'asset creato.
 1. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.  
 
@@ -64,7 +64,7 @@ Questo argomento illustra come eseguire diverse operazioni su canali e programmi
 Questo argomento illustra come eseguire le operazioni seguenti:
 
 1. Creare e avviare un canale. Vengono usate API con esecuzione prolungata.
-1. Ottenere l'endpoint di inserimento \(input\) del canale. L'endpoint deve essere fornito al codificatore che invia un flusso live a velocità in bit singola.
+1. Ottenere l'endpoint di inserimento (input) del canale. L'endpoint deve essere fornito al codificatore che invia un flusso live a velocità in bit singola.
 1. Ottenere l'endpoint di anteprima. Questo endpoint viene usato per visualizzare il flusso in anteprima. 
 1. Creare un asset che verrà usato per archiviare il contenuto. È necessario configurare anche i criteri di distribuzione degli asset, come illustrato in questo esempio.
 1. Creare un programma e specificare l'uso dell'asset creato in precedenza. Avviare il programma. Vengono usate API con esecuzione prolungata.

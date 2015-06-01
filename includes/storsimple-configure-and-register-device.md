@@ -45,7 +45,7 @@
    
     > [AZURE.NOTE]Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore di dispositivo non pronto, controllare la connessione di rete fisica nell'interfaccia di rete DATA 0 del controller attivo.
 
-8. \(Facoltativo\) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
 9. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla per le sessioni successive. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere una combinazione di caratteri minuscoli, caratteri maiuscoli, numeri e caratteri speciali.
 

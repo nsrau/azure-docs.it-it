@@ -38,9 +38,9 @@ Nella figura seguente è illustrata l'applicazione completata:
 
 ![!Home page dell'app Web](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-##<a name="video"></a>Iscrizione a Microsoft Azure \(video\)
+##<a name="video"></a>Iscrizione a Microsoft Azure (video)
 
-In questo video, Scott Hanselman illustra la facilità di iscrizione a una versione di valutazione gratuita di Microsoft Azure. \(Durata: 1:58\)
+In questo video, Scott Hanselman illustra la facilità di iscrizione a una versione di valutazione gratuita di Microsoft Azure. (Durata: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -54,7 +54,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 2. Scegliere **Nuovo progetto** dal menu **File**.
 
-3. Nella finestra di dialogo **Nuovo progetto** fare clic su **C\#** \> **Web** \> **Applicazione Web ASP.NET**. Se si preferisce, è possibile scegliere **Visual Basic**.
+3. Nella finestra di dialogo **Nuovo progetto** fare clic su **C#** > **Web** > **Applicazione Web ASP.NET**. Se si preferisce, è possibile scegliere **Visual Basic**.
 
 3. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
 
@@ -94,7 +94,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
  
 	È possibile immettere un altro **nome dell'applicazione Web** se si preferisce, ma il nome deve essere univoco nel *azurewebsites.net* dominio. Il nome predefinito fornite da Visual Studio è univoco.
 
-	Azure utilizzerà questo nome come prefisso per l'URL dell'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e da *.azurewebsites.net* \(come mostrato accanto alla casella di testo **Nome app Web**\). Ad esempio, se il nome del sito è `MyExample6442`, l'URL sarà `MyExample6442.azurewebsites.net`. L'URL deve essere univoco. Se l'URL immesso è già stato usato da un altro utente, a destra, invece di un segno di spunta verde, verrà visualizzato un punto esclamativo rosso e sarà necessario specificare un nome diverso.
+	Azure utilizzerà questo nome come prefisso per l'URL dell'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e da *.azurewebsites.net* (come mostrato accanto alla casella di testo **Nome app Web**). Ad esempio, se il nome del sito è `MyExample6442`, l'URL sarà `MyExample6442.azurewebsites.net`. L'URL deve essere univoco. Se l'URL immesso è già stato usato da un altro utente, a destra, invece di un segno di spunta verde, verrà visualizzato un punto esclamativo rosso e sarà necessario specificare un nome diverso.
 
 4. Nel **piano di servizio App** elenco a discesa, selezionare **Crea nuovo piano di servizio App**.
 
@@ -172,7 +172,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 	 
 		Consente di ridurre i tempi di preparazione della prima richiesta per le applicazioni di grandi dimensioni.
 
-	* Escludi file dalla cartella App\_Data. 
+	* Escludi file dalla cartella App_Data. 
 	 
 		Per eseguire test, è talvolta necessario disporre in App_Data di un file di database SQL Server da non distribuire in produzione.
 	
@@ -230,7 +230,7 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 	![App web modificati distribuita](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**Nota:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza** \> **Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**.
+**Nota:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza** > **Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**.
 
 ![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
@@ -240,11 +240,11 @@ Il [portale di gestione di Azure](/services/management-portal/) è un'interfacci
   
 1. Nel browser passare a [http://manage.windowsazure.com]() e accedere con le credenziali di Azure.
 
-2. Fare clic su **Sfoglia \> App Web**, quindi fare clic sul nome dell'app Web.
+2. Fare clic su **Sfoglia > App Web**, quindi fare clic sul nome dell'app Web.
 
 	Nel pannello **App Web** dell'app Web viene visualizzata una panoramica delle statistiche di utilizzo e dei collegamenti per le funzioni di gestione dell'app Web utilizzate.
   
-	![Blade app Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)--\>
+	![Blade app Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
 	A questo punto il traffico dell'app Web è poco rilevante ed è quindi possibile che il grafico non visualizzi nulla. Se si passa all'applicazione, si aggiorna la pagina alcune volte; pertanto si aggiorna la pagina del portale e vengono visualizzate alcune statistiche.
 
@@ -252,7 +252,7 @@ Il [portale di gestione di Azure](/services/management-portal/) è un'interfacci
 
 	Viene visualizzato un elenco di tipi di impostazioni.
   
-	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)--\>
+	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
 
 4. Fare clic su **Impostazioni applicazione** per visualizzare un esempio dei tipi di impostazioni che è possibile configurare nel portale.
 
@@ -288,7 +288,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come aggiungere un nome di dominio personalizzato e SSL
 
-	Per informazioni su come usare SSL e il dominio personalizzato \(ad esempio www.contoso.com invece di contoso.azurewebsites.net\), vedere le risorse seguenti:
+	Per informazioni su come usare SSL e il dominio personalizzato (ad esempio www.contoso.com invece di contoso.azurewebsites.net), vedere le risorse seguenti:
 
 	* [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](web-sites-custom-domain-name.md). 
 	* [Abilitare HTTPS per un sito Web di Azure](web-sites-configure-ssl-certificate.md)

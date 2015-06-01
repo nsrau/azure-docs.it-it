@@ -104,7 +104,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.  
  
 ###Indirizzamento di una risorsa
-Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è costituito dai segmenti di percorso /\<feed\>/{_rid}:  
+Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è costituito dai segmenti di percorso /<feed>/{_rid}:  
 
 |Valore di _self	|Descrizione
 |-------------------|-----------

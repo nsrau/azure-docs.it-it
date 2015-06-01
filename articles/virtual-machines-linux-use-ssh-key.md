@@ -122,7 +122,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 4. Fare clic su File > Load a Private Key
 
-5. Individuare la chiave privata, a cui in precedenza è stato assegnato il nome `myPrivateKey_rsa`. Sarà necessario modificare il filtro dei file per poter visualizzare **Tutti i file (\*.\*)**
+5. Individuare la chiave privata, a cui in precedenza è stato assegnato il nome `myPrivateKey_rsa`. Sarà necessario modificare il filtro dei file per poter visualizzare **Tutti i file (*.*)**
 
 6. Fare clic su **Apri**. Verrà visualizzato un prompt simile al seguente:
 

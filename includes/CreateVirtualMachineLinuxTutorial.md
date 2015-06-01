@@ -36,7 +36,7 @@ L'applicazione in uso potrebbe richiedere l'archiviazione di dati. Per impostare
 
 Ogni macchina virtuale creata dispone inoltre di un *disco risorse* temporaneo locale collegato. Poiché è possibile che i dati su un disco risorse non vengano mantenuti tra un riavvio e l'altro, questo tipo di disco viene spesso usato da applicazioni e processi in esecuzione nella macchina virtuale per l'archiviazione temporanea di dati. Viene inoltre usato per archiviare file di paging o di scambio per il sistema operativo.
 
-In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** \(o **/mnt** nelle immagini Ubuntu\). Si noti che il disco risorse è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. D'altra parte, in Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`; in tal caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/).
+In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). Si noti che il disco risorse è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. D'altra parte, in Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`; in tal caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/).
 
 
 
@@ -127,7 +127,7 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 
 11. Aggiungere la nuova unità a /etc/fstab:
 
-	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID \(Universally Unique IDentifier\) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
+	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
 	
 		`sudo -i blkid`
 

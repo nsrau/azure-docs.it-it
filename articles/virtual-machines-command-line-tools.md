@@ -348,7 +348,7 @@ Questo comando acquisisce un'immagine di una macchina virtuale di Azure.
 
 Questo comando esporta un'immagine di una macchina virtuale di Azure in un file.
 
-	~$ azure vm export "myvm" "C:\"
+	~$ azure vm export "myvm" "C:"
 	info: Executing command vm export
 	+ Getting virtual machines
 	+ Exporting the VM

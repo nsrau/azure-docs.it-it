@@ -59,9 +59,9 @@ Dopo questa modifica, i BLOB in un contenitore pubblico saranno visibili a tutti
 
 ## Procedura: Caricare un BLOB in un contenitore
 
-Per caricare dati in un BLOB, usare i metodi **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per caricare dati in un BLOB, usare i metodi **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** o **put_block_blob_from_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
-**put\_block\_blob\_from\_path** carica i contenuti di un file dal percorso specificato, **put\_block\_blob\_from\_file** carica i contenuti da un file/flusso già aperto. **put\_block\_blob\_from\_bytes** carica una matrice di byte, **put\_block\_blob\_from\_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
+**put_block_blob_from_path** carica i contenuti di un file dal percorso specificato, **put_block_blob_from_file** carica i contenuti da un file/flusso già aperto. **put_block_blob_from_bytes** carica una matrice di byte, **put_block_blob_from_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
 
 Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BLOB **myblob**.
 
@@ -74,7 +74,7 @@ Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BL
 
 ## Procedura: Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, usare il metodo **list\_blobs** con un ciclo
+Per elencare i BLOB in un contenitore, usare il metodo **list_blobs** con un ciclo
 **for** per visualizzare il nome di ogni BLOB nel contenitore. Il codice seguente consente di inviare alla console il valore di **name** e di **url** di ogni BLOB in un contenitore.
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@ Per elencare i BLOB in un contenitore, usare il metodo **list\_blobs** con un ci
 
 ## Procedura: Scaricare BLOB
 
-Per scaricare i dati da un BLOB, usare **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per scaricare i dati da un BLOB, usare **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** o **get_blob_to_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
-Nell'esempio seguente viene illustrato l'uso di **get\_blob\_to\_path** per scaricare il contenuto del BLOB **myblob** e archiviarlo nel file **sunset.png**:
+Nell'esempio seguente viene illustrato l'uso di **get_blob_to_path** per scaricare il contenuto del BLOB **myblob** e archiviarlo nel file **sunset.png**:
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

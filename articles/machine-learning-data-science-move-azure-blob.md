@@ -106,10 +106,10 @@ L'oggetto **BlobService** permette di usare contenitori e BLOB. Il codice seguen
 
 Per caricare dati in un BLOB, utilizzare i metodi seguenti:
  
-1. put\_block\_blob\_from\_path (consente di caricare il contenuto di un file da un percorso specifico)
-2. put\_block_blob\_from\_file (consente di caricare il contenuto da un flusso/file già aperto)
-3. put\_block\_blob\_from\_bytes (consente di caricare una matrice di byte)
-4. put\_block\_blob\_from\_text (consente di caricare il valore di testo specificato mediante la codifica specificata)
+1. put_block_blob_from_path (consente di caricare il contenuto di un file da un percorso specifico)
+2. put_block_blob_from_file (consente di caricare il contenuto da un flusso/file già aperto)
+3. put_block_blob_from_bytes (consente di caricare una matrice di byte)
+4. put_block_blob_from_text (consente di caricare il valore di testo specificato mediante la codifica specificata)
  
 Il seguente codice di esempio consente di caricare un file locale in un contenitore:
 	
@@ -143,10 +143,10 @@ Il seguente codice di esempio consente di caricare tutti i file (a esclusione de
 ###Download dei dati dal BLOB
 
 Per scaricare dati da un BLOB, utilizzare i metodi seguenti:
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 Questi sono metodi che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB. 
 
@@ -154,7 +154,7 @@ Il seguente codice di esempio consente di scaricare i contenuti di un BLOB in un
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenitore. Utilizza list\_blobs per ottenere un elenco di BLOB disponibili nel contenitore e li scarica in una directory locale. 
+Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenitore. Utilizza list_blobs per ottenere un elenco di BLOB disponibili nel contenitore e li scarica in una directory locale. 
 
 	from azure.storage import BlobService
 	from os.path import join

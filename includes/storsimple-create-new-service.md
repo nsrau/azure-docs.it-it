@@ -20,7 +20,7 @@
 
 1. Utilizzare le credenziali dell'account Microsoft per accedere al portale di gestione di Microsoft Azure qui: [portale](https://manage.windowsazure.com/).
 
-2. Nel portale di gestione, fare clic su **Nuovo** \> **Servizi dati** \> **StorSimple Manager** \> **Creazione rapida**.
+2. Nel portale di gestione, fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
 
 3. Nel modulo visualizzato, procedere come segue:
   1. Fornire un **Nome** univoco per il servizio. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.

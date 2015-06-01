@@ -25,10 +25,10 @@ Il processo di installazione di .NET in ruoli Web e di lavoro prevede l'inclusio
 ## Aggiungere al progetto il programma di installazione .NET
 1. Scaricare il [programma di installazione Web .NET 4.5.2](http://www.microsoft.com/it-it/download/details.aspx?id=42643)
 2. Per un ruolo web
-  1. In **Esplora soluzioni** in **Ruoli** nel progetto del servizio cloud fare clic con il pulsante destro del mouse sul ruolo e quindi selezionare **Aggiungi\>Nuova cartella**. Creare una cartella denominata *bin*
-  2. Fare clic sulla cartella **bin** e selezionare **Aggiungi\>Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
+  1. In **Esplora soluzioni** in **Ruoli** nel progetto del servizio cloud fare clic con il pulsante destro del mouse sul ruolo e quindi selezionare **Aggiungi>Nuova cartella**. Creare una cartella denominata *bin*
+  2. Fare clic sulla cartella **bin** e selezionare **Aggiungi>Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
 3. Creare un ruolo di lavoro
-  1. Fare clic sul ruolo e selezionare **Aggiungi\>Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo al ruolo. 
+  1. Fare clic sul ruolo e selezionare **Aggiungi>Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo al ruolo. 
 
 I file aggiunti in questo modo alla cartella Contenuto ruolo verranno automaticamente aggiunti al pacchetto del servizio cloud e distribuiti in una posizione coerente sulla macchina virtuale. Ripetere questo processo per tutti i ruoli Web e di lavoro nel servizio cloud in modo che per tutti i ruoli vi sia una copia del programma di installazione.
 
@@ -74,15 +74,15 @@ Le attività di avvio consentono di eseguire operazioni prima dell'avvio di un r
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
 	```
 
-	Lo script di installazione verifica se .NET 4.5.2 è già installato nel computer eseguendo una query sul registro. Se .NET 4.5.2 non è installato, viene avviato il programma di installazione Web .Net. Per la risoluzione di eventuali problemi, lo script registrerà tutte le attività in un file denominato *startuptasklog-\(currentdatetime\).txt* archiviato nella risorsa di archiviazione locale *InstallLogs*.
+	Lo script di installazione verifica se .NET 4.5.2 è già installato nel computer eseguendo una query sul registro. Se .NET 4.5.2 non è installato, viene avviato il programma di installazione Web .Net. Per la risoluzione di eventuali problemi, lo script registrerà tutte le attività in un file denominato *startuptasklog-(currentdatetime).txt* archiviato nella risorsa di archiviazione locale *InstallLogs*.
 
-	> [AZURE.NOTE]Usare un semplice editor di testo, come il blocco note, per creare questo file. Se si usa Visual Studio per creare un file di testo e quindi lo si rinomina con estensione "cmd", il file potrebbe continuare a contenere un BOM UTF-8 e verrà generato un errore eseguendo la prima riga dello script. Se si prevede di usare Visual Studio per creare il file, aggiungere un REM \(commento\) nella prima riga del file in modo che venga ignorato durante l'esecuzione.
+	> [AZURE.NOTE]Usare un semplice editor di testo, come il blocco note, per creare questo file. Se si usa Visual Studio per creare un file di testo e quindi lo si rinomina con estensione "cmd", il file potrebbe continuare a contenere un BOM UTF-8 e verrà generato un errore eseguendo la prima riga dello script. Se si prevede di usare Visual Studio per creare il file, aggiungere un REM (commento) nella prima riga del file in modo che venga ignorato durante l'esecuzione.
       
-3. Aggiungere il file install.cmd a tutti i ruoli facendo clic con il pulsante destro del mouse sul{b\> \<b}ruolo e selezionando **Aggiungi\>Elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
+3. Aggiungere il file install.cmd a tutti i ruoli facendo clic con il pulsante destro del mouse sul{b> <b}ruolo e selezionando **Aggiungi>Elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
 	
 	![Contenuto ruolo con tutti i file][2]
 
-## Configurare la diagnostica per trasferire i log delle attività di avvio all'archiviazione BLOB \(facoltativo\)
+## Configurare la diagnostica per trasferire i log delle attività di avvio all'archiviazione BLOB (facoltativo)
 È anche possibile configurare la diagnostica Azure per trasferire eventuali file di log generati tramite lo script di avvio o il programma di installazione .NET nell'archiviazione BLOB. Con questo approccio è possibile visualizzare i log semplicemente scaricando i file di log dall'archiviazione BLOB anziché collegarsi con il desktop remoto al ruolo.
 
 Per configurare la diagnostica aprire *diagnostics.wadcfgx* e aggiungere quanto segue sotto il nodo *<Directories>*:

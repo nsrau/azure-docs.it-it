@@ -16,7 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="heidist"/>
 
-#Transizione dalla versione api di anteprima =2014\* alla versione api=2015\*#
+#Transizione dalla versione api di anteprima =2014* alla versione api=2015*#
 
 Le linee guida seguenti sono indirizzate ai clienti che hanno compilato applicazioni personalizzate nelle versioni di anteprima di Ricerca di Azure e desiderano eseguire la migrazione alla versione disponibile a livello generale del 28/02/2015.
 
@@ -37,7 +37,7 @@ Ora che Azure è disponibile a livello generale, si invita ad eseguire la transi
 - Distribuire nell'ambiente di produzione.
 - Valutare le nuove funzionalità per l'adozione futura. Passare di nuovo alla versione di anteprima 28/02/2015 se si desidera testare i processori del linguaggio naturale di Microsoft o `morelikethis`.
 
-##Modifiche di rilievo nella versione api=2015 \*##
+##Modifiche di rilievo nella versione api=2015 *##
 
 La versione iniziale dell'API includeva una funzionalità di completamento automatico o suggerimenti di digitazione. Anche se utile, tale funzionalità era limitata alla corrispondenza dei prefissi, cercando il primo carattere del termine di ricerca, senza supporto per la corrispondenza di altre parti del campo. L'implementazione era una proprietà booleana denominata `suggestions` che era necessario impostare su `true` se si desiderava abilitare la corrispondenza dei prefissi in un campo specifico.
 
@@ -54,15 +54,15 @@ Per le applicazioni personalizzate che implementavano suggerimenti, effettuare l
 1. Aggiornare tutti i pacchetti NuGet.
 1. Passare la versione api a `2015-02-28`. Se si utilizza l'esempio di codice riportato di seguito, la versione api è nella classe **AzureSearchHelper**.
 1. Eliminare l’attributo `Suggestions={true | false}` dallo schema JSON che definisce l'indice.
-1. Aggiungere un costrutto nella parte inferiore dell'indice per `Suggesters` \(come illustrato nella sezione [Dopo](#after) \).
-1. Verificare che sia possibile pubblicare il servizio \(potrebbe essere necessario rinominare l'indice per evitare conflitti di denominazione\).
+1. Aggiungere un costrutto nella parte inferiore dell'indice per `Suggesters` (come illustrato nella sezione [Dopo](#after) ).
+1. Verificare che sia possibile pubblicare il servizio (potrebbe essere necessario rinominare l'indice per evitare conflitti di denominazione).
 1. Ricompilare la soluzione e distribuire un ambiente di test.
 1. Eseguire tutti i test case per garantire che la soluzione si comporti nel modo previsto.
 1. Distribuire nell'ambiente di produzione.
 
 L'esempio di codice dall'[esempio Adventure Works su CodePlex](https://azuresearchadventureworksdemo.codeplex.com/) contiene l’implementazione di `Suggestions` originale. È possibile utilizzare questo esempio per esercitarsi con la migrazione del codice nel codice di esempio.
 
-Nella sezione seguente verrà illustrata l’implementazione dei suggerimenti [prima](#before) e [dopo](#after). È possibile sostituire il metodo **CreateCatalogIndex\(\)** con la versione della sezione [Dopo](#after), quindi compilare e distribuire la soluzione per provare le nuove funzionalità.
+Nella sezione seguente verrà illustrata l’implementazione dei suggerimenti [prima](#before) e [dopo](#after). È possibile sostituire il metodo **CreateCatalogIndex()** con la versione della sezione [Dopo](#after), quindi compilare e distribuire la soluzione per provare le nuove funzionalità.
 
 <a name="before"></a>
 ###Prima###
@@ -134,7 +134,7 @@ Una definizione dello schema migrato omette la proprietà `Suggestions` e aggiun
 
 Dopo aver trasferito la soluzione e verificato che venga eseguita come previsto, è possibile utilizzare questi collegamenti per informazioni sulle nuove funzionalità.
 
-- [Azure Search is generally available \(post di blog\)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
+- [Azure Search is generally available (post di blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
 - [Novità dell’ultimo aggiornamento di Ricerca di Azure](../search-latest-updates/)
 - [Panoramica di Ricerca di Azure](https://msdn.microsoft.com/it-it/library/azure/dn798933.aspx)
 

@@ -17,11 +17,11 @@
 	ms.author="larryfr"/>
 
 
-#Usare C\# con Hive e Pig in HDInsight
+#Usare C# con Hive e Pig in HDInsight
 
-Hive e Pig sono soluzioni ottimali per usare i dati in Azure HDInsight, ma in alcuni casi è necessario un linguaggio più generico. Sia Hive che Pig consentono di chiamare codice esterno tramite funzioni definite dall'utente \(UDF, User-Defined Function\) o streaming.
+Hive e Pig sono soluzioni ottimali per usare i dati in Azure HDInsight, ma in alcuni casi è necessario un linguaggio più generico. Sia Hive che Pig consentono di chiamare codice esterno tramite funzioni definite dall'utente (UDF, User-Defined Function) o streaming.
 
-Questo documento illustra come usare C\# con Hive e Pig.
+Questo documento illustra come usare C# con Hive e Pig.
 
 ##Prerequisiti
 
@@ -41,19 +41,19 @@ Questo documento illustra come usare C\# con Hive e Pig.
 
 ##.NET su HDInsight
 
-Il Common Language Runtime \(CLR\) e i framework .NET vengono installati per impostazione predefinita nei cluster HDInsight basati su Windows. Ciò permette di usare applicazioni C\# con streaming Hive e Pig. I dati vengono passati tra Hive/Pig e l'applicazione C\# tramite stdout/stdin.
+Il Common Language Runtime (CLR) e i framework .NET vengono installati per impostazione predefinita nei cluster HDInsight basati su Windows. Ciò permette di usare applicazioni C# con streaming Hive e Pig. I dati vengono passati tra Hive/Pig e l'applicazione C# tramite stdout/stdin.
 
 Non è attualmente disponibile supporto per l'esecuzione di applicazioni .NET Framework su cluster HDInsight basati su Linux.
 
 ##.NET e streaming
 
-Lo streaming comporta il passaggio di dati da parte di Hive e Pig a un'applicazione esterna su stdout e la ricezione dei risultati su stdin. Per applicazioni C\# è possibile ottenere questo risultato con facilità tramite `Console.ReadLine()` e `Console.WriteLine()`.
+Lo streaming comporta il passaggio di dati da parte di Hive e Pig a un'applicazione esterna su stdout e la ricezione dei risultati su stdin. Per applicazioni C# è possibile ottenere questo risultato con facilità tramite `Console.ReadLine()` e `Console.WriteLine()`.
 
-Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è consigliabile usare il modello **Applicazione console** per i progetti C\#.
+Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è consigliabile usare il modello **Applicazione console** per i progetti C#.
 
-##Hive e C&\#35;
+##Hive e C&#35;
 
-###Creare il progetto C\#
+###Creare il progetto C#
 
 1. Aprire Visual Studio e creare una nuova soluzione. Come tipo di progetto selezionare **Applicazione console** e assegnare al nuovo progetto il nome **HiveCSharp**.
 
@@ -146,15 +146,15 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Verranno selezionati i campi `clientid`, `devicemake` e `devicemodel` da `hivesampletable` e i campi vengono passati all'applicazione HiveCSharp.exe. La query si aspetta che l'applicazione restituisca tre campi, che vengono archiviati come `clientid`, `phoneLabel` e `phoneHash`. La query si aspetta anche di trovare HiveCSharp.exe nella radice del contenitore di archiviazione predefinito \(`add file wasb:///HiveCSharp.exe`\).
+    Verranno selezionati i campi `clientid`, `devicemake` e `devicemodel` da `hivesampletable` e i campi vengono passati all'applicazione HiveCSharp.exe. La query si aspetta che l'applicazione restituisca tre campi, che vengono archiviati come `clientid`, `phoneLabel` e `phoneHash`. La query si aspetta anche di trovare HiveCSharp.exe nella radice del contenitore di archiviazione predefinito (`add file wasb:///HiveCSharp.exe`).
 
 5. Fare clic su **Invia** per inviare il processo al cluster HDInsight. Verrà aperta la finestra di **riepilogo del processo Hive**.
 
 6. Fare clic su **Aggiorna** per aggiornare il riepilogo fino all'impostazione del valore **Stato processo** su **Completato**. Per visualizzare l'output del processo, fare clic su **Output processo**.
 
-###Pig e C&\#35;
+###Pig e C&#35;
 
-###Creare il progetto C\#
+###Creare il progetto C#
 
 1. Aprire Visual Studio e creare una nuova soluzione. Come tipo di progetto selezionare **Applicazione console** e assegnare al nuovo progetto il nome **PigUDF**.
 
@@ -195,7 +195,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 1. Lo streaming Pig si aspetta che l'applicazione sia locale nel file system del cluster. Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
-2. Dopo la connessione, copiare **PigUDF.exe** dalla directory **bin/debug** per il progetto PigUDF nel computer locale, quindi incollarlo nella directory **%PIG\_HOME%** nel cluster.
+2. Dopo la connessione, copiare **PigUDF.exe** dalla directory **bin/debug** per il progetto PigUDF nel computer locale, quindi incollarlo nella directory **%PIG_HOME%** nel cluster.
 
 ###Usare l'applicazione da Pig Latin
 
@@ -218,7 +218,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 	L'istruzione `DEFINE` crea un alias di `streamer` per le applicazioni pigudf.exe e `SHIP` lo distribuisce nei nodi del cluster. In seguito, `streamer` viene usato con l'operatore `STREAM` per elaborare le singole righe contenute in LOG e restituire i dati sotto forma di serie di colonne.
 
-> [AZURE.NOTE]Il nome dell'applicazione usato per lo streaming deve essere racchiuso tra caratteri \` \(carattere di apice inverso\) quando associato ad alias e da ' \(virgoletta singola\) se usato con `SHIP`.
+> [AZURE.NOTE]Il nome dell'applicazione usato per lo streaming deve essere racchiuso tra caratteri ` (carattere di apice inverso) quando associato ad alias e da ' (virgoletta singola) se usato con `SHIP`.
 
 3. Dopo l'immissione dell'ultima riga il processo dovrebbe essere avviato. Restituirà infine un output analogo al seguente:
 

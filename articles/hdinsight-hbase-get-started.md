@@ -287,10 +287,10 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 
 Per altre informazioni, vedere:
 
-- [Panoramica di HDInsight HBase][hdinsight-hbase-overview]\: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
-- [Provisioning di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]\: con l'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti alle stessa rete virtuale delle applicazioni in modo che queste ultime possano comunicare direttamente con HBase.
+- [Panoramica di HDInsight HBase][hdinsight-hbase-overview]: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
+- [Provisioning di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]: con l'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti alle stessa rete virtuale delle applicazioni in modo che queste ultime possano comunicare direttamente con HBase.
 - [Configurare la replica HBase in HDInsight](hdinsight-hbase-geo-replication.md): informazioni su come configurare la replica HBase in due data center di Azure. 
-- [Analisi dei sentimenti Twitter con HBase in HDInsight][hbase-twitter-sentiment]\: informazioni su come eseguire [l'analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
+- [Analisi dei sentimenti Twitter con HBase in HDInsight][hbase-twitter-sentiment]: informazioni su come eseguire [l'analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

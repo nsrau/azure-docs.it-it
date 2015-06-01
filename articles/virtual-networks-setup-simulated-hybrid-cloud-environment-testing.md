@@ -171,7 +171,7 @@ Accedere quindi alla nuova macchina virtuale DC2.
 3.	Quando viene richiesto di aprire DC2.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-- Nome: **DC2\\**[Nome dell'account amministratore locale]
+- Nome: **DC2**[Nome dell'account amministratore locale]
 - Password: [Password dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 

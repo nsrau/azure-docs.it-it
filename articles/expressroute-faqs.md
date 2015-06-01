@@ -132,10 +132,10 @@ No. Tutte le reti virtuali collegate allo stesso circuito ExpressRoute apparteng
 Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute. Tutti i circuiti ExpressRoute devono trovarsi nello stesso continente. È possibile ordinarli tramite diversi provider di servizi e in località differenti.
 
 ### Si può accedere a Internet usando le reti virtuali connesse a circuiti ExpressRoute?
-Sì. Se non è stata eseguita la pubblicazione di route predefinite \(0.0.0.0/0\) o prefissi di route Internet tramite la sessione BGP, sarà possibile connettersi a Internet da una rete virtuale collegata a un circuito ExpressRoute.
+Sì. Se non è stata eseguita la pubblicazione di route predefinite (0.0.0.0/0) o prefissi di route Internet tramite la sessione BGP, sarà possibile connettersi a Internet da una rete virtuale collegata a un circuito ExpressRoute.
 
 ### Si può bloccare la connettività Internet per le reti virtuali connesse a circuiti ExpressRoute?
-Sì. È possibile pubblicare route predefinite \(0.0.0.0/0\) per bloccare tutta la connettività Internet per le macchine virtuali distribuite in una rete virtuale e indirizzare tutto il traffico in uscita attraverso il circuito ExpressRoute. Si noti che se si pubblicano route predefinite, il traffico verrà forzato verso i servizi offerti tramite peering pubblico, ad esempio l'archiviazione di Azure e database SQL, nella sede locale. Sarà necessario configurare i router in modo che restituiscano traffico ad Azure tramite il percorso di peering pubblico su Internet.
+Sì. È possibile pubblicare route predefinite (0.0.0.0/0) per bloccare tutta la connettività Internet per le macchine virtuali distribuite in una rete virtuale e indirizzare tutto il traffico in uscita attraverso il circuito ExpressRoute. Si noti che se si pubblicano route predefinite, il traffico verrà forzato verso i servizi offerti tramite peering pubblico, ad esempio l'archiviazione di Azure e database SQL, nella sede locale. Sarà necessario configurare i router in modo che restituiscano traffico ad Azure tramite il percorso di peering pubblico su Internet.
 
 ### Le reti virtuali collegate allo stesso circuito ExpressRoute possono comunicare tra loro?
 Sì. Le macchine virtuali distribuite in reti virtuali connesse allo stesso circuito ExpressRoute possono comunicare tra loro.
@@ -153,20 +153,20 @@ Si deve stabilire un circuito ExpressRoute e configurare le route per il peering
 Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e pubblico. Se si abilita la funzionalità Premium di ExpressRoute, sarà possibile aumentare questo valore fino a 10.000 route.
 
 ### Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
-I prefissi pubblicati tramite BGP devono essere pari a /29 o superiori \(da /28 a /8\).
+I prefissi pubblicati tramite BGP devono essere pari a /29 o superiori (da /28 a /8).
 
-I prefissi privati \(RFC1918\) saranno esclusi tramite filtro dalla sessione BGP per il peering pubblico.
+I prefissi privati (RFC1918) saranno esclusi tramite filtro dalla sessione BGP per il peering pubblico.
 
 ### Cosa succede se si superano i limiti per BGP?
 Le sessioni BGP saranno rimosse. Saranno ripristinate quando il numero di prefissi tornerà sotto il limite consentito.
 
-### Dopo la pubblicazione della route predefinita \(0.0.0.0/0\) alle reti virtuali, non è possibile attivare Windows in esecuzione nelle macchine virtuali di Azure. In che modo è possibile risolvere questo problema?
+### Dopo la pubblicazione della route predefinita (0.0.0.0/0) alle reti virtuali, non è possibile attivare Windows in esecuzione nelle macchine virtuali di Azure. In che modo è possibile risolvere questo problema?
 I passaggi seguenti permettono ad Azure di riconoscere la richiesta di attivazione:
 
 1. Stabilire il peering pubblico per il circuito ExpressRoute.
 2. Eseguire una ricerca DNS e trovare l'indirizzo IP di **kms.core.windows.net**
 3. Eseguire una delle operazioni seguenti in modo che il Servizio di gestione delle chiavi riconosca che la richiesta di attivazione proviene da Azure e soddisfi la richiesta.
-	- Nella rete locale reindirizzare il traffico destinato all'indirizzo IP \(ottenuto nel passaggio 2\) ad Azure tramite il peering pubblico.
+	- Nella rete locale reindirizzare il traffico destinato all'indirizzo IP (ottenuto nel passaggio 2) ad Azure tramite il peering pubblico.
 	- Richiedere al provider di servizi di rete di reindirizzare il traffico ad Azure tramite il peering pubblico. 
 
 ### È possibile modificare la larghezza di banda di un circuito ExpressRoute?
@@ -181,7 +181,7 @@ Sì. È possibile aumentare la larghezza di banda di un circuito ExpressRoute se
 ExpressRoute Premium include le funzionalità seguenti.
  
  - Aumento del limite delle tabelle di routing da 4000 a 10.000 route per il peering pubblico e il peering privato.
- - Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute \(il valore predefinito è 10\). Per informazioni dettagliate, vedere la tabella seguente.
+ - Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute (il valore predefinito è 10). Per informazioni dettagliate, vedere la tabella seguente.
  - Connettività globale sulla rete di base Microsoft. È ora possibile collegare una VNet in un'area geopolitica a un circuito ExpressRoute in un'altra area. **Esempio:** è possibile collegare una VNet creata in Europa occidentale a un circuito ExpressRoute creato a Silicon Valley. 
 
 ### Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
@@ -196,7 +196,7 @@ La tabella seguente illustra i limiti incrementati per il numero di VNet collega
 | 100 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
 | 1 Gbps | 10 | 50                                                                                     
-\|
+|
 
 
 **Limiti per i circuiti creati tramite i provider di Exchange**
@@ -269,7 +269,7 @@ Per informazioni, vedere le esercitazioni seguenti:
 - Yammer
 - Download di Office 365 ProPlus Client
 - Accesso al provider di identità locale 
-- Servizio Office 365 \(gestito da 21 Vianet\) in Cina
+- Servizio Office 365 (gestito da 21 Vianet) in Cina
 
 È possibile connettersi a questi servizi tramite Internet.
 

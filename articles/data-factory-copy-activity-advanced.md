@@ -18,7 +18,7 @@
 
 # Scenari avanzati per l'utilizzo dell'attività di copia in Data factory di Azure 
 ## Panoramica
-È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink \(destinazione\) in un batch. Questo argomento descrive gli scenari avanzati supportati dall'attività di copia. Per una panoramica dettagliata dell'attività di copia e degli scenari principali supportati, vedere [Copiare dati con Data factory di Azure][adf-copyactivity].
+È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. Questo argomento descrive gli scenari avanzati supportati dall'attività di copia. Per una panoramica dettagliata dell'attività di copia e degli scenari principali supportati, vedere [Copiare dati con Data factory di Azure][adf-copyactivity].
 
 
 ## Filtro di colonna usando la definizione della struttura
@@ -136,9 +136,9 @@ In questo esempio, la **tabella di output** è definita come segue. La tabella d
 		}
 	}	
 
-Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt \(ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\).
+Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente **folderPath** usa Year, Month e Day dall'oggetto SliceStart \(ora di inizio della sezione elaborata\), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
+Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente **folderPath** usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
   	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
@@ -151,7 +151,7 @@ Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **Slic
     ],
 
 #### Esempio: definire il mapping di colonne
-In questo esempio, viene definita un'attività in una pipeline come indicato di seguito. Le colonne dell'origine vengono mappate alle colonne nel sink \(\*\*columnMappings\*\*\) usando la proprietà **Translator**.
+In questo esempio, viene definita un'attività in una pipeline come indicato di seguito. Le colonne dell'origine vengono mappate alle colonne nel sink (**columnMappings**) usando la proprietà **Translator**.
 
 	{
 		"name": "CopyActivity",
@@ -180,7 +180,7 @@ In questo esempio, viene definita un'attività in una pipeline come indicato di 
 ![Mapping di colonne][image-data-factory-column-mapping-1]
 
 ### Esempio 2: mapping di colonne con query SQL da SQL Server al BLOB di Azure
-In questo esempio, una query SQL \(vedere la tabella nell'esempio precedente\) viene usata per estrarre dati da un SQL Server locale e viene eseguito il mapping delle colonne dai risultati delle query all'elemento di origine e quindi all'elemento di destinazione. Ai fini di questo esempio, la query restituisce 5 colonne.
+In questo esempio, una query SQL (vedere la tabella nell'esempio precedente) viene usata per estrarre dati da un SQL Server locale e viene eseguito il mapping delle colonne dai risultati delle query all'elemento di origine e quindi all'elemento di destinazione. Ai fini di questo esempio, la query restituisce 5 colonne.
 
 	{
 		"name": "CopyActivity",
@@ -193,7 +193,7 @@ In questo esempio, una query SQL \(vedere la tabella nell'esempio precedente\) v
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -263,7 +263,7 @@ I tipi di dati specificati nella sezione Structure della definizione Table vengo
 ## Richiamare stored procedure per SQL Sink
 Quando si copiano dati nel database SQL Azure o SQL Server, una stored procedure di un utente specificato può essere configurata e richiamata con parametri aggiuntivi.
 ### Esempio
-1. Definire il file JSON della tabella di output come indicato di seguito \(considerare la tabella del database SQL di Azure come un esempio\):
+1. Definire il file JSON della tabella di output come indicato di seguito (considerare la tabella del database SQL di Azure come un esempio):
 
     	{
     		"name": "MyAzureSQLTable",
@@ -320,7 +320,7 @@ Quando si copiano dati nel database SQL Azure o SQL Server, una stored procedure
 La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella][table-valued-parameters].
 
 ## Specificare la codifica per i file di testo
-Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx\) per i nomi di codifica validi.
+Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) per i nomi di codifica validi.
 
 ## Vedere anche
 

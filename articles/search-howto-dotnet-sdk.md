@@ -105,7 +105,7 @@ La procedura verrà illustrata passo per passo. In primo luogo è necessario cre
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]Se si fornisce una chiave non corretta \(ad esempio una chiave di query dove era richiesta una chiave di amministrazione\), `SearchServiceClient` invierà un `CloudException` con il messaggio di errore "Non consentito" la prima volta che si chiama un metodo di operazione, ad esempio `Indexes.Create`. In questo caso, eseguire una doppia verifica della chiave API.
+> [AZURE.NOTE]Se si fornisce una chiave non corretta (ad esempio una chiave di query dove era richiesta una chiave di amministrazione), `SearchServiceClient` invierà un `CloudException` con il messaggio di errore "Non consentito" la prima volta che si chiama un metodo di operazione, ad esempio `Indexes.Create`. In questo caso, eseguire una doppia verifica della chiave API.
 
 Le righe successive chiamano i metodi per creare un indice denominato "hotels", eliminandolo prima se esiste già. Tali metodi saranno illustrati più avanti.
 
@@ -333,7 +333,7 @@ Per capire in che modo .NET SDK di Ricerca di Azure è in grado di caricare le i
         }
     }
 
-La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a un campo nella definizione dell'indice, ma con una differenza fondamentale: il nome di ogni campo inizia con una lettera minuscola \("convenzione camel"\), mentre il nome di ogni proprietà pubblica di `Hotel` inizia con una lettera maiuscola \("convenzione Pascal"\). Si tratta di uno scenario comune in applicazioni .NET che consentono di eseguire l'associazione dati in cui lo schema di destinazione è fuori dal controllo dello sviluppatore dell'applicazione. Anziché dover violare linee guida sulla denominazione di .NET seguendo la convenzione camel per i nomi delle proprietà, è possibile indicare a SDK di eseguire automaticamente il mapping dei nomi delle proprietà alla convenzione camel con l’attributo `[SerializePropertyNamesAsCamelCase]`.
+La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a un campo nella definizione dell'indice, ma con una differenza fondamentale: il nome di ogni campo inizia con una lettera minuscola ("convenzione camel"), mentre il nome di ogni proprietà pubblica di `Hotel` inizia con una lettera maiuscola ("convenzione Pascal"). Si tratta di uno scenario comune in applicazioni .NET che consentono di eseguire l'associazione dati in cui lo schema di destinazione è fuori dal controllo dello sviluppatore dell'applicazione. Anziché dover violare linee guida sulla denominazione di .NET seguendo la convenzione camel per i nomi delle proprietà, è possibile indicare a SDK di eseguire automaticamente il mapping dei nomi delle proprietà alla convenzione camel con l’attributo `[SerializePropertyNamesAsCamelCase]`.
 
 Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` su [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Si noti che i tipi di valore come `bool` e `int` ammettono valori null nella classe `Hotel` perché tutti i tipi primitivi di campo in Ricerca di Azure ammettono valori null.
 
@@ -374,7 +374,7 @@ Si osservi il modo in cui viene chiamato questo metodo:
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-Nella prima chiamata, si cercano tutti i documenti che contengono i termini di query "fancy" o "wifi". Nella seconda chiamata, il testo di ricerca è impostato su "\*", che significa "trova tutti gli elementi". È possibile trovare ulteriori informazioni sulla sintassi delle espressioni di query di ricerca [qui](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Nella prima chiamata, si cercano tutti i documenti che contengono i termini di query "fancy" o "wifi". Nella seconda chiamata, il testo di ricerca è impostato su "*", che significa "trova tutti gli elementi". È possibile trovare ulteriori informazioni sulla sintassi delle espressioni di query di ricerca [qui](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
 La seconda chiamata utilizza l’espressione `$filter` OData, `category eq 'Luxury'`. Vincola la ricerca in modo che vengano restituiti solo i documenti di cui il campo `category` corrisponde esattamente alla stringa "Luxury". È possibile trovare informazioni sulla sintassi OData supportata da Ricerca di Azure [qui](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 

@@ -31,11 +31,11 @@ Un sito Web di notizie è interessato a superare la concorrenza offrendo contenu
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
-L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell’hub eventi \(o semplicemente hub eventi\). Gli hub eventi del bus di servizio sono il metodo preferito per l’inserimento di eventi per l'analisi dei flussi. Vedere la documentazione relativa agli hub eventi nella [documentazione relativa al bus di servizio](/documentation/services/service-bus/)
+L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell’hub eventi (o semplicemente hub eventi). Gli hub eventi del bus di servizio sono il metodo preferito per l’inserimento di eventi per l'analisi dei flussi. Vedere la documentazione relativa agli hub eventi nella [documentazione relativa al bus di servizio](/documentation/services/service-bus/)
 
 Attenersi alla procedura seguente per creare un hub eventi.
 
-1.	Nel portale di Azure fare clic **Nuovo** \> **SERVIZI APP** \> **BUS DI SERVIZIO** \> **HUB EVENTI** \> **CREAZIONE RAPIDA** e fornire un nome, uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
+1.	Nel portale di Azure fare clic **Nuovo** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e fornire un nome, uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
 2.	Come procedura consigliata, ogni processo di analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer riportata di seguito e ulteriori informazioni. Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **GRUPPI DI CONSUMER**, fare clic su **CREA** nella parte inferiore della pagina, quindi fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **CONFIGURA** dell'Hub eventi.
 4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di  **gestione** delle autorizzazioni.
@@ -49,18 +49,18 @@ Attenersi alla procedura seguente per creare un hub eventi.
 
 ## Configurare e avviare l'applicazione di generazione di eventi
 
-Microsoft ha fornito un'applicazione client che interagirà con i dati di Twitter tramite [API REST di Twitter](https://dev.twitter.com/rest/public) per raccogliere gli eventi di Tweet relativa a un set di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet \(0: negativo 2: neutro, 4: positivo\) e gli eventi di Tweet vengono indirizzati all'hub eventi.
+Microsoft ha fornito un'applicazione client che interagirà con i dati di Twitter tramite [API REST di Twitter](https://dev.twitter.com/rest/public) per raccogliere gli eventi di Tweet relativa a un set di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet (0: negativo 2: neutro, 4: positivo) e gli eventi di Tweet vengono indirizzati all'hub eventi.
 
 Attenersi alla seguente procedura per configurare l'applicazione:
 
 1.	[Scaricare la soluzione TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Aprire app. config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i valori.  
+2.	Aprire app. config e sostituire oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret con i token di Twitter con i valori.  
 
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Si noti che è necessario eseguire un'applicazione vuota per generare un token.
 3.	Sostituire i valori EventHubConnectionString ed EventHubName in App. config con la stringa di connessione hub eventi e il nome.
-4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in App. config, se necessario.
+4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter_keywords in App. config, se necessario.
 5.	Compilare la soluzione
 6.	Avviare l’applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
 
@@ -72,7 +72,7 @@ Ora che si dispone di un flusso di eventi Tweet, è possibile impostare un proce
 
 ### Eseguire il provisioning di un processo di Analisi dei flussi
 
-1.	Nel [portale di Microsoft Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** \> **SERVIZI DATI** \> **ANALISI DEI FLUSSI** \> **CREAZIONE RAPIDA**.
+1.	Nel [portale di Microsoft Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DEI FLUSSI** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
 
 	* **NOME PROCESSO**: immettere un nome del processo.
@@ -185,7 +185,7 @@ Ora che è stato definito un flusso di eventi, un input dell’hub eventi per ac
 
 Se non se ne dispone, attenersi alla procedura seguente per creare un contenitore per l'archiviazione BLOB:
 
-1.	Dal portale, creare un nuovo account di archiviazione facendo clic su **NUOVO** \> **SERVIZI DATI** \> **ARCHIVIAZIONE** \> **CREAZIONE RAPIDA** e attenendosi alle istruzioni visualizzate.
+1.	Dal portale, creare un nuovo account di archiviazione facendo clic su **NUOVO** > **SERVIZI DATI** > **ARCHIVIAZIONE** > **CREAZIONE RAPIDA** e attenendosi alle istruzioni visualizzate.
 2.	Selezionare l'account di archiviazione e quindi fare clic su **CONTENITORI** nella parte superiore della pagina, quindi fare clic su **AGGIUNGI**.
 3.	Specificare un **NOME** per il contenitore e impostare il relativo **ACCESSO** al BLOB pubblico.
 

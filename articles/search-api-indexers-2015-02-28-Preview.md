@@ -15,7 +15,7 @@ ms.tgt_pltfrm="na"
 ms.date="04/23/2015" 
 ms.author="heidist" />
 
-#Operazioni sull'indicizzatore \(API REST di Ricerca di Azure: 2015-02-28-Preview\)
+#Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
 
 > [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente l'unica differenza tra la versione `2015-02-28` documentata in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta in questo articolo è che l'anteprima fornisce *fieldMappings*, come descritto in [Creare un indicizzatore](#CreateIndexer).
 
@@ -44,7 +44,7 @@ Per informazioni sui limiti massimi relativi alle risorse di origine dati e dell
 
 ## Flusso di utilizzo tipico
 
-È possibile creare e gestire le origini dati e gli indicizzatori tramite semplici richieste HTTP \(POST, GET, PUT, DELETE\) su una risorsa `data source` o `indexer` specifica.
+È possibile creare e gestire le origini dati e gli indicizzatori tramite semplici richieste HTTP (POST, GET, PUT, DELETE) su una risorsa `data source` o `indexer` specifica.
 
 Per l'impostazione dell'indicizzazione automatica è in genere necessario un processo in quattro fasi:
 
@@ -58,7 +58,7 @@ Per l'impostazione dell'indicizzazione automatica è in genere necessario un pro
 
 È consigliabile pianificare la creazione di un indicizzatore per ogni combinazione di indice di destinazione e origine dati. È possibile avere più indicizzatori che svolgono operazioni di scrittura nello stesso indice e riutilizzare la stessa origine dati per più indicizzatori. Tuttavia, un indicizzatore può utilizzare solo un'origine dati alla volta e può scrivere solo su un singolo indice.
 
-Dopo aver creato un indicizzatore, è possibile ottenere il relativo stato di esecuzione mediante l'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus). È inoltre possibile eseguire un indicizzatore in qualsiasi momento \(anziché o oltre a eseguirlo periodicamente in base a una pianificazione\) usando l'operazione di [esecuzione di un indicizzatore](#RunIndexer).
+Dopo aver creato un indicizzatore, è possibile ottenere il relativo stato di esecuzione mediante l'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus). È inoltre possibile eseguire un indicizzatore in qualsiasi momento (anziché o oltre a eseguirlo periodicamente in base a una pianificazione) usando l'operazione di [esecuzione di un indicizzatore](#RunIndexer).
 
 <!-- MSDN has 2 art files plus a API topic link list -->
 
@@ -124,7 +124,7 @@ La richiesta contiene le proprietà seguenti:
 		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di gestione di Azure](https://portal.azure.com/).   
 		
 - `container`:
-	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione \(per l'origine dati di SQL Azure\) o la raccolta \(per l'origine dati di DocumentDB\) che sarà indicizzata. 
+	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione (per l'origine dati di SQL Azure) o la raccolta (per l'origine dati di DocumentDB) che sarà indicizzata. 
 	- Le origini dati di DocumentDB supportano anche una proprietà `query` facoltativa che consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.   
 - I criteri facoltativi `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritti di seguito.
 
@@ -362,7 +362,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" \(un subset limitato di un valore di durata [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -395,7 +395,7 @@ Per i nomi dei campi di origine e destinazione non viene fatta distinzione tra m
 
 Il mapping dei campi può essere usato anche per trasformare i valori del campo di origine mediante le *funzioni di mapping*.
 
-Attualmente è supportata solo una di queste funzioni: `jsonArrayToStringCollection`. Questa funzione analizza un campo contenente una stringa formattata come matrice JSON in un campo Collection\(Edm.String\) nell'indice di destinazione. È destinata in particolare all'uso con l'indicizzatore di SQL Azure, poiché SQL non ha un tipo di dati nativo per le raccolte. È possibile usare questa funzione come descritto di seguito:
+Attualmente è supportata solo una di queste funzioni: `jsonArrayToStringCollection`. Questa funzione analizza un campo contenente una stringa formattata come matrice JSON in un campo Collection(Edm.String) nell'indice di destinazione. È destinata in particolare all'uso con l'indicizzatore di SQL Azure, poiché SQL non ha un tipo di dati nativo per le raccolte. È possibile usare questa funzione come descritto di seguito:
 
 	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
@@ -619,13 +619,13 @@ Il risultato dell'esecuzione dell'indicizzatore contiene le proprietà seguenti:
 
 - `errors`: elenco di errori a livello di elemento, se presenti.
 
-- `itemsProcessed`: numero di elementi di origine dati \(ad esempio, righe di tabella\) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
+- `itemsProcessed`: numero di elementi di origine dati (ad esempio, righe di tabella) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
 
 - `itemsFailed`: numero di elementi non riusciti durante questa esecuzione.
  
-- `initialTrackingState`: sempre `null` per la prima esecuzione dell'indicizzatore o se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. Se i criteri sono abilitati, nelle esecuzioni successive questo valore indica il primo \(minimo\) valore di rilevamento delle modifiche elaborato da questa esecuzione.
+- `initialTrackingState`: sempre `null` per la prima esecuzione dell'indicizzatore o se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. Se i criteri sono abilitati, nelle esecuzioni successive questo valore indica il primo (minimo) valore di rilevamento delle modifiche elaborato da questa esecuzione.
 
-- `finalTrackingState`: sempre `null` se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. In caso contrario, indica l'ultimo \(massimo\) valore di rilevamento delle modifiche elaborato correttamente da questa esecuzione.
+- `finalTrackingState`: sempre `null` se i criteri di rilevamento delle modifiche dei dati non sono abilitati sull'origine dati usata. In caso contrario, indica l'ultimo (massimo) valore di rilevamento delle modifiche elaborato correttamente da questa esecuzione.
 
 <a name="IndexerExecutionStatus"></a> **Stato di esecuzione dell'indicizzatore**
 
@@ -640,7 +640,7 @@ Lo stato di esecuzione dell'indicizzatore acquisisce lo stato di una singola ese
 
 - `persistentFailure` indica che si è verificato un errore dell'indicizzatore che richiede un intervento da parte dell'utente. Le esecuzioni pianificate dell'indicizzatore vengono arrestate. Dopo aver risolto il problema, usare l'API di reimpostazione di un indicizzatore per riavviare le esecuzioni pianificate.
 
-- `reset` indica che l'indicizzatore è stato reimpostato tramite una chiamata all'API di reimpostazione di un indicizzatore \(vedere la sezione seguente\).
+- `reset` indica che l'indicizzatore è stato reimpostato tramite una chiamata all'API di reimpostazione di un indicizzatore (vedere la sezione seguente).
 
 <a name="ResetIndexer"></a>
 ## Reimpostare un indicizzatore

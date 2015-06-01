@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione ai back-end dell&#39;app per dispositivi mobili per app Windows Store | Mobile Dev Center"
-	description="Seguire questa esercitazione per iniziare a usare i back-end dell&#39;app per dispositivi mobili di Azure per lo sviluppo per Windows Store in C#, VB o JavaScript."
+	pageTitle="Introduzione ai back-end dell'app per dispositivi mobili per app Windows Store | Mobile Dev Center"
+	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per Windows Store in C#, VB o JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -44,7 +44,7 @@ In questa sezione si creerà una nuova app di Windows universale connessa al bac
 
 1. Nel portale di Azure fare clic su **App per dispositivi mobili** e selezionare l'app per dispositivi mobili appena creata.
 
-2. Nella parte superiore del pannello fare clic su **Aggiungi client** ed espandere **Windows \(C\#\)**.
+2. Nella parte superiore del pannello fare clic su **Aggiungi client** ed espandere **Windows (C#)**.
 
    ![Procedura di creazione rapida dell'app per dispositivi mobili](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 

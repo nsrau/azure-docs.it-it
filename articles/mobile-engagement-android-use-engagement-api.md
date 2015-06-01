@@ -252,7 +252,7 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
 
 #### Dimensione
 
@@ -287,7 +287,7 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
 
 #### Dimensione
 

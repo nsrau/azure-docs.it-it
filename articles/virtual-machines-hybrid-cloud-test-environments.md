@@ -18,13 +18,13 @@
 
 # Ambienti di test basati su cloud ibrido
 
-Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali \(VNet\) cross-premise. Al termine, è possibile effettuare lo sviluppo e il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale \(VPN, Virtual Private Network\) site-to-site relativa alla propria posizione su Internet.
+Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali (VNet) cross-premise. Al termine, è possibile effettuare lo sviluppo e il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale (VPN, Virtual Private Network) site-to-site relativa alla propria posizione su Internet.
 
 ## Configurazione di base del cloud ibrido
 
 La [configurazione di base di un cloud ibrido](virtual-networks-setup-hybrid-cloud-environment-testing.md) è costituita da quanto segue:
 
-- Una rete locale semplificata con quattro macchine virtuali \(ad esempio un controller di dominio, un server applicazioni, un computer client e un dispositivo VPN che esegue Windows Server e routing e accesso remoto\)
+- Una rete locale semplificata con quattro macchine virtuali (ad esempio un controller di dominio, un server applicazioni, un computer client e un dispositivo VPN che esegue Windows Server e routing e accesso remoto)
 - Una rete virtuale di Azure con un controller di dominio di replica
 - Una connessione VPN site-to-site.
 
@@ -32,11 +32,11 @@ La [configurazione di base di un cloud ibrido](virtual-networks-setup-hybrid-clo
 
 La [farm intranet di SharePoint intranet in un ambiente di test basato cloud ibrido](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md) include un server SQL Server 2014 e un server di SharePoint Server 2013 per la configurazione di base del cloud ibrido. Consente di creare una farm di SharePoint a due livelli a cui è possibile accedere dal computer client nella rete locale semplificata.
 
-## Applicazione line-of-business \(LOB\) basata su Web in un cloud ibrido
+## Applicazione line-of-business (LOB) basata su Web in un cloud ibrido
 
-L’[applicazione LOB basata sul Web in un ambiente di test in un cloud ibrido](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) include un server SQL Server 2014 e un server Internet Information Services \(IIS\) per la configurazione di base del cloud ibrido. Verrà creata l'infrastruttura in cui è possibile distribuire e testare un'applicazione LOB basata su Web, a più livelli.
+L’[applicazione LOB basata sul Web in un ambiente di test in un cloud ibrido](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) include un server SQL Server 2014 e un server Internet Information Services (IIS) per la configurazione di base del cloud ibrido. Verrà creata l'infrastruttura in cui è possibile distribuire e testare un'applicazione LOB basata su Web, a più livelli.
 
-## Server di sincronizzazione della directory \(DirSync\) di Office 365
+## Server di sincronizzazione della directory (DirSync) di Office 365
 
 Il [server di Office 365 DirSync in un ambiente cloud ibrido](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) include un server DirSync per la configurazione di base del cloud ibrido e fornisce una dimostrazione di Office 365 DirSync con sincronizzazione password a una relativa una sottoscrizione di valutazione Office 365.
 
@@ -51,7 +51,7 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 [Il progetto di architettura applicativa line-of-business 3D in formato PDF](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
-[Distribuire la sincronizzazione delle directory di Office 365 \(DirSync\) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+[Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
 
 <!--HONumber=52-->

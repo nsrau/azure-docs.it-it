@@ -28,7 +28,7 @@
  
     Verrà avviato un processo di creazione di snapshot. Una volta completata la creazione del processo, verrà visualizzata una notifica nella parte inferiore della pagina.
 
-4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica \(nella parte inferiore della pagina\).
+4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica (nella parte inferiore della pagina).
 
     ![Creazione del backup2 manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 

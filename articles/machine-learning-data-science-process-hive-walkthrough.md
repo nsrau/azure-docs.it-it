@@ -46,17 +46,17 @@ I dati relativi alle corse dei taxi di NYC sono rappresentati come file csv comp
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai campi: medallion, hack\_licence e pickup\_datetime.
+La chiave univoca che consente di unire trip_data e trip_fare è composta dai campi: medallion, hack_licence e pickup_datetime.
 
 Sono presenti rispettivamente 12 file per 'trip_data' e per  'trip_fare'. Nei nomi dei file, i numeri 1-12 rappresentano i mesi in cui sono state effettuate le corse. 
 
 ## <a name="mltasks"></a>Esempi di attività predittive
 Prima di usare i dati, è opportuno stabilire il tipo di stima che si desidera ottenere dall'analisi, in modo da comprendere meglio le attività che devono essere incluse nel processo.
-Di seguito, sono riportati esempi di problemi relativi alle stime che verranno risolti da questa procedura dettagliata. La loro formulazione si basa su  *tip\_amount*:
+Di seguito, sono riportati esempi di problemi relativi alle stime che verranno risolti da questa procedura dettagliata. La loro formulazione si basa su  *tip_amount*:
 
-1. **Classificazione binaria**: consente di stabilire se sia stata lasciata o meno una mancia per la corsa, vale a dire che un valore *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
+1. **Classificazione binaria**: consente di stabilire se sia stata lasciata o meno una mancia per la corsa, vale a dire che un valore *tip_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore *tip_amount* pari a $ 0 rappresenta un esempio negativo.
 
-2. **Classificazione multiclasse**: consente di prevedere il range relativo all'importo della mancia lasciata per una corsa. Il valore *tip\_amount* viene diviso in 5 contenitori o classi:
+2. **Classificazione multiclasse**: consente di prevedere il range relativo all'importo della mancia lasciata per una corsa. Il valore *tip_amount* viene diviso in 5 contenitori o classi:
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -85,7 +85,7 @@ Per impostare l'ambiente relativo all'analisi scientifica dei dati di Azure per 
 
 3. [Eseguire il provisioning di una macchina virtuale **Windows** per l'analisi scientifica dei dati](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] Gli script di esempio verranno scaricati nella macchina virtuale per l'analisi scientifica dei dati durante la procedura di configurazione della stessa. Quando viene completato lo script di post-installazione della macchina virtuale, gli esempi saranno visualizzati nella libreria di documenti della macchina virtuale, nel percorso  *C:\Users\<user_name>\Documents\Data Science Scripts*  Questa cartella di esempio, viene denominata come **Script di esempio**. Le query Hive di esempio sono incluse in file con estensione hql nella cartella **Script di esempio**. Tenere presente che il valore *<user_name>* indicato nel percorso della cartella corrisponde al nome di accesso a Windows della macchina virtuale e non al nome utente di Azure.
+	> [AZURE.NOTE] Gli script di esempio verranno scaricati nella macchina virtuale per l'analisi scientifica dei dati durante la procedura di configurazione della stessa. Quando viene completato lo script di post-installazione della macchina virtuale, gli esempi saranno visualizzati nella libreria di documenti della macchina virtuale, nel percorso  *C:\Users<user_name>\Documents\Data Science Scripts*  Questa cartella di esempio, viene denominata come **Script di esempio**. Le query Hive di esempio sono incluse in file con estensione hql nella cartella **Script di esempio**. Tenere presente che il valore *<user_name>* indicato nel percorso della cartella corrisponde al nome di accesso a Windows della macchina virtuale e non al nome utente di Azure.
 
 4. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md). Questa procedura consente di creare un cluster Hadoop di Azure HDInsight con una versione a 64 bit di Anaconda Python 2.7 installata su tutti i nodi. Dopo aver creato il cluster Hadoop personalizzato, consentire al nodo head del cluster Hadoop di accedere in remoto al portale di Azure, eseguendo la procedura descritta in questo argomento sulla personalizzazione.
 
@@ -211,7 +211,7 @@ Le attività di esplorazione dei dati e di progettazione delle funzionalità rel
 - Visualizzazione dei i 10 record principali in entrambe le tabelle.
 - Esplorazione delle distribuzioni di dati di un numero ridotto di campi in diverse finestre temporali.
 - Indagine sulla qualità dei dati dei campi di longitudine e latitudine.
-- Generazione di etichette di classificazione binaria e multiclasse basata su **tip\_amount**.
+- Generazione di etichette di classificazione binaria e multiclasse basata su **tip_amount**.
 - Creazione di funzionalità calcolando le distanze dirette delle corse.
 - Unione di due tabelle ed estrazione di un campione casuale che verrà utilizzato per la creazione di modelli.
 
@@ -363,7 +363,7 @@ Al termine dell'esecuzione della query, è possibile usare l'SDK di Azure per le
 	
 ### Preparazione dei dati per la creazione del modello
 
-La query fornita nell'esempio consente di unire le tabelle **nyctaxidb.trip** e **nyctaxidb.fare**, creare un'etichetta di classificazione binaria **tipped** e una di classificazione multiclasse **tip\_class**. È possibile copiare e incollare questa query direttamente nel modulo Lettore di [Azure Machine Learning Studio](https://studio.azureml.net) per inserire i dati dalla **query Hive** in Azure. La query esclude i record con coordinate di longitudine e latitudine errate.
+La query fornita nell'esempio consente di unire le tabelle **nyctaxidb.trip** e **nyctaxidb.fare**, creare un'etichetta di classificazione binaria **tipped** e una di classificazione multiclasse **tip_class**. È possibile copiare e incollare questa query direttamente nel modulo Lettore di [Azure Machine Learning Studio](https://studio.azureml.net) per inserire i dati dalla **query Hive** in Azure. La query esclude i record con coordinate di longitudine e latitudine errate.
 
 La query consente di applicare direttamente le funzionalità incorporate Hive definite dall'utente al fine di creare alcune funzionalità dai record Hive, ad esempio, quelle di ora, settimana dell'anno e giorno della settimana (1 = lunedì, 7 = domenica) per il campo _pickup_datetime_. Gli utenti possono riferirsi alla [funzionalità definita dall'utente LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) per visualizzare un elenco completo di funzionalità definite dall'utente incorporate.
 
@@ -496,7 +496,7 @@ Nella figura in basso, è riportato un esempio relativo a un esperimento di clas
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
+> [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip_class**, **tip_amount** e **total_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 
 > In questo esperimento, il primo modulo **Editor metadati** consente di aggiungere i nomi di colonna nei dati di output del modulo Lettore. Il modulo è necessario dal momento che il modulo Lettore, che legge i dati della query Hive, non è in grado di creare nomi di colonna per i dati di output. 
 

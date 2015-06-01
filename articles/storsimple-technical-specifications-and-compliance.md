@@ -20,23 +20,23 @@
 
 ## Panoramica
 
-I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono i moduli di alimentazione e raffreddamento \(PCM\), le unità disco e gli chassis. Le informazioni sulla conformità riguardano argomenti come gli standard internazionali, la sicurezza, le emissioni e i cavi.
+I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono i moduli di alimentazione e raffreddamento (PCM), le unità disco e gli chassis. Le informazioni sulla conformità riguardano argomenti come gli standard internazionali, la sicurezza, le emissioni e i cavi.
 
 > [AZURE.NOTE]Per altre informazioni sul dispositivo StorSimple, scaricare il [Foglio dati della serie StorSimple 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx).
 
 ## Specifiche del modulo di alimentazione e raffreddamento  
 
-Il dispositivo StorSimple dispone di due moduli di alimentazione e raffreddamento \(PCM\) compatibili con SBB a doppia ventola da 100-240 V. Fornisce una configurazione di alimentazione ridondante. Se un PCM ha esito negativo, il dispositivo continua a funzionare normalmente sull’altro PCM fino alla sostituzione del modulo non riuscito.
+Il dispositivo StorSimple dispone di due moduli di alimentazione e raffreddamento (PCM) compatibili con SBB a doppia ventola da 100-240 V. Fornisce una configurazione di alimentazione ridondante. Se un PCM ha esito negativo, il dispositivo continua a funzionare normalmente sull’altro PCM fino alla sostituzione del modulo non riuscito.
 
 Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un PCM 764 W. Nelle tabelle seguenti sono elencate le specifiche tecniche associate ai PCM.
  
-| Specifiche | PCM 580 W \(EBOD\) | PCM 764 W \(principale\) |
+| Specifiche | PCM 580 W (EBOD) | PCM 764 W (principale) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Potenza massima in uscita | 580 W | 764 |
 | Frequenza | 50/60 Hz | 50/60 Hz |
 | Selezione intervallo di voltaggio | Intervallo automatico: 90 – 264 V CA, 47/63 Hz | Intervallo automatico: 90 - 264 V CA, 47/63 Hz |
 | Afflusso di corrente massimo | 20 A | 20 A |
-| Correzione del fattore di potenza | Voltaggio di ingresso nominale \> 95% | Voltaggio di ingresso nominale \> 95% |
+| Correzione del fattore di potenza | Voltaggio di ingresso nominale > 95% | Voltaggio di ingresso nominale > 95% |
 | Armoniche | Conforme allo standard N61000-3-2 | Conforme allo standard N61000-3-2 |
 | Output | Tensione di Standby 5V @ 2.0 A | Tensione di Standby 5V @ 2.7 A |
 | | +5V @ 42 A | +5V @ 40 A |
@@ -61,7 +61,7 @@ Nella tabella seguente vengono elencati i dati sul consumo energetico per i vari
 
 ## Specifiche unità disco  
 
-Il dispositivo StorSimple supporta fino a 12 unità disco SAS \(Serial Attached SCSI\) del fattore forma 3,5 pollici. Le unità effettive possono essere una combinazione di unità SSD \(Solid State Drive\) o unità disco rigido \(HDD\), a seconda della configurazione del prodotto. I 12 slot di unità disco si trovano in una configurazione 3 per 4 nella parte anteriore dello chassis. Lo chassis EBOD dispone di spazio di archiviazione aggiuntivo per altre 12 unità disco. Si tratta sempre di HDD.
+Il dispositivo StorSimple supporta fino a 12 unità disco SAS (Serial Attached SCSI) del fattore forma 3,5 pollici. Le unità effettive possono essere una combinazione di unità SSD (Solid State Drive) o unità disco rigido (HDD), a seconda della configurazione del prodotto. I 12 slot di unità disco si trovano in una configurazione 3 per 4 nella parte anteriore dello chassis. Lo chassis EBOD dispone di spazio di archiviazione aggiuntivo per altre 12 unità disco. Si tratta sempre di HDD.
 
 ## Specifiche su peso e dimensioni dello chassis  
 
@@ -85,36 +85,36 @@ A seconda della configurazione, uno chassis principale completamente carico può
  
 | Chassis | Peso |
 |-----------|--------| 
-| Peso massimo \(a seconda della configurazione\) |Da 30 a 33 kg |
-| Vuoto \(nessuna unità montata\) |Da 21 a 23 kg |
+| Peso massimo (a seconda della configurazione) |Da 30 a 33 kg |
+| Vuoto (nessuna unità montata) |Da 21 a 23 kg |
 
 ## Specifiche ambientali dello chassis  
 
-In questa sezione vengono elencate le specifiche relative all'ambiente dello chassis. In questa categoria sono inclusi temperatura, umidità, altitudine, scosse, vibrazione, orientamento, sicurezza e compatibilità elettromagnetica \(EMC\).
+In questa sezione vengono elencate le specifiche relative all'ambiente dello chassis. In questa categoria sono inclusi temperatura, umidità, altitudine, scosse, vibrazione, orientamento, sicurezza e compatibilità elettromagnetica (EMC).
 
 ### Temperatura e umidità
 
 | Chassis | Intervallo di temperatura ambientale | Umidità relativa all'ambiente | Bulbo umido massimo |
 |------------------|----------------------------|---------------------------|--------------------|
-| Operativo | Da 5°C a 35°C \(da 41°F a 95°F\) | Dal 20% all'80% senza condensa | 28°C \(82°F\) |
-| Non operativo | Da -40° a 70°C \(da 40°F a 158°F\) | Dal 5% al 100% senza condensa | 29°C \(84°F\) |
+| Operativo | Da 5°C a 35°C (da 41°F a 95°F) | Dal 20% all'80% senza condensa | 28°C (82°F) |
+| Non operativo | Da -40° a 70°C (da 40°F a 158°F) | Dal 5% al 100% senza condensa | 29°C (84°F) |
 
 ### Flusso d'aria, altitudine, scosse, vibrazione, orientamento, sicurezza ed EMC
  
 | Chassis | Specifiche operative |
 |--------------------|---------------------------------------------------------------------------| 
-| Flusso d'aria | Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. La pressione posteriore creata dalle porte del rack e da ostacoli non deve superare i 5 Pascal \(colonna d'acqua da 0,5 mm\). |
-| Altitudine, operativa | Da -30 a 3.045 metri \(da -100 a 10.000 piedi\) con temperatura operativa massima a potenza ridotta di 5°C oltre i 7.000 piedi. |
-| Altitudine, non operativa | Da -305 metri a 12.192 metri \(da -1.000 piedi a 40.000 piedi\) |
+| Flusso d'aria | Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. La pressione posteriore creata dalle porte del rack e da ostacoli non deve superare i 5 Pascal (colonna d'acqua da 0,5 mm). |
+| Altitudine, operativa | Da -30 a 3.045 metri (da -100 a 10.000 piedi) con temperatura operativa massima a potenza ridotta di 5°C oltre i 7.000 piedi. |
+| Altitudine, non operativa | Da -305 metri a 12.192 metri (da -1.000 piedi a 40.000 piedi) |
 | Scossa, operativo | 5 g 10 ms ½ sinusoidali | 
 | Scossa, non operativo | 30 g 10 ms ½ sinusoidali |
 | Vibrazione, operativa | 0,21g RMS 5-500 Hz casuali |
 | Vibrazione, non operativa | 1,04 g RMS 2-200 Hz casuali |
 | Vibrazione, trasferimento | 3 g 2-200 Hz sinusoidali |
-| Orientamento e montaggio | Montaggio rack da 19" \(2 unità EIA\) |
-| Guide rack | Profondità dei rack minima conforme allo standard IEC 297 per l'adattabilità pari a 700 mm \(31,50 pollici\) |
+| Orientamento e montaggio | Montaggio rack da 19" (2 unità EIA) |
+| Guide rack | Profondità dei rack minima conforme allo standard IEC 297 per l'adattabilità pari a 700 mm (31,50 pollici) |
 | Sicurezza e approvazioni |	CE e UL EN 61000-3, IEC 61000-3, UL 61000-3 |
-| EMC | EN55022 \(CISPR - A\), FCC A |
+| EMC | EN55022 (CISPR - A), FCC A |
 
 ## Conformità agli standard internazionali
 Il dispositivo Microsoft Azure StorSimple è conforme ai seguenti standard internazionali:
@@ -152,7 +152,7 @@ Il dispositivo è conforme allo standard EN55024.
   
 La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese in cui viene utilizzato il dispositivo e devono disporre delle certificazioni di sicurezza ritenute accettabili in tale paese. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
 
-### Cavi di alimentazione CA - Stati Uniti \(devono essere elencati NRTL\)
+### Cavi di alimentazione CA - Stati Uniti (devono essere elencati NRTL)
 
 | Componente | Specifiche |
 | --------------- | ----------------------------------------------------------------- | 
@@ -169,7 +169,7 @@ La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli s
 
 ## Cavi di rete supportati  
 
-Per le interfacce di rete 10 GbE, DATI 2 e DATI 3, l'elenco dei cavi di rete e dei moduli supportati può essere visualizzato accedendo al seguente indirizzo Web: [http://www.mellanox.com/page/cables?mtag=cable\_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+Per le interfacce di rete 10 GbE, DATI 2 e DATI 3, l'elenco dei cavi di rete e dei moduli supportati può essere visualizzato accedendo al seguente indirizzo Web: [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
 
 
 <!--HONumber=52-->

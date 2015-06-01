@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usare il portale di gestione per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali" 
-	description="Questa esercitazione illustra la procedura per implementare un&#39;applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale." 
+	description="Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -28,8 +28,8 @@ In questa esercitazione il portale di gestione di Azure viene usato per eseguire
 
 2.  Configurare gli endpoint di streaming
 3.  Creare un canale
-1.  Configurare un codificatore live e inserire il flusso live nel canale \(in questo passaggio viene usato Wirecast\)
-1.  Creare un programma \(e un asset\).
+1.  Configurare un codificatore live e inserire il flusso live nel canale (in questo passaggio viene usato Wirecast)
+1.  Creare un programma (e un asset).
 1.  Pubblicare l'asset e ottenere gli URL di streaming.  
 1.  Riprodurre i contenuti 
 2.  + Cleaning up
@@ -44,9 +44,9 @@ Per completare l'esercitazione è necessario quanto segue.
 	 
 ##Configurare l'endpoint di streaming usando il portale
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH e HDS \(solo per i titolari di licenza Adobe PrimeTime/Access\).
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
-Quando si usa lo streaming live, un codificatore live locale \(in questo caso Wirecast\) inserisce un flusso live a più velocità in bit nel canale. Quando il flusso viene richiesto da un utente, Servizi multimediali usa la creazione dinamica dei pacchetti per ricreare il pacchetto del flusso di origine nel flusso a velocità in bit adattiva richiesto \(HLS, DASH o Smooth\).
+Quando si usa lo streaming live, un codificatore live locale (in questo caso Wirecast) inserisce un flusso live a più velocità in bit nel canale. Quando il flusso viene richiesto da un utente, Servizi multimediali usa la creazione dinamica dei pacchetti per ricreare il pacchetto del flusso di origine nel flusso a velocità in bit adattiva richiesto (HLS, DASH o Smooth).
 
 Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si intende distribuire i contenuti.
 
@@ -161,7 +161,7 @@ Se si passa alla pagina **CONTENUTO**, sarà possibile visualizzare gli asset cr
 
 ##Riproduzione del contenuto
 
-Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset \(come descritto nella sezione precedente\) creando un localizzatore \(quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente\). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
+Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
 
 A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\\programma.
 
@@ -171,11 +171,11 @@ Per impostazione predefinita, un URL di streaming presenta il seguente formato e
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Per creare un URL di streaming HLS, aggiungere \(format=m3u8-aapl\) all'URL.
+Per creare un URL di streaming HLS, aggiungere (format=m3u8-aapl) all'URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Per creare un URL di streaming MPEG DASH, aggiungere \(format=mpd-time-csf\) all'URL.
+Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

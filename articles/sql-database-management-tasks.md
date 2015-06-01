@@ -57,7 +57,7 @@ Prima di potere effettuare la connessione, è a volte necessario creare un'eccez
 
 ## Effettuare la connessione a un server locale
 
-1. n Management Studio verificare in Connetti al server che Motore di database sia selezionato, quindi immettere il nome di un'istanza locale usando il seguente formato: *servername*\\*nomeistanza*. Se il server è locale ed è un'istanza predefinita, immettere  *localhost*.
+1. n Management Studio verificare in Connetti al server che Motore di database sia selezionato, quindi immettere il nome di un'istanza locale usando il seguente formato: *servername**nomeistanza*. Se il server è locale ed è un'istanza predefinita, immettere  *localhost*.
 
 2. In Autenticazione scegliere **Autenticazione di Windows** e quindi immettere un account Windows membro del ruolo sysadmin.
 

@@ -140,15 +140,15 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
     * **repository**: i repository che contengono i file di dipendenza usati da questo progetto
 
-    * **scalding-core\_2.11** e **hadoop-core**: questo progetto dipende da pacchetti di base Scalding e Hadoop
+    * **scalding-core_2.11** e **hadoop-core**: questo progetto dipende da pacchetti di base Scalding e Hadoop
 
     * **maven-scala-plugin**: plug-in per compilare le applicazioni di scala
 
-    * **maven-shade-plugin**: plug-in per creare file JAR \(fat\) con shade. Questo plug-in consente di applicare filtri e trasformazioni; in particolare:
+    * **maven-shade-plugin**: plug-in per creare file JAR (fat) con shade. Questo plug-in consente di applicare filtri e trasformazioni; in particolare:
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **filtri**: I filtri applicati modificano le metainformazioni incluse nel file jar. Per evitare eccezioni di accesso al runtime, vengono esclusi diversi file di firma che potrebbero essere inclusi con dipendenze.
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **esecuzioni**: La configurazione dell'esecuzione di fase del pacchetto specifica la classe **com.twitter.scalding.Tool** come classe principale per il pacchetto. Senza questa classe, sarebbe necessario specificare com.twitter.scalding.Tool, nonché la classe che contiene la logica dell'applicazione, durante l'esecuzione del processo con il comando hadoop.
 
 3. Eliminare la directory **src/test**, perché per questo esempio non verranno creati test.
 

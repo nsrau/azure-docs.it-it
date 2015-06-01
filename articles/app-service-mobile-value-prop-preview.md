@@ -20,14 +20,14 @@
 
 >[AZURE.NOTE]**[Fare clic qui](http://azure.microsoft.com/documentation/services/mobile-services/) per la documentazione di Servizi mobili.**
 
-Il servizio app di Azure è un'offerta di piattaforma interamente gestita come servizio \(PaaS\) per sviluppatori professionisti che offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo per applicazioni mobili altamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per le app per dispositivi mobili.
+Il servizio app di Azure è un'offerta di piattaforma interamente gestita come servizio (PaaS) per sviluppatori professionisti che offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo per applicazioni mobili altamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per le app per dispositivi mobili.
 
 ![App per dispositivi mobili](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##Perché le app per dispositivi mobili?
 Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo per applicazioni mobili altamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per le app per dispositivi mobili. Con le app per dispositivi mobili è possibile:
 
-- **Compilare app native e multipiattaforma**: indipendentemente dal tipo di app compilata, ad esempio app native per iOS, Android e Windows oppure app multipiattaforma Xamarin o Cordova \(Phonegap\), è possibile sfruttare il servizio app usando SDK nativi.  
+- **Compilare app native e multipiattaforma**: indipendentemente dal tipo di app compilata, ad esempio app native per iOS, Android e Windows oppure app multipiattaforma Xamarin o Cordova (Phonegap), è possibile sfruttare il servizio app usando SDK nativi.  
 - **Connettersi ai propri sistemi aziendali**: con le app per dispositivi mobili è possibile aggiungere l'accesso aziendale in pochi minuti e connettersi alle risorse aziendali locali o nel cloud.
 - **Connettersi con facilità alle API SaaS**: con oltre 40 connettori per API SaaS, è possibile integrare l'app con le API SaaS attualmente in uso nell'azienda. Se ad esempio si vuole aggiornare contemporaneamente lo stato di un account nel sistema CRM e in quello di fatturazione, il servizio app per dispositivi mobili offre API SaaS di classe enterprise pronte per l'uso.
 - **Creare app offline con sincronizzazione**: è possibile aumentare la produttività del personale grazie alla creazione di app eseguibili offline e all'uso del servizio app per dispositivi mobili per sincronizzare i dati in background, quando la connettività è disponibile, con qualsiasi origine dati o API SaaS aziendale.

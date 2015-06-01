@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come creare un&#39;app Web in un ambiente del servizio app" 
+	pageTitle="Come creare un'app Web in un ambiente del servizio app" 
 	description="Esame del flusso di creazione per app Web e piani di servizio app per un ambiente del servizio app" 
 	services="app-services-web" 
 	documentationCenter="" 
@@ -22,7 +22,7 @@ La procedura di creazione di app Web è quasi simile a quella normalmente usata 
 
 Per creare un'app Web in un ambiente del servizio app, è necessario verificare innanzitutto di disporre di un ambiente del servizio app. Per informazioni dettagliate sulla creazione di un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app][HowtoCreateASE].
 
-Il primo passaggio per la creazione di un'app Web consiste nel creare o selezionare un piano di servizio app. Per creare un piano di servizio app in un ambiente del servizio app, le operazioni iniziali sono quelle solite per il flusso di creazione delle app Web, ovvero selezionare Nuovo -\> Web + Mobile -\> App Web.
+Il primo passaggio per la creazione di un'app Web consiste nel creare o selezionare un piano di servizio app. Per creare un piano di servizio app in un ambiente del servizio app, le operazioni iniziali sono quelle solite per il flusso di creazione delle app Web, ovvero selezionare Nuovo -> Web + Mobile -> App Web.
 
 ![][1]
 

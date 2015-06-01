@@ -28,7 +28,7 @@ Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Az
 
 ##Informazioni sui dati##
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
 In questa applicazione, il programma **DataIndexer** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all’origine dati online. Non è necessaria ulteriore configurazione.
 
@@ -38,7 +38,7 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'indice, fare clic su **Nuovo** \| **Dati + archiviazione** \| **Ricerca**.
+2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
  
      ![][1]
 
@@ -136,7 +136,7 @@ L’immissione di un termine di ricerca fornirà al motore di ricerca un element
 
 Questa è la prima esercitazione di Ricerca di Azure basata su NodeJS e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative \(query di suggerimento per la digitazione e completamento automatico\), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](https://msdn.microsoft.com/library/azure/dn798933.aspx) per accedere a ulteriori informazioni.
 

@@ -34,7 +34,7 @@ Contenuto dell'articolo:
 3. Nella pagina **Security and Audit** rivedere le informazioni riportate nel pannello **NOTABLE ISSUES**. Nella schermata di esempio per la giornata odierna sono visualizzati 6 problemi rilevanti, 2 dei quali risalgono a ieri. In questo esempio è presente 1 file eseguibile sospetto. Fare clic su **Suspicious Executables** nel pannello **NOTABLE ISSUES**. ![Immagine della pagina Security and Audit](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. Nella pagina Search vengono visualizzati la query e i risultati relativi al file eseguibile sospetto selezionato. Nell'esempio viene restituito 1 risultato e viene visualizzato il relativo hash file. Fare clic sull'ID **FILEHASH**. ![Immagine dei risultati di hash file nella pagina Search](./media/operational-insights-security-audit/sec-audit-search01.png) 
 5. Nella pagina Search vengono visualizzate informazioni aggiuntive sul file eseguibile, inclusi il relativo percorso e il nome del processo. Fare clic su **Process &lt;file name&gt;**, nell'esempio HEXEDIT.EXE. ![Immagine dell'elaborazione dei risultati nella pagina Search](./media/operational-insights-security-audit/sec-audit-search02.png) 
-6. Nella pagina Search il nome del processo viene aggiunto alla query tra virgolette. In questo esempio il nome è "\*\*HEXEDIT.EXE"\*\*. ![Immagine della query nella pagina Search](./media/operational-insights-security-audit/sec-audit-search03.png)
+6. Nella pagina Search il nome del processo viene aggiunto alla query tra virgolette. In questo esempio il nome è "**HEXEDIT.EXE"**. ![Immagine della query nella pagina Search](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. Nella casella Search rimuovere qualsiasi informazione tranne il nome del processo e le virgolette e quindi fare clic sull'icona Search. ![Immagine delle informazioni di ricerca dettagliate](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Nella pagina Search vengono visualizzate informazioni dettagliate sul processo, inclusi i computer sui quali viene eseguito e l'account utente usato, nonché la data e l'ora in cui è stato creato l'evento relativo al processo.
 9. Le informazioni trovate consentono di eseguire le azioni correttive necessarie. Se, ad esempio, risulta che il file eseguibile è un malware, è necessario rimuoverlo da tutti i computer che ha infettato. Il file eseguibile viene rimosso e Operational Insights riceve eventi di log e controllo aggiornati relativi ai computer. I valori presenti nel pannello NOTABLE ISSUES verranno modificati il giorno successivo.
@@ -51,9 +51,9 @@ Tuttavia, che gli utenti accedano ai propri computer in modalità locale o remot
 
 Per sfruttare al massimo l'intelligence pack Security and Audit, configurare il livello di eventi di controllo raccolti dall'ambiente Windows più adatto alle proprie esigenze usando le seguenti risorse.
 
-- [Come configurare le impostazioni dei criteri di sicurezza](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx\)
+- [Come configurare le impostazioni dei criteri di sicurezza](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
-- [Configurazione dei criteri di controllo avanzati](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx\)
+- [Configurazione dei criteri di controllo avanzati](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
 - [Suggerimenti per i criteri di controllo](https://technet.microsoft.com/library/dn487457.aspx)
 

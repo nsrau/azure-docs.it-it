@@ -35,7 +35,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 + Dispositivo con iOS 5.0 o versione successiva
 + Iscrizione a iOS Developer Program
 
-   \>[AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS \(iPhone o iPad\) anziché su un emulatore.
+   >[AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub notifica relative ad app per iOS.
 
@@ -63,7 +63,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
    ![][28]
 
-5. Fare clic sullo spazio dei nomi appena creato \(in genere ***nome hub di notifica*-ns**\), quindi fare clic sulla scheda **Configure** nella parte superiore.
+5. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic sulla scheda **Configure** nella parte superiore.
 
    ![][29]
 
@@ -71,7 +71,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
    ![][210]
 
-7. Selezionare la scheda **Configure** nella parte superiore e quindi fare clic su **Upload** per le impostazioni di notifica di Apple. Selezionare quindi il certificato **.p12** esportato in precedenza e la password per il certificato. Selezionare se si desidera usare il servizio push **Production** \(per inviare notifiche push agli utenti che hanno acquistato l'app dallo Store\) o **Sandbox** \(durante lo sviluppo\).
+7. Selezionare la scheda **Configure** nella parte superiore e quindi fare clic su **Upload** per le impostazioni di notifica di Apple. Selezionare quindi il certificato **.p12** esportato in precedenza e la password per il certificato. Selezionare se si desidera usare il servizio push **Production** (per inviare notifiche push agli utenti che hanno acquistato l'app dallo Store) o **Sandbox** (durante lo sviluppo).
 
    ![][211]
 
@@ -105,7 +105,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 	Per iOS 8
    
-		UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound \| UIUserNotificationTypeAlert \| UIUserNotificationTypeBadge categories:nil];
+		UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
  
     	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     	[[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -123,7 +123,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 	    	}];
 		}
 
-7. *\(Facoltativo\)* Sempre nello stesso file, aggiungere il metodo seguente per visualizzare un avviso **UIAlert** se si riceve una notifica mentre l'app è attiva:
+7. *(Facoltativo)* Sempre nello stesso file, aggiungere il metodo seguente per visualizzare un avviso **UIAlert** se si riceve una notifica mentre l'app è attiva:
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -138,9 +138,9 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 ##Inviare notifiche dal back-end
 
-È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'[interfaccia REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** \([Back-end .NET](mobile-services-javascript-backend-ios-get-started-push.md) \| [Back-end JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)\). Per un esempio di invio di notifiche con le API REST, vedere **Come usare Hub di notifica da Java/PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'[interfaccia REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** ([Back-end .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [Back-end JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)). Per un esempio di invio di notifiche con le API REST, vedere **Come usare Hub di notifica da Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. In Visual Studio dal menu **File** scegliere **Nuovo** e quindi **Progetto**, quindi in **Visual C\#** fare clic su **Windows** e **Applicazione console** e infine su **OK**.  
+1. In Visual Studio dal menu **File** scegliere **Nuovo** e quindi **Progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine su **OK**.  
 
    ![][20]
 
@@ -165,7 +165,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 

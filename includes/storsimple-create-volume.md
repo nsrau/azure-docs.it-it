@@ -27,10 +27,10 @@
 
      ![Aggiungi volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
-3. Nella finestra di dialogo **Impostazioni aggiuntive**, aggiungere un nuovo record di controllo di accesso \(ACR\):
+3. Nella finestra di dialogo **Impostazioni aggiuntive**, aggiungere un nuovo record di controllo di accesso (ACR):
    1. Fornire un **Nome** per l'ACR.
-   2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI \(IQN\) dell'host di Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
-   3. In **Backup predefinito per questo volume?**, selezionare la casella di controllo **Abilita**. Il backup predefinito creerà un criterio eseguito alle 22:30 di ogni giorno \(ora del dispositivo\) e creerà uno spapshot nel cloud del volume.
+   2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
+   3. In **Backup predefinito per questo volume?**, selezionare la casella di controllo **Abilita**. Il backup predefinito creerà un criterio eseguito alle 22:30 di ogni giorno (ora del dispositivo) e creerà uno spapshot nel cloud del volume.
 
      >[AZURE.NOTE]Una volta abilitato qui, il backup non può essere annullato. Sarà necessario modificare il volume per cambiare questa impostazione.
 

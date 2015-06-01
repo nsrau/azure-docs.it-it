@@ -52,9 +52,9 @@ Application Insights consente di monitorare un'applicazione distribuita in base 
 
     In alternativa, è possibile scegliere Application Insights SDK per app Web. In questo modo si fornisce la telemetria del contatore delle prestazioni predefinite.
 
-3. Modificare ApplicationInsights.config \(che è stato aggiunto dall'installazione di NuGet\). Inserire questo comando immediatamente prima del tag di chiusura:
+3. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
-    &lt;InstrumentationKey&gt;\*the key you copied\*&lt;/InstrumentationKey&gt;
+    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
 
     In alternativa è possibile ottenere lo stesso effetto con il codice seguente:
     
@@ -66,7 +66,7 @@ Application Insights consente di monitorare un'applicazione distribuita in base 
 
 Creare un'`TelemetryClient` istanza e quindi [usarla per inviare dati di telemetria][track].
 
-Usare `TelemetryClient.Flush` per inviare messaggi prima di chiudere l'app \(non è consigliato per altri tipi di app\).
+Usare `TelemetryClient.Flush` per inviare messaggi prima di chiudere l'app (non è consigliato per altri tipi di app).
 
 Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
@@ -96,11 +96,11 @@ Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
 Usare l'[API di Application Insights][track] per inviare dati di telemetria. Nelle applicazioni Desktop di Windows, non vengono inviati automaticamente i dati di telemetria. In genere è necessario usare:
 
-* TrackPageView\(pageName\) nel passare a moduli, pagine o tabelle
-* TrackEvent\(eventName\) per altre azioni utente
-* TrackTrace\(logEvent\) per la [registrazione diagnostica][diagnostic]
-* TrackException\(exception\) in clausole catch
-* TrackMetric\(name, value\) in un'attività in background per inviare report periodici delle metriche non associate a eventi specifici.
+* TrackPageView(pageName) nel passare a moduli, pagine o tabelle
+* TrackEvent(eventName) per altre azioni utente
+* TrackTrace(logEvent) per la [registrazione diagnostica][diagnostic]
+* TrackException(exception) in clausole catch
+* TrackMetric(name, value) in un'attività in background per inviare report periodici delle metriche non associate a eventi specifici.
 
 Per visualizzare il numero di utenti e sessioni, impostare un inizializzatore di contesto:
 

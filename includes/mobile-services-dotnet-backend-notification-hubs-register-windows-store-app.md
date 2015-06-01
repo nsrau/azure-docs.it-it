@@ -26,7 +26,7 @@
 
    Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
 
-7. \(Facoltativo\) Ripetere i passaggi da 4 a 6 per registrare anche il progetto Windows Phone Store di un'app di Windows universale.
+7. (Facoltativo) Ripetere i passaggi da 4 a 6 per registrare anche il progetto Windows Phone Store di un'app di Windows universale.
 
 8. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
@@ -36,7 +36,7 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Segreto client** e **Identificatore di sicurezza del pacchetto \(SID\)**.
+10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)**.
 
    ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 

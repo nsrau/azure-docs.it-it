@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Trigger delle app per le API del servizio app di Azure" 
-	description="Questo articolo illustra come implementare i trigger in un&#39;app per le API" 
+	description="Questo articolo illustra come implementare i trigger in un'app per le API" 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="guangyang"
@@ -95,7 +95,7 @@ Il frammento di codice seguente descrive come implementare un trigger di polling
 
 Per testare il trigger di polling, seguire questa procedura:
 
-1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico \(anonimo\)**.
+1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico (anonimo)**.
 2. Chiamare l'operazione **touch** per creare un file. L'immagine seguente illustra una richiesta di esempio tramite Postman. ![Chiamata dell'operazione Touch tramite Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
 3. Chiamare il trigger di polling con il parametro **triggerState** impostato su un timestamp prima di procedere al passaggio 2. L'immagine seguente illustra la richiesta di esempio tramite Postman. ![Chiamata del trigger di polling tramite Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
@@ -108,7 +108,7 @@ Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illust
 - Richiesta
     - Metodo HTTP: PUT
     - Parametri
-        - triggerId: obbligatorio. Si tratta di una stringa opaca \(ad esempio un GUID\) che rappresenta la registrazione di un trigger di push.
+        - triggerId: obbligatorio. Si tratta di una stringa opaca (ad esempio un GUID) che rappresenta la registrazione di un trigger di push.
         - callbackUrl: obbligatorio. Si tratta dell'URL del callback da richiamare quando viene generato l'evento. La chiamata è una semplice chiamata HTTP POST.
         - Parametri specifici dell'API
 - Response
@@ -198,7 +198,7 @@ Il frammento di codice seguente descrive come implementare un trigger di push:
 
 Per testare il trigger di polling, seguire questa procedura:
 
-1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico \(anonimo\)**.
+1. Distribuire l'app per le API impostando l'autenticazione sul livello di accesso **Pubblico (anonimo)**.
 2. Passare a [http://requestb.in/](http://requestb.in/) per creare un oggetto RequestBin da usare come URL di callback.
 3. Chiamare il trigger di push con un GUID come **triggerId** e un URL RequestBin come **callbackUrl**. ![Chiamata del trigger di push tramite Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
 4. Chiamare l'operazione **touch** per creare un file. L'immagine seguente illustra una richiesta di esempio tramite Postman. ![Chiamata dell'operazione Touch tramite Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)

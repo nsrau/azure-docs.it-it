@@ -122,7 +122,7 @@ Il codice seguente illustra come aggiungere un allegato.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -139,11 +139,11 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso
 -   Il codice seguente illustra come inserire un filtro per piè di pagina che provoca la visualizzazione di testo in formato HTML in fondo al messaggio di posta elettronica inviato.
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   Un altro esempio di filtro è quello per il monitoraggio dei clic. Si supponga ad esempio che il testo del messaggio di posta elettronica contenga un collegamento ipertestuale come il seguente e che si voglia monitorare il tasso di clic:
 
@@ -157,10 +157,10 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
 

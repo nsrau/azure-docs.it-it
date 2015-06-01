@@ -299,7 +299,7 @@ può essere usato per passare i parametri di query previsti dal servizio back-en
 | exists-action="override" | Sostituisce il valore del parametro, se presente nella richiesta.        |
 | exists-action="skip"     | Non esegue alcuna operazione se il parametro è presente nella richiesta. |
 | exists-action="append"   | Aggiunge un valore alla fine del parametro della richiesta.              |
-| exists-action="delete"   | Rimuove il parametro dalla richiesta.\*                                  |
+| exists-action="delete"   | Rimuove il parametro dalla richiesta.*                                  |
 | value="value"            | Imposta il valore del parametro nell'elemento che lo racchiude.          |
 
 ## <a name="caching-policies"> </a> Criteri di memorizzazione nella cache
@@ -390,9 +390,9 @@ la memorizzazione delle risposte nella cache riduce la larghezza di banda e i re
 
 | Elemento/Attributo                                | Descrizione                                                                                                                                                                                                                                                                |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vary-by-developer="true | false"                  | Impostato su \*true\* per avviare le risposte di memorizzazione nella cache per ogni chiave di sviluppatore. È \*false\* per impostazione predefinita.                                                                                                                     |
-| vary-by-developer-groups="true | false"           | Impostato su \*true\* per avviare le risposte di memorizzazione nella cache per ogni ruolo utente. È \*false\* per impostazione predefinita.                                                                                                                               |
-| downstream-caching-type="none | private | public" | \*none\*: la memorizzazione nella cache downstream non è permessa. Impostazione predefinita. | \*private\*: la memorizzazione nella cache downstream privata è permessa. | \*public\*: la memorizzazione nella cache downstream privata e condivisa è permessa.            |
+| vary-by-developer="true | false"                  | Impostato su *true* per avviare le risposte di memorizzazione nella cache per ogni chiave di sviluppatore. È *false* per impostazione predefinita.                                                                                                                     |
+| vary-by-developer-groups="true | false"           | Impostato su *true* per avviare le risposte di memorizzazione nella cache per ogni ruolo utente. È *false* per impostazione predefinita.                                                                                                                               |
+| downstream-caching-type="none | private | public" | *none*: la memorizzazione nella cache downstream non è permessa. Impostazione predefinita. | *private*: la memorizzazione nella cache downstream privata è permessa. | *public*: la memorizzazione nella cache downstream privata e condivisa è permessa.            |
 | vary-by-header: "Accept"                          | Avvia risposte di memorizzazione nella cache per ogni valore dell'intestazione `Accept`.                                                                                                                                                                                   |
 | vary-by-header: Accept-Charset"                   | Avvia risposte di memorizzazione nella cache per ogni valore dell'intestazione `Accept-Charset`.                                                                                                                                                                           |
 | vary-by-header: "header name"                     | Avvia risposte di memorizzazione nella cache per ogni valore dell'intestazione specificata, ad esempio `Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match`.                                                    |
@@ -537,7 +537,7 @@ può essere usato nella sezione in entrata e solo negli ambiti *API* e *Operatio
 
 | Attributo            | Descrizione                                                                                                                                   |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| <origin>\*</origin>  | Permette tutti gli URI OPPURE un elenco di uno o più URI specifici.                                                                           |
+| <origin>*</origin>  | Permette tutti gli URI OPPURE un elenco di uno o più URI specifici.                                                                           |
 | <origin>URI</origin> | L'URI deve includere uno schema, un host e una porta. Se la porta viene omessa, verranno usate la porta 80 per http e la porta 443 per https. |
 
   [Criteri di Gestione API]: ../api-management-howto-policies

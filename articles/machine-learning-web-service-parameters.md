@@ -60,7 +60,7 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Writer][writ
 
 4.	Per rinominare il parametro del servizio Web, fare clic sul nome, digitare "Blob path" e quindi premere **INVIO**.
  
-5.	Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare "Provide default value", immettere un valore \(ad esempio, "container1/output1.csv"\) e quindi premere **INVIO**.
+5.	Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare "Provide default value", immettere un valore (ad esempio, "container1/output1.csv") e quindi premere **INVIO**.
 
 	![Parametro del servizio Web][parameter]
 

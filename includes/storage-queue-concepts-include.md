@@ -14,7 +14,7 @@ Il servizio di accodamento contiene i componenti seguenti:
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **Formato dell'URL:** è possibile fare riferimento alle code usando il formato di URL seguente: http://`<storage account>`.queue.core.windows.net/`<queue>\` 
+- **Formato dell'URL:** è possibile fare riferimento alle code usando il formato di URL seguente: http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
 L'URL seguente fa riferimento a una delle code nel diagramma: http://myaccount.queue.core.windows.net/imagesToDownload
 

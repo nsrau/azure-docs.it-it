@@ -45,7 +45,7 @@ I valori relativi al nome e al valore della chiave SAS sono disponibili nelle in
 
 	bus_service.create_topic('mytopic')
 
-**create\_topic** supporta anche opzioni aggiuntive che permettono di sostituire le impostazioni predefinite degli argomenti, come ad esempio la durata (TTL) dei messaggi o la dimensione massima. Il seguente esempio illustra come impostare la dimensione massima dell'argomento su 5 GB e una durata di 1 minuto:
+**create_topic** supporta anche opzioni aggiuntive che permettono di sostituire le impostazioni predefinite degli argomenti, come ad esempio la durata (TTL) dei messaggi o la dimensione massima. Il seguente esempio illustra come impostare la dimensione massima dell'argomento su 5 GB e una durata di 1 minuto:
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -71,9 +71,9 @@ Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri 
 
 Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altri dettagli sulle espressioni che è possibile usare con un filtro SQL, esaminare la sintassi di [SqlFilter.SqlExpression][].
 
-È possibile aggiungere i filtri a una sottoscrizione tramite il metodo **create\_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
+È possibile aggiungere i filtri a una sottoscrizione tramite il metodo **create_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
-**Nota**: Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario prima di tutto rimuovere il filtro predefinito, altrimenti **MatchAll** sostituirà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **delete\_rule** dell'oggetto
+**Nota**: Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario prima di tutto rimuovere il filtro predefinito, altrimenti **MatchAll** sostituirà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **delete_rule** dell'oggetto
 **ServiceBusService**.
 
 Nel seguente esempio viene creata una sottoscrizione denominata 'HighMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** personalizzata è maggiore di 3:
@@ -102,7 +102,7 @@ Un messaggio inviato a 'mytopic' verrà sempre recapitato ai ricevitori con sott
 
 ## Come inviare messaggi a un argomento
 
-Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve usare il metodo **send\_topic\_message** method dell'oggetto **ServiceBusService**.
+Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve usare il metodo **send_topic_message** method dell'oggetto **ServiceBusService**.
 
 Il seguente esempio illustra come inviare cinque messaggi di test a 'mytopic'. Si noti che il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
 
@@ -114,17 +114,17 @@ Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari
 
 ## Come ricevere messaggi da una sottoscrizione
 
-I messaggi vengono ricevuti da una sottoscrizione usando il metodo **receive\_subscription\_message** dell'oggetto **ServiceBusService**:
+I messaggi vengono ricevuti da una sottoscrizione usando il metodo **receive_subscription_message** dell'oggetto **ServiceBusService**:
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek\_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek\_lock** su **True**.
+I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek_lock** su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
 
 
-Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
+Se il parametro **peek_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
 Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete** sull'oggetto **Message**.
 Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
 

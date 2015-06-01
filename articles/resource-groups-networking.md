@@ -15,9 +15,9 @@
    ms.author="telmos" />
 
 # Provider di risorse di rete
-Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure \(ARM\) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
+Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure (ARM) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
 
-Gestione risorse di Azure \(ARM\) consente di creare tali applicazioni e la raccolta associata di risorse di rete sotto forma di un'unica raccolta di risorse in un gruppo di risorse. L'applicazione e le risorse di rete vengono eseguite come una singola unità in un gruppo di risorse ARM.
+Gestione risorse di Azure (ARM) consente di creare tali applicazioni e la raccolta associata di risorse di rete sotto forma di un'unica raccolta di risorse in un gruppo di risorse. L'applicazione e le risorse di rete vengono eseguite come una singola unità in un gruppo di risorse ARM.
 
 È possibile gestire le risorse di rete usando una delle seguenti interfacce di gestione:
 
@@ -41,9 +41,9 @@ L'introduzione dei provider di risorse di rete offre i vantaggi seguenti:
 - **Personalizzazione ripetibile**: è possibile usare modelli con stile dichiarativo per abilitare la personalizzazione ripetibile e rapida delle distribuzioni.
 
 ## Risorse di rete 
-Ora è possibile gestire le risorse di rete in modo indipendente, anziché tutte insieme mediante un'unica risorsa di calcolo \(una macchina virtuale\). Ciò garantisce una maggiore flessibilità durante la creazione di un'infrastruttura complessa e su larga scala in un gruppo di risorse.
+Ora è possibile gestire le risorse di rete in modo indipendente, anziché tutte insieme mediante un'unica risorsa di calcolo (una macchina virtuale). Ciò garantisce una maggiore flessibilità durante la creazione di un'infrastruttura complessa e su larga scala in un gruppo di risorse.
  
-Il diagramma seguente illustra una panoramica generale del modello di risorse di rete e delle relative associazioni. Le risorse di livello superiore sono visualizzate con un contorno blu. Oltre alle risorse di livello superiore, è possibile visualizzare le risorse figlio \(con il contorno grigio\). È possibile gestire singolarmente ogni risorsa.
+Il diagramma seguente illustra una panoramica generale del modello di risorse di rete e delle relative associazioni. Le risorse di livello superiore sono visualizzate con un contorno blu. Oltre alle risorse di livello superiore, è possibile visualizzare le risorse figlio (con il contorno grigio). È possibile gestire singolarmente ogni risorsa.
 
 ![Modello di risorsa di rete](./media/resource-groups-networking/Figure1.png)
 
@@ -73,7 +73,7 @@ Quando si effettuano chiamate all'API REST sono supportati i seguenti metodi HTT
 Richiesta e risposta sono conformi a un formato di payload JSON. Per altre informazioni, vedere [API di gestione delle risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ## Linguaggio del modello ARM
-Oltre a gestire le risorse in modo imperativo \(tramite API o SDK\), è anche possibile usare uno stile di programmazione dichiarativo per compilare e gestire le risorse di rete usando il linguaggio del modello ARM.
+Oltre a gestire le risorse in modo imperativo (tramite API o SDK), è anche possibile usare uno stile di programmazione dichiarativo per compilare e gestire le risorse di rete usando il linguaggio del modello ARM.
 
 Di seguito viene fornita una rappresentazione di un modello:
 
@@ -214,7 +214,7 @@ Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del mo
 Il modello di esempio precedente usa la rete virtuale e le risorse della subnet. È possibile usare altre risorse di rete, come indicato di seguito:
 
 ## NIC
-La scheda di interfaccia di rete, o NIC, rappresenta un'interfaccia di rete che è possibile associare a una macchina virtuale \(VM\). Una macchina virtuale può avere una o più schede di interfaccia di rete.
+La scheda di interfaccia di rete, o NIC, rappresenta un'interfaccia di rete che è possibile associare a una macchina virtuale (VM). Una macchina virtuale può avere una o più schede di interfaccia di rete.
 
 ![Scheda di interfaccia di rete in una macchina virtuale singola](./media/resource-groups-networking/Figure3.png)
 
@@ -236,7 +236,7 @@ Una subnet è una risorsa figlio di una rete virtuale e consente di definire i s
 
 Le proprietà principali di una risorsa della rete virtuale includono:
 
-- Spazio di indirizzi IP \(blocco CIDR\) 
+- Spazio di indirizzi IP (blocco CIDR) 
 - Nome della rete virtuale
 - subnet
 
@@ -260,7 +260,7 @@ Un bilanciamento del carico viene usato per ridimensionare le applicazioni. Gli 
 
 I servizi di bilanciamento del carico contengono le risorse figlio seguenti:
 
-- **Configurazione IP front-end**: un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali \(VIP\). Questi indirizzi IP vengono usati come ingresso per il traffico. 
+- **Configurazione IP front-end**: un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali (VIP). Questi indirizzi IP vengono usati come ingresso per il traffico. 
 - **Pool di indirizzi back-end**: indirizzi IP associati alle schede di interfaccia di rete della macchina virtuale a cui viene distribuito il carico.
 - **Regole di bilanciamento del carico**: una proprietà della regola esegue il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Con una singola definizione di una risorsa di bilanciamento del carico è possibile definire più regole di bilanciamento carico, ciascuna delle quali riflette una combinazione di IP e porte front-end e di IP e porte back-end associata alle macchine virtuali. 
 - **Probe**: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se la probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
@@ -274,7 +274,7 @@ Le proprietà principali di una risorsa IP pubblica includono:
 - **Metodo di allocazione IP**: riservato o dinamico. 
 
 ## Gruppo di sicurezza di rete
-Una risorsa del gruppo di sicurezza di rete consente di creare un limite di sicurezza per i carichi di lavoro, implementando le regole di accesso consentito e negato. Queste regole possono essere applicate a livello della scheda di interfaccia di rete \(livello dell'istanza della macchina virtuale\) oppure a livello della subnet \(gruppo di macchine virtuali\).
+Una risorsa del gruppo di sicurezza di rete consente di creare un limite di sicurezza per i carichi di lavoro, implementando le regole di accesso consentito e negato. Queste regole possono essere applicate a livello della scheda di interfaccia di rete (livello dell'istanza della macchina virtuale) oppure a livello della subnet (gruppo di macchine virtuali).
 
 Le proprietà principali di una risorsa del gruppo di sicurezza di rete includono:
 

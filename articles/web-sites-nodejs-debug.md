@@ -73,7 +73,7 @@ Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di
 
 L'URL FTP restituito nel dashboard si riferisce alla directory **LogFiles**, che conterrà le seguenti sottodirectory:
 
-* [Metodo di distribuzione]\: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
+* [Metodo di distribuzione]: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
 
 * nodejs: contiene le informazioni di stdout e stderr acquisite da tutte le istanze dell'applicazione, quando loggingEnabled è impostato su true.
 
@@ -89,7 +89,7 @@ Nella directory corrente verrà scaricato un file **diagnostics.zip**. Questo ar
 
 * LogFiles
 
-	* [Metodo di distribuzione]\: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
+	* [Metodo di distribuzione]: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
 
 	* nodejs: contiene le informazioni di stdout e stderr acquisite da tutte le istanze dell'applicazione, quando loggingEnabled è impostato su true.
 

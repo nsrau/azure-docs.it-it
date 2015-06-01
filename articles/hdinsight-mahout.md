@@ -84,7 +84,7 @@ Usare lo script di Windows PowerShell seguente per eseguire un processo mediante
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
-	$cleanedPath = $noCRLF -replace "\", "/"
+	$cleanedPath = $noCRLF -replace "", "/"
 	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,
@@ -344,7 +344,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manualmente nei cluster HDInsight 3.0 o 2.1 con i passaggi seguenti:
 
-1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente di [Azure PowerShell][aps]\:
+1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente di [Azure PowerShell][aps]:
 
     	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 

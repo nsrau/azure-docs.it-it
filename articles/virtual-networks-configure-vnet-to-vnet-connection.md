@@ -19,7 +19,7 @@
 
 # Configurare una connessione tra reti virtuali
 
-Connessione di una rete virtuale di Azure \(VNet\) a un'altra rete virtuale di Azure è molto simile alla connessione di una rete virtuale in un percorso del sito locale. La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In modo da definire topologie di rete che consentono di combinare più sedi locali connettività con connettività di rete virtuale tra, come illustrato nel diagramma riportato di seguito:
+Connessione di una rete virtuale di Azure (VNet) a un'altra rete virtuale di Azure è molto simile alla connessione di una rete virtuale in un percorso del sito locale. La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In modo da definire topologie di rete che consentono di combinare più sedi locali connettività con connettività di rete virtuale tra, come illustrato nel diagramma riportato di seguito:
 
 ![Diagramma di connettività tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
@@ -49,7 +49,7 @@ Connessione di una rete virtuale di Azure \(VNet\) a un'altra rete virtuale di A
 
 ## Configurare una connessione tra reti virtuali
 
-In questa procedura verrà esaminata si connette due reti virtuali, VNet1 e VNet2. È necessario avere una certa familiarità con la rete per sostituire gli intervalli di indirizzi IP sono compatibili con i requisiti di progettazione della rete. Da una rete virtuale di Azure, la connessione a un'altra rete virtuale di Azure è equivalente alla connessione a una rete locale tramite VPN da sito a sito \(S2S\).
+In questa procedura verrà esaminata si connette due reti virtuali, VNet1 e VNet2. È necessario avere una certa familiarità con la rete per sostituire gli intervalli di indirizzi IP sono compatibili con i requisiti di progettazione della rete. Da una rete virtuale di Azure, la connessione a un'altra rete virtuale di Azure è equivalente alla connessione a una rete locale tramite VPN da sito a sito (S2S).
 
 Questa procedura viene utilizzata principalmente il portale di gestione, tuttavia, è necessario utilizzare i cmdlet PowerShell di Microsoft Azure per connettere i gateway VPN.
 
@@ -64,7 +64,7 @@ Sono disponibili 5 sezioni per pianificare e configurare. Configurare ogni sezio
 
 ## Pianificare gli intervalli di indirizzi IP
 
-È importante definire gli intervalli che verrà utilizzato per configurare il file di configurazione di rete \(netcfg\). Dalla prospettiva di VNet1, VNet2 è semplicemente un'altra connessione VPN definita nella piattaforma Azure. E dalla prospettiva di VNet2, VNet1 è solo un'altra connessione VPN. Essi sono entrambi identificarsi come sito di rete locale. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo.
+È importante definire gli intervalli che verrà utilizzato per configurare il file di configurazione di rete (netcfg). Dalla prospettiva di VNet1, VNet2 è semplicemente un'altra connessione VPN definita nella piattaforma Azure. E dalla prospettiva di VNet2, VNet1 è solo un'altra connessione VPN. Essi sono entrambi identificarsi come sito di rete locale. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo.
 
 Tabella 1 mostra un esempio di come definire le reti virtuali. Utilizzare gli intervalli di seguito come linea guida solo. Annotare gli intervalli che si utilizzeranno per le reti virtuali. Queste informazioni saranno necessarie per i passaggi successivi.
 
@@ -72,8 +72,8 @@ Tabella 1 mostra un esempio di come definire le reti virtuali. Utilizzare gli in
 
 |Rete virtuale |Definizione sito rete virtuale |Definizione sito rete virtuale|
 |:----------------|:-------------------------------|:----------------------------|
-|VNet1 |VNet1 \(10.1.0.0/16\) |VNet2 \(10.2.0.0/16\) |
-|VNet2 |VNet2 \(10.2.0.0/16\) |VNet1 \(10.1.0.0/16\) |
+|VNet1 |VNet1 (10.1.0.0/16) |VNet2 (10.2.0.0/16) |
+|VNet2 |VNet2 (10.2.0.0/16) |VNet1 (10.1.0.0/16) |
 
 ## Creare le reti virtuali
 
@@ -92,7 +92,7 @@ VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = US West
   ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Name -** assegnare un nome alla rete virtuale. Ad esempio, VNet1:
-  - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure \(regione\). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
+  - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (regione). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
 
 4. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [DNS Servers and VPN Connectivity](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
@@ -101,7 +101,7 @@ VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = US West
 
   - Non selezionare Nessuna delle caselle di controllo. Semplicemente fare clic sulla freccia in basso a destra per passare alla schermata successiva.
 
-5. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici \(DIP\) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Non esistono alcune regole spazio degli indirizzi di rete virtuale, è possibile vedere il [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
+5. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Non esistono alcune regole spazio degli indirizzi di rete virtuale, è possibile vedere il [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
 
   Immettere le informazioni seguenti e quindi fare clic sul segno di spunta in basso a destra per configurare la rete.
 
@@ -170,11 +170,11 @@ Quando tutti i passaggi precedenti sono stati completati, si imposteranno le chi
 
 Per VNet1
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
+````PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
 
 For VNet2
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
+````PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
 
 Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gateway assume l'aspetto illustrato nella figura seguente e le reti virtuali vengono connesse.
 

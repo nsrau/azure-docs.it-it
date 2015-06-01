@@ -20,7 +20,7 @@
 
 In questa esercitazione viene compilata un'applicazione di ricerca nel Web personalizzata in Visual Studio 2013 o versione successiva che utilizza Ricerca di Azure per l’esperienza di ricerca. Nell'esercitazione viene utilizzato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni utilizzate nell'esempio.
 
-È possibile scaricare l'esempio dalla pagina [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) di CodePlex per seguire le istruzioni di questa esercitazione. L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm), con il filtro dello stato di Washington. Tali dati saranno utilizzati per compilare un’applicazione di ricerca in base ai dati relativi agli edifici di riferimento quali ospedali e scuole nonché alle caratteristiche geologiche come fiumi, laghi e vette.
+È possibile scaricare l'esempio dalla pagina [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) di CodePlex per seguire le istruzioni di questa esercitazione. L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), con il filtro dello stato di Washington. Tali dati saranno utilizzati per compilare un’applicazione di ricerca in base ai dati relativi agli edifici di riferimento quali ospedali e scuole nonché alle caratteristiche geologiche come fiumi, laghi e vette.
 
 Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Per assistenza nel provisioning e nella verifica della disponibilità del serviz
 
 ##Compilare l'indice##
 
-1. Copiare il nome del servizio e la chiave di amministrazione dal [portale di Azure](https://portal.azure.com) e incollarli in **DataIndexer** \| **App.config**.
+1. Copiare il nome del servizio e la chiave di amministrazione dal [portale di Azure](https://portal.azure.com) e incollarli in **DataIndexer** | **App.config**.
 1. Fare clic con il pulsante destro del mouse sul progetto  **DataIndexer** per impostarlo come progetto di avvio.
 1. Compilare ed eseguire il progetto.
 
@@ -45,7 +45,7 @@ Nel portale, verrà visualizzato un nuovo indice di funzionalità con xx e xx. L
 ##Compilare l'applicazione.##
 
 
-1. Copiare il nome del servizio e la chiave di amministrazione dal [portale di Azure](https://portal.azure.com) e incollarli in **SimpleSearchMVCApp** \| **Web.config**.
+1. Copiare il nome del servizio e la chiave di amministrazione dal [portale di Azure](https://portal.azure.com) e incollarli in **SimpleSearchMVCApp** | **Web.config**.
 1. Fare clic con il pulsante destro del mouse sul progetto  **SimpleSearchMVCApp** per impostarlo come progetto di avvio.
 1. Compilare ed eseguire il progetto.
 
@@ -66,7 +66,7 @@ L’immissione di un termine di ricerca fornirà al motore di ricerca un element
 - Seattle
 - Rainier
 - Seattle e Rainier
-- Seattle + Rainier -Mount \(ottiene risultati per punti di riferimento su viale Rainier o sul club Rainier, tutto entro i limiti della città di Seattle\).
+- Seattle + Rainier -Mount (ottiene risultati per punti di riferimento su viale Rainier o sul club Rainier, tutto entro i limiti della città di Seattle).
 
 ##Esplorare il codice##
 
@@ -76,7 +76,7 @@ Nella parte rimanente di questa sezione vengono illustrati alcuni punti relativi
 
 **Progetto DataIndexer**
 
-Per semplificare le operazioni, i dati sono incorporati all'interno della soluzione in un file di testo generato dai dati del [sito Web dei servizi geologici degli Stati Uniti \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm).
+Per semplificare le operazioni, i dati sono incorporati all'interno della soluzione in un file di testo generato dai dati del [sito Web dei servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
 Le alternative all'incorporamento dei dati includono [indicizzatori per DocumentDB](documentdb-search-indexer.md) o [indicizzatori per SQL Azure Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Gli indicizzatori estraggono i dati nell’indice di Ricerca di Azure, semplificando notevolmente il codice da scrivere e gestire.
 
@@ -96,7 +96,7 @@ Come nota finale, se non si è ancora convinti del valore e della semplicità di
 
 Questa è la prima esercitazione di Ricerca di Azure basata sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata e ne saranno create altre per illustrare le funzionalità di ricerca che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative \(query di suggerimento per la digitazione e completamento automatico\), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](https://msdn.microsoft.com/library/azure/dn798933.aspx) per accedere a ulteriori informazioni.
 

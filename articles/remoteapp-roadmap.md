@@ -29,8 +29,8 @@ Microsoft è costantemente impegnata a migliorare RemoteApp in base ai commenti 
 |Disponibilità nei data center australiani| | |X| |
 |Cmdlet e SDK di RemoteApp PowerShell per la distribuzione e la gestione| | |X| |
 |Creare e caricare un'immagine da una macchina virtuale di Azure| | |X| |
-|Distribuire a una rete virtuale senza aggiungere un dominio \(connessione di una raccolta nel cloud alle macchine virtuali di Azure\) \([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th)\)| | | |X|	
-|Riutilizzare una rete virtuale esistente per una raccolta ibrida di RemoteApp \(abilita anche ExpressRoute\) \([Commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
-|ExpressRoute \([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
+|Distribuire a una rete virtuale senza aggiungere un dominio (connessione di una raccolta nel cloud alle macchine virtuali di Azure) ([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| | | |X|	
+|Riutilizzare una rete virtuale esistente per una raccolta ibrida di RemoteApp (abilita anche ExpressRoute) ([Commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
+|ExpressRoute ([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
 
 <!--HONumber=52-->

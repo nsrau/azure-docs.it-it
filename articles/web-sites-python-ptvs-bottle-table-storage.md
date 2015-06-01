@@ -164,7 +164,7 @@ In questa sezione verranno configurate le variabili di ambiente per il sito.
 
   	![Menu superiore](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY\_NAME**, **MONGODB\_HOST** e **STORAGE\_KEY** come descritto nella sezione precedente.
+1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY_NAME**, **MONGODB_HOST** e **STORAGE_KEY** come descritto nella sezione precedente.
 
   	![Impostazioni app](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

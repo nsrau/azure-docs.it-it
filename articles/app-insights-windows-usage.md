@@ -32,7 +32,7 @@ Dalla sequenza temporale Panoramica, fare clic sui grafici relativi agli utenti 
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 * Viene tenuta traccia degli **utenti** in modo anonimo, in modo che venga considerato due volte lo stesso utente in dispositivi diversi.
-* Il conteggio di una **sessione** viene eseguito quando l'app viene sospesa \(per più di un breve intervallo, per evitare il conteggio di sospensioni accidentali\).
+* Il conteggio di una **sessione** viene eseguito quando l'app viene sospesa (per più di un breve intervallo, per evitare il conteggio di sospensioni accidentali).
 
 #### Segmentazione
 

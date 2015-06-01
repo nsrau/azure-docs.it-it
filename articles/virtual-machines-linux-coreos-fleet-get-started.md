@@ -31,7 +31,7 @@ Per utilizzare questi esempi, configurare innanzitutto un cluster CoreOS a tre n
 
 Ecco una semplice applicazione "Hello World"che si esegue in un singolo contenitore docker. Viene utilizzata l’[immagine Docker Hub busybox].
 
-Nel computer client Linux utilizzare l’editor di testo preferito per creare il seguente file unità **systemd** e denominarlo `helloworld.service` \(per informazioni dettagliate sulla sintassi, vedere [File unità]\).
+Nel computer client Linux utilizzare l’editor di testo preferito per creare il seguente file unità **systemd** e denominarlo `helloworld.service` (per informazioni dettagliate sulla sintassi, vedere [File unità]).
 
 ```
 [Unit]
@@ -60,7 +60,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 start helloworld.service
 Unit helloworld.service launched on 62f0f66e.../100.79.86.62
 ```
 
->[AZURE.NOTE]Per eseguire i comandi **fleetctl** remoti senza il parametro **--tunnel**, a scelta impostare la variabile di ambiente FLEETCTL\_TUNNEL per effettuare il tunneling delle richieste. Ad esempio: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
+>[AZURE.NOTE]Per eseguire i comandi **fleetctl** remoti senza il parametro **--tunnel**, a scelta impostare la variabile di ambiente FLEETCTL_TUNNEL per effettuare il tunneling delle richieste. Ad esempio: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
 
 
 È possibile connettersi al contenitore per visualizzare l'output del servizio:
@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 Un vantaggio dell'utilizzo di CoreOS, Docker, e **fleet** consiste nella possibilità di eseguire i servizi a disponibilità elevata in modo semplice. In questo esempio verrà distribuito un servizio costituito da tre contenitori identici che eseguono il server web Apache. I contenitori saranno eseguiti sulle tre macchine virtuali del cluster. Questo esempio è simile a uno esempio in [Avvio dei contenitori con flotta] e utilizza l’[immagine Docker Hub Apache CoreOS].
 
->[AZURE.NOTE]Per eseguire il server Apache a disponibilità elevata, è necessario configurare un endpoint HTTP con carico bilanciato nelle macchine virtuali \(porta pubblica 80, porta privata 80\). È possibile eseguire questa operazione dopo la creazione del cluster CoreOS, tramite il portale di gestione di Azure o il comando **azure vm endpoint**. Per ulteriori informazioni, vedere [Configurare un set con carico bilanciato].
+>[AZURE.NOTE]Per eseguire il server Apache a disponibilità elevata, è necessario configurare un endpoint HTTP con carico bilanciato nelle macchine virtuali (porta pubblica 80, porta privata 80). È possibile eseguire questa operazione dopo la creazione del cluster CoreOS, tramite il portale di gestione di Azure o il comando **azure vm endpoint**. Per ulteriori informazioni, vedere [Configurare un set con carico bilanciato].
 
 Nel computer client, utilizzare l’editor di testo preferito per creare un file unità del modello **systemd**, denominato apache@.service. Tale modello verrà utilizzato per avviare tre istanze distinte, denominate apache@1.service, apache@2.service e apache@3.service:
 
@@ -133,10 +133,10 @@ Per raggiungere il server Apache in esecuzione in una delle unità, inviare una 
 Verrà visualizzato il testo predefinito restituito dal server Apache simile a quello mostrato di seguito:
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<htm\l><body><h1>It works!</h1>
+<p>This is the default web page for this server.</p>
+<p>The web server software is running but no content has been added, yet.</p>
+</body></html>
 ```
 
 È possibile provare ad arrestare una o più macchine virtuali del cluster per verificare che il servizio di Apache continui a essere eseguito.

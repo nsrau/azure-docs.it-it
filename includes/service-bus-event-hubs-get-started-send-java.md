@@ -5,7 +5,7 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 
 2. Scaricare la versione più recente della libreria **Qpid JMS AMQP 1.0** da [qui](http://qpid.apache.org/components/qpid-jms/index.html).
 
-3. Estrarre i file dall'archivio e copiare i seguenti file jar dalla directory dell'archivio `qpid-amqp-1-0-client-jms\<version>\lib` nel proprio progetto Eclipse **Sender**.
+3. Estrarre i file dall'archivio e copiare i seguenti file jar dalla directory dell'archivio `qpid-amqp-1-0-client-jms<version>\lib` nel proprio progetto Eclipse **Sender**.
 
 4. In Eclipse Package Explorer fare clic con il pulsante destro del mouse sul progetto **Sender** e selezionare **Properties**. Nel riquadro sinistro della finestra di dialogo fare clic su **Java Build Path**, quindi fare clic sulla scheda **Libraries** e quindi sul pulsante **Add JARs**. Selezionare i file jar copiati in precedenza, quindi fare clic su **OK**.
 

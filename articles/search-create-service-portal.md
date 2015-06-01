@@ -27,7 +27,7 @@ In qualità di amministratore, è possibile aggiungere Ricerca a una sottoscrizi
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'indice, fare clic su **Nuovo** \| **Dati + archiviazione** \| **Ricerca**.
+2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
  
      ![][1]
 

@@ -145,7 +145,7 @@ Nel prodotto **Free Trial** la quota è pari a 200 chiamate alla settimana. Spec
     <quota calls="200" bandwidth="kilobytes" renewal-period="604800">
     </quota>
 
-> Gli intervalli dei criteri sono specificati in secondi. Per calcolare l'intervallo per una settimana, è possibile moltiplicare il numero di giorni (7) per il numero di ore in una giornata (24) per il numero di minuti in un'ora (60) per il numero di secondi in un minuto (60). 7 \* 24 \* 60 \* 60 = 604800.
+> Gli intervalli dei criteri sono specificati in secondi. Per calcolare l'intervallo per una settimana, è possibile moltiplicare il numero di giorni (7) per il numero di ore in una giornata (24) per il numero di minuti in un'ora (60) per il numero di secondi in un minuto (60). 7 * 24 * 60 * 60 = 604800.
 
 Un volta completata la configurazione, i criteri dovrebbero essere simili a quelli dell'esempio seguente.
 

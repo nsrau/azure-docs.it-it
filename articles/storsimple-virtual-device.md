@@ -48,7 +48,7 @@ Di seguito sono riportate alcune differenze fondamentali tra il dispositivo Stor
 
 - Il dispositivo virtuale ha una sola interfaccia di rete: DATA 0. Il dispositivo fisico dispone di sei interfacce di rete: da DATA 0 a DATA 5.
 - Il dispositivo virtuale viene registrato durante la procedura di configurazione, senza dover eseguire un'apposita operazione.
-- Da un dispositivo virtuale non è possibile rigenerare la chiave DEK \(Data Encryption Key\) del servizio. Durante il rollover della chiave, l'utente rigenera la chiave nel dispositivo fisico, quindi aggiorna il dispositivo virtuale con la nuova chiave.
+- Da un dispositivo virtuale non è possibile rigenerare la chiave DEK (Data Encryption Key) del servizio. Durante il rollover della chiave, l'utente rigenera la chiave nel dispositivo fisico, quindi aggiorna il dispositivo virtuale con la nuova chiave.
 - Qualora fosse necessario applicare gli aggiornamenti al dispositivo virtuale, quest'ultimo sarà inattivo per un breve periodo. Tale inattività non interessa il dispositivo fisico.
 
 ## Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale
@@ -76,7 +76,7 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 
 >[AZURE.IMPORTANT]**Assicurarsi che la rete virtuale sia presente nella stessa area degli account di archiviazione cloud che verranno utilizzati con il dispositivo virtuale.**
 
-- Creare [macchine virtuali di Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) \(server host\) nella rete virtuale. Tali server devono soddisfare i seguenti requisiti: 							
+- Creare [macchine virtuali di Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (server host) nella rete virtuale. Tali server devono soddisfare i seguenti requisiti: 							
 	- Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
 	- Essere in esecuzione nella stessa rete virtuale del dispositivo virtuale
 	- Essere in grado di connettersi alla destinazione iSCSI del dispositivo virtuale utilizzando l'indirizzo IP interno del dispositivo virtuale
@@ -132,7 +132,7 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 	c. **Subnet**: la subnet nella rete virtuale da utilizzare con il dispositivo virtuale.
 
-	d. **Account di archiviazione per creare un dispositivo virtuale**: l'account di archiviazione che verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione \(impostazione predefinita\). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
+	d. **Account di archiviazione per creare un dispositivo virtuale**: l'account di archiviazione che verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione (impostazione predefinita). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
 	
 - Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un datacenter Microsoft. Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli. Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per ulteriori informazioni, vedere [Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale](https://msdn.microsoft.com/library/dn772561.aspx).
 
@@ -157,7 +157,7 @@ Nella sezione seguente vengono descritte le impostazioni di configurazione del d
 
 #### Configurare l'iniziatore dell'autenticazione CHAP
 
-Questo parametro include le credenziali che il dispositivo virtuale \(destinazione\) prevede di ricevere dagli iniziatori \(server\) che tentano di accedere ai volumi. Gli iniziatori forniranno un nome utente e una password CHAP per identificarsi nel dispositivo, durante questa procedura di autenticazione.
+Questo parametro include le credenziali che il dispositivo virtuale (destinazione) prevede di ricevere dagli iniziatori (server) che tentano di accedere ai volumi. Gli iniziatori forniranno un nome utente e una password CHAP per identificarsi nel dispositivo, durante questa procedura di autenticazione.
 
 #### Configurare la destinazione dell'autenticazione CHAP
 
@@ -173,7 +173,7 @@ Quando si configura un dispositivo in StorSimple Snapshot Manager, verrà richie
 
 Eseguire i passaggi seguenti per configurare StorSimple Snapshot Manager, quando viene utilizzato insieme al dispositivo virtuale StorSimple.
 
-1. Nel dispositivo virtuale, andare a **Dispositivi \> Configura**.
+1. Nel dispositivo virtuale, andare a **Dispositivi > Configura**.
 
 - Scorrere verso il basso fino alla sezione **Snapshot Manager**. Immettere una password composta da 14 o 15 caratteri. La password deve contenere una combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
 
@@ -189,7 +189,7 @@ Quando si utilizza l'interfaccia di Windows PowerShell per accedere al dispositi
 
 Per configurare la password amministratore del dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
 
-1. Nel dispositivo virtuale, andare a **Dispositivi \> Configura**.
+1. Nel dispositivo virtuale, andare a **Dispositivi > Configura**.
  
 1. Scorrere verso il basso fino alla sezione **Password amministratore del dispositivo** Specificare una password amministratore contenente dagli 8 ai 15 caratteri. La password deve contenere una combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
 
@@ -208,7 +208,7 @@ Per impostazione predefinita, non è abilitato l'accesso remoto al dispositivo v
 Per configurare la gestione remota del dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
 
 
-1. Nel dispositivo virtuale, andare a **Dispositivi \> Configura**.
+1. Nel dispositivo virtuale, andare a **Dispositivi > Configura**.
 
 2. Scorrere verso il basso fino alla sezione **Gestione remota**.
 
@@ -238,7 +238,7 @@ Le sezioni seguenti illustrano alcune delle differenze relative all'utilizzo del
 
 Dal momento che si tratta di un dispositivo solo software, la gestione del dispositivo virtuale è minore rispetto a quella di un dispositivo fisico. L'utente ha a disposizione le seguenti opzioni:
 
-- **Aggiornamenti automatici**: è possibile attivare o disattivare gli aggiornamenti automatici. Quando gli aggiornamenti automatici sono attivati, il dispositivo virtuale viene automaticamente arrestato e riavviato \(se necessario\) al fine di applicare gli aggiornamenti disponibili. Dal momento che non esiste un'unica interfaccia sul dispositivo virtuale, durante l'applicazione degli aggiornamenti si verificherà una breve interruzione del servizio.
+- **Aggiornamenti automatici**: è possibile attivare o disattivare gli aggiornamenti automatici. Quando gli aggiornamenti automatici sono attivati, il dispositivo virtuale viene automaticamente arrestato e riavviato (se necessario) al fine di applicare gli aggiornamenti disponibili. Dal momento che non esiste un'unica interfaccia sul dispositivo virtuale, durante l'applicazione degli aggiornamenti si verificherà una breve interruzione del servizio.
 - **Aggiornamenti software**: è possibile visualizzare la data dell'ultimo aggiornamento del software insieme a eventuali messaggi sullo stato dell'aggiornamento. È possibile utilizzare il pulsante di ricerca degli aggiornamenti nella parte inferiore della pagina per eseguire una ricerca di nuovi aggiornamenti.
 - **Pacchetto di supporto**: è possibile creare e caricare un pacchetto di supporto per consentire al supporto tecnico Microsoft di risolvere i problemi relativi al dispositivo virtuale.
 
@@ -280,7 +280,7 @@ Per creare  un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire l
 
 - Fare clic su **Endpoint**. Nella pagina Endpoints sono elencati tutti gli endpoint disponibili per la macchina virtuale.
 
-- Fare clic su \*\*Aggiungi\*\*. Verrà visualizzata la finestra di dialogo Aggiungi endpoint. Fare clic sulla freccia per continuare.
+- Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo Aggiungi endpoint. Fare clic sulla freccia per continuare.
 
 - Nel campo **Nome**, digitare il seguente nome per l'endpoint: **WinRMHttps**.
 
@@ -292,7 +292,7 @@ Per creare  un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire l
 
 - Fare clic sul segno di spunta per creare l'endpoint.
 
-Dopo aver creato l'endpoint, è possibile visualizzarne i dettagli e determinare l'indirizzo IP virtuale pubblico \(VIP, Virtual Private Network\). Registrare tale indirizzo.
+Dopo aver creato l'endpoint, è possibile visualizzarne i dettagli e determinare l'indirizzo IP virtuale pubblico (VIP, Virtual Private Network). Registrare tale indirizzo.
 
 Si consiglia di connettersi da un'altra macchina virtuale presente all'interno della stessa rete virtuale; in questo modo si riduce il numero di endpoint pubblici nella rete virtuale. Quando si utilizza questo metodo, ci si connette alla macchina virtuale tramite una sessione Desktop remoto e si configura tale macchina virtuale affinché venga utilizzata come qualsiasi altro client di Windows in una rete locale. Non è necessario aggiungere il numero di porta pubblica poiché è già noto.
 
@@ -322,7 +322,7 @@ Se si decide di ripristinare il dispositivo virtuale, sarà sufficiente disattiv
 
 ## Eseguire il failover nel dispositivo virtuale
 
-Il ripristino di emergenza \(DR, Disaster Recovery\) rappresenta una delle situazioni principali per le quali il dispositivo è stato realizzato. In questo scenario, è possibile che il dispositivo fisico StorSimple o il datacenter completo non sia disponibile. Fortunatamente, è possibile utilizzare un dispositivo virtuale per ripristinare le operazioni in un percorso alternativo. Durante il ripristino di emergenza, i contenitori del volume del dispositivo di origine cambiano la proprietà e vengono trasferiti nel dispositivo virtuale. I prerequisiti per il ripristino di emergenza prevedono che sia stato creato e configurato il dispositivo virtuale, che tutti i volumi nel contenitore siano offline e che al contenitore del volume sia associata una snapshot cloud.
+Il ripristino di emergenza (DR, Disaster Recovery) rappresenta una delle situazioni principali per le quali il dispositivo è stato realizzato. In questo scenario, è possibile che il dispositivo fisico StorSimple o il datacenter completo non sia disponibile. Fortunatamente, è possibile utilizzare un dispositivo virtuale per ripristinare le operazioni in un percorso alternativo. Durante il ripristino di emergenza, i contenitori del volume del dispositivo di origine cambiano la proprietà e vengono trasferiti nel dispositivo virtuale. I prerequisiti per il ripristino di emergenza prevedono che sia stato creato e configurato il dispositivo virtuale, che tutti i volumi nel contenitore siano offline e che al contenitore del volume sia associata una snapshot cloud.
 
 ### Ripristinare il dispositivo fisico per il dispositivo virtuale StorSimple
 

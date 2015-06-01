@@ -29,7 +29,7 @@ Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti 
 5.  Accedere con le credenziali dell'account Microsoft. Se non si dispone ancora di un'area di lavoro di Machine Learning, verrà creata un'area di lavoro di valutazione gratuita. [Informazioni sulla versione di prova gratuita di Machine Learning](http://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usare un esempio come modello in Studio
-1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **New**\* per creare un nuovo esperimento 
+1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **New*** per creare un nuovo esperimento 
 2. Esplorare il contenuto degli esempi e sceglierne uno da usare come modello.
 
 ## Passaggi successivi

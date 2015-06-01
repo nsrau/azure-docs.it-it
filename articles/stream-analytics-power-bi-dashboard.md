@@ -18,12 +18,12 @@
 	
 #Analisi dei flussi di Azure e Power BI: dashboard dinamico su analisi in tempo reale del flusso di dati
 
-Uno dei casi di uso comune di Analisi dei flussi di Azure è quello di analizzare un flusso di dati di elevato volume in tempo reale e di ottenere una visione approfondita in un dashboard dinamico \(un dashboard che si aggiorna in tempo reale senza che l’utente debba aggiornare il browser\). [Microsoft Power BI](https://powerbi.com/) è perfetto per creare dashboard dinamici in poco tempo. [Di seguito è riportato un video di esempio per illustrare lo scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). Nel presente articolo viene illustrato come utilizzare Power BI come output per il processo di analisi dei flussi di Azure. Nota- Analisi dei flussi di Azure solitamente è disponibile in ogni caso a questo punto, l’output di Power BI è una funzionalità di anteprima di Analisi dei flussi di Azure.
+Uno dei casi di uso comune di Analisi dei flussi di Azure è quello di analizzare un flusso di dati di elevato volume in tempo reale e di ottenere una visione approfondita in un dashboard dinamico (un dashboard che si aggiorna in tempo reale senza che l’utente debba aggiornare il browser). [Microsoft Power BI](https://powerbi.com/) è perfetto per creare dashboard dinamici in poco tempo. [Di seguito è riportato un video di esempio per illustrare lo scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). Nel presente articolo viene illustrato come utilizzare Power BI come output per il processo di analisi dei flussi di Azure. Nota- Analisi dei flussi di Azure solitamente è disponibile in ogni caso a questo punto, l’output di Power BI è una funzionalità di anteprima di Analisi dei flussi di Azure.
 
 ##Prerequisiti
 
-* Account Microsoft Azure tramite ID organizzazione \(Power BI funziona solo con ID organizzazione. L’ID organizzazione è l’indirizzo di posta elettronica aziendale o dell’ufficio, ad esempio xyz@mycompany.com. E-mail personali come xyz@hotmail.com non sono ID organizzazione. [Ulteriori informazioni sull’ID organizzazione sono disponibili qui](https://www.arin.net/resources/request/org.html)\).
-* Un flusso di input per processo ASA \(Azure Stream Analytics, Analisi dei flussi di Azure\) da cui utilizzare il flusso di dati. A questo punto, ASA accetta input da un hub eventi di Azure o Archivio BLOB di Azure.  
+* Account Microsoft Azure tramite ID organizzazione (Power BI funziona solo con ID organizzazione. L’ID organizzazione è l’indirizzo di posta elettronica aziendale o dell’ufficio, ad esempio xyz@mycompany.com. E-mail personali come xyz@hotmail.com non sono ID organizzazione. [Ulteriori informazioni sull’ID organizzazione sono disponibili qui](https://www.arin.net/resources/request/org.html)).
+* Un flusso di input per processo ASA (Azure Stream Analytics, Analisi dei flussi di Azure) da cui utilizzare il flusso di dati. A questo punto, ASA accetta input da un hub eventi di Azure o Archivio BLOB di Azure.  
 
 ##Creare processi di Analisi dei flussi di Azure
 
@@ -72,7 +72,7 @@ Per questa esercitazione, si presuppone che l’utente usi EventHub come input c
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Nota - L’output Power BI è disponibile solo per gli account Azure tramite ID organizzazione. Se non si usa un ID organizzazione per l’account Azure \(ad esempio, un account Live ID o un account Microsoft personale\), non verrà visualizzata l’opzione di output Power BI.
+> [AZURE.NOTE]Nota - L’output Power BI è disponibile solo per gli account Azure tramite ID organizzazione. Se non si usa un ID organizzazione per l’account Azure (ad esempio, un account Live ID o un account Microsoft personale), non verrà visualizzata l’opzione di output Power BI.
 
 2.  Selezionare **Power BI**, quindi fare clic sul pulsante destro.
 3.  Verrà visualizzata una schermata analoga a quella seguente:
@@ -130,7 +130,7 @@ Per creare il dashboard, andare all’opzione Dashboard e creare un nuovo dashbo
 
 In questo esempio, verrà nominato "Demo Dashboard".
 
-A questo punto, fare clic sul set di dati creato dal processo ASA \(pbidemo nell’esempio corrente\). Si verrà indirizzati a una pagina per creare un grafico nella parte superiore di questo set di dati. Il seguente è solo un esempio dei report che è possibile creare:
+A questo punto, fare clic sul set di dati creato dal processo ASA (pbidemo nell’esempio corrente). Si verrà indirizzati a una pagina per creare un grafico nella parte superiore di questo set di dati. Il seguente è solo un esempio dei report che è possibile creare:
 
 Selezionare i campi e Σ temp e ora. Questi saranno automaticamente utilizzati in Valore e Asse del grafico:
 

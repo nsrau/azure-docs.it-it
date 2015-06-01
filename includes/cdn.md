@@ -106,7 +106,7 @@ alla scadenza del periodo di durata del contenuto memorizzato nella cache.
 
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>Passaggio 4: Rimuovere contenuto dalla rete CDN</h2>

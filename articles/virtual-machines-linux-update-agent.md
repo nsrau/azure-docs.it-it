@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come aggiornare l&#39;agente Linux di Azure alla versione più recente da Github"
-	description="Informazioni su come aggiornare l&#39;agente Linux di Azure da Github per VM Linux in Azure."
+	pageTitle="Come aggiornare l'agente Linux di Azure alla versione più recente da Github"
+	description="Informazioni su come aggiornare l'agente Linux di Azure da Github per VM Linux in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -39,16 +39,16 @@ e in CentOS e Oracle Linux, digitare:
 In genere è sufficiente, ma se per qualche motivo è necessario installarla da https://github.com direttamente, attenersi alla seguente procedura.
 
 
-## 5\.2 Installare wget
+## 5.2 Installare wget
 
 Account di accesso alla macchina virtuale tramite SSH.
 
-Installare wget \(esistono alcune distribuzioni non installare il file per impostazione predefinita come versioni Redhat, CentOS e Oracle Linux 6.4 e 6.5\) digitando `#sudo yum install wget` nella riga di comando.
+Installare wget (esistono alcune distribuzioni non installare il file per impostazione predefinita come versioni Redhat, CentOS e Oracle Linux 6.4 e 6.5) digitando `#sudo yum install wget` nella riga di comando.
 
 
 ## Scaricare la versione più recente
 
-Aprire [la versione dell'agente Linux di Azure in Github](https://github.com/Azure/WALinuxAgent/releases) in una pagina web e scopri simili numero di versione più recente: 2.0.12. \(È possibile individuare la versione corrente digitando `#waagent --version`.\)
+Aprire [la versione dell'agente Linux di Azure in Github](https://github.com/Azure/WALinuxAgent/releases) in una pagina web e scopri simili numero di versione più recente: 2.0.12. (È possibile individuare la versione corrente digitando `#waagent --version`.)
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 

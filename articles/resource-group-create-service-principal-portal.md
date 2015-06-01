@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare una nuova entità servizio di Azure usando il portale di Azure"
-   description="Descrive come creare una nuova entità servizio di Azure che è possibile usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&#39;accesso alle risorse."
+   description="Descrive come creare una nuova entità servizio di Azure che è possibile usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -24,7 +24,7 @@ Un'entità servizio è un processo, un'applicazione o un servizio automatizzato 
 Questo argomento mostra come creare una nuova entità servizio usando il portale di Azure. Attualmente, è necessario usare il portale di Microsoft Azure per creare una nuova entità servizio. Questa funzionalità verrà aggiunta al portale di anteprima di Azure in una versione successiva.
 
 ## Concetti
-1. Azure Active Directory \(AAD\): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](./active-directory-whatis/)
+1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](./active-directory-whatis/)
 2. Entità servizio: istanza di un'applicazione in una directory.
 3. Applicazione AD: record di directory in AAD che identifica un'applicazione in AAD. Per altre informazioni, vedere [Nozioni di base sull'autenticazione in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 

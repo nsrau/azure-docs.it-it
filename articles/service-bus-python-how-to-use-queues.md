@@ -55,9 +55,9 @@ I valori relativi al nome e al valore della chiave SAS sono disponibili nelle in
 
 ## Come inviare messaggi a una coda
 
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiamerà il metodo **send\_queue\_message()** sull'oggetto **ServiceBusService**.
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiamerà il metodo **send_queue_message()** sull'oggetto **ServiceBusService**.
 
-Il seguente esempio illustra come inviare un messaggio di prova alla coda denominata *taskqueue using* **send\_queue\_message**:
+Il seguente esempio illustra come inviare un messaggio di prova alla coda denominata *taskqueue using* **send_queue_message**:
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -66,17 +66,17 @@ Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256
 
 ## Come ricevere messaggi da una coda
 
-I messaggi vengono ricevuti da una coda tramite il metodo **receive\_queue\_message** sull'oggetto **ServiceBusService**:
+I messaggi vengono ricevuti da una coda tramite il metodo **receive_queue_message** sull'oggetto **ServiceBusService**:
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek\_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek\_lock** su **True**.
+I messaggi vengono eliminati dalla sottoscrizione non appena vengono letti, quando il parametro **peek_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek_lock** su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
 
 
-Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
+Se il parametro **peek_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
 Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete** sull'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla coda.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

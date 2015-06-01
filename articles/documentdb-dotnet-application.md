@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un&#39;applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
-	description="Informazioni su come usare DocumentDB con .NET per creare un&#39;applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un&#39;applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
+	pageTitle="Creare un'applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
+	description="Informazioni su come usare DocumentDB con .NET per creare un'applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -54,7 +54,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 1. Dal menu **File** di Visual Studio scegliere **Nuovo** e quindi fare clic su **Progetto**.
 
    Verrà visualizzata la finestra di dialogo **Nuovo progetto**. 
-2. Nel riquadro **Tipi progetto** espandere **Modelli**, **Visual C\#**, **Web** e quindi selezionare **Applicazione Web ASP.NET**.
+2. Nel riquadro **Tipi progetto** espandere **Modelli**, **Visual C#**, **Web** e quindi selezionare **Applicazione Web ASP.NET**.
 
   ![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/image10.png)
 
@@ -76,7 +76,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
   Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure DocumentDB successivamente nel portale di Microsoft Azure.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Per ulteriori informazioni sulla scelta di un **piano di servizio app** e di un **gruppo di risorse**, vedere [Panoramica approfondita dei piani di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   ![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -92,7 +92,7 @@ Ora che si dispone della maggior parte del plumbing MVC ASP.NET necessario per q
 
   ![Schermata delle opzioni del menu di scelta rapida per il progetto in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/image21.png)
 
-    The **Manage NuGet Packages** dialog box appears.
+    Viene visualizzata la finestra di dialogo **Gestisci pacchetti NuGet**.
 
 2. Nella casella **Cerca online** digitare ***Azure DocumentDB***. 
     
@@ -151,7 +151,9 @@ Creare prima di tutto l'elemento che corrisponde alla lettera **M** in MVC, ovve
         	[JsonProperty(PropertyName = "desc")]
         	public string Description { get; set; }
 		
-       [JsonProperty\(PropertyName="isComplete"\)] public bool Completed { get; set; } }
+       		[JsonProperty(PropertyName="isComplete")]
+        	public bool Completed { get; set; }    
+		}
 
 	Tutti i dati presenti in DocumentDB vengono passati in rete e archiviati come JSON. Per controllare il modo in cui gli oggetti vengono serializzati/deserializzati da JSON.NET, è possibile usare l'attributo **JsonProperty**, come mostrato nella classe **Item** appena creata. Questa operazione **non è necessaria**, ma è utile per verificare che le proprietà seguano le convenzioni di denominazione maiuscole-minuscole JSON.
 	
@@ -198,9 +200,9 @@ A questo punto è necessario creare le visualizzazioni **V** in MVC:
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
 	- Nella casella **Nome visualizzazione** digitare ***Index***.
 	- Nella casella **Modello** selezionare ***Elenco***.
-	- Nella casella **Classe modello** selezionare ***Item \(todo.Models\)***.
+	- Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
 	- Lasciare vuota la casella **Classe contesto dati**. 
-	- Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
+	- Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
 	
 	![Schermata con la finestra di dialogo Aggiungi visualizzazione](./media/documentdb-dotnet-application/image18.png)
 
@@ -215,9 +217,9 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
     - Nella casella **Nome visualizzazione** digitare ***Create***.
     - Nella casella **Modello** selezionare ***Create***.
-    - Nella casella **Classe modello** selezionare ***Item \(todo.Models\)***.
+    - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
     - Lasciare vuota la casella **Classe contesto dati**.
-    - Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
+    - Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
     - Fare clic su **Aggiungi**.
 
 #### <a name="_Toc395888515"></a>Aggiungere una visualizzazione Modifica elemento
@@ -229,9 +231,9 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
     - Nella casella **Nome visualizzazione** digitare ***Edit***.
     - Nella casella **Modello** selezionare ***Edit***.
-    - Nella casella **Classe modello** selezionare ***Item \(todo.Models\)***.
+    - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
     - Lasciare vuota la casella **Classe contesto dati**. 
-    - Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
+    - Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
     - Fare clic su **Aggiungi**.
 
 Al termine, chiudere tutti i documenti con estensione cshtml in Visual Studio. Si tornerà a queste visualizzazioni in un secondo momento.
@@ -290,7 +292,11 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 			
 			//Use the DocumentCollection if it exists, if not create a new Collection
 	    	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
-	{ var col = Client.CreateDocumentCollectionQuery\(databaseLink\) .Where\(c =\> c.Id == CollectionId\) .AsEnumerable\(\) .FirstOrDefault\(\);
+	   		{
+	    	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
+	        	                  .Where(c => c.Id == CollectionId)
+	        	                  .AsEnumerable()
+	        	                  .FirstOrDefault();
 		
 	        	if (col == null)
 	        	{
@@ -304,11 +310,19 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 	    	}
 			
 			//Expose the "database" value from configuration as a property for internal use
-    private static string databaseId; private static String DatabaseId { get { if \(string.IsNullOrEmpty\(databaseId\)\) { databaseId = ConfigurationManager.AppSettings["database"]; }
+     	   	private static string databaseId;
+     	   	private static String DatabaseId
+     	   	{
+				get
+				{
+					if (string.IsNullOrEmpty(databaseId))
+					{
+						databaseId = ConfigurationManager.AppSettings["database"];
+					}
 				
 					return databaseId;
 				}
-    }
+       	 	}
 			
 			//Expose the "collection" value from configuration as a property for internal use
     	    private static string collectionId;
@@ -378,7 +392,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 	> [AZURE.TIP]Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta DocumentDB vedere [livelli di prestazioni DocumentDB](documentdb-performance-levels.md)
 
-3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file** Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
+3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file **Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
 	
     	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
     	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
@@ -388,7 +402,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 4. A questo punto, aggiornare i valori per *endpoint* e *authKey* usando il pannello Chiavi del portale di Azure. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
 
 
-    That takes care of wiring up the DocumentDB repository, now let's add our application logic.
+    Ciò consente il collegamento al repository DocumentDB. A questo punto è possibile aggiungere la logica di applicazione.
 
 5. Un'applicazione per un elenco di azioni deve innanzitutto consentire la visualizzazione degli elementi incompleti. Copiare e incollare il seguente frammento di codice in un punto qualsiasi all'interno della classe **DocumentDBRepository**.
 
@@ -427,13 +441,13 @@ A questo punto dovrebbe essere possibile compilare la soluzione senza errori.
 
 Se si eseguisse l'applicazione a questo punto, si passerebbe a **HomeController** e alla visualizzazione **Index** di tale controller. Questo è il comportamento predefinito per il progetto di modello MVC scelto inizialmente, ma è possibile cambiarlo. Per modificare questo comportamento, è possibile cambiare il routing nell'applicazione MVC.
 
-Aprire ***App\\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
+Aprire ***App_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\\\*\*Item\*\*\\\*\*Index\*\*.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views****Item****Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -448,9 +462,9 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 1.  Aggiungere il metodo seguente alla classe **DocumentDBRepository**.
 
     	public static async Task<Document> CreateItemAsync(T item)
-		{ return await Client.CreateDocumentAsync\(Collection.SelfLink, item\); }
+		{ return await Client.CreateDocumentAsync(Collection.SelfLink, item); }
 
-	This method simply takes an object passed to it and persists it in DocumentDB.
+	Questo metodo accetta semplicemente un oggetto passato al metodo stesso e lo rende permanente in DocumentDB.
 
 2. Aprire il file ItemController.cs e aggiungere il seguente frammento di codice all'interno della classe. In tal modo, ASP.NET MVC individua le operazioni da eseguire per l'azione **Create**. In questo caso, eseguire semplicemente il rendering della visualizzazione Create.cshtml associata creata in precedenza.
 
@@ -459,17 +473,26 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 			return View(); 
 		}
 
-	We now need some more code in this controller that will accept the submission from the **Create** view.
+	È ora necessario aggiungere altro codice al controller, in modo da accettare gli invii dalla visualizzazione **Create**.
 
 2. Aggiungere il blocco di codice successivo alla classe ItemController.cs, che indica a MVC ASP.NET le operazioni da eseguire con un POST per i moduli per questo controller.
 	
     	[HttpPost]
     	[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Create\([Bind\(Include = "Id,Name,Description,Completed"\)] Item item\) { if \(ModelState.IsValid\) { await DocumentDBRepository<Item>.CreateItemAsync\(item\); return RedirectToAction\("Index"\); } return View\(item\); } This code calls in to the DocumentDBRepository and uses the CreateItemAsync method to persist the new todo item to the database.
+   	 	public async Task<ActionResult> Create([Bind(Include = 	"Id,Name,Description,Completed")] Item item)  
+  	  	{
+			if (ModelState.IsValid)  
+			{  
+			    await DocumentDBRepository<Item>.CreateItemAsync(item);
+			    return RedirectToAction("Index");  
+			}   
+			return View(item);   
+		}
+	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
-	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub][] has the full implementation in place.
+	**Nota sulla sicurezza**: L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni su questo argomento e alcuni esempi di corretta implementazione, vedere la pagina relativa alla [prevenzione di richieste intersito false][]. Il codice sorgente disponibile in [GitHub][] definisce l'implementazione completa.
 
-	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
+	**Nota sulla sicurezza**: Viene usato anche l'attributo **Bind** nel parametro del metodo in modo da garantire la protezione da attacchi basati su un eccesso di post. Per informazioni dettagliate, vedere la pagina relativa alle [operazioni CRUD di base in MVC ASP.NET][].
 
 Questo è tutto il codice necessario per aggiungere nuovi elementi al database.
 
@@ -509,9 +532,17 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
 2. Aggiungere il codice seguente alla classe **ItemController**.
 
     	[HttpPost]
-		[ValidateAntiForgeryToken] public async Task<ActionResult> Edit\([Bind\(Include = "Id,Name,Description,Completed"\)] Item item\) { if \(ModelState.IsValid\) { await DocumentDBRepository<Item>.UpdateItemAsync\(item.Id, item\); return RedirectToAction\("Index"\); }
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
 
-		return View\(item\); }
+  	      return View(item);
+ 	   	}
 		
 		public ActionResult Edit(string id)
 		{
@@ -531,13 +562,13 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
 		}
 		
 	
-	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.
+	Il primo metodo gestisce l'operazione Http GET, che avviene quando l'utente fa clic sul collegamento **Edit** nella visualizzazione **Index**. Questo metodo recupera un oggetto [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) da DocumentDB e lo passa alla visualizzazione **Edit**.
 
-	The **Edit** view will then do an Http POST to the **IndexController**. 
+	La visualizzazione **Edit** esegue quindi un'operazione Http POST in **IndexController**. 
 	
-	The second method we added handles passing the updated object to DocumentDB to be persisted in the database.
+	Il secondo metodo aggiunto gestisce il passaggio dell'oggetto aggiornato a DocumentDB in modo da renderlo permanente nel database.
 
-A questo punto, queste sono le procedure necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e modificarli****.
+A questo punto, queste sono le procedure necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e modificarli **Item**.
 
 ## <a name="_Toc395637773"></a>Passaggio 6: Eseguire l'applicazione in locale
 
@@ -591,7 +622,7 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 
 1. Assicurarsi che il [software richiesto come prerequisito](#_Toc395637760) sia installato, compresi Visual Studio e Azure SDK per .NET versione 2.3 o successive.
 
-2. Clonare il repository azure-documentdb-net usando Git per Windows [\(http://www.git-scm.com/](http://www.git-scm.com/)\) oppure scaricare il file ZIP da [GitHub](https://github.com/Azure/azure-documentdb-net/).
+2. Clonare il repository azure-documentdb-net usando Git per Windows [(http://www.git-scm.com/](http://www.git-scm.com/)) oppure scaricare il file ZIP da [GitHub](https://github.com/Azure/azure-documentdb-net/).
 
 2. Da Visual Studio aprire il file todo.sln dalla directory azure-documentdb-net/tutorials/todo.
 
@@ -617,11 +648,11 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 7. È ora possibile [eseguire l'applicazione localmente](#_Toc395637773) e quindi [distribuirla in Siti Web di Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[prevenzione di richieste intersito false]: http://go.microsoft.com/fwlink/?LinkID=517254
+[operazioni CRUD di base in MVC ASP.NET]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=52-->

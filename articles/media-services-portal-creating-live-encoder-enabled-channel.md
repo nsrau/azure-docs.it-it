@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Usare il portale di gestione per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit \(anteprima\)
+#Usare il portale di gestione per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)
 
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
@@ -28,7 +28,7 @@ Questa esercitazione illustra i passaggi per creare un **canale** che riceve un 
 
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
@@ -41,8 +41,8 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
-3. Creare un programma \(che creerà anche un asset\).
-1. Pubblicare il programma \(che creerà un localizzatore OnDemand per l'asset associato\).  
+3. Creare un programma (che creerà anche un asset).
+1. Pubblicare il programma (che creerà un localizzatore OnDemand per l'asset associato).  
 
 	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
@@ -57,7 +57,7 @@ In questa esercitazione il portale di gestione di Azure viene usato per eseguire
 2.  Configurare gli endpoint di streaming
 3.  Creare un canale abilitato per eseguire la codifica live.
 1.  Ottenere l'URL di inserimento per fornirlo al codificatore live. Il codificatore live userà questo URL per inserire il flusso nel canale.
-1.  Creare un programma \(e un asset\).
+1.  Creare un programma (e un asset).
 1.  Pubblicare l'asset e ottenere gli URL di streaming.  
 1.  Riprodurre i contenuti 
 2.  + Cleaning up
@@ -71,9 +71,9 @@ Per completare l'esercitazione è necessario quanto segue.
 
 ##Configurare l'endpoint di streaming usando il portale
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH e HDS \(solo per i titolari di licenza Adobe PrimeTime/Access\).
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
-Quando si usa lo streaming live, un codificatore live locale \(in questo caso Wirecast\) inserisce un flusso live a più velocità in bit nel canale. Quando il flusso viene richiesto da un utente, Servizi multimediali usa la creazione dinamica dei pacchetti per ricreare il pacchetto del flusso di origine nel flusso a velocità in bit adattiva richiesto \(HLS, DASH o Smooth\).
+Quando si usa lo streaming live, un codificatore live locale (in questo caso Wirecast) inserisce un flusso live a più velocità in bit nel canale. Quando il flusso viene richiesto da un utente, Servizi multimediali usa la creazione dinamica dei pacchetti per ricreare il pacchetto del flusso di origine nel flusso a velocità in bit adattiva richiesto (HLS, DASH o Smooth).
 
 Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si intende distribuire i contenuti.
 
@@ -109,9 +109,9 @@ Scegliere i tipi di codifica **Standard**. Questo tipo specifica che si vuole cr
 
 Per il tipo di codifica **Standard**, le opzioni valide per il protocollo di inserimento sono:
 
-- MP4 frammentato \(Smooth Streaming\) a velocità in bit singola
+- MP4 frammentato (Smooth Streaming) a velocità in bit singola
 - RTMP a velocità in bit singola
-- RTP \(MPEG-TS\): MPEG-2 Transport Stream su RTP.
+- RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
 
 Per una descrizione dettagliata di ogni protocollo, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -125,11 +125,11 @@ Per altre informazioni, vedere [Uso dei canali che eseguono la codifica live da 
 
 ![standard2][standard2]
 
-Nella pagina **Set di impostazioni di codifica** è possibile selezionare le impostazioni predefinite di sistema. Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p \(valore predefinito\)**.
+Nella pagina **Set di impostazioni di codifica** è possibile selezionare le impostazioni predefinite di sistema. Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**.
 
 ![standard3][standard3]
 
-Nella pagina **Creazione canale** è possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1\(255.255.252.0\)'\).
+Nella pagina **Creazione canale** è possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)').
 
 Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 
@@ -216,7 +216,7 @@ Se si passa alla pagina **CONTENUTO**, sarà possibile visualizzare gli asset cr
 
 ##Riproduzione del contenuto
 
-Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset \(come descritto nella sezione precedente\) creando un localizzatore \(quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente\). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
+Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
 
 A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\\programma.
 
@@ -226,11 +226,11 @@ Per impostazione predefinita, un URL di streaming presenta il seguente formato e
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Per creare un URL di streaming HLS, aggiungere \(format=m3u8-aapl\) all'URL.
+Per creare un URL di streaming HLS, aggiungere (format=m3u8-aapl) all'URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Per creare un URL di streaming MPEG DASH, aggiungere \(format=mpd-time-csf\) all'URL.
+Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

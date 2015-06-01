@@ -25,7 +25,7 @@ Application Insights può offrire una visione chiara dell'uso dell'applicazione,
  
 Aggiungere [Application Insights][start] al progetto e senza altri sforzi vengono generati grafici che mostrano il numero di utenti disponibili e altro ancora.
 
-![In Azure scegliere Sfoglia \> Application Insights \> il nome del progetto e scorrere verso il basso](./media/app-insights-overview-usage/01-overview.png)
+![In Azure scegliere Sfoglia > Application Insights > il nome del progetto e scorrere verso il basso](./media/app-insights-overview-usage/01-overview.png)
  
 Passare il mouse nella parte vuota su un grafico per visualizzare i conteggi in un momento specifico. In caso contrario, i numeri indicano il valore aggregato, ad esempio una media, un totale o un numero di utenti definito durante il periodo.
 
@@ -47,7 +47,7 @@ Confrontare due metriche, ad esempio utenti e nuovi utenti:
 
 ![Selezionare un grafico, cercare e selezionare o deselezionare le metriche.](./media/app-insights-overview-usage/031-dual.png)
 
-Raggruppare \(segmentare\) i dati in base a una proprietà come browser, sistema operativo o città:
+Raggruppare (segmentare) i dati in base a una proprietà come browser, sistema operativo o città:
 
 ![Selezionare un grafico che mostra una sola metrica, passare su Raggruppamento e scegliere una proprietà](./media/app-insights-overview-usage/03-browsers.png)
 
@@ -77,16 +77,16 @@ Tuttavia, si vuole comunque che Application Insights registri il numero di volte
 
 È possibile usare i dati di telemetria in molti modi per comprendere l'uso dell'applicazione. Ma non sempre si desidera combinare i messaggi con le visualizzazioni pagina. Usare invece gli eventi personalizzati. È possibile inviarli da app per dispositivi, pagine Web o un server Web:
 
-\(JavaScript\)
+(JavaScript)
 
     telemetryClient.trackEvent("GameEnd");
 
-\(C\#\)
+(C#)
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-\(VB\)
+(VB)
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -145,7 +145,7 @@ JavaScript nel client
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
 
-C\# nel server
+C# nel server
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -189,15 +189,15 @@ Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore de
 ![Digitare un valore nel campo Ricerca](./media/app-insights-overview-usage/12-searchEvents.png)
 
 
-## Test A \| B
+## Test A | B
 
 Se non si sa quale variante di una funzionalità sarà più efficace, rilasciarle entrambe, rendendo ognuna accessibile a utenti diversi. Valutare la riuscita di ognuna e quindi passare a una versione unificata.
 
 Per questa tecnica è possibile collegare tag differenti per tutti i dati di telemetria inviati da ogni versione dell'app. A tale scopo definire le proprietà nel TelemetryContext attivo. Queste proprietà predefinite vengono aggiunte a ogni messaggio di telemetria che l'applicazione invia, non solo ai messaggi personalizzati, ma anche alla telemetria standard.
 
-Nel portale Application Insights sarà quindi possibile filtrare e raggruppare \(segmentare\) i dati sui tag, in modo da confrontare versioni diverse.
+Nel portale Application Insights sarà quindi possibile filtrare e raggruppare (segmentare) i dati sui tag, in modo da confrontare versioni diverse.
 
-C\# nel server
+C# nel server
 
     using Microsoft.ApplicationInsights.DataContracts;
 

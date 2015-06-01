@@ -1,6 +1,6 @@
 <properties
    pageTitle="Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure"
-   description="Descrive i problemi frequenti di distribuzione delle risorse in Azure e spiega come usare il portale di Azure, l&#39;interfaccia della riga di comando di Azure per Mac, Linux e Windows e PowerShell per esaminare le distribuzioni e rilevare eventuali problemi."
+   description="Descrive i problemi frequenti di distribuzione delle risorse in Azure e spiega come usare il portale di Azure, l'interfaccia della riga di comando di Azure per Mac, Linux e Windows e PowerShell per esaminare le distribuzioni e rilevare eventuali problemi."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"
@@ -33,7 +33,7 @@ Questo argomento include alcuni comandi dell'interfaccia della riga di comando d
 Windows PowerShell ha diversi comandi di base che consentono di eseguire le stesse procedure.
 
 - Usare il cmdlet **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** per scaricare file quali i modelli di gruppi di risorse o i file dei parametri JSON.
-- Usare il cmdlet **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** per convertire una stringa JSON in un oggetto personalizzato \([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)\) con una proprietà per ogni campo nella stringa JSON.
+- Usare il cmdlet **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** per convertire una stringa JSON in un oggetto personalizzato ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)) con una proprietà per ogni campo nella stringa JSON.
 
 ## Evitare gli errori nell'interfaccia della riga di comando di Azure per Mac, Linux e Windows
 
@@ -41,7 +41,7 @@ L'interfaccia della riga di comando di Azure fornisce diversi comandi per evitar
 
 - **azure location list**. Questo comando ottiene i percorsi che supportano ogni tipo di risorsa, ad esempio il provider per le macchine virtuali. Prima di immettere un percorso per una risorsa, usare questo comando per verificare che il percorso supporti il tipo di risorsa.
 
-    Poiché l'elenco dei percorsi può essere lungo e il numero di provider è elevato, è possibile usare gli strumenti per esaminare i provider e i percorsi prima di usare un percorso non ancora disponibile. Lo script seguente usa **jq** per individuare i percorsi in cui è disponibile il provider di risorse per le macchine virtuali Azure. \(\)
+    Poiché l'elenco dei percorsi può essere lungo e il numero di provider è elevato, è possibile usare gli strumenti per esaminare i provider e i percorsi prima di usare un percorso non ancora disponibile. Lo script seguente usa **jq** per individuare i percorsi in cui è disponibile il provider di risorse per le macchine virtuali Azure. ()
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -222,7 +222,7 @@ Alcuni problemi potrebbero verificarsi anche quando una distribuzione raggiunge 
 
 Le risorse vengono gestite dal provider di risorse ed è possibile abilitare un account o una sottoscrizione per usare un provider specifico. Se è abilitato l'uso di un provider, è anche necessario registrarlo. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando.
 
-Per vedere se il provider è registrato per l'uso dell'interfaccia della riga di comando di Azure, usare il comando `azure provider list` \(di seguito è riportato un esempio troncato dell'output\).
+Per vedere se il provider è registrato per l'uso dell'interfaccia della riga di comando di Azure, usare il comando `azure provider list` (di seguito è riportato un esempio troncato dell'output).
 
         azure provider list
         info:    Executing command provider list

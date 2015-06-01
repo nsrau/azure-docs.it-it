@@ -97,11 +97,11 @@ Colonna chiave di partizione: parametro facoltativo per gli output dell'Hub even
  
 Per iniziare a utilizzare un archivio tabelle di Azure, sono necessarie le seguenti informazioni sulla tabella:
 
-1. Nome dell'account di archiviazione \(nel caso in cui l'archiviazione si trovi in una sottoscrizione diversa dal processo di flusso\).
-2. Chiave account di archiviazione \(nel caso in cui l'archiviazione si trovi in una sottoscrizione diversa dal processo di flusso\).
-3. Nome tabella di output \(verrà creato se non esiste\).
-4. Chiave di partizione \(obbligatoria\).
-5.   Chiave riga \(attualmente è obbligatoria, in base ai commenti e suggerimenti di clienti, vogliamo renderla facoltativa\)
+1. Nome dell'account di archiviazione (nel caso in cui l'archiviazione si trovi in una sottoscrizione diversa dal processo di flusso).
+2. Chiave account di archiviazione (nel caso in cui l'archiviazione si trovi in una sottoscrizione diversa dal processo di flusso).
+3. Nome tabella di output (verrà creato se non esiste).
+4. Chiave di partizione (obbligatoria).
+5.   Chiave riga (attualmente è obbligatoria, in base ai commenti e suggerimenti di clienti, vogliamo renderla facoltativa)
 
 Per una progettazione migliore della chiave di partizione e della chiave riga, consultare l'articolo riportato di seguito [Progettazione di una strategia di partizionamento scalabile per archivio tabelle di Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

@@ -48,7 +48,7 @@ Application Insights funziona per le app di dispositivi e le applicazioni Web. I
 ## Rilevare scarsa disponibilità 
 
 
-Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]\:
+Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]:
 
 * Un test con singolo URL per la pagina di destinazione principale per l'app http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio Benvenuto nella pagina senza comunicarlo. 
 
@@ -85,7 +85,7 @@ Marcela esamina questi grafici di tanto in tanto. È un po' sconfortante lo scen
 
 #### Avvisi
 
-Marcella pertanto imposta due [avvisi][metrics]\: uno per tempi di risposta maggiori di una soglia tipica e l'altro per una frequenza di richieste non riuscite maggiore dello scenario corrente.
+Marcella pertanto imposta due [avvisi][metrics]: uno per tempi di risposta maggiori di una soglia tipica e l'altro per una frequenza di richieste non riuscite maggiore dello scenario corrente.
 
 
 Con l'avviso di disponibilità avrà la sicurezza di venire informata sulle situazioni insolite non appena si verificano.
@@ -103,7 +103,7 @@ Con l'avviso di disponibilità avrà la sicurezza di venire informata sulle situ
 ## Rilevamento di eccezioni
 
 
-Le eccezioni vengono segnalate in Application Insights chiamando [TrackException\(\)][api]\:
+Le eccezioni vengono segnalate in Application Insights chiamando [TrackException()][api]:
 
     var telemetry = new TelemetryClient();
     ...
@@ -126,7 +126,7 @@ Le eccezioni vengono segnalate in Application Insights chiamando [TrackException
 
 Il team della banca Fabrikam ha sviluppato la pratica di inviare sempre i dati di telemetria di un'eccezione, a meno che non vi sia un ripristino ovvio.
 
-In effetti, la strategia usata è persino più ampia: vengono inviati i dati di telemetria in tutti i casi in cui il cliente sia frustrato riguardo a ciò che voleva fare, che corrisponda o meno a un'eccezione del codice. Ad esempio, se il sistema esterno di bonifico interbancario restituisce un messaggio che indica che non è possibile completare l'operazione per qualche ragione operativa \(nessun errore del cliente\), allora si tiene traccia di quell'evento.
+In effetti, la strategia usata è persino più ampia: vengono inviati i dati di telemetria in tutti i casi in cui il cliente sia frustrato riguardo a ciò che voleva fare, che corrisponda o meno a un'eccezione del codice. Ad esempio, se il sistema esterno di bonifico interbancario restituisce un messaggio che indica che non è possibile completare l'operazione per qualche ragione operativa (nessun errore del cliente), allora si tiene traccia di quell'evento.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -153,7 +153,7 @@ Il team di sviluppo Fabrikam terrà traccia degli eventi di esito positivo nonch
 Ad esempio, per molti percorsi utente è disponibile un grafico chiaro. Molti clienti esaminano diversi tipi di prestito; alcuni compilano il modulo offerta e, tra quelli che ricevono un'offerta, alcuni procedono con il prestito.
 
 
-Il team di sviluppo inserisce chiamate TrackMetric\(\) in ogni fase del grafico. In Esplora metriche, Brian, un Business Architect, può confrontare i valori di ogni metrica per stimare l'andamento del sistema nella vendita dei prestiti.
+Il team di sviluppo inserisce chiamate TrackMetric() in ogni fase del grafico. In Esplora metriche, Brian, un Business Architect, può confrontare i valori di ogni metrica per stimare l'andamento del sistema nella vendita dei prestiti.
 
 
 Ursula, lo specialista UX, presta anche particolare attenzione alle metriche positive. Se il grafico mostra un calo improvviso in qualsiasi fase del grafico, significa che si è verificato un problema. Forse è difficile trovare il pulsante giusto o forse il testo non è molto invitante. Forse è presente un bug: gli utenti premono un pulsante, ma non si verifica l'operazione prevista.
@@ -217,10 +217,10 @@ Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fa
 **Che cosa è successo?** Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema.
 
 
-**Cosa sta succedendo?** Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace\(\) o TrackEvent\(\).
+**Cosa sta succedendo?** Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace() o TrackEvent().
 
 
-Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace\(\) in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
+Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace() in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
 
 
 ## Gestire il problema 

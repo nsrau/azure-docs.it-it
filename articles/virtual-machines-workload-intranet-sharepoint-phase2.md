@@ -113,7 +113,7 @@ Accedere al primo computer controller di dominio utilizzando le credenziali dell
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
 8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il seguente formato:  
-- *NomeComputer*\\*NomeAccountAmministratopreLocale*
+- *NomeComputer**NomeAccountAmministratopreLocale*
 9.	In **Password**, digitare la password per l'account amministratore locale.
 10.	Fare clic su **OK**.
 11.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Sì**. Il desktop della nuova macchina virtuale viene visualizzato in una finestra della sessione Desktop remoto.

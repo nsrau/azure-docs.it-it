@@ -77,10 +77,10 @@ Una funzione di script di tabella accetta sempre tre argomenti.
 
 Qui di seguito sono indicate le firme di funzioni principali canoniche per le operazioni su tabella:
 
-+ [Insert][insert function]\: `function insert (item, user, request) { ... }`
-+ [Update][update function]\: `function update (item, user, request) { ... }`
-+ [Delete][delete function]\: `function del (id, user, request) { ... }`
-+ [Read][read function]\: `function read (query, user, request) { ... }`
++ [Insert][insert function]: `function insert (item, user, request) { ... }`
++ [Update][update function]: `function update (item, user, request) { ... }`
++ [Delete][delete function]: `function del (id, user, request) { ... }`
++ [Read][read function]: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]Una funzione registrata per l'operazione di eliminazione deve essere denominata _del_ perché delete è una parola chiave riservata in JavaScript.
 
@@ -228,7 +228,7 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
 + Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
++  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
 È inoltre possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -537,7 +537,7 @@ Nell'esempio seguente viene registrato uno script tabella nell'operazione di ins
  
 In uno script le funzioni di supporto devono essere dichiarate dopo la funzione principale. Nello script è necessario dichiarare tutte le variabili. Le variabili non dichiarate causano un errore.
 
-Le funzioni di supporto possono anche essere definite una volta e condivise tra gli script del server. Per condividere una funzione tra gli script, è necessario che le funzioni vengano esportate e che il file di script sia presente nella directory `.\service\shared\`. Di seguito è riportato un modello per l'esportazione di una funzione condivisa in un file `.\services\shared\helpers.js`:
+Le funzioni di supporto possono anche essere definite una volta e condivise tra gli script del server. Per condividere una funzione tra gli script, è necessario che le funzioni vengano esportate e che il file di script sia presente nella directory `.\service\shared`. Di seguito è riportato un modello per l'esportazione di una funzione condivisa in un file `.\services\shared\helpers.js`:
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -599,7 +599,7 @@ In Servizi mobili è possibile creare, modificare ed eliminare script del server
 
 Si noti che questa struttura di directory è uguale a quella del repository Git quando si usa il controllo del codice sorgente.
 
-Quando si caricano file di script dallo strumento da riga di comando, è necessario passare prima alla directory `.\services\`. Il comando seguente carica uno script denominato `todoitem.insert.js` dalla sottodirectory `table`:
+Quando si caricano file di script dallo strumento da riga di comando, è necessario passare prima alla directory `.\services`. Il comando seguente carica uno script denominato `todoitem.insert.js` dalla sottodirectory `table`:
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload

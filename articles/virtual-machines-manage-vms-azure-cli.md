@@ -50,7 +50,7 @@ Eseguire questo comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilizzare questo parametro per mantenere l'IP virtuale \(VIP\) del servizio cloud, qualora fosse l'ultima macchina virtuale inclusa nel servizio cloud specifico. <br><br> Se si utilizza il parametro StayProvisioned, sarà ancora configurato per la macchina virtuale.
+>[AZURE.IMPORTANT]Utilizzare questo parametro per mantenere l'IP virtuale (VIP) del servizio cloud, qualora fosse l'ultima macchina virtuale inclusa nel servizio cloud specifico. <br><br> Se si utilizza il parametro StayProvisioned, sarà ancora configurato per la macchina virtuale.
 
 ## Avviare una macchina virtuale
 

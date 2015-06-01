@@ -51,7 +51,7 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 
 	![Dettagli del sito Web](./media/create-mysql-db/provide-website-details.png)
 
-4. Specificare un **NOME** per il database, selezionare la **REGIONE** per il database \(deve corrispondere alla regione del sito Web\), accettare le note legali di ClearDB e fare clic sul segno di spunta nella parte inferiore della pagina.
+4. Specificare un **NOME** per il database, selezionare la **REGIONE** per il database (deve corrispondere alla regione del sito Web), accettare le note legali di ClearDB e fare clic sul segno di spunta nella parte inferiore della pagina.
 
 	![Dettagli di MySQL](./media/create-mysql-db/provide-mysql-details.png)
 

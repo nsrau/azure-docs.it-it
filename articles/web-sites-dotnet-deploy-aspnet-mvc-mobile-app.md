@@ -53,7 +53,7 @@ Sarà inoltre necessario disporre di un emulatore del browser per dispositivi mo
 -	Emulatore di browser disponibile in [Google Chrome DevTools][EmulatorChrome]. Sono disponibili set di impostazioni per diversi dispositivi Android, oltre che per Apple iPhone, Apple iPad e Amazon Kindle Fire. Emula anche gli eventi tocco.
 -   [Emulatore mobile di Opera][EmulatorOpera]
 
-Sono disponibili alcuni progetti con codice sorgente C\\# a integrazione di questo argomento:
+Sono disponibili alcuni progetti con codice sorgente C# a integrazione di questo argomento:
 
 -   [Download progetto iniziale][StarterProject]
 -   [Download progetto completato][CompletedProject]
@@ -144,7 +144,7 @@ Nella sezione seguente verrà illustrato come creare visualizzazioni specifiche 
 
 In questa sezione verrà illustrato come creare un file di layout specifico per dispositivi mobili.
 
-Per iniziare, copiare *Views\\Shared\\_Layout.cshtml* in *Views\\Shared\\_Layout.Mobile.cshtml*. Aprire *_Layout.Mobile.cshtml* e modificare il titolo da **MVC5 Application** a **MVC5 Application (Mobile)**.
+Per iniziare, copiare *Views\\Shared\_Layout.cshtml* in *Views\\Shared\_Layout.Mobile.cshtml*. Aprire *_Layout.Mobile.cshtml* e modificare il titolo da **MVC5 Application** a **MVC5 Application (Mobile)**.
 
 In ogni chiamata di `Html.ActionLink` per la barra di spostamento, rimuovere "Browse by" da ciascun collegamento *ActionLink*. Il codice seguente mostra il tag `<ul class="nav navbar-nav">` completato del file di layout per dispositivi mobili.
 
@@ -191,7 +191,7 @@ In alternativa, è possibile aggiungere manualmente la riga seguente alla sezion
 
     using System.Web.WebPages;
 
-Salvare le modifiche. Copiare il file *Views\\Shared\\_Layout.Mobile.cshtml* in *Views\\Shared\\_Layout.iPhone.cshtml*. Aprire il nuovo file e modificare il titolo da `MVC5 Application (Mobile)` in `MVC5 Application (iPhone)`.
+Salvare le modifiche. Copiare il file *Views\\Shared\_Layout.Mobile.cshtml* in *Views\\Shared\_Layout.iPhone.cshtml*. Aprire il nuovo file e modificare il titolo da `MVC5 Application (Mobile)` in `MVC5 Application (iPhone)`.
 
 Copiare il file *Views\\Home\\AllTags.Mobile.cshtml* in *Views\\Home\\AllTags.iPhone.cshtml*. Nel nuovo file modificare l'elemento `<h2>` da "Tags (M)" in "Tags (iPhone)".
 
@@ -209,14 +209,14 @@ Nel browser per dispositivi mobili selezionare il collegamento **Speakers**. Poi
 
 ![][AllSpeakers_LayoutMobile]
 
-È possibile disabilitare a livello globale il rendering di una visualizzazione predefinita (non mobile) all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su `true` nel file *Views\\_ViewStart.cshtml*, come mostrato di seguito:
+È possibile disabilitare a livello globale il rendering di una visualizzazione predefinita (non mobile) all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su `true` nel file *Views_ViewStart.cshtml*, come mostrato di seguito:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Se `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile (*\\_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili, ovvero quando il file della visualizzazione è in formato ***ViewName**.Mobile.cshtml*). Può essere opportuno impostare `RequireConsistentDisplayMode` su `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La schermata seguente mostra il modo in cui la pagina *Speakers* viene sottoposta a rendering quando `RequireConsistentDisplayMode` è impostato su `true`, senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata.
+Se `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile (*_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili, ovvero quando il file della visualizzazione è in formato ***ViewName**.Mobile.cshtml*). Può essere opportuno impostare `RequireConsistentDisplayMode` su `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La schermata seguente mostra il modo in cui la pagina *Speakers* viene sottoposta a rendering quando `RequireConsistentDisplayMode` è impostato su `true`, senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata.
 
 ![][AllSpeakers_LayoutMobileOverridden]
 

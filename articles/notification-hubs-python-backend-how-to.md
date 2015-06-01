@@ -48,7 +48,7 @@ Ad esempio, per creare un client:
 	
 Per inviare una notifica di tipo avviso popup di Windows:
 	
-	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
+	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
 ## Implementation
@@ -230,7 +230,7 @@ Aggiungere quindi il codice di invio a seconda della piattaforma mobile di desti
 
 ### Windows Store e Windows Phone 8.1 (non Silverlight)
 
-	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
+	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Test</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 
 ### Windows Phone 8.0 e 8.1 Silverlight

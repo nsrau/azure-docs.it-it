@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Documentazione relativa all&#39;API Recommendations di Azure Machine Learning" 
-	description="Documentazione relativa all&#39;API Recommendations di Azure Machine Learning" 
+	pageTitle="Documentazione relativa all'API Recommendations di Azure Machine Learning" 
+	description="Documentazione relativa all'API Recommendations di Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 
@@ -23,61 +23,61 @@ Questo documento illustra le API Recommendations di Microsoft Azure Machine Lear
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-##1\. Panoramica generale
+##1. Panoramica generale
 Questo è un documento di riferimento dell'API. È consigliabile iniziare con il documento "Guida introduttiva per l'API Recommendations di Machine Learning".
 
 L'API Recommendations di Azure Machine Learning può essere suddivisa in otto gruppi:
 
-1.	<ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello \(ad esempio, creare, aggiornare ed eliminare un modello\).
+1.	<ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello (ad esempio, creare, aggiornare ed eliminare un modello).
 2.	<ins>Modello Advanced</ins>: API che consentono di eseguire analisi avanzate sui dati del modello.
 3.	<ins>Modello Business Rules</ins>: API che consentono di gestire regole di business sui risultati delle raccomandazioni relative al modello.
 4.	<ins>Catalog</ins>: API che consentono di eseguire operazioni di base sul catalogo di un modello. Un catalogo contiene informazioni sui metadati relativi agli elementi dei dati di utilizzo.
-5.	<ins>Usage Data</ins>: API che consentono di eseguire operazioni di base sui dati di utilizzo del modello. Nel form di base i dati di utilizzo sono costituiti da righe che includono coppie di &\#60;userId&\#62;,&\#60;itemId&\#62;.
+5.	<ins>Usage Data</ins>: API che consentono di eseguire operazioni di base sui dati di utilizzo del modello. Nel form di base i dati di utilizzo sono costituiti da righe che includono coppie di &#60;userId&#62;,&#60;itemId&#62;.
 6.	<ins>Build</ins>: API che consentono di attivare la compilazione di un modello e di eseguire operazioni di base associate alla compilazione. È possibile attivare la compilazione di un modello solo se sono disponibili dati di utilizzo rilevanti.
 7.	<ins>Recommendation</ins>: API che consentono di usare raccomandazioni al termine della compilazione di un modello.
 8.	<ins>Notifications</ins>: API che consentono di ricevere notifiche per i problemi correlati alle operazioni dell'API. Ad esempio, se i dati di utilizzo vengono segnalati mediante acquisizione dei dati e la maggior parte degli eventi di elaborazione non riesce, viene generata una notifica di errore.
 
-##2\. Argomenti avanzati
+##2. Argomenti avanzati
 
-###2\.1. Qualità delle raccomandazioni
+###2.1. Qualità delle raccomandazioni
 
 La creazione di un modello di raccomandazione è in genere sufficiente per consentire al sistema di fornire raccomandazioni. La qualità delle raccomandazioni varia tuttavia in base ai dati di utilizzo elaborati e alla copertura del catalogo. Ad esempio, se sono disponibili molti elementi ignoti, ovvero elementi senza utilizzo significativo, il sistema avrà difficoltà a fornire una raccomandazione per tale elemento o a usarlo come elemento raccomandato. Per risolvere il problema degli elementi ignori, il sistema consente l'uso di metadati degli elementi per migliorare la qualità delle raccomandazioni. Questi metadati sono definiti funzionalità. L'autore di un libro o l'attore di un film è un esempio tipico di funzionalità. Le funzionalità vengono fornire tramite il catalogo sotto forma di stringhe chiave/valore. Per il formato completo del file di catalogo, vedere la sezione [Importare i dati del catalogo](#81-import-catalog-data). La sezione seguente illustra l'utilizzo delle funzionalità per migliorare il modello di raccomandazione.
 
-###2\.2. Compilazione della classifica
+###2.2. Compilazione della classifica
 
 Le funzionalità possono migliorare il modello di raccomandazione, ma ciò richiede l'uso di funzionalità significative. A questo scopo è stata introdotta una nuova compilazione per la definizione della classifica, che consente di classificare l'utilità delle funzionalità. Una funzionalità significativa presenta un punteggio di classificazione minimo pari a 2. Dopo avere individuato le funzionalità significative, attivare una compilazione di raccomandazione con l'elenco, o sottoelenco, delle funzionalità significative. È possibile usare queste funzionalità per il miglioramento sia degli elementi noti che di quelli ignoti. Per usarle per gli elementi noti è necessario configurare il parametro di compilazione `UseFeatureInModel`. Per usarle per gli elementi ignoti è necessario abilitare il parametro di compilazione `AllowColdItemPlacement`. Nota: non è possibile abilitare `AllowColdItemPlacement` se non si abilita anche `UseFeatureInModel`.
 
-###2\.3. Motivazione delle raccomandazioni
+###2.3. Motivazione delle raccomandazioni
 
-La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle funzionalità. In effetti, il motore di raccomandazioni di Azure Machine Learning è in grado di usare le funzionalità per fornire una spiegazione \(o motivazione\) della raccomandazione, favorendo un livello di confidenza maggiore nell'elemento raccomandato da parte del consumer di raccomandazioni. Per abilitare le motivazioni, è necessario configurare i parametri `AllowFeatureCorrelation` e `ReasoningFeatureList` prima di richiedere una compilazione di raccomandazioni.
+La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle funzionalità. In effetti, il motore di raccomandazioni di Azure Machine Learning è in grado di usare le funzionalità per fornire una spiegazione (o motivazione) della raccomandazione, favorendo un livello di confidenza maggiore nell'elemento raccomandato da parte del consumer di raccomandazioni. Per abilitare le motivazioni, è necessario configurare i parametri `AllowFeatureCorrelation` e `ReasoningFeatureList` prima di richiedere una compilazione di raccomandazioni.
 
-##3\. Limitazioni
+##3. Limitazioni
 
 - Il numero massimo di modelli per ogni sottoscrizione è 10.
 - Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
-- Il numero massimo di punti di utilizzo mantenuti è \~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
-- Le dimensioni massime dei dati che possono essere inviati in POST \(ad esempio, importazione dei dati del catalogo o dei dati di utilizzo\) è di 200 MB.
-- Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di \~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
+- Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
+- Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
+- Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di ~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
 
-##4\. API: informazioni generali
+##4. API: informazioni generali
 
-###4\.1. Autenticazione
+###4.1. Autenticazione
 Seguire le linee guida di Microsoft Azure Marketplace relative all'autenticazione. Marketplace supporta il metodo di autenticazione di base o OAuth.
 
-###4\.2. URI del servizio
+###4.2. URI del servizio
 L'URI radice del servizio per ogni API Recommendations di Azure Machine Learning è disponibile [qui](https://api.datamarket.azure.com/amla/recommendations/v2/).
 
 L'URI del servizio completo è espresso usando elementi della specifica OData.
 
-###4\.3. Versione dell'API
+###4.3. Versione dell'API
 Ogni chiamata API terminerà con un parametro di query denominato apiVersion che dovrà essere impostato su 1.0.
 
-###4\.4. Gli ID fanno distinzione tra maiuscole e minuscole
+###4.4. Gli ID fanno distinzione tra maiuscole e minuscole
 Gli ID restituiti da una delle API fanno distinzione tra maiuscole e minuscole e devono essere usati esattamente come sono, quando vengono passati come parametri nelle chiamate API successive. Ad esempio, per gli ID dei modelli e del catalogo viene fatta distinzione tra maiuscole e minuscole.
 
-##5\. Modello Basic
+##5. Modello Basic
 
-###5\.1. Creare il modello
+###5.1. Creare il modello
 Crea una richiesta di tipo "crea modello".
 
 | Metodo HTTP | URI |
@@ -86,9 +86,10 @@ Crea una richiesta di tipo "crea modello".
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere \(A-Z, a-z\), numeri \(0-9\), trattini \(-\) e caratteri di sottolineatura \(\_\).<br>Lunghezza massima: 20 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 20 |
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -127,7 +128,7 @@ XML OData
 	  </entry>
 	</feed>
 
-###5\.2. Ottenere il modello
+###5.2. Ottenere il modello
 Crea una richiesta di tipo "ottieni modello":
 
 | Metodo HTTP | URI |
@@ -136,9 +137,10 @@ Crea una richiesta di tipo "ottieni modello":
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id |	Identificatore univoco del modello \(con distinzione tra maiuscole e minuscole\).\| |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -154,7 +156,7 @@ I dati del modello sono disponibili negli elementi seguenti:
 	- ReadyForBuild: il modello viene creato e contiene dati del catalogo e di utilizzo.
 - `feed/entry/content/properties/HasActiveBuild`: indica se il modello è stato creato correttamente.
 - `feed/entry/content/properties/BuildId`: ID compilazione attiva del modello.
-- `feed/entry/content/properties/Mpr`: classificazione percentile media \(MPR, Mean Percentile Ranking\) del modello. Vedere ModelInsight per altre informazioni.
+- `feed/entry/content/properties/Mpr`: classificazione percentile media (MPR, Mean Percentile Ranking) del modello. Vedere ModelInsight per altre informazioni.
 - `feed/entry/content/properties/UserName`: nome utente interno del modello.
 
 XML OData
@@ -165,9 +167,32 @@ XML OData
 	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T14:35:51Z</updated>
- <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">GetAListOfAllModelsEntity</title> <updated>2014-10-28T14:35:51Z</updated> <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>68b232f2-1037-45f7-8f49-af822695ee63\</d:Id\> \<d:Name m:type="Edm.String"\>vah-11111\</d:Name\> \<d:Date m:type="Edm.String"\>10/28/2014 2:16:07 PM\</d:Date\> \<d:Status m:type="Edm.String"\>ReadyForBuild\</d:Status\> \<d:HasActiveBuild m:type="Edm.String"\>false\</d:HasActiveBuild\> \<d:BuildId m:type="Edm.String"\>-1\</d:BuildId\> \<d:Mpr m:type="Edm.String"\>0\</d:Mpr\> \<d:UsageFileNames m:type="Edm.String"\>ImplicitMatrix10\_Guid\_small.txt, ImplicitMatrix11\_Guid\_small.txt\</d:UsageFileNames\> \<d:CatalogId m:type="Edm.String"\>626babdb-cab6-43a6-82ef-4fb86345700c\</d:CatalogId\> \<d:UserName m:type="Edm.String"\>89dc4722-03ba-4f90-8821-b1db388408b5@dm.com\</d:UserName\> \<d:Description m:type="Edm.String"\>short description\</d:Description\> \<d:CatalogFileName m:type="Edm.String"\>catalog10\_small.txt\</d:CatalogFileName\> \</m:properties\> </content> </entry> </feed>
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" />
+	  <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">GetAListOfAllModelsEntity</title>
+    <updated>2014-10-28T14:35:51Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.String">68b232f2-1037-45f7-8f49-af822695ee63</d:Id>
+        <d:Name m:type="Edm.String">vah-11111</d:Name>
+        <d:Date m:type="Edm.String">10/28/2014 2:16:07 PM</d:Date>
+        <d:Status m:type="Edm.String">ReadyForBuild</d:Status>
+        <d:HasActiveBuild m:type="Edm.String">false</d:HasActiveBuild>
+        <d:BuildId m:type="Edm.String">-1</d:BuildId>
+        <d:Mpr m:type="Edm.String">0</d:Mpr>
+		<d:UsageFileNames m:type="Edm.String">ImplicitMatrix10_Guid_small.txt, ImplicitMatrix11_Guid_small.txt</d:UsageFileNames>
+        <d:CatalogId m:type="Edm.String">626babdb-cab6-43a6-82ef-4fb86345700c</d:CatalogId>
+        <d:UserName m:type="Edm.String">89dc4722-03ba-4f90-8821-b1db388408b5@dm.com</d:UserName>
+        <d:Description m:type="Edm.String">short description</d:Description>
+        <d:CatalogFileName m:type="Edm.String">catalog10_small.txt</d:CatalogFileName>
+      </m:properties>
+    </content>
+	  </entry>
+	</feed>
 
-###5\.3. Ottenere tutti i modelli
+###5.3. Ottenere tutti i modelli
 Recupera tutti i modelli dell'utente corrente.
 
 | Metodo HTTP | URI |
@@ -176,8 +201,9 @@ Recupera tutti i modelli dell'utente corrente.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -232,7 +258,7 @@ XML OData
 		</entry>
 	</feed>
 
-###5\.4. Aggiornare il modello
+###5.4. Aggiornare il modello
 
 È possibile aggiornare la descrizione del modello o l'ID compilazione attiva.<br> <ins>ID compilazione attiva</ins>: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br> Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
@@ -243,15 +269,16 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id | Identificatore univoco del modello \(con distinzione tra maiuscole e minuscole\).\| |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.\|
+|	id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.|
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-###5\.5. Eliminare il modello
+###5.5. Eliminare il modello
 Elimina un modello esistente in base all'ID.
 
 | Metodo HTTP | URI |
@@ -260,9 +287,10 @@ Elimina un modello esistente in base all'ID.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id |	Identificatore univoco del modello \(con distinzione tra maiuscole e minuscole\).\| |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -276,11 +304,23 @@ XML OData
 	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T10:39:33Z</updated>
- <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">DeleteModelByIdEntity</title> <updated>2014-10-28T10:39:33Z</updated> <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:string m:type="Edm.String"\>\</d:string\> \</m:properties\> </content> </entry> </feed>
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" />
+	  <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">DeleteModelByIdEntity</title>
+    <updated>2014-10-28T10:39:33Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+		<d:string m:type="Edm.String"></d:string>
+      </m:properties>
+    </content>
+	  </entry>
+	</feed>
 
-##6\. Modello Advanced
+##6. Modello Advanced
 
-###6\.1 Modello Data Insight
+###6.1 Modello Data Insight
 Restituisce informazioni statistiche sui dati di utilizzo con cui è stato compilato questo modello.
 
 Disponibile solo per la compilazione di raccomandazioni.
@@ -292,8 +332,9 @@ Disponibile solo per la compilazione di raccomandazioni.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -515,7 +556,7 @@ XML OData
     </entry>
     </feed>
 
-###6\.2. Modello Insight
+###6.2. Modello Insight
 Restituisce informazioni dettagliate sul modello nella compilazione attiva o, se indicata, in una compilazione specifica.
 
 Disponibile solo per la compilazione di raccomandazioni.
@@ -528,8 +569,9 @@ Disponibile solo per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	buildId |	Facoltativo: numero che identifica una compilazione completata. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -597,7 +639,7 @@ XML OData
 	</entry>
 	</feed>
 
-###6\.3. Ottenere un esempio del modello
+###6.3. Ottenere un esempio del modello
 Ottiene un esempio del modello di raccomandazione.
 
 | Metodo HTTP | URI |
@@ -607,8 +649,9 @@ Ottiene un esempio del modello di raccomandazione.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -747,11 +790,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-##7\. Modello Business Rules
-Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni. <strong>Upsale</strong>: consente di imporre gli elementi da restituire nel risultati delle raccomandazioni. <strong>WhiteList</strong>: consente di specificare un elenco dei soli elementi che possono essere restituiti come risultati delle raccomandazioni \(al contrario di BlockList\). <strong>PerSeedBlockList</strong>: consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
+##7. Modello Business Rules
+Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni. <strong>Upsale</strong>: consente di imporre gli elementi da restituire nel risultati delle raccomandazioni. <strong>WhiteList</strong>: consente di specificare un elenco dei soli elementi che possono essere restituiti come risultati delle raccomandazioni (al contrario di BlockList). <strong>PerSeedBlockList</strong>: consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
 
 
-###7\.1. Ottenere le regole del modello
+###7.1. Ottenere le regole del modello
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -760,8 +803,9 @@ Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare u
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -808,7 +852,7 @@ XML OData
 	</entry>
 	</feed>
 
-###7\.2. Aggiungere una regola
+###7.2. Aggiungere una regola
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -816,8 +860,8 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| <ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`\|
+|	apiVersion | 1.0 |
+||| | Corpo della richiesta | <ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Risposta**:
 
@@ -853,7 +897,7 @@ XML OData
 	</entry>
 	</feed>
 
-###7\.3. Eliminare una regola
+###7.3. Eliminare una regola
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -863,14 +907,15 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-###7\.4. Eliminare tutte le regole
+###7.4. Eliminare tutte le regole
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -879,16 +924,17 @@ Codice stato HTTP: 200
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-##8\. Catalogo
+##8. Catalogo
 
-###8\.1 Importare i dati del catalogo
+###8.1 Importare i dati del catalogo
 
 Se si caricano diversi file del catalogo nello stesso modello con diverse chiamate, verranno inseriti solo i nuovi elementi del catalogo. Gli elementi esistenti manterranno i valori originali. Non è possibile aggiornare i dati del catalogo con questo metodo.
 
@@ -900,14 +946,14 @@ I dati del catalogo devono seguire il formato seguente:
 
 Nota: le dimensioni massime del file sono pari a 200 MB.
 
-\*\* Dettagli relativi al formato \*\*
+** Dettagli relativi al formato **
 
 | Nome | Obbligatorio | Tipo | Descrizione |
 |:---|:---|:---|:---|
-| Item Id |Sì | [A-z], [a-z], [0-9], \[\_\] &\#40;carattere di sottolineatura&\#41;, [\-] &\#40;trattino&\#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. |
+| Item Id |Sì | [A-z], [a-z], [0-9], [_] &#40;carattere di sottolineatura&#41;, [\-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. |
 | Item Name | Sì | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | 
-| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento \(ad esempio, libri di cucina, letteratura e così via\); può essere vuoto. |
-| Descrizione | No, a meno che siano presenti funzionalità \(può essere vuoto\) | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 4000 | Descrizione dell'elemento. |
+| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. |
+| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 4000 | Descrizione dell'elemento. |
 | Elenco di funzionalità | No | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 4000 | Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare il modello di raccomandazione. Vedere la sezione [Argomenti avanzati](#2-advanced-topics). |
 
 
@@ -918,9 +964,9 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere \(A-Z, a-z\), numeri \(0-9\), trattini \(-\) e caratteri di sottolineatura \(\_\).<br>Lunghezza massima: 50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| Esempio \(con funzionalità\):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> \|
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 |
+|	apiVersion | 1.0 |
+||| | Corpo della richiesta | Esempio (con funzionalità):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Risposta**:
@@ -939,9 +985,20 @@ XML OData
 	<updated>2014-10-05T06:58:04Z</updated>
 	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
 	<entry>
-   <id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">ImportCatalogFileEntity2</title> <updated>2014-10-05T06:58:04Z</updated> <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:LineCount m:type="Edm.String"\>4\</d:LineCount\> \<d:ErrorCount m:type="Edm.String"\>0\</d:ErrorCount\> \</m:properties\> </content> </entry> </feed>
+   	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<title type="text">ImportCatalogFileEntity2</title>
+		<updated>2014-10-05T06:58:04Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<content type="application/xml">
+			<m:properties>
+				<d:LineCount m:type="Edm.String">4</d:LineCount>
+				<d:ErrorCount m:type="Edm.String">0</d:ErrorCount>
+			</m:properties>
+		</content>
+	</entry>
+	</feed>
 
-###8\.2. Ottenere il catalogo
+###8.2. Ottenere il catalogo
 Recupera tutti gli elementi del catalogo.
 
 | Metodo HTTP | URI |
@@ -951,8 +1008,9 @@ Recupera tutti gli elementi del catalogo.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1043,7 +1101,7 @@ XML OData
 	</entry>
 	</feed>
 
-###8\.3. Ottenere gli elementi del catalogo in base al token
+###8.3. Ottenere gli elementi del catalogo in base al token
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1053,8 +1111,9 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	token |	Token del nome dell'elemento del catalogo. Deve contenere almeno tre caratteri. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1096,9 +1155,9 @@ XML OData
 		</entry>
 	</feed>
 
-##9\. Dati di utilizzo
-###9\.1. Importare i dati di utilizzo
-####9\.1.1. Caricamento del file
+##9. Dati di utilizzo
+###9.1. Importare i dati di utilizzo
+####9.1.1. Caricamento del file
 Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È possibile chiamare l'API più volte con i dati di utilizzo. Tutti i dati di utilizzo verranno salvati per tutte le chiamate.
 
 | Metodo HTTP | URI |
@@ -1108,9 +1167,9 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere \(A-Z, a-z\), numeri \(0-9\), trattini \(-\) e caratteri di sottolineatura \(\_\).<br>Lunghezza massima: 50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>[A-z], [a-z], [0-9], \[\_\] &\#40;carattere di sottolineatura&\#41;, [\-] &\#40;trattino&\#41;<br> Lunghezza massima: 255 </td><td>Identificatore univoco di un utente.</td></tr><tr><td>Item Id</td><td>Sì</td><td>[A-z], [a-z], [0-9], [&\#95;] &\#40;carattere di sottolineatura&\#41;, [\-] &\#40;trattino&\#41;<br> Lunghezza massima: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Time</td><td>No</td><td>Data nel formato: AAAA/MM/GGTHH:MM:SS \(ad esempio 2013/06/20T10:00:00\)</td><td>Data e ora dei dati.</td></tr><tr><td>Event</td><td>No; se fornito è necessario indicare la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 |
+|	apiVersion | 1.0 |
+||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] &#40;carattere di sottolineatura&#41;, [\-] &#40;trattino&#41;<br> Lunghezza massima: 255 </td><td>Identificatore univoco di un utente.</td></tr><tr><td>Item Id</td><td>Sì</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;carattere di sottolineatura&#41;, [\-] &#40;trattino&#41;<br> Lunghezza massima: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Time</td><td>No</td><td>Data nel formato: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Data e ora dei dati.</td></tr><tr><td>Event</td><td>No; se fornito è necessario indicare la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -1123,10 +1182,10 @@ Codice stato HTTP: 200
 XML OData
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
-	<title type="text" /> <subtitle type="text">Add bulk usage data \(usage file\)</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T07:21:44Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">AddBulkUsageDataUsageFileEntity2</title> <updated>2014-10-05T07:21:44Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:LineCount m:type="Edm.String"\>33\</d:LineCount\> \<d:ErrorCount m:type="Edm.String"\>0\</d:ErrorCount\> \<d:FileId m:type="Edm.String"\>fead7c1c-db01-46c0-872f-65bcda36025d\</d:FileId\> \</m:properties\> </content> </entry> </feed>
+	<title type="text" /> <subtitle type="text">Add bulk usage data (usage file)</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T07:21:44Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">AddBulkUsageDataUsageFileEntity2</title> <updated>2014-10-05T07:21:44Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:LineCount m:type="Edm.String">33</d:LineCount> <d:ErrorCount m:type="Edm.String">0</d:ErrorCount> <d:FileId m:type="Edm.String">fead7c1c-db01-46c0-872f-65bcda36025d</d:FileId> </m:properties> </content> </entry> </feed>
 
 
-####9\.1.2. Uso dell'acquisizione dei dati
+####9.1.2. Uso dell'acquisizione dei dati
 Questa sezione illustra come inviare eventi in tempo reale a Recommendations di Azure Machine Learning, in genere dal sito Web.
 
 | Metodo HTTP | URI |
@@ -1135,7 +1194,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
 
 
@@ -1169,7 +1228,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 - Esempio di evento "Purchase": 
 - 
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
 
 - Esempio di invio di due eventi, "Click" e "AddShopCart":
 
@@ -1178,7 +1237,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 **Risposta**: Codice stato HTTP: 200
 
-###9\.2. Elencare i file di dati di utilizzo del modello
+###9.2. Elencare i file di dati di utilizzo del modello
 Recupera i metadati di tutti i file di dati di utilizzo del modello.
 
 | Metodo HTTP | URI |
@@ -1188,8 +1247,9 @@ Recupera i metadati di tutti i file di dati di utilizzo del modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+|	apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1241,7 +1301,7 @@ XML OData
 	</entry>
 </feed>
 
-###9\.3. Ottenere statistiche di utilizzo
+###9.3. Ottenere statistiche di utilizzo
 Ottiene le statistiche di utilizzo.
 
 | Metodo HTTP | URI |
@@ -1254,8 +1314,9 @@ Ottiene le statistiche di utilizzo.
 | startDate |	Data di inizio. Formato: aaaa/MM/ggTHH:mm:ss |
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1263,7 +1324,7 @@ Codice stato HTTP: 200
 
 Raccolta di elementi chiave/valore. Ognuno contiene la somma degli eventi per un tipo specifico di eventi raggruppati in base all'ora.
 
-- `feed\entry[i]\content\properties\Key`: contiene la data e l'ora \(raggruppate per ora\) e il tipo di evento.
+- `feed\entry[i]\content\properties\Key`: contiene la data e l'ora (raggruppate per ora) e il tipo di evento.
 - `feed\entry[i]\content\properties\Value`: numero totale di eventi.
 
 XML OData
@@ -1325,7 +1386,7 @@ XML OData
 	</entry>
 	</feed>
 
-###9\.4. Ottenere un esempio del file di dati di utilizzo
+###9.4. Ottenere un esempio del file di dati di utilizzo
 Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 
 | Metodo HTTP | URI |
@@ -1336,8 +1397,9 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di dati di utilizzo del modello. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1348,7 +1410,7 @@ La risposta viene restituita in un formato di testo non elaborato:
 	<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 
-###9\.5. Ottenere il file di dati di utilizzo del modello
+###9.5. Ottenere il file di dati di utilizzo del modello
 Recupera l'intero contenuto del file. di dati di utilizzo.
 
 | Metodo HTTP | URI |
@@ -1360,8 +1422,9 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 | mid |	Identificatore univoco del modello. |
 | fid |	Identificatore univoco del file di dati di utilizzo del modello. |
 | download | 1 |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1370,7 +1433,7 @@ Codice stato HTTP: 200
 La risposta viene restituita in un formato di testo non elaborato: 
 	<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
-###9\.6. Eliminare il file di dati di utilizzo
+###9.6. Eliminare il file di dati di utilizzo
 Elimina il file di dati di utilizzo del modello specificato.
 
 | Metodo HTTP | URI |
@@ -1381,15 +1444,16 @@ Elimina il file di dati di utilizzo del modello specificato.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
 
-###9\.7. Eliminare tutti i file di dati di utilizzo
+###9.7. Eliminare tutti i file di dati di utilizzo
 Elimina tutti i file di dati di utilizzo del modello.
 
 | Metodo HTTP | URI |
@@ -1399,17 +1463,18 @@ Elimina tutti i file di dati di utilizzo del modello.
 | Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-##10\. Funzionalità
+##10. Funzionalità
 Questa sezione illustra come recuperare informazioni sulle funzionalità, ad esempio le funzionalità importate e i relativi valori, la classificazione e la relativa data di allocazione. Le funzionalità vengono importate come parte dei dati del catalogo e quindi la relativa classificazione viene associata durante una compilazione della classifica. La classificazione delle funzionalità può cambiare in base al modello di dati di utilizzo e al tipo di elementi. Per la coerenza dei dati di utilizzo e degli elementi, è opportuno che le fluttuazioni siano limitate. La classificazione delle funzionalità è espressa mediante un numero non negativo. Il numero 0 significa che la funzionalità non è stata classificata, ad esempio nel caso il cui l'API venga richiamata prima che sia completata la prima compilazione della classifica. La data in cui è stata attribuita la classificazione è detta aggiornamento del punteggio.
 
-###10\.1. Ottenere informazioni sulle funzionalità \(per l'ultima compilazione della classifica\)
+###10.1. Ottenere informazioni sulle funzionalità (per l'ultima compilazione della classifica)
 Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'ultima compilazione della classifica riuscita.
 
 | Metodo HTTP | URI |
@@ -1420,8 +1485,9 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'u
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo. <br/>I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -1431,8 +1497,8 @@ Codice stato HTTP: 200
 La risposta contiene un elenco di voci di informazioni sulle funzionalità. Ogni voce contiene:
 
 - `feed/entry/content/m:properties/d:Name`: nome della funzionalità.
-- `feed/entry/content/m:properties/d:RankUpdateDate`: data in cui la classificazione è stata allocata alla funzionalità, nota anche come funzionalità di aggiornamento del punteggio. Una data cronologica \("0001-01-01T00:00:00"\) indica che non è stata eseguita alcuna compilazione della classifica.
-- `feed/entry/content/m:properties/d:Rank` classificazione delle funzionalità \(mobile\). Una classificazione pari ad almeno 2.0 è considerata una funzionalità valida.
+- `feed/entry/content/m:properties/d:RankUpdateDate`: data in cui la classificazione è stata allocata alla funzionalità, nota anche come funzionalità di aggiornamento del punteggio. Una data cronologica ("0001-01-01T00:00:00") indica che non è stata eseguita alcuna compilazione della classifica.
+- `feed/entry/content/m:properties/d:Rank` classificazione delle funzionalità (mobile). Una classificazione pari ad almeno 2.0 è considerata una funzionalità valida.
 - `feed/entry/content/m:properties/d:SampleValues`: elenco con valori delimitati da virgole fino alle dimensioni di campionamento richieste.
 
 XML OData
@@ -1489,7 +1555,7 @@ XML OData
 </feed>
 
 
-###10\.2. Ottenere informazioni sulle funzionalità \(per la specifica compilazione della classifica\)
+###10.2. Ottenere informazioni sulle funzionalità (per la specifica compilazione della classifica)
 
 Recupera le informazioni sulle funzionalità, inclusa la classificazione per una compilazione della classifica specifica.
 
@@ -1502,8 +1568,9 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per una
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo.<br/> I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
 |rankBuildId| Identificatore univoco per la compilazione della classifica o -1 per l'ultima compilazione della classifica.|
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -1513,8 +1580,8 @@ Codice stato HTTP: 200
 La risposta contiene un elenco di voci di informazioni sulle funzionalità. Ogni voce contiene:
 
 - `feed/entry/content/m:properties/d:Name`: nome della funzionalità.
-- `feed/entry/content/m:properties/d:RankUpdateDate`: data in cui la classificazione è stata allocata alla funzionalità, nota anche come funzionalità di aggiornamento del punteggio. Una data cronologica \("0001-01-01T00:00:00"\) indica che non è stata eseguita alcuna compilazione della classifica.
-- `feed/entry/content/m:properties/d:Rank` classificazione delle funzionalità \(mobile\). Una classificazione pari ad almeno 2.0 è considerata una funzionalità valida.
+- `feed/entry/content/m:properties/d:RankUpdateDate`: data in cui la classificazione è stata allocata alla funzionalità, nota anche come funzionalità di aggiornamento del punteggio. Una data cronologica ("0001-01-01T00:00:00") indica che non è stata eseguita alcuna compilazione della classifica.
+- `feed/entry/content/m:properties/d:Rank` classificazione delle funzionalità (mobile). Una classificazione pari ad almeno 2.0 è considerata una funzionalità valida.
 - `feed/entry/content/m:properties/d:SampleValues`: elenco con valori delimitati da virgole fino alle dimensioni di campionamento richieste.
 
 OData
@@ -1571,31 +1638,31 @@ OData
 	</feed>
 
 
-##11\. Compilazione
+##11. Compilazione
 
-  Questa sezione descrive le diverse API correlate alle compilazioni. Esistono tre tipi di compilazione: una compilazione di raccomandazioni, una compilazione della classifica e una compilazione FBT \(Frequently Bought Together\).
+  Questa sezione descrive le diverse API correlate alle compilazioni. Esistono tre tipi di compilazione: una compilazione di raccomandazioni, una compilazione della classifica e una compilazione FBT (Frequently Bought Together).
 
 La compilazione di raccomandazioni viene usata per generare un modello di raccomandazione per le stime.
 
-Una compilazione della classifica è una compilazione tecnica che consente di ottenere informazioni sull'utilità delle proprie funzionalità. In genere, per ottenere il miglior risultato per un modello di raccomandazione che comporta l'uso di funzionalità, è consigliabile eseguire i passaggi seguenti: attivare una compilazione della classifica \(a meno che il punteggio delle funzionalità non sia stabile\) e attendere finché non si ottiene il punteggio delle funzionalità. Recuperare la classificazione delle funzionalità chiamando l'API [Get Features Info](#101-get-features-info-for-last-rank-build). Configurare una compilazione di raccomandazioni con i parametri seguenti: `useFeatureInModel`, impostato su True. `ModelingFeatureList`, impostato su un elenco con valori delimitati da virgole di funzionalità con un punteggio pari a 2.0 o superiore \(in base alle classificazioni recuperate nel passaggio precedente\). `AllowColdItemPlacement`, impostato su True. Facoltativamente è possibile impostare `EnableFeatureCorrelation` su True e `ReasoningFeatureList` sull'elenco di funzionalità da usare per le spiegazioni \(in genere, lo stesso elenco di funzionalità usato nella creazione del modello o un sottoelenco\). Attivare la compilazione di raccomandazioni con i parametri configurati.
+Una compilazione della classifica è una compilazione tecnica che consente di ottenere informazioni sull'utilità delle proprie funzionalità. In genere, per ottenere il miglior risultato per un modello di raccomandazione che comporta l'uso di funzionalità, è consigliabile eseguire i passaggi seguenti: attivare una compilazione della classifica (a meno che il punteggio delle funzionalità non sia stabile) e attendere finché non si ottiene il punteggio delle funzionalità. Recuperare la classificazione delle funzionalità chiamando l'API [Get Features Info](#101-get-features-info-for-last-rank-build). Configurare una compilazione di raccomandazioni con i parametri seguenti: `useFeatureInModel`, impostato su True. `ModelingFeatureList`, impostato su un elenco con valori delimitati da virgole di funzionalità con un punteggio pari a 2.0 o superiore (in base alle classificazioni recuperate nel passaggio precedente). `AllowColdItemPlacement`, impostato su True. Facoltativamente è possibile impostare `EnableFeatureCorrelation` su True e `ReasoningFeatureList` sull'elenco di funzionalità da usare per le spiegazioni (in genere, lo stesso elenco di funzionalità usato nella creazione del modello o un sottoelenco). Attivare la compilazione di raccomandazioni con i parametri configurati.
 
-Nota: se non si configurano parametri, ovvero se si richiama la compilazione di raccomandazioni senza parametri, oppure non si disabilita in modo esplicito l'utilizzo di funzionalità \(ad esempio, `UseFeatureInModel` impostato su False\), il sistema imposterà i parametri correlati alla funzionalità sui valori illustrati sopra, se esiste una compilazione della classifica.
+Nota: se non si configurano parametri, ovvero se si richiama la compilazione di raccomandazioni senza parametri, oppure non si disabilita in modo esplicito l'utilizzo di funzionalità (ad esempio, `UseFeatureInModel` impostato su False), il sistema imposterà i parametri correlati alla funzionalità sui valori illustrati sopra, se esiste una compilazione della classifica.
 
 Non esistono limitazioni all'esecuzione contemporanea di una compilazione della classifica e di una compilazione di raccomandazioni per lo stesso modello. Non è tuttavia possibile eseguire due compilazioni dello stesso tipo nello stesso modello in parallelo.
 
-Una compilazione FBT \(Frequently Bought Together\) è un altro algoritmo di raccomandazione, detto a volte sistema di raccomandazione "conservativo", che risulta appropriato per i cataloghi non omogenei per natura \(omogenei: libri, film, alcuni alimenti, moda; non omogenei: computer e dispositivi, interdominio, estremamente diversi\).
+Una compilazione FBT (Frequently Bought Together) è un altro algoritmo di raccomandazione, detto a volte sistema di raccomandazione "conservativo", che risulta appropriato per i cataloghi non omogenei per natura (omogenei: libri, film, alcuni alimenti, moda; non omogenei: computer e dispositivi, interdominio, estremamente diversi).
 
 Nota: se i file di dati di utilizzo caricati contengono il campo facoltativo "event type", per la creazione del modello FBT verranno usati solo eventi "Purchase". Se non viene specificato alcun tipo di evento, per la creazione del modello verranno usati tutti gli eventi.
 
 
-####11\.1 Parametri della compilazione
+####11.1 Parametri della compilazione
 
 Ogni tipo di compilazione può essere configurato con un set di parametri, come illustrato di seguito. Se non si configurano parametri, il sistema attribuirà automaticamente i valori ai parametri in base alle informazioni presenti nel momento in cui si attiva una compilazione.
 
-#####11\.1.1. Concentrazione dei dati di utilizzo
+#####11.1.1. Concentrazione dei dati di utilizzo
 Gli utenti o gli elementi con pochi punti di utilizzo possono contenere una quantità di dati non significativi maggiore delle informazioni. Il sistema tenta di stimare il numero minimo di punti di utilizzo per utente/elemento da usare in un modello. Questo numero sarà compreso nell'intervallo definito dai parametri ItemCutoffLowerBound e ItemCutoffUpperBound per gli elementi e nell'intervallo definito dai parametri UserCutOffLowerBound e UserCutoffUpperBound per gli utenti. L'effetto di concentrazione di elementi o utenti può essere ridotto impostando su zero almeno uno dei limiti corrispondenti.
 
-#####11\.1.2. Parametri di compilazione della classifica
+#####11.1.2. Parametri di compilazione della classifica
 
 La tabella seguente illustra i parametri per una compilazione della classifica.
 
@@ -1603,42 +1670,42 @@ La tabella seguente illustra i parametri per una compilazione della classifica.
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore.| Integer | 10-50 |
 | NumberOfModelDimensions | Il numero di dimensioni è correlato al numero di "funzionalità" che il modello proverà a trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni impediranno tuttavia al modello di trovare correlazioni tra gli elementi. | Integer | 10-40 |
-|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
+|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
 
-#####11\.1.3. Parametri della compilazione di raccomandazioni
+#####11.1.3. Parametri della compilazione di raccomandazioni
 La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 
 |Chiave|Descrizione|Tipo|Valore valido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore.| Integer | 10-50 |
 | NumberOfModelDimensions | Il numero di dimensioni è correlato al numero di "funzionalità" che il modello proverà a trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni impediranno tuttavia al modello di trovare correlazioni tra gli elementi. | Integer | 10-40 |
-|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
+|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
 | Description | Descrizione della compilazione. | String | Qualsiasi testo, con un massimo di 512 caratteri |
 | EnableModelingInsights | Consente di calcolare la metrica nel modello di raccomandazione. | Boolean | True/False |
 | UseFeaturesInModel | Indica se le funzionalità possono essere usate in ordine per migliorare il modello di raccomandazione. | Boolean | True/False |
 | ModelingFeatureList | Elenco con valori delimitati da virgole dei nomi di funzionalità da usare nella compilazione di raccomandazioni, allo scopo di migliorare la raccomandazione. | String | Nomi di funzionalità, con un massimo di 512 caratteri |
 | AllowColdItemPlacement | Indica se la raccomandazione dovrà effettuare il push anche degli elementi ignoti in base alla somiglianza di funzionalità. | Boolean | True/False |
 | EnableFeatureCorrelation | Indica se le funzionalità possono essere usate nella motivazione. | Boolean | True/False |
-| ReasoningFeatureList | Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione \(ad esempio, le spiegazioni delle raccomandazioni\). | String | Nomi di funzionalità, con un massimo di 512 caratteri |
+| ReasoningFeatureList | Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione (ad esempio, le spiegazioni delle raccomandazioni). | String | Nomi di funzionalità, con un massimo di 512 caratteri |
 
-#####11\.1.4. Parametri della compilazione FBT
+#####11.1.4. Parametri della compilazione FBT
 La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 
-|Chiave|Descrizione|Tipo|Valore valido \(predefinito\)|
+|Chiave|Descrizione|Tipo|Valore valido (predefinito)|
 |:-----|:----|:----|:---|
-|FbtSupportThreshold | Indica il livello conservativo del modello. Numero di co-occorrenze di elementi da considerare per la creazione del modello.| Integer | 3-50 \(6\) |
-|FbtMaxItemSetSize | Limita il numero di elementi in un set frequente.| Integer | 2-3 \(2\) |
-|FbtMinimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. Più alto è il valore, migliori saranno i risultati.| Double | 0 e superiore \(0\) |
+|FbtSupportThreshold | Indica il livello conservativo del modello. Numero di co-occorrenze di elementi da considerare per la creazione del modello.| Integer | 3-50 (6) |
+|FbtMaxItemSetSize | Limita il numero di elementi in un set frequente.| Integer | 2-3 (2) |
+|FbtMinimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. Più alto è il valore, migliori saranno i risultati.| Double | 0 e superiore (0) |
 
-###11\.2. Attivare una compilazione di raccomandazioni
+###11.2. Attivare una compilazione di raccomandazioni
 
-  Per impostazione predefinita, questa API attiverà la compilazione di un modello di raccomandazione. Per attivare la compilazione della classifica \(per assegnare un punteggio alle funzionalità\), è necessario usare la variante dell'API di compilazione con il parametro del tipo di compilazione.
+  Per impostazione predefinita, questa API attiverà la compilazione di un modello di raccomandazione. Per attivare la compilazione della classifica (per assegnare un punteggio alle funzionalità), è necessario usare la variante dell'API di compilazione con il parametro del tipo di compilazione.
 
 
 | Metodo HTTP | URI |
@@ -1649,8 +1716,8 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` \|
+| apiVersion | 1.0 |
+||| | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Risposta**:
 
@@ -1676,9 +1743,9 @@ Stati di compilazione validi:
 XML OData
 
     <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
-	<title type="text" /> <subtitle type="text">Build a Model with RequestBody</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">BuildAModelEntity2</title> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>1000272\</d:Id\> \<d:UserName m:type="Edm.String"\>\</d:UserName\> \<d:ModelId m:type="Edm.String"\>9559872f-7a53-4076-a3c7-19d9385c1265\</d:ModelId\> \<d:ModelName m:type="Edm.String"\>docTest\</d:ModelName\> \<d:Type m:type="Edm.String"\>Recommendation\</d:Type\> \<d:CreationTime m:type="Edm.String"\>2014-10-05T08:56:31.893\</d:CreationTime\> \<d:Progress\_BuildId m:type="Edm.String"\>1000272\</d:Progress\_BuildId\> \<d:Progress\_ModelId m:type="Edm.String"\>9559872f-7a53-4076-a3c7-19d9385c1265\</d:Progress\_ModelId\> \<d:Progress\_UserName m:type="Edm.String"\>5-4058-ab36-1fe254f05102@dm.com\</d:Progress\_UserName\> \<d:Progress\_IsExecutionStarted m:type="Edm.String"\>false\</d:Progress\_IsExecutionStarted\> \<d:Progress\_IsExecutionEnded m:type="Edm.String"\>false\</d:Progress\_IsExecutionEnded\> \<d:Progress\_Percent m:type="Edm.String"\>0\</d:Progress\_Percent\> \<d:Progress\_StartTime m:type="Edm.String"\>0001-01-01T00:00:00\</d:Progress\_StartTime\> \<d:Progress\_EndTime m:type="Edm.String"\>0001-01-01T00:00:00\</d:Progress\_EndTime\> \<d:Progress\_UpdateDateUTC m:type="Edm.String"\>\</d:Progress\_UpdateDateUTC\> \<d:Status m:type="Edm.String"\>Queued\</d:Status\> \<d:Key1 m:type="Edm.String"\>UseFeaturesInModel\</d:Key1\> \<d:Value1 m:type="Edm.String"\>False\</d:Value1\> \</m:properties\> </content> </entry> </feed>
+	<title type="text" /> <subtitle type="text">Build a Model with RequestBody</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">BuildAModelEntity2</title> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">1000272</d:Id> <d:UserName m:type="Edm.String"></d:UserName> <d:ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:ModelId> <d:ModelName m:type="Edm.String">docTest</d:ModelName> <d:Type m:type="Edm.String">Recommendation</d:Type> <d:CreationTime m:type="Edm.String">2014-10-05T08:56:31.893</d:CreationTime> <d:Progress_BuildId m:type="Edm.String">1000272</d:Progress_BuildId> <d:Progress_ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:Progress_ModelId> <d:Progress_UserName m:type="Edm.String">5-4058-ab36-1fe254f05102@dm.com</d:Progress_UserName> <d:Progress_IsExecutionStarted m:type="Edm.String">false</d:Progress_IsExecutionStarted> <d:Progress_IsExecutionEnded m:type="Edm.String">false</d:Progress_IsExecutionEnded> <d:Progress_Percent m:type="Edm.String">0</d:Progress_Percent> <d:Progress_StartTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_StartTime> <d:Progress_EndTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_EndTime> <d:Progress_UpdateDateUTC m:type="Edm.String"></d:Progress_UpdateDateUTC> <d:Status m:type="Edm.String">Queued</d:Status> <d:Key1 m:type="Edm.String">UseFeaturesInModel</d:Key1> <d:Value1 m:type="Edm.String">False</d:Value1> </m:properties> </content> </entry> </feed>
 
-###11\.3. Attivare la compilazione \(di raccomandazioni, della classifica o FBT\)
+###11.3. Attivare la compilazione (di raccomandazioni, della classifica o FBT)
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1689,8 +1756,9 @@ XML OData
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | buildType | Tipo della compilazione da richiamare: <br/> - "Recommendation" per una compilazione di raccomandazioni <br> - "Ranking" per una compilazione della classifica <br/> - "Fbt" per una compilazione FBT
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Risposta**:
 
@@ -1715,12 +1783,12 @@ Stati di compilazione validi:
 XML OData
 
     <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
-	<title type="text" /> <subtitle type="text">Build a Model with RequestBody</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">BuildAModelEntity2</title> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>1000272\</d:Id\> \<d:UserName m:type="Edm.String"\>\</d:UserName\> \<d:ModelId m:type="Edm.String"\>9559872f-7a53-4076-a3c7-19d9385c1265\</d:ModelId\> \<d:ModelName m:type="Edm.String"\>docTest\</d:ModelName\> \<d:Type m:type="Edm.String"\>Recommendation\</d:Type\> \<d:CreationTime m:type="Edm.String"\>2014-10-05T08:56:31.893\</d:CreationTime\> \<d:Progress\_BuildId m:type="Edm.String"\>1000272\</d:Progress\_BuildId\> \<d:Progress\_ModelId m:type="Edm.String"\>9559872f-7a53-4076-a3c7-19d9385c1265\</d:Progress\_ModelId\> \<d:Progress\_UserName m:type="Edm.String"\>5-4058-ab36-1fe254f05102@dm.com\</d:Progress\_UserName\> \<d:Progress\_IsExecutionStarted m:type="Edm.String"\>false\</d:Progress\_IsExecutionStarted\> \<d:Progress\_IsExecutionEnded m:type="Edm.String"\>false\</d:Progress\_IsExecutionEnded\> \<d:Progress\_Percent m:type="Edm.String"\>0\</d:Progress\_Percent\> \<d:Progress\_StartTime m:type="Edm.String"\>0001-01-01T00:00:00\</d:Progress\_StartTime\> \<d:Progress\_EndTime m:type="Edm.String"\>0001-01-01T00:00:00\</d:Progress\_EndTime\> \<d:Progress\_UpdateDateUTC m:type="Edm.String"\>\</d:Progress\_UpdateDateUTC\> \<d:Status m:type="Edm.String"\>Queued\</d:Status\> \<d:Key1 m:type="Edm.String"\>UseFeaturesInModel\</d:Key1\> \<d:Value1 m:type="Edm.String"\>False\</d:Value1\> \</m:properties\> </content> </entry> </feed>
+	<title type="text" /> <subtitle type="text">Build a Model with RequestBody</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">BuildAModelEntity2</title> <updated>2014-10-05T08:56:34Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">1000272</d:Id> <d:UserName m:type="Edm.String"></d:UserName> <d:ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:ModelId> <d:ModelName m:type="Edm.String">docTest</d:ModelName> <d:Type m:type="Edm.String">Recommendation</d:Type> <d:CreationTime m:type="Edm.String">2014-10-05T08:56:31.893</d:CreationTime> <d:Progress_BuildId m:type="Edm.String">1000272</d:Progress_BuildId> <d:Progress_ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:Progress_ModelId> <d:Progress_UserName m:type="Edm.String">5-4058-ab36-1fe254f05102@dm.com</d:Progress_UserName> <d:Progress_IsExecutionStarted m:type="Edm.String">false</d:Progress_IsExecutionStarted> <d:Progress_IsExecutionEnded m:type="Edm.String">false</d:Progress_IsExecutionEnded> <d:Progress_Percent m:type="Edm.String">0</d:Progress_Percent> <d:Progress_StartTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_StartTime> <d:Progress_EndTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_EndTime> <d:Progress_UpdateDateUTC m:type="Edm.String"></d:Progress_UpdateDateUTC> <d:Status m:type="Edm.String">Queued</d:Status> <d:Key1 m:type="Edm.String">UseFeaturesInModel</d:Key1> <d:Value1 m:type="Edm.String">False</d:Value1> </m:properties> </content> </entry> </feed>
 
 
 
 
-###11\.4. Ottenere lo stato delle compilazioni di un modello
+###11.4. Ottenere lo stato delle compilazioni di un modello
 Recupera le compilazioni e il relativo stato per un modello specifico.
 
 | Metodo HTTP | URI |
@@ -1732,7 +1800,7 @@ Recupera le compilazioni e il relativo stato per un modello specifico.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **Risposta**:
@@ -1744,12 +1812,12 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/UserName`: nome dell'utente.
 - `feed/entry/content/properties/ModelName`: nome del modello.
 - `feed/entry/content/properties/ModelId`: identificatore univoco del modello.
-- `feed/entry/content/properties/IsDeployed`: indica se la compilazione viene distribuita \(nota anche come compilazione attiva\).
+- `feed/entry/content/properties/IsDeployed`: indica se la compilazione viene distribuita (nota anche come compilazione attiva).
 - `feed/entry/content/properties/BuildId`: identificatore univoco della compilazione.
 - `feed/entry/content/properties/BuildType`: tipo della compilazione.
 - `feed/entry/content/properties/Status`: stato della compilazione. Può essere uno dei seguenti: Error, Building, Queued, Cancelling, Cancelled, Success.
-- `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato \(si applica solo a stati specifici\).
-- `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione \(%\).
+- `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato (si applica solo a stati specifici).
+- `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione (%).
 - `feed/entry/content/properties/StartTime`: ora di inizio della compilazione.
 - `feed/entry/content/properties/EndTime`: ora di fine della compilazione.
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
@@ -1796,7 +1864,7 @@ XML OData
 	</feed>
 
 
-###11\.5. Ottenere lo stato delle compilazioni
+###11.5. Ottenere lo stato delle compilazioni
 Recupera lo stato delle compilazioni di tutti i modelli di un utente.
 
 | Metodo HTTP | URI |
@@ -1807,7 +1875,7 @@ Recupera lo stato delle compilazioni di tutti i modelli di un utente.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **Risposta**:
@@ -1823,8 +1891,8 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/BuildId`: identificatore univoco della compilazione.
 - `feed/entry/content/properties/BuildType`: tipo della compilazione.
 - `feed/entry/content/properties/Status`: stato della compilazione. Può essere uno dei seguenti: Error, Building, Queued, Cancelled, Cancelling, Success.
-- `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato \(si applica solo a stati specifici\).
-- `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione \(%\).
+- `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato (si applica solo a stati specifici).
+- `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione (%).
 - `feed/entry/content/properties/StartTime`: ora di inizio della compilazione.
 - `feed/entry/content/properties/EndTime`: ora di fine della compilazione.
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
@@ -1872,7 +1940,7 @@ XML OData
 	</feed>
 
 
-###11\.6. Eliminare una compilazione
+###11.6. Eliminare una compilazione
 Elimina una compilazione.
 
 NOTA: <br>Non è possibile eliminare una compilazione attiva. Per poterla eliminare, è necessario aggiornare il modello a una compilazione attiva diversa.<br>Non è possibile eliminare una compilazione in corso. È necessario annullare prima la compilazione chiamando <strong>Cancel Build</strong>.
@@ -1884,13 +1952,13 @@ NOTA: <br>Non è possibile eliminare una compilazione attiva. Per poterla elimin
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
-###11\.7. Annullare una compilazione
+###11.7. Annullare una compilazione
 Annulla una compilazione nello stato di creazione.
 
 | Metodo HTTP | URI |
@@ -1900,13 +1968,13 @@ Annulla una compilazione nello stato di creazione.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
-###11\.8. Ottenere i parametri della compilazione
+###11.8. Ottenere i parametri della compilazione
 Recupera i parametri della compilazione.
 
 | Metodo HTTP | URI |
@@ -1916,7 +1984,7 @@ Recupera i parametri della compilazione.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Risposta:**
 
@@ -1930,17 +1998,17 @@ La tabella seguente illustra il valore rappresentato da ogni chiave.
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore.| Integer | 10-50 |
 | NumberOfModelDimensions | Il numero di dimensioni è correlato al numero di "funzionalità" che il modello proverà a trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni impediranno tuttavia al modello di trovare correlazioni tra gli elementi. | Integer | 10-40 |
-|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
-|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più \(0 disabilita la concentrazione\) |
+|ItemCutOffLowerBound| Definisce il limite minimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|ItemCutOffUpperBound| Definisce il limite massimo dell'elemento per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
+|UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
 | Descrizione | Descrizione della compilazione. | String | Qualsiasi testo, con un massimo di 512 caratteri |
 | EnableModelingInsights | Consente di calcolare la metrica nel modello di raccomandazione. | Boolean | True/False |
 | UseFeaturesInModel | Indica se le funzionalità possono essere usate in ordine per migliorare il modello di raccomandazione. | Boolean | True/False |
 | ModelingFeatureList | Elenco con valori delimitati da virgole dei nomi di funzionalità da usare nella compilazione di raccomandazioni, allo scopo di migliorare la raccomandazione. | String | Nomi di funzionalità, con un massimo di 512 caratteri |
 | AllowColdItemPlacement | Indica se la raccomandazione dovrà effettuare il push anche degli elementi ignoti in base alla somiglianza di funzionalità. | Boolean | True/False |
 | EnableFeatureCorrelation | Indica se le funzionalità possono essere usate nella motivazione. | Boolean | True/False |
-| ReasoningFeatureList | Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione \(ad esempio, le spiegazioni delle raccomandazioni\). | String | Nomi di funzionalità, con un massimo di 512 caratteri |
+| ReasoningFeatureList | Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione (ad esempio, le spiegazioni delle raccomandazioni). | String | Nomi di funzionalità, con un massimo di 512 caratteri |
 
 
 XML OData
@@ -2110,8 +2178,8 @@ XML OData
 		</entry>
 	</feed>
 
-##12\. Raccomandazione
-###12\.1. Ottenere raccomandazioni
+##12. Raccomandazione
+###12.1. Ottenere raccomandazioni
 
 Ottiene raccomandazioni della compilazione attiva di tipo "Recommendation" o "Fbt".
 
@@ -2125,23 +2193,23 @@ Ottiene raccomandazioni della compilazione attiva di tipo "Recommendation" o "Fb
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni. <br>Se la compilazione attiva è di tipo FBT, è possibile inviare un solo elemento. <br>Lunghezza massima: 1024 |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
 
-La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono presenti i dati seguenti: - `Feed\entry\content\properties\Id`, ID dell'elemento raccomandato. - `Feed\entry\content\properties\Name`, nome dell'elemento. - `Feed\entry\content\properties\Rating`, classificazione della raccomandazione; un numero più alto significa maggiore confidenza. - `Feed\entry\content\properties\Reasoning`, motivazione della raccomandazione \(ad esempio, spiegazioni delle raccomandazioni\).
+La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono presenti i dati seguenti: - `Feed\entry\content\properties\Id`, ID dell'elemento raccomandato. - `Feed\entry\content\properties\Name`, nome dell'elemento. - `Feed\entry\content\properties\Rating`, classificazione della raccomandazione; un numero più alto significa maggiore confidenza. - `Feed\entry\content\properties\Reasoning`, motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 La risposta di esempio seguente include 10 elementi raccomandati.
 
 XML OData
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
-	<title type="text" /> <subtitle type="text">Get Recommendation</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>159\</d:Id\> \<d:Name m:type="Edm.String"\>159\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.543343480387708\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '159'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>52\</d:Id\> \<d:Name m:type="Edm.String"\>52\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.539588900748721\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '52'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>35\</d:Id\> \<d:Name m:type="Edm.String"\>35\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.53842946443853\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '35'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>124\</d:Id\> \<d:Name m:type="Edm.String"\>124\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.536712832792886\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '124'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>120\</d:Id\> \<d:Name m:type="Edm.String"\>120\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.533673023762878\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '120'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>96\</d:Id\> \<d:Name m:type="Edm.String"\>96\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.532544826370521\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '96'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>69\</d:Id\> \<d:Name m:type="Edm.String"\>69\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.531678607847759\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '69'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>172\</d:Id\> \<d:Name m:type="Edm.String"\>172\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.530957821375951\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '172'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>155\</d:Id\> \<d:Name m:type="Edm.String"\>155\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.529093541481333\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '155'\</d:Reasoning\> \</m:properties\> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" /> <content type="application/xml"> \<m:properties\> \<d:Id m:type="Edm.String"\>32\</d:Id\> \<d:Name m:type="Edm.String"\>32\</d:Name\> \<d:Rating m:type="Edm.Double"\>0.528917978168322\</d:Rating\> \<d:Reasoning m:type="Edm.String"\>People who like '1003' also like '32'\</d:Reasoning\> \</m:properties\> </content> </entry> </feed>
+	<title type="text" /> <subtitle type="text">Get Recommendation</subtitle> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id> <rights type="text" /> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" /> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">159</d:Id> <d:Name m:type="Edm.String">159</d:Name> <d:Rating m:type="Edm.Double">0.543343480387708</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '159'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">52</d:Id> <d:Name m:type="Edm.String">52</d:Name> <d:Rating m:type="Edm.Double">0.539588900748721</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '52'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">35</d:Id> <d:Name m:type="Edm.String">35</d:Name> <d:Rating m:type="Edm.Double">0.53842946443853</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '35'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">124</d:Id> <d:Name m:type="Edm.String">124</d:Name> <d:Rating m:type="Edm.Double">0.536712832792886</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '124'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">120</d:Id> <d:Name m:type="Edm.String">120</d:Name> <d:Rating m:type="Edm.Double">0.533673023762878</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '120'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">96</d:Id> <d:Name m:type="Edm.String">96</d:Name> <d:Rating m:type="Edm.Double">0.532544826370521</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '96'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">69</d:Id> <d:Name m:type="Edm.String">69</d:Name> <d:Rating m:type="Edm.Double">0.531678607847759</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '69'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">172</d:Id> <d:Name m:type="Edm.String">172</d:Name> <d:Rating m:type="Edm.Double">0.530957821375951</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '172'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">155</d:Id> <d:Name m:type="Edm.String">155</d:Name> <d:Rating m:type="Edm.Double">0.529093541481333</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '155'</d:Reasoning> </m:properties> </content> </entry> <entry> <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id> <title type="text">GetRecommendationEntity</title> <updated>2014-10-05T12:28:48Z</updated> <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" /> <content type="application/xml"> <m:properties> <d:Id m:type="Edm.String">32</d:Id> <d:Name m:type="Edm.String">32</d:Name> <d:Rating m:type="Edm.Double">0.528917978168322</d:Rating> <d:Reasoning m:type="Edm.String">People who like '1003' also like '32'</d:Reasoning> </m:properties> </content> </entry> </feed>
 
-###12\.2. Ottenere raccomandazioni \(di una compilazione specifica\)
+###12.2. Ottenere raccomandazioni (di una compilazione specifica)
 
 Ottiene raccomandazioni di una compilazione specifica di tipo "Recommendation" o "Fbt".
 
@@ -2156,22 +2224,22 @@ Ottiene raccomandazioni di una compilazione specifica di tipo "Recommendation" o
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false.
 | buildId | L'ID compilazione da usare per questa richiesta di raccomandazioni. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
 
-La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono presenti i dati seguenti: - `Feed\entry\content\properties\Id`, ID dell'elemento raccomandato. - `Feed\entry\content\properties\Name`, nome dell'elemento. - `Feed\entry\content\properties\Rating`, classificazione della raccomandazione; un numero più alto significa maggiore confidenza. - `Feed\entry\content\properties\Reasoning`, motivazione della raccomandazione \(ad esempio, spiegazioni delle raccomandazioni\).
+La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono presenti i dati seguenti: - `Feed\entry\content\properties\Id`, ID dell'elemento raccomandato. - `Feed\entry\content\properties\Name`, nome dell'elemento. - `Feed\entry\content\properties\Rating`, classificazione della raccomandazione; un numero più alto significa maggiore confidenza. - `Feed\entry\content\properties\Reasoning`, motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
-##13\. Notifiche
+##13. Notifiche
 L'API Recommendations di Azure Machine Learning crea notifiche quando nel sistema si verificano errori persistenti. Esistono tre tipi di notifica: 1. Build failure: questa notifica viene attivata per ogni errore di compilazione. 2. Data acquisition processing failure: questa notifica viene attivata quando, durante l'elaborazione degli eventi di utilizzo per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti. 3. Recommendation consumption failure: questa notifica viene attivata quando, durante l'elaborazione delle richieste di raccomandazione per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti.
 
 
-###13\.1. Ottenere notifiche
+###13.1. Ottenere notifiche
 Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 
 | Metodo HTTP | URI |
@@ -2182,8 +2250,9 @@ Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Parametro facoltativo. Se omesso, vengono restituite tutte le notifiche relative a tutti i modelli. <br>Valore valido: identificatore univoco del modello.|
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta:**
 
@@ -2222,7 +2291,7 @@ XML OData
 		</entry>
 	</feed>
 
-###13\.2. Eliminare le notifiche di modello
+###13.2. Eliminare le notifiche di modello
 Elimina tutte le notifiche di lettura relative a un modello.
 
 | Metodo HTTP | URI |
@@ -2233,14 +2302,15 @@ Elimina tutte le notifiche di lettura relative a un modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-###13\.3. Eliminare le notifiche utente
+###13.3. Eliminare le notifiche utente
 Elimina tutte le notifiche relative a tutti i modelli.
 
 | Metodo HTTP | URI |
@@ -2250,14 +2320,15 @@ Elimina tutte le notifiche relative a tutti i modelli.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
-\|\|\| \| Corpo della richiesta \| NESSUNO \|
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-##14\. Note legali
+##14. Note legali
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
 
 <!--HONumber=52-->

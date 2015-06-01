@@ -50,12 +50,12 @@ Per aggiungere un'entità, creare innanzitutto un dizionario che definisca i nom
 Le entità con lo stesso oggetto **PartitionKey**vengono archiviate nello stesso nodo. L'oggetto
 **RowKey** è l'ID univoco dell'entità all'interno della partizione cui appartiene.
 
-Per aggiungere un'entità alla tabella, passare un oggetto dizionario al metodo **insert\_entity**.
+Per aggiungere un'entità alla tabella, passare un oggetto dizionario al metodo **insert_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-È anche possibile passare un'istanza della classe **Entity** al metodo **insert\_entity**.
+È anche possibile passare un'istanza della classe **Entity** al metodo **insert_entity**.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,7 +71,7 @@ Questo codice indica come sostituire la versione precedente di un'entità esiste
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se si desidera archiviare un'entità indipendentemente dalla sua precedente esistenza, usare **insert\_or\_replace_entity**. 
+Se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se si desidera archiviare un'entità indipendentemente dalla sua precedente esistenza, usare **insert_or_replace_entity**. 
 Nell'esempio seguente, la prima chiamata sostituirà l'entità esistente. La seconda chiamata inserirà una nuova entità, poiché nella tabella non esiste alcuna entità con gli oggetti **PartitionKey** e **RowKey** specificati.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -82,7 +82,7 @@ Nell'esempio seguente, la prima chiamata sostituirà l'entità esistente. La sec
 
 ## Come modificare un gruppo di entità
 
-È talvolta consigliabile inviare più operazioni in un batch per garantire l'elaborazione atomica da parte del server. A questo scopo, viene usato il metodo **begin\_batch** su **TableService** e quindi viene chiamata normalmente la serie di operazioni. Quando si desidera inviare il batch, si chiamerà **commit\_batch**. Si noti che, affinché sia possibile modificarle come batch, tutte le entità devono trovarsi nella stessa partizione. Nell'esempio seguente vengono aggiunte due entità assieme in un batch.
+È talvolta consigliabile inviare più operazioni in un batch per garantire l'elaborazione atomica da parte del server. A questo scopo, viene usato il metodo **begin_batch** su **TableService** e quindi viene chiamata normalmente la serie di operazioni. Quando si desidera inviare il batch, si chiamerà **commit_batch**. Si noti che, affinché sia possibile modificarle come batch, tutte le entità devono trovarsi nella stessa partizione. Nell'esempio seguente vengono aggiunte due entità assieme in un batch.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -93,7 +93,7 @@ Nell'esempio seguente, la prima chiamata sostituirà l'entità esistente. La sec
 
 ## Come eseguire query su un'entità
 
-Per eseguire una query su un'entità in una tabella, usare il metodo **get\_entity** passando il nome tabella e i parametri **PartitionKey** e **RowKey**.
+Per eseguire una query su un'entità in una tabella, usare il metodo **get_entity** passando il nome tabella e i parametri **PartitionKey** e **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

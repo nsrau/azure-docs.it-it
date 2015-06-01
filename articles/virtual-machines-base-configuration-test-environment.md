@@ -30,7 +30,7 @@ L'ambiente di test della configurazione di base è costituito dalla subnet Corpn
 
 Contiene quanto segue:
 
-- Una macchina virtuale di Azure su cui è in esecuzione Windows Server 2012 R2 denominato DC1, configurato come controller di dominio intranet e server DNS \(Domain Name System\).
+- Una macchina virtuale di Azure su cui è in esecuzione Windows Server 2012 R2 denominato DC1, configurato come controller di dominio intranet e server DNS (Domain Name System).
 - Una macchina virtuale di Azure su cui è in esecuzione Windows Server 2012 R2 denominata APP1, configurata come applicazione generica e server Web.
 - Una macchina virtuale di Azure su cui è in esecuzione Windows Server 2012 R2 denominato CLIENT1 che verrà utilizzato come client intranet.
 
@@ -54,13 +54,13 @@ Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizi
 
 Creare innanzitutto la rete virtuale di Azure TestLab che ospiterà la subnet Corpnet della configurazione di base.
 
-1.	Nella barra delle applicazioni del portale di gestione di Azure fare clic su **Nuovo \> Servizi di rete \> Rete virtuale \> Creazione personalizzata**.
+1.	Nella barra delle applicazioni del portale di gestione di Azure fare clic su **Nuovo > Servizi di rete > Rete virtuale > Creazione personalizzata**.
 2.	Nella pagina Dettagli della rete virtuale digitare **TestLab** in **Nome**.
 3.	In **Percorso** selezionare il percorso appropriato.
 4.	Fare clic sulla freccia Avanti.
 5.	In Server DNS nella pagina Server DNS e connettività VPN, **Server DNS** digitare **DC1** in **Selezionare o immettere nome**, digitare **10.0.0.4** in **Indirizzo IP** quindi fare clic sulla freccia Avanti.
 6.	Nella pagina Spazi di indirizzi della rete virtuale in **Subnet**, fare clic su **Subnet-1** e sostituire il nome con **Corpnet**. 
-7.	Nella colonna **CIDR \(conteggio indirizzi\)** per la subnet Corpn,et fare clic su **/24 \(256\)**.
+7.	Nella colonna **CIDR (conteggio indirizzi)** per la subnet Corpn,et fare clic su **/24 (256)**.
 8.	Fare clic sull'icona Completa. Attendere il completamento della creazione della rete virtuale prima di continuare.
 
 Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](install-configure-powershell.md)  per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
@@ -76,7 +76,7 @@ Successivamente, creare un servizio cloud di Azure. Il servizio cloud funge da l
 
 È necessario selezionare un nome univoco per il servizio cloud. *Il nome del servizio cloud può contenere solo lettere, numeri e trattini. Il primo e ultimo carattere nel campo deve essere una lettera o un numero.*
 
-È ad esempio possibile specificare il nome TestLab-\*UniqueSequence\*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestLab-Tailspin al servizio cloud.
+È ad esempio possibile specificare il nome TestLab-*UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestLab-Tailspin al servizio cloud.
 
 Per verificare l'univocità del nome, è possibile usare questo comando di Azure PowerShell.
 
@@ -126,14 +126,14 @@ Successivamente, connettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **DC1\\**[Nome dell'account amministratore locale]
+- Nome: **DC1**[Nome dell'account amministratore locale]
 - Password: [Password dell’account dell’amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
 Quindi, aggiungere un altro disco dati come nuovo volume con la lettera di unità F:.
 
 1.	Nel riquadro sinistro di Server Manager fare clic su **Servizi file e archiviazione**, quindi scegliere **Dischi**.
-2.	Nel riquadro del contenuto nel gruppo **Dischi** fare clic su **disco 2** \(con la **Partizione** impostata su **Sconosciuto**\).
+2.	Nel riquadro del contenuto nel gruppo **Dischi** fare clic su **disco 2** (con la **Partizione** impostata su **Sconosciuto**).
 3.	Fare clic su **Attività**, quindi su **Nuovo volume**.
 4.	Nella pagina Operazioni preliminari della creazione guidata nuovo volume fare clic su **Avanti**.
 5.	Nella pagina Selezionare il server e il disco fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su **OK**.
@@ -155,7 +155,7 @@ Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **CORP\\**[Nome dell'account amministratore locale]
+- Nome: **CORP**[Nome dell'account amministratore locale]
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -266,7 +266,7 @@ Per arrestare le macchine virtuali con Azure PowerShell, inserire il nome del se
 	Stop-AzureVM -ServiceName $serviceName -Name "DC1" -Force -StayProvisioned
 
 
-Per assicurarsi che le macchine virtuali funzionino correttamente per l'avvio di tutti gli elementi dallo stato di arresto \(deallocazione\), è necessario avviarli nell'ordine seguente:
+Per assicurarsi che le macchine virtuali funzionino correttamente per l'avvio di tutti gli elementi dallo stato di arresto (deallocazione), è necessario avviarli nell'ordine seguente:
 
 1.	DC1
 2.	APP1

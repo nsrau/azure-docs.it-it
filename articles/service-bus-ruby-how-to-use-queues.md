@@ -91,7 +91,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 
 ## Configurare una connessione del bus di servizio di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione allo spazio dei nomi del bus di servizio di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative allo spazio dei nomi prima di usare **Azure::ServiceBusService** con il seguente codice:
+Il modulo di Azure leggerà le variabili di ambiente **AZURE_SERVICEBUS_NAMESPACE** e **AZURE_SERVICEBUS_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione allo spazio dei nomi del bus di servizio di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative allo spazio dei nomi prima di usare **Azure::ServiceBusService** con il seguente codice:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -119,9 +119,9 @@ L'oggetto **Azure::ServiceBusService** consente di usare le code. Per creare una
 
 ## Come inviare messaggi a una coda
 
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiamerà il metodo **send\_queue\_message()** sull'oggetto **Azure::ServiceBusService**. I messaggi inviati e ricevuti dalle code del bus di servizio sono oggetti **Azure::ServiceBus::BrokeredMessage** e includono un set di proprietà standard, ad esempio **label** e**time\_to\_live**, un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando un valore stringa come messaggio, in modo da popolare le proprietà standard necessarie con valori predefiniti.
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiamerà il metodo **send_queue_message()** sull'oggetto **Azure::ServiceBusService**. I messaggi inviati e ricevuti dalle code del bus di servizio sono oggetti **Azure::ServiceBus::BrokeredMessage** e includono un set di proprietà standard, ad esempio **label** e**time_to_live**, un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando un valore stringa come messaggio, in modo da popolare le proprietà standard necessarie con valori predefiniti.
 
-Il seguente esempio illustra come inviare un messaggio di prova alla coda denominata "test-queue" usando **send\_queue\_message()**:
+Il seguente esempio illustra come inviare un messaggio di prova alla coda denominata "test-queue" usando **send_queue_message()**:
 
     message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
     message.correlation_id = "test-correlation-id"
@@ -131,13 +131,13 @@ Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256
 
 ## Come ricevere messaggi da una coda
 
-I messaggi vengono ricevuti da una coda tramite il metodo **receive\_queue\_message()** sull'oggetto **Azure::ServiceBusService**. Per impostazione predefinita, i messaggi vengono letti e bloccati senza essere eliminati dalla coda. È tuttavia possibile eliminare dalla coda i messaggi che sono stati letti impostando l'opzione **:peek_lock** su **false**.
+I messaggi vengono ricevuti da una coda tramite il metodo **receive_queue_message()** sull'oggetto **Azure::ServiceBusService**. Per impostazione predefinita, i messaggi vengono letti e bloccati senza essere eliminati dalla coda. È tuttavia possibile eliminare dalla coda i messaggi che sono stati letti impostando l'opzione **:peek_lock** su **false**.
 
-In base al comportamento predefinito, la lettura e l'eliminazione vengono incluse in un'operazione di ricezione suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete\_queue\_message()** e fornendo il messaggio da eliminare come parametro. Il metodo **delete\_queue\_message()** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
+In base al comportamento predefinito, la lettura e l'eliminazione vengono incluse in un'operazione di ricezione suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete_queue_message()** e fornendo il messaggio da eliminare come parametro. Il metodo **delete_queue_message()** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
 
-Se il parametro **:peek\_lock** è impostato su **false**, la lettura e l'eliminazione del messaggio costituiscono il modello più semplice, adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
+Se il parametro **:peek_lock** è impostato su **false**, la lettura e l'eliminazione del messaggio costituiscono il modello più semplice, adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
 
-Il seguente esempio illustra come ricevere ed elaborare messaggi usando **receive\_queue\_message()**. Nell'esempio viene innanzitutto ricevuto ed eliminato un messaggio con **:peek\_lock** impostato su **false**, quindi viene ricevuto un altro messaggio, che viene eliminato mediante **delete\_queue\_message()**:
+Il seguente esempio illustra come ricevere ed elaborare messaggi usando **receive_queue_message()**. Nell'esempio viene innanzitutto ricevuto ed eliminato un messaggio con **:peek_lock** impostato su **false**, quindi viene ricevuto un altro messaggio, che viene eliminato mediante **delete_queue_message()**:
 
     message = azure_service_bus_service.receive_queue_message("test-queue", 
 	  { :peek_lock => false })
@@ -146,11 +146,11 @@ Il seguente esempio illustra come ricevere ed elaborare messaggi usando **receiv
 
 ## Come gestire arresti anomali e messaggi illeggibili dell'applicazione
 
-Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlock\_queue\_message()** sull'oggetto **Azure::ServiceBusService**. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
+Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlock_queue_message()** sull'oggetto **Azure::ServiceBusService**. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
 
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima della chiamata al metodo **delete\_queue\_message()**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **message\_id** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima della chiamata al metodo **delete_queue_message()**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **message_id** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## Passaggi successivi
 

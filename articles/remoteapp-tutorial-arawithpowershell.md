@@ -36,7 +36,7 @@ Creare una raccolta nel cloud
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-Il comando precedente pubblica automaticamente le applicazioni di Microsoft Office 365 \(Excel, OneNote, Outlook, PowerPoint, Visio e Word\).
+Il comando precedente pubblica automaticamente le applicazioni di Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio e Word).
 
 Per completare la creazione della raccolta possono essere necessari anche più di 30 minuti. Questo comando restituisce quindi un ID di traccia che è possibile usare come indicato di seguito:
 

@@ -257,11 +257,11 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 * **Modulo nativo senza una distribuzione binaria per Windows**:
 
-	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+	* npm ERR! `cmd "/c" "node-gyp rebuild"` failed with 1
 
 		OR
 
-	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
+	* npm ERR! [modulename@version] preinstall: `make || gmake`
 
 
 ## Risorse aggiuntive

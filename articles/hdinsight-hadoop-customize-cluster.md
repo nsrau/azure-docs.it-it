@@ -152,7 +152,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 
 ## Vedere anche##
-[Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision-cluster]\: questo argomento fornisce istruzioni relative al provisioning di un cluster HDInsight con altre opzioni personalizzate.
+[Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision-cluster]: questo argomento fornisce istruzioni relative al provisioning di un cluster HDInsight con altre opzioni personalizzate.
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md

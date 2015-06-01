@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
-
+d
 
 # Come usare la libreria client Android per Servizi mobili
 
@@ -311,7 +311,7 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
 + Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1].
-+  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
++  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
 In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili].

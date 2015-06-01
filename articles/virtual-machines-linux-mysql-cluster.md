@@ -152,7 +152,7 @@ Se non si prevede di eseguire il failover di DRBD a questo punto, la prima opzio
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **Avviso**: quest'ultima istruzione disabilita in modo efficace l'autenticazione per l'utente ROOT in questa tabella. È consigliabile sostituirla con istruzioni GRANT di livello di produzione ed è inclusa solo per scopi esplicativi.
 

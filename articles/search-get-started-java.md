@@ -34,7 +34,7 @@ Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Az
 
 ## Informazioni sui dati
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
 In questa applicazione, il programma **SearchServlet.java** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali predefinite e la connessione all’origine dati online. In termini di accesso ai dati, non è necessaria alcuna ulteriore configurazione.
 
@@ -45,7 +45,7 @@ In questa applicazione, il programma **SearchServlet.java** compila e carica l'i
 Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esempio.
 
 - Search.jsp: fornisce l'interfaccia utente
-- SearchServlet.java: fornisce i metodi \(simile a un controller MVC\)
+- SearchServlet.java: fornisce i metodi (simile a un controller MVC)
 - SearchServiceClient.java: gestisce le richieste HTTP 
 - SearchServiceHelper.java: una classe di supporto che fornisce metodi statici
 - Document.Java: fornisce il modello di dati
@@ -57,7 +57,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'indice, fare clic su **Nuovo** \| **Dati + archiviazione** \| **Ricerca**.
+2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
  
      ![][1]
 
@@ -107,7 +107,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 ## Importare il progetto
 
-1. In Eclipse scegliere **File** \| **Import** \| **General** \| **Existing Projects into Workspace**.
+1. In Eclipse scegliere **File** | **Import** | **General** | **Existing Projects into Workspace**.
 
     ![][4]
 
@@ -117,7 +117,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 3. Fare clic su **Finish**.
 
-4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Window** \| **Show View** \| **Project Explorer** oppure utilizzare il collegamento per aprirlo.
+4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Window** | **Show View** | **Project Explorer** oppure utilizzare il collegamento per aprirlo.
 
 ## Configurare l'URL del servizio e la chiave Api
 
@@ -125,13 +125,13 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
  
 2. Fare riferimento ai passaggi descritti in precedenza in questo articolo, in cui sono forniti l'URL del servizio e la chiave api nel [portale Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
 
-3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio \(il primo componente dell'URL http://servicename.search.windows.net\) sostituisce "service name" nello stesso file.
+3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL http://servicename.search.windows.net) sostituisce "service name" nello stesso file.
 
 	![][5]
 
 ## Configurare gli ambienti di progetto, compilazione e runtime
 
-1. In Eclipse, in Project Explorer, fare clic con il pulsante destro del mouse sul progetto \| **Properties** \| **Project Facets**.
+1. In Eclipse, in Project Explorer, fare clic con il pulsante destro del mouse sul progetto | **Properties** | **Project Facets**.
 
 2. Selezionare **Dynamic Web Module**, **Java** e **JavaScript**.
 
@@ -139,7 +139,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 3. Fare clic su **Apply**.
 
-4. Selezionare **Window** \| **Preferences** \| **Server** \| **Runtime Environments** \| **Add..**.
+4. Selezionare **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add..**.
 
 5. Espandere Apache e selezionare la versione del server Apache Tomcat installata in precedenza. In questo sistema è installata la versione 8.
 
@@ -149,7 +149,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 6. Fare clic su **Finish**.
  
-7. Selezionare **Window** \| **Preferences** \| **Java** \| **Installed JREs** \| **Add**.
+7. Selezionare **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
 
 8. In **Add JRE**, selezionare **Standard VM**.
 
@@ -157,13 +157,13 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
  
 11. Nella definizione dell'ambiente JRE, nella home di JRE, fare clic su **Directory**.
 
-12. Passare a **Program Files** \| **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
+12. Passare a **Program Files** | **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
 
 13. In Installed JREs, scegliere il **JDK**. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
 
     ![][9]
 
-14. Facoltativamente, selezionare **Window** \| **Web Browser** \| **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
+14. Facoltativamente, selezionare **Window** | **Web Browser** | **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ La configurazione del dispositivo è stata completata. A questo punto, compilare
 
 ## Compilare il progetto
  
-1. In Project Explorer, fare clic con il pulsante destro del mouse sul progetto e scegliere **Run As** \| **Maven build...** per configurare il progetto.
+1. In Project Explorer, fare clic con il pulsante destro del mouse sul progetto e scegliere **Run As** | **Maven build...** per configurare il progetto.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Se ancora non è stato specificato un ambiente di runtime del server in Eclipse,
 
 1. In Project Explorer espandere **WebContent**.
 
-5. Fare clic con il pulsante destro del mouse su **Search.jsp** \| **Run As** \| **Run on Server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
+5. Fare clic con il pulsante destro del mouse su **Search.jsp** | **Run As** | **Run on Server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
 
-> [AZURE.TIP]Se si utilizza un'area di lavoro non predefinita per archiviare il progetto, è probabilmente necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Project Explorer, fare clic con il pulsante destro del mouse su **Search.jsp** \| **Run As** \| **Run Configurations**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
+> [AZURE.TIP]Se si utilizza un'area di lavoro non predefinita per archiviare il progetto, è probabilmente necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Project Explorer, fare clic con il pulsante destro del mouse su **Search.jsp** | **Run As** | **Run Configurations**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
 
 Quando si esegue l'applicazione viene visualizzata una finestra del browser con una casella di ricerca per l'immissione di termini.
 

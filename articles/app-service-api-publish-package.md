@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un pacchetto dell&#39;app per le API" 
-	description="Informazioni su come pubblicare un pacchetto dell&#39;app per le API in Azure Marketplace." 
+	pageTitle="Creare un pacchetto dell'app per le API" 
+	description="Informazioni su come pubblicare un pacchetto dell'app per le API in Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"
@@ -58,7 +58,7 @@ Dopo qualche minuto, il pacchetto dell'app per le API verrà sincronizzato con A
 
 ## Distribuire il pacchetto dell'app per le API nel portale di anteprima di Azure
 
-È possibile accedere al [portale di anteprima di Azure](https://portal.azure.com) usando l'account di Azure \(può essere un account diverso da quello usato per pubblicare il pacchetto dell'app per le API\). Qui sarà possibile verificare l'esperienza di creazione del portale di anteprima di Azure per il pacchetto dell'app per le API. Se è necessario cambiare qualcosa, apportare le modifiche nel pacchetto dell'app per le API e ripubblicarlo.
+È possibile accedere al [portale di anteprima di Azure](https://portal.azure.com) usando l'account di Azure (può essere un account diverso da quello usato per pubblicare il pacchetto dell'app per le API). Qui sarà possibile verificare l'esperienza di creazione del portale di anteprima di Azure per il pacchetto dell'app per le API. Se è necessario cambiare qualcosa, apportare le modifiche nel pacchetto dell'app per le API e ripubblicarlo.
 
 Per informazioni dettagliate su come distribuire un pacchetto dell'app per le API nel portale di Azure, fare clic [qui](app-service-api-connnect-your-app-to-saas-connector.md) per visualizzare un esempio di distribuzione di DropboxConnector.
 

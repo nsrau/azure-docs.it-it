@@ -46,13 +46,13 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 ## Informazioni sullo scenario di esempio
 
-In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite \(visualizzata come **PercentSuccess** nel portale di Azure e nelle tabelle metriche\) tiene traccia delle operazioni che hanno esito positivo, ma che restituiscono con un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite (visualizzata come **PercentSuccess** nel portale di Azure e nelle tabelle metriche) tiene traccia delle operazioni che hanno esito positivo, ma che restituiscono con un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Le operazioni di Archiviazione di Azure possono restituire codici di stato HTTP maggiori di 299 in condizioni di funzionalità normali. In alcuni casi, tuttavia, questi errori indicano che è possibile ottimizzare l'applicazione client per migliorare le prestazioni.
 
 In questo scenario la percentuale di operazioni riuscite sarà considerata bassa se inferiore al 100%. È comunque possibile scegliere un diverso livello di metrica, in base alle esigenze. Durante il test dell'applicazione è consigliabile definire una tolleranza di base per le metriche delle prestazioni chiave. Ad esempio, sulla base dei test è possibile che si stabilisca che l'applicazione deve avere una percentuale di operazioni riuscite costante del 90% o 85%. Se i dati di metrica mostrano una deviazione dell'applicazione da tale valore, è possibile indagare per individuare la causa dell'aumento.
 
-Nello scenario di esempio, dopo avere stabilito che la metrica della percentuale di operazioni riuscite è inferiore al 100%, si esamineranno i log per individuare gli errori correlati alle metriche, che saranno usati per risalire al motivo per cui la percentuale di operazioni riuscite è inferiore. Si osserveranno in particolare gli errori nella fascia 400, esaminando in dettaglio gli errori 404 \(Non trovato\).
+Nello scenario di esempio, dopo avere stabilito che la metrica della percentuale di operazioni riuscite è inferiore al 100%, si esamineranno i log per individuare gli errori correlati alle metriche, che saranno usati per risalire al motivo per cui la percentuale di operazioni riuscite è inferiore. Si osserveranno in particolare gli errori nella fascia 400, esaminando in dettaglio gli errori 404 (Non trovato).
 
 ### Alcune cause degli errori della fascia 400
 
@@ -60,20 +60,20 @@ Gli esempi seguenti presentano un campione di errori della serie 400 per le rich
 
 Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](http://msdn.microsoft.com/library/azure/dd179382.aspx) su MSDN.
 
-**Esempi di codice di stato 404 \(Non trovato\)**
+**Esempi di codice di stato 404 (Non trovato)**
 
 Si verifica quando un'operazione di lettura in un contenitore o BLOB non riesce perché non viene trovato il BLOB o il contenitore.
 
 - Si verifica se un contenitore o BLOB è stato eliminato da un altro client prima di questa richiesta. 
 - Si verifica se si usa una chiamata API che crea il contenitore o il BLOB dopo averne controllato l'esistenza. Le API CreateIfNotExists effettuano una chiamata HEAD per verificare l'esistenza del contenitore o del BLOB. Se non esiste, viene restituito un errore 404 e quindi viene eseguita una seconda chiamata PUT per scrivere il contenitore o il BLOB.
 
-**Esempi di codice di stato 409 \(Conflitto\)**
+**Esempi di codice di stato 409 (Conflitto)**
 
 - Si verifica se si usa un'API di creazione per creare un nuovo contenitore o BLOB, senza controllarne prima l'esistenza, ed esiste già un contenitore o BLOB con lo stesso nome. 
 - Si verifica se è in corso l'eliminazione di un contenitore e si tenta di crearne uno nuovo con lo stesso nome prima del completamento dell'operazione di eliminazione.
 - Si verifica se si specifica un lease in un contenitore o BLOB ed è già presente un lease.
  
-**Esempi di codice di stato 412 \(Condizione preliminare non riuscita\)**
+**Esempi di codice di stato 412 (Condizione preliminare non riuscita)**
 
 - Si verifica quando la condizione specificata da un'intestazione condizionale non viene soddisfatta.
 - Si verifica quando l'ID lease specificato non corrisponde all'ID lease per il contenitore o BLOB.
@@ -130,13 +130,13 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 ### Configurare la registrazione sul lato client .NET
 
-Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione \(web.config o app.config\). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
+Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
 
 La registrazione lato client viene configurata nel file app.config o web.config nell'applicazione. Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione](http://msdn.microsoft.com/library/azure/dn782839.aspx) su MSDN.
 
-La libreria client di archiviazione archivia i dati di log lato client nel percorso specificato nel file di configurazione dell'applicazione \(web.config or app.config\).
+La libreria client di archiviazione archivia i dati di log lato client nel percorso specificato nel file di configurazione dell'applicazione (web.config or app.config).
 
 ### Raccogliere una traccia di rete
 
@@ -144,14 +144,14 @@ La libreria client di archiviazione archivia i dati di log lato client nel perco
 
 1. Installare [Fiddler](http://www.telerik.com/download/fiddler).
 2. Avviare Fiddler.
-2. Selezionare **Strumenti \| Opzioni Fiddler**.
+2. Selezionare **Strumenti | Opzioni Fiddler**.
 3. Nella finestra di dialogo Opzioni, verificare che siano selezionate le opzioni **Acquisisci HTTPS CONNECTs** e **Decrittografa il traffico HTTPS**, come illustrato di seguito.
 
 ![Configurare le opzioni Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyzer, quindi creare una sessione di analisi per analizzare la traccia e i log. Per raccogliere una traccia di rete in Message Analyzer:
 
-1. In Message Analyzer selezionare **File \| Traccia rapida \| HTTPS non crittografato**.
+1. In Message Analyzer selezionare **File | Traccia rapida | HTTPS non crittografato**.
 2. La traccia inizierà immediatamente. Selezionare **Interrompi** per interrompere la traccia in modo da poterla configurare solo per il traffico di archiviazione.
 3. Selezionare **Modifica** per modificare la sessione di traccia.
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
@@ -178,7 +178,7 @@ Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i 
 
 ![Scelta delle metriche](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
 
-La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di monitoraggio nel portale, insieme alle altre metriche aggiunte in precedenza \(il grafico ne può contenere al massimo sei\). Nell'immagine seguente si noterà che la percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer:
+La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di monitoraggio nel portale, insieme alle altre metriche aggiunte in precedenza (il grafico ne può contenere al massimo sei). Nell'immagine seguente si noterà che la percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer:
 
 ![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
 
@@ -223,7 +223,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 
 ### Importare i file di log in Message Analyzer
 
-È possibile importare tutti i file di log salvati \(lato server, lato client e rete\) in un'unica sessione di Microsoft Message Analyzer per l'analisi.
+È possibile importare tutti i file di log salvati (lato server, lato client e rete) in un'unica sessione di Microsoft Message Analyzer per l'analisi.
 
 1. Scegliere **Nuova sessione** dal menu **File** in Microsoft Message Analyzer, quindi fare clic su **Sessione vuota**. Nella finestra di dialogo **Nuova sessione** immettere un nome per la sessione di analisi. Nel pannello **Dettagli sessione**, fare clic sul pulsante **File**. 
 1. Per caricare i dati della traccia di rete generati da Message Analyzer, fare clic su **Aggiungi file**, passare al percorso in cui è stato salvato il file MATP della sessione di traccia Web, selezionare il file MATP e fare clic su **Apri**. 
@@ -257,7 +257,7 @@ La figura seguente mostra il menu **Visualizza layout**, disponibile selezionand
 
 ![Menu Visualizza layout](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Per iniziare, selezionare **Raggruppati per ClientRequestID e modulo**. In questo layout di visualizzazione sono raggruppati i dati dei tre log prima in base all'ID richiesta client, quindi in base al file di log di origine \(o **Modulo** in Message Analyzer\). Questa visualizzazione consente di eseguire il drill-down in un particolare ID richiesta client e visualizzare i dati dei tre file di log per tale ID richiesta client.
+Per iniziare, selezionare **Raggruppati per ClientRequestID e modulo**. In questo layout di visualizzazione sono raggruppati i dati dei tre log prima in base all'ID richiesta client, quindi in base al file di log di origine (o **Modulo** in Message Analyzer). Questa visualizzazione consente di eseguire il drill-down in un particolare ID richiesta client e visualizzare i dati dei tre file di log per tale ID richiesta client.
 
 L'immagine seguente mostra questa visualizzazione di layout applicata ai dati di log di esempio, con un subset di colonne visualizzato. Si noterà che, per un determinato ID richiesta client, nella griglia di analisi sono visualizzati i dati tratti dal log del client, dal log del server e dalla traccia di rete.
 
@@ -271,7 +271,7 @@ Oltre a usare i layout di visualizzazione di Archiviazione di Azure, è possibil
 
 Le risorse di archiviazione includono anche regole colore, che consentono di identificare visivamente i diversi tipi di errore nella griglia di analisi. Le regole colore predefinite sono valide per gli errori HTTP, quindi sono disponibili solo per il log del server e per la traccia di rete.
 
-Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client \(StatusCode tra 400 e 499\)**, come mostrato nell'immagine seguente.
+Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)**, come mostrato nell'immagine seguente.
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -292,11 +292,11 @@ L'immagine seguente mostra i risultati di questo raggruppamento e filtro. Se si 
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log del client, dato che in questo log non è presente la colonna \*\*StatusCode\*\*. Si inizierà esaminando i log di traccia di rete e del server per individuare gli errori 404, quindi si tornerà al log del client per esaminare le attività client da cui hanno avuto origine.
+Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log del client, dato che in questo log non è presente la colonna **StatusCode**. Si inizierà esaminando i log di traccia di rete e del server per individuare gli errori 404, quindi si tornerà al log del client per esaminare le attività client da cui hanno avuto origine.
 
 >[AZURE.NOTE]È possibile filtrare in base alla colonna **StatusCode** e visualizzare comunque i dati di tutti e tre i log, compreso il log del client, se si aggiunge un'espressione di filtro che include le voci di log in cui il codice di stato è null. Per costruire questa espressione di filtro, usare:
 >
-> <code>&\#42;StatusCode \>= 400 or !&\#42;StatusCode</code>
+> <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
 > Questo filtro restituisce tutte le righe del log del client e solo righe del log del server e del log HTTP in cui il codice di stato è maggiore di 400. Se viene applicato al layout di visualizzazione raggruppato per ID richiesta client e modulo, è possibile cercare o scorrere le voci di log per trovare quelle in cui sono rappresentati tutte e tre i log.
 
@@ -305,7 +305,7 @@ Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log d
 Le risorse di archiviazione includono filtri predefiniti che possono essere usati per limitare i dati di log per trovare gli errori o le tendenze che si stanno cercando. A questo punto verranno applicati due filtri predefiniti: uno che filtra il log del server e il log della traccia di rete per trovare gli errori 404 e uno che filtra i dati in un determinato intervallo di tempo.
 
 1. Visualizzare la finestra degli strumenti View Filter se non è visualizzata. Sulla barra multifunzione selezionare **Finestre degli strumenti**, quindi **Filtro visualizzazione**.
-2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi 404 \(non trovato\) in tutti i log**.
+2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi 404 (non trovato) in tutti i log**.
 3. Visualizzare nuovamente il menu **Libreria**, quindi individuare e selezionare **Filtro tempo di esecuzione globale**.
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.
@@ -344,7 +344,7 @@ Quando si conosce l'indirizzo del BLOB che ha restituito l'errore 404, è possib
 
 Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i dati di log, è possibile analizzare altri tipi di errori usando i layout di visualizzazione, le regole colore e le funzionalità di ricerca/filtro. Nelle tabelle seguenti sono elencati alcuni problemi che possono verificarsi e i criteri di filtro che è possibile usare per individuarli. Per altre informazioni sulla creazione di filtri e sul linguaggio di filtro di Message Analyzer, vedere [l'argomento relativo al filtraggio dei dati dei messaggi](http://technet.microsoft.com/library/jj819365.aspx).
 
-|    Per esaminare...                                                                                               |    Usare l'espressione di filtro...                                                                                                                                                                                                                                        |    Log a cui è applicabile l'espressione (client, server, rete, tutti\)    |
+|    Per esaminare...                                                                                               |    Usare l'espressione di filtro...                                                                                                                                                                                                                                        |    Log a cui è applicabile l'espressione (client, server, rete, tutti)    |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 |    Ritardi imprevisti nel recapito dei messaggi in una coda                                                              |    AzureStorageClientDotNetV4.Description   contains "Retrying failed operation."                                                                                                                                                                                |    Client                                                        |
 |    HTTP Increase in PercentThrottlingError                                                                       |    HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503                                                                                                                                                                                          |    Network                                                       |

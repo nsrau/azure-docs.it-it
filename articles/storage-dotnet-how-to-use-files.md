@@ -146,11 +146,11 @@ Windows esegue la riconnessione alla condivisione file quando la macchina virtua
 
 Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile eseguire il comando `net use` per montare la condivisione file usando la seguente sintassi. Sostituire `<storage-account>` con il nome dell'account di archiviazione e `<share-name>` con il nome della condivisione di archiviazione file.
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+	net use z: <storage-account>.file.core.windows.net<share-name>
 
 > [AZURE.NOTE] Poiché sono state mantenute le credenziali dell'account di archiviazione nel passaggio precedente, non è necessario inserirle con il comando `net use`. Se le credenziali non sono state mantenute, inserirle come parametro passato al comando `net use`. Sostituire `<storage-account>` con il nome dell'account di archiviazione, `<share-name>` con il nome della condivisione di archiviazione file e `<account-key>` con la chiave dell'account di archiviazione:
 	   
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	net use z: <storage-account>.file.core.windows.net<share-name> /u:<storage-account> <account-key>
 
 A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in .NET Framework. 
 

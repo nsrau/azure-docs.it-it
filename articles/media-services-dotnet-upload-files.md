@@ -218,7 +218,7 @@ Il seguente esempio illustra come aggiungere due nuove entità IngestManifestAss
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('\\');
+	        string[] splitfilename = filename.Split('\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))

@@ -40,7 +40,7 @@ servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene usat
 ### Recupero dell'assembly
 È consigliare usare NuGet per ottenere l'assembly  `Microsoft.WindowsAzure.Storage.dll`. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.  Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Dichiarazioni dello spazio dei nomi
 Aggiungere le seguenti dichiarazioni dello spazio dei nomi all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di programmazione:

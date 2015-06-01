@@ -80,7 +80,7 @@ Le metriche vengono aggregate in modi diversi:
 
 Per verificare se il valore è una somma, una media o un valore univoco, fare clic sul grafico e scorrere fino al valore selezionato. È anche possibile ottenere una breve descrizione della metrica.
 
-![Passare il puntatore \(i\)](./media/app-insights-metrics-explorer/06-total.png)
+![Passare il puntatore (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -96,7 +96,7 @@ Selezionare un grafico nuovo o esistente per modificare il contenuto visualizzat
 
 È possibile visualizzare più metriche in un grafico, anche se sono presenti restrizioni sulle combinazioni che è possibile visualizzare insieme. Non appena si sceglie una metrica, alcune vengono disabilitate.
 
-Se si codificano [metriche personalizzate][track] nell'app \(chiamate a TrackMetric e TrackEvent\), verranno elencate qui.
+Se si codificano [metriche personalizzate][track] nell'app (chiamate a TrackMetric e TrackEvent), verranno elencate qui.
 
 ## Segmentare i dati
 

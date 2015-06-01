@@ -37,6 +37,6 @@
 
 7. Al termine del riavvio del primo controller, connettersi all’altro controller ed eseguire i passaggi da 1 a 6.
 
-8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Vedere [Per uscire dalla modalità di manutenzione](#to-exit-maintenance-mode\) per le istruzioni.
+8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Vedere [Per uscire dalla modalità di manutenzione](#to-exit-maintenance-mode) per le istruzioni.
 
 <!--HONumber=52-->

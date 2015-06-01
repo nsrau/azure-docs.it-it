@@ -116,7 +116,7 @@ In questo passaggio verrà creata un'applicazione ASP.NET MVC. Nei passaggi succ
 
 1. In **Nome** digitare **MvcACS** e quindi fare clic su **OK**.
 1. Nella finestra di dialogo successiva selezionare **Applicazione Internet** e quindi fare clic su **OK**.
-1. Modificare il file *Views\Shared\_LoginPartial.cshtml* e sostituire il contenuto con il codice seguente:
+1. Modificare il file *Views\Shared_LoginPartial.cshtml* e sostituire il contenuto con il codice seguente:
 
         @if (Request.IsAuthenticated)
         {

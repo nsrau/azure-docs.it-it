@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set and retrieve Properties and Metadata for Blob Storage \| Microsoft Azure" 
+	pageTitle="Set and retrieve Properties and Metadata for Blob Storage | Microsoft Azure" 
 	description="Learn how to set and retrieve properties and metadata for Azure Storage containers and blobs." services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -9,7 +9,7 @@
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
-	ms.tgt\_pltfrm="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
@@ -115,7 +115,7 @@ Nell'esempio di codice seguente vengono creati un contenitore e un BLOB e vengon
 
 È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla raccolta **Metadati** nella risorsa, quindi chiamare il metodo **SetMetadata** per salvare i valori nel servizio.
 
-> [AZURE.NOTE]\: il nome dei metadati deve essere conforme alle convenzioni di denominazione per gli identificatori C\#.
+> [AZURE.NOTE]: il nome dei metadati deve essere conforme alle convenzioni di denominazione per gli identificatori C#.
  
 Per recuperare i metadati, chiamare il metodo **FetchAttributes** sul BLOB o sul contenitore per popolare la raccolta **Metadati**, quindi leggere i valori.
 

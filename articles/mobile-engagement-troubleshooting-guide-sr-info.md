@@ -35,7 +35,7 @@ Quando si apre una richiesta di assistenza per Azure Mobile Engagement, specific
 
 
 ## Codice: indicare eventuali informazioni di codifica relative al problema riscontrato
-- Versione dell'SDK e piattaforma dell'app \(Android SDK 2.4.1, iOS 1.16.2 e così via\)
+- Versione dell'SDK e piattaforma dell'app (Android SDK 2.4.1, iOS 1.16.2 e così via)
 - Percorso di download dell'app di produzione oppure i file con estensione apk o tgz dell'app di sviluppo
 - File "AndroidManifest.xml" e/o eventuali frammenti di codice dell'app relativi ad Azure Mobile Engagement per la risoluzione di problemi più avanzati
 

@@ -30,7 +30,7 @@ In generale, un ambiente del servizio app è costituito da vari componenti princ
 - Rete virtuale con almeno una subnet
 - Subnet con il servizio ospitato Ambiente del servizio app in esecuzione al suo interno
 
-Per gestire e monitorare gli ambienti del servizio app, nel portale di Azure selezionare Sfoglia -\> Ambienti del servizio app per accedere all'interfaccia utente dedicata. La versione iniziale offre tutte le opzioni necessarie per gestire il sistema e continuerà a migliorare tramite l'aggiunta di ulteriori funzionalità nelle prossime settimane.
+Per gestire e monitorare gli ambienti del servizio app, nel portale di Azure selezionare Sfoglia -> Ambienti del servizio app per accedere all'interfaccia utente dedicata. La versione iniziale offre tutte le opzioni necessarie per gestire il sistema e continuerà a migliorare tramite l'aggiunta di ulteriori funzionalità nelle prossime settimane.
 
 ![][1]
 

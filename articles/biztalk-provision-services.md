@@ -39,7 +39,7 @@ A seconda dell'edizione scelta, non tutte le impostazioni del servizio BizTalk S
 <br/>
 ![Select the New button][Select the New button]
 
-3.  Selezionare **SERVIZI APP** \> **SERVIZIO BIZTALK** \> **CREAZIONE PERSONALIZZATA**:
+3.  Selezionare **SERVIZI APP** > **SERVIZIO BIZTALK** > **CREAZIONE PERSONALIZZATA**:
 <br/>
 ![Select BizTalk Service and select Custom Create][Select BizTalk Service and select Custom Create]
 

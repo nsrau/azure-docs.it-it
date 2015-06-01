@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Accedere a un&#39;app per le API di Azure usando HTML e JavaScript" 
-	description="Informazioni su come accedere al back-end dell&#39;app per le API usando HTML e JavaScript" 
+	pageTitle="Accedere a un'app per le API di Azure usando HTML e JavaScript" 
+	description="Informazioni su come accedere al back-end dell'app per le API usando HTML e JavaScript" 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -32,11 +32,11 @@ In questo articolo si farà riferimento alle conoscenze acquisite nelle esercita
 
 ## Abilitazione della condivisione CORS
 
-In genere, la condivisione CORS \(condivisione di risorse tra le origini\) è necessaria nelle applicazioni HTML che verranno servite da host diversi dall'API stessa. Con le app per le API, sono disponibili almeno due opzioni per l'abilitazione della condivisione CORS. Questa sezione descrive entrambe le opzioni.
+In genere, la condivisione CORS (condivisione di risorse tra le origini) è necessaria nelle applicazioni HTML che verranno servite da host diversi dall'API stessa. Con le app per le API, sono disponibili almeno due opzioni per l'abilitazione della condivisione CORS. Questa sezione descrive entrambe le opzioni.
 
 ### Abilitazione della condivisione CORS per i gateway di app per le API
 
-È possibile configurare i gateway di app per le API per abilitare la condivisione CORS tramite il portale di anteprima di Azure. Se si aggiunge l'*impostazione dell'applicazione* **MS\_CrossDomainOrigins** è possibile specificare gli URL autorizzati a chiamare l'app per le API. Questa sezione spiega come usare la proprietà *appSetting* per abilitare la condivisione CORS a livello del gateway dell'API.
+È possibile configurare i gateway di app per le API per abilitare la condivisione CORS tramite il portale di anteprima di Azure. Se si aggiunge l'*impostazione dell'applicazione* **MS_CrossDomainOrigins** è possibile specificare gli URL autorizzati a chiamare l'app per le API. Questa sezione spiega come usare la proprietà *appSetting* per abilitare la condivisione CORS a livello del gateway dell'API.
 
 1. Passare al pannello del portale di anteprima di Azure relativo all'app per le API per cui si intende abilitare la condivisione CORS. Fare clic sull'icona *Gateway* per l'app per le API. 
 
@@ -54,7 +54,7 @@ In genere, la condivisione CORS \(condivisione di risorse tra le origini\) è ne
 
 	![Impostazioni applicazione del gateway](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Aggiungere l'impostazione dell'applicazione **MS\_CrossDomainOrigins**. Impostare il valore sull'elenco con valori delimitati da virgole relativo agli host HTTP per cui si vuole fornire l'accesso all'app per le API. Se si vuole fornire l'accesso a più host, il valore della proprietà *appSetting* può essere impostato come illustrato nel codice seguente.
+1. Aggiungere l'impostazione dell'applicazione **MS_CrossDomainOrigins**. Impostare il valore sull'elenco con valori delimitati da virgole relativo agli host HTTP per cui si vuole fornire l'accesso all'app per le API. Se si vuole fornire l'accesso a più host, il valore della proprietà *appSetting* può essere impostato come illustrato nel codice seguente.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ In genere, la condivisione CORS \(condivisione di risorse tra le origini\) è ne
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-L'impostazione dell'applicazione **MS\_CrossDomainOrigins** è descritta in dettaglio nel post di blog relativo agli [aggiornamenti del progetto di servizio mobile di Azure per .NET](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Per altre informazioni sull'impostazione, leggere questo post.
+L'impostazione dell'applicazione **MS_CrossDomainOrigins** è descritta in dettaglio nel post di blog relativo agli [aggiornamenti del progetto di servizio mobile di Azure per .NET](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Per altre informazioni sull'impostazione, leggere questo post.
 
 ### Abilitazione della condivisione CORS nel codice dell'API Web
 
@@ -80,7 +80,7 @@ La procedura per l'abilitazione della condivisione CORS nell'API Web è descritt
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Aprire il file *App\_Start/WebApiConfig.cs*. Aggiungere la riga di codice seguente al metodo **Register** della classe **WebApiConfig** nel file.
+1. Aprire il file *App_Start/WebApiConfig.cs*. Aggiungere la riga di codice seguente al metodo **Register** della classe **WebApiConfig** nel file.
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ La procedura per l'abilitazione della condivisione CORS nell'API Web è descritt
 
 In questa sezione verrà creata un'applicazione Web vuota, verrà installato e usato AngularJS e si assocerà un semplice front-end HTML all'app per le API. L'app Web verrà distribuita nel servizio app di Azure. L'app Web HTML verrà associata all'app per le API, visualizzerà i dati da essa recuperati e fornirà agli utenti una semplice interfaccia utente per l'API Contacts.
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi \> Nuovo progetto**.
+1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi > Nuovo progetto**.
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -171,7 +171,7 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/07-index-html.png)
 
-1. Aggiungere i file JavaScript AngularJS e CSS Bootstrap alla pagina HTML, usare un modello Bootstrap semplice \([come questo](http://getbootstrap.com/examples/starter-template/)\) e creare un tag di script vuoto per preparare la pagina.
+1. Aggiungere i file JavaScript AngularJS e CSS Bootstrap alla pagina HTML, usare un modello Bootstrap semplice ([come questo](http://getbootstrap.com/examples/starter-template/)) e creare un tag di script vuoto per preparare la pagina.
 	
 	> Nota: i commenti nel codice HTML e JavaScript descrivono i passaggi successivi illustrati in questa sezione.
 

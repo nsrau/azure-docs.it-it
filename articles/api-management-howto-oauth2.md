@@ -80,7 +80,7 @@ Per un server OAuth 2.0 di Azure Active Directory, il **Token endpoint URL** avr
 
 L'impostazione predefinita di **Client authentication methods** è **Basic**, mentre quella di **Access token sending method** è **Authorization header**. Questi valori vengono configurati in questa sezione del modulo, insieme a **Default scope**.
 
-La sezione **Client credentials** contiene il **Client ID** e il **Client secret**, che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l'**ID client** e il **segreto client**, viene generato il **redirect\_uri** per il **codice autorizzazione**. Questo URI viene utilizzato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
+La sezione **Client credentials** contiene il **Client ID** e il **Client secret**, che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l'**ID client** e il **segreto client**, viene generato il **redirect_uri** per il **codice autorizzazione**. Questo URI viene utilizzato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
 
 ![Nuovo server][api-management-oauth2-server-4]
 

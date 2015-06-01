@@ -44,10 +44,10 @@ Sul Web sono disponibili molti altri documenti per le tecnologie relative a Hado
 
 In HDInsight sono disponibili gli esempi seguenti:
 
-- [**Esempio di calcolo del Pi greco in Hadoop**][hdinsight-sample-pi-estimator]\: mostra come eseguire un programma MapReduce con HDInsight che usa un metodo statistico (simile al metodo Monte Carlo) per calcolare il valore di Pi greco.
-- [**Esempio di conteggio delle parole con MapReduce in un cluster Hadoop**][hdinsight-sample-wordcount]\: mostra come usare un cluster HDInsight per eseguire un programma MapReduce che conta le occorrenze delle parole in un file di testo.
-- [**Esempio Graysort di Hadoop da 10 GB**][hdinsight-sample-10gb-graysort]\: mostra come eseguire un ordinamento GraySort generico in un file da 10 GB usando HDInsight. I processi da eseguire sono tre: Teragen per generare i dati, Terasort per ordinare i dati e Teravalidate per verificare che i dati siano stati ordinati correttamente.
-- [**Esempio C# di conteggio delle parole di un flusso con MapReduce in Hadoop**][hdinsight-sample-csharp-streaming]\: mostra come usare C# per scrivere un programma MapReduce che usa l'interfaccia di flusso Hadoop.
+- [**Esempio di calcolo del Pi greco in Hadoop**][hdinsight-sample-pi-estimator]: mostra come eseguire un programma MapReduce con HDInsight che usa un metodo statistico (simile al metodo Monte Carlo) per calcolare il valore di Pi greco.
+- [**Esempio di conteggio delle parole con MapReduce in un cluster Hadoop**][hdinsight-sample-wordcount]: mostra come usare un cluster HDInsight per eseguire un programma MapReduce che conta le occorrenze delle parole in un file di testo.
+- [**Esempio Graysort di Hadoop da 10 GB**][hdinsight-sample-10gb-graysort]: mostra come eseguire un ordinamento GraySort generico in un file da 10 GB usando HDInsight. I processi da eseguire sono tre: Teragen per generare i dati, Terasort per ordinare i dati e Teravalidate per verificare che i dati siano stati ordinati correttamente.
+- [**Esempio C# di conteggio delle parole di un flusso con MapReduce in Hadoop**][hdinsight-sample-csharp-streaming]: mostra come usare C# per scrivere un programma MapReduce che usa l'interfaccia di flusso Hadoop.
 
 
 ## Come eseguire gli esempi ##

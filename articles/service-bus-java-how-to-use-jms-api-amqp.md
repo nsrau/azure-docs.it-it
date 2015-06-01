@@ -42,7 +42,7 @@ Per informazioni sul download dell'ultima versione della libreria client JMS bas
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
-*    geronimo-jms\_1.1\_spec-1.0.jar
+*    geronimo-jms_1.1_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -136,7 +136,7 @@ oppure
 
 	topic.[jndi_name] = [physical_name]
 
-Dove [jndi\_name] e [physical\_name] hanno i seguenti significati:
+Dove [jndi_name] e [physical_name] hanno i seguenti significati:
 
 <table>
   <tr>

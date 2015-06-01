@@ -199,7 +199,7 @@ Seguire i passaggi precedenti per configurare questa azione del controller:
 	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
 	            }
 	
-	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here's your meme&lt;/a&gt;&quot;);
 	        }
 
 
@@ -351,7 +351,7 @@ Nel progetto ASP.NET creato in [Integrare un endpoint della rete CDN di Azure co
 		...
     }
 
-La prima istruzione `bundles.Add()` aggiunge un bundle di script nella directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\Shared\_Layout.cshtml* per osservare come viene eseguito il rendering del tag del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
+La prima istruzione `bundles.Add()` aggiunge un bundle di script nella directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\Shared_Layout.cshtml* per osservare come viene eseguito il rendering del tag del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -382,7 +382,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)</mark>).Include(
 	                &quot;~/Scripts/jquery.validate*&quot;));
 	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
+	    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;<mark>, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)</mark>).Include(
 	                &quot;~/Scripts/modernizr-*&quot;));
@@ -480,7 +480,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
 	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
 	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
+	    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
 					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
@@ -533,37 +533,37 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	                    len = document.styleSheets.length;
 	                for (var i = 0; i &lt; len; i++) {
 	                    var sheet = document.styleSheets[i];
-	                    if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
-	                        var meta = document.createElement(&#39;meta&#39;);
-	                        meta.className = &#39;sr-only&#39;;
+	                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+	                        var meta = document.createElement('meta');
+	                        meta.className = 'sr-only';
 	                        document.head.appendChild(meta);
-	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
+	                        var value = window.getComputedStyle(meta).getPropertyValue('width');
 	                        document.head.removeChild(meta);
-	                        if (value !== &#39;1px&#39;) {
-	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
+	                        if (value !== '1px') {
+	                            document.write('&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;');
 	                        }
 	                    }
 	                }
 	                return true;
-	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	            }())||document.write('&lt;script src=&quot;/Content/css&quot;&gt;&lt;/script&gt;');&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.Modernizr)||document.write('&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;/script&gt;');&lt;/script&gt;</mark>
 	
 	...	
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.jquery)||document.write('&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;/script&gt;');&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;($.fn.modal)||document.write('&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;/script&gt;');&lt;/script&gt;</mark>
 	
 	...
 	</pre>
 
 	Notare che lo script inserito per il bundle CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
 
-        }())||document.write('<script src="/Content/css"><\/script>');</script>
+        }())||document.write('<script src="/Content/css"></script>');</script>
 
 	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
 

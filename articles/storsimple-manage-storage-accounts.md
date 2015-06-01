@@ -55,7 +55,7 @@ Esistono tre tipi di account di archiviazione che è possibile utilizzare con il
 
 ## Aggiungere un account di archiviazione
 
-È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione \(con il provider del servizio cloud specificato\). È inoltre possibile scegliere di abilitare la modalità SSL \(Secure Socket Layer\) per creare un canale protetto per la comunicazione di rete tra il dispositivo e il cloud.
+È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È inoltre possibile scegliere di abilitare la modalità SSL (Secure Socket Layer) per creare un canale protetto per la comunicazione di rete tra il dispositivo e il cloud.
 
 È possibile creare più account per un provider del servizio cloud specificato. Tenere presente, tuttavia, che dopo aver creato un account di archiviazione non è possibile modificare il provider di servizi cloud.
 
@@ -106,7 +106,7 @@ Durante il salvataggio dell'account di archiviazione, il servizio tenta di comun
 
 2. Nell'elenco tabulare di account di archiviazione, passare il mouse sull'account che si desidera eliminare.
 
-3. Un'icona di eliminazione \(\* \* x \* \*\) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
+3. Un'icona di eliminazione (* * x * *) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
 
 4. Quando viene richiesta la conferma, fare clic su **Sì** per continuare con l'eliminazione. L’elenco tabulare verrà aggiornato per riflettere le modifiche.
 
@@ -126,9 +126,9 @@ Le chiavi degli account di archiviazione vengono sempre archiviate nel servizio 
 
 ## Flusso di lavoro di rotazione
 
-Un amministratore di Microsoft Azure può rigenerare oppure modificare la chiave primaria o secondaria accedendo direttamente all'account di archiviazione \(tramite il servizio di archiviazione di Microsoft Azure\). Il servizio StorSimple Manager non consente di visualizzare la modifica automaticamente.
+Un amministratore di Microsoft Azure può rigenerare oppure modificare la chiave primaria o secondaria accedendo direttamente all'account di archiviazione (tramite il servizio di archiviazione di Microsoft Azure). Il servizio StorSimple Manager non consente di visualizzare la modifica automaticamente.
 
-Per informare il servizio StorSimple Manager della modifica, sarà necessario accedere al servizio StorSimple Manager, accedere all'account di archiviazione e quindi sincronizzare la chiave primaria o secondaria \(a seconda di quale è stata modificata\). Quindi, il servizio ottiene la chiave più recente, la crittografa e la invia al dispositivo.
+Per informare il servizio StorSimple Manager della modifica, sarà necessario accedere al servizio StorSimple Manager, accedere all'account di archiviazione e quindi sincronizzare la chiave primaria o secondaria (a seconda di quale è stata modificata). Quindi, il servizio ottiene la chiave più recente, la crittografa e la invia al dispositivo.
 
 ### Per sincronizzare le chiavi per gli account di archiviazione nella stessa sottoscrizione del servizio
 
@@ -139,7 +139,7 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 3. Nella finestra di dialogo procedere come segue:
 
   1. Selezionare l'account di archiviazione con la chiave che si desidera sincronizzare. Le chiavi degli account di archiviazione vengono visualizzate in forma crittografata.
-  2. Nel servizio StorSimple Manager, è necessario aggiornare la chiave precedentemente modificata nel servizio di archiviazione di Microsoft Azure. Se la chiave di accesso primaria è stata modificata \(rigenerata\), fare clic su **Sincronizza chiave primaria**. Se è stata modificata la chiave secondaria, fare clic su **Sincronizza chiave secondaria**.
+  2. Nel servizio StorSimple Manager, è necessario aggiornare la chiave precedentemente modificata nel servizio di archiviazione di Microsoft Azure. Se la chiave di accesso primaria è stata modificata (rigenerata), fare clic su **Sincronizza chiave primaria**. Se è stata modificata la chiave secondaria, fare clic su **Sincronizza chiave secondaria**.
 
     ![sincronizzare le chiavi](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 

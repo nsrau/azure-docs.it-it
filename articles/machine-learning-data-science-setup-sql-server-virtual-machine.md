@@ -140,7 +140,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
 
-2.  All'apertura di Management Studio viene visualizzata la finestra di dialogo **Connetti al server**. Nella casella **Nome server** digitare il nome della macchina virtuale da collegare al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **Autenticazione Windows** e lasciare ***your\_VM\_name*\\your\_local\_administrator** nella casella **Nome utente**. Fare clic su **Connetti**.
+2.  All'apertura di Management Studio viene visualizzata la finestra di dialogo **Connetti al server**. Nella casella **Nome server** digitare il nome della macchina virtuale da collegare al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **Autenticazione Windows** e lasciare ***your_VM_name*\\your_local_administrator** nella casella **Nome utente**. Fare clic su **Connetti**.
 
     ![Connect to Server][6]
 
@@ -177,7 +177,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
 Per connettersi al motore di database da un altro computer, configurare almeno un account di accesso con autenticazione di SQL Server.  
 
-> [AZURE.TIP] È possibile creare nuovi account di accesso di SQL Server a livello di programmazione oppure tramite SQL Server Management Studio. Per creare un nuovo utente sysadmin con l'autenticazione di SQL a livello di programmazione, avviare una **Nuova query** ed eseguire lo script seguente. Sostituire <new user name\> e <new password\> con il nome utente e la password selezionati. Regolare i criteri relativi alla password secondo necessità (il codice di esempio consente di disattivare il controllo dei criteri e la scadenza della password). Per altre informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).  
+> [AZURE.TIP] È possibile creare nuovi account di accesso di SQL Server a livello di programmazione oppure tramite SQL Server Management Studio. Per creare un nuovo utente sysadmin con l'autenticazione di SQL a livello di programmazione, avviare una **Nuova query** ed eseguire lo script seguente. Sostituire <new user name> e <new password> con il nome utente e la password selezionati. Regolare i criteri relativi alla password secondo necessità (il codice di esempio consente di disattivare il controllo dei criteri e la scadenza della password). Per altre informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go

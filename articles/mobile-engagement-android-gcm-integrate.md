@@ -99,7 +99,7 @@ Al momento della stesura di questo documento (5 febbraio 2014), la procedura è 
 
 -   Aprire [Google Developers Console].
 -   Selezionare lo stesso progetto usato in precedenza nella procedura (quello con il **numero di progetto** che è stato integrato in `AndroidManifest.xml`).
--   Passare a APIs & auth -\\> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
+-   Passare a APIs & auth -> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
 -   Selezionare "Server key".
 -   Nella schermata successiva lasciare vuoto il campo **(no IP restriction)**, quindi fare clic su Create.
 -   Copiare la **chiave API** generata.

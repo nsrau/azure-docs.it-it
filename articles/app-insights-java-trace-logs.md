@@ -17,7 +17,7 @@
 
 # Esplorare i log di traccia Java in Application Insights
 
-Se si usa Logback o Log4J \(v1.2 o v2.0\) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
+Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
 
 Installare [Application Insights SDK per Java][java], se questa operazione non è già stata eseguita.
 
@@ -89,7 +89,7 @@ Logger | Download | Libreria
 ----|----|----
 Logback|[SDK con appender Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[SDK con appender Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK con appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Log4j v1.2|[SDK con appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,7 +130,7 @@ Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al fi
       <appender-ref ref="aiAppender" />
     </root>
 
-È possibile fare riferimento agli appender di Application Insights da qualsiasi logger configurato e non necessariamente dal logger principale \(come illustrato negli esempi di codice riportati sopra\).
+È possibile fare riferimento agli appender di Application Insights da qualsiasi logger configurato e non necessariamente dal logger principale (come illustrato negli esempi di codice riportati sopra).
 
 ## Esplorare le tracce nel portale Application Insights.
 

@@ -34,16 +34,16 @@ Ci sono quattro pulsanti sulla barra degli strumenti che è possibile usare per 
 - **Nuovo archivio dati** per la creazione di un servizio collegato di archivio dati. Facendo clic su questo pulsante, verrà visualizzato un menu con le seguenti opzioni: Archiviazione di Azure, Database SQL di Azure, Database SQL Server locale.
 - **Nuovo calcolo** per la creazione di un servizio collegato di calcolo. Facendo clic su questo pulsante, verrà visualizzato un menu con le seguenti opzioni: Cluster HDInsight su richiesta, Cluster HDInsight, Servizio collegato AzureML.      
 - **Nuovo set di dati** per la creazione di un set di dati. Facendo clic su questo pulsante, verranno visualizzate le opzioni seguenti: Tabella BLOB, Tabella di Azure SQL, Tabella locale.  
-- **Nuova pipeline** per la creazione di una pipeline. Fare clic su **... \(puntini di sospensione\)** sulla barra degli strumenti se questo pulsante non è visibile sulla barra degli strumenti.
+- **Nuova pipeline** per la creazione di una pipeline. Fare clic su **... (puntini di sospensione)** sulla barra degli strumenti se questo pulsante non è visibile sulla barra degli strumenti.
  
 ### Per creare una servizio collegato di archiviazione
 1. Fare clic su **Nuovo archivio dati** e fare clic su una delle opzioni del menu.
  
 	![Menu Nuovo archivio dati][new-data-store-menu] 
 2. Verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione nel **canvas dell'editor** a destra. Si noterà anche che sotto **Bozze** appare il nodo di una bozza. Eseguire le operazioni seguenti:
-	1. Per **Archiviazione di Azure**: sostituire **\<accountname\>** e **\<accountkey\>** con il nome e la chiave dell'account di archiviazione di Azure.
-	2. Per **Database SQL di Azure**: sostituire **\<servername\>** con il nome del server di Azure SQL, **\<databasename\>** con il nome del database, **\<username\>@\<servername\>** con il nome dell'utente e **\<password\>** con la password dell'account utente. 
-	3. Per **Database SQL Server locale**: sostituire **\<servername\>** con il nome del server SQL locale, **\<databasename\>** con il nome del database, **\<username\>** con il nome dell'utente e **\<password\>** con la password dell'account utente.
+	1. Per **Archiviazione di Azure**: sostituire **<accountname>** e **<accountkey>** con il nome e la chiave dell'account di archiviazione di Azure.
+	2. Per **Database SQL di Azure**: sostituire **<servername>** con il nome del server di Azure SQL, **<databasename>** con il nome del database, **<username>@<servername>** con il nome dell'utente e **<password>** con la password dell'account utente. 
+	3. Per **Database SQL Server locale**: sostituire **<servername>** con il nome del server SQL locale, **<databasename>** con il nome del database, **<username>** con il nome dell'utente e **<password>** con la password dell'account utente.
 4. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire il servizio collegato. È possibile fare clic su **Rimuovi** per rimuovere la bozza JSON creata.
  
 	![Pulsante Distribuisci][deploy-button]
@@ -64,9 +64,9 @@ Ci sono quattro pulsanti sulla barra degli strumenti che è possibile usare per 
 		1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight che il servizio Dati factory dovrà creare in fase di esecuzione. 
 		2. Per la proprietà **jobsContainer**, specificare il nome del contenitore BLOB predefinito dove archiviare i log del cluster.
 		3. Per la proprietà **timeToLive**, specificare il tempo di inattività consentito prima che venga eliminato il cluster HDInsight. Ad esempio, 00:05:00 indica che il cluster deve essere eliminato dopo 5 minuti di inattività.
-		4. Per la proprietà **version**, specificare la versione di HDInsight per il cluster \(impostazione predefinita: versione 3.1\).
+		4. Per la proprietà **version**, specificare la versione di HDInsight per il cluster (impostazione predefinita: versione 3.1).
 		5. Per la proprietà **linkedServiceName**, specificare il servizio collegato di archiviazione di Azure da associare al cluster HDInsight. 
-	6. Per **Cluster HDInsight** \(Bring-Your-Own\), specificare i valori per le proprietà seguenti:
+	6. Per **Cluster HDInsight** (Bring-Your-Own), specificare i valori per le proprietà seguenti:
 		1. Per la proprietà **clusterUri**, specificare l'URL per il proprio cluster HDInsight. 
 		2. Per la proprietà **userName**, specificare l'account utente che il servizio Dati factory deve usare per connettersi al cluster HDInsight. 
 		3. Per la proprietà **password**, specificare la password per l'account utente. 
@@ -101,7 +101,7 @@ Ci sono quattro pulsanti sulla barra degli strumenti che è possibile usare per 
 > [AZURE.NOTE]Per le descrizioni degli elementi JSON usati per definire una tabella di Data factory di Azure, vedere l'argomento [Tabelle][msdn-tables-reference] in MSDN Library.
  		           
 ### Per creare e attivare una pipeline 
-1. Fare clic su **Nuova pipeline** sulla barra degli strumenti. Se il pulsante **Nuova pipeline** non è presente, fare clic su **...\(puntini di sospensione\)** per visualizzarlo.   
+1. Fare clic su **Nuova pipeline** sulla barra degli strumenti. Se il pulsante **Nuova pipeline** non è presente, fare clic su **...(puntini di sospensione)** per visualizzarlo.   
 2. Verrà visualizzato il modello JSON per la creazione di una pipeline nel canvas dell'editor a destra. Eseguire le operazioni seguenti: 
 	1. Per la proprietà **description**, specificare la descrizione della pipeline.
 	2. Per la sezione **activities**, aggiungere le attività alla pipeline. Esempio:
@@ -190,14 +190,14 @@ Le bozze consentono di salvare temporaneamente il lavoro quando si deve cambiare
 Per eliminare la definizione JSON di un'entità di Dati factory di Azure, fare clic sul pulsante **Rimuovi** sulla barra degli strumenti.
 
 ## Per clonare un'entità di Data factory
-Per clonare un'entità di Data factory di Azure esistente \(servizio, tabella o pipeline collegata\), selezionare l'entità nella visualizzazione albero e fare clic sul pulsante **Clona** sulla barra degli strumenti.
+Per clonare un'entità di Data factory di Azure esistente (servizio, tabella o pipeline collegata), selezionare l'entità nella visualizzazione albero e fare clic sul pulsante **Clona** sulla barra degli strumenti.
 
 ![Clonare un'entità di Data factory][clone-datafactory-entity]
 
 Verrà creata una nuova bozza nel nodo **Bozze** nella visualizzazione albero.
 
 ## Per eliminare un'entità di Data factory
-Per eliminare un'entità di Data factory di Azure \(servizio, tabella o pipeline collegata\), selezionare l'entità nella visualizzazione albero e fare clic su **Elimina** sulla barra degli strumenti oppure fare clic con il pulsante destro del mouse sull'entità e fare clic su **Elimina**.
+Per eliminare un'entità di Data factory di Azure (servizio, tabella o pipeline collegata), selezionare l'entità nella visualizzazione albero e fare clic su **Elimina** sulla barra degli strumenti oppure fare clic con il pulsante destro del mouse sull'entità e fare clic su **Elimina**.
 
 ![Eliminare un'entità di Data factory][delete-datafactory-entity]
 

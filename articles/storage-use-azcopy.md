@@ -40,7 +40,7 @@ AzCopy è un'utilità della riga di comando progettata per il caricamento, il do
 ##<a id="install"></a> Scaricare e installare AzCopy
 
 1. Scaricare l'[ultima versione di AzCopy](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr).
-2. Eseguire l'installazione. Per impostazione predefinita, l'installazione di AzCopy crea una cartella denominata `AzCopy` in `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (in un computer che esegue Windows a 64 bit) o `%ProgramFiles%\Microsoft SDKs\Azure\` (in un computer che esegue Windows a 32 bit). È tuttavia possibile modificare il percorso di installazione nell'installazione guidata.
+2. Eseguire l'installazione. Per impostazione predefinita, l'installazione di AzCopy crea una cartella denominata `AzCopy` in `%ProgramFiles(x86)%\Microsoft SDKs\Azure` (in un computer che esegue Windows a 64 bit) o `%ProgramFiles%\Microsoft SDKs\Azure` (in un computer che esegue Windows a 32 bit). È tuttavia possibile modificare il percorso di installazione nell'installazione guidata.
 3. Se si vuole, è possibile aggiungere il percorso di installazione di AzCopy al percorso di sistema.
 
 ##<a id="syntax"></a> Informazioni sulla sintassi della riga di comando di AzCopy

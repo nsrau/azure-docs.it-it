@@ -1,6 +1,6 @@
 ## Creare un account di archiviazione di Azure
 
-Per usare il servizio di archiviazione di Azure, è necessario un account di archiviazione. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito \(è anche possibile creare un account di archiviazione utilizzando la libreria client di gestione dei servizi di Azure o l’[API REST] di gestione dei servizi\).
+Per usare il servizio di archiviazione di Azure, è necessario un account di archiviazione. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito (è anche possibile creare un account di archiviazione utilizzando la libreria client di gestione dei servizi di Azure o l’[API REST] di gestione dei servizi).
 
 1.  Accedere al [portale di gestione di Azure].
 

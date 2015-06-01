@@ -24,7 +24,7 @@
 ## Informazioni generali
 
 Questa guida illustra diversi scenari d'uso comuni del 
-Servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C\#, viene usata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **uso di entità di tabella**.
+Servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C#, viene usata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **uso di entità di tabella**.
 
 > [AZURE.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione 4.x, disponibile tramite [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o come parte di [Azure SDK per .NET](/downloads/). Vedere [Accedere all'archiviazione tabelle a livello di codice](#programmatically-access-table-storage) per informazioni su come ottenere la libreria client di archiviazione.
 
@@ -39,7 +39,7 @@ Servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C\#,
 ### Recupero dell'assembly
 Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.  Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Dichiarazioni dello spazio dei nomi
 Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di codice:
@@ -85,7 +85,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare u
 
 ## Aggiungere un'entità a una tabella
 
-Le entità eseguono il mapping degli oggetti a C\# mediante una classe personalizzata derivata da
+Le entità eseguono il mapping degli oggetti a C# mediante una classe personalizzata derivata da
 **TableEntity**. Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità in caso di operazioni parallele.  Tutte le proprietà da archiviare nel servizio tabelle devono essere di un tipo supportato che espone `get` e `set`.
 Il tipo di entità *must* inoltre esporre un costruttore senza parametri.
 

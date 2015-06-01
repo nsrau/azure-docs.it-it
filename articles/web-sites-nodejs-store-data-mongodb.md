@@ -113,7 +113,7 @@ In questa sezione verrà creata una nuova applicazione Node nell'ambiente di svi
 
 1. Dalla riga di comando passare alla directory **tasklist**. Se la directory **tasklist** non esiste, crearla.
 
-	> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **\~/node/tasklist** o **c:\\node\\tasklist**
+	> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\\node\\tasklist**
 
 2. Immettere il comando seguente per installare il comando express.
 

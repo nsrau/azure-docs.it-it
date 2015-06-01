@@ -34,7 +34,7 @@ Sono necessari gli elementi seguenti:
 * Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
-## 1\. Ottenere una chiave di strumentazione di Application Insights
+## 1. Ottenere una chiave di strumentazione di Application Insights
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com)
 2. Creare una nuova risorsa di Application Insights
@@ -47,7 +47,7 @@ Sono necessari gli elementi seguenti:
 
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
-## 2\. Aggiungere SDK per Java di Application Insights al progetto
+## 2. Aggiungere SDK per Java di Application Insights al progetto
 
 *Scegliere il modo più appropriato per il progetto.*
 
@@ -121,7 +121,7 @@ Aggiungere manualmente SDK:
 `applicationinsights-core` fornisce l'API con telemetria non automatica. `applicationinsights-web` fornisce le metriche rilevando i conteggi delle richieste HTTP e i tempi di risposta.
 
 
-## 3\. Aggiungere un file XML di Application Insights
+## 3. Aggiungere un file XML di Application Insights
 
 Aggiungere il file ApplicationInsights.xml alla cartella resources del progetto. Copiarvi il seguente file XML.
 
@@ -162,7 +162,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
 
-## 4\. Aggiungere un filtro HTTP
+## 4. Aggiungere un filtro HTTP
 
 L'ultimo passaggio di configurazione consente al componente delle richieste HTTP di registrare ogni richiesta Web. Non necessario se si desidera l'API.
 
@@ -196,7 +196,7 @@ Modificare questi elementi per includere il pacchetto di Application Insights:
 
 #### Se si usa Struts 2
 
-Aggiungere questa voce al file di configurazione Struts \(in genere denominato struts.xml o struts-default.xml\):
+Aggiungere questa voce al file di configurazione Struts (in genere denominato struts.xml o struts-default.xml):
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
@@ -205,7 +205,7 @@ Aggiungere questa voce al file di configurazione Struts \(in genere denominato s
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
-## 5\. Visualizzare i dati di telemetria in Application Insights
+## 5. Visualizzare i dati di telemetria in Application Insights
 
 Eseguire l'applicazione.
 
@@ -239,7 +239,7 @@ Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home
 
 In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
-## 5\. Contatori delle prestazioni
+## 5. Contatori delle prestazioni
 
 Fare clic sul riquadro Server e verrà visualizzato un intervallo di contatori delle prestazioni.
 
@@ -258,7 +258,7 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
 
 È possibile specificare altri contatori di prestazioni da raccogliere.
 
-#### Contatori JMX \(esposti da Java Virtual Machine\)
+#### Contatori JMX (esposti da Java Virtual Machine)
 
     <PerformanceCounters>
       <Jmx>
@@ -270,16 +270,16 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
 *	`displayName`: il nome visualizzato nel portale di Application Insights.
 *	`objectName`: il nome dell'oggetto JMX.
 *	`attribute`: l'attributo del nome dell'oggetto JMX da recuperare
-*	`type` \(facoltativo\): il tipo di attributo dell'oggetto JMX:
+*	`type` (facoltativo): il tipo di attributo dell'oggetto JMX:
  *	Impostazione predefinita: un tipo semplice come int o long.
  *	`composite`: i dati del contatore delle prestazioni sono nel formato 'Attribute.Data'
  *	`tabular`: i dati del contatore delle prestazioni sono nel formato della riga di una tabella
 
 
 
-#### Contatori delle prestazioni Windows \(a 64 bit\) 
+#### Contatori delle prestazioni Windows (a 64 bit) 
 
-Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) è un membro di una categoria \(nello stesso modo in cui un campo è un membro di una classe\). Le categorie possono essere globali o possono disporre di istanze numerate o denominate.
+Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) è un membro di una categoria (nello stesso modo in cui un campo è un membro di una classe). Le categorie possono essere globali o possono disporre di istanze numerate o denominate.
 
     <PerformanceCounters>
       <Windows>
@@ -289,20 +289,20 @@ Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/wi
     </PerformanceCounters>
 
 *	displayName: il nome visualizzato nel portale di Application Insights
-*	categoryName: la categoria del contatore delle prestazioni \(oggetto prestazioni\) a cui è associato questo contatore delle prestazioni
+*	categoryName: la categoria del contatore delle prestazioni (oggetto prestazioni) a cui è associato questo contatore delle prestazioni
 *	counterName: il nome del contatore delle prestazioni
-*	instanceName: il nome dell'istanza di categoria del contatore delle prestazioni o una stringa vuota \(""\), se la categoria contiene una singola istanza. Se categoryName è il processo e il contatore delle prestazioni di cui raccogliere i dati proviene dal processo JVM corrente su cui è in esecuzione l'app, specificare `"__SELF__"`.
+*	instanceName: il nome dell'istanza di categoria del contatore delle prestazioni o una stringa vuota (""), se la categoria contiene una singola istanza. Se categoryName è il processo e il contatore delle prestazioni di cui raccogliere i dati proviene dal processo JVM corrente su cui è in esecuzione l'app, specificare `"__SELF__"`.
 
 I contatori delle prestazioni sono visibili come metriche personalizzate in [Esplora metriche][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6\. Acquisire le tracce dei log
+## 6. Acquisire le tracce dei log
 
 È possibile usare Application Insights per analizzare approfonditamente i log Log4J, Logback o altri framework di registrazione. È possibile correlare i log con le richieste HTTP e altri dati di telemetria. [Informazioni][javalogs].
 
-## 7\. Inviare i propri dati di telemetria
+## 7. Inviare i propri dati di telemetria
 
 Ora che è stato installato SDK, è possibile usare l'API per inviare i propri dati di telemetria.
 

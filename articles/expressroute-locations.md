@@ -17,7 +17,7 @@
 # Partner e località di peering per ExpressRoute
 Questa tabella fornisce informazioni dettagliate sugli elementi seguenti:
 
-1. Provider di connettività per ExpressRoute \(EXP e NSP\)
+1. Provider di connettività per ExpressRoute (EXP e NSP)
 2. Copertura geografica per ExpressRoute
 3. Servizi cloud Microsoft supportati su ExpressRoute
 4. Integratori di sistemi ExpressRoute
@@ -41,7 +41,7 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 La connettività tra diverse aree geopolitiche non è supportata. È possibile collaborare con il provider di connettività per estendere la connettività in diverse aree geopolitiche usando la rete del provider.
 
 
-### Località per i provider di Exchange \(EXP\)
+### Località per i provider di Exchange (EXP)
 - Per un elenco di provider di Exchange e delle località in cui sono supportati, vedere questa [tabella](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP).
 -  Per i passaggi per la configurazione della connessione, vedere [Configurare la connessione EXP](expressroute-configuring-exps.md).
 
@@ -58,7 +58,7 @@ Se il provider di connettività usato non è incluso negli elenchi precedenti, s
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Richiedere al provider di connettività di estendere la rete alla località di Exchange scelta.
 	- Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.
-	- È possibile che i provider di connettività \(in particolare i provider Ethernet\) richiedano all'utente di ottenere un paio di circuiti per gli scambi Ethernet, in modo da assicurare la disponibilità elevata. 
+	- È possibile che i provider di connettività (in particolare i provider Ethernet) richiedano all'utente di ottenere un paio di circuiti per gli scambi Ethernet, in modo da assicurare la disponibilità elevata. 
 - Ordinare un circuito ExpressRoute tramite il provider di Exchange per connettersi ad Azure
 	- Per configurare la connettività, eseguire la procedura illustrata in [Configurare la connessione EXP](expressroute-configuring-exps.md).
 
@@ -70,7 +70,7 @@ Se il provider di connettività usato non è incluso negli elenchi precedenti, s
 ## ExpressRoute e Servizi cloud Microsoft
 Le tabelle seguenti forniscono informazioni dettagliate sui provider di connettività e un elenco dei servizi cloud Microsoft supportati. Contattare il provider di servizi
 
-**Provider di Exchange \(EXP\)**
+**Provider di Exchange (EXP)**
 
 |**Provider di servizi**|**Servizi di Microsoft Azure**|**Servizi di Office 365**|
 |---|---|---|
@@ -82,7 +82,7 @@ Le tabelle seguenti forniscono informazioni dettagliate sui provider di connetti
 |**TeleCity Group**|Supportato||
 |**Zayo Group**|Supportato||
 
-**Provider di servizi di rete \(NSP\)**
+**Provider di servizi di rete (NSP)**
 
 |**Provider di servizi**|**Servizi di Microsoft Azure**|**Servizi di Office 365**|
 |---|---|---|
