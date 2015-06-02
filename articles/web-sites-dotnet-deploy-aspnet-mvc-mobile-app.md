@@ -36,9 +36,12 @@ Ai fini di questa esercitazione si aggiungeranno funzionalità mobili alla sempl
 In questa esercitazione si apprenderà:
 
 -	Come usare Visual Studio 2013 per pubblicare un'applicazione Web direttamente in un'app Web nel servizio app di Azure.
--   Come i modelli ASP.NET MVC 5 usano il framework CSS Bootstrap per migliorare la visualizzazione sui dispositivi mobili
--   Come creare visualizzazioni specifiche del dispositivo per browser di destinazione specifici del dispositivo, ad esempio quelli di iPhone e Android.
--   Come creare visualizzazioni reattive (che rispondono a browser differenti su dispositivi differenti).
+-   Come i modelli ASP.NET MVC 5 usano il framework CSS Bootstrap per
+    migliorare la visualizzazione sui dispositivi mobili
+-   Come creare visualizzazioni specifiche del dispositivo per
+    browser di destinazione specifici del dispositivo, ad esempio quelli di iPhone e Android.
+-   Come creare visualizzazioni reattive (che rispondono a
+    browser differenti su dispositivi differenti).
 
 ## Configurare l'ambiente di sviluppo
 
@@ -49,11 +52,12 @@ Installare Azure SDK per .NET 2.5.1 o versione successiva per configurare l'ambi
 
 Sarà inoltre necessario disporre di un emulatore del browser per dispositivi mobili. Eseguire una o più delle operazioni seguenti:
 
--   Emulatore di browser disponibile negli [strumenti di sviluppo F12 di Internet Explorer 11][EmulatorIE11] (usato in tutte le schermate del browser per dispositivi mobili). Dispone di set di impostazioni della stringa agente utente per Windows Phone 8, Windows Phone 7 e Apple iPad.
+-   Emulatore di browser disponibile negli [strumenti di sviluppo F12 di Internet Explorer 11][EmulatorIE11] (usato in tutte le schermate del
+    browser per dispositivi mobili). Dispone di set di impostazioni della stringa agente utente per Windows Phone 8, Windows Phone 7 e Apple iPad.
 -	Emulatore di browser disponibile in [Google Chrome DevTools][EmulatorChrome]. Sono disponibili set di impostazioni per diversi dispositivi Android, oltre che per Apple iPhone, Apple iPad e Amazon Kindle Fire. Emula anche gli eventi tocco.
 -   [Emulatore mobile di Opera][EmulatorOpera]
 
-Sono disponibili alcuni progetti con codice sorgente C# a integrazione di questo argomento:
+Sono disponibili alcuni progetti con codice sorgente C\# a integrazione di questo argomento:
 
 -   [Download progetto iniziale][StarterProject]
 -   [Download progetto completato][CompletedProject]
@@ -114,7 +118,7 @@ La visualizzazione relativa ai tag ASP.NET viene ridotta in modo da rientrare pe
 
 Una delle novità del modello MVC 5 è il supporto integrato per Bootstrap. È già stato illustrato come Bootstrap consenta di migliorare le diverse schermate dell'applicazione. Ad esempio, quando la larghezza del browser è ridotta, la barra di spostamento nella parte superiore della schermata è automaticamente comprimibile. Sul browser desktop, provare a ridimensionare la finestra e osservare come cambiano le dimensioni e l'aspetto della barra di spostamento. Questa è una dimostrazione della progettazione Web reattiva integrata in Bootstrap.
 
-Per vedere l'aspetto dell'app Web senza Bootstrap, aprire *App_Start\\BundleConfig.cs* e impostare come commento le righe contenenti *bootstrap.js* e *bootstrap.css*. Il codice riportato di seguito mostra le ultime due istruzioni del metodo `RegisterBundles` dopo la modifica:
+Per vedere l'aspetto dell'app Web senza Bootstrap, aprire *App\_Start\\BundleConfig.cs* e impostare come commento le righe contenenti *bootstrap.js* e *bootstrap.css*. Il codice riportato di seguito mostra le ultime due istruzioni del metodo `RegisterBundles` dopo la modifica:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -144,7 +148,7 @@ Nella sezione seguente verrà illustrato come creare visualizzazioni specifiche 
 
 In questa sezione verrà illustrato come creare un file di layout specifico per dispositivi mobili.
 
-Per iniziare, copiare *Views\\Shared\_Layout.cshtml* in *Views\\Shared\_Layout.Mobile.cshtml*. Aprire *_Layout.Mobile.cshtml* e modificare il titolo da **MVC5 Application** a **MVC5 Application (Mobile)**.
+Per iniziare, copiare *Views\\Shared\_Layout.cshtml* in *Views\\Shared\\_Layout.Mobile.cshtml*. Aprire *\_Layout.Mobile.cshtml* e modificare il titolo da **MVC5 Application** a **MVC5 Application (Mobile)**.
 
 In ogni chiamata di `Html.ActionLink` per la barra di spostamento, rimuovere "Browse by" da ciascun collegamento *ActionLink*. Il codice seguente mostra il tag `<ul class="nav navbar-nav">` completato del file di layout per dispositivi mobili.
 
@@ -159,11 +163,11 @@ Copiare il file *Views\\Home\\AllTags.cshtml* in *Views\\Home\\AllTags.Mobile.cs
 
     <h2>Tags (M)</h2>
 
-Passare alla pagina Tags utilizzando un browser desktop e un emulatore di browser per dispositivi mobili. L'emulatore di browser per dispositivi mobili mostra le due modifiche apportate (titolo da *_Layout.Mobile.cshtml* e titolo da *AllTags.Mobile.cshtml*).
+Passare alla pagina Tags utilizzando un browser desktop e un emulatore di browser per dispositivi mobili. L'emulatore di browser per dispositivi mobili mostra le due modifiche apportate (titolo da *\_Layout.Mobile.cshtml* e titolo da *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
-La visualizzazione desktop, invece, non è stata modificata (con i titoli da *_Layout.cshtml* e *AllTags.cshtml*)
+La visualizzazione desktop, invece, non è stata modificata (con i titoli da *\_Layout.cshtml* e *AllTags.cshtml*)
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -205,18 +209,18 @@ La schermata seguente mostra la visualizzazione *AllTags* sottoposta a rendering
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-Nel browser per dispositivi mobili selezionare il collegamento **Speakers**. Poiché non è disponibile una visualizzazione mobile (*AllSpeakers.Mobile.cshtml*), viene eseguito il rendering della visualizzazione dei relatori predefinita(*AllSpeakers.cshtml*) usando la visualizzazione di layout mobile(*_Layout.Mobile.cshtml*). Come mostrato di seguito, il titolo **MVC5 Application (Mobile)** è definito in *_Layout.Mobile.cshtml*.
+Nel browser per dispositivi mobili selezionare il collegamento **Speakers**. Poiché non è disponibile una visualizzazione mobile (*AllSpeakers.Mobile.cshtml*), viene eseguito il rendering della visualizzazione dei relatori predefinita(*AllSpeakers.cshtml*) usando la visualizzazione di layout mobile(*\_Layout.Mobile.cshtml*). Come mostrato di seguito, il titolo **MVC5 Application (Mobile)** è definito in *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
-È possibile disabilitare a livello globale il rendering di una visualizzazione predefinita (non mobile) all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su `true` nel file *Views_ViewStart.cshtml*, come mostrato di seguito:
+È possibile disabilitare a livello globale il rendering di una visualizzazione predefinita (non mobile) all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su `true` nel file *Views\\\_ViewStart.cshtml*, come mostrato di seguito:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Se `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile (*_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili, ovvero quando il file della visualizzazione è in formato ***ViewName**.Mobile.cshtml*). Può essere opportuno impostare `RequireConsistentDisplayMode` su `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La schermata seguente mostra il modo in cui la pagina *Speakers* viene sottoposta a rendering quando `RequireConsistentDisplayMode` è impostato su `true`, senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata.
+Se `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile (*\_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili, ovvero quando il file della visualizzazione è in formato ***ViewName**.Mobile.cshtml*). Può essere opportuno impostare `RequireConsistentDisplayMode` su `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La schermata seguente mostra il modo in cui la pagina *Speakers* viene sottoposta a rendering quando `RequireConsistentDisplayMode` è impostato su `true`, senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata.
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +266,7 @@ Lo stile di Bootstrap [relativo ai gruppi elenchi collegati][] rende l'intera ca
 
 ![][AllSpeakersFixedDesktop]
 
-Anche se la visualizzazione per il browser per dispositivi mobili è stata migliorata, scorrere il lungo elenco di relatori è ancora difficile. Bootstrap non fornisce un filtro di ricerca pronto all'uso, ma è possibile aggiungere questa funzionalità con poche righe di codice. È necessario innanzitutto aggiungere alla visualizzazione una casella di ricerca e quindi collegare tale casella al codice JavaScript relativo alla funzione di filtro. *Views\\Home\\AllSpeakers.cshtml* aggiungere un tag <form> subito dopo il tag <h2>, come illustrato di seguito:
+Anche se la visualizzazione per il browser per dispositivi mobili è stata migliorata, scorrere il lungo elenco di relatori è ancora difficile. Bootstrap non fornisce un filtro di ricerca pronto all'uso, ma è possibile aggiungere questa funzionalità con poche righe di codice. È necessario innanzitutto aggiungere alla visualizzazione una casella di ricerca e quindi collegare tale casella al codice JavaScript relativo alla funzione di filtro. *Views\\Home\\AllSpeakers.cshtml* aggiungere un tag <\form\> subito dopo il tag \<h2\>, come illustrato di seguito:
 
     @model IEnumerable<string>
 
@@ -323,7 +327,7 @@ Nella cartella *Scripts* aggiungere un file JavaScript denominato *filter.js*. A
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-Il bundle **jquery** è già stato sottoposto a rendering dalla visualizzazione predefinita *_Layout*. In un secondo tempo è possibile usare lo stesso codice JavaScript per applicare la funzionalità di filtro ad altre visualizzazioni elenco.
+Il bundle **jquery** è già stato sottoposto a rendering dalla visualizzazione predefinita *\_Layout*. In un secondo tempo è possibile usare lo stesso codice JavaScript per applicare la funzionalità di filtro ad altre visualizzazioni elenco.
 
 Aggiornare il browser per dispositivi mobili e passare alla visualizzazione *AllSpeakers*. Nella casella di ricerca digitare "sc". L'elenco dei relatori viene ora filtrato in base alla stringa di ricerca.
 
@@ -444,9 +448,12 @@ Come mostrato dalla figura, la visualizzazione è formattata come tabella, soluz
 
 Il codice esegue tre operazioni:
 
--   Usa il [gruppo elenchi collegati personalizzato][] di Bootstrap per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura su un browser per dispositivi mobili (usando classi quali list-group-item-text).
--   Applica il [sistema griglia al layout][], in modo che gli elementi della sessione scorrano in orizzontale nel browser desktop e in verticale in quello per dispositivi mobili (mediante la classe col-md-4).
--   Usa [utilità reattive][] per nascondere i tag della sessione durante la visualizzazione sul browser per dispositivi mobili (mediante la classe hidden-xs).
+-   Usa il [gruppo elenchi collegati personalizzato][] di Bootstrap
+    per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura su un browser per dispositivi mobili (usando classi quali list-group-item-text).
+-   Applica il [sistema griglia al layout][],
+    in modo che gli elementi della sessione scorrano in orizzontale nel browser desktop e in verticale in quello per dispositivi mobili (mediante la classe col-md-4).
+-   Usa [utilità reattive][] per
+    nascondere i tag della sessione durante la visualizzazione sul browser per dispositivi mobili (mediante la classe hidden-xs).
 
 È possibile anche toccare il collegamento di un titolo per passare alla relativa sessione. Nell'immagine seguente è illustrato l'aspetto risultante dopo aver apportato le modifiche al codice.
 
@@ -527,10 +534,13 @@ Aggiornare il browser per dispositivi mobili. Nell'immagine seguente è illustra
 Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per sviluppare applicazioni Web per dispositivi mobili. Sono state illustrate le seguenti operazioni:
 
 -	Distribuzione di un'applicazione ASP.NET MVC 5 in un'app Web del servizio app
--   Uso di Bootstrap per creare un layout Web reattivo nell'applicazione MVC 5
+-   Uso di Bootstrap per creare un layout Web reattivo nell'
+    applicazione MVC 5
 -   Override di layout, visualizzazioni e visualizzazioni parziali, sia in modo globale sia per una singola visualizzazione
--   Controllo del layout ed esecuzione di un override parziale usando la proprietà`RequireConsistentDisplayMode`
--   Creazione di visualizzazioni per browser specifici, ad esempio quello per iPhone
+-   Controllo del layout ed esecuzione di un override parziale usando la proprietà
+    `RequireConsistentDisplayMode`
+-   Creazione di visualizzazioni per browser specifici, ad esempio
+    quello per iPhone
 -   Applicazione di stili Bootstrap in codice Razor
 
 ## Vedere anche
@@ -616,4 +626,4 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
 
-<!--HONumber=54-->
+<!---HONumber=54-->
