@@ -111,4 +111,6 @@ L'abilitazione della connettività privata ottimale per le proprie esigenze può
 - Assicurarsi che siano soddisfatti i [prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 - Per altre informazioni, vedere la pagina relativa alle [domande frequenti](expressroute-faqs.md).
 - Selezionare il provider e configurare la connessione. Per informazioni sulla configurazione, vedere [Configurare la connessione EXP](expressroute-configuring-exps.md) o [Configurare la connessione NSP](expressroute-configuring-nsps.md).
-<!--HONumber=54-->
+
+
+<!---HONumber=54-->
