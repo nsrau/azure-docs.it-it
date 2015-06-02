@@ -18,7 +18,8 @@
 
 # Limitazioni e problemi noti della versione di anteprima di Analisi dei flussi di Azure
 
-In questo documento vengono descritti le limitazioni e i problemi noti di [Analisi dei flussi di Azure][stream.analytics.documentation] durante la versione di anteprima. Nella maggior parte dei casi i limiti vengono applicati con l'obiettivo di ottenere i commenti preliminari dell'utente oppure in base ai vincoli imposti dalla capacità disponibile. <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+In questo documento vengono descritti le limitazioni e i problemi noti di [Analisi dei flussi di Azure][stream.analytics.documentation] durante la versione di anteprima. Nella maggior parte dei casi i limiti vengono applicati con l'obiettivo di ottenere i commenti preliminari dell'utente oppure in base ai vincoli imposti dalla capacità disponibile. 
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## Limitazioni

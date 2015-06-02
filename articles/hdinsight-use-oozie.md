@@ -79,7 +79,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 <tr><td>Nome di accesso al database SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nome di accesso al database SQL di Azure.</td></tr>
 <tr><td>Password di accesso al database SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Password di accesso al database SQL di Azure.</td></tr>
 <tr><td>Nome del database SQL</td><td>$sqlDatabaseName</td><td></td><td>Database SQL di Azure in cui Sqoop esporterà i dati. </td></tr>
-</table>> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
+</table>
+
+	> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
 
 
 > [AZURE.NOTE]L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
