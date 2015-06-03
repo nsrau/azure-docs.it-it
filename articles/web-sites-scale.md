@@ -49,7 +49,8 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 	
 	Dopo il completamento dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## Passaggio alla modalità Standard o Premium
 <!-- ================================= -->
 
