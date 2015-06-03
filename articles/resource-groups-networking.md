@@ -346,4 +346,6 @@ Le proprietà principali di un endpoint includono:
 
 [Uso dei tag in Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx)
+
+<!---HONumber=52-->
