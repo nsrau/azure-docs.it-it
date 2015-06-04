@@ -77,7 +77,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 	In Visual Studio 2013 Update 2 o versioni successive verrà invece creata un'applicazione per Windows Phone Silverlight.
 	
-	![][11]	
+	![][11]
 
 2. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Gestisci pacchetti NuGet**. 
 
