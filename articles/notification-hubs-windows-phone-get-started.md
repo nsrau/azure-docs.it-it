@@ -23,7 +23,7 @@
 
 Questo argomento descrive come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Windows Phone 8 o Windows Phone 8.1 Silverlight. Se si usa Windows Phone 8.1 (non Silverlight), fare riferimento alla versione [Windows Universal](notification-hubs-windows-store-dotnet-get-started.md). In questa esercitazione si creerà un'app per Windows Phone 8 vuota che riceve notifiche push tramite il Servizio di notifica Push di Microsoft. Al termine, sarà possibile trasmettere le notifiche push a tutti i dispositivi che eseguono l'app tramite l'hub di notifica.
 
-> [AZURE.NOTE]Hub di notifica per Windows Phone SDK non supporta l'uso di WNS con app di Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare la seguente [Esercitazione su Hub di notifica - WP Silverlight] di esempio che usa API REST
+> [AZURE.NOTE] Hub di notifica per Windows Phone SDK non supporta l'uso di WNS con app di Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare la seguente [Esercitazione su Hub di notifica - WP Silverlight] di esempio che usa API REST
 
 In questa esercitazione viene illustrato uno scenario di trasmissione semplice tramite hub di notifica.
 
@@ -35,7 +35,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub notifica relative ad app per Windows Phone 8.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 
 ##Creare l'hub di notifica
 
@@ -43,27 +43,27 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, **Hub di notifica**, quindi **Creazione rapida**.
 
-   ![][7]
+   	![][7]
 
 3. Digitare un nome per l'hub di notifica, selezionare l'area desiderata, quindi fare clic su **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic sulla scheda **Configure** nella parte superiore.
 
-   ![][9]
+   	![][9]
 
 5. Fare clic sulla scheda **Notification Hubs** nella parte superiore, quindi fare clic sull'hub di notifica appena creato.
 
-   ![][10]
+   	![][10]
 
 6. Fare clic su **Connection Information** nella parte inferiore. Prendere nota delle due stringhe di connessione.
 
-   ![][12]
+   	![][12]
 
 7. Fare clic sulla scheda **Configure**, quindi selezionare la casella di controllo **Enable unauthenticated push notifications** nella sezione **Windows Phone notifications settings**.
 
-   ![][15]
+   	![][15]
 
 A questo punto si dispone delle stringhe di connessione necessarie per registrare l'app di Windows Phone 8 e inviare le notifiche.
 
@@ -73,7 +73,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 1. In Visual Studio creare una nuova applicazione per Windows Phone 8.
 
-   ![][13]
+   	![][13]
 
 	In Visual Studio 2013 Update 2 o versioni successive verrà invece creata un'applicazione per Windows Phone Silverlight.
 	
@@ -117,9 +117,9 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
     
 6. In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID__CAP__PUSH_NOTIFICATION** sia selezionata.
 
-   ![][14]
+   	![][14]
 
-   In questo modo si garantirà che l'app sia in grado di ricevere notifiche push.
+   	In questo modo si garantirà che l'app sia in grado di ricevere notifiche push.
 	
 7. Premere F5 per eseguire l'app.
 
@@ -131,7 +131,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine fare clic su **OK**. 
 
-   ![][6]
+   	![][6]
 
 	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata. 
 
