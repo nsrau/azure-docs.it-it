@@ -378,8 +378,8 @@ A questo punto, dopo aver appreso le nozioni di base di Cache Redis di Azure, us
 
 [Redis]: http://redis.io/documentation
 [Tipi di dati Redis]: http://redis.io/topics/data-types
-[introduzione di quindici minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
+[introduzione di 15 minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
 
-[Uso di stringhe di applicazione e stringhe di connessione in Siti Web di Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[uso di stringhe di applicazione e stringhe di connessione in Siti Web di Microsoft Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=49-->

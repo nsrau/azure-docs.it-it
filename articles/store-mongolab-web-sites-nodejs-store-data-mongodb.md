@@ -52,9 +52,9 @@ Se si conosce già Azure Store, utilizzare questa sezione per iniziare rapidamen
 2. Fare clic sul componente aggiuntivo **MongoLab**.  
 ![MongoLab][entry-mongolab]
 3. Fare clic sul componente aggiuntivo **MongoLab** nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**.  
-![ConnectionInfoButton][button-connectioninfo]  
+![ConnectionInfoButton](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png)  
 4. Copiare **MONGOLAB_URI** negli Appunti.  
-![ConnectionInfoScreen][screen-connectioninfo]
+![ConnectionInfoScreen](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png)
 
 	>[AZURE.NOTE]Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.
 
@@ -542,8 +542,6 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [button-new]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
 [button-store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
 [entry-mongolab]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
-[button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
-[screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
 [provision]: #provision
 [create]: #create
