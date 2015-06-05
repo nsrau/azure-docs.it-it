@@ -55,7 +55,7 @@ Se si conosce già Azure Store, utilizzare questa sezione per iniziare rapidamen
 ![ConnectionInfoButton][button-connectioninfo]  
 4. Copiare **MONGOLAB_URI** negli Appunti.  
 ![ConnectionInfoScreen][screen-connectioninfo]
-  
+
 	>[AZURE.NOTE]Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.
 
 5. Aggiungere il valore all'elenco **Stringhe di connessione** nel menu **Configurazione** dell'applicazione Web in Servizio app di Azure:  
@@ -574,4 +574,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 
 
 
-<!---HONumber=54-->
+<!----HONumber=54-->

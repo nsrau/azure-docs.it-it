@@ -22,11 +22,23 @@
 Il connettore BLOB di Archiviazione di Azure consente di caricare, scaricare ed eliminare i BLOB da un contenitore BLOB.
 
 ##Creare un nuovo connettore BLOB di Archiviazione di Azure
-Per creare un nuovo connettore di Archiviazione di Azure, attenersi alla procedura riportata di seguito. <ul> <li>Avviare il portale di Azure <li>Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace </ul>
+Per creare un nuovo connettore di Archiviazione di Azure, attenersi alla procedura riportata di seguito.
+<ul>
+<li>Avviare il portale di Azure <li>Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace
+</ul>
 
-![Avviare Azure Marketplace][1]<br> <ul> <li>Fare clic su App per le API <li>Cercare <i>BLOB</i>, quindi selezionare Connettore BLOB di Archiviazione di Azure </ul>
+![Avviare Azure Marketplace][1]
+<br>
+<ul>
+<li>Fare clic su App per le API <li>Cercare <i>BLOB</i>, quindi selezionare Connettore BLOB di Archiviazione di Azure
+</ul>
 
-![Selezionare il connettore BLOB Archiviazione di Azure][2] <br> <ul> <li>Fare clic su Crea <li>Nel pannello del connettore BLOB di Archiviazione di Azure che si apre specificare i dati seguenti. </ul>
+![Selezionare il connettore BLOB Archiviazione di Azure][2]
+<br>
+<ul>
+<li>Fare clic su Crea
+<li>Nel pannello del connettore BLOB di Archiviazione di Azure che si apre specificare i dati seguenti.
+</ul>
 
 ![Creare il connettore BLOB Archiviazione di Azure][3]
 
@@ -107,4 +119,4 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
 
-<!--HONumber=54-->
+<!---HONumber=54-->
