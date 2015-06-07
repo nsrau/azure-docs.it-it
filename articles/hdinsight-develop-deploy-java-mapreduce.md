@@ -41,7 +41,8 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 
 **Per creare un progetto con Maven**
 
-1. Creare una directory **C:\\Tutorials\\WordCountJava**.2. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory del percorso creato.
+1. Creare una directory **C:\\Tutorials\\WordCountJava**.
+2. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory del percorso creato.
 3. Usare il comando __mvn__, che viene installato con Maven, per generare lo scaffolding per il progetto.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -314,7 +315,7 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	La variabile **$subscripionName** è associata alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName_Data** e** $containerName_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
+	La variabile **$subscripionName** è associata alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName_Data** e **$containerName_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
 3. Eseguire i comandi seguenti per creare un account di archiviazione e un contenitore di archiviazione BLOB nell'account:
 

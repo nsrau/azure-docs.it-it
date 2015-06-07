@@ -219,9 +219,28 @@ Creare innanzitutto un semplice modello di dati usando il codice. Questo modello
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Modelli* e quindi scegliere **Aggiungi** -> **Classe**. ![Seleziona classe](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png) La finestra di dialogo **Aggiungi nuovo elemento** viene visualizzata.  
 
 2. Assegnare alla nuova classe il nome *Contacts.cs*. ![Finestra di dialogo Aggiungi nuovo elemento](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)
-3. Sostituire il codice predefinito con il codice seguente: <pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System. Globalization;
+3. Sostituire il codice predefinito con il codice seguente: 
+	<pre class="prettyprint">
+	using System.ComponentModel.DataAnnotations;
+	using System.Globalization;
 	
-	namespace ContactManager.Models { public class Contacts { [ScaffoldColumn(false)][Key] public int ContactId { get; set; } public string Name { get; set; } public string Address { get; set; } public string City { get; set; } public string State { get; set; } public string Zip { get; set; } [DataType(DataType.EmailAddress)] public string Email { get; set; } } } </pre>
+	namespace ContactManager.Models
+	{
+	    public class Contacts
+	    {
+	        [ScaffoldColumn(false)]
+	        [Key]
+	        public int ContactId { get; set; }
+	        public string Name { get; set; }
+	        public string Address { get; set; }
+	        public string City { get; set; }
+	        public string State { get; set; }
+	        public string Zip { get; set; }
+	        [DataType(DataType.EmailAddress)]
+	        public string Email { get; set; }
+	    }
+	}
+	</pre>
 
 La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, `ContactID`, necessaria per il database. La classe **Contacts** rappresenta i dati del contatto che verranno visualizzati. Ogni istanza di un oggetto Contacts corrisponderà a una riga all'interno di una tabella di database relazionale e ogni proprietà della classe Contacts sarà mappata a una colonna nella tabella di database relazionale. Più avanti in questa esercitazione verranno esaminati i dati dei contatti contenuti nel database.
 

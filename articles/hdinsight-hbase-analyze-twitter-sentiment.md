@@ -1176,7 +1176,8 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare layout.cshtml**
 
-1. In **Esplora soluzioni** espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**. 2. Sostituire il contenuto con i contenuti seguenti:
+1. In **Esplora soluzioni** espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**.
+2. Sostituire il contenuto con i contenuti seguenti:
 
 		<!DOCTYPE html>
 		<html>

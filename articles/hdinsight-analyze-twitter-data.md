@@ -243,16 +243,16 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 3. Impostare le prime cinque-otto variabili dello script:
 
 	<table border="1">
-<tr><th>Variabile</th><th>Descrizione</th></tr>
-<tr><td>$clusterName</td><td>Nome del cluster HDInsight in cui eseguire l'applicazione.</td></tr><tr><td>$oauth_consumer_key</td><td>Applicazione Twitter <strong>consumer key</strong> scritta in precedenza al momento della creazione dell'applicazione Twitter.</td></tr>
-<tr><td>$oauth_consumer_secret</td><td>L'applicazione Twitter <strong>consumer secret</strong> scritta in precedenza.</td></tr>
-<tr><td>$oauth_token</td><td>L'applicazione Twitter <strong>access token</strong> scritta in precedenza.</td></tr>
-<tr><td>$oauth_token_secret</td><td>L'applicazione Twitter <strong>access token secret</strong> scritta in precedenza.</td></tr>	
-<tr><td>$destBlobName</td><td>Il nome BLOB dell'output. Il valore predefinito è <strong>tutorials/twitter/data/tweets.txt</strong>. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
-<tr><td>$trackString</td><td>Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è <strong>Azure, Cloud, HDInsight</strong>. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
-<tr><td>$lineMax</td><td>Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.</td></tr>
+	<tr><th>Variabile</th><th>Descrizione</th></tr>
+	<tr><td>$clusterName</td><td>Nome del cluster HDInsight in cui eseguire l'applicazione.</td></tr><tr><td>$oauth_consumer_key</td><td>Applicazione Twitter <strong>consumer key</strong> scritta in precedenza al momento della creazione dell'applicazione Twitter.</td></tr>
+	<tr><td>$oauth_consumer_secret</td><td>L'applicazione Twitter <strong>consumer secret</strong> scritta in precedenza.</td></tr>
+	<tr><td>$oauth_token</td><td>L'applicazione Twitter <strong>access token</strong> scritta in precedenza.</td></tr>
+	<tr><td>$oauth_token_secret</td><td>L'applicazione Twitter <strong>access token secret</strong> scritta in precedenza.</td></tr>	
+	<tr><td>$destBlobName</td><td>Il nome BLOB dell'output. Il valore predefinito è <strong>tutorials/twitter/data/tweets.txt</strong>. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
+	<tr><td>$trackString</td><td>Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è <strong>Azure, Cloud, HDInsight</strong>. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
+	<tr><td>$lineMax</td><td>Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.</td></tr>
 
-</table>
+	</table>
 
 5. Premere **F5** per eseguire lo script. In caso di problemi, come soluzione selezionare tutte le righe e premere **F8**.
 6. Alla fine dell'output verrà visualizzato il testo "Complete!". Eventuali messaggi di errore verranno visualizzati in rosso.

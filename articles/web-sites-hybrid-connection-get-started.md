@@ -91,10 +91,18 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	![Click OK][CreateBTScomplete]
 	
 6. Al termine del processo l'area Notifiche nel portale informa che la connessione è stata creata correttamente.
+<!-- TODO
 
-    L'operazione non riesce in questa fase. Non riesco a creare un servizio BizTalk nel portale dogfood. Passa al vecchio portale (portale completo) e creato il servizio BizTalk, ma non sembra per consentire la connessione, una volta il passaggio di conn crea ibrido, viene visualizzato l'errore seguente all'impossibilità di creare la connessione ibrida RelecIoudHC. Non è stato possibile trovare il tipo di risorsa dello spazio dei nomi 'Microsoft.BizTaIkServices per api versione 2014-06-01'.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
-	Il messaggio di errore indica che non è possibile trovare il tipo, non l'istanza. ![Success notification][CreateHCSuccessNotification] -->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Nel panello dell'app Web, l'icona **Connessioni ibride** ora mostra che è stata creata una connessione ibrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]

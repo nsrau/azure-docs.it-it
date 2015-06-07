@@ -69,7 +69,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 		info:    mobile recover command OK
 
 
-	> [AZURE.NOTE] It may take a few minutes after the command completes until you can see the changes in the portal.
+	> [AZURE.NOTE] La visualizzazione delle modifiche del portale dopo il completamento del comando potrebbe richiedere qualche minuto.
 
 5. Verificare che il ripristino di tutti gli script sia avvenuto correttamente confrontandoli con i rispettivi originali nel controllo del codice sorgente. Nella maggior parte dei casi, gli script vengono ripristinati automaticamente senza perdite di dati. Se tuttavia si dovessero riscontrare discrepanze per uno degli script, sarà possibile ripristinarlo manualmente.
 

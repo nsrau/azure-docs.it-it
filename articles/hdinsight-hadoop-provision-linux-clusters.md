@@ -113,12 +113,14 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 	![Fornire dettagli del cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Nome</th><th>Valore</th></tr>
-<tr><td>Nodi di dati</td><td>Numero di nodi di dati che si vuole distribuire. Ai fini di test, creare un cluster a singolo nodo. <br />Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione di Azure.</td></tr>
-<tr><td>Area/Rete virtuale</td><td><p>Selezionare la stessa area geografica specificata per l'account di archiviazione creato in precedenza. HDInsight richiede che l'account di archiviazione si trovi nella stessa area geografica. Più avanti nella configurazione sarà possibile selezionare un account di archiviazione situato nella stessa area geografica specificata qui.</p></td></tr>
-<tr><td>Dimensioni nodo head</td><td><p>Selezionare le dimensioni di una macchina virtuale (VM) per il nodo head.</p></td></tr>
-<tr><td>Dimensioni nodo dati</td><td><p>Selezionare le dimensioni di una VM per il nodo dati.</p></td></tr>
-</table>[AZURE.NOTE]Il costo potrebbe variare in base alla scelta delle VM. HDInsight usa tutte VM di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle VM influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+	<tr><th>Nome</th><th>Valore</th></tr>
+	<tr><td>Nodi di dati</td><td>Numero di nodi di dati che si vuole distribuire. Ai fini di test, creare un cluster a singolo nodo. <br />Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione di Azure.</td></tr>
+	<tr><td>Area/Rete virtuale</td><td><p>Selezionare la stessa area geografica specificata per l'account di archiviazione creato in precedenza. HDInsight richiede che l'account di archiviazione si trovi nella stessa area geografica. Più avanti nella configurazione sarà possibile selezionare un account di archiviazione situato nella stessa area geografica specificata qui.</p></td></tr>
+	<tr><td>Dimensioni nodo head</td><td><p>Selezionare le dimensioni di una macchina virtuale (VM) per il nodo head.</p></td></tr>
+	<tr><td>Dimensioni nodo dati</td><td><p>Selezionare le dimensioni di una VM per il nodo dati.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]Il costo potrebbe variare in base alla scelta delle VM. HDInsight usa tutte VM di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle VM influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 
 5. Nella pagina **Configura utente cluster** digitare o scegliere il valore seguente:
@@ -298,7 +300,8 @@ L'interfaccia della riga di comando può essere installata tramite NPM o Windows
 
 **Per installare l'interfaccia della riga di comando tramite Windows Installer**
 
-1.	Passare a **http://azure.microsoft.com/downloads/**. 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
+1.	Passare a **http://azure.microsoft.com/downloads/**.
+2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
 

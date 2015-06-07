@@ -219,7 +219,14 @@ Uno dei costrutti fondamentali nella pipeline di autenticazione di Servizi mobil
 
 	In questo caso il metodo è no-op perché **CustomLoginProvider** non si integra nella pipeline di autenticazione.
 
-4. Aggiungere l'implementazione seguente del metodo astratto `ParseCredentials` a **CustomLoginProvider**. public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. Aggiungere l'implementazione seguente del metodo astratto `ParseCredentials` a **CustomLoginProvider**.
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }

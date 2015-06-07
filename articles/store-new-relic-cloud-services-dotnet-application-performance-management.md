@@ -22,13 +22,15 @@
 
 In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
 
-Informazioni su New Relic --
+Informazioni su New Relic
+--
 
 New Relic è uno strumento destinato agli sviluppatori per il monitoraggio delle applicazioni di produzione, in grado di fornire informazioni molto approfondite su prestazioni e affidabilità. Lo strumento è progettato per consentire di risparmiare tempo quando si identificano o si diagnosticano problemi di prestazioni ed è in grado di mettere alla portata dell'utente tutte le informazioni necessarie per la risoluzione di tali problemi.
 
 New Relic tiene traccia del tempo di caricamento e della velocità effettiva della transazione Web, sia dal server che dai browser degli utenti. Visualizza il tempo trascorso nel database, analizza le query e le richieste Web più lente, fornisce il monitoraggio del tempo di attività e l'invio di avvisi, tiene traccia delle eccezioni delle applicazioni e molto altro ancora.
 
-New Relic a un prezzo speciale tramite Azure Store --
+New Relic a un prezzo speciale tramite Azure Store
+--
 
 New Relic Standard è gratuito per gli utenti di Azure. New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi cloud di Azure
 
@@ -38,7 +40,8 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Sto
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-Iscrizione a New Relic tramite Azure Store --
+Iscrizione a New Relic tramite Azure Store
+--
 
 New Relic si integra facilmente con i ruoli Web e di lavoro di Azure.
 

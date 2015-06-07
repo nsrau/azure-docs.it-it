@@ -7,7 +7,7 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
-	>[AZURE.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso viene visualizzata la pagina <strong>Projects</strong>. Per creare un nuovo progetto dalla pagina Dashboard, espandere <strong>API Project</strong>, fare clic su <strong>Create</strong> in <strong>Other projects</strong> e quindi immettere un nome di progetto e fare clic su <strong>Create project</strong>.
+	>[AZURE.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso viene visualizzata la pagina <strong>Projects</strong>. Per creare un nuovo progetto dalla pagina Dashboard, espandere <strong>API Project</strong>, fare clic su <strong>Create...</strong> in <strong>Other projects</strong> e quindi immettere un nome di progetto e fare clic su <strong>Create project</strong>.
 
 2. Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Create**.
 

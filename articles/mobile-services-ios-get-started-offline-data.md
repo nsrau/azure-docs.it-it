@@ -226,7 +226,7 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 * [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]
 
-* [Azure Friday: App con supporto offline in Servizi mobili di Azure] (nota: le demo sono per Windows, la descrizione delle funzionalità si applica a tutte le piattaforme)
+* [Azure Friday: App con supporto offline in Servizi mobili di Azure] \(nota: le demo sono per Windows, la descrizione delle funzionalità si applica a tutte le piattaforme\)
 
 <!-- URLs. -->
 

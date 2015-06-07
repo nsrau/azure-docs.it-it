@@ -2,7 +2,7 @@ Poiché lo sviluppo è ancora in corso, è possibile che la versione di Android 
 
 Due sintomi di una mancata corrispondenza delle versioni sono i seguenti:
 
-1. Esaminare la console di Eclipse nel riquadro inferiore. È possibile che vengano visualizzati messaggi di errore indicanti che non è possibile risolvere la destinazione di tipo 'android-n'."****"
+1. Esaminare la console di Eclipse nel riquadro inferiore. È possibile che vengano visualizzati messaggi di errore indicanti che "**non è possibile risolvere la destinazione di tipo 'android-n'**".
 
 2. Gli oggetti Android standard nel codice che dovrebbero risolversi in base a istruzioni `import` potrebbero generare messaggi di errore.
 

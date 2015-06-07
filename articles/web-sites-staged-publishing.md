@@ -203,13 +203,13 @@ L'interfaccia della riga di comando multipiattaforma (xplat-cli) di Azure fornis
 
 -  Per l'elenco dei comandi disponibili per Azure App Service nell'interfaccia xplat-cli, chiamare `azure site -h`.
 
-\----------
+----------
 ### azure site list
 Per informazioni sulle app Web nell'attuale sottoscrizione, chiamare **azure site list**, come nell'esempio seguente.
 
 `azure site list webappslotstest`
 
-\----------
+----------
 ### azure site create
 Per creare uno slot di distribuzione, chiamare **azure site create** e specificare il nome di un'app Web esistente e il nome dello slot da creare, come nell'esempio seguente.
 
@@ -219,13 +219,13 @@ Per abilitare il controllo del codice sorgente per il nuovo slot, utilizzare l'o
 
 `azure site create --git webappslotstest --slot staging`
 
-\----------
+----------
 ### azure site swap
 Per applicare lo slot di distribuzione aggiornato al sito di produzione, utilizzare il comando **azure site swap** per eseguire un'operazione di scambio, come nell'esempio seguente. L'app di produzione non sarà caratterizzata da tempi di inattività, né subirà un avvio a freddo.
 
 `azure site swap webappslotstest`
 
-\----------
+----------
 ### azure site delete
 Per eliminare uno slot di distribuzione non più necessario, usare il comando **azure site delete**, come nell'esempio seguente.
 

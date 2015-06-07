@@ -51,7 +51,8 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Manage Subscriptions** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione (denominato anche file *.publishsettings* per l'account Azure.
 
-	> [AZURE.NOTE]Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
+	> [AZURE.NOTE]
+	> Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
 
 	Per ulteriori informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
@@ -567,7 +568,8 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 1. Nella finestra **App Web di Azure** di Visual Studio fare clic sulla scheda **Log**, quindi su **Configura registrazione nel portale di gestione**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Nel portale di gestione verrà visualizzata la scheda **Configura** relativa all'app Web. In alternativa, è possibile fare clic sulla scheda **App Web**, quindi sull'app Web e infine sulla scheda **Configura**.
 

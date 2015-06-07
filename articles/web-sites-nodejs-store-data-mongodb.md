@@ -529,7 +529,9 @@ Per ulteriori informazioni su come proteggere MongoDB, vedere l'articolo relativ
 
 ##Risorse aggiuntive
 
-[Strumento da riga di comando di azure per Mac e Linux][Build and deploy a Node.js web app in Azure App Service] [la distribuzione continua utilizzando GIT nel servizio di Azure App]
+[Strumento da riga di comando di azure per Mac e Linux]    
+[Build and deploy a Node.js web app in Azure App Service]    
+[la distribuzione continua utilizzando GIT nel servizio di Azure App]    
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
