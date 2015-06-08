@@ -25,7 +25,7 @@ Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressrou
 
 ## Funzionamento di una connessione ExpressRoute
 
-Per connettere la rete WAN ai servizi cloud Microsoft, è necessario ordinare un circuito dedicato e abilitarlo tramite un provider di connettività. È possibile scegliere tra due provider di connettività: Direct Layer 3 tramite un provider di Exchange oppure Layer 3 tramite un provider di servizi di rete. È possibile scegliere se abilitare uno o entrambi i tipi di connettività tra la rete WAN e il cloud Microsoft.
+Per connettere la rete WAN ai servizi cloud Microsoft, è necessario ordinare un circuito dedicato e abilitarlo tramite un provider di connettività. È possibile scegliere tra due provider di connettività: Direct Layer 3 tramite un provider di Exchange oppure Layer 3 tramite un provider di servizi di rete. È possibile scegliere se abilitare uno o entrambi i tipi di connettività tra la rete WAN e il cloud Microsoft.  
 
 ## Provider di Exchange e provider di servizi di rete
 I provider per ExpressRoute vengono classificati come provider di servizi di rete (NSP, Network Service Provider) e provider di Exchange (EXP, Exchange Provider).
@@ -33,7 +33,7 @@ I provider per ExpressRoute vengono classificati come provider di servizi di ret
 ![](./media/expressroute-introduction/expressroute-nsp-exp.png)
 
 
-| |**Provider di Exchange**|**Provider di servizi di rete**|
+|   |**Provider di Exchange**|**Provider di servizi di rete**|
 |---|---|---|
 |**Modello di connettività tipico**| Collegamenti Ethernet da punto a punto o connettività all'infrastruttura Cloud Exchange | Connettività da qualsiasi rete a qualsiasi rete tramite una VPN di telecomunicazioni |
 |**Larghezze di banda supportate**|200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
@@ -57,7 +57,7 @@ Per altre informazioni sulla configurazione e per esempi concreti, è possibile 
 
 ### Provider di servizi di rete (NSP)
 
-Microsoft collabora con società di telecomunicazioni come AT&T e British Telecom al fine di offrire la connettività tra Azure e la rete WAN dell'utente. Microsoft offre larghezze di banda circuito da 10 Mbps a 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps).
+Microsoft collabora con società di telecomunicazioni come AT&T e British Telecom al fine di offrire la connettività tra Azure e la rete WAN dell'utente. Microsoft offre larghezze di banda circuito da 10 Mbps a 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps). 
 
 Se si usano i servizi VPN da qualsiasi provider di servizi di rete che collabora con Microsoft, sarà possibile estendere le reti in Azure senza dover distribuire nuovo hardware o apportare importanti modifiche di configurazione alle reti esistenti.
 
@@ -74,7 +74,7 @@ A un circuito dedicato saranno associati più domini di routing, ovvero pubblico
 
 
 ### Peering privato
-I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS) distribuiti all'interno di una rete virtuale, possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Ciò permetterà la connessione diretta a macchine virtuali e servizi cloud nei rispettivi indirizzi IP privati.
+I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS) distribuiti all'interno di una rete virtuale, possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Ciò permetterà la connessione diretta a macchine virtuali e servizi cloud nei rispettivi indirizzi IP privati.  
 
 È possibile connettere più di una rete virtuale al dominio di peering privato. Per informazioni su limiti e limitazioni, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md).
   
@@ -92,12 +92,12 @@ Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la c
 
 La tabella seguente confronta i tre domini di routing.
 
-||**Peering privato**|**Peering pubblico**|**Peering Microsoft**| 
-|---|---|---|---| 
-|**N. massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200| 
-|**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN|Indirizzi IPv4 pubblici di proprietà del provider di connettività|Indirizzi IPv4 pubblici di proprietà del provider di connettività| 
-|**Requisiti per i numeri AS**|Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico. | Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico.| Solo numeri AS pubblici. Il numero AS deve essere convalidato rispetto ai registri di routing per convalidare la proprietà.| 
-|**Indirizzi IP per l'interfaccia di routing**|RFC1918 e indirizzi IP pubblici|Indirizzi IP pubblici registrati per i clienti / NSP in registri di routing.| Indirizzi IP pubblici registrati per i clienti / NSP in registri di routing.| 
+||**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
+|---|---|---|---|
+|**N. massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200|
+|**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN|Indirizzi IPv4 pubblici di proprietà del provider di connettività|Indirizzi IPv4 pubblici di proprietà del provider di connettività|
+|**Requisiti per i numeri AS**|Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico. | Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico.| Solo numeri AS pubblici. Il numero AS deve essere convalidato rispetto ai registri di routing per convalidare la proprietà.|
+|**Indirizzi IP per l'interfaccia di routing**|RFC1918 e indirizzi IP pubblici|Indirizzi IP pubblici registrati per i clienti / NSP in registri di routing.| Indirizzi IP pubblici registrati per i clienti / NSP in registri di routing.|
 |**Supporto per hash MD5**| Sì|Sì|Sì|
 
 È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito dedicato. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN (nel caso NSP) se si vuole inserirli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma precedente. La configurazione consigliata consiste nel peering privato connesso direttamente alla rete di base e nei collegamenti del peering pubblico e Microsoft connessi alla Extranet.
@@ -113,4 +113,4 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 - [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md)
 - [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md)
 
-<!--HONumber=54-->
+<!----HONumber=54-->
