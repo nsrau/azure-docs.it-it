@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copiare i dati con Data factory di Azure" 
+	pageTitle="Copia di dati con Data factory di Azure" 
 	description="Informazioni su come usare l'attività di copia in Data factory di Azure per copiare dati tra origini dati." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Copiare i dati con Data factory di Azure (copia attività)
@@ -126,11 +126,15 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 </table>
 
 ### SQL in Infrastructure-as-a-Service (IaaS)
-Per SQL in IaaS, è supportato Azure come provider IaaS. Sono supportate le topologie VPN e di rete seguenti. Tenere presente che il Gateway di gestione dati è necessario per i casi 2 e 3, ma non per il caso 1. Per informazioni dettagliate sul Gateway di gestione dati, vedere [Consentire alle pipeline di usare dati locali][use-onpremises-datasources].
+Come origine e sink è supportato anche SQL Server in IaaS. Gateway di gestione dati è necessario quando si crea un servizio collegato a SQL Server in IaaS. Si consiglia di installare il Gateway di gestione di dati in una macchina virtuale diversa da SQL Server hosting uno per evitare il degrado delle prestazioni per SQL Server e il gateway competono per le risorse. Per informazioni dettagliate sul Gateway di gestione dati, vedere [Consentire alle pipeline di usare dati locali][use-onpremises-datasources].
 
 1.	Macchina virtuale con nome DNS pubblico e porta pubblica statica: mapping delle porte private
 2.	Macchina virtuale con nome DNS pubblico senza endpoint SQL esposto
-3.	Rete virtuale <ol type='a'> <li> VPN del cloud di Azure con topologia seguente alla fine dell'elenco. </li> <li>Macchina virtuale con VPN da sito a sito e da locale al cloud usando la rete virtuale di Azure.</li> </ol> ![Data factory con l'attività di copia][image-data-factory-copy-actvity]
+3.	Rete virtuale
+	<ol type='a'>
+<li>VPN del cloud di Azure con topologia seguente alla fine dell'elenco. </li>	
+<li>Macchina virtuale con VPN da sito a sito e da locale al cloud usando la rete virtuale di Azure.</li>	
+</ol>![Data factory con l'attività di copia][image-data-factory-copy-actvity]
 
 ## Attività di copia - componenti
 L'attività di copia contiene i componenti seguenti:
@@ -237,8 +241,7 @@ Per un elenco di tipi di origine e sink e le proprietà supportate da questi tip
 ## Attività di copia - esempio
 In questo esempio, vengono definite una tabella di input e una tabella di output, che vengono quindi usate in un'attività di copia in una pipeline che copia i dati da un database di SQL Server locale in un BLOB di Azure.
 
-**Presupposti**
-Ai seguenti elementi di Data factory di Azure viene fatto riferimento negli script JSON di esempio che seguono:
+**Presupposti** Ai seguenti elementi di Data factory di Azure viene fatto riferimento negli script JSON di esempio che seguono:
 
 * Gruppo di risorse denominato **ADF**.
 * Una Data factory di Azure denominata **CopyFactory**.
@@ -403,4 +406,4 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->

@@ -220,4 +220,5 @@ Per istruzioni dettagliate per creare una data factory di Azure usando l'editor 
 [delete-datafactory-entity]: ./media/data-factory-editor/delete-datafactory-entity.png
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
-<!--HONumber=54-->
+
+<!---HONumber=GIT-SubDir-->

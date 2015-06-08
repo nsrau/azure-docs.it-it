@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# Procedura dettagliata: copiare i dati dell'efficacia di una campagna in un database SQL Server locale 
+# Procedura dettagliata: copiare i dati dell'efficacia di una campagna in un database SQL Server locale
 In questa procedura dettagliata si imparerà a configurare l'ambiente per consentire alla pipeline di usare i dati locali.
  
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla prima procedura dettagliata con flusso di lavoro Partizione -> Arricchimento -> Analisi, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
@@ -51,7 +51,7 @@ Il gateway di gestione dati è un agente client che fornisce accesso alle origin
 
 Se esiste già un gateway di dati che è possibile usare, saltare questo passaggio.
 
-1.	Creare un gateway di dati logico. Nel **portale di anteprima di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY** della data factory.
+1.	Creare un gateway di dati logico. Nel **portale Azure Preview**, fare clic su **servizi collegati** sul **dati FACTORY** blade.
 2.	Fare clic su **Aggiungi (+) Gateway dati** nella barra dei comandi.  
 3.	Nel pannello **Nuovo gateway dati** fare clic su **CREA**.
 4.	Nel pannello **Crea** immettere **MyGateway** come **nome** del gateway di dati.
@@ -97,45 +97,46 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 
 ### Creare il servizio collegato
 
-1.	Nel **portale di anteprima di Azure** fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **LogProcessingFactory**.
-2.	Nell'**editor di Data factory** fare clic su **Nuovo archivio dati** sulla barra degli strumenti e selezionare **Database SQL Server locale**.
-3.	Nello script JSON procedere come segue: 
-	1.	Sostituire **<servername>** con il nome del server che ospita il database SQL Server.
-	2.	Sostituire **<databasename>** con **MarketingCampaigns**.
-	3.	Se si usa **Autenticazione SQL**
-		1.	Specificare **<username>** e **<password>** in **connectionString**.
-		2.	Rimuovere le ultime due righe. Le proprietà JSON **username** e **password** sono necessarie solo se si usa Autenticazione di Windows. 
-		3.	Rimuovere **, (virgola) **alla fine della riga **gatewayName**. 
-		**Se si usa Autenticazione di Windows:** 1. Impostare il valore di **Sicurezza integrata** su **True** in **connectionString**. Rimuovere "**User ID=<username>;Password=<password>;**" da connectionString. 2. Specificare il nome dell'utente che ha accesso al database per la proprietà **username**. 3. Specificare **password** per l'account utente.   
-	4. Specificare il nome del gateway (**MyGateway**) per la proprietà gatewayName. 		  	 
-3.	Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire il servizio collegato. 
+1.	Nel **portale Azure Preview**, fare clic su **servizi collegati** riquadro il **dati FACTORY** blade per **LogProcessingFactory**.
+2.	Nel **servizi collegati** blade, fare clic su **Aggiungi archivio dati (+)**.
+3.	Nel **nuovo archivio dati** blade, immettere **OnPremSqlLinkedService** per il **nome**. 
+4.	Fare clic su **tipo (impostazioni necessarie)** e selezionare **SQL Server**. Verrà visualizzato il **GATEWAY dati**, **Server**, **Database**, e **CREDENZIALI** impostazioni nel **nuovo archivio dati** ora blade. 
+5.	Fare clic su **GATEWAY dati (consente di configurare le impostazioni necessarie)** e selezionare **MyGateway** creato in precedenza. 
+6.	Immettere **nome** del server di database che ospita il **MarketingCampaigns** database. 
+7.	Immettere **MarketingCampaigns** per il Database. 
+8.	Fare clic su **CREDENZIALI**. 
+9.	Nel **credenziali** blade, fare clic su **fare clic qui per impostare le credenziali in modo sicuro**.
+10.	Installa un'applicazione di un solo clic per la prima volta e viene avviata la **impostazione delle credenziali **nella finestra di dialogo. 11.	Nel **impostazione delle credenziali** finestra di dialogo immettere **nome utente** e **Password**, e fare clic su **OK**. Attendere che la finestra di dialogo si chiuda. 
+12.	Fare clic su **OK** nel **nuovo archivio dati** blade. 
+13.	Nel **servizi collegati** blade, verificare che **OnPremSqlLinkedService** viene visualizzato nell'elenco e **stato** del servizio collegato è **buona**.
 
 ## <a name="OnPremStep3"></a> Passaggio 3: Creare la tabella e la pipeline
 
 ### Creare la tabella logica locale
 
-1.	Nell'**editor di Data factory** fare clic su **Nuovo set di dati** sulla barra degli strumenti e selezionare **SQL locale**. 
-2. Sostituire JSON nel riquadro a destra con lo script JSON del file **MarketingCampaignEffectivenessOnPremSQLTable.json** incluso nella cartella **C:\ADFWalkthrough\OnPremises**.
-3. Cambiare il nome del servizio collegato (proprietà **linkedServiceName**) da **OnPremSqlServerLinkedService** a **SqlServerLinkedService**.
-4. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire la tabella. 
+1.	In **Azure PowerShell**, passare al **C:\ADFWalkthrough\OnPremises** cartella. 
+2.	Utilizzare il cmdlet **Nuovo AzureDataFactoryTable** per creare le tabelle come indicato di seguito per **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Creare la pipeline per copiare i dati dal BLOB di Azure a SQL Server
 
-1.	1. Nell'**editor di Data factory** fare clic sul pulsante **Nuova pipeline** sulla barra degli strumenti. Fare clic su **... (puntini di sospensione)** sulla barra degli strumenti se il pulsante non è visibile. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Pipeline** nella visualizzazione albero e fare clic su **Nuova pipeline**.
-2. Sostituire JSON nel riquadro a destra con lo script JSON del file **EgressDataToOnPremPipeline.json** incluso nella cartella **C:\ADFWalkthrough\OnPremises**.
-3. Aggiungere una **virgola (',')** alla fine della **parentesi quadra di chiusura (']')** nel file JSON e quindi aggiungere le seguenti tre righe dopo la parentesi quadra di chiusura. 
+1.	Utilizzare il cmdlet **Nuovo AzureDataFactoryPipeline** per creare la Pipeline come indicato di seguito per **EgressDataToOnPremPipeline.json**.
 
-        "start": "2014-05-01T00:00:00Z",
-        "end": "2014-05-05T00:00:00Z",
-        "isPaused": false
+			
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+	 
+2. Utilizzare il cmdlet **Set AzureDataFactoryPipelineActivePeriod** per specificare il periodo attivo per **EgressDataToOnPremPipeline**.
 
-	[AZURE.NOTE]Si noti che le date di inizio e di fine vengono impostate sull'1 maggio 2014 e sul 5 maggio 2014 perché i dati di esempio in questa procedura dettagliata sono compresi tra l'1 maggio 2014 e il 5 maggio 2014.
- 
-3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la pipeline. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **CREAZIONE PIPELINE COMPLETATA**.
+			
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+
+	Premere **'Y'** per continuare.
 	
 ## <a name="OnPremStep4"></a> Passaggio 4: Monitorare la pipeline e visualizzare il risultato
 
-Ora si possono seguire gli stessi passaggi illustrati nella sezione **Monitorare le pipeline e le sezioni di dati** dell'[esercitazione principale][datafactorytutorial] per monitorare la nuova pipeline e le sezioni di dati per la nuova tabella ADF locale.
+È ora possibile utilizzare gli stessi passaggi introdotti in [passaggio 6: monitoraggio di tabelle e le pipeline](#MainStep6) per monitorare la nuova pipeline e gli intervalli di dati per la nuova tabella ADF in locale.
  
 Quando si vede che lo stato di una sezione della tabella **MarketingCampaignEffectivenessOnPremSQLTable** viene impostato su Ready, significa che la pipeline ha completato l'esecuzione per la sezione. Per visualizzare i risultati, eseguire una query della tabella **MarketingCampaignEffectiveness** nel database **MarketingCampaigns** in SQL Server.
  
@@ -147,7 +148,7 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
+[datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
@@ -165,6 +166,6 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
 <!---HONumber=GIT-SubDir-->
