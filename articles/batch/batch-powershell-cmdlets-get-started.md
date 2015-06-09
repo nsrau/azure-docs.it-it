@@ -25,11 +25,11 @@ Per la sintassi dettagliata dei cmdlet, digitare ```get-help <Cmdlet_name>```.
 ## Prerequisiti
 
 * **Anteprima Batch**: iscriversi ad [Anteprima Batch](https://account.windowsazure.com/PreviewFeatures), se non lo si è già fatto, per usare il servizio.
-* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) per i prerequisiti e per istruzioni di download e installazione. I cmdlet Batch sono stati introdotti nella versione 0.8.10 e successive.
+* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per i prerequisiti e per istruzioni di download e installazione. I cmdlet Batch sono stati introdotti nella versione 0.8.10 e successive.
 
 ## Usare i cmdlet Batch
 
-Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sottoscrizioni di Azure](powershell-install-configure.md#Connect). Inoltre:
+Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sottoscrizioni di Azure](../powershell-install-configure.md#Connect). Inoltre:
 
 * **Selezionare la sottoscrizione di Azure**: se si dispone di più di una sottoscrizione, selezionare la sottoscrizione a cui è stata aggiunta la funzionalità di anteprima Batch:
 
@@ -37,7 +37,7 @@ Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sot
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Passare alla modalità AzureResourceManage**: i cmdlet Batch sono inclusi nel modulo Gestione risorse di Azure. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md). Per usare questo modulo, eseguire il cmdlet [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
+* **Passare alla modalità AzureResourceManage**: i cmdlet Batch sono inclusi nel modulo Gestione risorse di Azure. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md). Per usare questo modulo, eseguire il cmdlet [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
 
     ```
     Switch-AzureMode -Name AzureResourceManager
