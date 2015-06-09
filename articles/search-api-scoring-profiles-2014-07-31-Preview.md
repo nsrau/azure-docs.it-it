@@ -145,7 +145,35 @@ Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne ag
 
 Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 
-<font> <table style="font-size:12"> <thead> <tr><td>Elemento</td><td>Descrizione</td></tr></thead> <tbody <tr> <td><b>Pesi</b></td> <td> Specificare coppie nome-valore che assegnano un peso relativo a un campo. In Esempio [#bkmk_ex], ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore. </td> </tr> <tr> <td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono. <br> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness. <br> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer. <br> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`. <br> <b>Regole per l'uso delle funzioni</b> <br> Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole <br> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore. <br> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#createindex). <br> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. <td> </tr> </tbody> </table> </font>
+<font>
+<table style="font-size:12">
+<thead>
+<tr><td>Elemento</td><td>Descrizione</td></tr></thead>
+<tbody>
+<tr>
+<td><b>Pesi</b></td>
+<td>
+Specificare coppie nome-valore che assegnano un peso relativo a un campo. In Esempio [#bkmk_ex], ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
+</td>
+</tr>
+<tr>
+<td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono.
+<br> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness.
+<br> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer.
+<br> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`.
+<br>
+<b>Regole per l'uso delle funzioni</b>
+<br>
+Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole <br> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
+<br>
+Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#createindex).
+<br>
+Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.
+<td>
+</tr>
+</tbody>
+</table>
+</font>
 
 Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#createindex) e [Aggiungere o aggiornare documenti (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
 
@@ -254,7 +282,8 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 </tr><tr>
 <td>functionAggregation</td>	<td>Facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base è basato sul valore tf-idf calcolato dal documento e dalla query di ricerca.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo. </td>
+<td>defaultScoringProfile</td>	<td>Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo.
+</td>
 </tr>
 </tbody>
 </table>
@@ -272,7 +301,8 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 - `Logarithmic` Rispetto all'interpolazione lineare che presenta un aumento di priorità costantemente decrescente, l'interpolazione logaritmica diminuirà inizialmente a un ritmo più elevato e diminuirà con un intervallo molto più ridotto quando si avvicina all'intervallo finale.
  
-<a name="Figure1"></a> ![][1]
+<a name="Figure1"></a>
+![][1]
 
 <a name="bkmk_boostdur"></a>
 ##Impostare boostingDuration##
@@ -310,4 +340,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 [1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
 
 
-<!--HONumber=54-->
+<!---HONumber=54-->
