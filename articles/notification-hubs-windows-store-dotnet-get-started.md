@@ -45,21 +45,21 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
 1. Se l'app non è ancora stata registrata, passare alla pagina di <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">invio di app</a> nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
-   ![][0]
+   	![][0]
 
 2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
 
-   ![][1]
+   	![][1]
 
-   Verrà creata una nuova registrazione a Windows Store per l'app.
+   	Verrà creata una nuova registrazione a Windows Store per l'app.
 
 3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C# usando il modello **Applicazione vuota**.
 
-   ![][2]
+   	![][2]
 
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Store**, quindi fare clic su **Associa applicazione a Store**. 
 
-   ![][3]
+   	![][3]
 
    Viene visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
 
@@ -67,23 +67,23 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
 6. Fare clic sull'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
 
-   ![][4]
+   	![][4]
 
-   Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
+   	Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
 
 7. (Facoltativo) Ripetere i passaggi da 4 a 6 per il progetto di app di Windows Phone Store.  
 
 7. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
-   ![][5]
+   	![][5]
 
 8. Nella pagina **Servizi** fare clic su **sito di servizi Live** nel paragrafo **Servizi mobili di Microsoft Azure**.
 
-   ![][17]
+   	![][17]
 
 9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**. 
 
-   ![][6]
+   	![][6]
 
  	>[AZURE.NOTE] **Nota sulla sicurezza**:
 	il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
@@ -94,27 +94,27 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
 2. Fare clic su **App Services**, selezionare **Service Bus**, **Notification Hub**, quindi **Quick Create**.
 
-   ![][7]
+   	![][7]
 
 3. Digitare un nome per l'hub di notifica, selezionare l'area desiderata, quindi fare clic su **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic sulla scheda **Configure** nella parte superiore.
 
-   ![][9]
+   	![][9]
 
 5. Fare clic sulla scheda **Notification Hubs** nella parte superiore, quindi fare clic sull'hub di notifica appena creato.
 
-   ![][10]
+   	![][10]
 
 6. Fare clic sulla scheda **Configura** nella parte superiore, immettere i valori di **Segreto client** e **Package SID** ottenuti da Servizi notifica Push Windows nella sezione precedente, quindi fare clic su **Salva**.
 
-   ![][11]
+   	![][11]
 
 7. Selezionare la scheda **Dashboard** nella parte superiore, quindi fare clic sul pulsante **Informazioni di connessione** nella parte inferiore della pagina. Prendere nota delle due stringhe di connessione.
 
-   ![][12]
+   	![][12]
 
 L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows e si dispone delle stringhe di connessione per registrare l'app e inviare le notifiche.
 
@@ -169,15 +169,15 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
 
 6. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** dell'app di Windows Store e in **Notifiche** impostare **Popup supportati** su **Sì**:
 
-   ![][18]
+   	![][18]
 
-   Scegliere **Salva tutto** dal menu **File**.
+   	Scegliere **Salva tutto** dal menu **File**.
 
 7. (Facoltativo) Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
 
 8. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
    
-   ![][19]
+   	![][19]
 
 9. (Facoltativo) Ripetere il passaggio precedente per eseguire l'altro progetto.
 
@@ -189,7 +189,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine fare clic su **OK**. 
 
-   ![][13]
+   	![][13]
 
 	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata. 
 
@@ -228,7 +228,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 8. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in Visual Studio e fare clic su **Imposta come progetto di avvio** per impostarlo come progetto di avvio. Premere quindi **F5** per eseguire l'applicazione.
 
-   ![][14]
+   	![][14]
 
 	Tutti i dispositivi registrati riceveranno una notifica di tipo avviso popup. Facendo clic o toccando il banner dell'avviso popup l'app viene caricata.
 
@@ -274,4 +274,4 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!--HONumber=52-->
+<!---HONumber=52-->
