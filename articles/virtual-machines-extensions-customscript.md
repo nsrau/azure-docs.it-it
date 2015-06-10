@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Estensione Script personalizzato per Windows"
    description="Automazione delle attività di configurazione delle macchine virtuali di Azure utilizzando l'estensione Script personalizzato per Windows"
    services="virtual-machines"

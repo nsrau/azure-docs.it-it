@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introduzione all'automazione di Azure" 
 	description="Informazioni sull'importazione e sull'esecuzione di un processo di automazione in Azure." 
 	services="automation" 
