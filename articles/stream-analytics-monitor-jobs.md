@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Processi di monitoraggio di Analisi dei flussi | Azure" 
-	description="Monitorare i processi di Analisi dei flussi a livello di codice." 
+	pageTitle="Monitorare i processi sull'analisi di flusso in modo programmato | Microsoft Azure" 
+	description="Informazioni su come monitorare in modo programmato i processi di analisi di flusso creati tramite le API REST, Azure SDK o Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Monitorare i processi di Analisi dei flussi a livello di codice
-In questo articolo viene illustrato come abilitare il monitoraggio per un processo di Analisi dei flussi. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita. È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nella scheda "Monitoraggio" nel portale di Azure relativa al processo di Analisi dei flussi.
+# Monitoraggio programmatico dei processi di analisi di flusso. 
+In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita. È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nella scheda "Monitoraggio" nel portale di Azure relativa al processo di Analisi dei flussi.
 
 ![Scheda Processi di monitoraggio](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
@@ -45,6 +45,9 @@ Per eseguire le procedure descritte nell'articolo è necessario:
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -135,7 +138,13 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
 
 Il codice seguente consentirà di abilitare il monitoraggio per un processo di Analisi dei flussi **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene utilizzata la proprietà "Id" (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio per il processo di Analisi dei flussi.
 
-> [AZURE.WARNING]-Se in precedenza è stato abilitato il monitoraggio per un processo di Analisi dei flussi diverso, tramite il portale di Azure o a livello di codice, **è consigliabile fornire lo stesso nome account di archiviazione fornito al momento dell’abilitazione del monitoraggio.** -L'account di archiviazione è collegato all'area in cui è stato creato il processo di Analisi dei flussi, non specificamente per il processo stesso. -Tutti i processi di Analisi dei flussi (e tutte le altre risorse di Azure) nella stessa area condividono questo account di archiviazione per archiviare i dati di monitoraggio. Se si specifica un account di archiviazione diverso, potrebbe causare effetti collaterali imprevisti al monitoraggio degli altri processi di Analisi dei flussi e/o altre risorse di Azure. -Il nome dell’account di archiviazione utilizzato per sostituire ```“<YOUR STORAGE ACCOUNT NAME>”``` di seguito deve essere un account di archiviazione che si trova nella stessa sottoscrizione del processo di Analisi dei flussi per il quale si sta abilitando il monitoraggio.
+> [AZURE.WARNING]Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o in modo programmato mediante il seguente codice, **è consigliabile fornire lo stesso nome di account di archiviazione fornito quando è stato precedentemente abilitato il monitoraggio.**
+> 
+> L'account di archiviazione è collegato all'area in cui è stato creato il processo di analisi di flusso, non specificamente al processo stesso.
+> 
+> Tutte le elaborazioni di analisi di flusso (e tutte le altre risorse di Azure) nella stessa area condividono questo account di archiviazione per archiviare i dati di monitoraggio. Se si fornisce un account di archiviazione differente, potrebbero verificarsi effetti collaterali imprevisti per il monitoraggio di altri processi di analisi di flusso e/o altre risorse di Azure.
+> 
+> Il nome dell'account di archiviazione utilizzato per sostituire il seguente ```“<YOUR STORAGE ACCOUNT NAME>”``` deve essere un account di archiviazione presente nella stessa sottoscrizione del processo di analisi di flusso per cui viene abilitato il monitoraggio.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -168,4 +177,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

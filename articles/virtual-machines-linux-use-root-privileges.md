@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usare i privilegi root in macchine virtuali Linux in Azure" 
 	description="Informazioni su come usare i privilegi root in una macchina virtuale Linux in Azure." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/16/2015" 
 	ms.author="szark"/>
 
 
@@ -23,9 +23,9 @@
 
 Per impostazione predefinita, l'utente `root` è disabilitato nelle macchine virtuali Linux in Azure. Gli utenti possono eseguire comandi con privilegi elevati usando il comando `sudo`. L'esperienza può tuttavia variare in base alla modalità usata per il provisioning del sistema.
 
-1. **Chiave SSH e password o solo password**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `CER`) o una chiave SSH e con una password oppure solo con un nome utente e una password. In questo caso `sudo` richiederà la password dell'utente prima di eseguire il comando.
+1. **Chiave SSH e password o solo password**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `.CER`) o una chiave SSH e con una password oppure solo con un nome utente e una password. In questo caso `sudo` richiederà la password dell'utente prima di eseguire il comando.
 
-2. **Solo chiave SSH**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `CER` o `.pem`) o una chiave SSH, ma senza password.  In questo caso `sudo` **non** richiederà la password dell'utente prima di eseguire il comando.
+2. **Solo chiave SSH**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `.cer` o `.pem`) o una chiave SSH, ma senza password. In questo caso `sudo` **non** richiederà la password dell'utente prima di eseguire il comando.
 
 
 ## Chiave SSH e password o solo password
@@ -52,5 +52,4 @@ Accedere alla macchina virtuale Linux usando l'autenticazione con chiave SSH, qu
 
 In questo caso, all'utente **non** verrà richiesta una password. Dopo aver premuto `<enter>`, `sudo` eseguirà il comando con privilegi `root`.
 
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

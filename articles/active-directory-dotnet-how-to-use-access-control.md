@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2014" 
+	ms.date="05/20/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -22,7 +22,7 @@
 # Come autenticare gli utenti Web con Microsoft Azure AD Access Control
 
 
-In questa guida vengono fornite informazioni sull'utilizzo di Microsoft Azure AD Access Control (noto anche come Servizio di controllo di accesso o ACS) per l'autenticazione degli utenti che tentano di accedere a un'applicazione Web da provider di identità quali Microsoft, Google, Yahoo e Facebook.
+In questa guida vengono fornite informazioni sull'uso di Microsoft Azure AD Access Control (noto anche come Servizio di controllo di accesso o ACS) per l'autenticazione degli utenti che tentano di accedere a un'applicazione Web da provider di identità quali Microsoft, Google, Yahoo e Facebook.
 
 
 ## Informazioni su ACS
@@ -34,14 +34,14 @@ In ACS sono disponibili le funzionalità seguenti:
 -   Integrazione con Windows Identity Foundation (WIF).
 -   Supporto per i provider di identità Web più diffusi, tra cui account Microsoft (precedentemente noti come Windows Live ID), Google, Yahoo e Facebook.
 -   Supporto per Active Directory Federation Services (ADFS) 2.0.
--   Un servizio di gestione basato sul protocollo OData che offre accesso a livello di codice alle impostazioni di ACS.
+-   Un servizio di gestione basato sul protocollo OData che offre accesso programmatico alle impostazioni di ACS.
 -   Un portale di gestione che consente l'accesso amministrativo alle impostazioni di ACS.
 
-Per altre informazioni sul servizio di controllo di accesso, vedere [Servizio di controllo di accesso 2.0][].
+Per ulteriori informazioni sul servizio di controllo di accesso, vedere [Servizio di controllo di accesso 2.0][].
 
 ## Concetti
 
-ACS utilizza l'identità basata sulle attestazioni, un approccio coerente alla creazione di meccanismi di autenticazione per le applicazioni in esecuzione locale o nel cloud. L'identità basata sulle attestazioni offre un metodo comune che le applicazioni e i servizi possono utilizzare per ottenere le informazioni di identità necessarie sugli utenti interni o esterni all'organizzazione oppure su Internet.
+ACS usa l'identità basata sulle attestazioni, un approccio coerente alla creazione di meccanismi di autenticazione per le applicazioni in esecuzione locale o nel cloud. L'identità basata sulle attestazioni offre un metodo comune che le applicazioni e i servizi possono usare per ottenere le informazioni di identità necessarie sugli utenti interni o esterni all'organizzazione oppure su Internet.
 
 Per completare le attività in questa guida è necessario comprendere i termini e i concetti illustrati di seguito:
 
@@ -54,11 +54,11 @@ Per completare le attività in questa guida è necessario comprendere i termini 
 
 **Provider di identità (IP)** - Un'autorità che autentica le identità utente ed emette token di sicurezza, ad esempio un account Microsoft (Windows Live ID), Facebook, Google, Twitter e Active Directory. Quando ACS è configurato in modo da considerare attendibile un provider di identità, accetta e convalida i token emessi da tale provider. Poiché ACS può considerare attendibili più provider di identità contemporaneamente, quando un'applicazione considera attendibile ACS può offrire agli utenti la possibilità di eseguire l'autenticazione tramite uno qualsiasi degli IP considerati attendibili da ACS.
 
-**Provider di federazione (FP)** - I provider di identità (IP) hanno una conoscenza diretta degli utenti, li autenticano utilizzando le relative credenziali ed emettono attestazioni sugli utenti. Un provider di federazione è un'autorità di tipo diverso. Anziché autenticare direttamente gli utenti, un provider di federazione funge da broker di autenticazione, ovvero agisce come intermediario tra un'applicazione relying party e uno o più provider di identità. ACS è un provider di federazione.
+**Provider di federazione (FP)** - I provider di identità (IP) hanno una conoscenza diretta degli utenti, li autenticano usando le relative credenziali ed emettono attestazioni sugli utenti. Un provider di federazione è un'autorità di tipo diverso. Anziché autenticare direttamente gli utenti, un provider di federazione funge da broker di autenticazione, ovvero agisce come intermediario tra un'applicazione relying party e uno o più provider di identità. ACS è un provider di federazione.
 
-**Motore regole ACS** - Le regole di trasformazione delle attestazioni convertono le attestazioni in token dai provider di identità attendibili, in modo che possano essere utilizzate da un'applicazione relying party. ACS include un motore regole che applica le regole di trasformazione delle attestazioni specificate per l'applicazione relying party.
+**Motore regole ACS** - Le regole di trasformazione delle attestazioni convertono le attestazioni in token dai provider di identità attendibili, in modo che possano essere usate da un'applicazione relying party. ACS include un motore regole che applica le regole di trasformazione delle attestazioni specificate per l'applicazione relying party.
 
-**Spazio dei nomi ACS** - Fornisce un ambito univoco per fare riferimento alle risorse di ACS all'interno dell'applicazione. Lo spazio dei nomi contiene una serie di impostazioni, ad esempio il provider di identità considerato attendibile, le applicazioni RP da servire e le regole da applicare ai token in ingresso. Visualizza inoltre gli endpoint utilizzati dall'applicazione e dallo sviluppatore per comunicare con ACS.
+**Spazio dei nomi ACS** - Fornisce un ambito univoco per fare riferimento alle risorse di ACS all'interno dell'applicazione. Lo spazio dei nomi contiene una serie di impostazioni, ad esempio il provider di identità considerato attendibile, le applicazioni RP da servire e le regole da applicare ai token in ingresso. Visualizza inoltre gli endpoint usati dall'applicazione e dallo sviluppatore per comunicare con ACS.
 
 Nella figura seguente viene illustrato il funzionamento dell'autenticazione ACS con un'applicazione Web:
 
@@ -67,10 +67,10 @@ Nella figura seguente viene illustrato il funzionamento dell'autenticazione ACS 
 1.  Il client, in questo caso un browser, richiede una pagina dall'applicazione relying party.
 2.  Poiché la richiesta non è stata ancora autenticata, l'applicazione RP reindirizza l'utente all'autorità che considera attendibile, ovvero ACS. ACS presenta all'utente l'elenco dei provider di identità specificati per questa applicazione RP. L'utente seleziona il provider di identità appropriato.
 3.  Il client passa alla pagina di autenticazione del provider di identità e chiede all'utente di eseguire l'accesso.
-4.  Dopo l'autenticazione del client, ad esempio dopo l'immissione delle credenziali di identità, il provider di identità rilascia un token di sicurezza.
+4.  Dopo l'autenticazione del client, ad esempio dopo l'immissione delle credenziali di identità, il provider di identità emette un token di sicurezza.
 5.  Dopo l'emissione del token di sicurezza, il provider di identità indica al client di inviarlo ad ACS.
-6.  ACS convalida il token di sicurezza rilasciato dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output e rilascia un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
-7.  ACS indica al client di inviare il token di sicurezza emesso da ACS all'applicazione RP. L'applicazione convalida la firma nel token di sicurezza, estrae le attestazioni per l'utilizzo da parte della logica di business dell'applicazione e restituisce la pagina richiesta.
+6.  ACS convalida il token di sicurezza emesso dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output ed emette un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
+7.  ACS indica al client di inviare il token di sicurezza emesso da ACS all'applicazione RP. L'applicazione convalida la firma nel token di sicurezza, estrae le attestazioni per l'uso da parte della logica di business dell'applicazione e restituisce la pagina richiesta.
 
 ## Prerequisiti
 
@@ -84,21 +84,21 @@ Per completare le attività in questa guida è necessario quanto segue:
 
 ## Creazione di uno spazio dei nomi ACS
 
-Per utilizzare Microsoft Azure AD Access Control, creare uno spazio dei nomi ACS. Lo spazio dei nomi fornisce un ambito univoco per fare riferimento alle risorse di ACS all'interno dell'applicazione.
+Per usare Microsoft Azure AD Access Control, creare uno spazio dei nomi ACS. Lo spazio dei nomi fornisce un ambito univoco per fare riferimento alle risorse di ACS all'interno dell'applicazione.
 
-1.  Accedere al [portale di gestione di Azure](https://manage.WindowsAzure.com).
+1.  Accedere al [portale di gestione di Azure][] (https://manage.WindowsAzure.com).
     
-2.  Fare clic su **Active Directory**.  
+2.  Fare clic su **Active Directory**.
 
 	![][1]
 
-3.  Per creare un nuovo spazio dei nomi ACS, fare clic su **Nuovo**. **Verranno selezionati Servizi app** e **Access Control**. Fare clic su **Creazione rapida**. 
+3.  Per creare un nuovo spazio dei nomi ACS, fare clic su **New**. Verranno selezionati **App Services** e **Access Control**. Fare clic su **Creazione rapida**.
 
 	![][2]
 
 4.  Immettere un nome per lo spazio dei nomi. Azure verificherà che il nome sia univoco.
 
-5.  Selezionare l'area in cui viene usato lo spazio dei nomi. Per prestazioni ottimali, utilizzare l'area in cui si sta distribuendo l'applicazione e quindi fare clic su **Create**.
+5.  Selezionare l'area in cui viene usato lo spazio dei nomi. Per prestazioni ottimali, usare l'area in cui si sta distribuendo l'applicazione e quindi fare clic su **Create**.
 
 Azure creerà e attiverà lo spazio dei nomi.
 
@@ -110,7 +110,7 @@ In questo passaggio verrà creata un'applicazione ASP.NET MVC. Nei passaggi succ
 1.	Fare clic su **File** e quindi su **Nuovo progetto**.
 1.	Selezionare il modello Visual C#/Web e quindi selezionare **Applicazione Web ASP.NET MVC 4**.
 
-	In questa guida verrà utilizzata un'applicazione MVC, ma per questa attività è possibile utilizzare qualsiasi tipo di applicazione Web.
+	In questa guida verrà usata un'applicazione MVC, ma per questa attività è possibile usare qualsiasi tipo di applicazione Web.
 
 	![][3]
 
@@ -142,7 +142,7 @@ In questo passaggio verrà creata un'applicazione ASP.NET MVC. Nei passaggi succ
             </ul>
         }
 
-	Attualmente User.Identity.Name non viene impostato in ACS, pertanto è necessario apportare la modifica precedente.
+Attualmente User.Identity.Name non viene impostato in ACS, pertanto è necessario apportare la modifica precedente.
 
 1. Premere F5 per eseguire l'applicazione. L'applicazione ASP.NET MVC predefinita verrà visualizzata nel Web browser.
 
@@ -152,7 +152,7 @@ In questa attività l'applicazione Web ASP.NET verrà integrata con ACS.
 
 1.	In Esplora soluzioni fare clic sul progetto MvcACS e quindi selezionare **Identity and Access**.
 
-	Se l'opzione **Identity and Access** non viene visualizzata nel menu contestuale installare lo strumento di gestione delle identità e degli accessi. Per informazioni, vedere [Identity and Access Tool]. 
+	Se l'opzione **Identity and Access** non viene visualizzata nel menu contestuale installare lo strumento di gestione delle identità e degli accessi. Per informazioni, vedere [Identity and Access Tool].
 
 	![][4]
 
@@ -176,7 +176,7 @@ In questa attività l'applicazione Web ASP.NET verrà integrata con ACS.
 
 	![][18]
 
-6.	Fare clic su **Symmetric Key**, fare clic su **Show Key** e quindi copiare il valore della chiave. Fare clic su **Cancel** per uscire dalla pagina di modifica del client di gestione senza apportare modifiche. 
+6.	Fare clic su **Symmetric Key**, fare clic su **Show Key** e quindi copiare il valore della chiave. Fare clic su **Cancel** per uscire dalla pagina di modifica del client di gestione senza apportare modifiche.
 
 	![][19]
 
@@ -184,9 +184,9 @@ In questa attività l'applicazione Web ASP.NET verrà integrata con ACS.
 
 	![][20]
 
-	Visual Studio utilizza le informazioni sullo spazio dei nomi per connettersi al portale di gestione ACS e ottenere le impostazioni per lo spazio dei nomi, tra cui i provider di identità, l'area di autenticazione e l'URL restituito.
+	Visual Studio usa le informazioni sullo spazio dei nomi per connettersi al portale di gestione ACS e ottenere le impostazioni per lo spazio dei nomi, tra cui i provider di identità, l'area di autenticazione e l'URL restituito.
 
-8.	Selezionare **Windows Live ID** (account Microsoft) e fare clic su OK. 
+8.	Selezionare **Windows Live ID** (account Microsoft) e fare clic su OK.
 
 	![][5]
 
@@ -200,30 +200,28 @@ Quando l'applicazione è integrata con ACS e viene selezionato Windows Live ID (
 
 ![][6]
 
-A questo punto ACS è stato correttamente integrato con l'applicazione Web ASP.NET. ACS sta gestendo l'autenticazione degli utenti utilizzando le credenziali degli account Microsoft.
+Congratulazioni. ACS è stato correttamente integrato con l'applicazione Web ASP.NET. ACS sta gestendo l'autenticazione degli utenti usando le credenziali degli account Microsoft.
 
 ## Visualizzazione delle attestazioni inviate da ACS
 
-In questa sezione l'applicazione verrà modificata in modo da visualizzare le attestazioni inviate da ACS.  Lo strumento di gestione delle identità e degli accessi ha creato un gruppo di regole che trasmette tutte le attestazioni provenienti dal provider di identità all'applicazione.  Si noti che provider di identità diversi inviano attestazioni diverse.
+In questa sezione l'applicazione verrà modificata in modo da visualizzare le attestazioni inviate da ACS. Lo strumento di gestione delle identità e degli accessi ha creato un gruppo di regole che trasmette tutte le attestazioni provenienti dal provider di identità all'applicazione. Si noti che provider di identità diversi inviano attestazioni diverse.
 
 1. Aprire il file *Controllers\HomeController.cs*. Aggiungere un'istruzione **using** per **System.Threading**:
 
- 		using System.Threading;
+ 	using System.Threading;
 
 1. Nella classe HomeController aggiungere il metodo *Claims*:
 
-	    public ActionResult Claims()
-	    {
-	        ViewBag.Message = "Your claims page.";
-	
-	        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
-	
-	        return View();
-	    }
+    public ActionResult Claims() { ViewBag.Message = "Your claims page.";
+
+        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+
+        return View();
+    }
 
 1. Fare clic con il pulsante destro del mouse sul metodo *Claims* e selezionare **Aggiungi visualizzazione**.
 
-	![][66]
+![][66]
 
 1. Fare clic su **Aggiungi**.
 
@@ -281,19 +279,19 @@ In questa sezione l'applicazione verrà modificata in modo da visualizzare le at
 
 ![][666]
 
-Per altre informazioni sull'utilizzo delle attestazioni nell'applicazione, vedere la [documentazione di Windows Identity Foundation](http://msdn.microsoft.com/library/hh377151.aspx).
+Per ulteriori informazioni sull'uso delle attestazioni nell'applicazione, vedere la [documentazione di Windows Identity Foundation](http://msdn.microsoft.com/library/hh377151.aspx).
 
 ## Visualizzazione dell'applicazione nel portale di gestione ACS
 
 Lo strumento di gestione delle identità e degli accessi in Visual Studio integra automaticamente l'applicazione con ACS.
 
-Quando si seleziona l'opzione per l'utilizzo del Servizio di controllo di accesso di Azure, lo strumento aggiunge l'applicazione come relying party, la configura per l'utilizzo dei provider di identità selezionati, quindi genera e seleziona le regole predefinite di trasformazione delle attestazioni per l'applicazione.
+Quando si seleziona l'opzione per l'uso del Servizio di controllo di accesso di Azure, lo strumento aggiunge l'applicazione come relying party, la configura per l'uso dei provider di identità selezionati, quindi genera e seleziona le regole predefinite di trasformazione delle attestazioni per l'applicazione.
 
 È possibile rivedere e modificare queste impostazioni di configurazione nel portale di gestione ACS. Eseguire la procedura seguente per rivedere le modifiche nel portale.
 
 1.	Accedere al [portale di gestione di Azure](http://manage.WindowsAzure.com).
 
-2.	Fare clic su **Active Directory**. 
+2.	Fare clic su **Active Directory**.
 
 	![][8]
 
@@ -319,7 +317,7 @@ Quando si seleziona l'opzione per l'utilizzo del Servizio di controllo di access
 
 	![][12]
 
-Nella sezione successiva le funzionalità del portale di gestione ACS verranno utilizzate per apportare una modifica all'applicazione Web, un'operazione estremamente semplice.
+Nella sezione successiva le funzionalità del portale di gestione ACS verranno usate per apportare una modifica all'applicazione Web, un'operazione estremamente semplice.
 
 ## Aggiunta di un provider di identità
 
@@ -329,20 +327,20 @@ Attraverso il portale di gestione ACS è possibile modificare l'autenticazione d
 
 	![][13]
 
-2.	Fare clic su **Google** e quindi su **Next**. La casella di controllo dell'app MvcACS è selezionata per impostazione predefinita. 
+2.	Fare clic su **Google** e quindi su **Next**. La casella di controllo dell'app MvcACS è selezionata per impostazione predefinita.
 
 	![][14]
 
-3. Fare clic su Save. 
+3. Fare clic su Salva.
 
 	![][15]
 
 
-La procedura è stata completata. Se si torna a Visual Studio, si apre il progetto dell'app MvcACS e si fa clic su **Identity and Access**, nello strumento verranno elencati i provider di identità Windows Live ID e Google.  
+La procedura è stata completata. Se si torna a Visual Studio, si apre il progetto dell'app MvcACS e si fa clic su **Identity and Access**, nello strumento verranno elencati i provider di identità Windows Live ID e Google.
 
 ![][16]
 
-L'effetto sarà visibile al momento dell'esecuzione dell'applicazione. Quando un'applicazione supporta più provider di identità, il browser dell'utente viene innanzitutto indirizzato a una pagina ospitata da ACS che chiede di selezionare un provider di identità. 
+L'effetto sarà visibile al momento dell'esecuzione dell'applicazione. Quando un'applicazione supporta più provider di identità, il browser dell'utente viene innanzitutto indirizzato a una pagina ospitata da ACS che chiede di selezionare un provider di identità.
 
 ![][7]
 
@@ -360,22 +358,22 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
 
 
 
-  [Informazioni su ACS]: #what-is
-  [Concetti]: #concepts
-  [Prerequisiti]: #pre
-  [Creare un'applicazione ASP.NET MVC]: #create-web-app
-  [Creazione di uno spazio dei nomi ACS]: #create-namespace
-  [Integrazione dell'applicazione Web con ACS]: #Identity-Access
-  [Test dell'integrazione con ACS]: #Test-ACS
-  [Visualizzazione dell'applicazione nel portale di gestione ACS]: acs-portal
-  [Aggiunta di un provider di identità]: #add-IP
-  [Passaggi successivi]: #whats-next
+  [What is ACS?]: #what-is
+  [Concepts]: #concepts
+  [Prerequisites]: #pre
+  [Create an ASP.NET MVC Application]: #create-web-app
+  [Create an Access Control Namespace]: #create-namespace
+  [Integrate your Web Application with ACS]: #Identity-Access
+  [Test the Integration with ACS]: #Test-ACS
+  [View the Application in the ACS Management Portal]: acs-portal
+  [Add an Identity Provider]: #add-IP
+  [What's Next]: #whats-next
   [vcsb]: #bkmk_viewClaims
   [vpp]: #bkmk_VP
 
   [Servizio di controllo di accesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
-  [Portale di gestione di Azure]: http://manage.WindowsAzure.com
+  [portale di gestione di Azure]: http://manage.WindowsAzure.com
 
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png
@@ -403,4 +401,4 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Selezione dei nomi utente per Linux su Azure" 
 	description="Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/16/2015" 
 	ms.author="szark"/>
 
 
@@ -24,7 +24,7 @@ Quando si crea un'istanza di macchina virtuale Linux, è possibile scegliere il 
 
 **Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati. Se si prova a eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo**. Un esempio tipico è rappresentato dall'utente `root`, il cui valore UID è 0.
 
- - Vedere anche la pagina relativa alla [base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - Vedere anche: [Base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
 Di seguito sono riportati i nomi utente da non usare quando si esegue il provisioning di una macchina virtuale Linux. Si consiglia di **non usare questi nomi utente** per evitare che il processo di provisioning abbia esito negativo.
 
@@ -244,5 +244,4 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 - whoopsie
 - www-data
 
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

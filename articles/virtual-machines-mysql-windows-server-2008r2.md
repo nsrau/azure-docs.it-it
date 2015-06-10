@@ -38,7 +38,7 @@ Questa esercitazione illustra come:
 
 Dopo aver creato la macchina virtuale, facoltativamente è possibile collegare un disco dati aggiuntivo. L'operazione è consigliata per i carichi di lavoro di produzione e per evitare l'esaurimento dello spazio nell'unità del sistema operativo (C:), che attualmente è limitato a 127 GB e include il sistema operativo.
 
-Vedere [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md) e seguire le istruzioni per il collegamento di un disco vuoto. Impostare le preferenze della cache dell'host su **Nessuno** o **Sola lettura**.
+Vedere [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md) e seguire le istruzioni per collegare un disco vuoto. Impostare le preferenze della cache dell'host su **Nessuno** o **Sola lettura**.
 
 ## Accesso alla macchina virtuale
 
@@ -46,16 +46,14 @@ Collegarsi quindi alla macchina virtuale in modo da poter installare MySQL.
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
  
-## Installare ed eseguire MySQL Community Server nella macchina virtuale
+##Installare ed eseguire MySQL Community Server nella macchina virtuale
 
 Per installare, configurare ed eseguire la versione Community di MySQL Server, seguire questa procedura:
 
-> [AZURE.NOTE] La procedura si riferisce alla versione Community 5.6.23.0 di MySQL e a Windows Server 2012 R2. Con altre versioni di MySQL o Windows Server, l'esperienza potrebbe essere diversa.
+> [AZURE.NOTE]La procedura si riferisce alla versione Community 5.6.23.0 di MySQL e a Windows Server 2012 R2. Con altre versioni di MySQL o Windows Server, l'esperienza potrebbe essere diversa.
 
 1.	Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, fare clic su **Internet Explorer** nella schermata Start.
-2.	Selezionare il pulsante **Strumenti** nell'angolo superiore destro (l'icona della ruota dentata) e quindi fare clic su **Opzioni Internet**. Fare clic sulla scheda **Sicurezza**, quindi sull'icona **Siti attendibili** e infine sul pulsante **Siti**. Aggiungere **http://*.mysql.com** all'elenco dei siti attendibili. Fare clic su **Chiudi** e quindi su **OK**.
-3.	Nella barra degli indirizzi di Internet Explorer digitare **http://dev.mysql.com/downloads/mysql/**.
-4.	Usare il sito di MySQL per individuare e scaricare l'ultima versione del programma di installazione di MySQL per Windows. Quando si sceglie il programma di installazione di MySQL, scaricare la versione che contiene il set di file completo (ad esempio il file mysql-installer-community-5.6.23.0.msi da 282,4 MB) e salvare il file del programma di installazione sul desktop di Windows.
+2.	Selezionare il pulsante **Strumenti** nell'angolo superiore destro (l'icona della ruota dentata) e quindi fare clic su **Opzioni Internet**. Fare clic sulla scheda **Sicurezza**, quindi sull'icona **Siti attendibili** e infine sul pulsante **Siti**. Aggiungere **http://*.mysql.com** all'elenco dei siti attendibili. Fare clic su **Chiudi** e quindi su **OK**. 3.	Nella barra degli indirizzi di Internet Explorer, digitare **http://dev.mysql.com/downloads/mysql/**. 4.	Usare il sito di MySQL per individuare e scaricare l'ultima versione del programma di installazione di MySQL per Windows. Quando si sceglie il programma di installazione di MySQL, scaricare la versione che contiene il set di file completo (ad esempio il file mysql-installer-community-5.6.23.0.msi da 282,4 MB) e salvare il file del programma di installazione sul desktop di Windows.
 5.	Sul desktop fare doppio clic sul file del programma di installazione per iniziare l'installazione.
 6.	Nella pagina **License Agreement** accettare il contratto di licenza e fare clic su **Next**.
 7.	Nella pagina **Choosing a Setup Type** fare clic sul tipo di installazione desiderata, quindi fare clic su **Next**. Nei passaggi seguenti si presuppone che sia stato selezionato il tipo di installazione **Server only**.
@@ -69,7 +67,7 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_AccountsRoles_Filled.png)
  
-12.	Nella pagina **Windows Service** specificare le modifiche alle impostazioni predefinite per l'esecuzione di MySQL Server come servizio di Windows base alle esigenze e quindi fare clic su **Next**.
+12.	Nella pagina **Windows Service** specificare le modifiche alle impostazioni predefinite per l'esecuzione di MySQL Server come servizio di Windows in base alle esigenze e quindi fare clic su **Next**.
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_WindowsService.png)
  
@@ -85,18 +83,18 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file **C:\Programmi (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Per altre informazioni, vedere l'articolo relativo alle [impostazioni di configurazione predefinite di MySQL 5.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file **C:\Programmi (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Per altre informazioni, vedere [l'articolo relativo alle impostazioni di configurazione predefinite di MySQL 5.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
-Se si desidera rendere disponibile il servizio MySQL Server per i computer client di MySQL su Internet è necessario configurare un endpoint per la porta TCP su cui è in ascolto il servizio MySQL Server e creare una nuova regola di Windows Firewall. Normalmente è la porta TCP 3306, a meno che non sia stata specificata una porta diversa nella pagina Type and Networking (passaggio 10 della procedura precedente). 
+Se si desidera rendere disponibile il servizio MySQL Server per i computer client di MySQL su Internet è necessario configurare un endpoint per la porta TCP su cui è in ascolto il servizio MySQL Server e creare una nuova regola di Windows Firewall. Normalmente è la porta TCP 3306, a meno che non sia stata specificata una porta diversa nella pagina Type and Networking (passaggio 10 della procedura precedente).
 
 
-> [AZURE.NOTE] È opportuno considerare con attenzione le implicazioni di sicurezza di questa operazione, poiché in questo modo il servizio MySQL Server diventa disponibile per tutti i computer su Internet. È possibile definire il set di indirizzi IP di origine che sono autorizzati a usare l'endpoint con un elenco di controllo di accesso (ACL). Per altre informazioni, vedere la pagina che illustra [come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
+> [AZURE.NOTE]È opportuno considerare con attenzione le implicazioni di sicurezza di questa operazione, poiché in questo modo il servizio MySQL Server diventa disponibile per tutti i computer su Internet. È possibile definire il set di indirizzi IP di origine che sono autorizzati a usare l'endpoint con un elenco di controllo di accesso (ACL). Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
 
 Per configurare un endpoint per il servizio MySQL Server:
 
-1.	Nel portale di gestione fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Endpoint**.
+1.	Nel portale di gestione di Azure fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Endpoint**.
 2.	Nella barra dei comandi fare clic su **Aggiungi**.
 3.	Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic sulla freccia destra.
 4.	Se si sta usando la porta TCP predefinita di MySQL numero 3306, fare clic su **MySQL** in **Nome** e quindi fare clic sul segno di spunta.
@@ -104,12 +102,12 @@ Per configurare un endpoint per il servizio MySQL Server:
 
 Per aggiungere una regola di Windows Firewall che consenta a MySQL di ricevere dati da Internet, è necessario eseguire questo comando in un prompt dei comandi di Windows PowerShell con privilegi di amministratore sul computer del server MySQL.
 
-	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound -Protocol TCP -LocalPort 3306 -Action Allow -Profile Public
+	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
-Per testare la connessione remota al servizio MySQL Server in esecuzione nella macchina virtuale di Azure, è necessario innanzitutto determinare il nome DNS corrispondente al servizio cloud che contiene la macchina virtuale che esegue MySQL Server. 
+Per testare la connessione remota al servizio MySQL Server in esecuzione nella macchina virtuale di Azure, è necessario innanzitutto determinare il nome DNS corrispondente al servizio cloud che contiene la macchina virtuale che esegue MySQL Server.
 
-1.	Nel portale di gestione fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Dashboard**.
-2.	Dal dashboard della macchina virtuale, prendere nota del valore **Nome DNS** sotto la sezione **Riepilogo rapido** sezione. Di seguito è fornito un esempio: 
+1.	Nel portale di gestione di Azure fare clic su **Macchine virtuali** quindi sul nome della macchina virtuale MySQL e infine su **Dashboard**.
+2.	Dal dashboard della macchina virtuale, prendere nota del valore **Nome DNS** sotto la sezione **Riepilogo rapido**. Di seguito è fornito un esempio: 
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
  
@@ -126,6 +124,4 @@ Per testare la connessione remota al servizio MySQL Server in esecuzione nella m
 
 Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.com/doc/).
 
-
-
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure
 
-In questo articolo vengono fornite indicazioni su come automatizzare le attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure utilizzando modelli di Gestione risorse e l’interfaccia della riga di comando di Azure, nonché collegamenti a ulteriori informazioni sull'automazione per le macchine virtuali.
+In questo articolo viene illustrato come utilizzare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
+
+Attività comuni:
+
+- [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
+- [Distribuire una macchina virtuale in Azure da un modello](#deploy-a-vm-in-azure-from-a-template)
+- [Creare una macchina virtuale da un'immagine personalizzata](#create-a-custom-vm-image) 
+- [Creare una macchina virtuale con la rete virtuale e il bilanciamento del carico](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Rimuovere un gruppo di risorse](#remove-a-resource-group)
+- [Visualizzare il log per una distribuzione del gruppo di risorse](#show-the-log-for-a-resource-group-deployment)
+- [Visualizzare le informazioni relative a una macchina virtuale](#display-information-about-a-virtual-machine)
+- [Accedere a una macchina virtuale basata su Linux](#log-on-to-a-linux-based-virtual-machine)
+- [Arrestare una macchina virtuale](#stop-a-virtual-machine)
+- [Avviare una macchina virtuale](#start-a-virtual-machine)
+- [Collegare un disco dati](#attach-a-data-disk)
+
+
 
 ## Preparazione
 
 Prima di poter utilizzare l’interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, sarà necessario disporre della versione corretta dell’interfaccia e un ID azienda o istituzione scolastica (noto anche come ID organizzazione).
 
-### Passaggio 1: aggiornare la versione di dell’interfaccia della riga di comando di Azure alla 0.9.0
+### Aggiornare la versione dell’interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 
-Digitare `azure --version` per verificare se è già stata installata la versione 0.9.0.
+Digitare `azure --version` per verificare se è già stata installata la versione 0.9.0. o una successiva
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Se la versione installata non è la 0.9.0, sarà necessario [installare l’interfaccia della riga di comando di Azure](xplat-cli-install.md) o l'aggiornamento utilizzando uno dei programmi di installazione nativi o tramite **npm** digitando `npm update -g azure-cli`.
+Se la versione installata non è la 0.9.0 o una successiva, sarà necessario [installare l’interfaccia della riga di comando di Azure](xplat-cli-install.md) o l'aggiornamento utilizzando uno dei programmi di installazione nativi o tramite **npm** digitando `npm update -g azure-cli`.
 
-### Passaggio 2: impostare l'account Azure e la sottoscrizione
+È inoltre possibile eseguire l'interfaccia della riga di comando di Azure come contenitore Docker usando la seguente [immagine Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Da un host Docker, eseguire il comando seguente:
+
+	docker run -it microsoft/azure-cli
+
+### Impostare l'account e la sottoscrizione di Azure
 
 Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 È necessario sia presente un account aziendale o di istituto scolastico per utilizzare i modelli di gestione risorse di Azure. Se disponibile, è possibile digitare `azure login`, immettere il nome utente e la password e dovrebbe essere possibile eseguire correttamente l'accesso.
 
-> [AZURE.NOTE]Se non è disponibile, verrà visualizzato un messaggio di errore che indica che è necessario un diverso tipo di account. Per crearne uno dal proprio account Azure corrente, vedere la documentazione relativa alla [connessione all'account Azure](xplat-cli-connect.md).
+> [AZURE.NOTE]Se non è disponibile, verrà visualizzato un messaggio di errore che indica che è necessario un diverso tipo di account. Per crearne uno dal proprio account Azure corrente, vedere [Creazione di un'identità di lavoro o scuola in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
 
@@ -54,11 +74,11 @@ L'account può includere più di una sottoscrizione. È possibile elencare le so
     
 È possibile impostare la sottoscrizione Azure corrente digitando
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 con il nome della sottoscrizione o l'ID che dispone di risorse che si desidera gestire.
 
-### Passaggio 3: passare alla modalità gruppo di risorse dell’interfaccia della riga di comando di Azure
+### Passare alla modalità gruppo di risorse dell’interfaccia della riga di comando di Azure
 
 Per impostazione predefinita, l’interfaccia della riga di comando viene avviata in modalità di Gestione servizi (** modalità asm**). Tipo
 
@@ -83,7 +103,7 @@ La maggior parte delle applicazioni vengono create da una combinazione di tipi d
 
 [Qui](resource-groups-overview.md) è possibile ottenere ulteriori informazioni sui gruppi di risorse di Azure e ciò che è possibile eseguire automaticamente. Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-## Attività comuni: creazione rapida di una macchina virtuale in Azure
+## Creazione rapida di una macchina virtuale in Azure
 
 A volte si sa quale immagine è necessaria e occorre una macchina virtuale di tale immagine al momento e non è rilevante eccessivamente l'infrastruttura (forse potrebbe essere necessario testare un elemento in una nuova macchina virtuale). Ovvero quando si desidera utilizzare il comando `azure vm quick-create` e passare gli argomenti necessari per creare una macchina virtuale e la relativa infrastruttura.
 
@@ -105,7 +125,9 @@ Innanzitutto, creare il gruppo di risorse.
 
 In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l’interfaccia della riga di comando di Azure, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md). Tuttavia, per questa Guida rapida, di seguito è riportato un breve elenco di immagini più diffuse. Verrà creata un’immagine stabile di CoreOS per questa creazione rapida.
 
-| Autore | ImageOffer | ImageSku | ComputeImageVersion |
+> [AZURE.NOTE]Per ComputeImageVersion, è anche possibile fornire semplicemente 'latest' come parametro nella lingua del modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile utilizzare sempre la versione più recente e corretta dell'immagine senza dover modificare script o modelli, come illustrato di seguito.
+
+| PublisherName | Offerta | Sku | Versione |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7.0.201503 |
 | OpenLogic | CentOS | 7.1 | 7.1.201504 |
@@ -117,8 +139,10 @@ In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l’int
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
 | Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
@@ -131,7 +155,7 @@ Creare la macchina virtuale immettendo il `azure vm quick-create command` e prep
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@ Creare la macchina virtuale immettendo il `azure vm quick-create command` e prep
     
 La nuova macchina virtuale è stata completata.
 
-## Attività comuni: distribuire una macchina virtuale in Azure da un modello
+## Distribuire una macchina virtuale in Azure da un modello
 
 Utilizzare le istruzioni in queste sezioni per distribuire una nuova macchina virtuale Azure con un modello di interfaccia della riga di comando di Azure. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet e, a differenza di `azure vm quick-create`, consente di descrivere esattamente cosa si desidera e ripeterlo senza errori. Di seguito ciò che viene creato da questo modello:
 
@@ -477,7 +501,7 @@ Verrà visualizzato il tipo di informazioni seguente:
     
 
 
-## Attività comuni: creare un'immagine di macchina virtuale personalizzata
+## Creare un’immagine di macchina virtuale personalizzata
 
 È stato osservato l'utilizzo di base dei modelli precedenti, pertanto è ora possibile utilizzare istruzioni simili per creare una macchina virtuale personalizzata da un file VHD in Azure con un modello tramite l’interfaccia della riga di comando di Azure. La differenza è che questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
@@ -1198,7 +1222,7 @@ Quindi,  osservando myVM1 si evince che:
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@ Quindi,  osservando myVM1 si evince che:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@ Quindi,  osservando myVM1 si evince che:
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE]Se si desidera archiviare e modificare l'output dei comandi della console a livello di programmazione, è possibile utilizzare un formato JSON come strumento di analisi, tra cui **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o librerie di linguaggi valido per l'attività.
-
-## Visualizzare informazioni su una macchina virtuale
-
-Si tratta di un'attività di base che si utilizzerà spesso. È possibile utilizzarla per ottenere informazioni su una macchina virtuale, eseguire le attività in una macchina virtuale o recuperare l'output da archiviare in una variabile.
-
-Per ottenere informazioni sulla macchina virtuale, eseguire questo comando, sostituendo tutto ciò che è racchiuso tra virgolette, inclusi i caratteri < and >:
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-Per archiviare l'output in una variabile $vm come un documento JSON, eseguire:
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-In alternativa, è possibile reindirizzare stdout in un file.
 
 ## Accedere a una macchina virtuale basata su Linux
 
@@ -1267,7 +1277,7 @@ In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vede
 
 ## Arrestare una macchina virtuale
 
-Eseguire questo comando.
+Eseguire questo comando:
 
     azure vm stop <group name> <virtual machine name>
 
@@ -1277,7 +1287,7 @@ Eseguire questo comando.
 
 Panoramica su Gestione risorse di Azure. Eseguire questo comando: azure vm start <group name> <virtual machine name>
 
-## Collegare un disco dati
+## Collegamento di un disco dati
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 
@@ -1294,14 +1304,8 @@ Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o i
 
 ## Passaggi successivi
 
-Per  ulteriori esempi di utilizzo dell’interfaccia della riga di comando di Azure in modalità **arm**, vedere il documento relativo all’[utilizzo dell’interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](xplat-cli-resource-manager.md). Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md).
+Per  ulteriori esempi di utilizzo dell’interfaccia della riga di comando di Azure in modalità **arm**, vedere il documento relativo all’[utilizzo dell’interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](xplat-cli-azure-resource-manager.md). Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md).
 
+Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
 
-
-
-
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

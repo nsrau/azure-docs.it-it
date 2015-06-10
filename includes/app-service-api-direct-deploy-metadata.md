@@ -14,18 +14,20 @@ La proprietà `id` determina il nome dell'app per le API. Ad esempio:
 
 ### Spazio dei nomi
 
-Impostare la proprietà `namespace` sul dominio del tenant Azure Active Directory. Per trovare il dominio, aprire il [portale classico di Azure](https://manage.windowsazure.com/) nel browser, passare ad **Active Directory** e selezionare la scheda **Domini**. Ad esempio:
+Impostare la proprietà `namespace` sul dominio del tenant di Azure Active Directory. Per trovare il dominio, aprire il [portale di Azure classico](https://manage.windowsazure.com/) nel browser, passare ad **Active Directory** e selezionare la scheda **Domini**. Ad esempio:
 
 		"namespace": "contoso.onmicrosoft.com",
 
 ### Definizione dell'API Swagger dinamica
 
-Per specificare un endpoint dell'URL per una definizione dell'API [Swagger](http://swagger.io/) dinamica, archiviare nella proprietà `endpoints.apiDefinition` l'URL relativo di un'API esposta dall'app per le API che restituisce una definizione dell'API Swagger 2.0 su una richiesta GET. ad esempio:
+Per specificare un endpoint dell'URL per una definizione dell'API [Swagger](http://swagger.io/) dinamica, archiviare nella proprietà `endpoints.apiDefinition` l'URL relativo di un'API esposta dall'app per le API che restituisce una definizione dell'API Swagger 2.0 su una richiesta GET. Ad esempio:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **Nota:** se si usa Swashbuckle per generare una definizione dell'API Swagger, gli overload del metodo HTTP nei controller dell'API Web provocano ID operazione duplicati. Per altre informazioni, vedere [Personalizzare gli identificatori di operazione generati da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+  
 ### Definizione dell'API Swagger statica
 
 Per specificare un file di definizione dell'API [Swagger](http://swagger.io/) 2.0 statica, archiviare il file nella cartella *Metadata* e assegnargli il nome *apiDefinition.swagger.json*
@@ -34,9 +36,5 @@ Per specificare un file di definizione dell'API [Swagger](http://swagger.io/) 2.
 
 Escludere `endpoints.apiDefinition` dal file *apiapp.json* o impostarne il valore su Null. Se si include sia un URL `endpoints.apiDefinition` che un file *apiDefinition.swagger.json*, l'URL avrà la precedenza e il file verrà ignorato.
  
-### Altri metadati dell'app per le API
 
-Per altre informazioni sul file *apiapp.json* e sulla cartella *Metadata*, vedere [Creare un pacchetto dell'app per le API](app-service-api-create-package.md).
-
-
-<!--HONumber=54-->
+<!---HONumber=58-->

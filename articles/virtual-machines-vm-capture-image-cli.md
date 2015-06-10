@@ -19,7 +19,7 @@
 
 
 
-# Come acquisire una macchina virtuale da utilizzare come modello con l'interfaccia CLI##
+# Come acquisire una macchina virtuale Linux da usare come modello con l'interfaccia della riga di comando##
 
 
 
@@ -27,11 +27,11 @@ Questo articolo illustra come acquisire una macchina virtuale di Azure che esegu
 
 
 
-In Azure questo modello viene trattato come un'immagine e viene archiviato nell'elenco delle immagini. che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure] [].
+In Azure questo modello viene trattato come un'immagine e viene archiviato nell'elenco delle immagini. che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
 
 
 
-##Operazioni preliminari##
+##Prima di iniziare##
 
 
 
@@ -39,13 +39,13 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 
-- [Come creare una macchina virtuale personalizzata] []
+- [Come creare una macchina virtuale personalizzata][]
 
-- [Come collegare un disco dati a una macchina virtuale] []
+- [Come collegare un disco dati a una macchina virtuale][]
 
 
 
-##Acquisire la macchina virtuale##
+##Acquisizione della macchina virtuale##
 
 
 
@@ -57,11 +57,11 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 
- vm shutdown [options] <vm-name>
+        vm shutdown [options] <vm-name>
 
 
 
- Si noti che una delle opzioni per `vm shutdown` è `-p`, che mantiene la risorsa di calcolo al momento dell'arresto. **Non** abilitare questa opzione in quanto la macchina virtuale deve essere sottoposta al deprovisioning per poter essere acquisita.
+    Si noti che una delle opzioni per `vm shutdown` è `-p`, che mantiene la risorsa di calcolo al momento dell'arresto. **Non** abilitare questa opzione in quanto la macchina virtuale deve essere sottoposta al deprovisioning per poter essere acquisita.
 
 
 
@@ -69,11 +69,11 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 
- vm capture <vm-name> <target-image-name> --deleted
+        vm capture <vm-name> <target-image-name> --deleted
 
 
 
- Per acquisire l'immagine, è necessario eliminare la macchina virtuale. A tale scopo è possibile utilizzare '--deleted' o '-t'.
+    Per acquisire l'immagine, è necessario eliminare la macchina virtuale. È possibile utilizzare `--deleted` o `-t` a tale scopo.
 
 
 
@@ -81,84 +81,84 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 
- vm image list | grep <target-image-name>
+        vm image list | grep <target-image-name>
 
 
 
- La parte `| grep <target-image-name>` è facoltativa, ma consente di trovare più facilmente l'immagine nell'elenco.
+    La parte `| grep <target-image-name>` è facoltativa, ma consente di trovare più facilmente l'immagine nell'elenco.
 
 
 
 Di seguito è riportato un esempio di procedura dettagliata di acquisizione di una macchina virtuale, incluso l'output terminale:
 
 
- ~$ azure vm list
+    ~$ azure vm list
 
- info: Executing command vm list
+    info:    Executing command vm list
 
- + Getting virtual machines
+    + Getting virtual machines
 
- data: Name Status Location DNS Name  IP Address
+    data:    Name         Status            Location  DNS Name                  IP Address
 
- data: ----------- ---------------- -------- ------------------------ ------------
+    data:    -----------  ----------------  --------  ------------------------  ------------
 
- data: kmorig RoleStateUnknown West US kmorig.cloudapp.net 100.92.56.16
+    data:    kmorig       RoleStateUnknown  West US   kmorig.cloudapp.net       100.92.56.16
 
- info: vm list command OK
+    info:    vm list command OK
 
- ~$ azure vm shutdown kmorig
+    ~$ azure vm shutdown kmorig
 
- info: Executing command vm shutdown
+    info:    Executing command vm shutdown
 
- + Getting virtual machines
+    + Getting virtual machines
 
- + Shutting down VM
+    + Shutting down VM
 
- info: vm shutdown command OK
+    info:    vm shutdown command OK
 
- ~$ azure vm list
+    ~$ azure vm list
 
- info: Executing command vm list
+    info:    Executing command vm list
 
- + Getting virtual machines
+    + Getting virtual machines
 
- data: Name Status Location DNS Name  IP Address
+    data:    Name         Status              Location  DNS Name                  IP Address
 
- data: ----------- ------------------ -------- ------------------------ ----------
+    data:    -----------  ------------------  --------  ------------------------  ----------
 
- data: kmorig StoppedDeallocated West US kmorig.cloudapp.net
+    data:    kmorig       StoppedDeallocated  West US   kmorig.cloudapp.net
 
- info: vm list command OK
+    info:    vm list command OK
 
- ~$ azure vm capture kmorig kmcaptured --deleted
+    ~$ azure vm capture kmorig kmcaptured --deleted
 
- info: Executing command vm capture
+    info:    Executing command vm capture
 
- + Getting virtual machines
+    + Getting virtual machines
 
- + Checking image with name kmcaptured exists
+    + Checking image with name kmcaptured exists
 
- + Capturing VM
+    + Capturing VM
 
- info: vm capture command OK
+    info:    vm capture command OK
 
- ~$ azure vm image list | grep kmcaptured
+    ~$ azure vm image list | grep kmcaptured
 
- data: kmcaptured
-
-
-
-Per ulteriori informazioni e comandi aggiuntivi, visitare la [Pagina della documentazione di CLI di Azure][].
+    data:    kmcaptured
 
 
-[Pagina della documentazione di CLI di Azure]: ../virtual-machines-command-line-tools/
 
-[Come accedere a una macchina virtuale che esegue Linux]: ../virtual-machines-linux-how-to-log-on/
+Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della documentazione di CLI di Azure][].
 
-[Informazioni sulle macchine virtuali in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 
-[Come creare una macchina virtuale personalizzata]: ../virtual-machines-create-custom/
+[pagina della documentazione di CLI di Azure]: virtual-machines-command-line-tools.md
 
-[Come collegare un disco dati a una macchina virtuale]: ../storage-windows-attach-disk/
+[Come accedere a una macchina virtuale che esegue Linux]: virtual-machines-linux-how-to-log-on.md
 
-<!--HONumber=47-->
+[Informazioni sulle immagini di macchine virtuali in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
+
+[Come creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
+
+[Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
+
+<!---HONumber=58-->

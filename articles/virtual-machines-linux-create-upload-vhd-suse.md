@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -22,9 +22,9 @@
 - [Preparare una macchina virtuale SLES 11 SP3 per Azure](#sles11)
 - [Preparare una macchina virtuale openSUSE 13.1+ per Azure](#osuse)
 
-## Prerequisiti##
+##Prerequisiti##
 
-In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). 
+In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 
 **Note di installazione di SLES/openSUSE**
@@ -36,9 +36,9 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
 
-- Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse.  Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
+- Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
@@ -47,7 +47,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
-2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
 
 3. Registrare il sistema SUSE Linux Enterprise per scaricare gli aggiornamenti e installare i pacchetti.
 
@@ -65,7 +65,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 	In questo modo si garantisce che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug.
 
-7.	Si consiglia di modificare il file "/etc/sysconfig/network/dhcp" cambiando il parametro `DHCLIENT_SET_HOSTNAME` come segue:
+7.	Si consiglia di modificare il file "/etc/sysconfig/network/dhcp" e modificare il parametro `DHCLIENT_SET_HOSTNAME` come segue:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -74,11 +74,11 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questo è in genere il valore predefinito.
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
 
 10.	Non creare l'area di swap sul disco del sistema operativo.
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+	L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -97,7 +97,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 ----------
 
-## <a id="osuse"> </a>Preparare openSUSE 13.1+ ##
+## <a id="osuse"> </a> Preparare openSUSE 13.1+ ##
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -119,7 +119,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	Sarà quindi possibile verificare che gli archivi siano stati aggiunti eseguendo nuovamente il comando '`zypper lr`'. Se uno degli archivi di aggiornamento pertinenti non è abilitato, abilitarlo con il comando seguente:
+	Sarà quindi possibile verificare che i repository siano stati aggiunti eseguendo nuovamente il comando '`zypper lr`' . Se uno degli archivi di aggiornamento pertinenti non è abilitato, abilitarlo con il comando seguente:
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -128,7 +128,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 		# sudo zypper up kernel-default
 
-	Or to update the system with all the latest patches:
+	Oppure per aggiornare il sistema con tutte le patch più recenti:
 
 		# sudo zypper update
 
@@ -144,20 +144,20 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	Si consiglia di modificare il file "/etc/sysconfig/network/dhcp" cambiando il parametro `DHCLIENT_SET_HOSTNAME` come segue:
+7.	Si consiglia di modificare il file "/etc/sysconfig/network/dhcp" e modificare il parametro `DHCLIENT_SET_HOSTNAME` come segue:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
-8.	**Importante:** in "/etc/sudoers" rimuovere o impostare come commento le righe seguenti, se esistenti:
+8.	**Importante**: in "/etc/sudoers" rimuovere o impostare come commento le righe seguenti, se esistenti:
 
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questo è in genere il valore predefinito.
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
 
 10.	Non creare l'area di swap sul disco del sistema operativo.
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+	L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -177,6 +177,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 13. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

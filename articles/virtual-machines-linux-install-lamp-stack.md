@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Installare lo stack LAMP in una macchina virtuale Linux" 
-	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l'installazione in Ubuntu o CentOS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Installare lo stack LAMP in una macchina virtuale Linux"
+	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l'installazione in Ubuntu o CentOS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2015"
 	ms.author="szark"/>
 
 
@@ -24,7 +24,7 @@ Uno stack LAMP è costituito dai diversi elementi seguenti:
 
 - **L**inux: sistema operativo
 - **A**pache: server Web
-- **M**ySQL: server di database
+- **M**ySQL: server database
 - **P**HP: linguaggio di programmazione
 
 
@@ -37,12 +37,12 @@ Uno stack LAMP è costituito dai diversi elementi seguenti:
 - `php5`
 - `php5-mysql`
 
-Dopo aver eseguito `apt-get update` per aggiornare l'elenco locale di pacchetti, è possibile installare tali pacchetti con un singolo comando `apt-get install`:
+Dopo aver eseguito `apt-get update` per aggiornare l’elenco locale di pacchetti, è possibile installare tali pacchetti con un singolo comando `apt-get install`:
 
 	# sudo apt-get update
 	# sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare e seguire eventuali altri comandi per impostare una password amministrativa per MySQL.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze. Premere y e quindi INVIO per continuare e seguire eventuali altri comandi per impostare una password amministrativa per MySQL.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -63,7 +63,7 @@ Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP
 
 	# sudo yum install httpd mysql mysql-server php php-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze. Premere y e quindi INVIO per continuare.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -83,7 +83,7 @@ Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP
 
 	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze. Premere y e quindi INVIO per continuare.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -101,9 +101,9 @@ Configurazione
 
 		- CentOS e Oracle: `sudo service httpd restart`
 
-	- Per impostazione predefinita, Apache è in attesa sulla porta 80. Per accedere al server Apache in remoto, può essere necessario aprire un endpoint.  Per istruzioni più dettagliate, vedere la documentazione relativa alla [configurazione degli endpoint](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+	- Per impostazione predefinita, Apache è in attesa sulla porta 80. Per accedere al server Apache in remoto, può essere necessario aprire un endpoint. Per istruzioni più dettagliate, vedere la documentazione relativa alla [configurazione degli endpoint](virtual-machines-set-up-endpoints.md).
 
-	- A questo punto, è possibile verificare se Apache è ora in esecuzione e se rende disponibili contenuti. Nel browser fare riferimento a `http://[MYSERVICE].cloudapp.net`, dove **[MYSERVICE]** è il nome del servizio cloud in cui si trova la macchina virtuale. In alcune distribuzioni è possibile che si riceva un messaggio da una pagina Web predefinita con la conferma del funzionamento del server. In altre è possibile che venga visualizzata una pagina Web più complessa con collegamenti a pagine di documentazione e contenuti aggiuntivi per la configurazione del server Apache.
+	- A questo punto, è possibile verificare se Apache è ora in esecuzione e se rende disponibili contenuti. Puntare il browser a `http://[MYSERVICE].cloudapp.net`, dove **[MYSERVICE]** è il nome del servizio cloud in cui si trova la macchina virtuale. In alcune distribuzioni è possibile che si riceva un messaggio da una pagina Web predefinita con la conferma del funzionamento del server. In altre è possibile che venga visualizzata una pagina Web più complessa con collegamenti a pagine di documentazione e contenuti aggiuntivi per la configurazione del server Apache.
 
 2. Configurare **MySQL**
 
@@ -118,8 +118,10 @@ Configurazione
 
 ##Altre informazioni
 
+Si supponga si voler automatizzare questi passaggi per distribuire applicazioni a macchine virtuali Linux remote. A tale scopo, utilizzare l'estensione Linux CustomScript. Vedere [Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux](virtual-machines-linux-script-lamp.md).
+
 Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

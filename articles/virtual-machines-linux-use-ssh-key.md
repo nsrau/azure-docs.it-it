@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usare SSH per connettersi a macchine virtuali Linux in Azure" 
 	description="Informazioni su come generare e usare chiavi SSH con una macchina virtuale Linux in Azure." 
 	services="virtual-machines" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2014" 
-	ms.author="szarkos"/>
+	ms.date="05/15/2015" 
+	ms.author="szark"/>
 
 #Come usare SSH con Linux in Azure
 
 La versione corrente del portale di gestione di Azure accetta solo chiavi pubbliche SSH incapsulate in un certificato X509. Per generare e usare chiavi SSH con Azure, attenersi alla procedura seguente.
 
-## Generare chiavi compatibili con Microsoft Azure in Linux ##
+## Generare chiavi compatibili con Azure in Linux ##
 
 1. Installare l'utilità `openssl`, se necessario:
 
@@ -45,7 +45,7 @@ La versione corrente del portale di gestione di Azure accetta solo chiavi pubbli
 
 		# chmod 600 myPrivateKey.key
 
-4.	Caricare il `myCert.pem` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `authorized_keys` per l'utente specificato nella macchina virtuale.
+4.	Caricare `myCert.pem` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `authorized_keys` per l'utente specificato nella macchina virtuale.
 
 5.	Se si prevede di usare direttamente l'API, anziché usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
 
@@ -53,16 +53,16 @@ La versione corrente del portale di gestione di Azure accetta solo chiavi pubbli
 
 
 ## Generare una chiave da una chiave esistente compatibile con OpenSSH
-Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Microsoft Azure. In alcuni casi, è possibile che si disponga già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e si voglia usare le stesse chiavi con Microsoft Azure.
+Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Azure. In alcuni casi, è possibile che si disponga già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e si voglia usare le stesse chiavi con Azure.
 
-Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente:
+Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Azure da una chiave privata SSH esistente (id_rsa nell’esempio seguente):
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in seguito usata per il provisioning di una macchina virtuale Linux in Microsoft Azure. Durante il provisioning, il file `.pem` verrà convertito in una chiave pubblica compatibile con `openssh` e inserito in `~/.ssh/authorized_keys`.
+Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in seguito usata per il provisioning di una macchina virtuale Linux in Azure. Durante il provisioning, il file `.pem` verrà convertito in una chiave pubblica compatibile con `openssh` e inserito in `~/.ssh/authorized_keys`.
 
 
-## Connettersi a una macchina virtuale di Microsoft Azure da Linux
+## Connettersi a una macchina virtuale di Azure da Linux
 
 1. In alcuni casi l'endpoint SSH per una macchina virtuale Linux può essere configurato per una porta diversa da quella predefinita 22. Il numero di porta corretto è indicato nel dashboard per la macchina virtuale nel portale di gestione (in "Dettagli su SSH").
 
@@ -73,22 +73,46 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 3.	(Facoltativo) È possibile copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client OpenSSH possa automaticamente prelevare la chiave senza usare l'opzione `-i`.
 
 ## Ottenere OpenSSL in Windows ##
-### Usare msysgit ###
+
+Sono disponibili diverse utilità che includono un `openssl` per Windows. Alcuni esempi sono elencati di seguito:
+
+### Usare Msysgit ###
 
 1.	Scaricare e installare msysgit dal percorso seguente: [http://msysgit.github.com/](http://msysgit.github.com/)
 2.	Eseguire `msys` dalla directory installata, ad esempio c:\msysgit\msys.exe
 3.	Passare alla directory `bin` digitando `cd bin`
 
-###Usare GitHub per Windows###
+
+### Usare GitHub per Windows ###
 
 1.	Scaricare e installare GitHub per Windows dal percorso seguente: [http://windows.github.com/](http://windows.github.com/)
 2.	Eseguire Git Shell dal menu Start > Tutti i programmi > GitHub, Inc
 
-###Usare cygwin###
+	**Nota:** quando si eseguono i comandi `openssl` precedenti potrebbe verificarsi il seguente errore:
+
+		Unable to load config info from /usr/local/ssl/openssl.cnf
+
+	Il modo più semplice per risolvere questo problema consiste nell'impostare la variabile di ambiente `OPENSSL_CONF`. Il processo di impostazione di questa variabile varia a seconda della shell configurata in Github:
+
+	**Powershell:**
+
+		$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+	**CMD:**
+
+		set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+	**Git Bash:**
+
+		export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+
+
+###Usare Cygwin###
 
 1.	Scaricare e installare Cygwin dal percorso seguente: [http://cygwin.com/](http://cygwin.com/)
 2.	Assicurarsi che il pacchetto OpenSSL e tutte le relative dipendenze siano installati.
 3.	Eseguire `cygwin`
+
 
 ## Creare una chiave privata in Windows ##
 
@@ -109,7 +133,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 ## Creare una chiave privata PPK per Putty ##
 
-1. Scaricare e installare Puttygen dal seguente percorso: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Scaricare e installare Puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen potrebbe non essere in grado di leggere la chiave privata creata in precedenza (`myPrivateKey.key`). Eseguire il comando seguente per convertirla in una chiave privata RSA riconosciuta da Puttygen:
 
@@ -120,9 +144,9 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 3. Eseguire `puttygen.exe`
 
-4. Fare clic su File > Load a Private Key
+4. Fare clic sul menu: File > Load a Private Key
 
-5. Individuare la chiave privata, a cui in precedenza è stato assegnato il nome `myPrivateKey_rsa`. Sarà necessario modificare il filtro dei file per poter visualizzare **Tutti i file (*.*)**
+5. Individuare la chiave privata, a cui in precedenza è stato assegnato il nome `myPrivateKey_rsa`. Sarà necessario modificare il filtro dei file in modo da visualizzare **Tutti i file (*.*)**
 
 6. Fare clic su **Apri**. Verrà visualizzato un prompt simile al seguente:
 
@@ -151,4 +175,4 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

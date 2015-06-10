@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
 
 
@@ -31,11 +31,11 @@ Si apprenderà come:
 * Configurare una macchina virtuale di Azure per l'hosting di Django. Sebbene nell'esercitazione la procedura venga illustrata in **Windows Server**, è possibile eseguirla anche con una macchina virtuale Linux ospitata in Azure. 
 * Creare una nuova applicazione Django da Windows.
 
-Seguendo questa esercitazione, verrà creata una semplice applicazione Web Hello World. L'applicazione verrà ospitata in una macchina virtuale di Azure.
+Seguendo questa esercitazione, verrà creata una semplice applicazione Web Hello World, ospitata in una macchina virtuale di Azure.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![A browser window displaying the hello world page on Azure][1]
+![Finestra del browser con la pagina Hello World visualizzata in Azure][1]
 
 [AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
@@ -45,24 +45,22 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 1. Impostare Azure in modo da dirigere il traffico della porta **80** proveniente dal Web alla porta **80** della macchina virtuale:
  - Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda *ENDPOINTS*.
- - Fare clic sul pulsante *ADD* nella parte inferiore della schermata.
-	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+ - Fare clic sul pulsante *ADD* nella parte inferiore della schermata. ![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Aprire la *PUBLIC PORT 80* del protocollo *TCP* come *PRIVATE PORT 80*.
-![][port80]
-1. Dalla scheda *DASHBOARD* fare clic su *CONNECT* per usare *Remote Desktop* per accedere in remoto alla macchina virtuale di Azure appena creata.  
+ - Selezionare il protocollo *TCP* e aprire *PUBLIC PORT 80* come *PRIVATE PORT 80*. ![][port80]
+1. Dalla scheda *DASHBOARD* fare clic su *CONNECT* per usare *Desktop remoto* di Windows per accedere in remoto alla macchina virtuale di Azure appena creata.  
 
-**Nota importante:** tutte le istruzioni seguenti presuppongono che l'accesso alla macchina virtuale sia stato eseguito in modo corretto e che i comandi vengano eseguiti dalla macchina virtuale anziché da quella locale. 
+**Nota importante:** tutte le istruzioni seguenti presuppongono che l'accesso alla macchina virtuale sia stato eseguito in modo corretto e che i comandi vengano eseguiti dalla macchina virtuale anziché da quella locale.
 
 ## <a id="setup"> </a>Configurazione di Python e Django
 
-**Nota:** per scaricare con Internet Explorer può essere necessario configurare le impostazioni di sicurezza avanzate di Internet Explorer (Start/Strumenti di amministrazione/Server Manager/Server locale, quindi fare clic su **Configura sicurezza avanzata di Internet Explorer** e disattivare l'opzione).
+**Nota:** per scaricare con Internet Explorer può essere necessario configurare le impostazioni di sicurezza avanzate di Internet Explorer (Start/Strumenti di amministrazione/Server Manager/Server locale, quindi fare clic su **Configurazione sicurezza avanzata IE** e disattivare l'opzione).
 
-1. Installare [Installazione guidata piattaforma Web][].
-1. Installare Python WFastCGI con il programma di installazione della piattaforma Web.  Il file wfastcgi.py verrà installato nella cartella degli script di Python.
+1. Installare l'[Installazione guidata piattaforma Web][].
+1. Installare Python WFastCGI con il programma di installazione della piattaforma Web. Il file wfastcgi.py verrà installato nella cartella degli script di Python.
 	1. Avviare Installazione guidata piattaforma Web.
 	1. Digitare WFastCGI nella barra di ricerca. 
-	1. Selezionare la voce WFactCGI per la versione di Python che si vuole usare (2.7 o 3.4).  Notare che verrà installato Python come dipendenza di WFastCGI. 
+	1. Selezionare la voce WFactCGI per la versione di Python che si vuole usare (2.7 o 3.4). Notare che verrà installato Python come dipendenza di WFastCGI. 
 1. Installare Django usando pip.
 
     Python 2.7:
@@ -76,9 +74,9 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ## Configurazione di IIS con FastCGI
 
-1. Installare IIS con il supporto di FastCGI.  L'esecuzione può richiedere alcuni minuti.
+1. Installare IIS con il supporto di FastCGI. L'esecuzione può richiedere alcuni minuti.
 
-		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2.7
@@ -112,7 +110,7 @@ Eseguire questi comandi solo se si usa Python 2.7.
 
 1. Dovrebbe essere visualizzata la seguente schermata:
 
-	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-27.png) 
+	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-27.png)
 
 ### Python 3.4
 
@@ -144,13 +142,13 @@ Eseguire questi comandi solo se si usa Python 3.4.
 
 1. Dovrebbe essere visualizzata la seguente schermata:
 
-	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-34.png) 
+	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-34.png)
 
 
 ## Creazione di una nuova applicazione Django
 
 
-1.  Da *C:\inetpub\wwwroot* digitare il seguente comando per creare un nuovo progetto Django:
+1.  Da *C:\inetpub\wwwroot*, immettere il comando seguente per creare un nuovo progetto Django:
 
     Python 2.7:
 
@@ -160,13 +158,13 @@ Eseguire questi comandi solo se si usa Python 3.4.
 
 		C:\Python34\Scripts\django-admin.exe startproject helloworld
     
-	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
+	![Risultato del comando New-AzureService](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
 
 1.  Il comando **django-admin** genera una struttura di base per i siti Web basati su Django:
     
-  -   **helloworld/manage.py** consente di avviare e interrompere l'hosting del sito Web basato su Django.
-  -   **helloworld/helloworld/settings.py** contiene le impostazioni di Django per l'applicazione.
-  -   **helloworld/helloworld/urls.py** contiene il codice di mapping tra ogni url e la relativa visualizzazione.
+  -   **helloworld\manage.py** consente di attivare e disattivare l'hosting del sito Web basato su Django.
+  -   **helloworld\helloworld\settings.py** contiene le impostazioni Django per l'applicazione.
+  -   **helloworld\helloworld\urls.py** contiene il codice di mapping tra ogni URL e la relativa visualizzazione.
 
 
 
@@ -186,7 +184,7 @@ Eseguire questi comandi solo se si usa Python 3.4.
 
 1. Caricare infine la pagina Web nel browser.
 
-![A browser window displaying the hello world page on Azure][1]
+![Finestra del browser con la pagina Hello World visualizzata in Azure][1]
 
 ## Arresto della macchina virtuale di Azure
 
@@ -200,5 +198,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 [Installazione guidata piattaforma Web]: http://www.microsoft.com/web/downloads/platform.aspx
 
-
-<!--HONumber=47-->
+<!---HONumber=58-->

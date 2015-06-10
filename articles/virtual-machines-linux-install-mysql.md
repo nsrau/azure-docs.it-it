@@ -75,9 +75,9 @@ Gli endpoint in Microsoft azure sono costituiti da un protocollo, insieme a una 
 - Dopo il download di Putty, fare clic sul file eseguibile “PUTTY.EXE”. L'impostazione dell’applicazione è come indicata di seguito.
 
 
-     The “Host Name (or IP address)” is the URL as “DNS NAME” when you create an image.
+     Il "nome Host (o indirizzo IP)" è l'URL come "NOME DNS" quando si crea un'immagine.
      
-     The “Port” we can chose 22.  This is default port of SSH services.
+     È possibile scegliere la "porta" 22. Si tratta della porta predefinita dei servizi SSH.
 
    ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
@@ -112,7 +112,7 @@ Verrà utilizzato Ubuntu 14.04 LTS come esempio per questo articolo.
 
  ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p10.png)
 
-    Confermare la password.
+    Confirm the password again when it is asked.
 
  ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p11.png)
  
@@ -237,4 +237,5 @@ Verrà utilizzato Ubuntu 14.04 LTS come esempio per questo articolo.
     Per fare in modo che MySQL venga avviato all'avvio del sistema, eseguire il comando seguente:
 
            #mysql-test:~ # insserv mysql
-<!--HONumber=52-->
+
+<!---HONumber=58-->

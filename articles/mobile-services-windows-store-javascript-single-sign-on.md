@@ -144,4 +144,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=58-->

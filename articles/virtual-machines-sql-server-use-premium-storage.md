@@ -3,7 +3,7 @@
 	description="Questo articolo fornisce istruzioni su come iniziare a utilizzare Archiviazione Premium di Azure con SQL Server in esecuzione su Macchine virtuali di Azure. Sono inclusi esempi di nuove distribuzioni e migrazioni di distribuzioni esistenti di SQL Server in IaaS." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@
 - Esempio end-to-end completo che mostra i passaggi di Azure, Windows e SQL Server per la migrazione di un'implementazione di AlwaysOn esistente.
 
 Per ottenere le informazioni più esaustive sull'utilizzo di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
+
+**Revisori tecnici:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
 
 ## Prerequisiti per Archiviazione Premium
 
@@ -1139,4 +1141,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

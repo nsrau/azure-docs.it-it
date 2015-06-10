@@ -1,7 +1,7 @@
-﻿Per i limiti relativi a Service Bus, vedere il seguente argomento:
+Per i limiti relativi al bus di servizio, vedere l'argomento seguente:
 
- - [Quote di Service Bus][servicebusquotas]
+ - [Quote del bus di servizio][servicebusquotas]
 
   [servicebusquotas]: http://msdn.microsoft.com/library/azure/ee732538.aspx
 
-<!--HONumber=47-->
+<!---HONumber=58-->

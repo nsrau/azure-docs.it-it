@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Bilanciamento del carico per i servizi di infrastruttura di Azure" 
-	description="Descrive i due diversi tipi di bilanciamento del carico supportati in Azure: Bilanciamento del carico per servizi cloud e Gestione traffico di Azure per il traffico client". 
+	description="Vengono descritti i due tipi diversi di bilanciamento del carico supportati da Azure: Bilanciamento del carico per servizi cloud e Gestione traffico di Azure per il traffico client." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="cherylmc" 
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="cherylmc"/>
 
 
-#Bilanciamento del carico per i servizi di infrastruttura di Azure#
+# Bilanciamento del carico per i servizi di infrastruttura di Azure#
 
 Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
 
-- **Livello DNS**:  bilanciamento del carico per il traffico verso servizi cloud o siti Web Azure diversi ubicati in datacenter differenti o verso endpoint esterni. Questa operazione viene eseguita con Gestione traffico e usando il metodo di bilanciamento del carico Round robin.
-- **Livello di rete**:  bilanciamento del carico del traffico Internet in ingresso nelle diverse macchine virtuali di un servizio cloud oppure bilanciamento del carico del traffico esistente tra le macchine virtuali di un servizio cloud o di una rete virtuale. Questa operazione viene eseguita con il servizio di bilanciamento del carico di Azure.
+- **Livello DNS**: bilanciamento del carico per il traffico verso servizi cloud o siti Web Azure diversi ubicati in datacenter differenti o verso endpoint esterni. Questa operazione viene eseguita con Gestione traffico e usando il metodo di bilanciamento del carico Round robin.
+- **Livello rete**: bilanciamento del carico del traffico Internet in ingresso nelle diverse macchine virtuali di un servizio cloud oppure bilanciamento del carico del traffico esistente tra le macchine virtuali di un servizio cloud o di una rete virtuale. Questa operazione viene eseguita con il servizio di bilanciamento del carico di Azure.
 
-##Bilanciamento del carico di Gestione traffico per servizi cloud e siti Web##
+## Bilanciamento del carico di Gestione traffico per servizi cloud e siti Web##
 
-Gestione traffico di Azure consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in data center ubicati in aree geografiche diverse. 
+Gestione traffico di Azure consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in datacenter ubicati in aree geografiche diverse.
 
-Per configurare endpoint esterni o profili di Gestione traffico come endpoint, è necessario usare REST o Windows PowerShell. 
+Per configurare endpoint esterni o profili di Gestione traffico come endpoint, è necessario usare REST o Windows PowerShell.
 
 Per la distribuzione del traffico, Gestione traffico di Azure usa tre metodi di bilanciamento del carico:
 
-- **Failover**:  questo metodo viene usato quando si desidera servirsi di un endpoint principale per tutto il traffico. È opportuno tuttavia prevedere endpoint di backup nel caso in cui l'endpoint principale non sia disponibile.
-- **Prestazioni**:  questo metodo viene usato quando gli endpoint sono ubicati in aree geografiche diverse e si desidera che i client richiedenti si servano dell'endpoint "più vicino" in termini di minor latenza.
-- **Round robin:** questo metodo viene usato quando si desidera distribuire il carico su un set di servizi cloud eseguiti nello stesso datacenter oppure su servizi cloud o siti Web eseguiti in datacenter diversi.
+- **Failover**: questo metodo viene usato quando si desidera servirsi di un endpoint principale per tutto il traffico. È opportuno tuttavia prevedere endpoint di backup nel caso in cui l'endpoint principale non sia disponibile.
+- **Prestazioni**: questo metodo viene usato quando gli endpoint sono ubicati in aree geografiche diverse e si desidera che i client richiedenti si servano dell'endpoint "più vicino" in termini di minor latenza.
+- **Round Robin**: questo metodo viene usato quando si vuole distribuire il carico su un set di servizi cloud eseguiti nello stesso data center oppure su servizi cloud o siti Web eseguiti in data center diversi.
 
 Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
@@ -69,15 +69,18 @@ Azure è inoltre in grado di bilanciare il carico all'interno di un servizio clo
 - Bilanciamento del carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. 
 - Inclusione di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
 
-Analogamente al bilanciamento del carico di Azure, il bilanciamento del carico interno viene facilitato con la configurazione di un set con carico bilanciato interno. 
+Analogamente al bilanciamento del carico di Azure, il bilanciamento del carico interno viene facilitato con la configurazione di un set con carico bilanciato interno.
 
-Nella figura seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business (LOB) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise. 
+Nella figura seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business (LOB) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise.
 
 ![bilanciamento del carico](./media/load-balancing-vms/LOBServers.png)
 
-Per altre informazioni, vedere [Bilanciamento del carico interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+## Passaggi successivi
+
+Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+
+Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del carico interno](http://msdn.microsoft.com/library/azure/dn690121.aspx).
 
 <!-- LINKS -->
 
-
-<!--HONumber=49-->
+<!---HONumber=58-->

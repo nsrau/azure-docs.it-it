@@ -13,12 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/13/2015" 
 	ms.author="josephd"/>
 
 # Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell
 
-In questo articolo viene illustrato come utilizzare i modelli di gestione risorse di Azure e Powershell per automatizzare attività comuni per la distribuzione e gestione delle macchine virtuali di Azure.
+In questo articolo viene descritto come utilizzare i modelli di Gestione risorse di Azure e PowerShell per automatizzare le attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
+
+Attività comuni:
+
+- [Distribuire una macchina virtuale Windows](#windowsvm)
+- [Creare un’immagine di macchina virtuale personalizzata](#customvm)
+- [Distribuire un'applicazione per più macchine virtuali che utilizza una rete virtuale e un servizio di bilanciamento del carico esterno](#multivm)
+- [Accedere a una macchina virtuale](#logon)
+- [Avviare una macchina virtuale](#start)
+- [Arrestare una macchina virtuale](#stop)
 
 Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
 
@@ -26,7 +35,7 @@ Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
 
 ## Informazioni sui modelli di risorse di Azure e sui gruppi di risorse
 
-La maggior parte delle applicazioni, distribuite ed eseguite da Microsoft Azure, vengono create da una combinazione di tipi diversi di risorse cloud (ad esempio, uno o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete CDN). I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse tra loro tramite una descrizione contenuta nel file JSON delle risorse e dei relativi parametri di configurazione e distribuzione.
+La maggior parte delle applicazioni distribuite ed eseguite da Microsoft Azure viene creata da una combinazione di tipi diversi di risorse cloud (ad esempio una o più macchine virtuali e account di archiviazione, un database SQ o una rete virtuale). I modelli di Gestione risorse di Azure consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
 
 Dopo aver definito un modello di risorsa basata su JSON, è possibile eseguirla e sono le risorse definito all'interno di distribuirlo in Azure utilizzando un comando di PowerShell. È possibile eseguire questi comandi in modo autonomo nell’ambito della shell dei comandi PowerShell o integrandoli all'interno di uno script che contenga la logica di automazione aggiuntiva.
 
@@ -37,9 +46,9 @@ Le risorse create mediante i modelli di Gestione risorse di Azure verranno distr
 - Controllare le operazioni. 
 - Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente. 
 
-Ulteriori informazioni su Gestione risorse di Azure sono disponibili [qui](virtual-machines-azurerm-versus-azuresm.md).
+Ulteriori informazioni su Gestione risorse di Azure sono disponibili [qui](virtual-machines-azurerm-versus-azuresm.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-## Attività comuni: distribuire una macchina virtuale di Windows
+## <a id="windowsvm"></a>Distribuire una macchina virtuale Windows
 
 Utilizzare le istruzioni riportate in questa sezione per distribuire una nuova macchina virtuale di Azure utilizzando un modello di Gestione risorse e Azure PowerShell. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet.
 
@@ -236,7 +245,7 @@ Inserire un nome per la distribuzione di Microsoft Azure, il nome gruppo di riso
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Quando si esegue il comando **New-AzureResourceGroupDeployment**, verrà richiesto di fornire i valori dei parametri riportati nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri necessari, il comando crea il gruppo di risorse e la macchina virtuale.
@@ -247,7 +256,7 @@ Di seguito è fornito un esempio.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Verrà visualizzata una schermata simile alla seguente:
@@ -290,7 +299,7 @@ Verrà visualizzata una schermata simile alla seguente:
 
 È ora disponibile una nuova macchina virtuale Windows denominata MyWindowsVM nel nuovo gruppo di risorse.
 
-## Attività comuni: creare un'immagine di macchina virtuale personalizzata
+## <a id="customvm"></a>Creare un’immagine di macchina virtuale personalizzata
 
 Utilizzare le istruzioni incluse in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse utilizzato in Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
@@ -383,13 +392,13 @@ Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un
 
 ### Passaggio 3: creare la macchina virtuale con il modello.
 
-Per creare una nuova macchina virtuale basata su disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore ("< >") con le informazioni specifiche ed eseguire questi comandi:
+Per creare una nuova macchina virtuale basata sul disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore ("< >") con le informazioni specifiche ed eseguire questi comandi:
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Verrà richiesto di fornire i valori dei parametri contenuti nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri, Gestione risorse di Azure crea il gruppo di risorse e la macchina virtuale.
@@ -400,7 +409,7 @@ Di seguito è fornito un esempio:
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 
@@ -415,7 +424,7 @@ Verrà visualizzato il tipo di informazioni seguente:
 	vmSize: Standard_A3
 	...
 
-## Attività comuni: distribuire un'applicazione per la distribuzione di più macchine virtuali che utilizza una rete virtuale e un servizio di bilanciamento del carico esterno
+## <a id="multivm"></a>Distribuire un'applicazione per più macchine virtuali che utilizza una rete virtuale e un servizio di bilanciamento del carico esterno
 
 Attenersi alle istruzioni contenute in queste sezioni per distribuire un'applicazione per più macchine virtuali che utilizza una rete virtuale e un servizio di bilanciamento del carico mediante un modello di Gestione risorse tramite PowerShell di Azure. Questo modello consente di creare due macchine virtuali in una nuova rete virtuale con una singola subnet in un nuovo servizio cloud e di aggiungerle a un set con carico bilanciato esterno per il traffico in ingresso alla porta TCP 80.
 
@@ -746,7 +755,7 @@ Inserire un nome per la distribuzione di Microsoft Azure, il nome gruppo di riso
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Quando si esegue il comando New-AzureResourceGroupDeployment, verrà richiesto di fornire i valori dei parametri del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la distribuzione.
@@ -755,7 +764,7 @@ Quando si esegue il comando New-AzureResourceGroupDeployment, verrà richiesto d
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Dovrebbe essere visualizzata una schermata analoga alla seguente:
@@ -783,7 +792,7 @@ Verranno visualizzate informazioni come segue:
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## Accedere a una macchina virtuale Windows
+## <a id="logon"></a>Accedere a una macchina virtuale di Windows
 
 Per i passaggi dettagliati, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md).
 
@@ -791,7 +800,7 @@ Per i passaggi dettagliati, vedere [Come accedere a una macchina virtuale che es
 
 È possibile visualizzare informazioni sull'utilizzo di una macchina virtuale mediante il comando **Get-AzureVM**. Questo comando restituisce un oggetto macchina virtuale che può essere modificato utilizzando vari altri cmdlet per aggiornare lo stato della macchina virtuale. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
-	Get-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Verranno visualizzate informazioni sulla macchina virtuale come segue:
 
@@ -855,11 +864,11 @@ Verranno visualizzate informazioni sulla macchina virtuale come segue:
 	Type                     : Microsoft.Compute/virtualMachines
 
 
-## Avviare una macchina virtuale
+## <a id="start"></a>Avviare una macchina virtuale
 
 È possibile avviare una macchina virtuale mediante il comando **Start-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
-	Start-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Verranno visualizzate informazioni come segue:
 
@@ -872,11 +881,11 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
 
-## Arrestare una macchina virtuale
+## <a id="stop"></a>Arrestare una macchina virtuale
 
 È possibile arrestare una macchina virtuale utilizzando il comando **Stop-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
-	Stop-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Verranno visualizzate informazioni come segue:
 
@@ -894,11 +903,11 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-##Riavviare una macchina virtuale
+## Riavviare una macchina virtuale
 
 È possibile riavviare una macchina virtuale mediante il comando **Restart-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto.
 
-	Restart-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Verranno visualizzate informazioni come segue:
 
@@ -913,9 +922,9 @@ Verranno visualizzate informazioni come segue:
 
 ## Eliminare una macchina virtuale
 
-È possibile eliminare una macchina virtuale utilizzando il comando **Remove-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto. Utilizzare il parametro **– Force** per ignorare la richiesta di conferma.
+È possibile eliminare una macchina virtuale utilizzando il comando **Remove-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto. È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
 
-	Remove-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 Verranno visualizzate informazioni come segue:
 
@@ -945,5 +954,4 @@ Verranno visualizzate informazioni come segue:
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->
