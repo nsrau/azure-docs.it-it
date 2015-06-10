@@ -119,7 +119,7 @@ Ulteriori informazioni, vedere il [agente VM](https://go.microsoft.com/fwLink/?L
 - Tra aree di backup e ripristino non è supportata.
 - Macchina virtuale backup utilizzando il servizio di Backup di Azure è supportato solo in selezionare le aree. Controllare l'elenco di [supportati aree](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando è attualmente supportata, non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - Backup della macchina virtuale utilizzando il servizio di Backup di Azure solo è supportata solo per alcune versioni del sistema operativo:
-  - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](virtual-machines-linux-endorsed-distributions.md). Altri porta-del-proprietari-distribuzioni Linux inoltre dovrebbero funzionare fino a quando l'agente VM è disponibile nella macchina virtuale.
+  - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). Altri porta-del-proprietari-distribuzioni Linux inoltre dovrebbero funzionare fino a quando l'agente VM è disponibile nella macchina virtuale.
   - **Windows Server**: versioni antecedenti a Windows Server 2008 R2 non sono supportate.
 
 Se tutte le funzionalità che si desidera vedere incluso, [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
@@ -133,4 +133,4 @@ Per iniziare a utilizzare il backup della macchina virtuale, informazioni su com
 
 + Monitorare i processi di backup
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

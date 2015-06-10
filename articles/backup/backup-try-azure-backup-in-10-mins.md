@@ -57,4 +57,4 @@ Esaminare i passaggi illustrati in questo video in [http://azure.microsoft.com/e
 + Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425).
 + Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

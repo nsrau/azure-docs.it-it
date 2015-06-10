@@ -94,4 +94,4 @@ Dopo l'installazione dell'agente sarà possibile usare l'interfaccia di gestione
 - Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

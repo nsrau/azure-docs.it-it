@@ -186,4 +186,4 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
