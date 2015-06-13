@@ -26,7 +26,7 @@ Con Azure Backup e di importazione/esportazione di Azure, è semplice e diretto 
 
 ## Prerequisiti
 
-1. È importante acquisire familiarità con il flusso di lavoro esportazione importazione Azure elencata [qui](storage-import-export-service.md).
+1. È importante acquisire familiarità con il flusso di lavoro esportazione importazione Azure elencata [qui](../storage-import-export-service.md).
 
 2. Prima di avviare il flusso di lavoro, assicurarsi che è stato creato un archivio di Backup di Azure, le credenziali dell'insieme di credenziali sono stati scaricati, Azure Backup agent è stato installato nel server il Client di Windows Server e Windows o per System Center Data Protection Manager (SCDPM) e che il computer sia registrato con l'archivio di Backup di Azure.
 
@@ -42,7 +42,7 @@ Con Azure Backup e di importazione/esportazione di Azure, è semplice e diretto 
 
 
 ## Flusso di lavoro
-Le informazioni fornite in questa sezione sono per completare il **Backup non in linea** flusso di lavoro in modo che i dati possono essere recapitati a un data center di Azure e caricati nell'archiviazione di Azure. Se hai domande relative al servizio di importazione o l'aspetto del processo, vedere la panoramica del servizio di importazione a cui fa riferimento [sopra](storage-import-export-service.md).
+Le informazioni fornite in questa sezione sono per completare il **Backup non in linea** flusso di lavoro in modo che i dati possono essere recapitati a un data center di Azure e caricati nell'archiviazione di Azure. Se hai domande relative al servizio di importazione o l'aspetto del processo, vedere la panoramica del servizio di importazione a cui fa riferimento [sopra](../storage-import-export-service.md).
 
 ### Avviare il Backup non in linea
 
@@ -119,7 +119,7 @@ Una volta completata l'operazione, un *. AIBBlob* e *. BaseBlob* file viene crea
 Quando i dati di backup iniziali sono disponibili nell'account di archiviazione, l'agente Azure Backup copia il contenuto dei dati da questo account per l'account di archiviazione di backup con tenant multipli. Nella pianificazione backup alla successiva, l'agente di Backup di Azure esegue il backup incrementale tramite la copia di backup iniziale.
 
 ## Passaggi successivi
-+ Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](storage-import-export-service.md).
++ Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
 
 + Vedere la sezione di Backup non in linea di Azure Backup [domande frequenti su](backup-azure-backup-faq.md) per domande sul flusso di lavoro
 
@@ -134,4 +134,4 @@ Quando i dati di backup iniziali sono disponibili nell'account di archiviazione,
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

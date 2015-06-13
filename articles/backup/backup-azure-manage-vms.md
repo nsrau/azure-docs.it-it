@@ -158,4 +158,4 @@ Nel **Dashboard** pagina è possibile esaminare le informazioni su macchine virt
 
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

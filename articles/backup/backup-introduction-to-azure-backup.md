@@ -65,4 +65,4 @@ Combinata con Backup di Azure SCDPM possibile eseguire il backup:
 + Domande frequenti domanda sul servizio Azure Backup è elencato [qui](backup-azure-backup-faq.md).
 + Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

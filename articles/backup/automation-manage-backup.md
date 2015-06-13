@@ -41,4 +41,4 @@ Dopo aver appreso le nozioni di base di automazione di Azure e come può essere 
  
 * Estrarre l'automazione di Azure [Guida introduttiva](http://go.microsoft.com/fwlink/?LinkId=390560)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

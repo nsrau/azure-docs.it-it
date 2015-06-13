@@ -113,4 +113,4 @@ Una volta che viene fornito l'input, fare clic sui **ripristinare** pulsante che
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

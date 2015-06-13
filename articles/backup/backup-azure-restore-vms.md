@@ -101,4 +101,4 @@ Per la maggior parte degli errori, è possibile seguire l'azione consigliata sug
 ## Passaggi successivi
 - [Gestire le macchine virtuali](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

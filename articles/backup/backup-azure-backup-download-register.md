@@ -58,4 +58,4 @@ Dopo aver creato l'archivio di Backup di Azure, deve essere installato un agente
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
