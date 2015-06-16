@@ -35,7 +35,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE per sviluppatori Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Un sito Web di Azure con Java Runtime Environment (ad esempio Tomcat o Jetty) abilitato.](web-sites-java-get-started.md)
+- [Un sito Web di Azure con Java Runtime Environment (ad esempio Tomcat o Jetty) abilitato.](app-service-web/web-sites-java-get-started.md)
 
 Se questi strumenti vengono installati per la prima volta, coreservlets.com fornisce una procedura dettagliata del processo di installazione nella sezione introduttiva dell'articolo relativo all'[esercitazione sull'installazione di TomCat7 e il relativo uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
@@ -744,7 +744,7 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
  - Nella casella Destination scegliere una destinazione in cui salvare il file WAR.
  - Fare clic su **Finish**.
 
-3. A questo punto, è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Aggiunta di un'applicazione a un sito Web Java in Azure](web-sites-java-add-app.md).
+3. A questo punto, è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Aggiunta di un'applicazione a un sito Web Java in Azure](app-service-web/web-sites-java-add-app.md).
 
 	Dopo aver caricato il file con estensione war nella directory webapps, l'ambiente di runtime identificherà il file aggiunto e lo caricherà automaticamente.
 4. Per visualizzare il prodotto finito, passare a http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ e iniziare ad aggiungere le attività.

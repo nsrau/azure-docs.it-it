@@ -25,7 +25,7 @@
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
-> [AZURE.NOTE]Le procedure descritte in questa attività si applicano a Servizi cloud di Azure. Per Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Le procedure descritte in questa attività si applicano a Servizi cloud di Azure. Per Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 In questa attività viene utilizzata una distribuzione di produzione. In fondo a questo argomento vengono fornite informazioni sull'utilizzo di una distribuzione di gestione temporanea.
 

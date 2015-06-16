@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare l'archiviazione di accodamento da Node.js | Microsoft Azure" 
 	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Node.js." 
 	services="storage" 
@@ -335,9 +335,9 @@ per informazioni sulle attività di archiviazione più complesse.
   [Azure Storage SDK per Node.js]: https://github.com/Azure/azure-storage-node
   [Uso dell'API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Portale di gestione di Azure]: http://manage.windowsazure.com
-  [Creare e distribuire un'applicazione Node.js in un Sito Web di Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Creare e distribuire un'applicazione Node.js in un Sito Web di Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con Archiviazione]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Applicazione Web Node.js con archiviazione]: storage-nodejs-use-table-storage-web-site.md
+  [Applicazione Web Node.js con archiviazione]: app-service-web/storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -349,6 +349,6 @@ per informazioni sulle attività di archiviazione più complesse.
   [Servizio cloud Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Sito Web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+ [Sito Web con WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integrare un servizio cloud con la rete CDN di Azure" 
 	description="Un'esercitazione che illustra come distribuire un servizio cloud che fornisce contenuto da un endpoint della rete CDN di Azure integrato" 
 	services="cdn, cloud-services" 
@@ -625,7 +625,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 # Altre informazioni #
 - [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrare un sito Web di Azure con la rete CDN di Azure](cdn-websites-with-cdn.md)
+- [Integrare un sito Web di Azure con la rete CDN di Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Creazione di bundle e minimizzazione con ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Uso della rete CDN per Azure](cdn-how-to-use.md)
 

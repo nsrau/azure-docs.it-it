@@ -1315,7 +1315,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 
 
 [hbase-get-started]: hdinsight-hbase-get-started.md
-[website-get-started]: web-sites-dotnet-get-started.md
+[website-get-started]: app-service-web/web-sites-dotnet-get-started.md
 
 
 

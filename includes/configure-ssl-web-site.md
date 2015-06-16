@@ -444,7 +444,7 @@ A questo punto si dovrebbe poter andare a l'app Web usando `HTTPS://` anziché `
 
 Servizio app di Azure  *not* applica HTTPS. I visitatori possono comunque accedere all'app Web usando HTTP, con il rischio di compromettere la sicurezza dell'app Web. Per applicare HTTPS per l'app Web, è possibile utilizzare il modulo **Riscrittura URL**. Il modulo Riscrittura URL è incluso in Servizio app di Azure e consente di definire le regole applicate alle richieste in ingresso prima che queste vengano passate all'applicazione. **Può essere usato per le applicazioni scritte in qualsiasi linguaggio di programmazione supportato da** di Azure. 
 
-> [AZURE.NOTE] Le applicazioni .NET MVC devono utilizzare il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) anziché Riscrittura URL. Per ulteriori informazioni sull'uso di RequireHttps, vedere [Distribuzione di un'app ASP.NET MVC 5 sicura in un'app Web](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] Le applicazioni .NET MVC devono utilizzare il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) anziché Riscrittura URL. Per ulteriori informazioni sull'uso di RequireHttps, vedere [Distribuzione di un'app ASP.NET MVC 5 sicura in un'app Web](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > Per informazioni sul reindirizzamento delle richieste a livello di codice usando altri linguaggi e framework di programmazione, consultare la documentazione relativa a queste tecnologie.
 
@@ -512,8 +512,8 @@ Per ulteriori informazioni sul modulo IIS Riscrittura URL, vedere la documentazi
 ## Altre risorse ##
 - [Centro protezione Microsoft Azure](/support/trust-center/security/)
 - [Opzioni di configurazione sbloccate in Siti Web di Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Abilitare la registrazione diagnostica](../articles/web-sites-enable-diagnostic-log.md)
-- [Come configurare i siti Web](../articles/web-sites-configure.md)
+- [Abilitare la registrazione diagnostica](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Come configurare i siti Web](../article/app-service-web/web-sites-configure.md)
 - [Portale di gestione di Azure](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -522,7 +522,7 @@ Per ulteriori informazioni sul modulo IIS Riscrittura URL, vedere la documentazi
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

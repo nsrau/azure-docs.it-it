@@ -541,7 +541,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 ## <a name="_Toc395783182"></a>Passaggio 7: Distribuire l'applicazione in Siti Web di Azure
 
-1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Le istruzioni su come eseguire questa operazione sono disponibili [qui](web-sites-publish-source-control-git.md#step4).
+1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Le istruzioni su come eseguire questa operazione sono disponibili [qui](app-service-web/web-sites-publish-source-control-git.md#step4).
 
 2. Aggiungere il sito Web di Azure come Git remoto.
 

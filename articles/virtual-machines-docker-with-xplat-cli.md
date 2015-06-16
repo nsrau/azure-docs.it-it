@@ -132,7 +132,7 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 [come usare l'estensione della VM Docker con il portale]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 

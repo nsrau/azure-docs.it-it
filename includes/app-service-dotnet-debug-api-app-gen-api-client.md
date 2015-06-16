@@ -2,7 +2,7 @@
 
 Gli strumenti App per le API in Visual Studio semplificano la generazione di codice C# che chiama le app per le API di Azure dal desktop, dall'archivio e dalle app per dispositivi mobili.
 
-1. In Visual Studio aprire la soluzione che contiene l'app per le API usata nell'argomento [Creare un'app per le API](app-service-dotnet-create-api-app.md). 
+1. In Visual Studio aprire la soluzione che contiene l'app per le API usata nell'argomento [Creare un'app per le API](../article/app-service-api/app-service-dotnet-create-api-app.md). 
 
 2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **Nuovo progetto**.
 
