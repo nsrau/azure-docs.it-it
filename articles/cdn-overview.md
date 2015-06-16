@@ -52,7 +52,7 @@ Quando si abilita l'accesso alla rete CDN per un account di archiviazione, il po
 
 ##Memorizzazione di contenuto nella cache da siti Web di Azure
 
-È possibile abilitare la rete CDN dai siti Web per memorizzare nella cache il contenuto Web, come immagini, script e fogli di stile. Vedere [Integrare un sito Web di Azure con la rete CDN di Azure](cdn-websites-with-cdn.md).
+È possibile abilitare la rete CDN dai siti Web per memorizzare nella cache il contenuto Web, come immagini, script e fogli di stile. Vedere [Integrare un sito Web di Azure con la rete CDN di Azure](app-service-web/cdn-websites-with-cdn.md).
 
 Quando si abilita l'accesso alla rete CDN per un sito Web, il portale di gestione fornisce un nome di dominio della rete CDN in questo formato: http://<identificatore>.vo.msecnd.net/. Questo nome di dominio può essere usato per recuperare oggetti da un sito Web. Ad esempio, supponendo un contenitore pubblico chiamato cdn e un file di immagine chiamato music.png, gli utenti possono accedere all'oggetto usando uno dei due URL seguenti:
 

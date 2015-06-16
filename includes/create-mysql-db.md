@@ -77,6 +77,6 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 [waws]: /documentation/services/web-sites/
 [Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../articles/web-sites-configure.md
+[configure]: ../article/app-service-web/web-sites-configure.md
 
 <!--HONumber=52-->

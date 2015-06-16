@@ -26,7 +26,7 @@ Per specificare un endpoint dell'URL per una definizione dell'API [Swagger](http
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
-> **Nota:** se si usa Swashbuckle per generare una definizione dell'API Swagger, gli overload del metodo HTTP nei controller dell'API Web provocano ID operazione duplicati. Per altre informazioni, vedere [Personalizzare gli identificatori di operazione generati da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+> **Nota:** se si usa Swashbuckle per generare una definizione dell'API Swagger, gli overload del metodo HTTP nei controller dell'API Web provocano ID operazione duplicati. Per altre informazioni, vedere [Personalizzare gli identificatori di operazione generati da Swashbuckle](../article/app-service-api/app-service-api-dotnet-swashbuckle-customize.md).
   
 ### Definizione dell'API Swagger statica
 

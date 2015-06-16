@@ -23,7 +23,7 @@
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un'applicazione Node.js ospitata come servizio cloud di Azure in un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
-> [AZURE.NOTE]Le procedure descritte in questo articolo si applicano solo alle applicazioni nodo ospitate come servizio cloud di Azure in un ruolo Web. Per informazioni su Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Le procedure descritte in questo articolo si applicano solo alle applicazioni nodo ospitate come servizio cloud di Azure in un ruolo Web. Per informazioni su Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 Questa attività include i passaggi seguenti:
 

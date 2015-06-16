@@ -57,8 +57,8 @@ Quando viene richiesto l'accesso, usare le credenziali dell'account Azure.
 * [Monitorare le metriche dell'integrità del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo. 
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate a frequenza elevata sul servizio. 
 * [Ricevere notifiche relative agli avvisi](insights-receive-alert-notifications.md) quando si verificano eventi operativi o se le metriche superano una soglia specifica. 
-* Usare [Application Insights per app e pagine Web JavaScript](app-insights-web-track-usage.md) per ottenere analisi client sui browser che visitano una pagina Web. 
-* [Monitorare la disponibilità e la velocità di risposta dei siti Web](app-insights-monitor-web-app-availability.md) con Application Insights in modo da rilevare se la pagina non è disponibile.
+* Usare [Application Insights per app e pagine Web JavaScript](application-insights/app-insights-web-track-usage.md) per ottenere analisi client sui browser che visitano una pagina Web. 
+* [Monitorare la disponibilità e la velocità di risposta dei siti Web](application-insights/app-insights-monitor-web-app-availability.md) con Application Insights in modo da rilevare se la pagina non è disponibile.
 
 
 <!--HONumber=54-->

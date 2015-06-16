@@ -372,8 +372,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Azure Storage SDK per Node.js]: https://github.com/Azure/azure-storage-node
 [Creare e distribuire un'applicazione Node.js in un Sito Web di Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Servizio cloud Node.js con Archiviazione]: storage-nodejs-use-table-storage-cloud-service-app.md
-[Applicazione Web Node.js con il servizio tabelle di Azure]: storage-nodejs-use-table-storage-web-site.md
-[Sito Web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+[Applicazione Web Node.js con il servizio tabelle di Azure]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Sito Web con WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 [Uso dell'API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Portale di gestione di Azure]: http://manage.windowsazure.com
 [Servizio cloud Node.js]: cloud-services-nodejs-develop-deploy-app.md

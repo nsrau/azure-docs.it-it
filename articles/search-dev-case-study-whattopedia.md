@@ -64,7 +64,7 @@ Guardando le caselle verdi del diagramma precedente, si noterà che la soluzione
 
 - [Ricerca di Azure](http://azure.microsoft.com/services/search/)
 - [Siti Web di Azure con MVC 4](http://azure.microsoft.com/services/websites/)
-- [Azure WebJobs per le attività pianificate](websites-webjobs-resources.md)
+- [Azure WebJobs per le attività pianificate](app-service-web/websites-webjobs-resources.md)
 - [Database SQL di Azure](http://azure.microsoft.com/services/sql-database/)
 - [Archiviazione BLOB di Azure](http://azure.microsoft.com/services/storage/)
 - [Recapito della posta elettronica SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

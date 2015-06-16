@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare l'analisi dell'utente finale" 
 	description="Analisi dell'utente finale per Siti Web di Microsoft Azure." 
 	services="application-insights" 

@@ -430,9 +430,9 @@ per informazioni su come eseguire attività di archiviazione più complesse.
   [Servizio cloud Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Sito Web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+  [Sito Web con WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
   [Servizio cloud Node.js con Archiviazione]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Applicazione Web Node.js con il servizio tabelle di Azure]: storage-nodejs-use-table-storage-web-site.md
-  [Creare e distribuire un'applicazione Node.js in un Sito Web di Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Applicazione Web Node.js con il servizio tabelle di Azure]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Creare e distribuire un'applicazione Node.js in un Sito Web di Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
 
 <!--HONumber=49-->

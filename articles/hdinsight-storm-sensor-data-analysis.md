@@ -254,7 +254,7 @@ Nell'ambiente di sviluppo seguire questa procedura per eseguire la topologia Tem
 
 ### Pubblicare il dashboard del sito Web
 
-1. Per distribuire il dashboard in un sito Web di Azure, seguire la procedura descritta nell'articolo relativo alla [creazione e distribuzione di un sito Web Node.js in Azure](web-sites-nodejs-develop-deploy-mac.md). Notare che l'URL del sito Web sarà simile a **mywebsite.azurewebsites.net**.
+1. Per distribuire il dashboard in un sito Web di Azure, seguire la procedura descritta nell'articolo relativo alla [creazione e distribuzione di un sito Web Node.js in Azure](app-service-web/web-sites-nodejs-develop-deploy-mac.md). Notare che l'URL del sito Web sarà simile a **mywebsite.azurewebsites.net**.
 
 2. Dopo aver creato il sito Web, passare al sito nel portale di Azure e selezionare la scheda **Configura**. Abilitare **Web Socket** e quindi fare clic su **Salva** nella parte inferiore della pagina.
 

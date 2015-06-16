@@ -38,7 +38,7 @@ L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.n
 
 ## Architettura alternativa: siti Web e processi Web
 
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa si può eseguire il front-end in un [sito Web di Azure](/services/web-sites/) e usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione a Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa si può eseguire il front-end in un [sito Web di Azure](/services/web-sites/) e usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione a Azure WebJobs SDK](app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Contenuto dell'esercitazione
 
