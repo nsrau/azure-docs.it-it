@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="02/11/2015" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure

@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="01/09/2015" 
 	ms.author="awills"/>
  
 # Ricerca diagnostica in Application Insights

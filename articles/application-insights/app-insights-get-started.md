@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="02/10/2015" 
 	ms.author="awills"/>
 
 # Application Insights: monitoraggio dell'integrità e dell'utilizzo di un'app

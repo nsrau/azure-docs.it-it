@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="02/11/2015" 
 	ms.author="sdanie"/>
 
 # Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure

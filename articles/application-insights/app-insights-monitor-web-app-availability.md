@@ -2,6 +2,7 @@
 	pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web" 
 	description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-27" 
+	ms.date="01/27/2015" 
 	ms.author="awills"/>
  
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
