@@ -79,7 +79,7 @@ A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e ca
 [Introduzione a Servizi mobili]: mobile-services-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: storage-create-storage-account.md
+[How To Create a Storage Account]: storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471

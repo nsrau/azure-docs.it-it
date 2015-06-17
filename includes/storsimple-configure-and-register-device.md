@@ -59,7 +59,7 @@
 
     > [AZURE.NOTE]È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Qualsiasi impostazione applicata prima di emettere questo comando verrà conservata.
 
-12. Dopo la registrazione del dispositivo, verrà visualizzato un codice di crittografia dei dati di servizio. Copiare questo codice e salvarlo in un luogo sicuro. **Il codice verrà richiesto con il codice di registrazione del servizio allo scopo di registrare altri dispositivi con il servizio StorSimple Manager.** Per ulteriori informazioni sul codice, consultare [Sicurezza di StorSimple](storsimple-security.md).
+12. Dopo la registrazione del dispositivo, verrà visualizzato un codice di crittografia dei dati di servizio. Copiare questo codice e salvarlo in un luogo sicuro. **Il codice verrà richiesto con il codice di registrazione del servizio allo scopo di registrare altri dispositivi con il servizio StorSimple Manager.** Per ulteriori informazioni sul codice, consultare [Sicurezza di StorSimple](../articles/storsimple/storsimple-security.md).
 
      ![StorSimple registrare il dispositivo 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 

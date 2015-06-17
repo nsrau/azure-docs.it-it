@@ -76,7 +76,7 @@ In questa esercitazione verrà illustrato come eseguire l'importazione in blocco
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
-1. [Creare un account di archiviazione](storage-create-storage-account.md)
+1. [Creare un account di archiviazione](storage/storage-create-storage-account.md)
 
 2. [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md)
 

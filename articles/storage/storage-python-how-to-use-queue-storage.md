@@ -1,0 +1,122 @@
+<properties 
+	pageTitle="Come usare l'archiviazione di accodamento da Python | Microsoft Azure" 
+	description="Informazioni su come usare il servizio di accodamento di Azure da Python per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="huvalo"/>
+
+# Come usare l'archiviazione di accodamento da Python
+
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+
+## Informazioni generali
+
+In questa guida viene illustrato come eseguire scenari comuni del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Python e usano il [pacchetto Python di Azure][]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il
+**recupero** e l'**eliminazione** dei messaggi in coda, nonché la **creazione e l'eliminazione di code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi]().
+
+[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
+
+[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+
+
+> [AZURE.NOTE] Per installare Python o il [pacchetto Python di Azure][], vedere la [guida all'installazione di Python](../python-how-to-install.md).
+
+## Procedura: Creare una coda
+
+L'oggetto **QueueService** consente di usare le code. Il codice seguente consente di creare un oggetto **QueueService**. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
+
+	from azure.storage import QueueService
+
+Il codice seguente consente di creare un oggetto **QueueService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave effettivi.
+
+	queue_service = QueueService(account_name='myaccount', account_key='mykey')
+
+	queue_service.create_queue('taskqueue')
+
+
+## Procedura: Inserire un messaggio in una coda
+
+Per inserire un messaggio in una coda, usare il metodo **put_message** per creare un nuovo messaggio e aggiungerlo alla coda.
+
+	queue_service.put_message('taskqueue', 'Hello World')
+
+
+## Procedura: Visualizzare il messaggio successivo
+
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek_messages**. Per impostazione predefinita,
+**peek_messages** visualizza un singolo messaggio.
+
+	messages = queue_service.peek_messages('taskqueue')
+	for message in messages:
+		print(message.message_text)
+
+
+## Procedura: Rimuovere il messaggio successivo dalla coda
+
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando
+**get_messages**, per impostazione predefinita si ottiene il messaggio successivo in una coda. Un messaggio restituito da **get_messages** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message** immediatamente dopo l'elaborazione del messaggio.
+
+	messages = queue_service.get_messages('taskqueue')
+	for message in messages:
+		print(message.message_text)
+		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+
+
+## Procedura: Cambiare il contenuto di un messaggio in coda
+
+È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il messaggio rappresenta un'attività di lavoro, è possibile usare questa funzionalità per aggiornarne lo stato. La coda seguente usa il metodo **update_message** per aggiornare un messaggio.
+
+	messages = queue_service.get_messages('taskqueue')
+	for message in messages:
+		queue_service.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
+
+## Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda
+
+È possibile personalizzare il recupero di messaggi da una coda in due modi.
+Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio seguente viene usato il metodo
+**get_messages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+
+	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+	for message in messages:
+		print(message.message_text)
+		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+
+## Procedura: Recuperare la lunghezza della coda
+
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo
+**get_queue_metadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda. Per trovare il conteggio, è consigliabile usare **x-ms-approximate-messages-count** come indice nel dizionario restituito.
+Il risultato è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
+
+	queue_metadata = queue_service.get_queue_metadata('taskqueue')
+	count = queue_metadata['x-ms-approximate-messages-count']
+
+## Procedura: Eliminare una coda
+
+Per eliminare una coda e tutti i messaggi che contiene chiamare il metodo
+**delete_queue**.
+
+	queue_service.delete_queue('taskqueue')
+
+## Passaggi successivi
+
+A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
+
+-   Vedere le informazioni di riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
+-   [Blog del team di Archiviazione di Azure][]
+
+[Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Pacchetto Python di Azure]: https://pypi.python.org/pypi/azure  
+
+<!--HONumber=49--> 

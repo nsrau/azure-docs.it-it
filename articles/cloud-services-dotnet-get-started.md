@@ -811,7 +811,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Servizi cloud di Azure - Parte 1: introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Servizi cloud di Azure](/documentation/services/cloud-services/)
 * [Archiviazione di Azure](/documentation/services/storage/)
-* [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
-* [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
+* [Come usare l'archiviazione BLOB da .NET](storage/storage-dotnet-how-to-use-blobs.md)
+* [Come usare l'archiviazione di accodamento da .NET](storage/storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=52-->

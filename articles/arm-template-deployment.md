@@ -25,7 +25,7 @@ L'uso di gruppi di risorse e modelli permette di gestire insieme tutte le risors
 Per completare questa esercitazione, sono necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Account di archiviazione di Azure](storage-create-storage-account.md)
+- [Account di archiviazione di Azure](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/it-it/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-it/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

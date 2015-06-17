@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come controllare lo stato dei processi mediante .NET" 
 	description="Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
@@ -105,7 +105,7 @@ Nell'esempio di codice seguente viene definito il gestore eventi StateChanged, c
 
 ##<a id="check_progress_with_queues"></a>Usare il servizio di archiviazione di accodamento di Azure per monitorare le notifiche dei processi di Servizi multimediali
 
-Servizi multimediali di Microsoft Azure è in grado di distribuire messaggi di notifica al [servizio di archiviazione di accodamento di Azure](storage-dotnet-how-to-use-queues.md#what-is) durante l'elaborazione di processi multimediali. Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione di accodamento.
+Servizi multimediali di Microsoft Azure è in grado di distribuire messaggi di notifica al [servizio di archiviazione di accodamento di Azure](storage/storage-dotnet-how-to-use-queues.md#what-is) durante l'elaborazione di processi multimediali. Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione di accodamento.
 
 È possibile accedere ai messaggi distribuiti al servizio di archiviazione di accodamento da ogni parte del mondo. L'architettura di messaggistica del servizio di accodamento di Azure, infatti, è affidabile e altamente scalabile. Tra i vari metodi disponibili, quindi, è preferibile usare il polling dell'archiviazione di accodamento. 
 

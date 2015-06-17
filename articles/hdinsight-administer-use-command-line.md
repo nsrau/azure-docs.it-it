@@ -194,7 +194,7 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 
 
 [azure-command-line-tools]: xplat-cli.md
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
