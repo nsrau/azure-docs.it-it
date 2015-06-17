@@ -118,7 +118,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introduzione ai dati]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [portale di gestione di Azure]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [pagina del componente aggiuntivo MongoLab]: /gallery/store/mongolab/mongolab
 
 <!--HONumber=54-->

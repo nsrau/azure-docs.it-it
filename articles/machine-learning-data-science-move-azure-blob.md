@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Spostamento dei dati da e verso  Archiviazione BLOB di Azure" 
 	description="Spostamento dei dati da e verso  Archiviazione BLOB di Azure" 
 	services="machine-learning" 
@@ -26,9 +26,9 @@ L'articolo [Scenari di esempio dell'analisi scientifica dei dati cloud](http://a
 
 
 
-> [AZURE.NOTE] Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](storage-dotnet-how-to-use-blobs.md) e  [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
+> [AZURE.NOTE] Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](storage/storage-dotnet-how-to-use-blobs.md) e  [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
-Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione "Procedura: visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Gestione degli account di archiviazione](storage-create-storage-account.md). In questo documento si presuppone di avere un account di archiviazione di Azure e delle chiavi di archiviazione corrispondenti.
+Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione "Procedura: visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Gestione degli account di archiviazione](storage/storage-create-storage-account.md). In questo documento si presuppone di avere un account di archiviazione di Azure e delle chiavi di archiviazione corrispondenti.
 
 <a id="explorer"></a>
 ## Utilizzo di Esplora archivi Azure 
@@ -52,7 +52,7 @@ Esplora archivi Azure è uno strumento basato su Windows gratuito per analizzare
 
 AzCopy è un'utilità della riga di comando per caricare e scaricare i dati. 
 
-**Avviso** Se si utilizza un computer diverso da una macchina virtuale che è stata impostata in precedenza nel processo di analisi scientifica dei dati cloud, installare AzCopy seguendo le istruzioni di installazione seguenti: [Scaricare e installare AzCopy](storage-use-azcopy.md#install).
+**Avviso** Se si utilizza un computer diverso da una macchina virtuale che è stata impostata in precedenza nel processo di analisi scientifica dei dati cloud, installare AzCopy seguendo le istruzioni di installazione seguenti: [Scaricare e installare AzCopy](storage/storage-use-azcopy.md#install).
 
 ####Esempi di caricamento/download dei file in/da BLOB:
 
@@ -77,7 +77,7 @@ AzCopy è un'utilità della riga di comando per caricare e scaricare i dati.
 > 2. Durante il download di file, /S cercherà il contenitore in modo ricorsivo fino a quando non vengono scaricati tutti i file nella directory specificata e nelle relative sottodirectory o tutti i file corrispondenti al criterio specificato nella directory data e nelle relative sottodirectory.  
 > 3.  Non è possibile specificare un file BLOB specifico da scaricare utilizzando il parametro /Source. Per scaricare un file specifico, specificare il nome del file BLOB per il download utilizzando il parametro /Pattern. Il parametro /S può essere utilizzato per fare in modo che AzCopy cerchi il nome del file in modo ricorsivo. Senza il parametro pattern, AzCopy scaricherà tutti i file nella directory. 
 
-Per informazioni dettagliate sull'uso di AzCopy, vedere [Introduzione all'utilità della riga di comando AzCopy](storage-use-azcopy.md#install).
+Per informazioni dettagliate sull'uso di AzCopy, vedere [Introduzione all'utilità della riga di comando AzCopy](storage/storage-use-azcopy.md#install).
 
 
 <a id="PythonSDK"></a>
@@ -91,7 +91,7 @@ Con l'API Python fornita in Azure SDK, è possibile
 - Elencare i BLOB in un contenitore
 - Eliminare un BLOB
 
-Questa sezione viene illustrato come elencare, caricare e scaricare BLOB. Per ulteriori informazioni sull'utilizzo dell'API Python, consultare [Come utilizzare il servizio di archiviazione BLOB di Python](storage-python-how-to-use-blob-storage.md). 
+Questa sezione viene illustrato come elencare, caricare e scaricare BLOB. Per ulteriori informazioni sull'utilizzo dell'API Python, consultare [Come utilizzare il servizio di archiviazione BLOB di Python](storage/storage-python-how-to-use-blob-storage.md). 
 
 > [AZURE.NOTE] Se si utilizza un computer diverso da una macchina virtuale che è stata impostata in precedenza nel processo di analisi scientifica dei dati cloud, è necessario installare [Azure SDK per Python](python-how-to-install.md) prima di utilizzare il codice di esempio seguente.
 

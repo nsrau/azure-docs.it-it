@@ -167,7 +167,7 @@ L’archiviazione è parte integrante di qualsiasi soluzione Azure, poiché non 
  
 In Azure sono disponibili due tipi di archiviazione: L’archiviazione standard consente di accedere all'archiviazione BLOB, all'archiviazione tabelle, all'archiviazione di accodamento e all'archiviazione file. L’archiviazione Premium è progettata per le applicazioni a prestazioni elevate, ad esempio SQL Server in un cluster AlwaysOn e attualmente supporta solo i dischi di macchine virtuali di Azure.
 
-Gli account di archiviazione sono associati a obiettivi di scalabilità. Vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](azure-subscription-service-limits.md#storage-limits) per acquisire familiarità con i limiti di archiviazione correnti. Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
+Gli account di archiviazione sono associati a obiettivi di scalabilità. Vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](azure-subscription-service-limits.md#storage-limits) per acquisire familiarità con i limiti di archiviazione correnti. Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/storage-scalability-targets.md).
 
 Azure consente di creare macchine virtuali con un disco del sistema operativo, un disco temporaneo e zero o più dischi dati facoltativi. Il disco del sistema operativo e i dischi dati sono BLOB di Azure, mentre il disco temporaneo viene supportato dall'archiviazione locale del nodo cui si trova il computer. Ciò rende il disco temporaneo non idoneo per i dati che devono essere salvati in modo permanente, poiché il computer potrebbe essere migrato automaticamente da un nodo all’altro, perdendo tutti i dati in tale disco. Non archiviare alcun elemento nell’unità temporanea.
 
@@ -550,6 +550,6 @@ Questi comandi PowerShell di Azure creano le macchine virtuali in questa configu
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
+[Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

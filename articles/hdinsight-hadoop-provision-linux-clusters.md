@@ -79,7 +79,7 @@ Windows | Fare clic [qui](#portal) | Fare clic [qui](#cli) | Fare clic [qui](#sd
 
 ### <a id="portal"></a>Uso del portale di Azure
 
-I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file system predefinito. Per creare un cluster HDInsight, è necessario un account di archiviazione di Azure nello stesso data center. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage-create-storage-account.md).
+I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file system predefinito. Per creare un cluster HDInsight, è necessario un account di archiviazione di Azure nello stesso data center. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage/storage-create-storage-account.md).
 
 
 > [AZURE.NOTE]Attualmente i cluster HDInsight Linux possono essere ospitati solo nelle aree seguenti: **Asia sudorientale**, **Europa settentrionale**, **Stati Uniti orientali** e **Stati Uniti centro-meridionali**.
@@ -351,7 +351,7 @@ HDInsight usa un contenitore dell'archivio BLOB di Azure come file system predef
 	Quando viene richiesto un percorso, selezionarne uno in cui sia possibile effettuare il provisioning di un cluster HDInsight Linux. La risorsa di archiviazione deve trovarsi nello stesso percorso del cluster HDInsight.
 
 
-Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
+Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage/storage-create-storage-account.md).
 
 Se si ha già un account di archiviazione, ma non si conoscono il nome dell'account e la chiave dell'account, è possibile usare i comandi seguenti per recuperare le informazioni:
 
@@ -364,7 +364,7 @@ Se si ha già un account di archiviazione, ma non si conoscono il nome dell'acco
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di Azure, vedere la sezione "Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di Azure, vedere la sezione "Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Creare, gestire o eliminare un account di archiviazione](storage/storage-create-storage-account.md).
 
 Un cluster HDInsight richiede anche un contenitore in un account di archiviazione. Se l'account di archiviazione fornito non ha già un contenitore, **azure hdinsight cluster create** richiede il nome di un contenitore e lo crea. Se tuttavia si vuole creare il contenitore prima, è possibile usare il comando seguente:
 

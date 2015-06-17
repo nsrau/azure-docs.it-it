@@ -1,0 +1,56 @@
+<properties
+   pageTitle="Disabilitare, abilitare o eliminare un profilo di Gestione traffico"
+   description="Questo articolo illustrerà l'uso dei profili di Gestione traffico."
+   services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
+   ms.author="cherylmc" />
+
+# Disabilitare, abilitare o eliminare un profilo
+
+## Disabilitare o abilitare un profilo
+
+È possibile disabilitare un profilo di Gestione traffico esistente in modo che non indirizzi le richieste dell'utente agli endpoint configurati. Quando si disabilita un profilo di Gestione traffico, il profilo stesso e le informazioni in esso contenute rimarranno invariati e potranno essere modificati nell'interfaccia di Gestione traffico. Per riabilitare il profilo, è possibile eseguire questa operazione nel portale di gestione per riprendere le segnalazioni. Un profilo di Gestione traffico creato nel portale di gestione viene abilitato automaticamente.
+
+### Per disabilitare un profilo
+
+1. Modificare il record di risorse DNS sul server DNS Internet in modo che usi il tipo di record e il puntatore appropriati, immettendo un altro nome o l'indirizzo IP di un percorso specifico su Internet. In altre parole, modificare il record di risorse DNS sul server DNS Internet in modo che non usi più un record di risorse CNAME che punta al nome di dominio del profilo di Gestione traffico.
+1. L'indirizzamento del traffico agli endpoint verrà arrestato tramite le impostazioni del profilo di Gestione traffico.
+1. Selezionare il profilo da disabilitare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo facendo clic sulla colonna accanto al nome del profilo. Non fare clic sul nome del profilo o sulla freccia accanto al nome, altrimenti verrà visualizzata la pagina delle impostazioni del profilo.
+1. Dopo aver selezionato il profilo, fare clic su Disabilita nella parte inferiore della pagina.
+
+### Per abilitare un profilo
+
+1. Selezionare il profilo da abilitare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo facendo clic sulla colonna accanto al nome del profilo. Non fare clic sul nome del profilo o sulla freccia accanto al nome, altrimenti verrà visualizzata la pagina delle impostazioni del profilo.
+1. Dopo aver selezionato il profilo, fare clic su Abilita nella parte inferiore della pagina.
+1. Modificare il record di risorse DNS sul server DNS Internet in modo che usi il tipo di record CNAME, che esegue il mapping del nome di dominio aziendale al nome di dominio del profilo di Gestione traffico. Per altre informazioni, vedere [Come impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](../point-a-company-internet-domain-to-a-traffic-manager-domain.md).
+1. Il traffico verrà nuovamente indirizzato verso gli endpoint.
+
+## Eliminare un profilo
+
+
+### Per eliminare un profilo
+
+1. Assicurarsi che il record di risorse DNS sul server DNS Internet non usi più un record di risorse CNAME che punta al nome di dominio del profilo di Gestione traffico.
+1. Selezionare il profilo da eliminare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo 
+1. facendo clic sulla colonna accanto al profilo. Non fare clic sul nome del profilo o sulla freccia accanto al nome, altrimenti verrà visualizzata la pagina delle impostazioni del profilo.
+1. Dopo aver selezionato il profilo, fare clic su Elimina nella parte inferiore della pagina.
+
+## Vedere anche
+
+[Gestione traffico](../traffic-manager.md)
+
+[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+
+
+
+<!--HONumber=49--> 

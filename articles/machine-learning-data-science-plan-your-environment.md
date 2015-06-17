@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Pianificazione dell'ambiente di analisi scientifica dei dati cloud | Azure" 
 	description="Pianificazione dell'ambiente di analisi scientifica dei dati cloud" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@ Prima di iniziare a creare l'ambiente di analisi scientifica dei dati cloud, con
 
 A seconda dello scenario, potrebbe essere necessario quanto segue:
 
-1.  Strumenti di Azure: [Azure PowerShell SDK](install-configure-powershell.md), [Esplora archivi Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md) e altri
+1.  Strumenti di Azure: [Azure PowerShell SDK](install-configure-powershell.md), [Esplora archivi Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md) e altri
 2.  Macchine virtuali di Azure che eseguono SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Reti virtuali di Azure per la condivisione di file di Azure locale

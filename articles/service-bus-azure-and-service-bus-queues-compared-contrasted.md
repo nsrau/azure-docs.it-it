@@ -308,7 +308,7 @@ Poiché offrono numerose funzionalità avanzate quali sessioni, transazioni rile
 Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di Azure e di quelle del bus di servizio.
 
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
-- [Come usare l'archiviazione di accodamento](storage-dotnet-how-to-use-queues.md)
+- [Come usare l'archiviazione di accodamento](storage/storage-dotnet-how-to-use-queues.md)
 - [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Introduzione alle code e agli argomenti del bus di servizio di Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guida per gli sviluppatori del bus di servizio](http://www.cloudcasts.net/devguide/)

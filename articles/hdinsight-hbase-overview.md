@@ -85,7 +85,7 @@ Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. A
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 

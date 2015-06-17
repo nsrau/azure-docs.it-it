@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione" 
 	description="Questo articolo fornisce informazioni sulle modalità per aggiornare Servizi multimediali dopo aver eseguito il rollover delle chiavi di accesso alle risorse di archiviazione." 
 	services="media-services" 
@@ -33,7 +33,7 @@ Questo argomento descrive le procedure da eseguire per effettuare il rollover de
 
 ## Passaggio 1: Rigenerare la chiave di accesso alle risorse di archiviazione secondaria
 
-Iniziare con la rigenerazione della chiave di archiviazione secondaria. Per impostazione predefinita, infatti, la chiave secondaria non viene usata da Servizi multimediali.  Per informazioni sul rollover delle chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Iniziare con la rigenerazione della chiave di archiviazione secondaria. Per impostazione predefinita, infatti, la chiave secondaria non viene usata da Servizi multimediali.  Per informazioni sul rollover delle chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ## <a id="step2"></a>Passaggio 2:  Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione secondaria
 
@@ -91,7 +91,7 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare API [
 
 ## Passaggio 5: Rigenerare la chiave di accesso alle risorse di archiviazione primaria
 
-Rigenerare la chiave di accesso alle risorse di archiviazione primaria. Per informazioni sul rollover delle chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Rigenerare la chiave di accesso alle risorse di archiviazione primaria. Per informazioni sul rollover delle chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ## Passaggio 6: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione primaria
 	

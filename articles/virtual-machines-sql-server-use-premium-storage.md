@@ -20,7 +20,7 @@
 
 ## Panoramica
 
-[Archiviazione Premium di Azure](storage-premium-storage-preview-portal.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](http://azure.microsoft.com/services/virtual-machines/) IaaS. In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure (rete, archiviazione) e alle macchine virtuali guest di Windows. Nell'esempio riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell’archiviazione SSD locale migliorata con PowerShell.
+[Archiviazione Premium di Azure](storage/storage-premium-storage-preview-portal.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](http://azure.microsoft.com/services/virtual-machines/) IaaS. In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure (rete, archiviazione) e alle macchine virtuali guest di Windows. Nell'esempio riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell’archiviazione SSD locale migliorata con PowerShell.
 
 È importante comprendere il processo end-to-end di utilizzo di Archiviazione Premium di Azure con SQL Server in macchine virtuali IAAS. Sono inclusi:
 
@@ -142,7 +142,7 @@ Una volta eseguito il mapping dei dischi rigidi virtuali ai dischi fisici nei po
 
 Le prestazioni dell’archiviazione dipendono dalle dimensioni della macchina virtuale DS* specificate e della dimensioni del disco rigido virtuale. Le macchine virtuali hanno quote diverse per il numero di dischi rigidi virtuali che possono essere collegati e la larghezza di banda massima che supporteranno (MB/s). Per i numeri di larghezza di banda specifici, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per informazioni dettagliate, [vedere la tabella per i tipi di disco e input/output al secondo](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-iting-premium-storage).
+Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per informazioni dettagliate, [vedere la tabella per i tipi di disco e input/output al secondo](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-iting-premium-storage).
 
 Infine, tenere presente che le macchine virtuali supporteranno larghezza di banda massime diverse per tutti i dischi collegati. Con un carico elevato si potrebbe saturare la larghezza di banda su disco massima disponibile per le dimensioni del ruolo di macchina virtuale. Ad esempio, Standard_DS14 supporterà fino a 512 MB/s. Pertanto, con tre dischi P30 si potrebbe saturare la larghezza di banda del disco della macchina virtuale. In questo esempio, tuttavia, il limite di velocità effettiva potrebbe essere superato a seconda della combinazione di I/O di lettura e scrittura.
 
@@ -1110,7 +1110,7 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 	![Appendix15][25]
 
 ## Risorse aggiuntive
-- [Archiviazione Premium di Azure](storage-premium-storage-preview-portal.md)
+- [Archiviazione Premium di Azure](storage/storage-premium-storage-preview-portal.md)
 - [Macchine virtuali](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md)
 

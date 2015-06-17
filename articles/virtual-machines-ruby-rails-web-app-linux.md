@@ -271,7 +271,7 @@ Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi d
 
 
 <!-- WA.com links -->
-[blobs]: storage-ruby-how-to-use-blob-storage.md
+[blobs]: storage/storage-ruby-how-to-use-blob-storage.md
 
 [cdn-howto]: /develop/ruby/app-services/
 
