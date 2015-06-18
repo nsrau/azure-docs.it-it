@@ -20,7 +20,7 @@
 
 In questo argomento viene descritto come utilizzare l’interfaccia della riga di comando di Azure in modalità **asm** per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. Questa funzionalità è simile a quella fornita dai cmdlet di Windows PowerShell installati con Azure SDK per .NET, Node.JS e PHP.
 
-> [AZURE.NOTE]Il concetto di utilizzo dei servizi di Azure in modalità **asm** è simile al concetto di utilizzo dei singoli servizi di Azure come Siti Web, Macchine virtuali, Reti virtuali, Archiviazione e così via. Funzionalità più complete con un modello gerarchico raggruppato logicamente di risorse è disponibile nella riga di comando mediante la modalità **arm**. Per passare a tale modalità, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Il concetto di utilizzo dei servizi di Azure in modalità **asm** è simile al concetto di utilizzo dei singoli servizi di Azure come Siti Web, Macchine virtuali, Reti virtuali, Archiviazione e così via. Funzionalità più complete con un modello gerarchico raggruppato logicamente di risorse è disponibile nella riga di comando mediante la modalità **arm**. Per passare a tale modalità, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](virtual-machines/xplat-cli-azure-resource-manager.md).
 
 Per le istruzioni per l’installazione, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli-install.md).
 

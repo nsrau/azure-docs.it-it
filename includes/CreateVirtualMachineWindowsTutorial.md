@@ -53,7 +53,7 @@ Questa sezione descrive come accedere alla macchina virtuale per gestirne le imp
 
 ## <a id="attachdisk"> </a>Come collegare un disco dati alla nuova macchina virtuale ##
 
-Questa sezione descrive come collegare un disco dati vuoto alla macchina virtuale. Per altre informazioni su come collegare dischi vuoti e dischi esistenti, vedere l'esercitazione [Collegamento di un disco dati](../articles/storage-windows-attach-disk.md).
+Questa sezione descrive come collegare un disco dati vuoto alla macchina virtuale. Per altre informazioni su come collegare dischi vuoti e dischi esistenti, vedere l'esercitazione [Collegamento di un disco dati](../articles/virtual-machines/storage-windows-attach-disk.md).
 
 1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
@@ -113,11 +113,11 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
 Per altre informazioni sulla configurazione di macchine virtuali Windows in Azure, vedere gli articoli seguenti:
 
-[Come connettere macchine virtuali in un servizio cloud](../articles/cloud-services-connect-virtual-machine.md)
+[Come connettere macchine virtuali in un servizio cloud](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[Connettere un disco dati a una macchina virtuale](../articles/storage-windows-attach-disk.md)
+[Connettere un disco dati a una macchina virtuale](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [Gestione della disponibilità delle macchine virtuali](../articles/manage-availability-virtual-machines.md)
 

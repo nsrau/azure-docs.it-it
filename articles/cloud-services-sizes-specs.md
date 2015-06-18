@@ -78,6 +78,6 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
  [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](http://go.microsoft.com/fwlink/p/?linkid=328042)
 
- [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md)
+ [Dimensioni delle macchine virtuali](virtual-machines/virtual-machines-size-specs.md)
 
 <!---HONumber=58-->

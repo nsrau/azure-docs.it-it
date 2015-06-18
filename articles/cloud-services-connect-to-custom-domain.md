@@ -1,4 +1,4 @@
-﻿<properties
+<properties
   pageTitle="Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure"
   description="Informazioni su come connettere i ruoli Web/di lavoro a un dominio personalizzato di AD usando Powershell e l'estensione di dominio di AD"
   services="cloud-services"
@@ -30,7 +30,7 @@ Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fi
 
 ## Creare una rete virtuale
 
-È possibile creare una rete virtuale in Azure usando il portale di Azure o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](create-virtual-network.md).
+È possibile creare una rete virtuale in Azure usando il portale di Azure o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](virtual-machines/create-virtual-network.md).
 
     #Create Virtual Network
 
