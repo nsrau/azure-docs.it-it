@@ -78,7 +78,7 @@ Nella parte rimanente di questa sezione vengono illustrati alcuni punti relativi
 
 Per semplificare le operazioni, i dati sono incorporati all'interno della soluzione in un file di testo generato dai dati del [sito Web dei servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
-Le alternative all'incorporamento dei dati includono [indicizzatori per DocumentDB](documentdb-search-indexer.md) o [indicizzatori per SQL Azure Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Gli indicizzatori estraggono i dati nell’indice di Ricerca di Azure, semplificando notevolmente il codice da scrivere e gestire.
+Le alternative all'incorporamento dei dati includono [indicizzatori per DocumentDB](documentdb/documentdb-search-indexer.md) o [indicizzatori per SQL Azure Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Gli indicizzatori estraggono i dati nell’indice di Ricerca di Azure, semplificando notevolmente il codice da scrivere e gestire.
 
 È inoltre possibile caricare dati da un database SQL Server locale. [Questa esercitazione ](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) spiega come eseguire questa operazione.
 

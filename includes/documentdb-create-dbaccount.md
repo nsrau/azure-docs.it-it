@@ -1,4 +1,4 @@
-﻿1.	Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+1.	Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
 2.	Nell'indice, scegliere **Nuovo**, selezionare **Dati + archiviazione**, quindi fare clic su **DocumentDB**. 
 
 	![Schermata del portale di anteprima d Azure, che evidenzia il pulsante **Nuovo**, **Dati + archiviazione** nel pannello Crea e **DocumentDB** nel pannello Dati + archiviazione][1]   
@@ -52,6 +52,6 @@
 
 [Procedura: Creare un account DocumentDB]: #Howto
 [Passaggi successivi]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->

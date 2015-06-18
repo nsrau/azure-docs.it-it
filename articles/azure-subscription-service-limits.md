@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Limiti quote e vincoli delle sottoscrizioni e dei servizi di Azure" 
 	description="Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi."
 	services="" 
