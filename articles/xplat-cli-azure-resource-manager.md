@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse" 
 	description="Uso dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure con Gestione risorse" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@ Per visualizzare informazioni registrate sulle operazioni eseguite su un gruppo,
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

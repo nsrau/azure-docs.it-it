@@ -205,7 +205,7 @@ Questa sezione illustra alcune attività di diagnostica avanzate che possono ris
 ### Prerequisiti
 Per eseguire alcune delle attività di diagnostica descritte in questa sezione è necessario disporre di accesso a uno strumento di gestione per i database SQL, ad esempio **SQL Server Management Studio** o usare le funzionalità di gestione integrate nel **portale di gestione di Azure**.
 
-SQL Server Management Studio è un'applicazione Windows gratuita che offre funzionalità avanzate. Se non si dispone di un computer Windows (ad esempio se si usa un Mac), si può eseguire il provisioning di una macchina virtuale in Azure come illustrato in [Creazione di una macchina virtuale che esegue Windows Server](virtual-machines-windows-tutorial.md) e connettersi alla macchina virtuale in modalità remota. Se si prevede di usare la VM principalmente per eseguire SQL Server Management Studio, un'istanza **Basic A0** (in precedenza "Molto piccola") dovrebbe essere sufficiente.
+SQL Server Management Studio è un'applicazione Windows gratuita che offre funzionalità avanzate. Se non si dispone di un computer Windows (ad esempio se si usa un Mac), si può eseguire il provisioning di una macchina virtuale in Azure come illustrato in [Creazione di una macchina virtuale che esegue Windows Server](virtual-machines/virtual-machines-windows-tutorial.md) e connettersi alla macchina virtuale in modalità remota. Se si prevede di usare la VM principalmente per eseguire SQL Server Management Studio, un'istanza **Basic A0** (in precedenza "Molto piccola") dovrebbe essere sufficiente.
 
 Il portale di gestione di Azure offre un'esperienza di gestione integrata, più limitata ma disponibile senza bisogno di un'installazione locale.
 

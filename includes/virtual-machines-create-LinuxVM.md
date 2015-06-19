@@ -25,7 +25,7 @@ Sulla barra dei comandi fare clic su **New**.
 
 13. Per le finalità di questa esercitazione, in **Availability Set** utilizzare l'impostazione predefinita **None**.
 
-14.	In **Endpoints** esaminare l'endpoint creato automaticamente per consentire connessioni Secure Shell (SSH) alla macchina virtuale. Gli endpoint consentono a risorse in Internet o in altre reti virtuali di comunicare con una macchina virtuale. È possibile creare altri endpoint ora oppure aggiungerne in seguito. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines-set-up-endpoints.md).
+14.	In **Endpoints** esaminare l'endpoint creato automaticamente per consentire connessioni Secure Shell (SSH) alla macchina virtuale. Gli endpoint consentono a risorse in Internet o in altre reti virtuali di comunicare con una macchina virtuale. È possibile creare altri endpoint ora oppure aggiungerne in seguito. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 
 15.  In **Agente di macchine virtuali**, esaminare le estensioni disponibili. Tali estensioni forniscono varie funzionalità che semplificano l'uso e la gestione di una macchina virtuale. Per informazioni dettagliate, vedere [Estensioni delle macchine virtuali di Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

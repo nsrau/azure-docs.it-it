@@ -98,17 +98,17 @@ Introduzione
 
 - [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)  
 - [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md)
-- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](./xplat-cli-azure-resource-manager.md)  
+- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
 - [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
   
 Creazione e distribuzione delle applicazioni
   
 - [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)  
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)  
-- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-group-deploy-debug.md)  
+- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)  
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)  
-- [Distribuire le risorse di Azure usando le librerie .NET e un modello](./arm-template-deployment.md)
+- [Distribuire le risorse di Azure usando le librerie .NET e un modello](virtual-machines/arm-template-deployment.md)
   
 Organizzazione delle risorse
   
