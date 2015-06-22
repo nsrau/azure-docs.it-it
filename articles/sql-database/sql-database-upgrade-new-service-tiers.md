@@ -14,7 +14,7 @@ ms.devlang="NA"
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio
@@ -172,11 +172,11 @@ Ecco una query sul database master, che esegue il calcolo per il database con li
 
 **Risultati di esempio:**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 Il grafico rappresenta la tendenza del consumo percentuale medio di DTU nel corso del tempo. Ecco un grafico di esempio per un database che si trova per lo più in un livello S2, con alcuni picchi di attività che fanno salire il livello del database a P1.  Il consumo di DTU nel corso del tempo passa dai limiti 'Basic' fino ai limiti 'P1'. Per adattare completamente questo database al nuovo livello, sarà necessario un database con livello di servizio Premium e livello di prestazioni 'P1'. D'altra parte, un database con livello S2 può funzionare se queste impennate occasionali al livello P1 sono rare.
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **Impatto della memoria sulle prestazioni:** anche se la memoria è una delle dimensioni delle risorse che contribuisce alla classificazione DTU, il database SQL è progettato per usare tutta la memoria disponibile per le operazioni del database. Per questo motivo il consumo della memoria non è incluso nel consumo di DTU medio nella query precedente. D'altra parte, se si passa a un livello di prestazioni inferiore, la memoria disponibile per il database viene ridotta. Ciò può comportare un consumo di IO più elevato che influisce sul consumo di DTU. Quindi, quando si passa a un livello di prestazioni inferiore, assicurarsi di avere abbastanza capacità nella percentuale di IO. Usare la DMV [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) citata sopra per monitorarla.
 
