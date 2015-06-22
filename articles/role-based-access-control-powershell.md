@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell" 
 	description="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell" 
 	services="" 
@@ -167,3 +167,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 <!--HONumber=46--> 
 
 <!--HONumber=46--> 
+ 

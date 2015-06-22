@@ -307,7 +307,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [guida introduttiva di Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso di Dropbox per condividere i repository Git]: https://gist.github.com/trey/2722927
 [uso di Dropbox per la condivisione di repository Git]: https://gist.github.com/trey/2722927
-[Recapito continuo in Azure usando Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
-[Distribuzione continua in Azure tramite Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Recapito continuo in Azure usando Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Distribuzione continua in Azure tramite Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->

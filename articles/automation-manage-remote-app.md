@@ -40,7 +40,7 @@ RemoteApp può essere gestito in Automazione di Azure usando i cmdlet di PowerSh
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire Azure RemoteApp, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-* Vedere l'[esercitazione introduttiva di Automazione di Azure.](automation-create-runbook-from-samples.md)
+* Vedere l'[esercitazione introduttiva di Automazione di Azure.](automation/automation-create-runbook-from-samples.md)
 
 
 <!--HONumber=52-->
