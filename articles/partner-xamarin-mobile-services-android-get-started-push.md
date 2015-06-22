@@ -76,7 +76,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 * [Introduzione all'autenticazione](partner-xamarin-mobile-services-android-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
-* [Informazioni su Hub di notifica](notification-hubs-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
+* [Informazioni su Hub di notifica](notification-hubs/notification-hubs-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
 * [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive per la risoluzione dei problemi e il debug delle soluzioni di Hub di notifica.
 

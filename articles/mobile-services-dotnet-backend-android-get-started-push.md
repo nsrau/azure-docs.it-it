@@ -116,9 +116,9 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Inviare notifiche push agli utenti autenticati]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: notification-hubs-overview.md
-[Inviare notifiche di trasmissione ai sottoscrittori]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Inviare notifiche basate su modelli ad altri sottoscrittori]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Informazioni su Hub di notifica]: notification-hubs/notification-hubs-overview.md
+[Inviare notifiche di trasmissione ai sottoscrittori]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Inviare notifiche basate su modelli ad altri sottoscrittori]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

@@ -123,7 +123,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Invio di notifiche push agli utenti autenticati]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: notification-hubs-overview.md
+[Informazioni su Hub di notifica]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-store-javascript-send-localized-breaking-news.md
 
