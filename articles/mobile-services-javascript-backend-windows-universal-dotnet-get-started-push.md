@@ -66,13 +66,13 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 
 + [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Informazioni sull'uso dei tag per inviare notifiche push dal servizio mobile solo agli utenti autenticati.
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori](notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
++ [Inviare notifiche di trasmissione ai sottoscrittori](notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
 
-+ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Hub di notifica di Azure - Linee guida sulla diagnostica](notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
+* [Hub di notifica di Azure - Linee guida sulla diagnostica](notification-hubs/notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -94,7 +94,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: notification-hubs-overview.md
+[Informazioni su Hub di notifica]: notification-hubs/notification-hubs-overview.md
 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

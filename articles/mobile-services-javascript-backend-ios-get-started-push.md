@@ -237,9 +237,9 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 
 [Inviare notifiche push agli utenti autenticati]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: notification-hubs-overview.md
-[Inviare notifiche di trasmissione ai sottoscrittori]: notification-hubs-ios-send-breaking-news.md
-[Inviare notifiche basate su modelli ad altri sottoscrittori]: notification-hubs-ios-send-localized-breaking-news.md
+[Informazioni su Hub di notifica]: notification-hubs/notification-hubs-overview.md
+[Inviare notifiche di trasmissione ai sottoscrittori]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Inviare notifiche basate su modelli ad altri sottoscrittori]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con Objective-C]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
