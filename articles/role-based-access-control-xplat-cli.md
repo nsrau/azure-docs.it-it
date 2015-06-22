@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma di Azure" 
 	description="Gestione del controllo degli accessi basato su ruoli con l'interfaccia della riga di comando multipiattaforma" 
 	services="" 
@@ -150,3 +150,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 <!--HONumber=46--> 
 
 <!--HONumber=46--> 
+ 

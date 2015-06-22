@@ -254,7 +254,7 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 
 ## Passaggi successivi
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
 - [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)
 

@@ -22,7 +22,7 @@ Questo argomento mostra come consentire un'entità servizio (ad esempio un proce
 
 
 ## Concetti
-1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](./active-directory-whatis.md)
+1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Entità servizio: istanza di un'applicazione in una directory.
 3. Applicazione AD: record di directory che identifica un'applicazione in AAD. Per altre informazioni, vedere [Nozioni di base sull'autenticazione in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -74,7 +74,7 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
    È stata creata un'entità servizio nella directory, ma al servizio non sono assegnate autorizzazioni o ambiti. È necessario concedere esplicitamente le autorizzazioni dell'entità servizio per eseguire operazioni in un ambito.
 
-4. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)
+4. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
 
         PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -107,7 +107,7 @@ Se l'interfaccia della riga di comando di Azure per Mac, Linux e Windows non è 
 
 È necessario disporre già di un'applicazione AD e di un'entità servizio per eseguire questi passaggi. Per informazioni su come configurare un'applicazione AD e un'entità servizio tramite il portale di Azure classico, vedere [Creare una nuova entità servizio di Azure usando il portale di Azure classico](./resource-group-create-service-principal-portal.md).
 
-1. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)
+1. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
 
         azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -127,12 +127,12 @@ Introduzione
 - [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)  
 - [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md)
 - [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
+- [Uso del portale di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md)  
   
 Creazione e distribuzione delle applicazioni
   
 - [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)  
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)  
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)  
 - [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)  
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)  
@@ -144,7 +144,7 @@ Organizzazione delle risorse
   
 Gestione e controllo dell'accesso
   
-- [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)  
+- [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)  
 - [Creare una nuova entità servizio di Azure usando il portale di Azure](./resource-group-create-service-principal-portal.md)  
   
 

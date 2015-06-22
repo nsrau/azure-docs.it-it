@@ -99,12 +99,12 @@ Introduzione
 - [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)  
 - [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md)
 - [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
+- [Uso del portale di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md)  
   
 Creazione e distribuzione delle applicazioni
   
 - [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)  
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)  
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)  
 - [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)  
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)  
@@ -116,7 +116,7 @@ Organizzazione delle risorse
   
 Gestione e controllo dell'accesso
   
-- [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)  
+- [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)  
 - [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->

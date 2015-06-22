@@ -40,7 +40,7 @@ Il bus di servizio può essere gestito in Automazione di Azure mediante l'[API R
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire il bus di servizio di Azure, visitare i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-* Vedere l'[esercitazione introduttiva](automation-create-runbook-from-samples.md) di Automazione di Azure
+* Vedere l'[esercitazione introduttiva](automation/automation-create-runbook-from-samples.md) di Automazione di Azure
 * Vedere l'articolo [Gestire il bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
 
 <!---HONumber=58-->
