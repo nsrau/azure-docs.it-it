@@ -1436,7 +1436,7 @@ Questo comando rimuove tutte le righe di dati dalla tabella.
 
 ###<a name="Mobile_Scripts"></a>Comandi per la gestione degli script
 
-I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](mobile-services-how-to-use-server-scripts.md).
+I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [opzioni][servicename]**
 

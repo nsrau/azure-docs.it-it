@@ -17,7 +17,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 	- 	Trovare il metodo **OnCreate** in **TodoActivity.java** e individuare il codice che crea un'istanza del client di Servizi mobili. Il codice è visibile nell'immagine precedente.
 	- 	Sostituire "MobileServiceUrl" con l'URL effettivo del servizio mobile.
 	- 	Sostituire "AppKey" con la chiave del servizio mobile.
-	- 	Per informazioni dettagliate, vedere l'esercitazione [Aggiungere Servizi mobili a un'app esistente](../articles/mobile-services-android-get-started-data.md). 
+	- 	Per informazioni dettagliate, vedere l'esercitazione [Aggiungere Servizi mobili a un'app esistente](../articles/mobile-services/mobile-services-android-get-started-data.md). 
 
 6. Scegliere **Run** dal menu **Run** per avviare il progetto nell'emulatore di Android.
 
@@ -52,9 +52,9 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
