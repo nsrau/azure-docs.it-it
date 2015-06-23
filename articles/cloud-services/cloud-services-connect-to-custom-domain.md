@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="3/5/2015"
+    ms.date="03/05/2015"
     ms.author="vmaker"/>
 
 # Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure
