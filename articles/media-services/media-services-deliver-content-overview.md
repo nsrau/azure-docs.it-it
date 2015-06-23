@@ -1,0 +1,170 @@
+<properties 
+	pageTitle="Informazioni generali sulla distribuzione di contenuti ai clienti" 
+	description="Questo argomento fornisce informazioni generali su tutti gli aspetti inerenti la distribuzione di contenuti con Servizi multimediali di Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/08/2015" 
+	ms.author="juliako"/>
+
+
+# Informazioni generali sulla distribuzione di contenuti ai clienti
+
+## Informazioni generali
+
+Quando si usa Servizi multimediali, si eseguono in genere i seguenti passaggi:
+
+1. Caricare un file di input (denominato file in formato intermedio) in un asset. Ad esempio: H.264, MP4 o WMV.
+1. Codificare l'asset in un set di file MP4 a velocità in bit adattiva.
+1. Pubblicare l'asset. 
+2. Usare la funzione di[creazione dinamica dei pacchetti](http://msdn.microsoft.com/library/azure/jj889436.aspx) per distribuire i contenuti ai clienti in uno dei seguenti formati: MPEG DASH, Apple HLS o Smooth Streaming. 
+
+Questo argomento offre una panoramica dei [concetti](../media-services-deliver-content.md#concepts) principali e fornisce collegamenti ad altri argomenti che illustrano procedure per eseguire [attività](../media-services-deliver-content.md#tasks) relative alla distribuzione di contenuti.
+
+## <a id="concepts"></a>Concetti
+
+Il seguente elenco descrive termini e concetti utili per la distribuzione di contenuti multimediali.
+
+### Localizzatori
+
+Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore.  I localizzatori forniscono un punto di ingresso per accedere ai file contenuti in un asset. Servizi multimediali supporta due tipi di localizzatori: 
+
+- Localizzatori **OnDemandOrigin**, che consentono di trasmettere in streaming file multimediali (ad esempio MPEG DASH, HLS o Smooth Streaming) o eseguire il download progressivo dei file.
+-  Localizzatori di URL **SAS** (firma di accesso), che consentono di scaricare file multimediali nel computer locale. 
+
+Per definire le autorizzazioni (ad esempio di lettura, scrittura ed elenco) e il periodo di tempo durante il quale un client può accedere a un determinato asset, vengono usati dei **criteri di accesso**. Si noti che l'autorizzazione di elenco (AccessPermissions.List) non deve essere usata durante la creazione di un localizzatore OnDemandOrigin.
+
+Per i localizzatori viene definita una data di scadenza. Quando si pubblicano asset attraverso il portale, vengono creati localizzatori con scadenza a 100 anni. 
+
+>[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.  
+
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato. 
+ 
+I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](http://msdn.microsoft.com/library/azure/dn282272.aspx).
+
+Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
+
+
+### Streaming adattivo 
+
+Le tecnologie a velocità in bit adattiva consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore consentendo al lettore di continuare la riproduzione del video con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le seguenti tecnologie a velocità in bit adattive: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
+
+Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism), quindi aggiungere /Manifest e un formato appropriato (se necessario) al percorso di origine del localizzatore. 
+
+Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. 
+
+Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si vuole poter eseguire lo streaming tramite SSL, creare un nuovo endpoint di streaming. Usare gli URL creati con il nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL. 
+
+
+#### Formati degli URL di streaming URL:
+
+**Formato Smooth Streaming**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+Esempio:
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+
+
+**Formato MPEG DASH**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+
+Esempio
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+
+**Formato Apple HTTP Live Streaming (HLS) V4**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+
+**Formato Apple HTTP Live Streaming (HLS) V3**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+	
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+
+**HDS (solo per licenze Adobe PrimeTime/Access)**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
+
+
+### Creazione dinamica dei pacchetti
+
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming. 
+
+Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
+
+- Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
+- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo [Come scalare un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints/).
+
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
+
+Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming su richiesta offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+
+### Download progressivo 
+
+Il download progressivo è una tecnologia che consente di avviare la riproduzione di file multimediali prima che il download dell'intero file sia stato completato. Non è possibile eseguire il download progressivo di file .ism* (ismv, isma, ismt, ismc). 
+
+Per eseguire il download progressivo di contenuti, usare un localizzatore di tipo OnDemandOrigin. Il seguente esempio mostra l'URL basato sul tipo di localizzatore OnDemandOrigin:
+
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+
+Tenere presenti le seguenti considerazioni:
+
+- Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
+
+
+### Download
+
+Per scaricare i contenuti in un dispositivo client, è necessario creare un localizzatore SAS, che offre l'accesso al contenitore di archiviazione di Azure in cui si trova il file. Per compilare l'URL di download, è necessario incorporare il nome di file tra l'host e la firma SAS. 
+
+Il seguente esempio mostra l'URL basato sul localizzatore SAS:
+
+	https://test001.blob.core.windows.net/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17761bd/BigBuckBunny.mp4?sv=2012-02-12&se=2014-05-03T01%3A23%3A50Z&sr=c&si=7c093e7c-7dab-45b4-beb4-2bfdff764bb5&sig=msEHP90c6JHXEOtTyIWqD7xio91GtVg0UIzjdpFscHk%3D
+
+Tenere presente quanto segue:
+
+- Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
+- Un download ha esito negativo se non viene completato entro 12 ore.
+
+
+
+### Endpoint di streaming
+
+Un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio endpoint di streaming in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità riservate di streaming. È consigliabile allocare almeno un'unità riservata per le applicazioni in un ambiente di produzione. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
+
+## <a id="tasks"></a>Attività correlate alla distribuzione di asset
+
+### Configurazione dei criteri di distribuzione degli asset
+
+Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST**.
+
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+
+### Pubblicazione di asset
+
+Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di gestione di Azure** o **.NET**.
+
+[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+
+
+## Argomenti correlati
+
+[Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
+
+<!--HONumber=52--> 

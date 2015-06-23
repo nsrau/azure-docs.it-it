@@ -1,4 +1,4 @@
-﻿La procedura seguente consente di registrare l'app con Windows Store, configurare il servizio mobile in modo da abilitare le notifiche push e aggiungere codice all'app per la registrazione di un canale di dispositivi con l'hub di notifica. Visual Studio 2013 si connette a Azure e a Windows Store usando le credenziali fornite dall'utente. 
+La procedura seguente consente di registrare l'app con Windows Store, configurare il servizio mobile in modo da abilitare le notifiche push e aggiungere codice all'app per la registrazione di un canale di dispositivi con l'hub di notifica. Visual Studio 2013 si connette a Azure e a Windows Store usando le credenziali fornite dall'utente. 
 
 1. In Visual Studio 2013 aprire Esplora soluzioni, fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Aggiungi** quindi fare clic su **Notifica Push**. 
 

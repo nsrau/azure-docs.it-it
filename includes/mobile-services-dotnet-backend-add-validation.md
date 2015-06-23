@@ -1,4 +1,4 @@
-﻿
+
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. In questa sezione verrà aggiunto del codice al servizio mobile che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
 1. Avviare Visual Studio con l'opzione **Esegui come amministratore** e aprire la soluzione contenente il progetto di servizio mobile utilizzato nell'esercitazione [Attività iniziali] o [Introduzione ai dati](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).
