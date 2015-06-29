@@ -54,5 +54,6 @@ In questa esercitazione è stato illustrato come creare una macchina virtuale Wi
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

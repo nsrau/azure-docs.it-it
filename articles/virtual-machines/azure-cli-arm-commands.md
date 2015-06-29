@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure"
-	description="Imparare a usare gli strumenti da riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante la modalità arm dell'interfaccia della riga di comando di Azure."
+	pageTitle="Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure | Microsoft Azure"
+	description="Informazioni sull'uso dell'interfaccia della riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante la modalità arm dell'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
 
@@ -24,7 +24,7 @@ Gestione risorse di Azure consente di creare un gruppo di risorse, ovvero macchi
 
 ## Approccio imperativo e dichiarativo
 
-Come avviene con la [modalità di gestione servizi (**asm**)](../virtual-machines-command-line-tools.md), la modalità **arm** dell'interfaccia della riga di comando di Azure offre comandi che consentono di creare risorse in modo imperativo nella riga di comando. Ad esempio, se si digita `azure group create <groupname> <location>`, si chiede ad Azure di creare un gruppo di risorse, mentre con `azure group deployment create <resourcegroup> <deploymentname>` si indica ad Azure di creare una distribuzione di un numero qualsiasi di elementi e di inserirli in un gruppo. Poiché per ogni tipo di risorsa sono previsti comandi imperativi, è possibile concatenarli per creare distribuzioni piuttosto complesse.
+Come avviene con la [modalità di gestione servizi \(\*\*asm\*\*\)](../virtual-machines-command-line-tools.md), la modalità **arm** dell'interfaccia della riga di comando di Azure offre comandi che consentono di creare risorse in modo imperativo nella riga di comando. Ad esempio, se si digita `azure group create <groupname> <location>`, si chiede ad Azure di creare un gruppo di risorse, mentre con `azure group deployment create <resourcegroup> <deploymentname>` si indica ad Azure di creare una distribuzione di un numero qualsiasi di elementi e di inserirli in un gruppo. Poiché per ogni tipo di risorsa sono previsti comandi imperativi, è possibile concatenarli per creare distribuzioni piuttosto complesse.
 
 L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un approccio dichiarativo molto più potente che consente di automatizzare distribuzioni complesse indipendentemente dal numero di risorse e quasi per qualunque scopo. Quando si usano modelli, l'unico comando imperativo è per distribuire uno di essi. Per informazioni generali su modelli, risorse e gruppi di risorse, vedere l'articolo relativo alla [panoramica dei gruppi di risorse di Azure](resource-groups-overview).
 
@@ -36,7 +36,7 @@ L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un a
 
 I requisiti di impostazione per l'uso della modalità **arm** con l'interfaccia della riga di comando di Azure sono i seguenti:
 
-- Un account Azure ([per ottenere una versione di valutazione gratuita, fare clic qui](http://azure.microsoft.com/pricing/free-trial/))
+- Un account Azure \([per ottenere una versione di valutazione gratuita, fare clic qui](http://azure.microsoft.com/pricing/free-trial/)\)
 - [Installazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 - [Configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) per l'uso di un'identità di Azure Active Directory o di un'entità servizio
 
@@ -193,7 +193,7 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
 
-## azure insights - Comandi relativi al monitoraggio di Insights (eventi, regole di avviso, impostazioni di scalabilità automatica, metriche)
+## azure insights - Comandi relativi al monitoraggio di Insights \(eventi, regole di avviso, impostazioni di scalabilità automatica, metriche\)
 
 **Recuperare i log delle operazioni per una sottoscrizione, un ID correlazione, un gruppo di risorse, una risorsa o un provider di risorse**
 
@@ -305,7 +305,7 @@ Opzioni dei parametri:
 Il comando consente di elencare tutte le reti virtuali in un gruppo di risorse.
 
 
-	C:>azure network vnet list myresourcegroup
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Opzioni dei parametri:
 Imposta una subnet specifica della rete virtuale all'interno di un gruppo di risorse.
 
 
-	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Opzioni dei parametri:
 
 Elenca le proprietà di probe per un set di bilanciamento del carico.
 
-	C:>azure network lb probe list -g myresourcegroup -l mylb
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -840,9 +840,9 @@ Opzioni dei parametri:
 
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
 
-Un intervallo pool di indirizzi back-end consente a un servizio/dispositivo di bilanciamento del carico di determinare le risorse a cui instradare il traffico di rete in ingresso dal relativo endpoint mediante Gestione risorse di Azure. Dopo aver creato e denominato l'intervallo pool di indirizzi back-end (vedere il comando "azure network lb address-pool create"), è necessario aggiungere gli endpoint che ora sono definiti da una risorsa denominata "network interfaces" (ovvero interfacce di rete).
+Un intervallo pool di indirizzi back-end consente a un servizio/dispositivo di bilanciamento del carico di determinare le risorse a cui instradare il traffico di rete in ingresso dal relativo endpoint mediante Gestione risorse di Azure. Dopo aver creato e denominato l'intervallo pool di indirizzi back-end \(vedere il comando "azure network lb address-pool create"\), è necessario aggiungere gli endpoint che ora sono definiti da una risorsa denominata "network interfaces" \(ovvero interfacce di rete\).
 
-Per configurare l'intervallo di indirizzi back-end, sarà necessaria almeno un'interfaccia di rete ("network interface"). Per altre informazioni, vedere la riga di comando "azure network lb nic".
+Per configurare l'intervallo di indirizzi back-end, sarà necessaria almeno un'interfaccia di rete \("network interface"\). Per altre informazioni, vedere la riga di comando "azure network lb nic".
 
 Nell'esempio seguente è stata usata un'interfaccia di rete "nic1" creata in precedenza per creare l'intervallo pool di indirizzi back-end.
 
@@ -940,7 +940,7 @@ Opzioni dei parametri:
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete \[opzioni\] <resource-group> <lb-name> <name>
 
 Rimuove la risorsa dell'intervallo pool di indirizzi IP back-end dal servizio/dispositivo di bilanciamento del carico.
 
@@ -1091,7 +1091,7 @@ Opzioni dei parametri:
 	network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
 Crea una regola NAT in ingresso per il bilanciamento del carico.
 
-Nell'esempio seguente è stata creata una regola NAT dall'oggetto IP front-end (definito in precedenza; per altre informazioni, vedere "azure network frontend-ip") con una porta di ascolto in ingresso e una porta in uscita che verrà usata dal servizio/dispositivo di bilanciamento del carico per inviare il traffico di rete.
+Nell'esempio seguente è stata creata una regola NAT dall'oggetto IP front-end \(definito in precedenza; per altre informazioni, vedere "azure network frontend-ip"\) con una porta di ascolto in ingresso e una porta in uscita che verrà usata dal servizio/dispositivo di bilanciamento del carico per inviare il traffico di rete.
 
 
 	azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
@@ -1245,7 +1245,7 @@ Crea una risorsa IP pubblico. La risorsa verrà creata e associata a un nome di 
 	info:    network public-ip create command OK
 
 
-Opzioni dei parametri: -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static][Dynamic] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
+Opzioni dei parametri: -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method \[Static\]\[Dynamic\] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
 
 	network public-ip set [options] <resource-group> <name>
 Aggiorna le proprietà di una risorsa IP pubblico esistente. Nell'esempio seguente l'impostazione dell'indirizzo IP pubblico è stata modificata da Dynamic a Static.
@@ -1286,7 +1286,7 @@ Opzioni dei parametri:
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [options] <resource-group> Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
+<br> network public-ip list \[opzioni\] <resource-group> Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1306,7 +1306,7 @@ Opzioni dei parametri:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [options] <resource-group> <name> Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
+<BR> network public-ip show \[opzioni\] <resource-group> <name> Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1359,7 +1359,7 @@ Opzioni dei parametri:
 **Comandi per gestire le interfacce di rete**
 
 	network nic create [options] <resource-group> <name> <location>
-Crea una risorsa denominata interfaccia di rete (NIC) che può essere usata per i servizi/dispositivi di bilanciamento del carico o per l'associazione a una macchina virtuale.
+Crea una risorsa denominata interfaccia di rete \(NIC\) che può essere usata per i servizi/dispositivi di bilanciamento del carico o per l'associazione a una macchina virtuale.
 
 	azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
@@ -1735,5 +1735,6 @@ Opzioni dei parametri:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,59 +1,43 @@
-<properties 
-	pageTitle="Come usare Controllo di accesso (Java) - Guida alle funzionalità di Azure" 
-	description="Informazioni su come sviluppare e usare Controllo di accesso con Java in Azure." 
+<properties
+    pageTitle="Come usare Controllo di accesso (Java) - Guida alle funzionalità di Azure"
+    description="Informazioni su come sviluppare e usare Controllo di accesso con Java in Azure."
 	services="active-directory" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe" />
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="robmcm"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="06/03/2015"
+    ms.author="robmcm" />
 
 # Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
 
-In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-in Azure per Eclipse con Java (da Microsoft Open Technologies). Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps).
+In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-in Azure per Eclipse con Java \(da Microsoft Open Technologies\). Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps).
 
-> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure (di Microsoft Open Technologies) è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft Open Technologies, Inc. o Microsoft.
+> [AZURE.NOTE]
+> Il filtro dei Servizi di controllo di accesso di Azure (di Microsoft Open Technologies) è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft Open Technologies, Inc. o Microsoft.
 
-## Sommario
-
--   [Informazioni su ACS][]
--   [Concetti][]
--   [Prerequisiti][]
--   [Creare uno spazio dei nomi ACS][]
--   [Aggiungere un provider di identità][]
--   [Aggiungere un'applicazione relying party][]
--   [Creare regole][]
--   [Caricare un certificato nello spazio dei nomi ACS][]
--   [Rivedere la pagina di integrazione applicazioni][]
--   [Creare un'applicazione Web Java][]
--   [Aggiungere una libreria di filtri ACS all'applicazione][]
--   [Distribuire l'emulatore di calcolo][]
--   [Eseguire la distribuzione in Azure][]
--   [Passaggi successivi][]
-
-## <a name="what-is"></a>Informazioni su ACS
+## Informazioni su ACS
 
 La maggior parte degli sviluppatori non ha esperienza nell'ambito delle identità e in genere non desidera dedicare tempo a sviluppare meccanismi di autenticazione e autorizzazione per le applicazioni e i servizi. ACS è un servizio di Azure tramite cui viene fornito un metodo semplice per autenticare gli utenti che devono accedere alle applicazioni e ai servizi Web, senza dover includere nel codice una logica di autenticazione complessa.
 
 In ACS sono disponibili le funzionalità seguenti:
 
--   Integrazione con Windows Identity Foundation (WIF).
+-   Integrazione con Windows Identity Foundation \(WIF\).
 -   Supporto per i provider di identità Web più diffusi, tra cui Windows Live ID, Google, Yahoo! e Facebook.
--   Supporto per Active Directory Federation Services (ADFS) 2.0.
+-   Supporto per Active Directory Federation Services \(ADFS\) 2.0.
 -   Un servizio di gestione basato sul protocollo OData che offre accesso programmatico alle impostazioni di ACS.
 -   Un portale di gestione che consente l'accesso amministrativo alle impostazioni di ACS.
 
 Per ulteriori informazioni sul servizio di controllo di accesso, vedere [Servizio di controllo di accesso 2.0][].
 
-## <a name="concepts"></a>Concetti
+## Concetti
 
 Il servizio ACS di Azure usa l'identità basata sulle attestazioni, un approccio coerente alla creazione di meccanismi di autenticazione per le applicazioni in esecuzione locale o nel cloud. L'identità basata sulle attestazioni offre un metodo comune che le applicazioni e i servizi possono usare per acquisire le informazioni di identità necessarie sugli utenti interni o esterni all'organizzazione oppure su Internet.
 
@@ -61,13 +45,13 @@ Per completare le attività in questa guida è necessario comprendere i concetti
 
 **Client**: nel contesto di questa guida alle procedure si tratta di un browser che tenta di ottenere l'accesso a un'applicazione Web.
 
-**Applicazione relying party (RP)**: un'applicazione relying party è un sito Web o un servizio che affida l'autenticazione a un'autorità esterna. In gergo tecnico, si dice che considera attendibile tale autorità. In questa guida viene illustrato come configurare un'applicazione per considerare attendibile ACS.
+**Applicazione relying party \(RP\)**: un'applicazione relying party è un sito Web o un servizio che affida l'autenticazione a un'autorità esterna. In gergo tecnico, si dice che considera attendibile tale autorità. In questa guida viene illustrato come configurare un'applicazione per considerare attendibile ACS.
 
 **Token**: un token è una raccolta di dati di sicurezza rilasciata quando un utente viene autenticato. Contiene un set di *attestazioni*, attributi dell'utente autenticato. Un'attestazione può corrispondere al nome dell'utente, a un identificatore del ruolo svolto dall'utente, alla sua età e così via. I token sono di norma firmati digitalmente, pertanto è sempre possibile risalire all'emittente e non è possibile alterarne il contenuto. Un utente ottiene accesso a un'applicazione relying party presentando un token valido, rilasciato da un'autorità che l'applicazione RP considera attendibile.
 
-**Provider di identità (IP)**: un provider di identità è un'autorità che autentica le identità degli utenti e rilascia token di sicurezza. L'effettivo rilascio di token è implementato tramite un servizio speciale denominato Servizio token di sicurezza (STS). Esempi tipici di provider di identità comprendono Windows Live ID, Facebook, archivi di utenti business (come Active Directory) e così via. Quando ACS viene configurato in modo da considerare attendibile un provider di identità, il sistema accetta e convalida i token rilasciati da tale provider. ACS può considerare attendibili più provider di identità contemporaneamente, quindi se un'applicazione considera attendibile ACS è possibile consentire agli utenti di eseguire l'autenticazione tramite uno qualsiasi degli IP considerati attendibili da ACS.
+**Provider di identità \(IP\)**: un provider di identità è un'autorità che autentica le identità degli utenti e rilascia token di sicurezza. L'effettivo rilascio di token è implementato tramite un servizio speciale denominato Servizio token di sicurezza \(STS\). Esempi tipici di provider di identità comprendono Windows Live ID, Facebook, archivi di utenti business \(come Active Directory\) e così via. Quando ACS viene configurato in modo da considerare attendibile un provider di identità, il sistema accetta e convalida i token rilasciati da tale provider. ACS può considerare attendibili più provider di identità contemporaneamente, quindi se un'applicazione considera attendibile ACS è possibile consentire agli utenti di eseguire l'autenticazione tramite uno qualsiasi degli IP considerati attendibili da ACS.
 
-**Provider di federazione (FP)**: i provider di identità (IP) hanno una conoscenza diretta degli utenti, li autenticano usando le relative credenziali e rilasciano attestazioni sulle informazioni disponibili sugli utenti. Un provider di federazione è un'autorità di tipo diverso, in quanto anziché autenticare gli utenti direttamente, funge da intermediario di autenticazione tra una relying party e uno o più indirizzi IP. Provider di identità e provider di federazione rilasciano token di sicurezza, quindi usano entrambi il Servizio token di sicurezza (STS). ACS è un provider di federazione.
+**Provider di federazione \(FP\)**: i provider di identità \(IP\) hanno una conoscenza diretta degli utenti, li autenticano usando le relative credenziali e rilasciano attestazioni sulle informazioni disponibili sugli utenti. Un provider di federazione è un'autorità di tipo diverso, in quanto anziché autenticare gli utenti direttamente, funge da intermediario di autenticazione tra una relying party e uno o più indirizzi IP. Provider di identità e provider di federazione rilasciano token di sicurezza, quindi usano entrambi il Servizio token di sicurezza \(STS\). ACS è un provider di federazione.
 
 **Motore di regole ACS**: la logica adottata per trasformare i token in ingresso da IP attendibili a token destinati all'utilizzo da parte dell'applicazione relying party è codificata sotto forma di semplici regole di trasformazione delle attestazioni. ACS è dotato di un motore di regole che applica qualsiasi logica di trasformazione specificata per la relying party.
 
@@ -85,21 +69,21 @@ Nella figura seguente viene illustrato il funzionamento dell'autenticazione ACS 
 6.  ACS convalida il token di sicurezza rilasciato dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output e rilascia un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
 7.  ACS reindirizza il client all'applicazione RP. Il client invia il nuovo token di sicurezza rilasciato da ACS all'applicazione relying party. L'applicazione relying party convalida la firma nel token di sicurezza rilasciato da ACS, convalida le attestazioni contenute nel token e restituisce la pagina richiesta.
 
-## <a name="pre"></a>Prerequisiti
+## Prerequisiti
 
 Per completare le attività in questa guida è necessario quanto segue:
 
-- Java Developer Kit (JDK) v 1.6 o versione successiva.
+- Java Developer Kit \(JDK\) v 1.6 o versione successiva.
 - IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>. 
 - La distribuzione di un server Web basato su Java o un server applicazioni, come Apache Tomcat, GlassFish, JBoss Application Server o Jetty.
 - Una sottoscrizione di Azure, che può essere acquistata all'indirizzo <http://www.microsoft.com/windowsazure/offers/>.
-- Il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies) - Versione aprile 2014. Per altre informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
-- Un certificato X.509 da usare con l'applicazione. Questo certificato è necessario in entrambi i formati di certificato pubblico (.cer) e certificato di scambio di informazioni personali (.PFX). Le opzioni per la creazione di questo certificato verranno descritte più avanti in questa esercitazione.
+- Il plug-in Azure per Eclipse con Java \(da Microsoft Open Technologies\) - Versione aprile 2014. Per altre informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java \(da Microsoft Open Technologies\)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+- Un certificato X.509 da usare con l'applicazione. Questo certificato è necessario in entrambi i formati di certificato pubblico \(.cer\) e certificato di scambio di informazioni personali \(.PFX\). Le opzioni per la creazione di questo certificato verranno descritte più avanti in questa esercitazione.
 - Familiarità con l'emulatore di calcolo di Azure e le tecniche di distribuzione illustrate in [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
-## <a name="create-namespace"></a>Creare uno spazio dei nomi ACS
+## Creare uno spazio dei nomi ACS
 
-Per iniziare a usare il Servizio di controllo di accesso (ACS) in Azure, è necessario creare uno spazio dei nomi ACS. Lo spazio dei nomi offre un ambito univoco per fare riferimento alle risorse di ACS dall'interno dell'applicazione.
+Per iniziare a usare il Servizio di controllo di accesso \(ACS\) in Azure, è necessario creare uno spazio dei nomi ACS. Lo spazio dei nomi offre un ambito univoco per fare riferimento alle risorse di ACS dall'interno dell'applicazione.
 
 1. Accedere al [portale di gestione di Azure][].
 2. Fare clic su **Active Directory**. 
@@ -111,7 +95,7 @@ Per iniziare a usare il Servizio di controllo di accesso (ACS) in Azure, è nece
 
 Azure creerà e attiverà lo spazio dei nomi. Prima di continuare, attendere che lo stato del nuovo spazio dei nomi sia **Active**.
 
-## <a name="add-IP"></a>Aggiungere un provider di identità
+## Aggiungere un provider di identità
 
 In questa attività si aggiungeranno provider di identità da usare con l'applicazione relying party per l'autenticazione. A scopo dimostrativo, questa attività illustra come aggiungere Windows Live come provider di identità, ma è possibile usare uno qualsiasi dei provider di identità elencati nel portale di gestione ACS.
 
@@ -120,9 +104,9 @@ In questa attività si aggiungeranno provider di identità da usare con l'applic
 2.  Nel pannello di navigazione sinistro del portale di gestione ACS fare clic su **Identity providers**.
 3.  Windows Live ID è abilitato per impostazione predefinita e non può essere eliminato. Ai fini di questa esercitazione, verrà usato solo Windows Live ID. In questa schermata è tuttavia possibile aggiungere altri provider di identità, facendo clic sul pulsante **Add**.
 
-Windows Live ID è abilitato come provider di identità per lo spazio dei nomi ACS. Nel passaggio successivo verrà specificata l'applicazione Web Java (che verrà creata in seguito) come applicazione relying party.
+Windows Live ID è abilitato come provider di identità per lo spazio dei nomi ACS. Nel passaggio successivo verrà specificata l'applicazione Web Java \(che verrà creata in seguito\) come applicazione relying party.
 
-## <a name="add-RP"></a>Aggiungere un'applicazione relying party
+## Aggiungere un'applicazione relying party
 
 In questa attività, ACS verrà configurato affinché riconosca l'applicazione Web Java come applicazione relying party valida.
 
@@ -135,9 +119,9 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
 
 4.  Fare clic su **Save**.
 
-L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure (all'indirizzo http://localhost:8080/) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
+L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure \(all'indirizzo http://localhost:8080/\) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
 
-## <a name="create-rules"></a>Creare regole
+## Creare regole
 
 In questa attività verranno definite le regole in base alle quali le attestazioni vengono passate dai provider di identità all'applicazione relying party. Ai fini di questa guida, ACS verrà semplicemente configurato per copiare i tipi di attestazione e i valori in ingresso direttamente nella categoria token di output senza filtrarli o modificarli.
 
@@ -147,24 +131,25 @@ In questa attività verranno definite le regole in base alle quali le attestazio
 4.  Nella pagina **Generate Rules: Default Rule Group for Azure Web App** assicurarsi che l'opzione Windows Live ID sia selezionata e quindi fare clic su **Generate**.	
 5.  Nella pagina **Edit Rule Group** fare clic su **Save**.
 
-## <a name="upload-certificate"></a>Caricare un certificato nello spazio dei nomi ACS
+## Caricare un certificato nello spazio dei nomi ACS
 
 In questa attività verrà caricato un certificato PFX che verrà usato per firmare le richieste di token create dallo spazio dei nomi ACS.
 
 1.  Nella pagina principale del portale di gestione ACS fare clic su **Certificates and keys**.
 2.  Nella pagina **Certificates and keys** fare clic su **Add** sopra **Token Signing**.
 3.  Nella pagina **Add Token-Signing Certificate or Key**:
-    1. Nella sezione **Used for** fare clic su **Relying Party Application** e selezionare **Azure Web App** (impostato in precedenza come nome dell'applicazione relying party).
+    1. Nella sezione **Used for** fare clic su **Relying Party Application** e selezionare **Azure Web App** \(impostato in precedenza come nome dell'applicazione relying party\).
     2. Nella sezione **Type** selezionare **X.509 Certificate**.
-    3. Nella sezione **Certificate** fare clic sul pulsante Browse e passare al file del certificato X.509 che si intende usare. Si tratta di un file PFX. Selezionare il file, fare clic su **Open** e quindi immettere la password certificato nella casella di testo **Password**. Si noti che a fini di test è possibile usare un certificato autofirmato. Per creare un certificato autofirmato, selezionare il pulsante **New** nella finestra di dialogo **ACS Filter Library** (illustrata di seguito) oppure usare l'utilità **encutil.exe** del [sito Web del progetto][] di Azure Starter Kit per Java (di Microsoft Open Technologies).
-    4. Assicurarsi che **Make Primary** sia selezionato. La pagina **Add Token-Signing Certificate or Key** dovrebbe essere simile alla seguente. ![Aggiunta di un certificato di firma di token][add_token_signing_cert]
+    3. Nella sezione **Certificate** fare clic sul pulsante Browse e passare al file del certificato X.509 che si intende usare. Si tratta di un file PFX. Selezionare il file, fare clic su **Open** e quindi immettere la password certificato nella casella di testo **Password**. Si noti che a fini di test è possibile usare un certificato autofirmato. Per creare un certificato autofirmato, selezionare il pulsante **New** nella finestra di dialogo **ACS Filter Library** \(illustrata di seguito\) oppure usare l'utilità **encutil.exe** del [sito Web del progetto][] di Azure Starter Kit per Java \(di Microsoft Open Technologies\).
+    4. Assicurarsi che **Make Primary** sia selezionato. La pagina **Add Token-Signing Certificate or Key** dovrebbe essere simile alla seguente. 
+        ![Aggiunta di un certificato di firma di token][add_token_signing_cert]
     5. Fare clic su **Save** per salvare le impostazioni e chiudere la pagina **Add Token-Signing Certificate or Key**.
 
 A questo punto, rivedere le informazioni nella pagina di integrazione applicazioni e copiare l'URI necessario per configurare l'applicazione Web Java per l'uso di ACS.
 
-## <a name="review-app-int"></a>Rivedere la pagina di integrazione applicazioni
+## Rivedere la pagina di integrazione applicazioni
 
-Nella pagina di integrazione applicazioni del portale di gestione ACS è possibile trovare tutte le informazioni e il codice necessario per configurare l'applicazione Web Java (applicazione relying party) in modo che funzioni con ACS. Queste informazioni sono necessarie per la configurazione dell'applicazione Web Java per l'autenticazione federata.
+Nella pagina di integrazione applicazioni del portale di gestione ACS è possibile trovare tutte le informazioni e il codice necessario per configurare l'applicazione Web Java \(applicazione relying party\) in modo che funzioni con ACS. Queste informazioni sono necessarie per la configurazione dell'applicazione Web Java per l'autenticazione federata.
 
 1.  Nel portale di gestione ACS fare clic su **Application integration**.  
 2.  Nella pagina **Application Integration** fare clic su **Login Pages**.
@@ -172,7 +157,7 @@ Nella pagina di integrazione applicazioni del portale di gestione ACS è possibi
 
 Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web Java verrà usato l'URL visualizzato in **Option 1: Link to an ACS-hosted login page**. Questo valore è necessario per aggiungere la libreria dei filtri dei Servizi di controllo di accesso di Azure all'applicazione Java.
 
-## <a name="create-java-app"></a>Creare un'applicazione Web Java
+## Creare un'applicazione Web Java
 1. Nel menu di Eclipse fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** non è elencato tra i progetti disponibili dopo aver fatto clic su **File**, **New**, fare clic su **File**, **New**, **Project**, espandere **Web**, fare clic su **Dynamic Web Project** e quindi su **Next**. Ai fini di questa esercitazione, denominare il progetto **MyACSHelloWorld**. Assicurarsi di usare questo nome, poiché i passaggi successivi dell'esercitazione prevedono che il file WAR sia denominato MyACSHelloWorld. L'aspetto della schermata sarà simile al seguente:
 
     ![Creazione di un progetto Hello World a titolo di esempio per ACS][create_acs_hello_world]
@@ -194,7 +179,7 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
     
     Salvare index.jsp.
   
-## <a name="add_acs_filter_library"></a>Aggiungere una libreria di filtri ACS all'applicazione
+## Aggiungere una libreria di filtri ACS all'applicazione
 
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyACSHelloWorld**, scegliere **Build Path** e quindi fare clic su **Configure Build Path**.
 2. Nella finestra di dialogo **Java Build Path** fare clic sulla scheda **Libraries**.
@@ -207,7 +192,7 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
 6. Con il browser aperto alla pagina **Edit Relying Party Application** del portale di gestione, copiare l'URL riportato nel campo **Realm** e incollarlo nel campo **Relying Party Realm** della finestra di dialogo di Eclipse.
 7. Se si desidera usare un certificato esistente, nella sezione **Security** della finestra di dialogo di Eclipse fare clic su **Browse**, passare al certificato che si intende usare, selezionarlo e fare clic su **Open**. In caso contrario, se si intende creare un certificato nuovo, fare clic su **New** per visualizzare la finestra di dialogo **New Certificate** e quindi specificare la password, il nome del file CER e il nome del file PFX per il nuovo certificato.
 8. Selezionare **Embed the certificate in the WAR file**. Quando si incorpora il certificato in questo modo, viene incluso nella distribuzione senza che sia necessario aggiungerlo manualmente come un componente. Se invece è necessario archiviare il certificato all'esterno del file WAR, è possibile aggiungere il certificato come componente del ruolo e deselezionare **Embed the certificate in the WAR file**.
-9. [Facoltativo] Mantenere l'opzione **Require HTTPS connections** selezionata. Se viene visualizzata questa opzione, è necessario accedere all'applicazione usando il protocollo HTTPS. Se non si desidera richiedere connessioni HTTPS, deselezionare questa opzione.
+9. [Facoltativo] Mantenere l'opzione **Require HTTPS connections** selezionata. Se viene visualizzata questa opzione, è necessario accedere all'applicazione utilizzando il protocollo HTTPS. Se non si desidera richiedere connessioni HTTPS, deselezionare questa opzione.
 10. Per la distribuzione nell'emulatore di calcolo, le impostazioni di **Azure ACS Filter** avranno un aspetto simile a quanto illustrato di seguito.
 
     ![Impostazioni del filtro ACS di Azure per una distribuzione nell'emulatore di calcolo.][add_acs_filter_lib_emulator]
@@ -216,7 +201,7 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
 12. Fare clic su **Yes** nella finestra di dialogo che conferma la creazione di un file web.xml.
 13. Fare clic su **OK** per chiudere la finestra di dialogo **Java Build Path**.
 
-## <a name="deploy_compute_emulator"></a>Distribuire l'emulatore di calcolo
+## Distribuire l'emulatore di calcolo
 
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyACSHelloWorld**, scegliere **Azure** e quindi fare clic su **Package for Azure**.
 2. In **Project name** digitare **MyAzureACSProject** e fare clic su **Next**.
@@ -224,10 +209,10 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
 4. Fare clic su **Finish**.
 5. Fare clic sul pulsante **Run in Azure Emulator**.
 6. Dopo l'avvio dell'applicazione Web Java nell'emulatore di calcolo, chiudere tutte le istanze del browser, per evitare che sessioni correnti del browser interferiscano con il test di accesso di ACS.
-7. Eseguire l'applicazione aprendo <http://localhost:8080/MyACSHelloWorld/> nel browser (o <https://localhost:8080/MyACSHelloWorld/> se è stata selezionata l'opzione **Require HTTPS connections**). Verrà richiesto di immettere un account di accesso Windows Live ID, quindi si verrà reindirizzati all'URL restituito specificato per l'applicazione relying party.
+7. Eseguire l'applicazione aprendo <http://localhost:8080/MyACSHelloWorld/> nel browser \(o <https://localhost:8080/MyACSHelloWorld/> se è stata selezionata l'opzione **Require HTTPS connections**\). Verrà richiesto di immettere un account di accesso Windows Live ID, quindi si verrà reindirizzati all'URL restituito specificato per l'applicazione relying party.
 99.  Terminata la visualizzazione dell'applicazione, fare clic sul pulsante **Reset Azure Emulator**.
 
-## <a name="deploy_azure"></a>Eseguire la distribuzione in Azure
+## Distribuzione in Azure
 
 Per la distribuzione in Azure è necessario modificare l'area di autenticazione dell'applicazione relying party e dell'URL restituito per lo spazio dei nomi ACS.
 
@@ -247,7 +232,7 @@ Per la distribuzione in Azure è necessario modificare l'area di autenticazione 
 8. Con il browser aperto alla pagina **Edit Relying Party Application** del portale di gestione, copiare l'URL riportato nel campo **Realm** e incollarlo nel campo **Relying Party Realm** della finestra di dialogo di Eclipse.
 9. Se si desidera usare un certificato esistente, nella sezione **Security** della finestra di dialogo di Eclipse fare clic su **Browse**, passare al certificato che si intende usare, selezionarlo e fare clic su **Open**. In caso contrario, se si intende creare un certificato nuovo, fare clic su **New** per visualizzare la finestra di dialogo **New Certificate** e quindi specificare la password, il nome del file CER e il nome del file PFX per il nuovo certificato.
 10. Mantenere l'opzione **Embed the certificate in the WAR file** selezionata, nel caso in cui si intenda incorporare il certificato nel file WAR.
-11. [Facoltativo] Mantenere l'opzione **Require HTTPS connections** selezionata. Se viene visualizzata questa opzione, è necessario accedere all'applicazione usando il protocollo HTTPS. Se non si desidera richiedere connessioni HTTPS, deselezionare questa opzione.
+11. [Facoltativo] Mantenere l'opzione **Require HTTPS connections** selezionata. Se viene visualizzata questa opzione, è necessario accedere all'applicazione utilizzando il protocollo HTTPS. Se non si desidera richiedere connessioni HTTPS, deselezionare questa opzione.
 12. Per la distribuzione in Azure, le impostazioni del filtro ACS di Azure avranno un aspetto simile a quelle illustrate di seguito.
 
     ![Impostazioni del filtro ACS di Azure per la distribuzione in produzione][add_acs_filter_lib_production]
@@ -258,7 +243,7 @@ Per la distribuzione in Azure è necessario modificare l'area di autenticazione 
 
 Dopo la distribuzione dell'applicazione Web, chiudere le sessioni del browser aperte ed eseguire l'applicazione Web. Verrà richiesto di accedere con le credenziali di Windows Live ID e si verrà reindirizzati all'URL restituito dell'applicazione relying party.
 
-Al termine dell'uso dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
+Al termine dell'uso dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione \(per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)\).
 
 
 ## <a name="next_steps"></a>Passaggi successivi
@@ -286,24 +271,23 @@ In questo esempio è stata usata l'opzione **Embed the certificate in the WAR fi
 
 A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a prescindere dal fatto che il certificato sia incorporato nel file WAR o aggiunto alla distribuzione come componente, è necessario caricare il certificato nello spazio dei nomi come descritto nella sezione [Caricamento di un certificato nello spazio dei nomi ACS][].
 
-[Informazioni su ACS]: #what-is
-[Concetti]: #concepts
-[Prerequisiti]: #pre
-[Creare un'applicazione Web Java]: #create-java-app
-[Creare uno spazio dei nomi ACS]: #create-namespace
-[Aggiungere un provider di identità]: #add-IP
-[Aggiungere un'applicazione relying party]: #add-RP
-[Creare regole]: #create-rules
+[What is ACS?]: #what-is
+[Concepts]: #concepts
+[Prerequisites]: #pre
+[Create a Java web application]: #create-java-app
+[Create an ACS Namespace]: #create-namespace
+[Add Identity Providers]: #add-IP
+[Add a Relying Party Application]: #add-RP
+[Create Rules]: #create-rules
 [Caricamento di un certificato nello spazio dei nomi ACS]: #upload-certificate
-[Caricare un certificato nello spazio dei nomi ACS]: #upload-certificate
-[Rivedere la pagina di integrazione applicazioni]: #review-app-int
+[Review the Application Integration Page]: #review-app-int
 [Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
-[Aggiungere una libreria di filtri ACS all'applicazione]: #add_acs_filter_library
-[Distribuire l'emulatore di calcolo]: #deploy_compute_emulator
-[Eseguire la distribuzione in Azure]: #deploy_azure
-[Passaggi successivi]: #next_steps
+[Add the ACS Filter library to your application]: #add_acs_filter_library
+[Deploy to the compute emulator]: #deploy_compute_emulator
+[Deploy to Azure]: #deploy_azure
+[Next steps]: #next_steps
 [sito Web del progetto]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[visualizzazione del codice SAML restituito dal Servizio di controllo di accesso di Azure]: /develop/java/how-to-guides/view-saml-returned-by-acs/
+[visualizzazione del codice SAML restituito dal Servizio di controllo di accesso di Azure]: /it-it/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Servizio di controllo di accesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -323,5 +307,6 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

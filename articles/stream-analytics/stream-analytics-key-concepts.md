@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/28/2015" 
+	ms.date="06/16/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,19 +30,19 @@ Con l'analisi di flusso è possibile:
 - Elaborare dati di telemetria per il monitoraggio e la diagnostica quasi in tempo reale. 
 - Acquisizione e archiviazione di eventi in tempo reale per elaborazione successiva
 
-Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi dei flussi di Azure](stream.analytics.introduction).
+Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md).
 
-Un processo di analisi di flusso include quanto segue: * Uno o più origini di input * Una query su un flusso di dati in ingresso * Una destinazione di output.
+Un processo di analisi di flusso include quanto segue: \* Uno o più origini di input \* Una query su un flusso di dati in ingresso \* Una destinazione di output.
 
 
 ## Input
 
 ### Flusso dei dati
 
-Ogni definizione di processo di Analisi dei flussi deve contenere almeno un'origine di input del flusso dei dati per uso e trasformazione da parte del processo stesso. [Archiviazione BLOB di Azure](azure.blob.storage) e [Hub eventi di Azure](azure.event.hubs) sono supportati come origini di input del flusso di dati. Le origini di input di Hub eventi vengono usate per la raccolta di flussi di eventi da diversi dispositivi e servizi, mentre l'archiviazione BLOB può essere usata come origine di input per l'inserimento di grandi quantità di dati. Poiché i BLOB non inviano dati in streaming, i processi di Analisi dei flussi sui BLOB non saranno di natura temporale, a meno che i record nel BLOB non contengano timestamp.
+Ogni definizione di processo di Analisi dei flussi deve contenere almeno un'origine di input del flusso dei dati per uso e trasformazione da parte del processo stesso. [Archiviazione BLOB di Azure](http://azure.microsoft.com/documentation/services/storage/) e [Hub eventi di Azure](http://azure.microsoft.com/services/event-hubs/) sono supportati come origini di input del flusso di dati. Le origini di input di Hub eventi vengono usate per la raccolta di flussi di eventi da diversi dispositivi e servizi, mentre l'archiviazione BLOB può essere usata come origine di input per l'inserimento di grandi quantità di dati. Poiché i BLOB non inviano dati in streaming, i processi di Analisi dei flussi sui BLOB non saranno di natura temporale, a meno che i record nel BLOB non contengano timestamp.
 
 ### Dati di riferimento
-Analisi dei flussi supporta anche un secondo tipo di origine di input, ovvero i dati di riferimento. Si tratta di dati ausiliari usati per eseguire correlazioni e ricerche e in questo caso si tratta generalmente di dati statici o modificati con scarsa frequenza. [Archiviazione BLOB di Azure](azure.blob.storage) è l'unica origine di input supportata per i dati di riferimento. Le dimensioni dei BLOB di origine dei dati di riferimento non possono superare i 50 MB.
+Analisi dei flussi supporta anche un secondo tipo di origine di input, ovvero i dati di riferimento. Si tratta di dati ausiliari usati per eseguire correlazioni e ricerche e in questo caso si tratta generalmente di dati statici o modificati con scarsa frequenza. [Archiviazione BLOB di Azure](http://azure.microsoft.com/documentation/services/storage/) è l'unica origine di input supportata per i dati di riferimento. Le dimensioni dei BLOB di origine dei dati di riferimento non possono superare i 50 MB.
 
 Per abilitare il supporto per l'aggiornamento dei dati di riferimento, l'utente deve specificare un elenco di BLOB nella configurazione di input usando i token {data} e {ora} nel modello di percorso. Il processo caricherà il BLOB corrispondente in base alla data e all'ora codificate nei nomi BLOB usando il fuso orario UTC.
 
@@ -96,13 +96,13 @@ A seconda del tipo di input usato nel processo, verranno generati alcuni campi a
 ###Partizioni con dati lenti o non di input
 Durante la lettura da origini di input con più partizioni, se e una o più partizioni accumulano ritardo o non contengono dati, il processo di streaming deve decidere come gestire la situazione per garantire il flusso di eventi attraverso il sistema. L'impostazione di input "Massimo ritardo di recapito consentito" controlla tale comportamento ed è configurata per impostazione predefinita per attendere i dati per un tempo illimitato. Di conseguenza, i timestamp degli eventi non verranno modificati e il flusso di eventi si baserà sulla partizione di input più lenta e si arresterà se una o più partizioni di input non contengono dati. Ciò risulta utile se i dati vengono distribuiti uniformemente tra le partizioni di input ed è importante garantire uniformità temporale tra gli eventi.
 
-L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo trascorso il quale il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
+L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo, trascorso il quale, il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
 
 ###Partizioni con eventi non ordinati
 Quando la query del processo di streaming usa la parola chiave TIMESTAMP BY, l'ordine in cui verranno recapitati gli eventi all'input non è garantito. Alcuni eventi nella stessa partizione di input potrebbero essere in ritardo, il parametro "Massimo disordine consentito all'interno di un input" fa sì che il processo di streaming agisca sugli eventi al di fuori della tolleranza d'ordine in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp.
 
 ### Risorse aggiuntive
-Per informazioni sulla creazione di origini di input, vedere gli articoli relativi alla [guida per sviluppatori di Hub di eventi di Azure](azure.event.hubs.developer.guide) e all'[uso di Archiviazione BLOB di Azure](azure.blob.storage.use).
+Per informazioni sulla creazione di origini di input, vedere gli articoli relativi alla [guida per sviluppatori di Hub di eventi di Azure](http://msdn.microsoft.com/library/azure/dn789972.aspx) e all'[uso di Archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md).
 
 
 
@@ -110,7 +110,7 @@ Per informazioni sulla creazione di origini di input, vedere gli articoli relati
 La logica per filtrare, gestire ed elaborare i dati in ingresso è definita nella query per i processi di analisi di flusso. Le query vengono scritte nel linguaggio di query di Analisi dei flussi, un linguaggio simile a SQL che è sostanzialmente un sottoinsieme della sintassi Transact-SQL standard, con alcune estensioni specifiche per le query temporali.
 
 ### Windowing
-Le estensioni AWE (Address Windowing Extensions) consentono aggregazioni e calcoli da eseguire su subset di eventi che rientrano in un determinato periodo di tempo. Le funzioni di windowing vengono richiamate tramite l'istruzione **GROUP BY**. Ad esempio, la query seguente conta gli eventi ricevuti al secondo:
+Le estensioni AWE \(Address Windowing Extensions\) consentono aggregazioni e calcoli da eseguire su subset di eventi che rientrano in un determinato periodo di tempo. Le funzioni di windowing vengono richiamate tramite l'istruzione **GROUP BY**. Ad esempio, la query seguente conta gli eventi ricevuti al secondo:
 
 	SELECT Count(*) 
 	FROM Input1 
@@ -129,14 +129,14 @@ Per query più complesse, è possibile usare la clausola SQL standard **WITH** p
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-Per altre informazioni sul linguaggio di query, vedere l'articolo relativo alle [informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](stream.analytics.query.language.reference).
+Per altre informazioni sul linguaggio di query, vedere l'articolo relativo alle [informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](http://go.microsoft.com/fwlink/?LinkID=513299).
 
 ## Output
 La destinazione di output è l'ubicazione in cui verranno scritti i risultati del processo di Analisi dei flussi. I risultati vengono scritti continuamente nella destinazione di output man mano che il processo elabora gli eventi di input. Sono supportate le destinazioni di output seguenti:
 
 - Hub eventi di Azure: scegliere Hub eventi come destinazione di output per scenari in cui più pipeline di streaming devono essere combinate insieme, ad esempio per l'invio di comandi ai dispositivi.
 - Archiviazione BLOB di Azure: usare un archivio BLOB per l'archiviazione a lungo termine dell'output o per archiviare dati per un'elaborazione successiva.
-- Archiviazione tabelle di Azure: Archiviazione tabelle di Azure è un archivio dati strutturato con meno vincoli nello schema. Le entità con schemi e tipi diversi possono essere archiviate nella stessa tabella di Azure. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente. Per altre informazioni, vedere l'articolo relativo all'[introduzione all'archiviazione di Azure](../storage.introduction.md) e [Progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Archiviazione tabelle di Azure: Archiviazione tabelle di Azure è un archivio dati strutturato con meno vincoli nello schema. Le entità con schemi e tipi diversi possono essere archiviate nella stessa tabella di Azure. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente. Per altre informazioni, vedere l'articolo relativo all'[introduzione all'archiviazione di Azure](../storage/storage-introduction.md) e [Progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Database SQL di Azure: questa destinazione di output è appropriata per dati di natura relazionale o per applicazioni che dipendono dal contenuto ospitato in un database.
 
 
@@ -144,7 +144,7 @@ La destinazione di output è l'ubicazione in cui verranno scritti i risultati de
 
 Un processo di analisi di flusso può essere ridimensionato mediante la configurazione di unità di flussi. Tali unità definiscono la quantità di potenza di elaborazione ricevuta dai processi. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva. Ogni sottoscrizione possiede una quota pari a 12 unità di streaming per ogni area da allocare tra i processi in tale area.
 
-Per informazioni dettagliate, vedere l'articolo relativo alla [scalabilità dei processi di Analisi dei flussi di Azure](stream.analytics.scale.jobs).
+Per informazioni dettagliate, vedere l'articolo relativo alla [scalabilità dei processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md).
 
 
 ## Monitorare e risolvere i problemi correlati ai processi
@@ -176,16 +176,15 @@ Quando si avvia un processo, viene richiesto di specificare un valore di **Avvio
 È possibile modificare le seguenti impostazioni di livello superiore per un processo di Analisi dei flussi:
 
 - **Avvio output**: usare questa impostazione per specificare quando il processo verrà avviato restituendo un output. Se la query associata include una finestra, il processo inizierà la selezione di input dalle relative origini all'inizio della durata richiesta della finestra, in modo da produrre il primo evento di output all'ora specificata. Sono disponibili due opzioni: **Ora avvio processo** e **Personalizzato**. L'impostazione predefinita è **Ora avvio processo**. Per l'opzione **Personalizzato** è necessario specificare una data e un'ora. Questa impostazione è utile per specificare la quantità di dati cronologici nelle origini di input da usare o per il prelievo di dati da inserire a partire da un momento specifico, ad esempio dal momento in cui un processo è stato arrestato. 
-- **Criteri non ordinati**: impostazioni per la gestione degli eventi che non arrivano al processo di Analisi dei flussi in modo sequenziale. È possibile designare una soglia di tempo per riordinare gli eventi internamente specificando una finestra di tolleranza, nonché determinare un'azione da intraprendere per gli eventi al di fuori di questa finestra: **Elimina** o **Modifica**. **Rimuovi** elimina tutti gli eventi ricevuti esternamente all'ordine e **Regola** cambia il sistema. Timestamp degli eventi esterni all'ordine al timestamp dell'evento ordinato ricevuto più di recente. 
+- **Criteri non ordinati**: impostazioni per la gestione degli eventi che non arrivano al processo di Analisi dei flussi in modo sequenziale. È possibile designare una soglia di tempo per riordinare gli eventi internamente specificando una finestra di tolleranza, nonché determinare un'azione da intraprendere per gli eventi al di fuori di questa finestra: **Elimina** o **Modifica**. **Rimuovi** consente di eliminare tutti gli eventi ricevuti in disordine, mentre **Regola** consente di cambiare il sistema. Timestamp degli eventi in disordine rispetto al timestamp dell'evento ordinato ricevuto più di recente. 
 - **Criteri di recapito tardivo**: durante la lettura da origini di input con più partizioni, se e una o più partizioni accumulano ritardo o non contengono dati, il processo di streaming deve decidere come gestire la situazione per garantire il flusso di eventi attraverso il sistema. L'impostazione di input "Massimo ritardo di recapito consentito" controlla tale comportamento ed è configurata per impostazione predefinita per attendere i dati per un tempo illimitato. Di conseguenza, i timestamp degli eventi non verranno modificati e il flusso di eventi si baserà sulla partizione di input più lenta e si arresterà se una o più partizioni di input non contengono dati. Ciò risulta utile se i dati vengono distribuiti uniformemente tra le partizioni di input ed è importante garantire uniformità temporale tra gli eventi. L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo trascorso il quale il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
 - **Impostazioni locali**: usare questa impostazione per specificare le preferenze internazionali per il processo di Analisi dei flussi. Anche se i timestamp dei dati sono indipendenti dalle impostazioni locali, questa impostazione avrà influenza sulle modalità con cui il processo analizzerà, confronterà e ordinerà i dati. Per la versione di anteprima è supportata solo l'impostazione **en-US**.
 
 ### Stato
 
-Lo stato dei processi di Analisi dei flussi può essere esaminato nel portale di Azure. I processi in esecuzione possono trovarsi in uno di questi tre stati: **Inattivo**, **Elaborazione in corso**, o **Danneggiato**. Di seguito è riportata la definizione di ognuno di questi stati:
+Lo stato dei processi di Analisi dei flussi può essere esaminato nel portale di Azure. I processi in esecuzione possono trovarsi in uno di questi due stati: **In esecuzione** o **Danneggiato**. Di seguito è riportata la definizione di ognuno di questi stati:
 
-- **Inattivo**: non sono stati rilevati byte di input dal momento della creazione del processo o negli ultimi 2 minuti. Se un processo si trova nello stato **Inattivo** per un lungo periodo di tempo, è probabile che l'input esista ma che non ci siano byte non elaborati da elaborare.
-- **Elaborazione in corso**: una quantità diversa da zero di eventi di input filtrati è stata correttamente utilizzata dal processo di Analisi dei flussi. Se un processo è bloccato nello stato **Elaborazione in corso** senza generare output, è probabile che la finestra temporale di elaborazione dati sia ampia o che la logica di query sia complessa.
+- **In esecuzione**: il processo è stato allocato, è in corso l'elaborazione dell'input oppure è in attesa dell'elaborazione dell'input. Se lo stato di un processo è In esecuzione ma non viene generato alcun output, è probabile che la finestra temporale di elaborazione dati sia ampia o che la logica di query sia complessa. È anche possibile che al momento non siano stati inviati dati al processo.
 - **Danneggiato**: questo stato indica che in un processo di Analisi dei flussi si sta verificando uno degli errori seguenti: errori di comunicazione input/output, errori di query o errori reversibili di runtime. Per distinguere il tipo di errore che si sta verificando nel processo, visualizzare i registri operazioni.
 
 
@@ -195,34 +194,13 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 ## Passaggi successivi
 
-Ora che si hanno informazioni sufficienti con i concetti chiave dell'analisi di flusso, provare:
+A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed è possibile provare:
 
 - [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-
-
-
-
-<!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
-
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

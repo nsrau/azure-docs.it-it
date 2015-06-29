@@ -13,22 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/19/2015" 
 	ms.author="spelluru"/>
 
 # Usare Pig e Hive con Data factory
-Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo viene descritto l'utilizzo dell'attività HDInsight con Pig o Hive trasformazione in una pipeline di Factory di dati di Azure. Vedere [richiamare i programmi MapReduce dalla Factory dati][data-factory-map-reduce] per informazioni dettagliate sull'esecuzione di MapReduce programmi in un HDInsight cluster da una pipeline di factory di dati di Azure.
+Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. In questo articolo viene descritto l'utilizzo dell'attività HDInsight con la trasformazione Pig o Hive in una pipeline di Data factory di Azure. Vedere [Richiamare i programmi MapReduce da Data factory][data-factory-map-reduce] per informazioni dettagliate sull'esecuzione dei programmi MapReduce in un cluster HDInsight da una pipeline di Data factory di Azure.
 
-## Procedura dettagliata: Utilizzo di Hive con dati di Azure Factory
-Questa procedura dettagliata vengono fornite istruzioni dettagliate per l'utilizzo di un'attività di HDInsight con Hive trasformazione in una pipeline di dati Factory.
+## Procedura dettagliata: Usare Hive con Data factory di Azure
+Questa procedura dettagliata fornisce istruzioni dettagliate per l'utilizzo di un'attività di HDInsight con la trasformazione Hive in una pipeline di Data factory.
 
 ### Prerequisiti
-1. Completare l'esercitazione dal [iniziare a utilizzare Azure dati Factory][adfgetstarted] articolo.
-2. Caricare **emp.txt** file creato nell'esercitazione precedente come **hiveinput\emp.txt** al contenitore adftutorial nell'archiviazione blob. Il **hiveinput** cartella viene creata automaticamente nel **adftutorial** contenitore quando si carica il file emp.txt con la seguente sintassi.
-
-	> [AZURE.NOTE]Il file emp.txt è solo un file fittizio per questa procedura dettagliata. I dati di input effettivi provengono dal **hivesampletable** che esiste già nel cluster HDInsight. La pipeline non utilizza il file emp.txt.
-	
-2. Creare **hivequery.hql** file in una sottocartella denominata **Hive** in **C:\ADFGetStarted** con il contenuto seguente.
+1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
+2. Creare il file **hivequery.hql** in una sottocartella denominata **Hive** in **C:\\ADFGetStarted** con il contenuto seguente.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -43,58 +39,17 @@ Questa procedura dettagliata vengono fornite istruzioni dettagliate per l'utiliz
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Utilizzare il **Tez** motore per eseguire query Hive nel file HQL, aggiungere "* * impostare hive.execution.engine=tez**;" nella parte superiore del file.
+	> [AZURE.NOTE]Utilizzare il motore **Tez** per eseguire query Hive nel file HQL, aggiungere "\*\*set hive.execution.engine=tez\*\*;" all'inizio del file.
 		
-3.  Caricare il **hivequery.hql** per il **adftutorial** contenitore nell'archiviazione blob
+3.  Caricare **hivequery.hql** nel contenitore **adftutorial** dell'archivio BLOB
 
 
 ### Procedura dettagliata
 
-#### Creazione della tabella di input
-1. Nel **dati FACTORY** blade per il **ADFTutorialDataFactory**, fare clic su **autore e distribuire** per avviare l'Editor dei dati di Factory.
-	
-	![Dati Factory Blade][data-factory-blade]
-
-2. Nel **editor dati Factory**, fare clic su **nuovo set di dati**, quindi fare clic su **archiviazione Blob di Azure** dalla barra dei comandi.
-3. Sostituire lo script JSON nel riquadro di destra con il seguente script JSON:    
-    		
-		{
-    		"name": "HiveInputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/hiveinput",
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Day",
-            		"interval": 1,
-            		"waitonexternal": {}
-        		}
-    		}
-		}
-
- 
-	**Tenere presente quanto segue:**
-	
-	- percorso **tipo** è impostato su **AzureBlobLocation**.
-	- **linkedServiceName** è impostato su **StorageLinkedService** che definisce un account di archiviazione Azure.
-	- **folderPath** specifica container\folder il blob per i dati di input. 
-	- **frequenza = giorno** e **intervallo = 1** significa che le sezioni sono disponibili ogni giorno
-	- **waitOnExternal** significa che questi dati non viene generati dalla pipeline di un altro, viene invece generato esternamente della factory di dati. 
-	
-
-	Vedere [dati di riferimento per sviluppatori Factory][developer-reference] per le descrizioni delle proprietà JSON.
-
-2. Fare clic su **Distribuisci** sulla barra dei comandi per la distribuzione della tabella.
-  
 #### Creazione della tabella di output
         
-1. Nel **editor dati Factory**, fare clic su **nuovo set di dati**, quindi fare clic su **archiviazione Blob di Azure** dalla barra dei comandi.
-2. Sostituire lo script JSON nel riquadro di destra con il seguente script JSON:
+1. Nell'**editor di Data factory**, fare clic su **Nuovo set di dati**, quindi fare clic su **Archivio BLOB di Azure** nella barra dei comandi.
+2. Sostituire lo script JSON nel riquadro a destra con il seguente script JSON:
 
 		{
     		"name": "HiveOutputBlobTable",
@@ -114,20 +69,20 @@ Questa procedura dettagliata vengono fornite istruzioni dettagliate per l'utiliz
     		}
 		}
 
-2. Fare clic su **Distribuisci** sulla barra dei comandi per la distribuzione della tabella.
+2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la tabella.
 
 
 ### Creazione di un servizio collegato per un cluster HDInsight
-Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, quando si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster. Ai fini dell'esempio, viene usato un cluster su richiesta.
+Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Il cluster HDInsight su richiesta viene creato e gestito dal servizio Data factory di Azure per elaborare i dati. Per informazioni dettagliate sul servizio collegato HDInsight su richiesta, vedere [Servizio collegato per HDInsight su richiesta](https://msdn.microsoft.com/library/dn893526.aspx). Ai fini dell'esempio, viene usato un cluster su richiesta. Notare che la creazione su richiesta del cluster HDInsight richiede più di 15 minuti e verrà addebitato solo il tempo in cui tale cluster è attivo ed esegue processi.
 
 #### Per usare un cluster HDInsight su richiesta
-1. Fare clic su **nuovo calcolo** dalla barra dei comandi e selezionare **cluster HDInsight su richiesta** dal menu.
-2. Eseguire le operazioni seguenti nello script JSON: 
-	1. Per il **clusterSize** proprietà, specificare le dimensioni del cluster HDInsight.
-	2. Per il **jobsContainer** proprietà, specificare il nome del contenitore predefinito in cui verranno archiviati i registri cluster. Ai fini di questa esercitazione, specificare **adfjobscontainer**.
-	3. Per il **timeToLive** proprietà, specificare quanto tempo il cluster può rimanere inattivo prima che venga eliminato. 
-	4. Per il **versione** proprietà, specificare la versione di HDInsight si desidera utilizzare. Se si esclude questa proprietà, viene utilizzata la versione più recente.  
-	5. Per il **linkedServiceName**, specificare **StorageLinkedService** era stata creata in Get esercitazione introduttiva. 
+1. Fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi selezionare **Cluster HDInsight su richiesta** dal menu.
+2. Nello script JSON procedere come segue: 
+	1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight.
+	2. Per la proprietà **jobsContainer**, specificare il nome del contenitore predefinito in cui verranno archiviati i log del cluster. Ai fini di questa esercitazione, specificare **adfjobscontainer**.
+	3. Per la proprietà **timeToLive**, specificare il tempo di inattività consentito per il cluster prima dell'eliminazione. 
+	4. Per la proprietà **version**, specificare la versione di HDInsight da utilizzare. Se si esclude questa proprietà, verrà usata la versione più recente.  
+	5. Per **linkedServiceName**, specificare l'oggetto **StorageLinkedService** creato nell'esercitazione introduttiva. 
 
 			{
 		    	"name": "HDInsightOnDemandLinkedService",
@@ -146,19 +101,19 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
    
 #### Per usare il proprio cluster HDInsight: 
 
-1. Fare clic su **nuovo calcolo** dalla barra dei comandi e selezionare **cluster HDInsight** dal menu.
-2. Eseguire le operazioni seguenti nello script JSON: 
-	1. Per il **clusterUri** proprietà, immettere l'URL per il HDInsight. Ad esempio: https://<clustername>.azurehdinsight.net/     
-	2. Per il **nome utente** proprietà, immettere il nome utente che ha accesso al cluster HDInsight.
-	3. Per il **Password** proprietà, immettere la password dell'utente. 
-	4. Per il **LinkedServiceName** proprietà, immettere **StorageLinkedService**. Si tratta del servizio collegato che era stata creata nell'esercitazione introduttiva Get. 
+1. Fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi selezionare **Cluster HDInsight** dal menu.
+2. Nello script JSON procedere come segue: 
+	1. Per la proprietà **clusterUri**, immettere l'URL di HDInsight. Ad esempio: https://<clustername>.azurehdinsight.net/     
+	2. Per la proprietà **UserName**, immettere il nome dell'utente che ha accesso al cluster HDInsight.
+	3. Per la proprietà **Password**, immettere la password dell'utente. 
+	4. Per la proprietà **LinkedServiceName**, immettere **StorageLinkedService**, ossia il servizio collegato creato nell'esercitazione introduttiva. 
 
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
 ### Creazione e pianificazione della pipeline
    
-1. Fare clic su **nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (Puntini di sospensione)** Per visualizzarla. 
-2. Sostituire il JSON nel riquadro di destra con il seguente script JSON. Se si desidera utilizzare il proprio cluster e seguiti i passaggi per creare il **HDInsightLinkedService** collegato del servizio, sostituire **HDInsightOnDemandLinkedService** con **HDInsightLinkedService** in JSON seguente. 
+1. Fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... \(puntini di sospensione\)** per visualizzarlo. 
+2. Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente. Per usare il proprio cluster dopo aver seguito i passaggi per creare il servizio collegato **HDInsightLinkedService**, sostituire **HDInsightOnDemandLinkedService** con **HDInsightLinkedService** nel codice JSON seguente. 
 
 
     	{
@@ -172,9 +127,9 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 						"name": "RunHiveQuery",
 						"description": "Runs a hive query",
 						"type": "HDInsightActivity",
-						"inputs": [{"name": "HiveInputBlobTable"}],
+						"inputs": [],
 						"outputs": [ {"name": "HiveOutputBlobTable"} ],
-						"linkedServiceName": "HDInsightLinkedService",
+						"linkedServiceName": "HDInsightOnDemandLinkedService",
 						"transformation":
 						{
                     		"type": "Hive",
@@ -185,7 +140,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -204,19 +159,19 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
       		}
 		}
 
-	> [AZURE.NOTE]Sostituire **valore StartDateTime** valore con tre giorni prima della data odierna e **EndDateTime** valore con il giorno corrente. Il valore StartDateTime ed EndDateTime devono trovarsi in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
+	> [AZURE.NOTE]Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
+	> 
+	> Sostituire **l'account di archiviazione** nel codice JSON con il nome dell'account di archiviazione usato.
 	
-	> [AZURE.NOTE]Sostituire **l'account di archiviazione** in JSON con il nome dell'account di archiviazione.
-	
-	Vedere [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) per informazioni dettagliate sulle proprietà JSON.
+	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
-4. Vedere [monitorare i set di dati e della pipeline][adfgetstartedmonitoring] sezione di [Introduzione a Data Factory][adfgetstarted] articolo. 
+4. Vedere la sezione [Monitorare i set di dati e della pipeline][adfgetstartedmonitoring] nell'articolo [Introduzione a Data factory di Azure][adfgetstarted]. 
 
-	> [AZURE.NOTE]Nel **dettagli di esecuzione di attività** blade per una sezione di una tabella di output (selezionare la tabella di output -> selezionare slice -> selezionare un'attività eseguita nel portale), si vedrà collegamenti per i log creati dal cluster HDInsight. È possibile visualizzarle nel portale stesso o eseguirne il download nel computer.
+	> [AZURE.NOTE]Nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ** per una sezione di una tabella di output \(selezionare la tabella di output -\> una sezione -\> un'esecuzione attività nel portale\), verranno visualizzati i collegamenti ai log creati dal cluster HDInsight. È possibile esaminarli nel portale stesso o scaricarli nel computer.
   
 
 ## Esempio JSON con Pig
-Quando si definisce un'attività Pig o Hive in una pipeline di JSON, il **tipo** proprietà deve essere impostata su: **HDInsightActivity**.
+Quando si definisce un'attività Pig o Hive in una pipeline di JSON, la proprietà **type** deve essere impostata su: **HDInsightActivity**.
 
     {
 		"name": "Pig Activity",
@@ -238,11 +193,11 @@ Quando si definisce un'attività Pig o Hive in una pipeline di JSON, il **tipo**
 
 **Tenere presente quanto segue:**
 	
-- Attività **tipo** è impostato su **HDInsightActivity**.
-- **linkedServiceName** è impostato su **MyHDInsightLinkedService**. Vedere la sezione di servizio HDInsight collegati sotto per ulteriori informazioni sulla creazione di un servizio HDInsight collegato.
-- Il **tipo** del **trasformazione** è impostato su **Pig**.
-- È possibile specificare Pig script inline per il **script** proprietà o l'archivio file di script in un Azure nell'archiviazione blob e fare riferimento al file utilizzando **scriptPath** proprietà, illustrato più avanti in questo articolo. 
-- È possibile specificare parametri per lo script Pig utilizzando il **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
+- L'oggetto **type** dell'attività è impostato su **HDInsightActivity**.
+- L'oggetto **linkedServiceName** è impostato su **MyHDInsightLinkedService**. Per informazioni dettagliate sulla creazione di un servizio collegato di HDInsight, vedere la sezione corrispondente più avanti.
+- L'oggetto **type** di **transformation** è impostato su **Pig**.
+- È possibile specificare uno script Pig inline per la proprietà **script** o archiviare i file di script in un archivio BLOB di Azure e fare riferimento al file mediante la proprietà **scriptPath**, descritta più avanti in questo articolo. 
+- I parametri per lo script Pig vengono specificati mediante **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
 
 
 ## Esempio JSON con Hive
@@ -268,22 +223,22 @@ Quando si definisce un'attività Pig o Hive in una pipeline di JSON, il **tipo**
 
 **Tenere presente quanto segue:**
 	
-- Attività **tipo** è impostato su **HDInsightActivity**.
-- **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
-- Il **tipo** del **trasformazione** è impostato su **Hive**.
-- È possibile specificare Hive script inline per il **script** proprietà o l'archivio file di script in un Azure nell'archiviazione blob e fare riferimento al file utilizzando **scriptPath** proprietà, illustrato più avanti in questo articolo. 
-- È possibile specificare parametri dello script Hive utilizzando il **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
+- L'oggetto **type** dell'attività è impostato su **HDInsightActivity**.
+- L'oggetto **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
+- L'oggetto **type** di **transformation** è impostato su **Hive**.
+- È possibile specificare uno script Hive inline per la proprietà **script** o archiviare i file di script in un archivio BLOB di Azure e fare riferimento al file mediante la proprietà **scriptPath**, descritta più avanti in questo articolo. 
+- È possibile specificare i parametri dello script Hive mediante **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
 
-> [AZURE.NOTE]Vedere [di riferimento per sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per ulteriori informazioni sui cmdlet, gli schemi JSON e proprietà nello schema.
+> [AZURE.NOTE]Vedere la [Guida di riferimento per gli sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per informazioni dettagliate su cmdlet, schemi JSON e proprietà nello schema.
 
 
-## Utilizzo di script Pig e Hive in HDInsight attività
+## Uso di script Pig e Hive nell'Attività di HDInsight
 È possibile archiviare gli script Pig/Hive in un'archiviazione BLOB di Azure associata al cluster HDInsight e fare riferimento a tali script dalle attività Pig/Hive usando le seguenti proprietà nel JSON:
 
-* **scriptPath** : percorso del file di script Pig o Hive
-* **scriptLinkedService** -account di archiviazione di Azure che contiene il file di script
+* **scriptPath** - Percorso del file di script Pig o Hive
+* **scriptLinkedService** – Account di archiviazione di Azure contenente il file di script
 
-Nell'esempio seguente JSON per una pipeline di esempio utilizza un'attività di Hive che fa riferimento a **transformdata.hql** file archiviato nel **script** cartella il **adfwalkthrough** contenitore nell'archiviazione blob di Azure rappresentato dal **StorageLinkedService**.
+Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che fa riferimento al file **transformdata.hql** archiviato nella cartella **script** nel contenitore **adfwalkthrough** nell'archivio BLOB di Azure rappresentato da **StorageLinkedService**.
 
     {
     	"name": "AnalyzeMarketingCampaignPipeline",
@@ -303,7 +258,7 @@ Nell'esempio seguente JSON per una pipeline di esempio utilizza un'attività di 
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -322,17 +277,17 @@ Nell'esempio seguente JSON per una pipeline di esempio utilizza un'attività di 
 	}
 
 
-> [AZURE.NOTE]Utilizzare il **Tez** motore per eseguire una query Hive, eseguire "* * impostare hive.execution.engine=tez**;" prima di eseguire query Hive.
+> [AZURE.NOTE]Per usare il motore **Tez** per eseguire una query Hive, eseguire "\*\*set hive.execution.engine=tez\*\*;" prima di eseguire la query Hive.
 > 
-> Vedere [di riferimento per sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per ulteriori informazioni sui cmdlet, gli schemi JSON e proprietà nello schema.
+> Vedere la [Guida di riferimento per gli sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per informazioni dettagliate su cmdlet, schemi JSON e proprietà nello schema.
 
 ## Query con parametri Pig e Hive
-Le attività dati Factory Pig e Hive consentono di specificare i valori per parametri utilizzati negli script Pig e Hive utilizzando **extendedProperties**. La sezione extendedProperties è formata dal nome e dal valore del parametro.
+Le attività Pig e Hive di Data factory consentono di specificare i valori dei parametri utilizzati negli script Pig e Hive mediante **extendedProperties**. La sezione extendedProperties è formata dal nome e dal valore del parametro.
 
-Vedere l'esempio riportato di seguito per specificare i parametri per un utilizzo di script Hive **extendedProperties**. Per usare gli script con parametri Hive, eseguire le operazioni seguenti:
+Vedere il seguente esempio per specificare i parametri per uno script Hive mediante **extendedProperties**. Per usare gli script con parametri Hive, eseguire le operazioni seguenti:
 
 1.	Definire i parametri in **extendedProperties**.
-2.	Nel script Hive in linea (o) i file di script Hive memorizzati nell'archiviazione blog, fare riferimento al parametro utilizzando **${hiveconf:parameterName}**.
+2.	Nello script Hive inline \(o\) nel file di script Hive archiviato nell'archivio BLOB, fare riferimento al parametro mediante **${hiveconf:parameterName}**.
 
    
     		
@@ -369,8 +324,8 @@ Vedere l'esempio riportato di seguito per specificare i parametri per un utilizz
 
 Articolo | Descrizione
 ------ | ---------------
-[Esercitazione: Spostare ed elaborare i file di log utilizzando la Factory di dati][adf-tutorial] | Questo articolo viene fornita una procedura dettagliata end-to-end in cui viene illustrato come implementare una reale quasi utilizza Azure dati Factory per trasformare i dati dai file di log in approfondimenti scenario del mondo.
-[Riferimenti per sviluppatori Factory di dati di Azure][developer-reference] | Il riferimento per sviluppatori presenta il contenuto di riferimento completo per i cmdlet, script JSON, funzioni e così via... 
+[Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial] | In questo articolo viene illustrata una procedura dettagliata end-to-end in cui viene spiegato come implementare uno scenario quasi reale usando Data factory di Azure per trasformare i dati da file di log in informazioni accurate.
+[Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference] | La guida di riferimento per gli sviluppatori comprende informazioni di riferimento complete su cmdlet, script JSON, funzioni e così via. 
 
 [data-factory-copy-activity]: ..//data-factory-copy-activity
 [data-factory-map-reduce]: ..//data-factory-map-reduce
@@ -396,5 +351,6 @@ Articolo | Descrizione
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

@@ -42,11 +42,11 @@ Per tutte le API vale quanto riportato di seguito:
 - Ogni nome di proprietà è una stringa che esegue il mapping alla proprietà dell'oggetto
 - Per tutti i nomi di proprietà viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene per i valori delle proprietà
 - Le stringhe relative alla data e all'ora possono avere uno o due formati e devono essere precedute da DateTime
-	- W3CDTF (ad esempio creationTime gt DateTime’2011-05-08T08:49:37Z’)
-	- RFC1123 (ad esempio creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
+	- W3CDTF \(ad esempio creationTime gt DateTime’2011-05-08T08:49:37Z’\)
+	- RFC1123 \(ad esempio creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’\)
 - Le stringhe booleane hanno il valore "true" o "false"
-- Se si specifica una proprietà o un operatore non valido, verrà creata un'eccezione con eccezione interna "400 (Richiesta non valida)".
-- È anche possibile passare il parametro DetailLevel con clausole di tipo Select ed Expand ai metodi “Get” appropriati, ad esempio IPoolManager.GetPool()
+- Se si specifica una proprietà o un operatore non valido, verrà creata un'eccezione con eccezione interna "400 \(Richiesta non valida\)".
+- È anche possibile passare il parametro DetailLevel con clausole di tipo Select ed Expand ai metodi “Get” appropriati, ad esempio IPoolManager.GetPool\(\)
 
 L'oggetto ODataDetailLevel presenta tre proprietà pubbliche che possono essere specificate nel costruttore o impostate direttamente. Le tre proprietà sono tutte stringhe:
 
@@ -80,4 +80,4 @@ La proprietà [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.
 
 > [AZURE.NOTE]Per assicurare la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate all'API elenco è consigliabile usare sempre clausole di filtro e selezione.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

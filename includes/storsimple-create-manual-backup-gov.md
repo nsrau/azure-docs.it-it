@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Create a manual backup"
-   description="Explains how to start a manual, on-demand backup job."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
+\<properties pageTitle="Create a manual backup" description="Explains how to start a manual, on-demand backup job." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito\*\*r="tysonn" /\> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,24 +7,26 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-#### To create a manual backup
+#### Per creare un backup manuale
 
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
+1. Nella pagina **Dispositivi**, andare alla scheda **Criteri di backup**. In questa scheda vengono elencati tutti i criteri di backup in formato tabulare, tra cui il criterio per il volume di cui si desidera eseguire il backup.
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
+2. Selezionare il criterio facendo clic in un punto qualsiasi nella riga corrispondente, eccetto per la prima colonna. Nella parte inferiore della pagina, fare clic su **Eseguire il backup**. Il pulsante verrà esteso per mostrare le opzioni di backup: snapshot locale e snapshot del cloud.
 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+3. Quando si sceglie una di queste opzioni, verrà richiesto di confermare. Fare clic su **Sì**.
 
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![Creazione del backup1 manuale](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
  
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
+    Verrà avviato un processo di creazione di snapshot. Una volta completata la creazione del processo, verrà visualizzata una notifica nella parte inferiore della pagina.
 
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica \(nella parte inferiore della pagina\).
 
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+    ![Creazione del backup2 manuale](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 
-5. After the backup job is finished, go to the **Backup catalog** tab.
+5. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup**.
 
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+6. Impostare le selezioni filtro per il dispositivo appropriato, il criterio di backup e l’intervallo di tempo. Dopo aver impostato i filtri, fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png).
 
-  The backup should appear in the list of backup sets that is displayed in the catalog.
+  Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
+
+<!---HONumber=58_postMigration-->

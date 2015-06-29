@@ -1,12 +1,11 @@
 
-Questa sezione mostra come inviare notifiche da un'app console .NET e di qualsiasi altro tipo.
-Se si usa Servizi mobili, fare riferimento alle esercitazioni di [Introduzione alle notifiche push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Se si preferisce usare Java o PHP, fare riferimento a [HCome usare Hub di notifica da Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). È possibile inviare notifiche da qualsiasi back-end tramite l'[interfaccia REST degli Hub di notifica].
+Questa sezione mostra come inviare notifiche da un'app console .NET e di qualsiasi altro tipo. Se si usa Servizi mobili, fare riferimento alle esercitazioni di [Introduzione alle notifiche push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Se si preferisce usare Java o PHP, fare riferimento a [Come usare Hub di notifica da Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). È possibile inviare notifiche da qualsiasi back-end tramite l'[Interfaccia REST di Hub di notifica](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Il seguente codice consente di inviare notifiche a Windows Store, Windows Phone e a dispositivi iOS e Android. 
+Il seguente codice consente di inviare notifiche a Windows Store, Windows Phone e a dispositivi iOS e Android.
 
 Se è stata creata un'app console quando è stata completata l'esercitazione [Introduzione agli Hub di notifica][get-started], ignorare i passaggi da 1 a 3.
 
-1. In Visual Studio creare una nuova applicazione console in Visual C#: 
+1. In Visual Studio creare una nuova applicazione console in Visual C\#: 
 
    	![][13]
 
@@ -14,13 +13,13 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 
         Install-Package WindowsAzure.ServiceBus
  	
-	Verrà aggiunto un riferimento ad Azure Service Bus SDK con il <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacchetto NuGet WindowsAzure.ServiceBus</a>. 
+	Verrà aggiunto un riferimento ad Azure Service Bus SDK tramite il <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacchetto NuGet WindowsAzure.ServiceBus</a>.
 
-3. Aprire il file Program.cs e aggiungere la seguente istruzione `using`:
+3. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
 
         using Microsoft.ServiceBus.Notifications;
 
-4. Nella classe `Program` aggiungere il seguente metodo oppure sostituirlo se esiste già:
+4. Nella classe `Program` aggiungere il metodo seguente oppure sostituirlo se esiste già:
 
         private static async void SendNotificationAsync()
         {
@@ -38,15 +37,15 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                 try
                 {
                     // Define a Windows Store toast.
-                    var wnsToast = "<toast><visual><binding template="ToastText01">" 
-                        + "<text id="1">Breaking " + category + " News!" 
+                    var wnsToast = "<toast><visual><binding template=\"ToastText01\">" 
+                        + "<text id=\"1\">Breaking " + category + " News!" 
                         + "</text></binding></visual></toast>";         
                     await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
 
                     // Define a Windows Phone toast.
                     var mpnsToast =
-                        "<?xml version="1.0" encoding="utf-8"?>" +
-                        "<wp:Notification xmlns:wp="WPNotification">" +
+                        "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                        "<wp:Notification xmlns:wp=\"WPNotification\">" +
                             "<wp:Toast>" +
                                 "<wp:Text1>Breaking " + category + " News!</wp:Text1>" +
                             "</wp:Toast> " +
@@ -54,11 +53,11 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                     await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
 
                     // Define an iOS alert.
-                    var alert = "{"aps":{"alert":"Breaking " + category + " News!"}}";
+                    var alert = "{\"aps\":{\"alert\":\"Breaking " + category + " News!\"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
 
 					// Define an Android notification.
-                    var notification = "{"data":{"msg":"Breaking " + category + " News!"}}";
+                    var notification = "{\"data\":{\"msg\":\"Breaking " + category + " News!\"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
                 catch (ArgumentException)
@@ -71,19 +70,19 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 
 	Con questo codice vengono inviate notifiche per ognuno dei sei tag della matrice di stringhe a Windows Store, Windows Phone e dispositivi iOS. Con i tag è possibile assicurarsi che i dispositivi ricevano notifiche solo per le categorie registrate.
 	
-	> [AZURE.NOTE] Questo codice back-end supporta Windows Store, Windows Phone e client iOS e Android. I metodi Send restituiscono una risposta di errore se l'hub di notifica non è stato ancora configurato per una determinata piattaforma client. 
+	> [AZURE.NOTE]Questo codice back-end supporta Windows Store, Windows Phone e client iOS e Android. I metodi Send restituiscono una risposta di errore se l'hub di notifica non è stato ancora configurato per una determinata piattaforma client.
 
-6. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* ottenuta in precedenza.
+6. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with full access>`, con il nome dell'hub di notifica e la stringa di connessione per *DefaultFullSharedAccessSignature* ottenuta in precedenza.
 
-7. Aggiungere le seguenti righe nel metodo **Main**:
+7. Aggiungere le righe seguenti nel metodo **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
 <!-- Anchors -->
-[Da un'app console]: #console
-[Da Servizi mobili]: #mobile-services
-[Eseguire l'app e generare notifiche]: #test-app
+[From a console app]: #console
+[From Mobile Services]: #mobile-services
+[Run the app and generate notifications]: #test-app
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
@@ -93,12 +92,12 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 
 <!-- URLs. -->
 [get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
-[Usare Hub di notifica per inviare notifiche agli utenti]: ../articles/tutorial-notify-users-mobileservices.md
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Interfaccia REST degli Hub di notifica]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Use Notification Hubs to send notifications to users]: ../articles/tutorial-notify-users-mobileservices.md
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Azure Management Portal]: https://manage.windowsazure.com/
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=49-->
+<!---HONumber=58_postMigration-->

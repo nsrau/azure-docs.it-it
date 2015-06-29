@@ -4,7 +4,7 @@
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/08/2015" 
+	ms.date="06/09/2015" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -51,7 +51,7 @@ Completare queste operazioni, se non è stato ancora fatto:
 
 * Nel dispositivo o nel codice del server Web includere:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -59,9 +59,9 @@ Completare queste operazioni, se non è stato ancora fatto:
 
 ## Costruire un oggetto TelemetryClient
 
-Costruire un'istanza di TelemetryClient (tranne che in JavaScript nelle pagine Web):
+Costruire un'istanza di TelemetryClient \(tranne che in JavaScript nelle pagine Web\):
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -91,7 +91,7 @@ Ad esempio, in un'app di gioco, inviare un evento ogni volta che un utente vince
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -123,7 +123,7 @@ Per visualizzare altri dettagli, fare clic su qualsiasi occorrenza.
 
 ## <a name="properties"></a>Filtrare, cercare e segmentare i dati con proprietà
 
-È possibile associare proprietà e misure agli eventi (anche a metriche, visualizzazioni pagine e altri dati di telemetria).
+È possibile associare proprietà e misure agli eventi \(anche a metriche, visualizzazioni pagine e altri dati di telemetria\).
 
 Le **proprietà** sono valori di stringa che è possibile usare per filtrare i dati di telemetria nei report di utilizzo. Ad esempio, se l'app comprende più giochi, è possibile associare il nome del gioco a ogni evento per vedere quali sono i giochi più diffusi.
 
@@ -131,7 +131,7 @@ Esiste un limite di circa 1 KB per la lunghezza di stringa. Se si vogliono invia
 
 Le **metriche** sono valori numerici che possono essere rappresentati graficamente. Ad esempio, è possibile verificare se esiste un aumento graduale nei punteggi raggiunti dai giocatori. I grafici possono essere segmentati in base alle proprietà inviate con l'evento, in modo da poter avere i grafici separati o in pila per giochi diversi.
 
-I valori metrici devono essere >= 0 per essere visualizzati correttamente.
+I valori metrici devono essere \>= 0 per essere visualizzati correttamente.
 
 
 Esistono tuttavia alcuni [limiti sul numero di proprietà, sui valori delle proprietà e sulle metriche](#limits) che è possibile usare.
@@ -147,7 +147,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, sui valori delle prop
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -236,7 +236,7 @@ Se è più pratico, è possibile raccogliere i parametri di un evento in un ogge
 A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un'azione. Ad esempio, si potrebbe voler sapere quanto tempo occorre agli utenti per scegliere tra le opzioni disponibili in un gioco. Questo è un esempio utile dell'uso del parametro di misurazione.
 
 
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -262,14 +262,14 @@ Usare TrackMetric per inviare le metriche che non sono associate a determinati e
 
 Le metriche vengono visualizzate come grafici statistici in Esplora metriche, ma a differenza degli eventi, non è possibile cercare singole occorrenze nella ricerca diagnostica.
 
-I valori metrici devono essere >= 0 per essere visualizzati correttamente.
+I valori metrici devono essere \>= 0 per essere visualizzati correttamente.
 
 
 *JavaScript*
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -283,7 +283,7 @@ I valori metrici devono essere >= 0 per essere visualizzati correttamente.
 
 Infatti, è possibile farlo in un thread in background:
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -314,7 +314,7 @@ I dati utente e sessione vengono inviati come proprietà insieme alle visualizza
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -348,7 +348,7 @@ Questo metodo viene usato dal server SDK per registrare le richieste HTTP.
 
 È anche possibile chiamarlo manualmente se si vogliono simulare le richieste in un contesto in cui il modulo del servizio Web non è in esecuzione.
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -369,7 +369,7 @@ Questo metodo viene usato dal server SDK per registrare le richieste HTTP.
 
 Inviare le eccezioni ad Application Insights: per [contarle][metrics], come un'indicazione della frequenza di un problema e per [esaminare le singole occorrenze][diagnostic].
 
-*C#*
+*C\#*
 
     try
     {
@@ -392,98 +392,17 @@ Usare questa opzione per diagnosticare i problemi mediante l'invio di una tracci
 Gli [adattatori di log][trace] usano questa API per inviare i log di terze parti al portale.
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-Il limite delle dimensioni in `message` è molto superiore al limite per le proprietà. È possibile eseguire ricerche nel contenuto del messaggio, ma (a differenza dei valori di proprietà) non è possibile filtrarlo.
-
-
-## <a name="default-properties"></a>Impostare le proprietà predefinite per tutti i dati di telemetria
-
-È possibile impostare un inizializzatore universale in modo che tutti i nuovi TelemetryClient usino automaticamente il contesto. Sono inclusi i dati di telemetria standard inviati dai moduli di telemetria specifici della piattaforma, ad esempio la traccia delle richieste del server Web.
-
-Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale è possibile filtrare o raggruppare i risultati per questa proprietà.
-
-*C#*
-
-    // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
-    {
-        public void Initialize (TelemetryContext context)
-        {
-            context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-
-*Java*
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyTelemetryInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.getProperties().put("AppVersion", "2.1");
-      }
-    }
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
-
-
-
-## <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
-
-Per evitare di combinare i dati di telemetria da ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights][create] e modificare le relative chiavi a seconda dell'ambiente.
-
-Invece di ottenere la chiave di strumentazione dal file di configurazione, è possibile impostarla nel codice. Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
-
-*C#*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.Settings["ikey"];
-      ...
-
-*JavaScript*
-
-    appInsights.config.instrumentationKey = myKey; 
-
-
-
-Nelle pagine Web è possibile impostarla dallo stato del server Web anziché codificarla nello script. Ad esempio, in una pagina Web generata in un'app ASP.NET:
-
-*JavaScript in Razor*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+Il limite delle dimensioni in `message` è molto superiore al limite per le proprietà. È possibile eseguire ricerche nel contenuto del messaggio, ma \(a differenza dei valori di proprietà\) non è possibile filtrarlo.
 
 ## <a name="defaults"></a>Impostare i valori predefiniti per i dati di telemetria personalizzati selezionati
 
 Se si intendono impostare solo i valori di proprietà predefiniti per alcuni eventi personalizzati scritti, è possibile impostarli in un TelemetryClient. Vengono associati a ogni elemento di telemetria inviato da quel client.
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -518,17 +437,216 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 ## <a name="ikey"></a> Impostare la chiave di strumentazione per la telemetria personalizzata selezionata
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+
+## <a name="default-properties"></a>Inizializzatori di contesto - Impostare proprietà predefinite per tutti i dati di telemetria
+
+È possibile impostare un inizializzatore universale in modo che tutti i nuovi TelemetryClient usino automaticamente il contesto. Sono inclusi i dati di telemetria standard inviati dai moduli di telemetria specifici della piattaforma, ad esempio la traccia delle richieste del server Web.
+
+Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale, è possibile filtrare o raggruppare i risultati in base alla proprietà "Application Version".
+
+**Definire l'inizializzatore**
+
+
+*C\#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+**Caricare l'inizializzatore**
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice:
+
+*C\#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
+
+Nel client Web JavaScript non è attualmente possibile impostare proprietà predefinite.
+
+## Inizializzatori di telemetria
+
+Usare gli inizializzatori di telemetria per eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
+
+Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta \> = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
+
+In tal modo, verrà chiamato ogni volta che viene chiamato il metodo Track\*\(\). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
+
+**Definire l'inizializzatore**
+
+*C\#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MvcWebRole.Telemetry
+    {
+      /*
+       * Custom TelemetryInitializer that overrides the default SDK 
+       * behavior of treating response codes >= 400 as failed requests
+       * 
+       */
+      public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+        public void Initialize(ITelemetry telemetry)
+        {
+            var requestTelemetry = telemetry as RequestTelemetry;
+            // Is this a TrackRequest() ?
+            if (requestTelemetry == null) return;
+            int code;
+            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+            if (!parsed) return;
+            if (code >= 400 && code < 500)
+            {
+                // If we set the Success property, the SDK won't change it:
+                requestTelemetry.Success = true;
+                // Allow us to filter these requests in the portal:
+                requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            }
+            // else leave the SDK to set the Success property      
+        }
+      }
+    }
+```
+
+**Caricare l'inizializzatore**
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+
+*In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
+
+
+```C#
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+```
+
+
+[Vedere questo esempio nel dettaglio.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+## <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
+
+Per evitare di combinare i dati di telemetria da ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights][create] e modificare le relative chiavi a seconda dell'ambiente.
+
+Invece di ottenere la chiave di strumentazione dal file di configurazione, è possibile impostarla nel codice. Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
+
+*C\#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+Nelle pagine Web è possibile impostarla dallo stato del server Web anziché codificarla nello script. Ad esempio, in una pagina Web generata in un'app ASP.NET:
+
+*JavaScript in Razor*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
+
 ## Scaricamento dei dati
 
 In genere SDK invia i dati in momenti scelti per ridurre al minimo l'impatto sull'utente. In alcuni casi tuttavia è possibile scaricare il buffer, ad esempio, se si sta usando SDK in un'applicazione che si arresta.
 
-*C#*
+*C\#*
 
     telemetry.Flush();
 
@@ -548,7 +666,7 @@ Si noti che la funzione è sincrona.
 Durante il debug, è utile che la telemetria venga velocizzata nella pipeline in modo da visualizzare immediatamente i risultati. È possibile che vengano visualizzati anche altri messaggi che consentono di tracciare eventuali problemi con i dati di telemetria. Disattivarla in fase di produzione, poiché potrebbe rallentare l'app.
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -563,14 +681,14 @@ TelemetryClient dispone di una proprietà di contesto, che contiene un numero di
 Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pertinente da [ApplicationInsights.config][config], in modo che i valori personali e quelli standard non si confondano.
 
 * **Componente** identifica l'app e la relativa versione
-* **Dispositivo** i dati relativi al dispositivo in cui è in esecuzione l'app (nelle app Web, questo è il dispositivo client o server da cui vengono inviati i dati di telemetria)
+* **Dispositivo** i dati relativi al dispositivo in cui è in esecuzione l'app \(nelle app Web, questo è il dispositivo client o server da cui vengono inviati i dati di telemetria\)
 * **InstrumentationKey** identifica la risorsa di Application Insights in Azure dove verranno visualizzati i dati di telemetria. Viene in genere presa dal file ApplicationInsights.config
 * **Percorso** identifica la posizione geografica del dispositivo.
 * **Operazione** nelle app Web, la richiesta HTTP corrente. In altri tipi di app è possibile impostarla per raggruppare gli eventi tra loro.
  * L'**ID**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare "Elementi correlati"
  * **Nome**: l'URL della richiesta HTTP
  * **SyntheticSource**: se non è null o vuota, questa stringa indica che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita verranno esclusi dai calcoli in Esplora metriche.
-* **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace*.
+* **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace\*.
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo.
 * **Utente** consente agli utenti di essere conteggiati. In un'app Web l'ID utente viene preso da un cookie, se esiste. Se non c'è, ne viene generato uno nuovo. Se gli utenti devono accedere all'app, è possibile impostare l'ID dal quello autenticato, in modo da fornire un conteggio più affidabile che sia corretto anche se l'utente accede da un computer diverso. 
 
@@ -578,7 +696,7 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
 
 Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione.
 
-1. Fino a 500 punti dati di telemetria al secondo per chiave di strumentazione (ovvero, per ogni applicazione). Sono inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice.
+1. Fino a 500 punti dati di telemetria al secondo per chiave di strumentazione \(ovvero, per ogni applicazione\). Sono inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice.
 1.	200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione al massimo. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le metriche e nomi di proprietà sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
 2.	Le proprietà possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
 3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
@@ -594,7 +712,7 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
 ## Domande
 
-* *Le chiamate Track* quali eccezioni potrebbero generare?*
+* *Le chiamate Track\* quali eccezioni potrebbero generare?*
     
     Nessuna. Non è necessario eseguirne il wrapping in clausole catch.
 
@@ -627,4 +745,6 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

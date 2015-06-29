@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Funzionalità Hybrid Runbook Workers di Automazione di Azure"
    description="Questo articolo fornisce informazioni sull'installazione e l'uso di Hybrid Runbook Workers, una funzionalità di Automazione di Azure che consente di eseguire i runbook nei computer del data center locale."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/11/2015"
@@ -41,25 +41,25 @@ Quando si avvia un runbook in un computer di lavoro runbook ibrido, è necessari
 
 Per preparare l'ambiente di Automazione di Azure per Hybrid Runbook Workers, seguire questa procedura.
 
-#### 1. Creare un'area di lavoro di Operational Insights
+#### 1\. Creare un'area di lavoro di Operational Insights
 Se ancora non si dispone di un'area di lavoro di Operational Insights nel proprio account Azure, crearne una seguendo le istruzioni contenute nell'articolo relativo alla [configurazione dell'area di lavoro di Operational Insights](../operational-insights-setup-workspace). Se già si dispone di un'area di lavoro, è possibile usarla.
 
-#### 2. Distribuire la soluzione di automazione
+#### 2\. Distribuire la soluzione di automazione
 La soluzione di automazione in Operational Insights effettua il push dei componenti necessari per configurare e supportare l'ambiente runbook. Seguire le istruzioni contenute nell'articolo relativo alle [soluzioni Operational Insights](../operational-insights-add-solution) per installare il pacchetto di **Automazione di Azure**.
 
 ### Configurare i computer locali
 Seguire questa procedura per ogni computer locale che verrà usato come computer di lavoro runbook ibrido.
 
 
-#### 1. Installare l'agente di gestione Microsoft
+#### 1\. Installare l'agente di gestione Microsoft
 L'agente di gestione Microsoft connette il computer a Operational Insights e gli consente di eseguire la logica delle soluzioni. Per installare l'agente nel computer locale e connetterlo a Operational Insights, seguire le istruzioni contenute in [Connettere i computer direttamente a Operational Insights](../operational-insights-direct-agent).
 
-#### 2. Installare l'ambiente runbook e connettersi ad Automazione di Azure
+#### 2\. Installare l'ambiente runbook e connettersi ad Automazione di Azure
 Quando si aggiunge un computer a Operational Insights, la soluzione di automazione effettua il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker**. È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente per importare il modulo.
 
-	Import-Module HybridRegistration 
+	Import-Module HybridRegistration
 
 Se si riceve un messaggio di errore che informa che non è stato possibile trovare il file del modulo, potrebbe essere necessario eseguire il comando seguente, in cui viene usato l'intero percorso del file del modulo.
 
@@ -75,7 +75,7 @@ Eseguire quindi il cmdlet **Add-HybridRunbookWorker** con la sintassi seguente:
 - **Token** è il valore **Chiave di accesso primaria** nel pannello **Gestisci chiavi**. È possibile aprire tale pannello facendo clic sull'icona della chiave nel pannello Elementi per l'account di automazione.<br><br>![Panoramica di Hybrid Runbook Workers](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. Installare i moduli di PowerShell 
+#### 3\. Installare i moduli di PowerShell
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure. Questi moduli tuttavia non vengono distribuiti automaticamente nei computer locale, pertanto è necessario installarli manualmente. L'unica eccezione è rappresentata dal modulo Azure, che viene installato per impostazione predefinita, garantendo l'accesso ai cmdlet per tutte le attività e i servizi di Azure per Automazione di Azure.
 
 Poiché lo scopo principale della funzionalità Hybrid Runbook Workers è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano tali risorse. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](http://msdn.microsoft.com/library/dd878350.aspx).
@@ -117,22 +117,23 @@ Nel runbook è possibile usare asset di tipo [credenziale](http://msdn.microsoft
 
 ## Relazione con Service Management Automation
 
-[Service Management Automation (SMA)](http://aka.ms/runbookauthor/sma) è un componente di Windows Azure Pack (WAP) che consente di eseguire nel data center locale gli stessi runbook supportati da Automazione di Azure. A differenza di Automazione di Azure, SMA richiede un'installazione locale che includa il portale di gestione di Windows Azure Pack e un database per contenere i runbook e la configurazione SMA. Automazione di Azure offre questi servizi nel cloud e richiede solo di gestire i computer di lavoro runbook ibridi nell'ambiente locale.
+[Service Management Automation \(SMA\)](http://aka.ms/runbookauthor/sma) è un componente di Windows Azure Pack \(WAP\) che consente di eseguire nel data center locale gli stessi runbook supportati da Automazione di Azure. A differenza di Automazione di Azure, SMA richiede un'installazione locale che includa il portale di gestione di Windows Azure Pack e un database per contenere i runbook e la configurazione SMA. Automazione di Azure offre questi servizi nel cloud e richiede solo di gestire i computer di lavoro runbook ibridi nell'ambiente locale.
 
 Gli utenti SMA già esistenti possono spostare i runbook in Automazione di Azure affinché vengano usati con Hybrid Runbook Workers senza alcuna modifica, presupponendo che eseguano la propria autenticazione per le risorse come illustrato in [Creazione dei runbook per Hybrid Runbook Workers](#creating-runbooks-for-hybrid-runbook-worker). I runbook in SMA vengono eseguiti nel contesto dell'account del servizio nel server di lavoro, che può garantire tale autenticazione per i runbook.
 
 Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Automazione di Azure con Hybrid Runbook Workers o a Service Management Automation, è possibile usare i criteri seguenti.
 
-- SMA richiede un'installazione locale di Windows Azure Pack che prevede risorse locali e costi di manutenzione superiori rispetto ad Automazione di Azure, che richiede solo l'installazione di un agente nei computer di lavoro runbook locali. Gli agenti vengono gestiti da Operational Insights, riducendo ulteriormente i costi di manutenzione. 
+- SMA richiede un'installazione locale di Windows Azure Pack che prevede risorse locali e costi di manutenzione superiori rispetto ad Automazione di Azure, che richiede solo l'installazione di un agente nei computer di lavoro runbook locali. Gli agenti vengono gestiti da Operational Insights, riducendo ulteriormente i costi di manutenzione.
 - Automazione di Azure archivia i runbook nel cloud e li distribuisce ai computer di lavoro runbook ibridi in locale. Se i criteri di sicurezza non consentono questo comportamento, è consigliabile usare SMA.
 - Windows Azure Pack è disponibile come download gratuito, mentre per Automazione di Azure si potrebbe incorrere in spese di sottoscrizione. Azure. È necessario gestire più database per SMA.
 - Automazione di Azure con Hybrid Runbook Workers consente di gestire i runbook per le risorse cloud e le risorse locali in un'unica posizione invece di avere una gestione separata per Automazione di Azure e SMA.
-- Automazione di Azure offre funzionalità avanzate, tra cui la creazione grafica, non disponibili in SMA. 
+- Automazione di Azure offre funzionalità avanzate, tra cui la creazione grafica, non disponibili in SMA.
 
 
 ## Articoli correlati
 
 - [Avvio di un runbook in Automazione di Azure](../automation-starting-a-runbook)
 - [Modifica di un runbook in Automazione di Azure](https://msdn.microsoft.com/library/dn879137.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Consentire alle pipeline di usare dati locali
@@ -25,42 +25,42 @@ Per aggiungere un'origine dati locale come servizio collegato a un'istanza di Da
 
 ## <a href="DMG"></a> Gateway di gestione dati
 
-**Gateway di gestione dati** è un software che si connette origini dati locali per servizi cloud in modo protetto e gestito. Con il Gateway di gestione dati, è possibile
+Il **Gateway di gestione dati** è un software che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Con il Gateway di gestione dati, è possibile
 
-- **Connessione ai dati locali per l'accesso ai dati ibrido** – è possibile connettere i dati locali a servizi cloud per usufruire dei servizi cloud mantenendo business in esecuzione con dati locali.
-- **Definire un proxy per la protezione dei dati** – è possibile definire le origini dati locali vengono esposte con Gateway di gestione dati, pertanto tale gateway autentica la richiesta di dati dai servizi cloud e protegge le origini dati locali.
-- **Gestire il gateway per la governance completo** – viene fornito completo di monitoraggio e registrazione di tutte le attività all'interno di Gateway di gestione dati per la gestione e controllo.
-- **Spostare i dati in modo efficiente** : i dati vengono trasferiti in parallelo, problemi di rete resiliente a intermittente con automaticamente la logica di riesecuzione.
+- **Connettersi ai dati locali per l'accesso ai dati ibrido**: è possibile connettere i dati locali ai servizi cloud per sfruttare i vantaggi dei servizi cloud, mantenendo allo stesso tempo attiva la società con i dati locali.
+- **Definire un proxy di dati sicuro**: è possibile definire quali origini dati locali esporre con il Gateway di gestione dati in modo che il gateway autentichi la richiesta di dati dai servizi cloud e protegga le origini dati locali.
+- **Gestire il gateway per una governance completa**: vengono fornite funzionalità complete di monitoraggio e registrazione di tutte le attività all'interno del Gateway di gestione dati per la gestione e la governance.
+- **Spostare i dati in modo efficace**: i dati vengono trasferiti in parallelo e sono resilienti ai problemi di rete intermittente grazie alla logica di ripetizione dei tentativi automatica.
 
 
 Il Gateway di gestione dati ha una gamma completa di funzionalità di connessione dei dati locali che include:
 
-- **Non intrusivo per firewall aziendale** : Gateway di gestione dati funziona solo dopo l'installazione, senza dover aprire un firewall connessione o richiedere intrusivo modifiche all'infrastruttura di rete aziendale. 
-- **Crittografare le credenziali con il certificato** : le credenziali utilizzate per connettersi alle origini dati vengono crittografate con un certificato di proprietà da un utente. Senza il certificato, nessuno può decrittografare le credenziali in testo normale, neanche Microsoft.
+- **Non invasività per il firewall aziendale**: il Gateway di gestione dati funziona solo dopo l'installazione, senza dover aprire una connessione al firewall o richiedere modifiche invasive all'infrastruttura di rete aziendale. 
+- **Crittografia delle credenziali con il certificato**: le credenziali usate per connettersi alle origini dati sono crittografate tramite un certificato di totale proprietà dell'utente. Senza il certificato, nessuno può decrittografare le credenziali in testo normale, neanche Microsoft.
 
 ### Considerazioni per l'uso del Gateway di gestione dati
-1.	Una singola istanza del Gateway di gestione dati può essere utilizzato per più origini dati locali, ma tenere presente che un **gateway è associata a una factory di dati di Azure** e non può essere condivisa con un altro produttore di dati.
-2.	È possibile **solo un'istanza del Gateway di gestione dati** installato sul computer. Si supponga di avere due istanze di Data factory che richiedono l'accesso alle origini dati locali: è necessario installare i gateway nei due computer locali in cui ogni gateway sia associato a un'istanza separata di Data factory.
-3.	Il **gateway non deve essere nello stesso computer come origine dati**, ma sempre più da vicino all'origine dati riduce il tempo per il gateway per la connessione all'origine dati. È consigliabile installare il gateway in un computer diverso da quello che ospita l'origine dati locale in modo che il gateway non si contendono le risorse con origine dati.
-4.	È possibile **più gateway su diversi computer che si connettono alla stessa origine dati locale**. Ad esempio, potrebbe essere due gateway che servono due factory di dati, ma la stessa origine dati locale viene registrata con factory dati. 
-5.	Se si dispone già di un gateway installato nel server del computer una **Power BI** scenario, installare un **gateway separato per Azure dati Factory** su un altro computer.
+1.	Una singola istanza del Gateway di gestione dati può essere usata per più origini dati locali. Tenere presente, però, che un **gateway è associato a un'istanza di Data factory di Azure** e non può essere condiviso con altre istanze di Data factory.
+2.	Nel computer può essere installata **una sola istanza del Gateway di gestione dati**. Si supponga di avere due istanze di Data factory che richiedono l'accesso alle origini dati locali: è necessario installare i gateway nei due computer locali in cui ogni gateway sia associato a un'istanza separata di Data factory.
+3.	Il **gateway non deve trovarsi nello stesso computer dell'origine dati**; tuttavia, la prossimità all'origine dati riduce il tempo di connessione tra il gateway e l'origine dati. Si consiglia di installare il gateway in un computer diverso da quello che ospita l'origine dati locale in modo che il gateway non si contenda le risorse con l'origine dati.
+4.	È possibile disporre di **più gateway su diversi computer che si connettono alla stessa origine dati locale**. Ad esempio, potrebbero essere disponibili due gateway che servono due data factory, ma la stessa origine dati locale viene registrata con entrambe le data factory. 
+5.	Se un gateway è già installato nel computer per uno scenario **Power BI**, installare un **gateway separato per Data factory di Azure** in un altro computer.
 
-### Porte e considerazioni sulla sicurezza 
-- Il programma di installazione di Gateway di gestione dati apre **8050** e **8051** porte nel computer del gateway. Queste porte vengono utilizzate per la **Gestione credenziali** (applicazione ClickOnce), che consente di impostare le credenziali per un servizio locale collegati e testare la connessione all'origine dati. Queste porte non è raggiungibile da internet e non è necessario necessario questi aperta nel firewall aziendale.
-- Quando si copiano dati da e verso un database di SQL Server locale da un database SQL Azure, verificare quanto segue:
+### Considerazioni su porte e sicurezza 
+- Il programma di installazione di Gateway di gestione dati apre le porte **8050** e **8051** nel computer del gateway. Queste porte vengono usate per la **Gestione credenziali** \(applicazione ClickOnce\), la quale consente di impostare le credenziali per un servizio locale collegato e testare la connessione all'origine dati. Queste porte non sono raggiungibili da Internet e non è necessario tenerle aperte nel firewall aziendale.
+- Quando si copiano dati da e verso un database SQL Server locale verso o da un database SQL Azure, verificare quanto segue:
  
-	- Firewall nel computer del gateway consente la comunicazione TCP in uscita in **TCP** porta **1433**
-	- Configurare [le impostazioni del firewall SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) per aggiungere il **indirizzo IP del computer del gateway** per il **indirizzi IP consentiti**.
+	- Il firewall nel computer del gateway consente la comunicazione TCP in uscita sulla porta **TCP** **1433**
+	- Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP relativo al computer del gateway** agli **indirizzi IP consentiti**.
 
-- Durante la copia dei dati a/da SQL Server locale a qualsiasi destinazione e il gateway e il computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) in SQL Server del computer in modo che il gateway può accedere al database tramite la porta è in attesa l'istanza di SQL Server su. Per l'istanza predefinita è la porta 1433.
+- Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
 
-- È necessario avviare il **Gestione credenziali** dell'applicazione in un computer è in grado di connettersi al Gateway di gestione dati sia in grado di impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
+- È necessario avviare l'applicazione **Gestione credenziali** in un computer che possa connettersi al Gateway di gestione dati per poter impostare le credenziali per l'origine dati e testare la connessione all'origine dati.
 
-### Installazione del gateway - prerequisiti 
+### Installazione del gateway - Prerequisiti 
 
-1.	Supportato **sistema operativo** versioni sono Windows 7, Windows 8 o 8.1, Windows Server 2008 R2, Windows Server 2012.
-2.	L'elemento consigliato **configurazione** per il gateway macchina è almeno 2 GHz, 4 core, 8 GB di RAM e 80 GB di disco.
-3.	Se il computer host entra in ibernazione, il gateway non potrà rispondere alle richieste di dati. Pertanto, configurare un'apposita **il risparmio di energia** nel computer prima di installare il gateway. L'installazione del gateway richiede un messaggio se il computer è configurato per la sospensione.  
+1.	Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows Server 2008 R2 e Windows Server 2012.
+2.	La **configurazione** consigliata per il computer gateway è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
+3.	Se il computer host entra in stato di ibernazione, il gateway non può rispondere alla richiesta di dati. Pertanto, configurare una **combinazione per il risparmio di energia** appropriata nel computer prima di installare il gateway. L'installazione del gateway invia un messaggio se il computer è configurato per l'ibernazione.  
 
 
  
@@ -69,103 +69,105 @@ Il Gateway di gestione dati ha una gamma completa di funzionalità di connession
 
 In questa procedura dettagliata viene creata un'istanza di Data factory con una pipeline che sposta i dati da un database SQL Server locale a un BLOB di Azure.
 
-## Passaggio 1: Creare una factory di dati di Azure
-In questo passaggio, è possibile utilizzare il portale di gestione di Azure per creare un'istanza della Factory di dati di Azure denominata **ADFTutorialOnPremDF**. È anche possibile creare un'istanza di Data factory con i cmdlet di Data factory di Azure.
+## Passaggio 1: creare un'istanza di Data factory di Azure
+In questo passaggio viene usato il portale di gestione di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialOnPremDF**. È anche possibile creare un'istanza di Data factory con i cmdlet di Data factory di Azure.
 
-1.	Accedendo alla [portale Azure Preview][azure-preview-portal], fare clic su **nuovo** nell'angolo inferiore sinistro, selezionare **analisi di dati** nel **Crea** blade e fare clic su **dati Factory** sul **analisi di dati** blade.
+1.	Dopo aver eseguito l'accesso al [portale di anteprima di Azure][azure-preview-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e infine fare clic su **Data factory** nel pannello **Analisi dei dati**.
 
-	![Nuovo -> DataFactory][image-data-factory-new-datafactory-menu]
+	![Nuovo->DataFactory][image-data-factory-new-datafactory-menu]
   
-6. Nel **nuova factory di dati** blade:
-	1. Immettere **ADFTutorialOnPremDF** per il **nome**.
-	2. Fare clic su **nome gruppo di risorse** e selezionare **ADFTutorialResourceGroup** (se è stato fatto l'esercitazione dal [iniziare a utilizzare Azure dati Factory][adfgetstarted]. È possibile selezionare un gruppo di risorse esistente o crearne uno nuovo. Per creare un nuovo gruppo di risorse:
-		1. Fare clic su **creare un nuovo gruppo di risorse**.
-		2. Nel **blade del gruppo di risorse Create**, immettere un **nome** per il gruppo di risorse, scegliere **OK**.
+6. Nel pannello **Nuova data factory**:
+	1. Immettere **ADFTutorialOnPremDF** nel campo **Nome**.
+	2. Fare clic su **NOME GRUPPO DI RISORSE** e selezionare **ADFTutorialResourceGroup**. Tale passaggio è valido solo se l'esercitazione è stata completata da [Introduzione a Data factory di Azure][adfgetstarted]. È possibile selezionare un gruppo di risorse esistente o crearne uno nuovo. Per creare un nuovo gruppo di risorse:
+		1. Fare clic su **Crea un nuovo gruppo di risorse**.
+		2. Nel pannello **Crea gruppo di risorse**, immettere un **nome** per il gruppo di risorse, quindi fare clic su **OK**.
 
-7. Si noti che **aggiungere alla schermata iniziale** sia selezionata la **nuova factory di dati** blade.
+7. **Aggiungi alla Schermata iniziale** è selezionato nel pannello **Nuova data factory**.
 
 	![Aggiungi a schermata iniziale][image-data-factory-add-to-startboard]
 
-8. Nel **nuova factory di dati** blade, fare clic su **Crea**.
+8. Nel pannello **Nuova data factory** fare clic su **Crea**.
 
-	> [AZURE.NOTE]**Nome del produttore di dati "ADFTutorialOnPremDF" non è disponibile**  
-9. Cercare le notifiche dal processo di creazione nel **notifiche** hub sul lato sinistro. Fare clic su **X** per chiudere la **come origine delle notifiche** blade se è aperto.
+	È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore simile a **Nome "ADFTutorialOnPremDF" per la data factory non disponibile**, cambiare il nome della data factory \(ad esempio, nomeutenteADFTutorialOnPremDF\) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
 
-	![Hub notifiche][image-data-factory-notifications-hub]
+9. Cercare le notifiche dal processo di creazione nell'hub **NOTIFICHE** sulla sinistra. Fare clic sul simbolo **X** per chiudere il pannello **NOTIFICHE**, se aperto.
 
-11. Dopo aver completato la creazione, verrà visualizzato il **dati Factory** blade, come illustrato di seguito:
+	![Hub NOTIFICHE][image-data-factory-notifications-hub]
 
-	![Dati Factory Home Page][image-data-factory-datafactory-homepage]
+11. Al termine della procedura di creazione, viene visualizzato il pannello di **Data factory** come mostrato di seguito:
 
-## Passaggio 2: Creare un gateway di gestione dati
-5.	Nel **dati Factory** blade per **ADFTutorialOnPremDF**, fare clic su **servizi collegati**. 
+	![Home page di Data factory][image-data-factory-datafactory-homepage]
 
-	![Dati Factory Home Page][image-data-factory-home-age]
+## Passaggio 2: creare un gateway di gestione dati
+5.	Nel pannello **Data factory** per **ADFTutorialOnPremDF**, fare clic su **Servizi collegati**. 
 
-2.	Nel **servizi collegati** blade, fare clic su **+ gateway dati**.
+	![Home page di Data factory][image-data-factory-home-age]
 
-	![Servizi collegati - aggiungere un pulsante di Gateway][image-data-factory-linkedservices-add-gateway-button]
+2.	Nel pannello **Servizi collegati** fare clic su **+ Gateway dati**.
 
-2. Nel **Crea** blade, immettere **adftutorialgateway** per il **nome**, e fare clic su **OK**.
+	![Servizi collegati - Pulsante Aggiungi gateway][image-data-factory-linkedservices-add-gateway-button]
 
-	![Creare blade Gateway][image-data-factory-create-gateway-blade]
+2. Nel pannello **Crea**, immettere **adftutorialgateway** per il **nome** e fare clic su **OK**.
+
+	![Pannello Crea gateway][image-data-factory-create-gateway-blade]
 
 3. Nel pannello **Configura** fare clic su **Installa direttamente nel computer**. Viene scaricato il pacchetto di installazione per il gateway, che viene installato, configurato e registrato nel computer.
 
-	> [AzURE.NOTE]Utilizzare Internet Explorer o un browser compatibile con Microsoft ClickOnce.
+	> [AZURE.NOTE]Usare Internet Explorer o un Web browser compatibile con Microsoft ClickOnce.
 
-	![Gateway - configurare blade][image-data-factory-gateway-configure-blade]
+	![Gateway - Pannello Configura][image-data-factory-gateway-configure-blade]
 
-	Si tratta del metodo più semplice (con un clic) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile visualizzare il **Gestione configurazione di Gateway di gestione dati di Microsoft** applicazione è installata nel computer. È inoltre possibile trovare il file eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
+	Si tratta del metodo più semplice \(con un clic\) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
-	È inoltre possibile scaricare e installare gateway manualmente utilizzando i collegamenti in questo pannello e registrarlo utilizzando la chiave indicata nella **con codice di registrazione** casella di testo.
+	È anche possibile scaricare e installare manualmente il gateway usando i collegamenti nel pannello e registrarlo usando il tasto visualizzato nella casella di testo **REGISTRA CON TASTO**.
 	
-	Vedere [Gateway di gestione dati](#DMG) per ulteriori informazioni sui gateway incluse importanti considerazioni e procedure consigliate.
+	Vedere la sezione [Gateway di gestione dati](#DMG) per i dettagli sul gateway, incluse le procedure consigliate e altre considerazioni importanti.
 
-	>[AZURE.NOTE]È necessario essere un amministratore nel computer locale per installare e configurare correttamente il Gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale Data Management Gateway Users. I membri di questo gruppo sarà in grado di utilizzare lo strumento Gestione configurazione Gateway di gestione dati per configurare il gateway.
+	>[AZURE.NOTE]È necessario essere un amministratore nel computer locale per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale degli utenti del gateway di gestione dati. I membri di questo gruppo potranno usare lo strumento Gestione configurazione del gateway di gestione dati per configurare il gateway.
 
-4. Scegliere il **notifiche** hub sul lato sinistro. Attendere la visualizzazione **Express per 'adftutorialgateway' ha avuto esito positivo del programma di installazione** dei messaggi nel **notifiche** blade.
+4. Fare clic sull'hub **NOTIFICHE** a sinistra. Attendere la visualizzazione del messaggio **L'installazione rapida per "adftutorialgateway'' è stata completata.** nel pannello **Notifiche**.
 
-	![Installazione rapida ha avuto esito positivo][express-setup-succeeded]
-5. Fare clic su **OK** sul **Crea** blade e quindi la **Nuovo gateway dati** blade.
-6. Chiudi il **servizi collegati** blade (premendo **X** pulsante nell'angolo in alto a destra) e riaprire il **servizi collegati** blade per visualizzare lo stato più recente del gateway. 
-7. Verificare che il **stato** del gateway è **Online**. 
+	![Installazione rapida riuscita][express-setup-succeeded]
+5. Fare clic su **OK** nel pannello **Crea** e nel pannello **Nuovo gateway dati**.
+6. Chiudere il pannello **Servizi collegati** \(premendo il pulsante **X** in alto a destra\) e aprire di nuovo il pannello **Servizi collegati** per visualizzare lo stato più recente del gateway. 
+7. Verificare che lo **stato** del gateway sia **Online**. 
 
 	![Stato del gateway][gateway-status]
-5. Avviare **Gestione configurazione di Gateway di gestione dati di Microsoft** applicazione nel computer.
+5. Avviare l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** nel computer.
 
 	![Gestione configurazione di gateway][image-data-factory-gateway-configuration-manager]
 
 6. Attendere finché i valori non sono impostati come segue:
-	1. Se il servizio **stato** non è impostata su **avviato**, fare clic su **avvio del servizio** per avviare il servizio e attendere un minuto per gli altri campi da aggiornare.
+	1. Se lo **stato** del servizio non è impostato su **Avviato**, fare clic su **Avvia servizio** per avviare il servizio e attendere un minuto per consentire l'aggiornamento degli altri campi.
 	2. **Nome gateway** è impostato su **adftutorialgateway**.
-	3. **Nome dell'istanza** è impostato su **adftutorialgateway**.
-	4. **Stato chiave del gateway** è impostato su **registrati**.
-	5. La barra consente di visualizzare la parte inferiore di stato **connesso al servizio Cloud Gateway di gestione dati** insieme a un **segno di spunta verde**.
+	3. **Nome istanza** è impostato su **adftutorialgateway**.
+	4. **Stato della chiave del gateway** è impostato su **registrato**.
+	5. La barra di stato visualizza **Connesso al servizio cloud del Gateway di gestione dati** insieme a un **segno di spunta verde**.
 	
-7. Nel **servizi collegati** blade, verificare che il **stato** del gateway è **buona**.
-8. Chiudere tutti i server blade fino a visualizzare il **Factory dati** homepage. 
+7. Nel pannello **Servizi collegati**, confermare che lo **stato** del gateway sia **Riuscito**.
+8. Chiudere tutti i pannelli fino a raggiungere la home page **Data factory**. 
 
-## Passaggio 2: Creare servizi collegati 
-In questo passaggio si creerà due servizi collegati: **StorageLinkedService** e **SqlServerLinkedService**. Il **SqlServerLinkedService** collega un database di SQL Server locale e **StorageLinkedService** servizi collegati collega un archivio blob di Azure per la **ADFTutorialDataFactory**. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database SQL Server locale all'archivio BLOB di Azure.
+## Passaggio 2: creare servizi collegati 
+In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **SqlServerLinkedService**. Il servizio **SqlServerLinkedService** collega un database SQL Server locale, mentre il servizio collegato **StorageLinkedService** collega un archivio BLOB di Azure ad **ADFTutorialDataFactory**. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database SQL Server locale all'archivio BLOB di Azure.
 
 ### Aggiungere un servizio collegato a un database SQL Server locale
-1.	Nel **dati FACTORY** blade, fare clic sulla **autore e distribuire** riquadro per avviare il **Editor** per la factory di dati.
+1.	Nel pannello **DATA FACTORY**, fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
 
 	![Riquadro Creare e distribuire][image-author-deploy-tile]
 
-	> [AZURE.NOTE][Factory Editor dei dati][data-factory-editor]
-2.	Nel **Editor**, fare clic su **nuovo archivio dati** pulsante sulla barra degli strumenti e selezionare **database del server SQL locale** dal menu a discesa. 
+	> [AZURE.NOTE] Per una panoramica dettagliata dell'editor di Data factory, vedere l'argomento [Editor di Data factory di Azure][data-factory-editor].
 
-	![Editor nuovo pulsante di archivio dati][image-editor-newdatastore-onpremsql-button]
+2.	Nell'**Editor**, fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti e scegliere **Database SQL Server locale** dal menu a discesa.
+
+	![Pulsante Nuovo archivio dati dell'editor][image-editor-newdatastore-onpremsql-button]
     
-3.	Verrà visualizzato il modello JSON per la creazione di un servizio di SQL Server collegati in locale nel riquadro di destra. ![Servizi collegati locale SQL - impostazioni][image-editor-newdatastore-onpremsql-settings]
+3.	Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di SQL Server locale.![Servizio collegato di SQL locale - impostazioni][image-editor-newdatastore-onpremsql-settings]
 
-4.	eseguire le operazioni seguenti nel riquadro di JSON:
-	1.	Per il **gatewayName** proprietà, immettere **adftutorialgateway** di sostituire tutto il testo all'interno delle virgolette doppie.  
-	2.	Se si utilizza **l'autenticazione di SQL**: 
-		1.	Per il **connectionString** proprietà, sostituire **< nomeserver >**, **< databasename >**, **< nomeutente >**, e **< password >** con nomi del server SQL locale, database, account utente e password.	
-		2.	Rimuovere le ultime due proprietà (* * * nome utente e **password**) da JSON file e rimuovere il **virgola (,)** caratteri alla fine dell'ultima riga dello script JSON rimanenti.
+4.	Nel riquadro JSON, eseguire le operazioni riportate di seguito:
+	1.	Per la proprietà **gatewayName** immettere **adftutorialgateway** in modo da sostituire tutto il testo racchiuso tra virgolette.  
+	2.	Se si usa **Autenticazione SQL**: 
+		1.	Per la proprietà **connectionString**, sostituire **\<servername\>**, **\<databasename\>**, **\<username\>** e **\<password\>** con i nomi del server SQL locale, del database, l'account utente e la password.	
+		2.	Rimuovere le ultime due proprietà \(\*\*username\*\* e **password**\) dal file JSON e il carattere della **virgola \(,\)** al termine dell'ultima riga dello script JSON rimanente.
 		
 				{
 	    			"name": "SqlServerLinkedService",
@@ -175,8 +177,8 @@ In questo passaggio si creerà due servizi collegati: **StorageLinkedService** e
 		        		"gatewayName": "adftutorialgateway"
 	    			}
 				}
-	3.	Se si utilizza **l'autenticazione di Windows**:
-		1. Per il **connectionString** proprietà, sostituire **< nomeserver >** e **< databasename >** con nomi di database e SQL server locale. Impostare **la sicurezza integrata di** a **True**. Rimuovere **ID** e **Password** dalla stringa di connessione.
+	3.	Se si usa **Autenticazione di Windows**:
+		1. Per la proprietà **connectionString**, sostituire **\<servername\>** e **\<databasename\>** con i nomi del server SQL locale e del database. Impostare **Sicurezza integrata** su **True**. Rimuovere **ID** e **Password** dalla stringa di connessione.
 			
 				{
     				"name": "SqlServerLinkedService",
@@ -189,39 +191,39 @@ In questo passaggio si creerà due servizi collegati: **StorageLinkedService** e
     				}
 				}		
 		
-6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire il SqlServerLinkedService. Verificare che sia visualizzato il messaggio **collegato servizio creato correttamente** sulla barra del titolo. È inoltre necessario verificare il **SqlServerLinkedService** nella visualizzazione albero a sinistra.
+6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire SqlServerLinkedService. Controllare che sulla barra del titolo sia visualizzato un messaggio analogo a **CREAZIONE DEL SERVIZIO COLLEGATO COMPLETATA**. Nella visualizzazione albero a sinistra dovrebbe essere visualizzato il servizio **SqlServerLinkedService**.
 		   
-	![Distribuzione SqlServerLinkedService riuscita][image-editor-sql-linked-service-successful]
+	![Distribuzione di SqlServerLinkedService riuscita][image-editor-sql-linked-service-successful]
 	
   
-> [AZURE.NOTE]È inoltre possibile creare un servizio di SQL Server collegato facendo clic su **nuovo archivio dati** sulla barra il **servizi collegati** blade. Se si effettua questa scelta, è possibile impostare le credenziali per l'origine dati utilizzando l'applicazione ClickOnce di gestione di credenziali in esecuzione nel computer l'accesso al portale. Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali può connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e di test della connessione all'origine dati.
+È anche possibile creare un servizio collegato di SQL Server facendo clic sul pulsante **Nuovo archivio dati** della barra degli strumenti sul pannello **Servizi collegati**. Se si effettua questa scelta, è possibile impostare le credenziali per l'origine dati usando l'applicazione ClickOnce di gestione credenziali in esecuzione nel computer da cui si accede al portale. Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
 
 #### Aggiungere un servizio collegato per un account di archiviazione di Azure
  
-1. Nel **Editor**, fare clic su **nuovo archivio dati** pulsante sulla barra degli strumenti e selezionare **di archiviazione Azure** dal menu a discesa. Verrà visualizzato il modello JSON per la creazione di un servizio di archiviazione Azure collegato nel riquadro di destra. 
+1. Nell'**Editor**, fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure. 
 
-	![Editor nuovo pulsante di archivio dati][image-editor-newdatastore-button]
+	![Pulsante Nuovo archivio dati dell'editor][image-editor-newdatastore-button]
     
-6. Sostituire **< nome account >** e **< accountkey >** con il nome di account e i valori di chiave di account per l'account di archiviazione di Azure.
+6. Sostituire **\<accountname\>** e **\<accountkey\>** con i valori relativi a nome e chiave dell'account di archiviazione di Azure.
 
-	![Archiviazione Blob editor JSON][image-editor-blob-storage-json]
+	![JSON dell'archivio BLOB dell'editor][image-editor-blob-storage-json]
 	
-	> [AZURE.NOTE]Vedere [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) per informazioni dettagliate sulle proprietà JSON.
+	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire il StorageLinkedService. Verificare che sia visualizzato il messaggio **collegato servizio creato correttamente** sulla barra del titolo.
+6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire StorageLinkedService. Controllare che sulla barra del titolo sia visualizzato un messaggio simile a **CREAZIONE DEL SERVIZIO COLLEGATO COMPLETATA**.
 
-	![Distribuire archiviazione Blob di editor][image-editor-blob-storage-deploy]
+	![Distribuzione dell'archivio BLOB dell'editor][image-editor-blob-storage-deploy]
 
  
-## Passaggio 3: Creare input e output di set di dati
-In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia (database SQL Server locale => archiviazione BLOB di Azure). Prima di creare i set di dati o le tabelle (set di dati rettangolari), è necessario eseguire quanto segue (i passaggi dettagliati seguono l'elenco):
+## Passaggio 3: creare set di dati di input e di output
+In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia \(database SQL Server locale =\> archiviazione BLOB di Azure\). Prima di creare i set di dati o le tabelle \(set di dati rettangolari\), è necessario eseguire quanto segue \(i passaggi dettagliati seguono l'elenco\):
 
-- Creare una tabella denominata **emp** nel Database di SQL Server è stato aggiunto come servizio collegato ai dati factory e inserimento paio di voci di esempio nella tabella.
-- - Se non hai completato l'esercitazione dal [iniziare a utilizzare Azure dati Factory][adfgetstarted] articolo, creare un contenitore blob denominato **adftutorial** in Azure account di archiviazione è stato aggiunto come servizio collegato alla factory dati blob.
+- Creare una tabella denominata **emp** nel database SQL Server aggiunto come servizio collegato all'istanza di Data factory e inserire una coppia di voci di esempio nella tabella.
+- - Se non è stata completata l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted], creare un contenitore BLOB denominato **adftutorial** nell'account di archiviazione BLOB di Azure aggiunto come servizio collegato all'istanza di Data factory.
 
 ### Preparare SQL Server locale per l'esercitazione
 
-1. Nel database specificato per on-premise SQL Server collegati di servizio (* * SqlServerLinkedService * *), utilizzare il seguente script SQL per creare il **emp** tabella nel database.
+1. Nel database specificato per il servizio collegato di SQL Server locale \(OnPremSqlLinkedService\), usare il seguente script SQL per creare la tabella **emp** nel database.
 
 
         CREATE TABLE dbo.emp
@@ -244,8 +246,8 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 ### Creazione della tabella di input
 
-1.	Nel **dati Factory Editor**, fare clic su **nuovo set di dati** sulla barra dei comandi, scegliere **On-Premise SQL**. 
-2.	Sostituire il JSON nel riquadro di destra con il testo seguente:    
+1.	Nell'**Editor di Data factory**, fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **SQL locale**. 
+2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:    
 
         {
     		"name": "EmpOnPremSQLTable",
@@ -274,20 +276,20 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 	Tenere presente quanto segue:
 	
-	- percorso **tipo** è impostato su **OnPremisesSqlServerTableLocation**.
-	- **tableName** è impostato su **emp**.
-	- **linkedServiceName** è impostato su **SqlServerLinkedService** (è stato creato questo servizio collegato nel passaggio 2).
-	- Per una tabella di input non viene generata da un'altra pipeline nella Factory di dati di Azure, è necessario specificare **waitOnExternal** sezione in JSON. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure.   
+	- L'oggetto **type** di location è impostato su **OnPremisesSqlServerTableLocation**.
+	- **tablename** è impostato su **emp**.
+	- **linkedServiceName** è impostato su **SqlServerLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
+	- Per una tabella di input non generata da un'altra pipeline in Data factory di Azure, è necessario specificare la sezione **waitOnExternal** nel JSON. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure.   
 
-	Vedere [JSON Scripting Reference][json-script-reference] per informazioni dettagliate sulle proprietà JSON.
+	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON][json-script-reference].
 
-2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati (tabella è un set di dati rettangolare). Verificare che sia visualizzato un messaggio sulla barra del titolo indica **tabella distribuito correttamente**.
+2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la set di dati \(la tabella è un set di dati rettangolare\). Controllare che sulla barra del titolo sia visualizzato un messaggio analogo a **DISTRIBUZIONE TABELLA COMPLETATA**.
 
 
 ### Creazione della tabella di output
 
-1.	Nel **dati Factory Editor**, fare clic su **nuovo set di dati** sulla barra dei comandi, scegliere **archiviazione Blob di Azure**.
-2.	Sostituire il JSON nel riquadro di destra con il testo seguente: 
+1.	Nell'**Editor di Data factory** fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **Archiviazione BLOB di Azure**.
+2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente: 
 
 		{
     		"name": "OutputBlobTable",
@@ -314,16 +316,16 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
   
 	Tenere presente quanto segue:
 	
-	- percorso **tipo** è impostato su **AzureBlobLocation**.
-	- **linkedServiceName** è impostato su **StorageLinkedService** (è stato creato questo servizio collegato nel passaggio 2).
-	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È sufficiente creare il **adftutorial** contenitore.
-	- Il **disponibilità** è impostato su **oraria** (* * frequenza * * impostato su **ora** e **intervallo** impostato su **1**). Il servizio dati Factory genererà una porzione di dati di output ogni ora il **emp** tabella nel Database di SQL Azure. 
+	- L'oggetto **type** di location è impostato su **AzureBlobLocation**.
+	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
+	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
+	- L'oggetto **availability** è impostato su **hourly**; l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
-	Se non si specifica un **fileName** per un **tabella di input**, tutti i BLOB/file dalla cartella di input (* * folderPath * *) vengono considerati come input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Visualizzare i file di esempio nel [esercitazione][adf-tutorial] per gli esempi.
+	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input \(\*\*folderPath\*\*\) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
-	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt \(ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\).
 
-	Per impostare **folderPath** e **fileName** in modo dinamico in base al **SliceStart** tempo, utilizzare la proprietà partitionedBy. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
+	Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà partitionedBy. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart \(ora di inizio della sezione elaborata\), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -337,16 +339,16 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
  
 
-	Vedere [JSON Scripting Reference][json-script-reference] per informazioni dettagliate sulle proprietà JSON.
+	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON][json-script-reference].
 
-2.	Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati (tabella è un set di dati rettangolare). Verificare che sia visualizzato un messaggio sulla barra del titolo indica **tabella distribuito correttamente**.
+2.	Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la set di dati \(la tabella è un set di dati rettangolare\). Controllare che sulla barra del titolo sia visualizzato un messaggio analogo a **DISTRIBUZIONE TABELLA COMPLETATA**.
   
 
-## Passaggio 4: Creare ed eseguire una pipeline
-In questo passaggio verrà creata una **pipeline** con uno **attività Copia** che utilizza **EmpOnPremSQLTable** come input e **OutputBlobTable** come output.
+## Passaggio 4: creare ed eseguire una pipeline
+In questo passaggio viene creata una **pipeline** con un'**attività di copia** che usa **EmpOnPremSQLTable** come input e **OutputBlobTable** come output.
 
-1.	Fare clic su **nuova pipeline** sulla barra dei comandi. Se il pulsante non è visualizzato, fare clic su **... (puntini di sospensione)** Per espandere la barra dei comandi.
-2.	Sostituire il JSON nel riquadro di destra con il testo seguente:   
+1.	Fare clic su **Nuova pipeline** sulla barra dei comandi. Se il pulsante non è presente, fare clic su **...\(puntini di sospensione\)** per visualizzarlo.
+2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:   
 
 
         {
@@ -393,72 +395,78 @@ In questo passaggio verrà creata una **pipeline** con uno **attività Copia** c
 
 	Tenere presente quanto segue:
  
-	- Nella sezione attività esiste solo attività di cui **tipo** è impostato su **CopyActivity**.
-	- **Input** per l'attività è impostata su **EmpOnPremSQLTable** e **output** per l'attività è impostata su **OutputBlobTable**.
-	- Nel **trasformazione** sezione **SqlSource** è specificato come il **tipo di origine** e **BlobSink **è specificato come il **sink tipo**. - Query SQL **Selezionare * da emp** specificato per il **sqlReaderQuery** proprietà di **SqlSource**.
+	- Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **CopyActivity**.
+	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
+	- Nella sezione **transformation**, **SqlSource** viene specificato come **tipo di origine** e **BlobSink **come **tipo di sink**. - La query SQL **select \* from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
-	> [AZURE.NOTE]Sostituire il valore del **avviare** proprietà con il giorno corrente e **end** valore con il giorno successivo. Avviare entrambi e date e ore di fine deve essere [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. Il **end** ora è facoltativo, ma si utilizzerà in questa esercitazione. Se non si specifica il valore per il **end** proprietà, viene calcolato come "* * inizio + 48 ore * *". Per eseguire la pipeline a tempo indeterminato, specificare **9/9/9999** come valore per il **end** proprietà. Si definisce l'intervallo di tempo in cui verranno elaborati gli intervalli di dati in base alla **disponibilità** proprietà che sono state definite per ogni tabella Factory di dati di Azure. Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
+	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati (tabella è un set di dati rettangolare). Verificare che sia visualizzato un messaggio sulla barra del titolo indica **PIPELINE distribuito correttamente**.
-5. A questo punto, chiudere il **Editor** blade facendo clic su **X**. Fare clic su **X** per chiudere il blade ADFTutorialDataFactory con la visualizzazione della barra degli strumenti e struttura ad albero. Se viene visualizzato **verranno annullate le modifiche non salvate** dei messaggi, fare clic su **OK**.
-6. Dovrebbe essere verso il **dati FACTORY** blade per il **ADFTutorialOnPremDF**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
+	
+	Si definisce quanto tempo durerà l'elaborazione delle sezioni di dati in base alle proprietà della **disponibilità** definite per ogni tabella di Data factory di Azure.
+	
+	Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
+	
+2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la set di dati \(la tabella è un set di dati rettangolare\). Controllare che sulla barra del titolo sia visualizzato un messaggio analogo a **DISTRIBUZIONE PIPELINE COMPLETATA**.
+5. A questo punto, chiudere il pannello dell'**Editor** facendo clic su **X**. Fare di nuovo clic su **X** per chiudere il pannello ADFTutorialDataFactory con la barra degli strumenti e la visualizzazione ad albero. Se viene visualizzato un messaggio analogo a **Eventuali modifiche non salvate verranno rimosse**, fare clic su **OK**.
+6. Dovrebbe essere visualizzato di nuovo il pannello **DATA FACTORY** per **ADFTutorialOnPremDF**.
 
 **Congratulazioni**. Data factory di Azure, i servizi collegati, le tabelle e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.
 
-### Visualizzare la factory di dati in una visualizzazione Diagramma 
-1. Nel **portale Azure Preview**, fare clic su **diagramma** riquadro nella home page per il **ADFTutorialOnPremDF** factory di dati.:
+### Visualizzare la data factory in una vista Diagramma 
+1. Nel **portale di anteprima di Azure**, fare clic sul riquadro **Diagramma** nella home page per l'istanza di Data factory **ADFTutorialOnPremDF**:
 
-	![Collegamento di diagramma][image-data-factory-diagram-link]
+	![Collegamento al diagramma][image-data-factory-diagram-link]
 
 2. Viene visualizzato un diagramma simile al seguente:
 
-	![Vista diagramma][image-data-factory-diagram-view]
+	![Vista Diagramma][image-data-factory-diagram-view]
 
-	È possibile eseguire lo zoom avanti, eseguire lo zoom indietro, zoom al 100%, zoom per adattarsi, automaticamente posizionare pipeline e le tabelle e visualizzare le informazioni di derivazione (evidenzia gli elementi padre e figlio degli elementi selezionati). È possibile double blick su un oggetto (tabella di input/output o pipeline) per visualizzare le proprietà per esso.
+	È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati. È possibile fare doppio clic su un oggetto \(tabella di input/output o pipeline\) per visualizzare le rispettive proprietà.
 
-## Passaggio 5: Monitorare i set di dati e delle pipeline
-In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per ulteriori informazioni sull'utilizzo dei cmdlet per il monitoraggio, vedere [monitoraggio e gestione di Azure dati Factory tramite PowerShell][monitor-manage-powershell].
+## Passaggio 5: monitorare i set di dati e la pipeline
+In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per dettagli sull'uso dei cmdlet per il monitoraggio, vedere la pagina relativa a [monitoraggio e gestione di Data factory di Azure con PowerShell][monitor-manage-powershell].
 
-1. Passare a **portale Azure Preview** (se già chiusa)
-2. Se il blade per **ADFTutorialOnPremDF** non è aperto, aprirlo scegliendo **ADFTutorialOnPremDF** sul **occhio**.
-3. Verrà visualizzato il **conteggio** e **nomi** delle tabelle e delle pipeline creato in questo pannello.
+1. Passare al **portale di anteprima di Azure** \(se è stato chiuso\)
+2. Se il pannello per **ADFTutorialOnPremDF** è chiuso, aprirlo facendo clic su **ADFTutorialOnPremDF** nella **Schermata iniziale**.
+3. Vengono visualizzati il **numero** e i **nomi** delle tabelle e delle pipeline create nel pannello.
 
-	![Dati Factory Home Page][image-data-factory-homepage-2]
-4. Fare clic su **set di dati** riquadro.
-5. Nel **set di dati** blade, scegliere il **EmpOnPremSQLTable**.
+	![Home page di Data factory][image-data-factory-homepage-2]
+4. A questo punto, fare clic sul riquadro **Set di dati**.
+5. Nel pannello **Set di dati**, fare clic su **EmpOnPremSQLTable**.
 
 	![Sezioni EmpOnPremSQLTable][image-data-factory-onprem-sqltable-slices]
 
-6. Si noti che gli intervalli di dati fino all'ora corrente sono già stati prodotti e sono **Pronto**. Ciò è dovuto al fatto che i dati sono stati inseriti nel database SQL Server database che è sempre presente. Verificare che nessun sezioni vengono visualizzate nel **sezioni problema** nella parte inferiore.
+6. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Ciò è dovuto al fatto che i dati sono stati inseriti nel database SQL Server database che è sempre presente. Verificare che non sia visualizzata alcuna sezione in **Sezioni con errori** nella parte inferiore della pagina.
 
 
-	Entrambi **aggiornato di recente sezioni** e **Impossibile recentemente sezioni** gli elenchi vengono ordinati in base la **ora ultimo aggiornamento**. I tempi di aggiornamento di una sezione viene modificato nelle situazioni seguenti.
+	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
     
 
-	-  È aggiornare lo stato della sezione manualmente, ad esempio, utilizzando il **Set AzureDataFactorySliceStatus** (o) facendo clic su **eseguire** sul **sezione** blade della sezione.
-	-  La sezione Cambia stato a causa di un'esecuzione (ad esempio, una sequenza di avvio, un'esecuzione terminata e non è riuscita, un'esecuzione terminata e ha avuto esito positivo, ecc).
+	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
+	-  Lo stato della sezione cambia a causa di un'esecuzione, ad esempio un'esecuzione avviata, un'esecuzione terminata con errore, un'esecuzione terminata correttamente e così via.
  
-	Fare clic sul titolo degli elenchi o **... (puntini di sospensione)** Per visualizzare l'elenco di intervalli di dimensioni maggiore. Fare clic su **filtro** sulla barra degli strumenti per filtrare le sezioni.
+	Fare clic sul titolo degli elenchi oppure sui **... \(puntini di sospensione\)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
 	
-	Per visualizzare le sezioni di dati ordinati in base alle ore di inizio e fine sezione invece, fare clic su **sezioni di dati (per ora slice)** riquadro.
+	Per visualizzare le sezioni di dati ordinate invece in base agli orari di inizio/fine, fare clic sul riquadro **Sezioni dati \(in base all'ora della sezione\)**.
 
-7. In questo punto, il **set di dati** blade, fare clic su **OutputBlobTable**.
+7. A questo punto, nel pannello **Set di dati**, fare clic su **OutputBlobTable**.
 
 	![Sezioni OputputBlobTable][image-data-factory-output-blobtable-slices]
-8. Verificare che le sezioni fino all'ora corrente vengono create e **Pronto**. Attendere finché non viene impostato lo stato delle sezioni fino all'ora corrente **Pronto**.
-9. Fare clic su una sezione di dati dall'elenco e verrà visualizzato il **sezione di dati** blade.
+8. Controllare che le sezioni fino all'ora corrente siano state generate e siano in stato **Pronto**. Attendere finché lo stato delle sezioni fino all'ora corrente non viene impostato **Pronto**.
+9. Fare clic su una qualsiasi sezione di dati dell'elenco per visualizzare il pannello **SEZIONE DI DATI**.
 
-	![Blade porzione di dati][image-data-factory-dataslice-blade]
+	![Pannello Sezione dati][image-data-factory-dataslice-blade]
 
-	Se non è inclusa nella sezione il **Pronto** stato, è possibile visualizzare le sezioni a monte che non si è pronti e bloccano l'intervallo corrente da eseguito nel **sezioni a monte che non sono pronte** elenco.
+	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
 
-10. Fare clic sui **attività eseguire** dall'elenco nella parte inferiore per visualizzare **dettagli di esecuzione di attività**.
+10. Fare clic sull'**esecuzione attività** dall'elenco nella parte inferiore della pagina per visualizzare i **dettagli dell'esecuzione attività**.
 
-	![Blade Dettagli esecuzione di attività][image-data-factory-activity-run-details]
+	![Pannello Dettagli esecuzione attività][image-data-factory-activity-run-details]
 
-11. Fare clic su **X** per chiudere tutti i server blade fino a tornare alla home blade per il **ADFTutorialOnPremDF**.
-14. (facoltativo) Fare clic su **pipeline**, fare clic su **ADFTutorialOnPremDF**, e il drill-through tabelle di input (* * utilizzato * *) o tabelle di output (* * prodotte * *).
-15. Utilizzare strumenti come **Esplora archivi Azure** per verificare l'output.
+11. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialOnPremDF**.
+14. \(Facoltativo\) Fare clic su **Pipeline**, **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input \(usate\) o delle tabelle di output \(generate\).
+15. Usare strumenti come **Esplora archivi Azure** per verificare l'output.
 
 	![Esplora archivi Azure][image-data-factory-stroage-explorer]
 
@@ -466,20 +474,20 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 ## Creazione e registrazione di un gateway con Azure PowerShell 
 Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azure PowerShell.
 
-1. Avviare **Azure PowerShell** in modalità amministratore. 
-2. I cmdlet di Azure dati Factory sono disponibili nel **AzureResourceManager** modalità. Eseguire il comando seguente per passare al **AzureResourceManager** modalità.     
+1. Avviare **Azure PowerShell** in modalità di amministrazione. 
+2. I cmdlet di Data factory di Azure sono disponibili in modalità **AzureResourceManager**. Eseguire il seguente comando per passare in modalità **AzureResourceManager**.     
 
         switch-azuremode AzureResourceManager
 
 
-2. Utilizzare il **Nuovo AzureDataFactoryGateway** cmdlet per creare un gateway logico come segue:
+2. Usare il cmdlet **New-AzureDataFactoryGateway** per creare un gateway logico come illustrato di seguito:
 
 		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Comando di esempio e di output**:
+	**Comando di esempio e output**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -493,28 +501,28 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		ProvisioningState : Succeeded
 
 
-3. Utilizzare il **Nuovo AzureDataFactoryGatewayKey** cmdlet per generare una chiave di registrazione per il gateway appena creato e archiviare la chiave in una variabile locale **$Key**:
+3. Usare il cmdlet **New-AzureDataFactoryGatewayKey** per generare una chiave di registrazione per il gateway appena creato e archiviare la chiave in una variabile locale **$Key**:
 
 		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
-	**Output del comando di esempio:**
+	**Output del comando di esempio**:
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. In Azure PowerShell, passare alla cartella: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** ed eseguire **RegisterGateway.ps1** script associato alla variabile locale **$Key** come illustrato nel comando seguente per registrare l'agente client installato nel computer con il gateway logico create in precedenza.
+4. In Azure PowerShell, passare alla cartella. **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\\*\* ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
-5. È possibile utilizzare il **Get AzureDataFactoryGateway** per ottenere l'elenco di gateway nell'ambiente di produzione di dati. Quando il **stato** Mostra **online**, significa che è possibile utilizzare il gateway.
+5. È possibile usare il cmdlet **Get-AzureDataFactoryGateway** per ottenere l'elenco di gateway nell'istanza di Data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
 
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-È possibile rimuovere un gateway tramite il **Remove AzureDataFactoryGateway** cmdlet e aggiornamento della descrizione per un gateway utilizzando il **AzureDataFactoryGateway Set** cmdlet. Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data factory.
+È possibile rimuovere un gateway con il cmdlet **Remove-AzureDataFactoryGateway** e aggiornare la descrizione per un gateway usando il cmdlet **Set-AzureDataFactoryGateway**. Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data factory.
 
 
 
@@ -619,4 +627,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

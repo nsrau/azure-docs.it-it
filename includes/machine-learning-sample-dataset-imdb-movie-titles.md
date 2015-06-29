@@ -1,4 +1,3 @@
-﻿Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome e genere del film, anno di produzione. Il set di dati contiene 17.000 film. È stato presentato nella documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome e genere del film, anno di produzione. Il set di dati contiene 17.000 film. È stato presentato nella documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
 
-
-<!--HONumber=42-->
+<!---HONumber=58_postMigration-->

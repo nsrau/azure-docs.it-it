@@ -4,19 +4,40 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Note sulla versione per Application Insights SDK per NET
 
-[Uso di SDK per NET](app-insights-start-monitoring-app-health-usage.md)
+[Application Insights SDK per .NET](app-insights-start-monitoring-app-health-usage.md) invia dati di telemetria sull'app attiva ad [Application Insights](http://azure.microsoft.com/services/application-insights/), dove è possibile analizzarne l'utilizzo e le prestazioni.
+
+
+#### Per installare l'SDK nell'applicazione
+
+Vedere [Introduzione ad Application Insights per .NET](app-insights-start-monitoring-app-health-usage.md).
+
+#### Per eseguire l'aggiornamento all'SDK più recente 
+
+* Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apportate al file ApplicationInsights.config. Se non si è certi che sia stato personalizzato, creare un nuovo progetto, aggiungervi Application Insights e confrontare il file.config con quello nel nuovo progetto. Prendere nota di eventuali differenze.
+* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
+* Impostare il filtro in modo da visualizzare i pacchetti installati. 
+* Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna** \(verranno aggiornati anche tutti i pacchetti dipendenti\).
+* Confrontare ApplicationInsights.config con la copia precedente. La maggior parte delle modifiche visualizzate è dovuta al fatto che alcuni moduli sono stati rimossi e altri sono stati resi parametrizzabili. Ripristinare eventuali personalizzazioni apportate al file precedente.
+* Ricompilare la soluzione.
+
+## Versione 0.17
+- Rimozione dipendenza EventSource NuGet per le applicazioni del framework 4.5.
+- I cookie di utente e sessione anonimi non verranno generati sul lato server. I moduli di telemetria ```WebSessionTrackingTelemetryModule``` e ```WebUserTrackingTelemetryModule``` non sono più supportati e sono stati rimossi dal file ApplicationInsights.config. Verranno rispettati i cookie provenienti da JavaScript SDK.
+- Il canale di persistenza ottimizzato per scenari di carico elevato viene usato per l'SDK Web. Problema "spirale della morte" risolto. La "spirale della morte" è una condizione in cui il picco nel numero di elementi di telemetria, che supera in misura significativa la soglia di limitazione sull'endpoint, conduce a nuovi tentativi dopo un determinato periodo di tempo e sarà limitato nuovamente durante i nuovi tentativi.
+- La modalità di sviluppo è ottimizzata per la produzione. Se attivata per errore non causa un sovraccarico importante come in precedenza nel provare a dare un output di informazioni aggiuntive.
+- Per impostazione predefinita, la modalità di sviluppo verrà attivata solo quando l'applicazione è nel debugger. È possibile eseguirne l'override usando la proprietà ```DeveloperMode``` dell'interfaccia ```ITelemetryChannel```.
 
 ## Versione 0.16 
 
@@ -35,4 +56,6 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

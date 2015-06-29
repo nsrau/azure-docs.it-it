@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/12/2015" 
 	ms.author="josephd"/>
 
 # Come automatizzare con Gestione risorse di Azure
@@ -69,4 +70,6 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

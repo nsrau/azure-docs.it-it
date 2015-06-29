@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inviare processi Hadoop in HDInsight | Azure" 
+	pageTitle="Inviare processi Hadoop in HDInsight | Microsoft Azure" 
 	description="Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,19 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/15/2015" 
 	ms.author="jgao"/>
 
 # Inviare processi Hadoop in HDInsight
 
 Informazioni su come usare Azure PowerShell per inviare processi MapReduce e Hive e su come usare HDInsight .NET SDK per inviare flussi MapReduce e Hadoop e processi Hive.
 
+> [AZURE.NOTE]I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix per operare con MapReduce, Hive o Pig in HDInsight, vedere gli articoli seguenti e selezionare i collegamenti **SSH** o **Curl** in ciascuno di essi:
+>
+> - [Usare Hive con HDInsight](hdinsight-use-hive.md)
+> - [Usare Pig con HDInsight](hdinsight-use-pig.md)
+> - [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+
 ##Prerequisiti
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* Disporre di un cluster HDInsight di Azure. Per istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
-* Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure].
+* **Un cluster HDInsight di Azure**. Per istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 
 ##Inviare processi MapReduce mediante Azure PowerShell
@@ -51,7 +58,7 @@ Uno degli esempi è relativo al conteggio della frequenza delle parole nei file 
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	Vengono utilizzati due argomenti. Il primo argomento è il nome del file di origine, il secondo è il percorso del file di output. Per altre informazioni sul prefisso wasb://, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
+	Vengono usati due argomenti. Il primo argomento è il nome del file di origine, il secondo è il percorso del file di output. Per altre informazioni sul prefisso wasb://, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
 6. Per eseguire il processo MapReduce, usare il comando seguente:
 
@@ -104,7 +111,7 @@ Uno degli esempi è relativo al conteggio della frequenza delle parole nei file 
 
 	La cartella *example/data/WordCountOutput* è la cartella di output specificata durante l'esecuzione del processo MapReduce. Il valore *part-r-00000* corrisponde al nome file predefinito per l'output del processo MapReduce. Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C:. Il file verrà scaricato nella cartella:
 
-*C:\\example\\data\\WordCountOutput* 
+*C:\\example\\data\\WordCountOutput\* 
 
 5. Per stampare il file di output del processo MapReduce, eseguire il comando seguente:
 
@@ -254,7 +261,7 @@ Uno degli esempi è relativo al conteggio della frequenza delle parole nei file 
 
 
 ##Inviare processi Hive mediante Azure PowerShell
-[Apache Hive][apache-hive] fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *HiveQL*, che può essere utilizzato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
+[Apache Hive][apache-hive] fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *HiveQL*, che può essere usato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
 
 I cluster HDInsight includono una tabella Hive di esempio denominata *hivesampletable*. In questa sessione si userà Azure PowerShell per eseguire un processo Hive che consente di ottenere un elenco di dati dalla tabella Hive.
 
@@ -279,7 +286,7 @@ I cluster HDInsight includono una tabella Hive di esempio denominata *hivesample
 		Use-AzureHDInsightCluster $clusterName
 		Invoke-Hive -Query $queryString
 
-	È possibile usare l'opzione **-File** per specificare un file di script HiveQL nel file system distribuito Hadoop (HDFS).
+	È possibile usare l'opzione **-File** per specificare un file di script HiveQL nel file system distribuito Hadoop \(HDFS\).
 
 Per altre informazioni su Hive, vedere [Usare Hive con HDInsight][hdinsight-use-hive].
 
@@ -366,7 +373,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
             }
         }
 	
-10. Nella funzione **Main()** incollare il codice seguente:
+10. Nella funzione **Main\(\)** incollare il codice seguente:
 		
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
@@ -381,11 +388,11 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
 	
 	Queste sono tutte le variabili che è necessario impostare per il programma. È possibile ottenere il nome della sottoscrizione di Azure dal [portale di Azure][azure-management-portal].
 
-	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di Azure PowerShell **Get-AzurePublishSettingsFile** e **Import-AzurePublishSettingsFile**, che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito questi cmdlet, è possibile aprire **certmgr.msc** dalla workstation e individuare il certificato espandendo **Personal** > **Certificates**. Il certificato creato dai cmdlet di PowerShell conterrà l'indicazione Strumenti di Azure in entrambi in campi **Rilasciato a** e **Rilasciato da**.
+	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di Azure PowerShell **Get-AzurePublishSettingsFile** e **Import-AzurePublishSettingsFile**, che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito questi cmdlet, è possibile aprire **certmgr.msc** dalla workstation e individuare il certificato espandendo **Personal** \> **Certificates**. Il certificato creato dai cmdlet di PowerShell conterrà l'indicazione Strumenti di Azure in entrambi in campi **Rilasciato a** e **Rilasciato da**.
 
 	Il nome dell'account di archiviazione di Azure è quello specificato al momento del provisioning del cluster HDInsight. Il nome predefinito del contenitore corrisponde al nome del cluster HDInsight.
 	
-11. Nella funzione **Main()** aggiungere il codice seguente per definire il processo MapReduce:
+11. Nella funzione **Main\(\)** aggiungere il codice seguente per definire il processo MapReduce:
 
 
         // Define the MapReduce job
@@ -398,9 +405,9 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	Vengono utilizzati due argomenti. Il primo argomento è il nome del file di origine, il secondo è il percorso del file di output. Per altre informazioni sul prefisso wasb://, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
+	Vengono usati due argomenti. Il primo argomento è il nome del file di origine, il secondo è il percorso del file di output. Per altre informazioni sul prefisso wasb://, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 		
-12. Nella funzione **Main()** aggiungere il codice seguente per creare un oggetto JobSubmissionCertificateCredential:
+12. Nella funzione **Main\(\)** aggiungere il codice seguente per creare un oggetto JobSubmissionCertificateCredential:
 
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -408,7 +415,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-13. Nella funzione **Main()** aggiungere il codice seguente per eseguire il processo e attenderne il completamento:
+13. Nella funzione **Main\(\)** aggiungere il codice seguente per eseguire il processo e attenderne il completamento:
 
         // Create a hadoop client to connect to HDInsight
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -419,7 +426,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         // Wait for the job to complete
         WaitForJobCompletion(mrJobResults, jobClient);
 
-14. Nella funzione **Main()** aggiungere il codice seguente per stampare l'output del processo MapReduce:
+14. Nella funzione **Main\(\)** aggiungere il codice seguente per stampare l'output del processo MapReduce:
 
 		// Print the MapReduce job output
 		Stream stream = new MemoryStream();
@@ -445,11 +452,11 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
 Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. Verrà aperta una finestra della console in cui sono visualizzati lo stato e l'output dell'applicazione.
 
 ##Inviare processi MapReduce di flussi Hadoop tramite HDInsight .NET SDK
-I cluster HDInsight includono un programma di flussi Hadoop per il conteggio di parole sviluppato in C#. Il programma per il mapping è */example/apps/cat.exe* e il programma per la riduzione è */example/apps/wc.exe*. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole.
+I cluster HDInsight includono un programma di flussi Hadoop per il conteggio di parole sviluppato in C\#. Il programma per il mapping è */example/apps/cat.exe* e il programma per la riduzione è */example/apps/wc.exe*. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole.
 
 Per informazioni dettagliate sulla creazione di un'applicazione .NET per l'invio di processi MapReduce, vedere [Inviare processi MapReduce tramite HDInsight .NET SDK](#mapreduce-sdk).
 
-Per altre informazioni sullo sviluppo e sulla distribuzione di processi di flussi di Hadoop, vedere [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming-jobs].
+Per altre informazioni sullo sviluppo e sulla distribuzione di processi di flussi di Hadoop, vedere [Sviluppare programmi per la creazione di flussi Hadoop in C\# per HDInsight][hdinsight-develop-streaming-jobs].
 
 	using System;
 	using System.Collections.Generic;
@@ -617,7 +624,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
             }
         }
 	
-10. Nella funzione **Main()** incollare il codice seguente:
+10. Nella funzione **Main\(\)** incollare il codice seguente:
 		
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
@@ -627,9 +634,9 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
 	
 	Queste sono tutte le variabili che è necessario impostare per il programma. È possibile ottenere l'ID della sottoscrizione di Azure dall'amministratore di sistema.
 
-	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di Azure PowerShell **Get-AzurePublishSettingsFile** e **Import-AzurePublishSettingsFile**, che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito questi cmdlet, è possibile aprire **certmgr.msc** dalla workstation e individuare il certificato espandendo **Personal** > **Certificates**. Il certificato creato dai cmdlet di Azure PowerShell conterrà l'indicazione Strumenti di Azure in entrambi i campi **Rilasciato a** e **Rilasciato da**.
+	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di Azure PowerShell **Get-AzurePublishSettingsFile** e **Import-AzurePublishSettingsFile**, che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito questi cmdlet, è possibile aprire **certmgr.msc** dalla workstation e individuare il certificato espandendo **Personal** \> **Certificates**. Il certificato creato dai cmdlet di Azure PowerShell conterrà l'indicazione Strumenti di Azure in entrambi i campi **Rilasciato a** e **Rilasciato da**.
 	
-11. Nella funzione **Main()** aggiungere il codice seguente per definire il processo Hive:
+11. Nella funzione **Main\(\)** aggiungere il codice seguente per definire il processo Hive:
 
         // define the Hive job
         HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
@@ -650,7 +657,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         };
 
 		
-12. Nella funzione **Main()** aggiungere il codice seguente per creare un oggetto **JobSubmissionCertificateCredential**:
+12. Nella funzione **Main\(\)** aggiungere il codice seguente per creare un oggetto **JobSubmissionCertificateCredential**:
 	
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -658,7 +665,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-13. Nella funzione **Main()** aggiungere il codice seguente per eseguire il processo e attenderne il completamento:
+13. Nella funzione **Main\(\)** aggiungere il codice seguente per eseguire il processo e attenderne il completamento:
 
         // Submit the Hive job
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -667,7 +674,7 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
         // Wait for the job to complete
         WaitForJobCompletion(jobResults, jobClient);
 		
-14. Nella funzione **Main()** aggiungere il codice seguente per stampare l'output del processo Hive:
+14. Nella funzione **Main\(\)** aggiungere il codice seguente per stampare l'output del processo Hive:
 
         // Print the Hive job output
         System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);
@@ -712,13 +719,14 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

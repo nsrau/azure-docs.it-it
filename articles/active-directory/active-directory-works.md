@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # Come funziona Azure Active Directory?
 
 
-[Che cos'è Azure AD?](active-directory-whatis.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
+###Altri articoli su questo argomento
+[Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
 
 Azure AD crea un panorama di identità proprio dell'utente nel cloud. Può essere collegato al sistema di identità locale o usato in modo indipendente.
@@ -31,7 +32,7 @@ Azure AD crea un panorama di identità proprio dell'utente nel cloud. Può esser
 > [AZURE.NOTE]Per usare Azure Active Directory, è necessario un account Azure. Se non si dispone di un account, è possibile [iscriversi per un account Azure gratuito](http://azure.microsoft.com/pricing/free-trial/).
 
 ## In che modo Azure AD supporta Office 365, Microsoft Intune e altri servizi di Azure?
-Il portale di Azure, l'interfaccia di amministrazione di Office 365, il portale degli account di Microsoft Intune e i cmdlet dei moduli di Azure AD PowerShell leggono e scrivono tutti in una singola istanza condivisa di Azure AD associata alla directory. I portali (o i cmdlet) funzionano come un'interfaccia front-end che effettua il pull o modifica le informazioni della directory. [Altre informazioni sul supporto per altri servizi](active-directory-administer.md#what-is-an-azure-ad-tenant)
+Il portale di Azure, l'interfaccia di amministrazione di Office 365, il portale degli account di Microsoft Intune e i cmdlet dei moduli di Azure AD PowerShell leggono e scrivono tutti in una singola istanza condivisa di Azure AD associata alla directory. I portali \(o i cmdlet\) funzionano come un'interfaccia front-end che effettua il pull o modifica le informazioni della directory. [Altre informazioni sul supporto per altri servizi](active-directory-administer.md#what-is-an-azure-ad-tenant)
 
 ## In che modo Azure AD supporta applicazioni di terze parti?
 Azure AD semplifica l'autenticazione per gli sviluppatori offrendo l'identità come un servizio, nonché librerie open source per diverse piattaforme per consentire di iniziare rapidamente a codificare. [Altre informazioni sugli scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
@@ -47,5 +48,6 @@ Si intende approfondire la conoscenza delle modalità di gestione di Azure AD? C
 
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

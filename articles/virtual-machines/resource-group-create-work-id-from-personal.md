@@ -18,11 +18,11 @@
 
 # Creazione di un'identità di lavoro o scuola in Azure Active Directory
 
-Se si è creato un account Azure personale, oppure si ha un sottoscrizione MSDN personale e si è creato l'account Azure per sfruttare i vantaggi dei crediti MSDN in Azure, si è usata un'identità **account Microsoft**. Numerose funzionalità di Azure (ad esempio i [modelli dei gruppi di risorse](../resource-group-overview.md)) richiedono un account di lavoro o scuola (un'identità gestita da Azure Active Directory) per funzionare.
+Se si è creato un account Azure personale, oppure si ha un sottoscrizione MSDN personale e si è creato l'account Azure per sfruttare i vantaggi dei crediti MSDN in Azure, si è usata un'identità **account Microsoft**. Numerose funzionalità di Azure \(ad esempio i [modelli dei gruppi di risorse](../resource-group-overview.md)\) richiedono un account di lavoro o scuola \(un'identità gestita da Azure Active Directory\) per funzionare.
 
 Fortunatamente, uno degli aspetti migliori dell'account Azure personale sta nel fatto che è dotato di un dominio predefinito di Azure Active Directory, che è possibile usare per creare un nuovo account di lavoro o scuola da usare con le funzionalità di Azure che lo richiedono.
 
-> [AZURE.NOTE]Se si sono ricevuti un nome utente e una password da un amministratore, è probabile che si abbia già un ID di lavoro o scuola (a volte detto anche *ID organizzazione*). In tal caso, è possibile iniziare immediatamente a usare l'account di Azure per accedere alle risorse di Azure che ne richiedono uno. Se non è possibile usare tali risorse, potrebbe essere necessario consultare nuovamente questo argomento. Per altre informazioni, vedere [Account che è possibile usare per l'accesso](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Correlazione di una sottoscrizione Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE]Se si sono ricevuti un nome utente e una password da un amministratore, è probabile che si abbia già un ID di lavoro o scuola \(a volte detto anche *ID organizzazione*\). In tal caso, è possibile iniziare immediatamente a usare l'account di Azure per accedere alle risorse di Azure che ne richiedono uno. Se non è possibile usare tali risorse, potrebbe essere necessario consultare nuovamente questo argomento. Per altre informazioni, vedere [Account che è possibile usare per l'accesso](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Correlazione di una sottoscrizione Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
 I passaggi sono semplici. È necessario individuare l'identità attiva nel portale, scoprire il dominio di Azure Active Directory predefinito e aggiungere un nuovo utente come co-amministratore di Azure. Ecco come procedere.
 
@@ -58,7 +58,7 @@ Nella parte inferiore della pagina fare clic su **+AGGIUNGI UTENTE**. Nella fine
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Immettere qui altri dettagli per `ahmet`, ma assicurarsi di selezionare il valore appropriato per **RUOLO**. Una soluzione semplice consiste nell'usare **Amministratore globale** per assicurarsi che tutto funzioni, ma è consigliabile usare un ruolo di livello inferiore, se possibile. Questo esempio usa il ruolo **Utente** (per altre informazioni sui ruoli fare clic [qui](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)). NON abilitare l'autenticazione a più fattori, a meno che non si desideri usarla per ogni log nell'operazione. Al termine, fare clic sulla freccia Avanti.
+Immettere qui altri dettagli per `ahmet`, ma assicurarsi di selezionare il valore appropriato per **RUOLO**. Una soluzione semplice consiste nell'usare **Amministratore globale** per assicurarsi che tutto funzioni, ma è consigliabile usare un ruolo di livello inferiore, se possibile. Questo esempio usa il ruolo **Utente** \(per altre informazioni sui ruoli fare clic [qui](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)\). NON abilitare l'autenticazione a più fattori, a meno che non si desideri usarla per ogni log nell'operazione. Al termine, fare clic sulla freccia Avanti.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -140,4 +140,7 @@ A questo punto è possibile eseguire molte altre operazioni, ad esempio usare la
     data:    
     info:    group create command OK
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

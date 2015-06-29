@@ -3,7 +3,7 @@
 	description="Informazioni su come iniziare a usare l'archiviazione tabelle di Azure in un progetto di servizio cloud in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
-# Introduzione all'Archiviazione di Azure (progetti del servizio cloud)
+# Introduzione all'Archiviazione di Azure \(progetti del servizio cloud\)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-cloud-services-getting-started-tables.md)
@@ -29,14 +29,14 @@
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md/#create-table "Come usare l'archiviazione tabelle da .NET").
 
-In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **utilizzo di entità di tabella**.
+In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C\#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **utilizzo di entità di tabella**.
 
 ## Accedere all'archiviazione tabelle a livello di codice
 
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Dichiarazioni dello spazio dei nomi
-Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
+Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C\# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
 
     using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
@@ -66,7 +66,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile utilizz
 
 ## Aggiungere un'entità a una tabella
 
-Per eseguire il mapping di entità a oggetti C#, viene utilizzata una classe personalizzata derivata da **TableEntity**. Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità che utilizza il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità in caso di operazioni parallele. Tutte le proprietà da archiviare nel servizio tabelle devono essere una proprietà pubblica di un tipo supportato che espone `get` e `set`. Il tipo di entità *deve* inoltre esporre un costruttore senza parametri.
+Per eseguire il mapping di entità a oggetti C\#, viene utilizzata una classe personalizzata derivata da **TableEntity**. Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità che utilizza il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità in caso di operazioni parallele. Tutte le proprietà da archiviare nel servizio tabelle devono essere una proprietà pubblica di un tipo supportato che espone `get` e `set`. Il tipo di entità *deve* inoltre esporre un costruttore senza parametri.
 
     public class CustomerEntity : TableEntity
     {
@@ -174,7 +174,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 ## Recuperare un intervallo di entità in una partizione
 
-Se non si desidera eseguire una query su tutte le entità di una partizione, è possibile specificare un intervallo combinando il filtro della chiave di partizione con quello della chiave di riga. Nell'esempio di codice seguente vengono usati due filtri per recuperare tutte le entità della partizione 'Smith' in cui la chiave di riga (nome) inizia con una lettera che precede la 'E' nell'alfabeto e quindi stampare i risultati della query.
+Se non si desidera eseguire una query su tutte le entità di una partizione, è possibile specificare un intervallo combinando il filtro della chiave di partizione con quello della chiave di riga. Nell'esempio di codice seguente vengono usati due filtri per recuperare tutte le entità della partizione 'Smith' in cui la chiave di riga \(nome\) inizia con una lettera che precede la 'E' nell'alfabeto e quindi stampare i risultati della query.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -387,7 +387,7 @@ L'esempio di codice seguente consente infine di eliminare una tabella dall'accou
 
 ## Recuperare entità nelle pagine in modo asincrono
 
-Se si legge un numero elevato di entità e si desidera elaborare/visualizzare le entità man mano che vengono recuperate anziché attendere che vengano tutte restituite, è possibile recuperare le entità utilizzando una query segmentata. In questo esempio viene spiegato come restituire i risultati nelle pagine utilizzando il modello Async-Await, in modo che l'esecuzione non venga bloccata durante l'attesa della restituzione di un set di risultati di grandi dimensioni. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Se si legge un numero elevato di entità e si desidera elaborare/visualizzare le entità man mano che vengono recuperate anziché attendere che vengano tutte restituite, è possibile recuperare le entità utilizzando una query segmentata. In questo esempio viene spiegato come restituire i risultati nelle pagine utilizzando il modello Async-Await, in modo che l'esecuzione non venga bloccata durante l'attesa della restituzione di un set di risultati di grandi dimensioni. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await \(C\# e Visual Basic\)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Initialize a default TableQuery to retrieve all the entities in the table
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
@@ -453,4 +453,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table Storage]: #tablestorage
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

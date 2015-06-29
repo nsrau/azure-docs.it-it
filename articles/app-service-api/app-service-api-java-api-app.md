@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/21/2015"
 	ms.author="pakefali"/>
 
@@ -32,7 +32,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 2. Fare clic su **NUOVO** nella parte inferiore sinistra del portale.
 
-3. Fare clic su **Web e dispositivi mobili > App per le API**.
+3. Fare clic su **Web e dispositivi mobili \> App per le API**.
 
 	![][portal-quick-create]
 
@@ -48,9 +48,9 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 	Se la casella di controllo **Aggiungi a Schermata iniziale** è stata lasciata selezionata, il portale apre automaticamente il pannello relativo all'app per le API non appena questa viene creata. Se la casella di controllo è stata deselezionata, nella home page del portale fare clic su **Notifiche** per visualizzare lo stato della creazione dell'app per le API, quindi fare clic sulla notifica per passare al pannello relativo alla nuova app per le API.
 
-7. Fare clic su **Impostazioni > Impostazioni applicazione**.
+7. Fare clic su **Impostazioni \> Impostazioni applicazione**.
 
-9. Impostare il livello di accesso su **Pubblico (anonimo)**.
+9. Impostare il livello di accesso su **Pubblico \(anonimo\)**.
 
 11. Fare clic su **Salva**.
 
@@ -70,7 +70,7 @@ Nel portale è possibile gestire le funzionalità specifiche delle app per le AP
 
 	![][deployment-part]
 
-3. Fare clic su **Scegliere l'origine > Repository Git locale**.
+3. Fare clic su **Scegliere l'origine \> Repository Git locale**.
 
 5. Fare clic su **OK**.
 
@@ -86,7 +86,7 @@ Nel portale è possibile gestire le funzionalità specifiche delle app per le AP
 
 	![][deployment-credentials]
 
-1. Nel pannello **Host app per le API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
+1. Nel pannello **Host app per le API** fare clic su **Impostazioni \> Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
 
 2. Copiare l'URL. Questa informazione sarà necessaria in uno dei passaggi successivi dell'esercitazione.
 
@@ -100,7 +100,7 @@ Per permettere all'app per le API di ospitare correttamente un'app Java, è nece
 
 	![][api-app-host]
 
-2. Fare clic su **Impostazioni > Impostazioni applicazione**. Abilitare Java e selezionare Jetty come server applicazioni. Fare clic su **Save**.
+2. Fare clic su **Impostazioni \> Impostazioni applicazione**. Abilitare Java e selezionare Jetty come server applicazioni. Fare clic su **Save**.
 
 	![][api-app-enable-java]
 
@@ -112,7 +112,7 @@ In questa sezione verrà scaricato ed esaminato il codice fornito nell'esempio J
 
 1. Scaricare il codice in [questo repository GitHub](http://go.microsoft.com/fwlink/?LinkId=571009). È possibile clonare il repository o fare clic su **Download Zip** per scaricarlo come file ZIP. Se si scarica il file ZIP, decomprimerlo nel disco locale.
 
-2. Passare alla cartella in cui è stato decompresso l'esempio e quindi alla cartella `build\libs`.
+2. Passare alla cartella in cui è stato decompresso l'esempio e quindi alla cartella `build\libs\`.
 
 	![][api-app-folder-browse]
 
@@ -199,7 +199,7 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. Creare un riferimento remoto per effettuare il push degli aggiornamenti all'app Web (host app per le API) creata in precedenza, usando l'URL Git copiato in uno dei passaggi precedenti:
+3. Creare un riferimento remoto per effettuare il push degli aggiornamenti all'app Web \(host app per le API\) creata in precedenza, usando l'URL Git copiato in uno dei passaggi precedenti:
 
 		git remote add azure [URL for remote repository]
 
@@ -268,5 +268,6 @@ Per provare questa app per le API di esempio, usare il servizio di [prova del se
 [restart-gateway]: ./media/app-service-api-java-api-app/gatewayrestart.png
 [api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

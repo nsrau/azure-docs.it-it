@@ -46,7 +46,7 @@ Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga
 
 + Se la macchina virtuale di Azure è una macchina virtuale Windows, il file di dati personalizzato viene salvato in `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, anche se era codificato in Base 64 per il trasferimento dal computer locale alla nuova macchina virtuale, viene automaticamente decodificato e può essere subito aperto o usato.
 
-   >[AZURE.NOTE]Se il file esiste viene sovrascritto. La sicurezza nella directory viene impostata su **System:Full Control** e **Administrators:Full Control**.
+   \>[AZURE.NOTE]Se il file esiste viene sovrascritto. La sicurezza nella directory viene impostata su **System:Full Control** e **Administrators:Full Control**.
 
 + Se la macchina virtuale di Azure è una macchina virtuale Linux, il file di dati personalizzato viene salvato in questi due percorsi, ma i dati vengono codificati in Base 64, pertanto sarà necessario prima decodificarli.
 
@@ -63,7 +63,7 @@ Se la macchina virtuale di Azure proviene da un'immagine Ubuntu o CoreOS, è pos
 
 Nella maggior parte delle immagini Linux di Azure occorre modificare "/ /etc/waagent.conf" per configurare disco temporaneo di risorse e file di scambio. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md).
 
-Tuttavia, nelle immagini Ubuntu Cloud è necessario utilizzare cloud-init per configurare il risorsa disco (noto anche come disco "temporaneo") e la partizione di scambio. Per ulteriori informazioni, vedere la pagina seguente del wiki di Ubuntu:
+Tuttavia, nelle immagini Ubuntu Cloud è necessario utilizzare cloud-init per configurare il risorsa disco \(noto anche come disco "temporaneo"\) e la partizione di scambio. Per ulteriori informazioni, vedere la pagina seguente del wiki di Ubuntu:
 
  - [Ubuntu Wiki: Configurare partizioni di scambio](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
@@ -77,5 +77,6 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 [Aggiungere il riferimento all'API REST di gestione del servizio ruolo](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

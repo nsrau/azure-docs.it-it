@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
@@ -51,7 +51,7 @@ Ai fini di questa esercitazione, in una macchina virtuale verrà installato un s
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
     2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **West US**.
     2. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
-    3. Nella casella **Availability Set** selezionare **(None)**.
+    3. Nella casella **Availability Set** selezionare **\(None\)**.
     4. Fare clic su **Avanti**.
 7. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> finale:
     1. Accettare le voci di endpoint predefinite.
@@ -123,14 +123,14 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 
  ![Profilo per nuova regola connessioni in entrata][NewRuleProfile]
 
-10. Specificare un nome per la regola, ad esempio **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**.  
+10. Specificare un nome per la regola, ad esempio **HttpIn** \(non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint\), quindi fare clic su **Fine**.  
 
  ![Nome della nuova regola connessioni in entrata][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*your_DNS_name*.cloudapp.net**, dove ***YOUR_dns_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*your\_DNS\_name*.cloudapp.net**, dove ***YOUR\_dns\_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## Considerazioni sul ciclo di vita delle applicazioni
-* È possibile creare il proprio archivio Web di applicazioni (WAR) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP (Java Service Page) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
+* È possibile creare il proprio archivio Web di applicazioni \(WAR\) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP \(Java Service Page\) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
 * Per impostazione predefinita, quando viene installato, il servizio Tomcat è impostato per l'avvio manuale. È possibile passare a esso per avviare automaticamente tramite lo snap-in Servizi. Avviare lo snap-in Servizi facendo clic su **Start di Windows**, **Strumenti di amministrazione**, **Servizi**. Per impostare Tomcat per l'avvio automatico, fare doppio clic sul servizio **Apache Tomcat** nello snap-in Servizi e impostare **Tipo di avvio** su **Automatico**, come illustrato nella figura seguente.
 
     ![Impostazione di un servizio per l'avvio automatico][service_automatic_startup]
@@ -158,5 +158,6 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

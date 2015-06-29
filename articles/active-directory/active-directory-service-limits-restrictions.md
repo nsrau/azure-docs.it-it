@@ -31,7 +31,7 @@ Un singolo utente può essere associato a massimo 20 directory di Azure Active D
 
 ## Oggetti
 
-- Non esistono limiti per i sottoscrittori di Azure Active Directory Premium o Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Windows Intune o qualsiasi altro servizio online Microsoft che si basa su Azure Active Directory per i servizi directory.
+- Non esistono limiti per i sottoscrittori di Azure Active Directory Premium o Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune o qualsiasi altro servizio online Microsoft che si basa su Azure Active Directory per i servizi directory.
 - Possono essere usati fino a 500.000 oggetti in una singola directory con l'edizione gratuita di Azure Active Directory.
 - Un utente non amministratore può creare fino a 250 oggetti.
 
@@ -41,7 +41,7 @@ Attualmente le entità "User", "Group", "TenantDetail", "Device", "Application" 
 
 - Le estensioni di tipo stringa possono contenere massimo 256 caratteri.
 - Le estensioni di tipo binario sono limitate a 256 byte.
-- 100 valori di estensione (tra TUTTI i tipi e TUTTE le applicazioni) possono scritti in ogni singolo oggetto.
+- 100 valori di estensione \(tra TUTTI i tipi e TUTTE le applicazioni\) possono scritti in ogni singolo oggetto.
 - Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.
 
 ## Applicazioni
@@ -61,7 +61,7 @@ Esiste un limite per il numero di oggetti che è possibile sincronizzare dall'Ac
 ## Pannello di accesso
 
 - Non esiste alcun limite al numero di applicazioni che è possibile visualizzare nel Pannello di accesso per l'utente finale per i sottoscrittori di Azure AD Premium o Azure AD Basic o Enterprise Mobility Suite.
-- Possono essere visualizzate nel Pannello di accesso per ogni utente finale con l'edizione gratuita di Azure Active Directory un massimo di 10 app SaaS preintegrate (esempi: Box, Salesforce o Dropbox). Gli utenti finali potrebbero visualizzare più di 10 app se l'organizzazione ha sviluppato app che sono state integrate in un secondo momento con Azure Active Directory. Questo limite non si applica agli account di amministratore.
+- Possono essere visualizzate nel Pannello di accesso per ogni utente finale con l'edizione gratuita di Azure Active Directory un massimo di 10 app SaaS preintegrate \(esempi: Box, Salesforce o Dropbox\). Gli utenti finali potrebbero visualizzare più di 10 app se l'organizzazione ha sviluppato app che sono state integrate in un secondo momento con Azure Active Directory. Questo limite non si applica agli account di amministratore.
 
 ## Report
 
@@ -72,4 +72,7 @@ Esiste un limite per il numero di oggetti che è possibile sincronizzare dall'Ac
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologia di Azure AD](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

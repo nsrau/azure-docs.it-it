@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure usando le librerie .NET e un modello
@@ -22,24 +22,24 @@ L'uso di gruppi di risorse e modelli permette di gestire insieme tutte le risors
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Per completare questa esercitazione, sono necessari:
+Per completare questa esercitazione sono inoltre necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/it-it/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-it/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+- [Azure PowerShell](../powershell-install-configure.md)
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
 
 ## Passaggio 1: Aggiungere un'applicazione ad Azure AD e impostare le autorizzazioni
 
-Per usare Azure AD per autenticare richieste in Gestione risorse di Azure, è necessario che un'applicazione venga aggiunta alla directory predefinita. Per aggiungere un'applicazione, eseguire le operazioni seguenti:
+Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è necessario aggiungere un'applicazione alla directory predefinita. Per aggiungere un'applicazione, eseguire le operazioni seguenti:
 
 1. Aprire un prompt dei comandi di Azure PowerShell e quindi eseguire il comando seguente:
 
         Switch-AzureMode –Name AzureResourceManager
 
-2. Impostare l'account di Azure da usare per questa esercitazione. Eseguire questo comando e immettere le credenziali per la sottoscrizione, quando richiesto:
+2. Impostare l'account di Azure da usare per questa esercitazione. Eseguire questo comando e, quando richiesto, immettere le credenziali per la sottoscrizione:
 
 	    Add-AzureAccount
 
@@ -53,7 +53,7 @@ Per usare Azure AD per autenticare richieste in Gestione risorse di Azure, è ne
 
 	>[AZURE.NOTE]L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nel portale di gestione.
 
-5. Sostituire {application-id} con l'identificatore appena registrato e quindi creare l'entità servizio per l'applicazione:
+5. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
         New-AzureADServicePrincipal -ApplicationId {application-id} 
 
@@ -67,11 +67,11 @@ Per usare Azure AD per autenticare richieste in Gestione risorse di Azure, è ne
 
 Un modello di Gestione risorse di Azure permette di distribuire e gestire insieme le risorse di Azure tramite una descrizione JSON delle risorse e dei relativi parametri di distribuzione. In Visual Studio eseguire le operazioni seguenti:
 
-1. Fare clic su **File** > **Nuovo** > **Progetto**.
+1. Fare clic su **File** \> **Nuovo** \> **Progetto**.
 
-2. In **Modelli** > **Visual C#** selezionare **Applicazione console** immettere il nome e il percorso del progetto quindi fare clic su **OK**.
+2. In **Modelli** \> **Visual C\#** selezionare **Applicazione console** immettere il nome e il percorso del progetto quindi fare clic su **OK**.
 
-3. In Esplora soluzioni fare clic con il pulsante destro del mouse, quindi scegliere **Aggiungere** > **Nuovo elemento**.
+3. In Esplora soluzioni fare clic con il pulsante destro del mouse, quindi scegliere **Aggiungere** \> **Nuovo elemento**.
 
 4.	Nella finestra Aggiungi nuovo elemento selezionare **File di testo**, immettere *VirtualMachineTemplate.json* come nome e quindi fare clic su **Aggiungi**.
 
@@ -301,7 +301,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
           }
         }
 
-    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
+    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
 
 
 4.	Salvare il file dei parametri creato.
@@ -330,7 +330,7 @@ I pacchetti NuGet sono il modo più semplice per installare le librerie necessar
 
 Dopo la creazione dell'applicazione Azure Active Directory e l'installazione della libreria di autenticazione, formattare le informazioni sull'applicazione nelle credenziali usate per autenticare le richieste in Gestione risorse di Azure. Eseguire le operazioni seguenti:
 
-1.	Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti all'inizio del file:
+1.	Aprire il file Program.cs per il progetto creato, quindi aggiungere le seguenti istruzioni using all'inizio del file:
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -442,12 +442,12 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 1.	Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio e quindi accedere ad Azure AD usando lo stesso nome utente e la stessa password specificati per la sottoscrizione.
 
-2.	Premere **INVIO** dopo la restituzione di ogni codice di stato per creare ogni risorsa. Dopo la creazione della macchina virtuale, eseguire il passaggio seguente prima di premere INVIO per eliminare tutte le risorse.
+2.	Premere **INVIO** dopo la restituzione di tutti i codici di stato per creare ciascuna risorsa. Dopo la creazione della macchina virtuale, eseguire il passaggio seguente prima di premere INVIO per eliminare tutte le risorse.
 
-	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere INVIO per iniziare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di anteprima di Azure prima dell'eliminazione.
+	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere INVIO per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di anteprima di Azure prima dell'eliminazione.
 
 3. Passare a Log di controllo nel portale di anteprima di Azure per visualizzare lo stato delle risorse:
 
 	![Creare un'applicazione di Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

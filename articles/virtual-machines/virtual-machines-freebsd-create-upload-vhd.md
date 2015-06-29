@@ -18,7 +18,7 @@
 
 # Creare e caricare un disco rigido virtuale con FreeBSD in Azure 
 
-In questo articolo viene illustrato come creare e caricare un disco rigido virtuale (VHD) contenente il sistema operativo FreeBSD in modo da poterlo utilizzare come propria immagine per creare una macchina virtuale (VM) in Azure.
+In questo articolo viene illustrato come creare e caricare un disco rigido virtuale \(VHD\) contenente il sistema operativo FreeBSD in modo da poterlo utilizzare come propria immagine per creare una macchina virtuale \(VM\) in Azure.
 
 ##Prerequisiti##
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
@@ -41,22 +41,22 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 1. **Abilitare DHCP**
 
-		# echo 'ifconfig_hn0="SYNCDHCP"' > /etc/rc.conf
+		# echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
 		# service netif restart
 
 2. **Abilitare SSH**
 
     SSH è abilitato per impostazione predefinita dopo l'installazione dal disco. In caso contrario o se si utilizza direttamente il disco rigido virtuale FreeBSD, digitare:
 
-		# echo 'sshd_enable="YES"' > /etc/rc.conf 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
 		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
 		# service sshd restart
 
 3. **Configurare la console seriale**
 
-		# echo 'console="comconsole vidconsole"' > /boot/loader.conf
-		# echo 'comconsole_speed="115200"' > /boot/loader.conf
+		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
+		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
 
 4. **Installare sudo**
 
@@ -66,12 +66,12 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 5. Prerequisiti per l'agente di Azure
 
-    5.1 **Installare python**
+    5\.1 **Installare python**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2 **Installare wget**
+    5\.2 **Installare wget**
 
 		# pkg install wget 
 
@@ -106,7 +106,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
-3. Fare clic su **Servizi dati** > **Archiviazione** > **Creazione rapida**.
+3. Fare clic su **Servizi dati** \> **Archiviazione** \> **Creazione rapida**.
 
 	![Creazione rapida di un account di archiviazione](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
@@ -204,5 +204,6 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 4. Una volta completato il provisioning, la macchina virtuale FreeBSD in esecuzione sarà visibile in Azure.
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

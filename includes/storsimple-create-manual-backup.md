@@ -1,13 +1,4 @@
-<properties 
-	pageTitle="Creazione di un backup manuale" 
-	description="Explique comment lancer un travail de sauvegarde manuel et à la demande." 
-	services="storsimple" 
-	documentationCenter="NA" 
-	authors="SharS" 
-	manager="adinah" 
-	editor="tysonn" />
-
-<tags 
+\<properties pageTitle="Create a manual backup" description="Explains how to start a manual, on-demand backup job." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito\*\*r="tysonn" /\> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -16,7 +7,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Per creare un backup manuale
+#### Per creare un backup manuale
 
 1. Nella pagina **Dispositivi**, andare alla scheda **Criteri di backup**. In questa scheda vengono elencati tutti i criteri di backup in formato tabulare, tra cui il criterio per il volume di cui si desidera eseguire il backup.
 
@@ -28,7 +19,7 @@
  
     Verrà avviato un processo di creazione di snapshot. Una volta completata la creazione del processo, verrà visualizzata una notifica nella parte inferiore della pagina.
 
-4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica (nella parte inferiore della pagina).
+4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica \(nella parte inferiore della pagina\).
 
     ![Creazione del backup2 manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 
@@ -38,4 +29,4 @@
 
   Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

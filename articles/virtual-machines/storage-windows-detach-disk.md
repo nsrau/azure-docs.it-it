@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2014" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
 
 
-
+# Come scollegare un disco dati da una macchina virtuale di Windows
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=42-->
+## Risorse aggiuntive
+
+[Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md)
+
  
+
+<!---HONumber=58_postMigration-->

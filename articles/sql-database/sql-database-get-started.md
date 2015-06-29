@@ -10,10 +10,10 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="04/14/2015"
 	ms.author="genemi"/>
 
@@ -36,7 +36,7 @@ In questa esercitazione si presuppone di disporre di una sottoscrizione ad Azure
 
 
 1. Accedere al [portale di Azure](http://portal.azure.com/).
-2. Fare clic su **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
+2. Fare clic su **Nuovo** \> **Dati + Archiviazione** \> **Database SQL**.
 
 
 ![Nuovo database SQL][1]
@@ -100,7 +100,7 @@ Nei passaggi seguenti viene illustrato come specificare gli intervalli di indiri
 A questo punto si è pronti a scrivere un piccolo programma client in grado di connettersi al database. Per un esempio di codice di avvio rapido, fare clic su uno dei seguenti collegamenti:
 
 
-- [Connettersi al database SQL con C# ed eseguire query](sql-database-connect-query.md)
+- [Connettersi al database SQL con C\# ed eseguire query](sql-database-connect-query.md)
 - *Disponibile a breve:* sviluppo client ed esempi di avvio rapido al database SQL
 
 
@@ -109,5 +109,6 @@ A questo punto si è pronti a scrivere un piccolo programma client in grado di c
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

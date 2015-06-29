@@ -1,20 +1,20 @@
-﻿<properties 
+<properties 
 	pageTitle="Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure" 
 	description="Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione." 
 	services="" 
 	documentationCenter="" 
-	authors="cabailey" 
-	manager="mbaldwin" 
+	authors="vikdesai" 
+	manager="msmbaldwin" 
 	editor=""/>
 
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
-	ms.author="cabailey"/>
+	ms.date="06/01/2015" 
+	ms.author="vikdesai"/>
 
 # Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
 
@@ -32,7 +32,7 @@ Fare clic su **Aggiungi avviso** per creare il primo avviso. È possibile impost
 
 ![][Image2]
 
-Quando si aggiunge un avviso, assegnare un nome univoco, scegliere una soglia di spesa e gli indirizzi di posta elettronica a cui verrà inviato. Mentre si imposta la soglia, è possibile scegliere un valore per **Totale fattura** o **Credito monetario** dall'elenco **Avviso per**. Se si specifica un totale fattura, viene inviato un avviso quando la spesa per la sottoscrizione supera la soglia. Se si specifica un credito monetario, viene inviato un avviso quando i crediti monetari scendono al di sotto del limite. I crediti monetari in genere si applicano alle versioni di valutazione gratuite e alle sottoscrizioni associate agli account MSDN.
+Quando si aggiunge un avviso, assegnare un nome univoco, scegliere una soglia di spesa e gli indirizzi di posta elettronica a cui verrà inviato. Mentre si imposta la soglia, è possibile scegliere un valore per **Totale fattura** o **Credito monetari**o dall'elenco **Avviso per**. Se si specifica un totale fattura, viene inviato un avviso quando la spesa per la sottoscrizione supera la soglia. Se si specifica un credito monetario, viene inviato un avviso quando i crediti monetari scendono al di sotto del limite. I crediti monetari in genere si applicano alle versioni di valutazione gratuite e alle sottoscrizioni associate agli account MSDN.
 
 ![][Image3]
 
@@ -40,10 +40,10 @@ Azure supporta qualsiasi indirizzo di posta elettronica ma non ne verifica il co
 
 ## Controllare gli avvisi
 
-Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco degli avvisi già impostati ed è indicato il numero di avvisi aggiuntivi che è possibile ancora impostare. Per ogni avviso è possibile visualizzare la data e l'ora di invio, il tipo di avviso (per totale fattura o credito monetario) e il limite impostato. Il formato dell'ora è 24 ore UTC (Universal Time Coordinate) e il formato della data è aaaa-mm-gg. Fare clic sul segno più per modificare un avviso nell'elenco o sul simbolo del cestino per eliminarlo.
+Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco degli avvisi già impostati ed è indicato il numero di avvisi aggiuntivi che è possibile ancora impostare. Per ogni avviso è possibile visualizzare la data e l'ora di invio, il tipo di avviso \(per totale fattura o credito monetario\) e il limite impostato. Il formato dell'ora è 24 ore UTC \(Universal Time Coordinate\) e il formato della data è aaaa-mm-gg. Fare clic sul segno più per modificare un avviso nell'elenco o sul simbolo del cestino per eliminarlo.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!--HONumber=47-->
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Esercitazione - Introduzione alla libreria di Azure Batch per .NET"
-	description="Informazioni su concetti di base sul Batch di Azure e su come sviluppare per il servizio di Batch con un semplice scenario"
+	description="Informazioni sui concetti di base di Azure Batch e su come sviluppare per il servizio Batch con uno scenario semplice."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="05/04/2015"
@@ -21,49 +21,49 @@
 Questo articolo contiene le due esercitazioni seguenti che consentono di iniziare a sviluppare con la libreria .NET per il servizio Azure Batch.
 
 -	[Esercitazione 1: Libreria di Azure Batch per .NET](#tutorial1)
--	[Esercitazione 2: Libreria di Azure App Batch per .NET](#tutorial2)  
+-	[Esercitazione 2: Libreria di Azure Batch Apps per .NET](#tutorial2)  
 
 
-Per informazioni generali e scenari per i Batch di Azure, vedere [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
+Per informazioni generali e scenari per Azure Batch, vedere [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
 
 ##<a name="tutorial1"></a>Esercitazione 1: Libreria di Azure Batch per .NET
 
-In questa esercitazione verrà illustrato come creare un'applicazione console che consente di impostare il calcolo distribuito in un pool di macchine virtuali usando il servizio Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C# e usano la libreria di Azure Batch per .NET.
+Questa esercitazione illustrerà come creare un'applicazione console che consente di impostare il calcolo distribuito in un pool di macchine virtuali usando il servizio Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C\# e usano la libreria di Azure Batch per .NET.
 
 
 >[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 >
->È necessario utilizzare NuGet per ottenere il **Microsoft.Azure.Batch.dll** assembly. Dopo aver creato il progetto in Visual Studio, fare clic sul progetto in **Esplora** e scegliere **Gestisci pacchetti NuGet**. Cercare online **Azure.Batch** e quindi fare clic su Installa per installare il pacchetto di Batch di Azure e le dipendenze.
+>È necessario usare NuGet per ottenere l'assembly **Microsoft.Azure.Batch.dll**. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **Azure.Batch** e fare clic su Installa per installare il pacchetto Azure Batch e le relative dipendenze.
 >
->Assicurarsi che la versione di Gestione pacchetti NuGet sia 2.8 o successiva. È possibile trovare il numero di versione in Visual Studio -> "?" -> finestra di dialogo "Informazioni su Microsoft Visual Studio". Se si dispone di una versione precedente di Gestione pacchetti NuGet, è necessario aggiornare Visual Studio, altrimenti potrebbero verificarsi problemi con il download della versione corretta delle dipendenze di NuGet.
+>Assicurarsi che la versione di Gestione pacchetti NuGet sia 2.8 o successiva. È possibile trovare il numero di versione in Visual Studio -\> "?" -\> finestra di dialogo "Informazioni su Microsoft Visual Studio". Se si dispone di una versione precedente di Gestione pacchetti NuGet, è necessario aggiornare Visual Studio, altrimenti potrebbero verificarsi problemi con il download della versione corretta delle dipendenze di NuGet.
 >
->Inoltre, è possibile fare riferimento il [esempio Hello World per Azure Batch](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) su MSDN per un esempio simile al codice illustrato di seguito.
+>Inoltre, è possibile fare riferimento all'esempio [Hello World di Azure Batch](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) su MSDN per un esempio simile al codice esaminato in questo articolo.
 
 
 
 ###Concetti
-Il servizio Batch consente di pianificare attività di calcolo scalabili e distribuite. In questo modo è possibile eseguire scalare carichi di lavoro distribuiti su più macchine virtuali. Questi carichi di lavoro supportano in modo efficiente attività di calcolo con utilizzo intensivo di risorse. Quando si usa il servizio Batch, è possibile sfruttare le risorse seguenti:
+Il servizio Batch consente di pianificare attività di calcolo scalabili e distribuite. In questo modo è possibile eseguire scalare carichi di lavoro distribuiti su più macchine virtuali. Questi carichi di lavoro supportano in modo efficiente attività di calcolo con uso intensivo di risorse. Quando si usa il servizio Batch, è possibile sfruttare le risorse seguenti:
 
--	**Account** - identificato in modo univoco le entità all'interno del servizio. Tutte le operazioni di elaborazione avvengono tramite un account di Batch.
--	**Pool** : una raccolta di macchine virtuali attività eseguire applicazioni di attività.
--	**Macchina virtuale** -un computer in cui viene assegnato a un pool e viene utilizzato dalle attività che vengono assegnate ai processi in esecuzione nel pool.
--	**Utente dell'attività macchina virtuale** – un account utente su una macchina virtuale.
--	**Workitem** -specifica la modalità di esecuzione di calcoli su attività le macchine virtuali in un pool.
--	**Processo** - esecuzione l'istanza di un elemento di lavoro ed è costituito da una raccolta di attività.
--	**Attività** : un'applicazione che è associato un processo e viene eseguito su una macchina virtuale.
--	**File** – contiene le informazioni elaborate da un'attività.  
+-	**Account**: un'entità identificata in modo univoco all'interno del servizio. Tutte le operazioni di elaborazione avvengono tramite un account di Batch.
+-	**Pool**: una raccolta di macchine virtuali delle attività sulle quali vengono eseguite le applicazioni.
+-	**Macchina virtuale delle attività**: un computer assegnato a un pool e usato dalle attività assegnate ai processi in esecuzione nel pool.
+-	**Utente di macchina virtuale delle attività**: un account utente su una macchina virtuale delle attività.
+-	**Elemento di lavoro**: specifica la modalità di esecuzione di calcoli nelle macchine virtuali delle attività in un pool.
+-	**Processo**: un'istanza in esecuzione di un elemento di lavoro costituito da una raccolta di attività.
+-	**Attività**: un'applicazione associata a un processo ed eseguita su una macchina virtuale delle attività.
+-	**File**: contiene le informazioni elaborate da un'attività.  
 
 Verranno ora esaminati i casi di utilizzo più comuni.
 
 ###Creare un account Azure Batch
-Per creare un account Batch è possibile usare il portale di gestione di Azure. Dopo la creazione dell'account, all'utente viene fornita una chiave. Per ulteriori informazioni, vedere [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
+Per creare un account Batch è possibile usare il portale di gestione di Azure. Dopo la creazione dell'account, all'utente viene fornita una chiave. Per altre informazioni, vedere [Panoramica tecnica di Batch di Azure](batch-technical-overview.md).
 
-###Procedura: aggiungere un pool a un account
+###Procedura: Aggiungere un pool a un account
 Un pool di macchine virtuali di attività è il primo set di risorse che è necessario creare per eseguire attività.
 
-1.	Aprire Microsoft Visual Studio 2013 sul **File** menu, fare clic su **nuovo**, e quindi fare clic su **progetto**.
+1.	Aprire Microsoft Visual Studio 2013, scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 
-2.	Da **Windows**, in **Visual c#**, fare clic su **applicazione Console**, denominare il progetto **GettingStarted**, denominare la soluzione **AzureBatch**, quindi fare clic su **OK**.
+2.	Da **Windows**, in **Visual C\#**, fare clic su **Applicazione console**, assegnare al progetto il nome **GettingStarted**, assegnare alla soluzione il nome **AzureBatch**, quindi fare clic su **OK**.
 
 3.	Aggiungere le seguenti dichiarazioni di spazi dei nomi all'inizio del file Program.cs:
 
@@ -80,7 +80,7 @@ Un pool di macchine virtuali di attività è il primo set di risorse che è nece
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	Sostituire i valori seguenti:- **[nome del pool]** - nome che si desidera utilizzare per il pool. - **[nome di batch account]** - nome dell'account di Batch. - **[key di batch account]** -la chiave fornita per l'account del Batch.
+	Sostituire i valori seguenti: - **\[name-of-pool\]**: nome da usare per il pool. - **\[name-of-batch-account\]**: nome dell'account Batch. - **\[key-of-batch-account\]**: chiave fornita all'utente per l'account Batch.
 5.	Aggiungere al Main il codice seguente che definisce le credenziali da usare:
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -105,9 +105,9 @@ Un pool di macchine virtuali di attività è il primo set di risorse che è nece
 		}
 		Console.WriteLine("Created pool {0}", PoolName);
 		Console.ReadLine();
-8.	Salvare ed eseguire il programma. Lo stato è **Active** per un pool è stato aggiunto correttamente.  
+8.	Salvare ed eseguire il programma. Se un pool è stato aggiunto correttamente, il relativo stato è **Attivo**.  
 
-###Procedura: elencare i pool di un account
+###Procedura: Elencare i pool in un account
 Se non si conosce il nome di un pool esistente, è possibile ottenere un elenco dei pool in un account.
 
 1.	Aggiungere al Main il codice seguente che definisce le credenziali da usare:  
@@ -153,7 +153,7 @@ Se non si conosce il nome di un pool esistente, è possibile ottenere un elenco 
 		Pool: gettingstarted State:Active
 		Created pool gettingstarted. Press <Enter> to continue.
 
-###Procedura: elencare gli elementi di lavoro in un account
+###Procedura: Elencare tutti gli elementi di lavoro in un account
 Se non si conosce il nome di un pool elemento di lavoro esistente, è possibile ottenere un elenco dei pool in un account.
 
 1.	Aggiungere il codice seguente alla fine del Main che scrive i nomi e gli stati di tutti gli elementi di lavoro nell'account:
@@ -171,14 +171,14 @@ Se non si conosce il nome di un pool elemento di lavoro esistente, è possibile 
 		Console.ReadLine();
 7.	Salvare ed eseguire il programma. Probabilmente non verrà visualizzato nulla perché non è stato ancora inviato alcun elemento di lavoro. Nella sezione successiva verranno fornite informazioni sull'aggiunta di elementi di lavoro.  
 
-##Procedura: aggiungere un elemento di lavoro a un account
+##Procedura: Aggiungere un elemento di lavoro a un account
 È necessario creare un elemento di lavoro per definire la modalità di esecuzione delle attività nel pool.
 
 1.	Aggiungere le seguenti variabili alla classe Program:
 
 		private static readonly string WorkItemName = Environment.GetEnvironmentVariable("USERNAME") + DateTime.Now.ToString("yyyyMMdd-HHmmss");
 
-2.	Quando si crea un elemento di lavoro, viene creato anche un processo. È possibile assegnare un nome all'elemento di lavoro, ma il processo viene sempre assegnato il nome di **processo 0000000001**. Aggiungere a Main il codice seguente (prima del codice degli elementi di lavoro dell'elenco) che aggiunge l'elemento di lavoro:
+2.	Quando si crea un elemento di lavoro, viene creato anche un processo. È possibile assegnare un nome all'elemento di lavoro, ma al processo viene sempre assegnato il nome **job-0000000001**. Aggiungere a Main il codice seguente \(prima del codice degli elementi di lavoro dell'elenco\) che aggiunge l'elemento di lavoro:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
@@ -188,7 +188,7 @@ Se non si conosce il nome di un pool elemento di lavoro esistente, è possibile 
 		}
 		Console.WriteLine("Workitem successfully added. Press <Enter> to continue.");
 		Console.ReadLine();
-3.	Salvare ed eseguire il programma. Lo stato è **Active** un elemento di lavoro è stato aggiunto correttamente. Viene visualizzato l'output seguente.
+3.	Salvare ed eseguire il programma. Se un elemento di lavoro è stato aggiunto correttamente, il relativo stato è **Attivo**. Viene visualizzato l'output seguente.
 
 		Listing Pools
 		=================
@@ -202,7 +202,7 @@ Se non si conosce il nome di un pool elemento di lavoro esistente, è possibile 
 		Workitem: yidingz20141106-111211 State:Active
 		Press <Enter> to continue.
 
-###Procedura: aggiungere attività a un processo
+###Procedura: Aggiungere attività a un processo
 Un elemento di lavoro senza attività non esegue alcuna operazione. Dopo aver creato l'elemento di lavoro e il processo, è possibile aggiungere attività al processo. Ora verrà aggiunta un'attività semplice al processo.
 
 1.	Aggiungere le seguenti variabili alla classe Program:
@@ -253,7 +253,7 @@ Un elemento di lavoro senza attività non esegue alcuna operazione. Dopo aver cr
 ###Creare un programma di elaborazione di attività
 Ora che è possibile eseguire Hello World nella VM, si passerà ad alcuni esempi concreti. In questa sezione verrà creato un programma di elaborazione delle attività e tale programma verrà caricato nella macchina virtuale che esegue le attività.
 
-1.	In Esplora soluzioni, creare un nuovo progetto applicazione console denominato **ProcessTaskData** nel **AzureBatch** soluzione.
+1.	In Esplora soluzioni creare un nuovo progetto di applicazione console denominato **ProcessTaskData** nella soluzione **AzureBatch**.
 
 2.	Aggiungere le seguenti dichiarazioni di spazi dei nomi all'inizio del file Program.cs:
 
@@ -297,7 +297,7 @@ Quando si crea un scenario di calcolo distribuito con il servizio Batch, usare i
 Sono stati illustrati i passaggi da 3 a 6. Ora verrà descritto come preparare Archiviazione di Azure per l'esecuzione dell'attività.
 
 ####Ottenimento di un account di archiviazione
-Per completare il resto di questa esercitazione è necessario un account di archiviazione. Se non si conosce come eseguire questa operazione, vedere [creare un account di archiviazione Azure](#tutorial1_storage).
+Per completare il resto di questa esercitazione è necessario un account di archiviazione. Per conoscere la procedura di creazione di un account, vedere [Creare un account di archiviazione di Azure](#tutorial1_storage).
 
 ####Caricamento di dati
 
@@ -305,7 +305,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 
 2. Caricare "ProcessTaskData.exe" nel contenitore.
 
-3. Creare tre file di testo (taskdata1, taskdata2, taskdata3.txt) ciascuno dei quali contenente uno dei paragrafi seguenti e caricarli nel contenitore:
+3. Creare tre file di testo \(taskdata1, taskdata2, taskdata3.txt\) ciascuno dei quali contenente uno dei paragrafi seguenti e caricarli nel contenitore:
 
 		You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs. From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server. Or, you can capture and use your own images to create customized virtual machines.
 
@@ -317,7 +317,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 >[AZURE.NOTE]In un ambiente di produzione, si consiglia di usare una firma di accesso condiviso.
 
 
->[AZURE.NOTE]Team di archiviazione Azure è un [post di blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) elenco Esplora archivi di Azure che contribuisce il caricamento di file.
+>[AZURE.NOTE]Il team dei servizi di archiviazione di Azure ha un [post di blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) in cui sono indicati gli strumenti di esplorazione dei servizi di archiviazione di Azure che facilitano il caricamento di file.
 
 
 
@@ -326,7 +326,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 1.	Aggiungere le seguenti variabili alla classe Program:
 
 		private const string BlobPath = "[storage-path]";
-	Sostituire i valori seguenti:- **[percorso di archiviazione]** -il percorso per il blob nel servizio di archiviazione. Ad esempio: http://yiding.blob.core.windows.net/gettingstarted/
+	Sostituire i valori seguenti: - **\[storage-path\]**: il percorso per accedere al BLOB nella risorsa di archiviazione. Ad esempio: http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Aggiornare il codice di invio di attività come indicato di seguito.
 
@@ -376,7 +376,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 		and 5
 		to 3
 
-###Procedura: eliminare il pool e l'elemento di lavoro
+###Procedura: Eliminare il pool e l'elemento di lavoro
 Una volta conclusa l'elaborazione dell'elemento di lavoro, è possibile liberare le risorse eliminando il pool e l'elemento di lavoro.
 
 ####Eliminare il pool
@@ -402,29 +402,29 @@ Una volta conclusa l'elaborazione dell'elemento di lavoro, è possibile liberare
 		Console.ReadLine();
 2.	Salvare ed eseguire il programma.
 
-###<a name="tutorial1_storage"></a>Appendice: Creare un account di archiviazione di Azure
+###<a name="tutorial1_storage"></a>APPENDICE: Creare un account di archiviazione di Azure
 Prima di eseguire il codice di questa esercitazione, è necessario eseguire l'accesso a un account di archiviazione di Azure.
 
 1.	Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/).
-2.	Nella parte inferiore del riquadro di spostamento, fare clic su **nuovo**. ![][1]
-3.	Fare clic su **DATA SERVICES**, quindi **archiviazione**, quindi fare clic su **Creazione rapida**. ![][2]
+2.	Nella parte inferiore del pannello di navigazione fare clic su **NUOVO**. ![][1]
+3.	Fare clic su **SERVIZI DATI**, quindi su **ARCHIVIAZIONE** e infine su **CREAZIONE RAPIDA**. ![][2]
 
-4.	In **URL**, digitare un nome di sottodominio da utilizzare nell'URI per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
-5.	Scegliere un **posizione/gruppo di AFFINITÀ** in cui individuare lo spazio di archiviazione.
+4.	Nel campo **URL** digitare un nome di sottodominio da usare nell'URI per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
+5.	Scegliere un'opzione dall'elenco **POSIZIONE/GRUPPO DI AFFINITÀ** per definire la posizione di archiviazione.
 6.	Facoltativamente, è possibile abilitare la replica geografica.
 7.	Fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**.  
 
-Per ulteriori informazioni sull'archiviazione di Azure, vedere [come utilizzare il servizio di archiviazione Blob di Azure in .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
+Per altre informazioni sul servizio di archiviazione di Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
 
 
-##<a name="tutorial2"></a>Esercitazione 2: Libreria di applicazioni Azure Batch per .NET
+##<a name="tutorial2"></a>Esercitazione 2: Libreria di Azure Batch Apps per .NET
 In questa esercitazione viene illustrato come eseguire carichi di lavoro di calcolo paralleli in Azure Batch tramite il servizio Batch Apps.
 
 Batch Apps è una funzionalità di Azure Batch che offre una modalità incentrata sulle applicazioni di gestire ed eseguire carichi di lavoro di Batch. Usando Batch Apps SDK, è possibile creare pacchetti per abilitare per Batch un'applicazione e distribuirli nel proprio account o renderli disponibili ad altri utenti di Batch. Batch fornisce inoltre funzionalità di gestione dati, monitoraggio dei processi, diagnostica incorporata, registrazione e supporto per le dipendenze tra attività. È anche disponibile un portale di gestione in cui è possibile gestire processi, visualizzare log e scaricare output senza dover scrivere un proprio client.
 
 Nello scenario di Batch Apps si scrive il codice usando Batch Apps Cloud SDK per partizionare i processi in attività parallele, descrivere le eventuali dipendenze tra le attività e specificare la modalità di esecuzione di ogni attività. Questo codice viene distribuito all'account Batch. I client possono quindi eseguire i processi semplicemente specificando il tipo di processo e i file di input per un'API REST.
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). È possibile utilizzare NuGet per ottenere sia il <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch applicazioni Cloud</a> assembly e il <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch App Client</a> assembly. Dopo aver creato il progetto in Visual Studio, fare clic sul progetto in **Esplora** e scegliere **Gestisci pacchetti NuGet**. È inoltre possibile scaricare l'estensione di Visual Studio per le applicazioni di Batch che include un modello di progetto per le applicazioni cloud-enable e possibilità di distribuire un'applicazione <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">qui</a> o tramite la ricerca di **Batch app** in Visual Studio tramite la voce di menu estensioni e aggiornamenti. È inoltre possibile trovare <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi end-to-end su MSDN.</a>
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). È possibile usare NuGet per ottenere sia l'assembly <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> sia l'assembly <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a>. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. È anche possibile scaricare l'estensione di Visual Studio per le app di Batch che include un modello di progetto per abilitare per il cloud le applicazioni e la possibilità di distribuire un'applicazione <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">qui</a> o effettuando la ricerca di **Batch Apps** in Visual Studio mediante la voce di menu Estensioni e aggiornamenti. È anche possibile trovare <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi end-to-end su MSDN</a>.
 >
 
 ###Dati fondamentali di Azure Batch Apps
@@ -434,7 +434,7 @@ Batch è progettato per funzionare con le applicazioni esistenti a elevato utili
 2.	Creare un file zip degli "assembly cloud" che inviano i carichi di lavoro all'applicazione e caricarlo tramite il portale di gestione o l'API REST. Un assembly cloud contiene due componenti che sono basati sull'SDK cloud:
 	1.	Componente di suddivisione dei processi: suddivide il processo in attività che possono essere elaborate in modo indipendente. Ad esempio, in uno scenario di animazione tale componente dividerebbe un processo relativo a un filmato in singoli fotogrammi.
 	2.	Elaboratore delle attività: invoca l'eseguibile dell'applicazione per una determinata attività. Ad esempio, in uno scenario di animazione, l'elaboratore delle attività invocherebbe un programma di rendering per eseguire il rendering del singolo frame specificato dall'attività in questione.
-3.	Specificare una modalità di invio dei processi per l'applicazione abilitata in Azure. Potrebbe trattarsi di un plug-in nell'interfaccia utente dell'applicazione, di un portale Web o perfino di un servizio automatico nell'ambito della pipeline di esecuzione. Vedere il <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi</a> su MSDN per gli esempi.
+3.	Specificare una modalità di invio dei processi per l'applicazione abilitata in Azure. Potrebbe trattarsi di un plug-in nell'interfaccia utente dell'applicazione, di un portale Web o perfino di un servizio automatico nell'ambito della pipeline di esecuzione. Vedere gli <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi</a> su MSDN.
 
 
 
@@ -442,16 +442,16 @@ Batch è progettato per funzionare con le applicazioni esistenti a elevato utili
 Il modello di programmazione e utilizzo delle app di Batch è incentrato sui seguenti concetti chiave:
 
 ####Processi
-Oggetto **processo** è un elemento di lavoro inviato dall'utente. Quando viene inviato un processo, l'utente specifica il tipo di processo, le relative impostazioni e i dati necessari per il processo. L'implementazione abilitata può fornire questi dettagli per conto dell'utente o, in alcuni casi, l'utente può fornire queste informazioni in modo esplicito tramite il client. Un processo restituisce risultati. Ogni processo dispone di un output primario e, facoltativamente, un output di anteprima. I processi possono inoltre restituire output aggiuntivi, se lo si desidera.
+Un **processo** è un elemento di lavoro inviato dall'utente. Quando viene inviato un processo, l'utente specifica il tipo di processo, le relative impostazioni e i dati necessari per il processo. L'implementazione abilitata può fornire questi dettagli per conto dell'utente o, in alcuni casi, l'utente può fornire queste informazioni in modo esplicito tramite il client. Un processo restituisce risultati. Ogni processo dispone di un output primario e, facoltativamente, un output di anteprima. I processi possono inoltre restituire output aggiuntivi, se lo si desidera.
 
 ####Attività
-Oggetto **attività** è un elemento di lavoro da eseguire come parte di un processo. Un processo inviato da un utente è suddiviso in attività più piccole. Il servizio elabora quindi le singole attività, quindi assembla i risultati dell'attività in un output del processo complessivo. La natura delle attività dipende dal tipo di processo. Il componente di suddivisione dei processi definisce la modalità di suddivisione di un processo in attività, sulla base della conoscenza dei blocchi di lavoro che l'applicazione è progettata per elaborare. È inoltre possibile scaricare i singoli output di attività e questa funzionalità potrebbe essere utile in alcuni casi, ad esempio quando un utente vuole scaricare singole attività da un processo di animazione.
+Un'**attività** è un elemento di lavoro da eseguire come parte di un processo. Un processo inviato da un utente è suddiviso in attività più piccole. Il servizio elabora quindi le singole attività, quindi assembla i risultati dell'attività in un output del processo complessivo. La natura delle attività dipende dal tipo di processo. Il componente di suddivisione dei processi definisce la modalità di suddivisione di un processo in attività, sulla base della conoscenza dei blocchi di lavoro che l'applicazione è progettata per elaborare. È inoltre possibile scaricare i singoli output di attività e questa funzionalità potrebbe essere utile in alcuni casi, ad esempio quando un utente vuole scaricare singole attività da un processo di animazione.
 
 ####Attività di unione
-Oggetto **attività merge** è un tipo speciale di attività che assembla i risultati delle singole attività nei risultati del processo finale. Per un processo di rendering di un filmato, l'attività di unione potrebbe assemblare i fotogrammi sottoposti a rendering in un filmato o comprimere tutti i fotogrammi sottoposti a rendering in un unico file. Ogni processo presenta un'attività di unione anche nel caso in cui non sia necessaria alcuna unione effettiva.
+Un'**attività di unione** è un tipo speciale di attività che assembla i risultati delle singole attività nei risultati finali del processo. Per un processo di rendering di un filmato, l'attività di unione potrebbe assemblare i fotogrammi sottoposti a rendering in un filmato o comprimere tutti i fotogrammi sottoposti a rendering in un unico file. Ogni processo presenta un'attività di unione anche nel caso in cui non sia necessaria alcuna unione effettiva.
 
 ####File
-Oggetto **file** è una porzione di dati utilizzati come input per un processo. Un processo può presentare uno o più file di input associati o esserne privo. File stesso può essere utilizzato in più processi, ad esempio, per un processo di rendering di film, i file potrebbero essere trame, modelli e così via. Per un processo di analisi dei dati, i file potrebbero essere un insieme di osservazioni o misure.
+Un **file** è costituito da dati usati come input in un processo. Un processo può presentare uno o più file di input associati o esserne privo. Lo stesso file può anche essere usato in più processi, ad esempio per un processo di rendering di un filmato i file possono essere trame, modelli e così via. Per un processo di analisi dei dati, i file potrebbero essere costituiti da un insieme di osservazioni o misurazioni.
 
 ###Abilitazione dell'applicazione cloud
 L'applicazione deve contenere un campo statico o una proprietà che contiene tutti i dettagli a essa relativi. Specifica il nome dell'applicazione e il tipo o i tipi di processo gestiti dall'applicazione. Queste informazioni vengono fornite quando si usa il modello nell'SDK che può essere scaricato tramite Visual Studio Gallery.
@@ -532,7 +532,7 @@ Il frammento seguente illustra come chiamare un programma denominato application
 
 La classe ExternalProcess nell'SDK cloud fornisce la logia di helper per eseguire gli eseguibili dell'applicazione. ExternalProcess può gestire l'annullamento, la conversione dei codici di uscita in eccezioni, l'acquisizione di standard e la configurazione delle variabili di ambiente. Se lo si preferisce, è anche possibile usare direttamente la classe Process .NET per eseguire i programmi.
 
-Il metodo RunExternalTaskProcess restituisce un TaskProcessResult, che include un elenco di file di output. È necessario includere almeno tutti i file necessari per l'unione; facoltativamente, è anche possibile restituire i file di log, i file di anteprima e i file intermedi (ad esempio, per scopi diagnostici in caso di errore dell'attività). Si noti che il metodo restituisce i percorsi, non il contenuto dei file.
+Il metodo RunExternalTaskProcess restituisce un TaskProcessResult, che include un elenco di file di output. È necessario includere almeno tutti i file necessari per l'unione; facoltativamente, è anche possibile restituire i file di log, i file di anteprima e i file intermedi \(ad esempio, per scopi diagnostici in caso di errore dell'attività\). Si noti che il metodo restituisce i percorsi, non il contenuto dei file.
 
 Ciascun file deve essere identificato con il tipo di output in esso contenuto: output, ovvero parte dell'output del processo finale, preview, log o intermediate. Questi valori provengono dall'enumerazione TaskOutputFileKind. Il frammento seguente non restituisce anteprime o log, ma solo l'output di una singola attività. Il metodo TaskProcessResult.FromExternalProcessResult semplifica lo scenario comune di acquisizione del codice di uscita, l'output del processore e i file di output da un programma della riga di comando:
 
@@ -602,4 +602,4 @@ Un processo descrive un carico di lavoro da eseguire e deve includere tutte le i
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Domande frequenti su Azure Machine Learning | Azure" 
-	description="Domande frequenti su Microsoft Azure Machine Learning" 
+	pageTitle="Domande frequenti su Azure Machine Learning | Microsoft Azure" 
+	description="Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata." 
+	keywords="machine learning introduction,predictive modeling,what is machine learning"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pablissima" 
@@ -13,129 +14,294 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
-# Domande frequenti su Microsoft Azure Machine Learning
+#Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
 
-### GENERALI
-
-**1. Cos'è Microsoft Azure Machine Learning?**
-
-Microsoft Azure Machine Learning è un servizio completamente gestito che consente di creare, testare, mettere in funzione e gestire soluzioni di analisi predittiva nel cloud. Direttamente dal browser, è ora possibile iscriversi a Machine Learning di Azure, caricare i dati e avviare immediatamente esperimenti di apprendimento automatico. La composizione visuale, un'ampia scelta di moduli e una raccolta di modelli di base contribuiscono a facilitare e accelerare le attività di apprendimento automatico comuni. La conversione di un modello in un servizio Web è facile: bastano pochi clic e un modello creato in ML Studio può essere trasformato in un'API REST pubblica che incapsula la logica di trasformazione dei dati personalizzati e modelli di apprendimento automatico sofisticati.
-
-**2. Cos'è Azure Machine Learning Studio?**
-
-Azure ML Studio è un ambiente workbench accessibile tramite un Web browser. In ML Studio è disponibile una serie di moduli con un'interfaccia di composizione visuale che consente di creare un flusso di lavoro di analisi dei dati end-to-end sotto forma di esperimento. Sono disponibili moduli per l'inserimento e la trasformazione dei dati e la selezione di funzionalità per creare, classificare e valutare modelli predittivi. Alcuni degli algoritmi più avanzati di apprendimento automatico usati in Bing e Xbox sono creati in ML Studio. Sono inoltre inclusi pacchetti di apprendimento automatico open source scalabili come Vowpal Wabbit. ML Studio supporta R. È possibile importare il codice R esistente e incorporarlo nei propri esperimenti. ML Studio consente di combinare questi algoritmi con il codice R per creare modelli predittivi. ML Studio semplifica la collaborazione in quanto consente di invitare i membri del team nelle proprie aree di lavoro, in modo che possano visualizzare e modificare gli esperimenti.
-
-**3. Cos'è il servizio Azure ML API?**
-
-Il servizio ML API consente di distribuire modelli predittivi creati in ML Studio come un servizio Web scalabile con tolleranza di errore. I servizi Web creati tramite il servizio ML API sono API REST che forniscono un'interfaccia di comunicazione tra le applicazioni esterne e il modello di analisi predittivo. Il servizio Web consente di comunicare con un modello predittivo in tempo reale per ricevere risultati predittivi e incorporarli in qualsiasi applicazione client esterna. Il servizio ML API si basa su Microsoft Azure per la distribuzione, l'hosting e la gestione delle API REST di Azure ML. Quando si usa il servizio Azure ML API, vengono creati due tipi di servizi. Il servizio Esecuzione batch per l'accesso batch asincrono e il servizio Richiesta-risposta per la risposta sincrona a bassa latenza.
-
-È possibile collocare un modello predittivo nella gestione temporanea all'interno dell'area di lavoro. Il servizio ML API genera anche le pagine della guida per i servizi Web. Nelle pagine della guida del servizio Web vengono forniti esempi di codice per richiamare il servizio Web in C#, R e Python. Per testare il servizio Web è possibile effettuare chiamate interattive al servizio. Il servizio Web nell'ambiente di gestione temporanea può quindi essere spostato nell'ambiente di produzione con pochi clic. Una volta in produzione, è possibile monitorare i servizi distribuiti e tracciarne l'utilizzo e gli eventuali errori nel portale di Azure. Aggiornare i servizi Web è facile, perché basta aggiornare il modello in ML Studio ed eseguire il push delle modifiche nel servizio nell'ambiente di gestione temporanea.
-
-**4. Come si accede a Microsoft Azure Machine Learning?**
-
-Per informazioni sul servizio Azure Machine Learning, vedere la pagina di [introduzione][introduzione]. Visitare la pagina [Azure Machine Learning Center][Azure Machine Learning Center] per ottenere aggiornamenti sul servizio, leggere le ultime novità nel blog del team di ML, partecipare alla community di Machine Learning attraverso i forum, accedere alle pagine della guida sul prodotto, visualizzare la raccolta di modelli e inviare commenti e suggerimenti sul servizio per contribuire a migliorarlo.
-
-### FATTURAZIONE
-
-**5. Come funziona la fatturazione di Machine Learning?**
-
-Il servizio Azure ML Studio viene fatturato in base alle ore di calcolo per la sperimentazione attiva e le ore parziali vengono calcolate in modo proporzionale. Il servizio Azure ML API viene fatturato per ogni 1.000 chiamate API di predizione o in base all'ora di calcolo, quando una predizione è in esecuzione. La fatturazione viene ripartita in modo proporzionale per le quantità inferiori a 1.000 chiamate e per le ore di calcolo parziali.
-
-Gli addebiti vengono aggregati per area di lavoro della sottoscrizione. In ogni area di lavoro vengono visualizzati gli addebiti per le tre voci seguenti:
-
--   Ore sperimentazione Studio: questo misuratore aggrega tutti gli addebiti di calcolo accumulati tramite l'esecuzione di esperimenti in ML Studio e l'esecuzione di stime nell'ambiente di gestione temporanea.
--   Ore stima servizio API: questo misuratore include gli addebiti di calcolo accumulati dai servizi Web in esecuzione nell'ambiente di produzione.
--   Stime servizio API (in millesimi): questo misuratore include gli addebiti accumulati per ogni chiamata al servizio Web nell'ambiente di produzione.
-
-Per i dettagli sui prezzi, vedere la pagina Prezzi all'indirizzo [http://azure.microsoft.com/pricing/details/machine-learning/][http://azure.microsoft.com/pricing/details/machine-learning/].
-
-**6. È disponibile una versione di valutazione di Azure Machine Learning?**
-
-Azure ML fa parte della versione di valutazione gratuita di Azure. Quando si effettua l'iscrizione alla versione di valutazione gratuita di Azure, è possibile provare tutti i servizi di Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [http://azure.microsoft.com/pricing/free-trial-faq/][http://azure.microsoft.com/pricing/free-trial-faq/].
-
-### MACHINE LEARNING STUDIO
-
-**7. Quali origini dati sono supportate da Azure ML support?**
-
-È possibile caricare i dati in ML Studio in due modi: caricando i file locali come un set di dati o usando un modulo lettore per l'importazione dei dati. È possibile caricare i file locali come set di dati, aggiungendo nuovi set di dati in ML Studio. Per altre informazioni sui formati di file supportati, vedere l'argomento della guida **Recupero dei dati** per ML Studio.
-
-Il modulo **Lettore** consente di leggere i dati dai servizi tabelle di Azure, BLOB di Azure, database SQL (Azure) o HDInsight. È inoltre possibile caricare i dati da un'origine dati tramite HTTP. Per informazioni dettagliate, vedere l'argomento della guida relativo al modulo **Lettore** per ML Studio.
-
-**8. Quali sono le dimensioni massime consentite per i set di dati?**
-
-ML Studio supporta set di dati di formazione di dimensioni fino a 10 GB. Non sono previsti limiti per le dimensioni di set di dati per i servizi Web. È anche supportato il campionamento di set di dati di dimensioni più elevati tramite query Hive o SQL prima dell'inserimento. Se i dati da usare superano i 10 GB, è possibile creare più set di dati e usare i moduli 'Partizione e campionamento', 'Divisione' o 'Unione' per ricombinarli in ML Studio e creare set di formazione per la creazione di modelli predittivi. Per altre informazioni su questi moduli, vedere l'argomento relativo ai moduli nella guida per ML Studio.
-
-Per i set di dati con dimensioni pari a 2 GB, è consigliabile caricare i dati nel servizio di archiviazione di Azure o nel database SQL (Azure) o usare HDInsight invece di caricarli direttamente dal file locale.
-
-**9. Quali sono gli algoritmi di apprendimento automatico esistenti supportati in ML Studio?**
-
-ML Studio include algoritmi ML all'avanguardia, ad esempio alberi di decisione con boosting scalabili, sistemi di raccomandazione bayesiani, reti neurali basate su machine deep learning e Decision Jungle sviluppati presso Microsoft Research. Sono inoltre inclusi pacchetti di apprendimento automatico open source scalabili come Vowpal Wabbit. ML Studio supporta algoritmi di apprendimento automatico per classificazione, regressione e clustering multiclasse e binari. Per l'elenco completo di algoritmi di apprendimento automatico, vedere la Guida di ML Studio.
-
-**10. L'algoritmo, l'origine dati, il formato di dati o l'operazione di conversione dati di apprendimento automatico non è disponibile in Azure ML Studio. Quali sono le alternative?**
-
-È possibile visitare il [forum con i commenti e suggerimenti degli utenti][forum con i commenti e suggerimenti degli utenti] per visualizzare le richieste di funzionalità a cui stiamo dando seguito. Se la funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente.
-
-**11. È possibile importare il codice esistente in ML Studio?**
-
-ML Studio supporta R ed è possibile importare il codice R in ML Studio ed eseguirlo nello stesso esperimento con i motori di apprendimento forniti da Azure ML e che il progetto venga pubblicato come servizio Web tramite Azure ML. Azure ML è il modo più rapido per convertire le risorse di analisi in R in servizi Web di produzione di classe enterprise. Per informazioni su come importare il codice e la visualizzazione R in ML Studio, vedere l'argomento relativo all'**estendibilità con R** nella guida di ML Studio.
-
-**12. Quali pacchetti R sono disponibili in ML Studio?**
-
-Al momento ML Studio supporta oltre 350 pacchetti R e l'elenco è in continuo aumento. Per informazioni su come ottenere l'elenco dei pacchetti R supportati, vedere l'argomento relativo all'**estendibilità con R** nella guida di ML Studio. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti][forum con i commenti e suggerimenti degli utenti].
-
-### SERVIZIO ML API
-
-**13. In quali casi è necessario eseguire il modello predittivo come servizio Esecuzione batch anziché come servizio Web Richiesta-risposta?**
-
-Il servizio Richiesta-risposta è un servizio Web a bassa latenza e scalabilità elevata che fornisce un'interfaccia a modelli senza stato creati e pubblicati dall'ambiente di sperimentazione. Il servizio Esecuzione batch è un servizio per l'assegnazione di punteggi asincrona di un batch di record di dati. L'input per il servizio Esecuzione batch è simile all'input di dati per il servizio Richiesta-risposta. La differenza principale consiste nel fatto che il servizio Esecuzione batch legge un blocco di record da un'ampia gamma di origini, ad esempio origini BLOB e tabelle di Azure, database SQL (Azure), HDInsight (Query Hive) e HTTP. L'output dei risultati dell'assegnazione di punteggi viene eseguito in un file nel servizio di archiviazione BLOB di Azure e l'endpoint di archiviazione viene restituito nella risposta.
-
-Il servizio Esecuzione batch è utile negli scenari in cui è necessario assegnare punteggi a una grande quantità di dati, in batch, oppure quando gran parte dei dati è già in formato file in una risorsa di archiviazione di Azure o in un cluster Hadoop. Il servizio Web può convertire i dati che legge prima di inviarli al modello, affinché sia sufficiente indirizzare i dati delle transazioni settimanali a un servizio Batch che li convertirà e fornirà i risultati.
-
-Il servizio Richiesta-risposta è utile nei casi in cui sono necessarie analisi predittive in tempo quasi reale per popolare un dashboard attivo o guidare l'azione dell'utente o il contenuto presentato tramite un'applicazione mobile o Web.
-
-**14. Come è possibile aggiornare il modello per i servizi di produzione già distribuiti?**
-
-L'aggiornamento di un modello predittivo per un servizio già distribuito è semplice. È sufficiente modificare l'esperimento usato per creare e salvare il modello di apprendimento ed eseguirlo di nuovo. Quando è disponibile la nuova versione del modello di apprendimento, ML Studio chiederà all'utente se vuole aggiornare il servizio Web nell'ambiente di gestione temporanea. Una volta applicato l'aggiornamento al servizio Web nell'ambiente di gestione temporanea, lo stesso aggiornamento diventerà disponibile per il servizio Web nell'ambiente di produzione. Per informazioni dettagliate su come aggiornare un servizio Web distribuito, vedere l'argomento relativo all'**aggiornamento del servizio Web** nella Guida di ML Studio.
-
-### SICUREZZA E DISPONIBILITÀ
-
-**15. Quali utenti possono accedere per impostazione predefinita all'endpoint HTTP per il servizio Web distribuito nell'ambiente di produzione? Come è possibile limitare l'accesso all'endpoint?**
-
-Dopo che il modello predittivo è stato distribuito nell'ambiente di produzione, nel portale di Azure viene indicato l'URL per i servizi Web distribuiti. È possibile accedere agli URL dei servizi nell'ambiente di gestione temporanea dalla sezione Servizi Web dell'ambiente ML Studio e agli URL dei servizi dell'ambiente di produzione dalla sezione Machine Learning del portale di Azure. Per i servizi Web di gestione temporanea e di produzione, le chiavi di accesso vengono fornite rispettivamente nel dashboard del servizio Web in ML Studio e nel portale di Azure. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea.
-
-**16. Come è possibile monitorare un servizio Web distribuito nell'ambiente di produzione?**
-
-Dopo che il modello predittivo è stato distribuito nell'ambiente di produzione, è possibile monitorarlo nel portale di Azure. Per ogni servizio distribuito è disponibile un dashboard dedicato in cui vengono visualizzate le informazioni di monitoraggio per il servizio in questione.
-
-### SUPPORTO E FORMAZIONE
-
-**17. Dove è possibile trovare risorse di formazione per Azure ML?**
-
-In [Azure Machine Learning Center][Azure Machine Learning Center] sono disponibili esercitazioni video e procedure dettagliate. Nelle procedure dettagliate viene fornita un'introduzione ai servizi e viene descritto il ciclo di vita delle operazioni di importazione dei dati, pulizia dei dati, creazione di modelli predittivi e importazione dei modelli nell'ambiente di produzione con Azure ML.
-
-Le esercitazioni video offrono invece una panoramica visiva di ML Studio e del servizio ML API. Nelle esercitazioni video viene fornita una panoramica del servizio e vengono descritti i moduli di ingresso, pulizia ed elaborazione dei dati più comuni e le procedure per la creazione e la successiva distribuzione dei modelli predittivi. Nelle esercitazioni video vengono anche illustrate attività quali il provisioning dell'area di lavoro e la distribuzione dei modelli di gestione temporanea nell'ambiente di produzione.
-
-Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. È possibile inviare richieste di ulteriore materiale di formazione nel [forum dei commenti e suggerimenti degli utenti][forum dei commenti e suggerimenti degli utenti] di Machine Learning Center.
-
-**18. Come è possibile richiedere supporto per Azure ML?**
-
-Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per richiedere supporto tecnico per Azure ML, selezionare il servizio 'Machine Learning'. Scegliere una delle categorie di argomenti per inviare il ticket di supporto. Per altre informazioni sull'offerta di supporto di Azure, vedere [http://azure.microsoft.com/support/options/][http://azure.microsoft.com/support/options/]
-
-È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure][forum di Azure].
-
-  [introduzione]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure Machine Learning Center]: http://azure.microsoft.com/documentation/services/machine-learning/
-  [http://azure.microsoft.com/pricing/details/machine-learning/]: http://azure.microsoft.com/pricing/details/machine-learning/
-  [http://azure.microsoft.com/pricing/free-trial-faq/]: http://azure.microsoft.com/pricing/free-trial-faq/
-  [forum con i commenti e suggerimenti degli utenti]: http://go.microsoft.com/fwlink/?LinkId=404231
-  [forum dei commenti e suggerimenti degli utenti]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [http://azure.microsoft.com/support/options/]: http://azure.microsoft.com/support/options/
-  [forum di Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/it-it/home?forum=MachineLearning
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+Questa sezione contiene le domande e le risposte su Azure Machine Learning, un servizio cloud per la modellazione predittiva e l'operatività delle soluzioni con i servizi Web. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
  
+##Domande generali
+
+**Cos'è Azure Machine Learning?**
+ 
+Azure Machine Learning è un servizio completamente gestito che è possibile usare per creare, testare, usare e gestire le soluzioni per l'analisi predittiva nel cloud. Con un semplice browser è possibile accedere, caricare i dati e avviare immediatamente le sperimentazioni di Machine Learning. La modellazione predittiva a trascinamento, un'ampia gamma di moduli e una libreria di modelli di avvio rendono le attività comuni di Machine Learning facili e veloci da eseguire. Per altre informazioni, vedere la [panoramica del servizio di Azure Machine Learning](/services/machine-learning/). Per un'introduzione al Machine Learning che tratta i concetti e la terminologia di base, vedere [Introduzione ad Azure Machine Learning](machine-learning-what-is-machine-learning.md).
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+ 
+**Cos'è Machine Learning Studio?**
+
+Machine Learning Studio è un ambiente workbench accessibile tramite un Web browser. Machine Learning Studio ospita diversi moduli con un'interfaccia di composizione visiva che consente di compilare un flusso di lavoro di data science end-to-end sotto forma di esperimento.
+
+Per altre informazioni su Machine Learning Studio, vedere [Cos'è Machine Learning Studio](machine-learning-what-is-ml-studio.md)
+
+**Cos'è il servizio API di Machine Learning?**
+
+Il servizio API di Machine Learning consente di distribuire i modelli predittivi compilati in Machine Learning Studio sotto forma di servizi Web scalabili e a tolleranza di errore. I servizi Web creati dal servizio API di Machine Learning sono API REST che forniscono un'interfaccia per la comunicazione tra le applicazioni eterne e i modelli di analisi predittiva.
+
+Vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md) per altre informazioni.
+
+
+##Domande sulla fatturazione
+
+**Come funziona la fatturazione di Machine Learning?**
+
+Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi](http://azure.microsoft.com/pricing/details/machine-learning/).
+
+**Machine Learning offre una versione di valutazione gratuita?**
+
+ Quando ci si iscrive a una versione di valutazione gratuita di Azure, è possibile provare tutti i servizi Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, visitare [Domande frequenti sulla versione di valutazione gratuita di Azure](/pricing/free-trial-faq/).
+
+## Domande su Machine Learning Studio
+
+###Creazione di un esperimento	
+**Esiste il controllo della versione o l'integrazione Git per i grafici dell'esperimento?**
+
+No. Tuttavia, quando si esegue un esperimento, la versione del grafico viene mantenuta e non può essere modificata dagli altri utenti.
+
+###Importazione ed esportazione dei dati per Machine Learning
+**Quali origini dati sono supportate da Machine Learning?**
+
+I dati possono essere caricati in Machine Learning Studio in uno dei due modi seguenti: caricando i file locali come set di dati oppure usando un modulo Reader per importare i dati. I file locali possono essere caricati aggiungendo nuovi set di dati in Machine Learning Studio. Vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md) per altre informazioni sui formati di file supportati.
+
+
+####<a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
+
+I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, 10 GB rappresenta il totale di tutte le dimensioni degli input. È anche possibile campionare set di dati di dimensioni maggiori tramite le query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione Learning by Counts prima dell'inserimento.
+
+I seguenti tipi di dati possono espandersi in set di dati di dimensioni maggiori durante la normalizzazione della funzionalità e sono limitati a meno di 10 GB:
+
+- Sparse
+- Categorical
+- Stringhe
+- Dati binari
+
+I seguenti moduli sono limitati a set di dati inferiori a 10 GB:
+
+- Moduli di raccomandazione
+- Modulo SMOTE
+- Moduli di script: R, Python, SQL
+- Moduli in cui la dimensione dei dati di output può essere maggiore della dimensione dei dati in input, ad esempio Join o Feature Hashing.
+- Convalida incrociata, parametri di organizzazione, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato.
+
+Per i set di dati con dimensioni maggiori di alcuni GB, è necessario caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
+
+
+####<a id="UploadLimit"></a>Quali sono i limiti per il caricamento di dati?
+Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
+
+**È possibile leggere i dati da Amazon S3?**
+
+Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. <!--
+<SEE CLOUD DS PROCESS>
+-->
+
+**Esiste una capacità di input dell'immagine predefinita?**
+
+Per informazioni sulla capacità di input dell'immagine, vedere [Image Reader][image-reader].
+
+###Moduli 
+
+**L'algoritmo, l'origine dati, il formato dei dati o l'operazione di trasformazione dei dati cercati non sono presenti in Azure ML Studio. Quali sono le opzioni disponibili?**
+
+È possibile visitare il [forum con i commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231) per visualizzare le richieste di funzionalità a cui stiamo dando seguito. Se la funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente. Oltre al supporto predefinito per R e Python, è possibile creare trasformazioni personalizzate in base alle proprie esigenze.
+
+
+**È possibile trasferire un proprio codice esistente in ML Studio?**
+
+Sì, è possibile trasferire un proprio codice R esistente in ML Studio ed eseguirlo nello stesso esperimento con gli strumenti di apprendimento forniti da Azure Machine Learning, quindi pubblicarlo come servizio Web tramite Azure Machine Learning. Vedere [Estendere l'esperimento con R](machine-learning-extend-your-experiment-with-r.md).
+
+**È possibile usare un codice tipo [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) per definire un modello?**
+
+No, non è supportato. Tuttavia, è possibile usare il codice personalizzato R e Python per definire un modulo.
+
+
+###Elaborazione dei dati 
+**Esiste la possibilità di visualizzare i dati \(oltre alle visualizzazioni R\) in modo interattivo all'interno dell'esperimento?**
+
+Facendo clic sull'output di un modulo è possibile visualizzare i dati e ottenere le statistiche.
+
+**Quando si esegue l'anteprima dei risultati o dei dati nel browser, il numero di righe e colonne è limitato. Perché?**
+
+Poiché la quantità di dati trasmessi al browser può essere elevata, la dimensione dei dati viene limitata per evitare il rallentamento di ML Studio. È preferibile scaricare i dati/risultati e usare Excel o un altro strumento per visualizzarli per intero.
+
+###Algoritmi
+**Quali algoritmi esistenti sono supportati in Machine Learning Studio?**
+
+Machine Learning Studio fornisce algoritmi all'avanguardia, ad esempio gli alberi delle decisioni con boosting scalabili, i sistemi di raccomandazione bayesiani, le reti neurali basate su machine deep learning e le giungle delle decisioni sviluppati da Microsoft Research. Sono inclusi anche i pacchetti open source di Machine Learning scalabili come Vowpal Wabbit. Machine Learning Studio supporta gli algoritmi di Machine Learning per la classificazione multiclasse e binaria, la regressione e il clustering. Vedere l'elenco completo dei [moduli di Machine Learning][machine-learning-modules].
+
+**L'algoritmo di Machine Learning più appropriato per i dati viene suggerito automaticamente?**
+
+No. Tuttavia, esistono diversi modi in Machine Learning Studio per confrontare i risultati di ogni algoritmo per determinare quello più adatto per la risoluzione del problema.
+
+**Sono disponibili delle linee guida su come scegliere un algoritmo rispetto a tutti gli algoritmi forniti?** Vedere [Come scegliere un algoritmo in Azure Machine Learning](machine-learning-algorithm-choice.md).
+
+**Gli algoritmi forniti sono scritti in R o Python?**
+
+No. Questi algoritmi sono scritti principalmente in linguaggi compilati per fornire prestazioni più elevate.
+
+**Sono disponibili informazioni dettagliate sugli algoritmi forniti?**
+
+La documentazione fornisce alcune informazioni sugli algoritmi. Inoltre, sono descritti i parametri forniti per l'ottimizzazione dell'algoritmo che è possibile usare.
+
+**È previsto il supporto per l'apprendimento online?**
+
+No. Attualmente è supportata solo la ripetizione del training a livello di codice.
+
+**È possibile visualizzare i livelli di un modello Neural Net usando il modulo predefinito?**
+
+No.
+
+**È possibile creare dei moduli personalizzati in C\# o in altri linguaggi?**
+
+Attualmente, i nuovi moduli personalizzati possono essere creati solo in R.
+
+###Modulo R 
+**Quali pacchetti R sono disponibili in Machine Learning Studio?**
+
+Attualmente, Machine Learning Studio supporta più di 400 pacchetti R e l'elenco è in costante aumento. Vedere [Estendere l'esperimento con R](machine-learning-extend-your-experiment-with-r.md) per informazioni su come ottenere un elenco di pacchetti R supportati. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231).
+
+**È possibile compilare un modulo R personalizzato?**
+
+Sì. Vedere [Creazione di moduli R personalizzati in Azure Machine Learning](machine-learning-custom-r-modules.md) per altre informazioni.
+
+**Esiste un ambiente REPL per R?**
+
+No, non esistono ambienti REPL per R in Studio.
+
+###Modulo Python 
+
+**È possibile compilare un modulo Python personalizzato?**
+
+Non al momento, ma con il modulo Python standard o un set di moduli è possibile ottenere lo stesso risultato.
+
+**Esiste un ambiente REPL per Python?**
+
+No, non esistono ambienti REPL per Python in Studio.
+
+## Servizio Web
+###Ripetizione del training dei modelli a livello di codice
+
+**Come si ripete il training dei modelli AzureML a livello di codice?** Usare le API per la ripetizione del training. Il codice di esempio è disponibile [qui](https://azuremlretrain.codeplex.com/).
+
+###Creazione
+
+**È possibile distribuire il modello in locale o in un'applicazione senza una connessione Internet?** No.
+
+
+**Esiste una latenza di base prevista per tutti i servizi Web?**
+
+Vedere [Limiti relativi alle sottoscrizioni](../azure-subscription-service-limits.md)
+
+###Uso
+**Quando si esegue il modello predittivo come servizio di esecuzione batch invece che come servizio richiesta-risposta?**
+
+Il servizio richiesta-risposta \(RRS\) è un servizio Web a bassa latenza e a scalabilità elevata usato per fornire un'interfaccia ai modelli senza stato creati e pubblicati dall'ambiente dell'esperimento. Il servizio di esecuzione batch \(BES\) è un servizio per il punteggio asincrono di un batch di record di dati. L'input per BES è simile all'input di dati usato in RRS. La differenza principale è che BES legge un blocco di record da diverse origini, ad esempio il servizio BLOB e il servizio tabelle in Azure, il database SQL di Azure, HDInsight \(query hive\) e origini HTTP. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+
+**Come si aggiorna il modello per il servizio Web distribuito?**
+
+L'aggiornamento di un modello predittivo per un servizio già distribuito è semplice. È sufficiente modificare l'esperimento usato per creare e salvare il modello di apprendimento ed eseguirlo di nuovo. Quando è disponibile la nuova versione del modello di apprendimento, ML Studio chiederà all'utente se vuole aggiornare il servizio Web nell'ambiente di gestione temporanea. Dopo aver applicato l'aggiornamento al servizio Web di gestione temporanea, lo stesso aggiornamento diventa disponibile anche per il servizio Web di produzione. Vedere [Pubblicare un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) per dettagli su come aggiornare un servizio Web distribuito.
+
+
+**Come si monitora il servizio Web distribuito in produzione?**
+
+Una volta inserito in produzione un modello predittivo, è possibile monitorarlo dal portale di Azure. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio.
+
+**Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
+
+Sì. È necessario fornire una posizione di archiviazione BLOB in cui verrà inserito l'output di RRS/BES.
+
+
+
+##Scalabilità 
+
+**Che cos'è la scalabilità del servizio Web?**
+
+Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 80 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse \(300 processi di lavoro\).
+
+
+**I processi R sono distribuiti in più nodi?**
+
+No.
+
+
+**Su quanti dati è possibile eseguire il training?**
+
+I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, 10 GB rappresenta il totale di tutte le dimensioni degli input. È anche possibile campionare set di dati di dimensioni maggiori tramite le query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione Learning by Counts prima dell'inserimento.
+
+I seguenti tipi di dati possono espandersi in set di dati di dimensioni maggiori durante la normalizzazione della funzionalità e sono limitati a meno di 10 GB:
+
+- Sparse
+- Categorical
+- Stringhe
+- Dati binari
+
+I seguenti moduli sono limitati a set di dati inferiori a 10 GB:
+
+- Moduli di raccomandazione
+- Modulo SMOTE
+- Moduli di script: R, Python, SQL
+- Moduli in cui la dimensione dei dati di output può essere maggiore della dimensione dei dati in input, ad esempio Join o Feature Hashing.
+- Convalida incrociata, parametri di organizzazione, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato.
+
+Per i set di dati con dimensioni maggiori di alcuni GB, è necessario caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
+
+
+**Esistono limitazioni per la dimensione dei vettori?**
+
+Le righe e le colonne sono limitate singolarmente in base alla limitazione .NET di intervallo massimo: 2.147.483.647.
+
+**La dimensione della macchina virtuale su cui è in esecuzione il processo può essere modificata?**
+
+No.
+
+##Sicurezza e disponibilità 
+
+**Chi ha accesso all'endpoint HTTP per il servizio Web distribuito in produzione per impostazione predefinita? Come è possibile limitare l'accesso all'endpoint?**
+
+Dopo che il modello predittivo è stato distribuito nell'ambiente di produzione, nel portale di Azure viene indicato l'URL per i servizi Web distribuiti. Gli URL del servizio di gestione temporanea sono accessibili dall'ambiente di Machine Learning Studio nella sezione dei servizi Web. Gli URL del servizio di produzione sono accessibili dal portale di Azure nella sezione Machine Learning. Le chiavi di accesso vengono fornite per i servizi Web di gestione temporanea e di produzione dal dashboard del servizio Web negli ambienti di Machine Learning Studio e del portale di Azure, rispettivamente. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
+**Cosa succede se non viene trovato l'account di archiviazione?**
+
+Machine Learning Studio si basa su un account di archiviazione di Azure fornito dall'utente per salvare i dati intermedi quando si esegue il flusso di lavoro. Questo account di archiviazione viene fornito a Machine Learning Studio al momento della creazione di uno spazio di lavoro. Dopo aver creato lo spazio di lavoro, se l'account di archiviazione viene eliminato e non è più disponibile, lo spazio di lavoro non funzionerà più e tutti gli esperimenti nello spazio di lavoro non riusciranno.
+ 
+Se si elimina accidentalmente l'account di archiviazione, l'unico modo per ripristinarlo consiste nel ricreare l'account di archiviazione con lo stesso nome e nella stessa area dell'account eliminato. Successivamente, risincronizzare la chiave di accesso.
+ 
+
+**Cosa succede se la chiave di accesso dell'account di archiviazione non è sincronizzata?** Machine Learning Studio si basa su un account di archiviazione di Azure fornito dall'utente per salvare i dati intermedi quando si esegue il flusso di lavoro. Questo account di archiviazione viene fornito a Machine Learning Studio al momento della creazione di uno spazio di lavoro e le chiavi di accesso sono associate allo spazio di lavoro. Dopo aver creato lo spazio di lavoro, se le chiavi di accesso vengono modificate, lo spazio di lavoro non riesce più ad accedere all'account di archiviazione, quindi non funzionerà più e tutti gli esperimenti nello spazio di lavoro non riusciranno.
+
+Se sono state modificate le chiavi di accesso dell'account di archiviazione, assicurarsi di risincronizzare le chiavi di accesso nell'impostazione dello spazio di lavoro del portale di Azure
+
+
+##Azure Marketplace 
+
+Vedere [Domande frequenti sulla pubblicazione e sull'utilizzo delle app di Machine Learning in Azure Marketplace](machine-learning-marketplace-faq.md)
+
+##Supporto e training 
+
+**Dove si trovano i training per Azure ML?**
+
+Il [centro di documentazione di Azure Machine Learning](/services/machine-learning/) ospita le esercitazioni video e le guide per le procedure. Queste guide dettagliate forniscono un'introduzione ai servizi e indicazioni sul ciclo di vita data-science per l'importazione dei dati, la pulizia dei dati, la compilazione di modelli predittivi e la loro distribuzione in produzione con Azure ML.
+
+Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. Per ottenere altro materiale di apprendimento, inviare una richiesta su Machine Learning Center nel [forum dei commenti degli utenti](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+
+I training sono disponibili anche in [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)
+
+**Come si ottiene il supporto per Azure Machine Learning?**
+
+Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di supporto per Azure](/support/options/) e selezionare **Machine Learning**.
+
+È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+
+
+<!-- Module References -->
+[image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
+[join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
+[machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
+[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
+
+<!---HONumber=58_postMigration-->

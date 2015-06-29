@@ -25,14 +25,14 @@ Questa procedura dettagliata offre un modo rapido e semplice per configurare un 
 Al termine di questa procedura dettagliata, sarà possibile compilare un server API REST in esecuzione con le funzionalità seguenti:
 
 * Un server node. js che esegue un'interfaccia API REST con JSON usando MongoDB come archivio permanente
-* API REST che sfruttando la protezione delle API OAuth2 con i token Bearner mediante Azure Active Directory
+* API REST che sfruttano la protezione delle API OAuth2 con i token Bearer mediante Azure Active Directory
 
 
-Poiché tutto il codice sorgente per questo esempio in esecuzione è stato rilasciato in GitHub con una licenza Apache 2.0, è possibile clonarlo (o ancora meglio, biforcarlo) e inviare commenti e suggerimenti e richieste pull.
+Poiché tutto il codice sorgente per questo esempio in esecuzione è stato rilasciato in GitHub con una licenza Apache 2.0, è possibile clonarlo \(o ancora meglio, biforcarlo\) e inviare commenti e suggerimenti e richieste pull.
 
 ## Informazioni sui moduli Node.js
 
-In questa procedura dettagliata verranno usati moduli Node.js. I moduli sono pacchetti JavaScript caricabili che forniscono funzionalità specifiche per l'applicazione. Di solito i moduli si installano usando lo strumento da riga di comando NPM di Node.js nella directory di installazione di NPM, ma alcuni moduli, come il modulo HTTP, sono inclusi nel pacchetto Node.js principale. I moduli installati vengono salvati nella directory node_modules nella radice della directory di installazione di Node.js. Ogni modulo nella directory node_modules mantiene la relativa directory node_modules che contiene i moduli da cui dipende e ogni modulo necessario ha una directory node_modules. Questa struttura di directory ricorsiva rappresenta la catena di dipendenze.
+In questa procedura dettagliata verranno usati moduli Node.js. I moduli sono pacchetti JavaScript caricabili che forniscono funzionalità specifiche per l'applicazione. Di solito i moduli si installano usando lo strumento da riga di comando NPM di Node.js nella directory di installazione di NPM, ma alcuni moduli, come il modulo HTTP, sono inclusi nel pacchetto Node.js principale. I moduli installati vengono salvati nella directory node\_modules nella radice della directory di installazione di Node.js. Ogni modulo nella directory node\_modules mantiene la relativa directory node\_modules che contiene i moduli da cui dipende e ogni modulo necessario ha una directory node\_modules. Questa struttura di directory ricorsiva rappresenta la catena di dipendenze.
 
 Questa struttura della catena di dipendenze comporta un footprint maggiore delle applicazioni, ma garantisce che vengano soddisfatte tutte le dipendenze e che la versione dei moduli usata durante lo sviluppo venga usata anche in fase di produzione. In questo modo il comportamento delle app di produzione è più prevedibile e si evitano problemi controllo delle versioni per gli utenti.
 
@@ -197,7 +197,7 @@ Dalla riga di comando passare alla cartella **azuread**, se necessario:
 `cd azuread`
 
 
-Immettere i comandi seguenti per installare i seguenti moduli nella directory node_modules:
+Immettere i comandi seguenti per installare i seguenti moduli nella directory node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -274,7 +274,7 @@ Creare un file `config.js` nell'editor preferito e aggiungere le seguenti inform
 
 **NOTA:** probabilmente non sarà mai necessario modificare questi valori.
 
-**NOTA:** le chiavi vengono registrate con una certa frequenza. Assicurarsi di effettuare sempre il pull dall'URL "openid_keys" e che l'app possa accedere a Internet.
+**NOTA:** le chiavi vengono registrate con una certa frequenza. Assicurarsi di effettuare sempre il pull dall'URL "openid\_keys" e che l'app possa accedere a Internet.
 
 
 ## Passaggio 12: Aggiungere la configurazione al file server.js
@@ -540,7 +540,7 @@ Ora si inizierà a vedere l'utilità di tutte queste operazioni di preparazione 
 
 Per questa procedura dettagliata si userà MongoDB per archiviare le attività, come illustrato nel ***Passaggio 4***.
 
-Come indicato nel file `config.js` creato nel ***Passaggio 11***, il database è stato chiamato `tasklist` come quello inserito alla fine dell'URL di connessione mogoose_auth_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server (presumendo che non esista già).
+Come indicato nel file `config.js` creato nel ***Passaggio 11***, il database è stato chiamato `tasklist` come quello inserito alla fine dell'URL di connessione mogoose\_auth\_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server \(presumendo che non esista già\).
 
 Ora che è stato indicato al server quale database MongoDB deve usare, è necessario scrivere un codice aggiuntivo per creare il modello e lo schema per le attività del server.
 
@@ -628,11 +628,11 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 ```
 
 
-Questo è il modello più semplice. Resitfy (come anche Express) offre funzionalità molto più avanzate, ad esempio la definizione di tipi di applicazione e l'esecuzione di un routing complesso tra endpoint diversi. In questo caso, le route saranno molto semplici.
+Questo è il modello più semplice. Resitfy \(come anche Express\) offre funzionalità molto più avanzate, ad esempio la definizione di tipi di applicazione e l'esecuzione di un routing complesso tra endpoint diversi. In questo caso, le route saranno molto semplici.
 
 #### Aggiungere le route predefinite al server
 
-Ora si aggiungeranno le route CRUD (creazione, recupero, aggiornamento ed eliminazione).
+Ora si aggiungeranno le route CRUD \(creazione, recupero, aggiornamento ed eliminazione\).
 
 Dalla riga di comando passare alla cartella **azuread**, se necessario:
 
@@ -833,7 +833,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 Dopo avere definito il database e inserito le route, resta solo da aggiungere l'istanza del server che gestirà le chiamate.
 
-Restify (come anche Express) offre un elevato livello di personalizzazione per un server API REST, ma anche in questo caso si userà la configurazione più semplice.
+Restify \(come anche Express\) offre un elevato livello di personalizzazione per un server API REST, ma anche in questo caso si userà la configurazione più semplice.
 
 ```Javascript
 /**
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,9 +1029,9 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. Indicare al server che si usa l'autenticazione
+### 2\. Indicare al server che si usa l'autenticazione
 
-Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti informazioni **sotto il metodo server.get()**, in cui sono state definite le route, ma sopra il metodo **server.listen()**.
+Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti informazioni **sotto il metodo server.get\(\)**, in cui sono state definite le route, ma sopra il metodo **server.listen\(\)**.
 
 
 È necessario indicare a Restify di iniziare a usare `authorizationParser()` e a esaminare il contenuto dell'intestazione dell'autorizzazione.
@@ -1043,7 +1043,7 @@ Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti inform
 ```
 
 
-### 3. Aggiungere il modulo OAuth2 di Passport al codice
+### 3\. Aggiungere il modulo OAuth2 di Passport al codice
 
 Qui si usano i parametri specifici di OAuth2 aggiunti al file config.js. Se il file `aadutils.js` ha analizzato correttamente il documento Federation Metadata, tutti questi valori verranno popolati automaticamente, anche se sono vuoti nel file config.js.
 
@@ -1089,7 +1089,7 @@ server.get('/auth/provider/callback',
                                       failureRedirect: '/login' }));
 ```
 
-### Passaggio 5: Aggiungere un metodo helper IsAuthenticated() alle route
+### Passaggio 5: Aggiungere un metodo helper IsAuthenticated\(\) alle route
 
 ```Javascript
 // Simple route middleware to ensure user is authenticated.
@@ -1127,7 +1127,7 @@ passport.deserializeUser(function(id, done) {
 ```
 ### Passaggio 7: Proteggere alcuni endpoint
 
-Per proteggere gli endpoint, specificare la chiamata a passport.authenticate() con il protocollo preferito.
+Per proteggere gli endpoint, specificare la chiamata a passport.authenticate\(\) con il protocollo preferito.
 
 Si può eseguire un'operazione più interessante modificando la route nel codice del server:
 
@@ -1176,5 +1176,6 @@ Sarà sufficiente clonarli nel computer di sviluppo e configurarli come spiegato
 [ADAL per Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL per .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

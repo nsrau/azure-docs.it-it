@@ -26,25 +26,25 @@ Per completare questa esercitazione sono necessari alcuni prerequisiti. È neces
 2. [L’interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli)
 3. Un [client Docker](https://docs.docker.com/installation/)
 
-Se gli elementi vengono installati in questo ordine, il computer Ubuntu sarà pronto per l'esercitazione. (Questa esercitazione è, in linea di massima, uguale per le altre distro basate su dpkg, ad esempio Debian. Indicare nei commenti se vengono individuati altri requisiti o passaggi).
+Se gli elementi vengono installati in questo ordine, il computer Ubuntu sarà pronto per l'esercitazione. \(Questa esercitazione è, in linea di massima, uguale per le altre distro basate su dpkg, ad esempio Debian. Indicare nei commenti se vengono individuati altri requisiti o passaggi\).
 
 ## Ottenere Docker Machine o compilarlo
 
-Il modo più rapido per procedere con  **Docker Machine** consiste nello scaricare la versione appropriata direttamente dal  [sito di condivisione delle versioni](https://github.com/docker/machine/releases). Sul computer client di questa esercitazione è in esecuzione Ubuntu in un computer x64, per cui viene usata l'immagine **docker-machine_linux-amd64**.
+Il modo più rapido per procedere con **Docker Machine** consiste nello scaricare la versione appropriata direttamente dal [sito di condivisione delle versioni](https://github.com/docker/machine/releases). Sul computer client di questa esercitazione è in esecuzione Ubuntu in un computer x64, per cui viene usata l'immagine **docker-machine\_linux-amd64**.
 
-È anche possibile compilare autonomamente la propria **Docker Machine** seguendo i passaggi per  [contribuire a machine](https://github.com/docker/machine#contributing). Per eseguire la compilazione sarà necessario scaricare 1 GB o più, ma in questo modo sarà possibile personalizzare la propria esperienza nel modo desiderato.
+È anche possibile compilare autonomamente la propria **Docker Machine** seguendo i passaggi per [contribuire a machine](https://github.com/docker/machine#contributing). Per eseguire la compilazione sarà necessario scaricare 1 GB o più, ma in questo modo sarà possibile personalizzare la propria esperienza nel modo desiderato.
 
-> [AZURE.NOTE]Sarà inoltre possibile creare un  [collegamento simbolico ](http://en.wikipedia.org/wiki/Symbolic_link) alla versione della piattaforma in uso, anche se in questa esercitazione verrà usato direttamente il nome binario per illustrare il funzionamento in modo chiaro. Di conseguenza, anziché comandi come `docker-machine env` riportati nella documentazione di **Docker Machine**, in questa esercitazione verrà usato il comando `docker-machine_linux-amd64 env`. La creazione di un collegamento simbolico o l'uso del nome binario direttamente è vantaggioso per l'utente, ma se si modifica il nome utilizzato è necessario modificare il nome anche nelle istruzioni seguenti.
+> [AZURE.NOTE]Sarà inoltre possibile creare un [collegamento simbolico ](http://en.wikipedia.org/wiki/Symbolic_link) alla versione della piattaforma in uso, anche se in questa esercitazione verrà usato direttamente il nome binario per illustrare il funzionamento in modo chiaro. Di conseguenza, anziché comandi come `docker-machine env` riportati nella documentazione di **Docker Machine**, in questa esercitazione verrà usato il comando `docker-machine_linux-amd64 env`. La creazione di un collegamento simbolico o l'uso del nome binario direttamente è vantaggioso per l'utente, ma se si modifica il nome utilizzato è necessario modificare il nome anche nelle istruzioni seguenti.
 
 <br />
 
->  Indipendentemente dal metodo scelto, è necessario chiamare il nome binario direttamente sulla riga di comando o inserirlo nel percorso, ad esempio **/usr/local/bin**. Verificare che sia contrassegnato come eseguibile digitando `chmod +x` &lt;*`binaryName`*&gt; dove &lt;*`binaryName`*&gt;  è il nome di Docker Machine eseguibile. In questa esercitazione viene usato  **docker-machine_linux-amd64**.
+>  Indipendentemente dal metodo scelto, è necessario chiamare il nome binario direttamente sulla riga di comando o inserirlo nel percorso, ad esempio **/usr/local/bin**. Verificare che sia contrassegnato come eseguibile digitando `chmod +x` &lt;\*`binaryName`\*&gt; dove &lt;\*`binaryName`\*&gt; è il nome di Docker Machine eseguibile. In questa esercitazione viene usato **docker-machine\_linux-amd64**.
 
 ## Creare i file di certificato e della chiave per docker, macchina e Azure
 
-È necessario ora creare i file di certificato e della chiave con cui Azure potrà verificare l'identità e le autorizzazioni dell'utente, nonché i file necessari a  **Docker Machine** per comunicare con la macchina virtuale di Azure e creare e gestire contenitori in remoto. Se questi file sono già disponibili in una directory, ad esempio per l'uso con docker, è possibile riutilizzarli. Tuttavia, per il test di  **Docker Machine**, si consiglia di creare i file in una directory separata e di puntare  Docker Machine a tali file.
+È necessario ora creare i file di certificato e della chiave con cui Azure potrà verificare l'identità e le autorizzazioni dell'utente, nonché i file necessari a **Docker Machine** per comunicare con la macchina virtuale di Azure e creare e gestire contenitori in remoto. Se questi file sono già disponibili in una directory, ad esempio per l'uso con docker, è possibile riutilizzarli. Tuttavia, per il test di **Docker Machine**, si consiglia di creare i file in una directory separata e di puntare Docker Machine a tali file.
 
-> [AZURE.NOTE]Se si finisce con il provare e riprovare **Docker Machine**, assicurarsi di riutilizzare gli stessi file di certificato e chiave. **Docker Machine** crea anche un set di certificati client. Tutti gli elementi creati possono essere esaminati in `~/.docker/machine`. Se si spostano questi certificati in un altro computer, sarà necessario spostare anche le cartelle dei certificati di **Docker Machine** . Ciò costituirà  una differenza se si prevede di usare **Docker Machine** su un'altra piattaforma, ad esempio per vedere semplicemente come funziona.
+> [AZURE.NOTE]Se si finisce con il provare e riprovare **Docker Machine**, assicurarsi di riutilizzare gli stessi file di certificato e chiave. **Docker Machine** crea anche un set di certificati client. Tutti gli elementi creati possono essere esaminati in `~/.docker/machine`. Se si spostano questi certificati in un altro computer, sarà necessario spostare anche le cartelle dei certificati di **Docker Machine** . Ciò costituirà una differenza se si prevede di usare **Docker Machine** su un'altra piattaforma, ad esempio per vedere semplicemente come funziona.
 
 Se si ha esperienza con le distribuzioni Linux, è possibile che questi file siano già disponibili per l'uso nel computer in una specifica ubicazione. [La procedura viene illustrata anche nella documentazione di Docker HTTPS](https://docs.docker.com/articles/https/). Tuttavia, di seguito viene riportata la procedura più semplice.
 
@@ -57,7 +57,7 @@ Se si ha esperienza con le distribuzioni Linux, è possibile che questi file sia
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. Caricare il file .cer del certificato in Azure. Nel [Portale di Azure](https://manage.windowsazure.com), fare clic su **Impostazioni** in basso a sinistra dell’area di servizio (mostrata sotto)
+2. Caricare il file .cer del certificato in Azure. Nel [Portale di Azure](https://manage.windowsazure.com), fare clic su **Impostazioni** in basso a sinistra dell’area di servizio \(mostrata sotto\)
 
 	![][portalsettingsitem]
 
@@ -65,11 +65,11 @@ Se si ha esperienza con le distribuzioni Linux, è possibile che questi file sia
 
 	![][managementcertificatesitem]
 
-	infine su **Carica** (nella parte inferiore della pagina) ![][uploaditem] per caricare il file **mycert.cer** creato al passaggio precedente.
+	infine su **Carica** \(nella parte inferiore della pagina\) ![][uploaditem] per caricare il file **mycert.cer** creato al passaggio precedente.
 
 3. Nello stesso riquadro **Impostazioni** nel portale, fare clic su **Sottoscrizioni** e acquisire l'ID sottoscrizione da usare quando si crea la macchina virtuale, in quanto verrà richiesto nel passaggio successivo. È anche possibile individuare l'ID sottoscrizione nella riga di comando usando il comando dell’interfaccia della riga di comando di Azure `azure account list`, che consente di visualizzare l'ID per ogni sottoscrizione disponibile nell'account.
 
-4. Creare una macchina virtuale host Docker in Azure tramite il comando **docker-machine create**. Il comando richiede l'ID sottoscrizione acquisito al passaggio precedente e il percorso del file **.pem** creato al passaggio 1. In questo argomento, come nome del servizio cloud di Azure (e della macchina virtuale) viene usato "nome-computer", ma è opportuno sostituire tale nome con il nome scelto e ricordarsi di usare il nuovo nome del servizio cloud negli altri passaggi che richiedono il nome della macchina virtuale. Tenere presente che in questo esempio viene usato il nome binario completo e non un collegamento simbolico di  **Docker Machine**.
+4. Creare una macchina virtuale host Docker in Azure tramite il comando **docker-machine create**. Il comando richiede l'ID sottoscrizione acquisito al passaggio precedente e il percorso del file **.pem** creato al passaggio 1. In questo argomento, come nome del servizio cloud di Azure \(e della macchina virtuale\) viene usato "nome-computer", ma è opportuno sostituire tale nome con il nome scelto e ricordarsi di usare il nuovo nome del servizio cloud negli altri passaggi che richiedono il nome della macchina virtuale. Tenere presente che in questo esempio viene usato il nome binario completo e non un collegamento simbolico di **Docker Machine**.
 
 		docker-machine_linux-amd64 create \
 	    -d azure \
@@ -174,7 +174,7 @@ Tuttavia, è possibile che si desideri creare un'applicazione che si possa visua
     Status: Downloaded newer image for nginx:latest
     5883e2ff55a4ba0aa55c5c9179cebb590ad86539ea1d4d367d83dc98a4976848
 
-Per visualizzare l'applicazione su Internet, creare un endpoint pubblico sulla porta 80 per la macchina virtuale di Azure ed eseguire il mapping di tale porta alla porta del contenitore nginx. Innanzitutto, usare `docker ps -a` per rilevare il contenitore e individuare le porte assegnate da **Docker** alla porta 80 del contenitore. (Le informazioni visualizzate di seguito sono state modificate per mostrare solo le informazioni relative alla porta; ne verranno visualizzate altre).
+Per visualizzare l'applicazione su Internet, creare un endpoint pubblico sulla porta 80 per la macchina virtuale di Azure ed eseguire il mapping di tale porta alla porta del contenitore nginx. Innanzitutto, usare `docker ps -a` per rilevare il contenitore e individuare le porte assegnate da **Docker** alla porta 80 del contenitore. \(Le informazioni visualizzate di seguito sono state modificate per mostrare solo le informazioni relative alla porta; ne verranno visualizzate altre\).
 
 	$ docker ps -a
     IMAGE               PORTS
@@ -196,7 +196,7 @@ Aprire il browser preferito e dare uno sguardo.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/) e creare alcune applicazioni in Microsoft Azure. In alternativa, iniziare a usare [**Docker** e Swarm](https://github.com/docker/swarm) in Azure (virtual-machines-docker-swarm) e scoprire come Swarm può essere usato con Docker e Azure.
+Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/) e creare alcune applicazioni in Microsoft Azure. In alternativa, iniziare a usare [**Docker** e Swarm](https://github.com/docker/swarm) in Azure \(virtual-machines-docker-swarm\) e scoprire come Swarm può essere usato con Docker e Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -208,5 +208,6 @@ Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Application Insights per app desktop per Windows." 
-    description="Analizzare l'uso e le prestazioni dell'app per Windows con Application Insights." 
+    pageTitle="Application Insights per app per iOS" 
+    description="Analizzare l'utilizzo e le prestazioni dell'app per iOS con Application Insights." 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 
@@ -37,7 +37,7 @@ Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo re
 
 ## Scaricare Application Insights per Mac
 
-(Se non lo si è già fatto).
+\(Se non lo si è già fatto\).
 
 1. Scaricare [Application Insights per Mac](http://go.microsoft.com/fwlink/?LinkID=533209)
 
@@ -139,4 +139,6 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

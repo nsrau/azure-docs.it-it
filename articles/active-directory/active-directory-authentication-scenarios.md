@@ -14,18 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Scenari di autenticazione per Azure AD
 
-Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che permettono di iniziare rapidamente a creare codice. Questo documento include informazioni utili per comprendere i diversi scenari supportati da Azure AD, oltre a illustrare come iniziare. Il documento è suddiviso nelle sezioni seguenti:
+Azure Active Directory \(AD\) semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che permettono di iniziare rapidamente a creare codice. Questo documento include informazioni utili per comprendere i diversi scenari supportati da Azure AD, oltre a illustrare come iniziare. Il documento è suddiviso nelle sezioni seguenti:
 
 - [Nozioni di base sull'autenticazione in Azure AD](#basics-of-authentication-in-azure-ad).
 
-
 - [Attestazioni nei token di sicurezza di Azure AD](#claims-in-azure-ad-security-tokens)
-
 
 - [Nozioni di base sulla registrazione di un'applicazione in Azure AD ](#basics-of-registering-an-application-in-azure-ad)
 
@@ -33,7 +31,7 @@ Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori for
 
   - [Da Web browser ad applicazione Web](#web-browser-to-web-application)
 
-  - [Applicazione a singola pagina (SPA)](#single-page-application-spa)
+  - [Applicazione a singola pagina \(SPA\)](#single-page-application-spa)
 
   - [Da applicazione nativa ad API Web](#native-application-to-web-api)
 
@@ -47,7 +45,9 @@ Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori for
 
 Se non si ha familiarità con i concetti di base dell'autenticazione in Azure AD, leggere questa sezione. In caso contrario, è possibile passare alla sezione [Scenari e tipi di applicazione](#application-types-and-scenarios).
 
-Si consideri lo scenario più semplice in cui è necessaria l'identità: un utente deve eseguire l'autenticazione a un'applicazione Web da un Web browser. Questo scenario è descritto più dettagliatamente nella sezione [Da Web browser ad applicazione Web](#web-browser-to-web-application), ma è un punto di partenza utile per illustrare le funzionalità di Azure AD e definire i concetti relativi al funzionamento dello scenario. Si consideri il diagramma seguente per lo scenario: Panoramica dell'accesso all'applicazione Web
+Si consideri lo scenario più semplice in cui è necessaria l'identità: un utente deve eseguire l'autenticazione a un'applicazione Web da un Web browser. Questo scenario è descritto più dettagliatamente nella sezione [Da Web browser ad applicazione Web](#web-browser-to-web-application), ma è un punto di partenza utile per illustrare le funzionalità di Azure AD e definire i concetti relativi al funzionamento dello scenario. Per questo scenario considerare il diagramma seguente:
+
+![Panoramica dell'accesso all'applicazione Web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Tenendo presente il diagramma riportato sopra, ecco cosa occorre sapere sui vari componenti:
 
@@ -60,7 +60,7 @@ Tenendo presente il diagramma riportato sopra, ecco cosa occorre sapere sui vari
 - Gli sviluppatori possono usare le librerie di autenticazione open source di Azure AD per semplificare l'autenticazione gestendo direttamente i dettagli del protocollo. Per altre informazioni, vedere [Librerie di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 
-• Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che per l'autenticazione le parti previste sia riuscita. Gli sviluppatori possono usare le librerie di autenticazione fornite per gestire la convalida dei token da Azure AD, inclusi i token Web JSON (JWT) o SAML 2.0. Per eseguire manualmente la convalida, vedere la documentazione relativa al [gestore dei token JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che per l'autenticazione le parti previste sia riuscita. Gli sviluppatori possono usare le librerie di autenticazione fornite per gestire la convalida dei token da Azure AD, inclusi i token Web JSON \(JWT\) o SAML 2.0. Per eseguire manualmente la convalida, vedere la documentazione relativa al \[gestore dei token JWT\]\(https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx\).
 
 
 > [AZURE.IMPORTANT]Azure AD usa la crittografia a chiave pubblica per firmare i token e verificarne la validità. Per altre informazioni sulla logica richiesta nell'applicazione per assicurare che sia sempre aggiornata con le chiavi più recenti, vedere [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
@@ -68,7 +68,7 @@ Tenendo presente il diagramma riportato sopra, ecco cosa occorre sapere sui vari
 
 • Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione in uso, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Questi protocolli sono descritti in dettaglio nell'argomento [Protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) e nelle sezioni successive.
 
-> [AZURE.NOTE]Azure AD supporta gli standard OAuth 2.0 e OpenID Connect che fanno un uso intensivo dei token di connessione, inclusi quelli rappresentati come JWT Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Anche se il rilascio del token di connessione è condizionato dal completamento del processo di autenticazione in Azure AD, se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, è possibile che venga intercettato e usato da parti non autorizzate. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza essere protetto, un utente malintenzionato potrebbe usare un attacco "man in the middle" per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'applicazione trasmetta ed archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](http://tools.ietf.org/html/rfc6750).
+> [AZURE.NOTE]Azure AD supporta gli standard OAuth 2.0 e OpenID Connect che fanno un uso intensivo dei token di connessione, inclusi quelli rappresentati come JWT Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Anche se il rilascio del token di connessione è condizionato dal completamento del processo di autenticazione in Azure AD, se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, è possibile che venga intercettato e usato da parti non autorizzate. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security \(HTTPS\). Se un token di connessione viene trasmesso senza essere protetto, un utente malintenzionato potrebbe usare un attacco "man in the middle" per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'applicazione trasmetta ed archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](http://tools.ietf.org/html/rfc6750).
 
 
 Dopo avere delineato i concetti di base, è possibile passare alle sezioni seguenti per comprendere il funzionamento del provisioning in Azure AD e gli scenari comuni supportati da Azure AD.
@@ -83,9 +83,9 @@ I token di sicurezza emessi da Azure AD contengono attestazioni o asserzioni di 
 |-------|-------------|
 | ID applicazione | Identifica l'applicazione che usa il token.
 | Destinatari | Identifica la risorsa di destinazione del token. |
-| Riferimento alla classe contesto di autenticazione applicazione | Indica la modalità di autenticazione del client (client pubblico e client riservato). |
+| Riferimento alla classe contesto di autenticazione applicazione | Indica la modalità di autenticazione del client \(client pubblico e client riservato\). |
 | Istante di autenticazione | Registra la data e l'ora in cui è avvenuta l'autenticazione. |
-| Metodo di autenticazione | Indica la modalità di autenticazione dell'oggetto del token (password, certificato e così via). |
+| Metodo di autenticazione | Indica la modalità di autenticazione dell'oggetto del token \(password, certificato e così via\). |
 | Nome | Fornisce il nome dell'utente come è impostato in Azure AD. |
 | Gruppi | Contiene gli ID oggetto dei gruppi di Azure AD di cui l'utente è membro. |
 | Provider di identità | Registra il provider di identità che ha autenticato l'oggetto del token. |
@@ -128,9 +128,9 @@ Per comprendere meglio il provisioning, è utile chiarire che esistono due categ
 - Applicazione con un singolo tenant: un'applicazione con un singolo tenant è destinata all'uso in una organizzazione. In genere si tratta di applicazioni line-of-business scritte da uno sviluppatore aziendale. Un'applicazione con un singolo tenant deve essere accessibile solo agli utenti di una directory e quindi è necessario eseguirne il provisioning in una sola directory. Queste applicazioni sono generalmente registrate da uno sviluppatore dell'organizzazione.
 
 
-- Applicazione multi-tenant: un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS (Software-as-a-Service) scritte da un fornitore di software indipendente (ISV). È necessario eseguire il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione. L'utente o amministratore può quindi concedere il consenso all'applicazione, in modo da fornirle l'accesso ai dati indicati e infine di registrarla nella propria directory. Per altre informazioni, vedere [Panoramica del framework di consenso](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent).
+- Applicazione multi-tenant: un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS \(Software-as-a-Service\) scritte da un fornitore di software indipendente \(ISV\). È necessario eseguire il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione. L'utente o amministratore può quindi concedere il consenso all'applicazione, in modo da fornirle l'accesso ai dati indicati e infine di registrarla nella propria directory. Per altre informazioni, vedere [Panoramica del framework di consenso](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent).
 
-Quando si sviluppa un'applicazione multi-tenant invece di un'applicazione con un singolo tenant, occorre considerare qualche altro aspetto. Ad esempio, se l'applicazione viene resa disponibile agli utenti in più directory, è necessario un meccanismo per determinare il tenant attivo. Un'applicazione con un singolo tenant deve solo cercare un utente nella propria directory, mentre un'applicazione multi-tenant deve identificare un utente specifico in tutte le directory in Azure AD. A questo scopo, Azure AD fornisce un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è https://login.windows.net/common per tutte le directory in Azure AD, mentre un endpoint specifico di un tenant potrebbe essere https://login.windows.net/contoso.onmicrosoft.com. L'endpoint comune deve essere valutato con particolare attenzione durante lo sviluppo di un'applicazione, perché occorrerà la logica necessaria per gestire più tenant durante l'accesso, la disconnessione e la convalida dei token.
+Quando si sviluppa un'applicazione multi-tenant invece di un'applicazione con un singolo tenant, occorre considerare qualche altro aspetto. Ad esempio, se l'applicazione viene resa disponibile agli utenti in più directory, è necessario un meccanismo per determinare il tenant attivo. Un'applicazione con un singolo tenant deve solo cercare un utente nella propria directory, mentre un'applicazione multi-tenant deve identificare un utente specifico in tutte le directory in Azure AD. A questo scopo, Azure AD fornisce un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è https://login.microsoftonline.com/common per tutte le directory in Azure AD, mentre un endpoint specifico di un tenant potrebbe essere https://login.microsoftonline.com/contoso.onmicrosoft.com. L'endpoint comune deve essere valutato con particolare attenzione durante lo sviluppo di un'applicazione, perché occorrerà la logica necessaria per gestire più tenant durante l'accesso, la disconnessione e la convalida dei token.
 
 Se si sviluppa un'applicazione con un singolo tenant, ma si intende metterla a disposizione di molte organizzazioni, è possibile modificare facilmente l'applicazione e la relativa configurazione in Azure AD per fare in modo che supporti più tenant. Azure AD usa inoltre la stessa chiave di firma per tutti i token in tutte le directory, a prescindere dal fatto che si fornisca l'autenticazione in un'applicazione con un singolo tenant o multi-tenant.
 
@@ -201,22 +201,22 @@ La sessione dell'utente scade al termine del periodo di validità del token emes
 
 
 
-### Applicazione a singola pagina (SPA)
+### Applicazione a singola pagina \(SPA\)
 
 
-Questa sezione descrive l'autenticazione per un'applicazione a singola pagina che usa Azure AD per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript (front-end) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. In questo scenario, quando l'utente accede, il front-end JavaScript usa l'anteprima di [Active Directory Authentication Library per JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e il protocollo di concessione implicita OAuth 2.0 per ottenere un token ID (id_token) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
+Questa sezione descrive l'autenticazione per un'applicazione a singola pagina che usa Azure AD per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript \(front-end\) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. In questo scenario, quando l'utente accede, il front-end JavaScript usa l'anteprima di [Active Directory Authentication Library per JavaScript \(ADAL.JS\)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e il protocollo di concessione implicita OAuth 2.0 per ottenere un token ID \(id\_token\) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
 
 
 #### Diagramma
 
-![Diagramma Applicazione a singola pagina (SPA)](./media/active-directory-authentication-scenarios/single_page_app.png)
+![Diagramma Applicazione a singola pagina \(SPA\)](./media/active-directory-authentication-scenarios/single_page_app.png)
 
 #### Descrizione del flusso del protocollo
 
 1. L'utente passa all'applicazione Web.
 
 
-2. L'applicazione restituisce al browser il front-end JavaScript (livello di presentazione).
+2. L'applicazione restituisce al browser il front-end JavaScript \(livello di presentazione\).
 
 
 3. L'utente avvia l'accesso, ad esempio facendo clic su un collegamento di accesso. Il browser invia una richiesta GET all'endpoint di autorizzazione di Azure AD per richiedere un token ID. Nei parametri di query di questa richiesta sono inclusi l'URL di risposta e l'ID client.
@@ -228,7 +228,7 @@ Questa sezione descrive l'autenticazione per un'applicazione a singola pagina ch
 5. L'utente accede nella pagina di accesso.
 
 
-6. Se l'autenticazione riesce, Azure AD crea un token ID e lo restituisce come frammento di URL (#) all'URL di risposta dell'applicazione. Per un'applicazione di produzione, questo URL di risposta deve essere HTTPS. Il token restituito include le attestazioni sull'utente e Azure AD richieste dall'applicazione per convalidare il token.
+6. Se l'autenticazione riesce, Azure AD crea un token ID e lo restituisce come frammento di URL \(\#\) all'URL di risposta dell'applicazione. Per un'applicazione di produzione, questo URL di risposta deve essere HTTPS. Il token restituito include le attestazioni sull'utente e Azure AD richieste dall'applicazione per convalidare il token.
 
 
 7. Il codice client di JavaScript in esecuzione nel browser estrae il token dalla risposta per usarlo nella protezione delle chiamate al back-end dell'API Web dell'applicazione.
@@ -239,7 +239,7 @@ Questa sezione descrive l'autenticazione per un'applicazione a singola pagina ch
 #### Esempi di codice
 
 
-Vedere gli esempi di codice per gli scenari di applicazioni a singola pagina (SPA). Assicurarsi di consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi. [Applicazione a singola pagina (SPA)](active-directory-code-samples.md#single-page-application-spa).
+Vedere gli esempi di codice per gli scenari di applicazioni a singola pagina \(SPA\). Assicurarsi di consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi. [Applicazione a singola pagina \(SPA\)](active-directory-code-samples.md#single-page-application-spa).
 
 
 #### Registrazione
@@ -255,7 +255,7 @@ Dopo la registrazione dell'applicazione, è necessario configurarla per l'uso de
 
 #### Scadenza del token
 
-Quando si usa ADAL.js per gestire l'autenticazione con Azure AD, è possibile sfruttare i vantaggi offerti da varie funzionalità che facilitano l'aggiornamento di un token scaduto e consentono di ottenere token per risorse API Web aggiuntive che possono essere chiamate dall'applicazione. Se l'utente viene autenticato correttamente con Azure AD, per tale utente viene stabilita una sessione protetta da un cookie tra il browser e Azure AD. Tenere presente che la sessione esiste tra l'utente e Azure AD e non tra l'utente e l'applicazione Web in esecuzione sul server. Quando un token scade, ADAL.js usa questa sessione per ottenere automaticamente un altro token. Ciò avviene usando un iFrame nascosto per inviare e ricevere la richiesta tramite il protocollo di concessione implicita OAuth. ADAL.js può anche usare lo stesso meccanismo per ottenere automaticamente i token di accesso da Azure AD per altre risorse API Web chiamate dall'applicazione, purché queste risorse supportino la condivisione di risorse tra le origini (CORS), siano registrate nella directory dell'utente e sia stato assegnato dall'utente qualsiasi consenso richiesto durante l'accesso.
+Quando si usa ADAL.js per gestire l'autenticazione con Azure AD, è possibile sfruttare i vantaggi offerti da varie funzionalità che facilitano l'aggiornamento di un token scaduto e consentono di ottenere token per risorse API Web aggiuntive che possono essere chiamate dall'applicazione. Se l'utente viene autenticato correttamente con Azure AD, per tale utente viene stabilita una sessione protetta da un cookie tra il browser e Azure AD. Tenere presente che la sessione esiste tra l'utente e Azure AD e non tra l'utente e l'applicazione Web in esecuzione sul server. Quando un token scade, ADAL.js usa questa sessione per ottenere automaticamente un altro token. Ciò avviene usando un iFrame nascosto per inviare e ricevere la richiesta tramite il protocollo di concessione implicita OAuth. ADAL.js può anche usare lo stesso meccanismo per ottenere automaticamente i token di accesso da Azure AD per altre risorse API Web chiamate dall'applicazione, purché queste risorse supportino la condivisione di risorse tra le origini \(CORS\), siano registrate nella directory dell'utente e sia stato assegnato dall'utente qualsiasi consenso richiesto durante l'accesso.
 
 
 ### Da applicazione nativa ad API Web
@@ -280,7 +280,7 @@ Se si usano le librerie di autenticazione AD, la maggior parte dei dettagli del 
 2. Azure AD autentica l'utente. Se si tratta di un'applicazione multi-tenant il cui uso richiede il consenso, verrà chiesto all'utente di fornire il consenso, se non l'ha già fatto. Dopo che è stato fornito il consenso e l'autenticazione riesce, Azure AD restituisce un codice di autenticazione all'URI di reindirizzamento dell'applicazione client.
 
 
-3. Quando Azure AD restituisce un codice di autorizzazione all'URI di reindirizzamento, l'applicazione interrompe l'interazione con il browser ed estrae il codice di autorizzazione dalla risposta. Con questo codice di autorizzazione l'applicazione client invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID client e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+3. Quando Azure AD restituisce un codice di autorizzazione all'URI di reindirizzamento, l'applicazione interrompe l'interazione con il browser ed estrae il codice di autorizzazione dalla risposta. Con questo codice di autorizzazione l'applicazione client invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client \(ID client e URI di reindirizzamento\) e la risorsa desiderata \(URI ID applicazione per l'API Web\).
 
 
 4. Il codice di autorizzazione e le informazioni sull'applicazione client e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT. Azure AD restituisce anche informazioni di base sull'utente, ad esempio il nome visualizzato e l'ID tenant.
@@ -338,7 +338,7 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 
 ##### Identità applicazione con concessione delle credenziali client OAuth 2.0
 
-1. Un utente esegue l'accesso ad Azure AD nell'applicazione Web (vedere la sezione Da Web browser ad applicazione Web).
+1. Un utente esegue l'accesso ad Azure AD nell'applicazione Web \(vedere la sezione Da Web browser ad applicazione Web\).
 
 
 2. L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Esegue una richiesta all'endpoint token di Azure AD, fornendo credenziali, ID client e URI ID applicazione dell'API Web.
@@ -351,10 +351,10 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 
 ##### Identità utente delegato con OpenID Connect
 
-1. Un utente esegue l'accesso all'applicazione Web mediante Azure AD (vedere la sezione precedente [Da Web browser ad applicazione Web](#web-browser-to-web-application)). Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Questo processo di consenso è valido solo per le applicazioni multi-tenant, non per le applicazioni con un singolo tenant, perché l'applicazione avrà già le autorizzazioni necessarie. Quando l'utente ha eseguito l'accesso, l'applicazione Web ha ricevuto un token ID con le informazioni relative all'utente, nonché un codice di autorizzazione.
+1. Un utente esegue l'accesso all'applicazione Web mediante Azure AD \(vedere la sezione precedente [Da Web browser ad applicazione Web](#web-browser-to-web-application)\). Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Questo processo di consenso è valido solo per le applicazioni multi-tenant, non per le applicazioni con un singolo tenant, perché l'applicazione avrà già le autorizzazioni necessarie. Quando l'utente ha eseguito l'accesso, l'applicazione Web ha ricevuto un token ID con le informazioni relative all'utente, nonché un codice di autorizzazione.
 
 
-2. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID client e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+2. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client \(ID client e URI di reindirizzamento\) e la risorsa desiderata \(URI ID applicazione per l'API Web\).
 
 
 3. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.
@@ -376,7 +376,7 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 4. Quando l'utente concede il consenso, l'applicazione Web riceve il codice di autorizzazione necessario per acquisire un token di accesso.
 
 
-5. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID client e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+5. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client \(ID client e URI di reindirizzamento\) e la risorsa desiderata \(URI ID applicazione per l'API Web\).
 
 
 6. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.
@@ -391,7 +391,7 @@ Vedere gli esempi di codice per gli scenari Da applicazione Web ad API Web. Cons
 
 #### Registrazione
 
-- Singolo tenant: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione Web alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di gestione di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
+- Singolo tenant: in entrambi i casi \(identità applicazione e identità utente delegato\), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione Web alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di gestione di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 
 
 - Multi-tenant: per prima cosa, l'applicazione Web viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione Web e l'API Web vengono registrate nella directory.
@@ -404,9 +404,9 @@ Quando l'applicazione Web usa il proprio codice di autorizzazione per ottenere u
 ### Da daemon o applicazione server ad API Web
 
 
-Questa sezione descrive un'applicazione daemon o server che deve ottenere risorse da un'API Web. A questa sezione sono applicabili due sottoscenari: un'applicazione daemon che deve chiamare un'API Web, basata sul tipo di concessione di credenziali client OAuth 2.0, e un'applicazione server (ad esempio un'API Web) che deve chiamare un'API Web, basata sulla bozza di specifica OAuth 2.0 On-Behalf-Of.
+Questa sezione descrive un'applicazione daemon o server che deve ottenere risorse da un'API Web. A questa sezione sono applicabili due sottoscenari: un'applicazione daemon che deve chiamare un'API Web, basata sul tipo di concessione di credenziali client OAuth 2.0, e un'applicazione server \(ad esempio un'API Web\) che deve chiamare un'API Web, basata sulla bozza di specifica OAuth 2.0 On-Behalf-Of.
 
-Per lo scenario in cui un'applicazione daemon deve chiamare un'API Web, è importante comprendere alcuni aspetti. Prima di tutto, l'interazione utente non è possibile con un'applicazione daemon, che richiede che l'applicazione abbia una propria identità. Un esempio di applicazione daemon è un processo batch oppure un servizio del sistema operativo in esecuzione in background. Questo tipo di applicazione richiede un token di accesso usando la relativa identità applicazione e presentando l'ID client, le credenziali (password o certificato) e l'URI ID dell'applicazione ad Azure AD. Dopo l'autenticazione, il daemon riceve un token di accesso da Azure AD, che viene quindi usato per chiamare l'API Web.
+Per lo scenario in cui un'applicazione daemon deve chiamare un'API Web, è importante comprendere alcuni aspetti. Prima di tutto, l'interazione utente non è possibile con un'applicazione daemon, che richiede che l'applicazione abbia una propria identità. Un esempio di applicazione daemon è un processo batch oppure un servizio del sistema operativo in esecuzione in background. Questo tipo di applicazione richiede un token di accesso usando la relativa identità applicazione e presentando l'ID client, le credenziali \(password o certificato\) e l'URI ID dell'applicazione ad Azure AD. Dopo l'autenticazione, il daemon riceve un token di accesso da Azure AD, che viene quindi usato per chiamare l'API Web.
 
 Per lo scenario in cui un'applicazione server deve chiamare un'API Web, è utile usare un esempio. Si supponga che un utente abbia eseguito l'autenticazione in un'applicazione nativa e che questa abbia l'esigenza di chiamare un'API Web. Azure AD rilascia un token di accesso JWT per chiamare l'API Web. Se l'API Web deve chiamare un'altra API Web a valle, può usare il flusso "on-behalf-of" per delegare l'identità dell'utente ed eseguire l'autenticazione nell'API Web di secondo livello.
 
@@ -429,12 +429,12 @@ Per lo scenario in cui un'applicazione server deve chiamare un'API Web, è utile
 
 ##### Identità utente delegato con la bozza di specifica OAuth 2.0 On-Behalf-Of
 
-Il flusso descritto di seguito presuppone che un utente abbia eseguito l'autenticazione in un'altra applicazione (ad esempio un'applicazione nativa) e che la relativa identità utente sia stata usata per acquisire un token di accesso all'API Web di primo livello.
+Il flusso descritto di seguito presuppone che un utente abbia eseguito l'autenticazione in un'altra applicazione \(ad esempio un'applicazione nativa\) e che la relativa identità utente sia stata usata per acquisire un token di accesso all'API Web di primo livello.
 
 1. L'applicazione nativa invia il token di accesso all'API Web di primo livello.
 
 
-2. L'API Web di primo livello invia una richiesta all'endpoint token di Azure AD, inviando l'ID client e le credenziali, oltre al token di accesso dell'utente. Inoltre, la richiesta viene inviata con un parametro on_behalf_of che indica che l'API Web richiede nuovi token per chiamare un'API Web a valle per conto dell'utente originale.
+2. L'API Web di primo livello invia una richiesta all'endpoint token di Azure AD, inviando l'ID client e le credenziali, oltre al token di accesso dell'utente. Inoltre, la richiesta viene inviata con un parametro on\_behalf\_of che indica che l'API Web richiede nuovi token per chiamare un'API Web a valle per conto dell'utente originale.
 
 
 3. Azure AD verifica che l'API Web di primo livello sia autorizzata ad accedere all'API Web di secondo livello e convalidi la richiesta, restituendo un token di accesso JWT e un token di aggiornamento JWT all'API Web di primo livello.
@@ -448,7 +448,7 @@ Vedere gli esempi di codice per gli scenari Da applicazione daemon o server ad A
 
 #### Registrazione
 
-- Singolo tenant: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di gestione di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
+- Singolo tenant: in entrambi i casi \(identità applicazione e identità utente delegato\), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di gestione di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 
 
 - Multi-tenant: per prima cosa, l'applicazione daemon o server viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, entrambe le API Web vengono registrate nella directory.
@@ -459,12 +459,11 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 ## Vedere anche
 
-
-### Concetti
 [Esempi di codice di Azure Active Directory](active-directory-code-samples.md)
 
 [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

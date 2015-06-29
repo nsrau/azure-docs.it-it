@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -27,9 +27,9 @@ Le immagini Linux nella raccolta di Azure sono fornite da diversi partner e Micr
 
 Nella tabella seguente sono elencate le distribuzioni e versioni di Linux supportate in Azure.
 
-I driver di Linux Integration Services (LIS) per Hyper-V e Azure sono moduli kernel forniti da Microsoft direttamente nel kernel Linux upstream. I driver LIS sono compilati nel kernel della distribuzione per impostazione predefinita oppure, per le distribuzioni basate su RHEL/CentOS precedenti, sono disponibili come download separato [qui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Per ulteriori informazioni sui driver LIS, consultare [questo articolo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements).
+I driver di Linux Integration Services \(LIS\) per Hyper-V e Azure sono moduli kernel forniti da Microsoft direttamente nel kernel Linux upstream. I driver LIS sono compilati nel kernel della distribuzione per impostazione predefinita oppure, per le distribuzioni basate su RHEL/CentOS precedenti, sono disponibili come download separato [qui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Per ulteriori informazioni sui driver LIS, consultare [questo articolo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements).
 
-L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di Linux ed è in genere disponibile dal repository del pacchetto della distribuzione. Il codice sorgente è disponibile su [GitHub](https://github.com/azure/walinuxagent).
+L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di Azure ed è in genere disponibile dal repository del pacchetto della distribuzione. Il codice sorgente è disponibile su [GitHub](https://github.com/azure/walinuxagent).
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di L
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 14.04 e 14.10 </td>
+		<td> Ubuntu 12.04, 14.04, 14.10 e 15.04 </td>
 		<td>Nel kernel</td>
 		<td>Pacchetto: in repo sotto "walinuxagent" <br />
 			Origine: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS di OpenLogic </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS 6.3+, 7.0+</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS Download</a><br/>
 	        CentOS 6.4 +: nel Kernel</td>
 		<td>Package: in <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">repo OpenLogic</a> sotto "WALinuxAgent"<br />
@@ -63,7 +63,7 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di L
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4+, 7.0+ </td>
         <td>Nel kernel</td>
 		<td>Pacchetto: in repo sotto "WALinuxAgent"<br />
 			Origine: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di L
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES 11 SP3+, SLES 12+ e <br /> SLES per SAP 11.3+ </td>
         <td>Nel kernel</td>
-		<td>Pacchetto: in repo <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> sotto "WALinuxAgent"<br />
+		<td>Pacchetto: in repo <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> sotto "WALinuxAgent"<br />
 			Origine: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ La strategia di Oracle consiste nell'offrire una vasta gamma di soluzioni per cl
 
 SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un'affidabilità e una sicurezza superiori per il cloud computing. La piattaforma Linux versatile di SUSE consente l'integrazione lineare con i servizi cloud di Azure per offrire un ambiente cloud facilmente gestibile. Grazie alle oltre 9.200 applicazioni certificate create da oltre 1.800 fornitori indipendenti di software per SUSE Linux Enterprise Server, SUSE è in grado di assicurare che i carichi di lavoro in esecuzione supportati nei data center possano essere distribuiti con sicurezza su Azure.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

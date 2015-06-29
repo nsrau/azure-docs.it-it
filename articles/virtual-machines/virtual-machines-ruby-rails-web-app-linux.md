@@ -3,7 +3,7 @@
 	description="Ospitare un sito Web basato su Ruby on Rails in Azure usando una macchina virtuale Linux." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.date="06/09/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -22,245 +22,117 @@
 
 #Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 
-Questa esercitazione illustra come ospitare un sito Web basato su Ruby on Rails usando una macchina virtuale Linux. In questa esercitazione si presuppone che l'utente non abbia mai utilizzato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione Web basata su Ruby on Rails in esecuzione nel cloud.
+Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una macchina virtuale Linux.
 
-Si apprenderà come:
+Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si usa una distribuzione Linux diversa, è necessario modificare la procedura per installare Rails.
 
-* Configurare l'ambiente di sviluppo
+## Creare una macchina virtuale di Azure
 
-* Configurare una macchina virtuale di Azure per l'hosting di Ruby on Rails.
+Iniziare creando una macchina virtuale di Azure con un'immagine Linux.
 
-* Creare una nuova applicazione Rails
+Per creare la macchina virtuale, è possibile usare il portale di gestione di Azure o l'interfaccia della riga di comando \(CLI\) di Azure.
 
-* Copiare i file nella macchina virtuale mediante scp
+### Portale di gestione di Azure
 
-Di seguito è riportata una schermata dell'applicazione completata:
+1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
+2. Fare clic su **Nuovo** \> **Calcolo** \> **Macchina virtuale** \> **Creazione rapida**. Selezionare un'immagine Linux.
+3. Immettere una password.
 
-![Browser che visualizza Listing Posts][blog-rails-cloud]
+Dopo che viene eseguito il provisioning della macchina virtuale, fare clic sul nome della macchina virtuale e quindi fare clic su **Dashboard**. Trovare l'endpoint SSH, elencato in **Dettagli su SSH**.
 
+### Interfaccia della riga di comando di Azure
 
-##<a id="setup"></a>Configurare l'ambiente di sviluppo
+Seguire i passaggi in [Creazione rapida di una macchina virtuale che esegue Linux in Azure][vm-instructions].
 
-1. Installare Ruby nell'ambiente di sviluppo. La procedura può variare in base al sistema operativo.
+Al termine del provisioning della macchina virtuale, è possibile ottenere l'endpoint SSH eseguendo il comando seguente:
 
-	* **Apple OS X**: sono disponibili diverse distribuzioni di Ruby per OS X. Questa esercitazione è stata convalidata con OS X utilizzando [Homebrew](http://brew.sh/) per installare **rbenv** e **ruby-build**. Le informazioni sull'installazione sono reperibili all'indirizzo [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	azure vm endpoint list <vm-name>  
 
-	* **Linux**: utilizzare il sistema di gestione di pacchetti delle distribuzioni. Questa esercitazione è stata convalidata con Ubuntu 12.10 utilizzando i pacchetti ruby1.9.1 e ruby1.9.1-dev.
+## Installare Ruby on Rails
 
-	* **Windows**: sono disponibili diverse distribuzioni Ruby per Windows. Questa esercitazione è stata convalidata utilizzando [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
-
-2. Aprire una nuova riga di comando o una sessione terminal e immettere il comando seguente per installare Ruby on Rails:
-
-		gem install rails --no-rdoc --no-ri
-
-	> [AZURE.NOTE]Per questo comando, in alcuni sistemi operativi, possono essere necessari privilegi di amministratore o radice. Se durante l'esecuzione del comando viene visualizzato un messaggio di errore, provare a usare 'sudo' come segue:
-	>
-	>````` 
-	sudo gem install rails
-	`````
-	>
-	> Per l'esercitazione è stata usata la versione 3.2.12 della gemma Rails.
-
-3. È necessario installare anche un interprete JavaScript, che verrà utilizzato da Rails per compilare le risorse CoffeeScript utilizzate dall'applicazione Rails. L'elenco di interpreti supportati è disponibile all'indirizzo [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
+1. Usare SSH per connettersi alla macchina virtuale. 
 	
-	Durante la convalida dell'esercitazione è stato utilizzato [Node.js](http://nodejs.org/), in quanto è disponibile per i sistemi operativi OS X, Linux e Windows.
-
-##<a id="create"></a>Creare un'applicazione Rails
-
-1. Dalla riga di comando o dalla sessione terminal creare una nuova applicazione Rails denominata "blog_app" immettendo il seguente comando:
-
-		rails new blog_app
-
-	Questo comando crea una nuova directory denominata **blog_app** e la popola con i file e le sottodirectory richiesti da un'applicazione Rails.
-
-	> [AZURE.NOTE]Il completamento di questo comando può richiedere almeno un minuto. Esegue un'installazione invisibile all'utente delle gemme necessarie per un'applicazione predefinita e durante questo intervallo di tempo potrebbe sembrare bloccata.
-
-2. Passare alla directory **blog_app** e quindi immettere il comando seguente per creare uno scaffolding per blog di base:
-
-		rails generate scaffold Post name:string title:string content:text
-
-	Verranno create le migrazioni di controller, viste, modelli e database utilizzate per mantenere i post nel blog. A ogni post saranno associati un nome dell'autore, un titolo e un contenuto di testo.
-
-3. Per creare il database in cui verranno archiviati i post del blog, immettere il comando seguente:
-
-		rake db:migrate
-
-	In questo modo per Rails verrà utilizzato il provider di database predefinito, ovvero il [database SQLite3][sqlite3]. Anche se si può scegliere di usare un database diverso per un'applicazione di produzione, SQLite è sufficiente per gli scopi di questa esercitazione.
-
-##<a id="test"></a>Testare l'applicazione
-
-Per avviare il server Rails nell'ambiente di sviluppo, eseguire la procedura seguente
-
-1. Dalla riga di comando o da una sessione terminal avviare il server Rails immettendo il comando seguente:
-
-		rails s
-
-	L'output dovrebbe essere simile al seguente. Si noti la porta su cui è in ascolto il server Web. Nell'esempio seguente è la porta 3000.
-
-		=> Booting WEBrick
-		=> Rails 3.2.12 application starting in development on http://0.0.0.0:3000
-		=> Call with -d to detach
-		=> Ctrl-C to shutdown server
-		[2013-03-12 19:11:31] INFO  WEBrick 1.3.1
-		[2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
-		[2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
-
-2. Aprire il browser e passare all'indirizzo http://localhost:3000/. Verrà visualizzata una pagina simile alla seguente:
-
-	![Pagina predefinita Rails][default-rails]
-
-	Si tratta di una pagina iniziale statica. Per visualizzare i moduli generati dal comando scaffolding, passare all’indirizzo http://localhost:3000/posts. Verrà visualizzata una pagina simile alla seguente:
-
-	![Pagina con elenco di post][blog-rails]
-
-	Per interrompere il processo server, immettere CTRL+C nella riga di comando
-
-##<a id="createvm"></a>Creare una macchina virtuale di Azure.
-
-Attenersi alle istruzioni riportate [qui][vm-instructions] per creare una macchina virtuale di Azure che ospita Linux.
-
-> [AZURE.NOTE]I passaggi di questa esercitazione sono stati eseguiti in una macchina virtuale Azure che ospita Ubuntu 12.10. Se si usa una distribuzione Linux diversa, è può essere necessario eseguire passaggi diversi per completare le stesse attività.
-
- 
-
-> [AZURE.IMPORTANT]È necessario creare **solo** la macchina virtuale. Interrompere la procedura dopo aver appreso come connettersi alla macchina virtuale tramite SSH.
-
-
-
-Dopo aver creato la macchina virtuale di Azure, eseguire i passaggi seguenti per installarvi Ruby and Rails:
-
-1. Dalla riga di comando o da una sessione terminal immettere il comando seguente per connettersi alla macchina virtuale tramite SSH:
-
-		ssh username@vmdns -p port
-
-	Sostituire il nome utente specificato durante la creazione della macchina virtuale, l'indirizzo DNS della VM e la porta dell'endpoint SSH, Ad esempio:
-
-		ssh railsdev@railsvm.cloudapp.net -p 61830
-		
-o per impostazione predefinita la porta 22
-
-		ssh railsdev@railsvm.cloudapp.net
-
-	> [AZURE.NOTE] If you are using Windows as your development environment, you can use a utility such as **PuTTY** for SSH functionality. PuTTY can be obtained from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
 2. Dalla sessione SSH usare i comandi seguenti per installare Ruby nella macchina virtuale:
 
 		sudo apt-get update -y
 		sudo apt-get upgrade -y
-		sudo apt-get install ruby1.9.1 ruby1.9.1-dev build-essential libsqlite3-dev nodejs -y
+		sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
 
-	Al termine, immettere il comando seguente per verificare se l'installazione di Ruby è stata completata correttamente:
+	L'installazione potrebbe richiedere alcuni minuti. Al termine, immettere il comando seguente per verificare se l'installazione di Ruby è stata completata:
 
 		ruby -v
 
-	Questo comando dovrebbe restituire la versione di Ruby installata nella macchina virtuale, che può essere diversa da 1.9.1. Ad esempio, **ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]**.
+	Restituisce la versione di Ruby che è stata installata.
 
-2. Immettere il comando seguente per installare Bundler:
+3. Immettere il comando seguente per installare Rails:
 
-		sudo gem install bundler --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri
 
-	Bundler verrà usato per installare le gemme necessarie per l'applicazione Rails dopo la copia nel server.
+	Per velocizzare l'operazione, usare i flag --no-rdoc e --no-ri per ignorare l'installazione della documentazione.
 
-##<a id="copy"></a>Copiare l'applicazione nella macchina virtuale
+## Creare ed eseguire un'applicazione
 
-Dall'ambiente di sviluppo aprire una nuova riga di comando o una sessione terminal e immettere il comando **scp** per copiare la directory **blog_app** nella macchina virtuale. Il formato del comando è il seguente:
+Mentre si è ancora connessi con SSH, eseguire i comandi seguenti:
 
-	scp -r -P 54822 -C directory-to-copy user@vmdns:
+	rails new myapp
+	cd myapp
+	rails server -b 0.0.0.0 -p 3000
 
-Ad esempio:
+Il comando [new](http://guides.rubyonrails.org/command_line.html#rails-new) crea una nuova applicazione Rails. Il comando [server](http://guides.rubyonrails.org/command_line.html#rails-server) avvia il server Web WEBrick fornito con Rails \(per l'uso in un ambiente di produzione sarà opportuno usare un server differente, ad esempio Unicorn o Passenger\).
 
-	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
+L'output dovrebbe essere simile al seguente.
 
-o per impostazione predefinita la porta 22
+	=> Booting WEBrick
+	=> Rails 4.2.1 application starting in development on http://0.0.0.0:3000
+	=> Run `rails server -h` for more startup options
+	=> Ctrl-C to shutdown server
+	[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
+	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
+	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
-	scp -r -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
-> [AZURE.NOTE]Se si utilizza Windows come ambiente di sviluppo, è possibile eseguire un'utility come **pscp** per ottenere funzionalità scp. Pscp è disponibile nella [pagina di download di PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+## Aggiungere un endpoint
 
-I parametri usati per questo comando hanno l'effetto seguente:
-
-* **-r**: copia in modo ricorsivo il contenuto della directory specificata e di tutte le sottodirectory
-
-* **-P**: usa la porta specificata per le comunicazioni SSH
-
-* **-C**: abilita la compressione
-
-* **directory-to-copy**: la directory locale da copiare
-
-* **user@vmdns**: l'indirizzo del computer in cui copiare i file, nonché l'account utente con cui accedervi
-
-Dopo l'operazione di copia, la directory **blog_app** si troverà nella home directory users. Immettere i comandi seguenti nella sessione SSH con la macchina virtuale per visualizzare i file copiati:
-
-	cd ~/blog_app
-	ls
-
-L'elenco di file restituito dovrebbe corrispondere ai file contenuti nella directory **blog_app** dell'ambiente di sviluppo.
-
-##<a id="start"></a>Installare le gemme e avviare Rails
-
-1. Nella macchina virtuale passare alla directory **blog_app** e immettere il comando seguente per installare le gemme specificate in **Gemfile**:
-
-		sudo bundle install
-
-2. Per creare il database, immettere il comando seguente:
-
-		rake db:migrate
-
-3. Per avviare il server, immettere il comando seguente:
-	
-		rails s
-
-	L'output dovrebbe essere simile al seguente. Si noti la porta su cui è in ascolto il server Web. Nell'esempio seguente è la porta 3000.
-
-		=> Booting WEBrick
-		=> Rails 3.2.12 application starting in development on http://0.0.0.0:3000
-		=> Call with -d to detach
-		=> Ctrl-C to shutdown server
-		[2013-03-12 19:11:31] INFO  WEBrick 1.3.1
-		[2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
-		[2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
-
-2. Nel browser passare al [portale di gestione di Azure][management-portal] e selezionare la macchina virtuale.
+1. Accedere al [portale di gestione di Azure][management-portal] e selezionare la macchina virtuale.
 
 	![Elenco di macchine virtuali][vmlist]
 
-3. Selezionare **ENDPOINTS** nella parte superiore della pagina, quindi fare clic su **+ ADD ENDPOINT** nella parte inferiore.
+2. Selezionare **ENDPOINT** nella parte superiore della pagina, quindi fare clic su **+ AGGIUNGI ENDPOINT** nella parte inferiore.
 
 	![Pagina di endpoint][endpoints]
 
-4. Nella finestra di dialogo **ADD ENDPOINT** fare clic sulla freccia in basso a sinistra per passare alla seconda pagina, quindi immettere le informazioni seguenti nel form:
+3. Nella finestra di dialogo **AGGIUNGI ENDPOINT** selezionare "Aggiungi un endpoint autonomo", quindi fare clic su **Avanti**.
 
-	* **NAME**: HTTP
+	![Finestra di dialogo New endpoint][new-endpoint1]
 
-	* **PROTOCOL**: TCP
+3. Nella finestra di dialogo successiva, immettere le informazioni seguenti:
 
-	* **PUBLIC PORT**: 80
+	* **NOME**: HTTP
 
-	* **PRIVATE PORT**: &lt;informazioni sulla porta dal passaggio 3 precedente&gt;
+	* **PROTOCOLLO**: TCP
+
+	* **PORTA PUBBLICA**: 80
+
+	* **PORTA PRIVATA**: 3000
 
 	Verrà creata una porta pubblica 80 che instraderà il traffico alla porta privata 3000, dove resta in ascolto il server Rails.
 
 	![Finestra di dialogo New endpoint][new-endpoint]
 
-5. Fare clic sul segno di spunta per salvare l'endpoint.
+4. Fare clic sul segno di spunta per salvare l'endpoint.
 
-6. Dovrebbe essere visualizzato il messaggio **UPDATE IN PROGRESS**. Quando questo messaggio scompare, significa che l'endpoint è attivo. A questo punto è possibile testare l'applicazione passando al nome DNS della macchina virtuale. L'aspetto del sito Web dovrebbe essere simile al seguente:
+5. Dovrebbe essere visualizzato il messaggio **AGGIORNAMENTO IN CORSO**. Quando questo messaggio scompare, significa che l'endpoint è attivo. A questo punto è possibile testare l'applicazione passando al nome DNS della macchina virtuale. L'aspetto del sito Web dovrebbe essere simile al seguente:
 
 	![Pagina predefinita Rails][default-rails-cloud]
 
-	Aggiungendo **/posts** alla fine dell'URL dovrebbero essere visualizzate le pagine generate dal comando scaffolding.
-
-	![Pagina di post][blog-rails-cloud]
 
 ##<a id="next"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare e pubblicare una semplice applicazione Rails basata su form in una macchina virtuale di Azure. La maggior parte delle azioni eseguite sono manuali, mentre in un ambiente di produzione è consigliabile automatizzarle. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche.
+In questa esercitazione è stata eseguita la maggior parte dei passaggi manualmente. In un ambiente di produzione, si potrebbe scrivere l'applicazione in un computer di sviluppo e distribuirla nella macchina virtuale di Azure. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche. Per altre informazioni, vedere http://rubyonrails.org/deploy/.
 
-Per informazioni sull'automazione della distribuzione dell'applicazione Rails, oltre che sull'utilizzo del server Web Unicorn e di NginX, vedere [Unicorn, NginX e Capistrano con una macchina virtuale di Azure][unicorn-nginx-capistrano].
+Per altre informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails][rails-guides].
 
-Per ulteriori informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails][rails-guides].
-
-Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi di Azure dall'applicazione Ruby, vedere:
+Per usare servizi di Azure dall'applicazione Ruby, vedere:
 
 * [Archiviazione di dati non strutturati mediante BLOB][blobs]
 
@@ -279,8 +151,6 @@ Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi d
 
 [tables]: /develop/ruby/how-to-guides/table-service/
 
-[unicorn-nginx-capistrano]: ../virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md
-
 [vm-instructions]: virtual-machines-linux-tutorial.md
 
 
@@ -290,11 +160,6 @@ Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi d
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
-[blog-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
-
-[blog-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png
-
-[default-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
 
 [default-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
 
@@ -304,4 +169,7 @@ Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi d
 
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
-<!---HONumber=58--> 
+[new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
+ 
+
+<!---HONumber=58_postMigration-->

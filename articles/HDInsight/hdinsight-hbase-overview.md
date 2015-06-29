@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Informazioni su HBase in HDInsight | Microsoft Azure" 
-	description="Introduzione ad Apache HBase in HDInsight, un database NoSQL basato su Hadoop. Informazioni sulla tecnologia Big Data, casi di utilizzo e un confronto con altri cluster Hadoop." 
+	description="Introduzione ad Apache HBase in HDInsight, un database NoSQL basato su Hadoop. Informazioni sui casi di utilizzo e confronto di HBase con altri cluster Hadoop." 
 	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/20/2015" 
 	ms.author="jgao"/>
 
 
@@ -34,23 +34,27 @@ L'implementazione di HDInsight usa l'architettura di scalabilità orizzontale di
 
 ## Modalità di gestione dei dati in HBase di HDInsight
 
-I dati possono essere gestiti in HBase tramite i comandi `create`, `get`, `put` e `scan` dalla shell di HBase. I dati vengono scritti nel database tramite `put` e letti tramite `get`. Il comando `scan` viene usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][hbase-get-started]. Sono anche disponibili coprocessori che consentono l'elaborazione dei dati nei nodi che ospitano il database.
+I dati possono essere gestiti in HBase tramite i comandi `create`, `get`, `put` e `scan` dalla shell di HBase. I dati vengono scritti nel database tramite `put` e letti tramite `get`. Il comando `scan` viene usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C\# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][hbase-get-started]. Sono anche disponibili coprocessori che consentono l'elaborazione dei dati nei nodi che ospitano il database.
  
 
 ## Scenari: casi di utilizzo per HBase
 Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HBase, è stata la ricerca sul Web. I motori di ricerca costruiscono indici per il mapping di termini alle pagine Web che li contengono. Tuttavia, HBase è adatto a molti altri casi di utilizzo, alcuni dei quali sono descritti in dettaglio in questa sezione.
 
-### Archivio chiave-valore
-HBase può essere usato come archivio di tipo chiave-valore ed è adatto alla gestione di sistemi di messaggistica. Facebook usa HBase per il proprio sistema di messaggistica ed è ideale per l'archiviazione e la gestione di comunicazioni Internet. WebTable usa HBase per eseguire ricerche e gestire tabelle estratte da pagine Web.
+- Archivio chiave-valore
 
-### Dati di sensori
-HBase è utile per l'acquisizione di dati raccolti in modo incrementale da varie origini, incluse analisi di social media e serie temporali, e permette di mantenere aggiornati i dashboard interattivi con tendenze e contatori e di gestire i sistemi di log di controllo. Alcuni esempi includono il terminale dei trader di Bloomberg e il database OpenTSDB (Open Time Series Database), che archivia e fornisce l'accesso alle metriche raccolte sull'integrità dei sistemi di server.
+	HBase può essere usato come archivio di tipo chiave-valore ed è adatto alla gestione di sistemi di messaggistica. Facebook usa HBase per il proprio sistema di messaggistica ed è ideale per l'archiviazione e la gestione di comunicazioni Internet. WebTable usa HBase per eseguire ricerche e gestire tabelle estratte da pagine Web.
 
-### Query in tempo reale
-[Phoenix](http://phoenix.apache.org/) è un motore di query SQL per Apache HBase. Vi si accede come un'unità JDBC e permette di eseguire query e di gestire le tabelle HBase tramite SQL.
+- Dati di sensori
 
-### HBase come piattaforma
-Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. Alcuni esempi sono Phoenix, OpenTSDB, Kiji e Titan. Le applicazioni possono anche essere integrate con HBase, ad esempio Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia e Drill.
+	HBase è utile per l'acquisizione di dati raccolti in modo incrementale da varie origini, incluse analisi di social media e serie temporali, e permette di mantenere aggiornati i dashboard interattivi con tendenze e contatori e di gestire i sistemi di log di controllo. Alcuni esempi includono il terminale dei trader di Bloomberg e il database OpenTSDB \(Open Time Series Database\), che archivia e fornisce l'accesso alle metriche raccolte sull'integrità dei sistemi di server.
+
+- Query in tempo reale
+
+	[Phoenix](http://phoenix.apache.org/) è un motore di query SQL per Apache HBase. Vi si accede come un'unità JDBC e permette di eseguire query e di gestire le tabelle HBase tramite SQL.
+
+- HBase come piattaforma
+
+	Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. Alcuni esempi sono Phoenix, OpenTSDB, Kiji e Titan. Le applicazioni possono anche essere integrate con HBase, ad esempio Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia e Drill.
 
 
 ##<a name="next-steps"></a>Passaggi successivi
@@ -59,7 +63,7 @@ Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. A
 - [Provisioning di cluster HDInsight in Rete virtuale di Azure][hbase-provision-vnet]
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analizzare i sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment]
-- [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)][hbase-build-java-maven]
+- [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight \(Hadoop\)][hbase-build-java-maven]
 
 ##<a name="see-also"></a>Vedere anche
 
@@ -98,5 +102,6 @@ Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. A
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

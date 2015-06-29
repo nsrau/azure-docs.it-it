@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,14 +15,14 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Per ottenere il nome qualificato iSCSI di un host di Windows
+#### Per ottenere il nome qualificato iSCSI di un host di Windows
 
 1. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
 
-2. Nella finestra  **Proprietà iniziatore iSCSI**, nella scheda **Configurazione**, selezionare e copiare la stringa dal campo **Nome iniziatore**.
+2. Nella finestra **Proprietà iniziatore iSCSI**, nella scheda **Configurazione**, selezionare e copiare la stringa dal campo **Nome iniziatore**.
  
     ![Proprietà dell'iniziatore iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 
 3. Salvare la stringa.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

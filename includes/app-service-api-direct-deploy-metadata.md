@@ -20,7 +20,7 @@ Impostare la proprietà `namespace` sul dominio del tenant di Azure Active Direc
 
 ### Definizione dell'API Swagger dinamica
 
-Per specificare un endpoint dell'URL per una definizione dell'API [Swagger](http://swagger.io/) dinamica, archiviare nella proprietà `endpoints.apiDefinition` l'URL relativo di un'API esposta dall'app per le API che restituisce una definizione dell'API Swagger 2.0 su una richiesta GET. Ad esempio:
+Se l'app per le API può restituire una definizione dell’API [Swagger](http://swagger.io/) dinamica, archiviare l'URL relativo a una richiesta GET che restituisce il JSON della definizione dell'API nella proprietà `endpoints.apiDefinition`. Ad esempio:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@ Per specificare un file di definizione dell'API [Swagger](http://swagger.io/) 2.
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 Escludere `endpoints.apiDefinition` dal file *apiapp.json* o impostarne il valore su Null. Se si include sia un URL `endpoints.apiDefinition` che un file *apiDefinition.swagger.json*, l'URL avrà la precedenza e il file verrà ignorato.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

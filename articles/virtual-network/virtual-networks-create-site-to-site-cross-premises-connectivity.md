@@ -265,4 +265,10 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 -  [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-<!---HONumber=58--> 
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

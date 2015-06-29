@@ -3,7 +3,7 @@
    description="Passaggi e procedure consigliate per la distribuzione dell'aggiornamento 1 del servizio e del dispositivo StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
 
@@ -39,13 +39,13 @@ L’elenco di controllo pre-installazione seguente descrive le informazioni che 
 
 | | Requisiti | Dettagli | Valori |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | Impostazioni di rete <ol><li>Indirizzo IP del dispositivo</li><li>Interfacce di rete, 4x1 GbE, 2x10 GbE</li><li>IP controller fisso</li><li>Subnet mask</li><li>Gateway</li></ol> | Totale indirizzi IP richiesti: 8 <ol><li>Uno per ogni dispositivo</li><li>Uno per ogni interfaccia di rete abilitata, totale 6</li><li>Uno per ogni controller, totale 2, richiesti per connettersi a Internet agli aggiornamenti del servizio</li><li>Uno per ogni indirizzo IP</li><li>Uno per ogni dispositivo</li></ol> | |
+| 1 | Impostazioni di rete <ol><li>Interfacce di rete, 4x1 GbE, 2x10 GbE</li><li>IP controller fisso</li><li>Subnet mask</li><li>Gateway</li></ol> | Totale indirizzi IP richiesti: 8 <ol><li>Uno per ogni interfaccia di rete abilitata, totale 6</li><li>Uno per ogni controller, totale 2, richiesti per connettersi a Internet agli aggiornamenti del servizio</li><li>Uno per ogni indirizzo IP</li><li>Uno per ogni dispositivo</li></ol> | |
 | 2 | Accesso seriale | Configurazione iniziale del dispositivo | Sì/No |
 | 3 | Indirizzi IP del server DNS | Necessari per connettersi a Microsoft Azure: 2 totali necessari per la disponibilità elevata | |
 | 4 | Indirizzi IP del server NTP | Necessari per sincronizzare l'ora con Azure: 1 necessario, 1 facoltativo | |
-| 5 | Server proxy (facoltativo) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
+| 5 | Server proxy \(facoltativo\) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
 | 6 | Account di archiviazione di Azure | Credenziali di accesso quali nome dell'account e chiave di accesso per ogni account di archiviazione | |
-| 7 | Chiave di crittografia di archiviazione cloud (consigliata) | Per ogni contenitore di volumi | |
+| 7 | Chiave di crittografia di archiviazione cloud \(consigliata\) | Per ogni contenitore di volumi | |
 | 8 | Nome qualificato iSCSI dell'host | Per ogni host | |
 
 ## Prerequisiti di distribuzione
@@ -74,7 +74,7 @@ Prima di configurare il dispositivo, verificare che:
 
 - Il dispositivo è completamente cablato per l’alimentazione, la rete e l’accesso seriale come descritto in [Cablare il dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o [Cablare il dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
 
-- Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del datacenter come descritto in [Requisiti di rete per il dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).
+- Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).
 
 ## Passaggi di distribuzione
 
@@ -188,7 +188,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 
 ## Ottenere il nome qualificato iSCSI di un host di Windows Server
 
-Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un host di Windows che esegue Windows Server® 2012.
+Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI \(IQN\) di un host di Windows che esegue Windows Server® 2012.
 
 [AZURE.INCLUDE [Creazione di un backup manuale](../../includes/storsimple-get-iqn.md)]
 
@@ -200,7 +200,7 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un backup manual
 
 ## Configurare MPIO
 
-Multipath I/O (MPIO) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
+Multipath I/O \(MPIO\) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
 
 > [AZURE.NOTE]La funzionalità MPIO non è supportata in un dispositivo virtuale StorSimple.
 
@@ -211,5 +211,6 @@ Per istruzioni sull'installazione di MPIO, vedere [Configurare MPIO per il dispo
 Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

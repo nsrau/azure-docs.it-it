@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali" 
-	description="Questo articolo fornisce istruzioni su come iniziare a utilizzare Archiviazione Premium di Azure con SQL Server in esecuzione su Macchine virtuali di Azure. Sono inclusi esempi di nuove distribuzioni e migrazioni di distribuzioni esistenti di SQL Server in IaaS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali"
+	description="Questo articolo fornisce istruzioni su come iniziare a utilizzare Archiviazione Premium di Azure con SQL Server in esecuzione su Macchine virtuali di Azure. Sono inclusi esempi di nuove distribuzioni e migrazioni di distribuzioni esistenti di SQL Server in IaaS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,15 +12,16 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 
+
 ## Panoramica
 
-[Archiviazione Premium di Azure](../storage-premium-storage-preview-portal.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](http://azure.microsoft.com/services/virtual-machines/) IaaS. In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure (rete, archiviazione) e alle macchine virtuali guest di Windows. Nell'esempio riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell’archiviazione SSD locale migliorata con PowerShell.
+[Archiviazione Premium di Azure](../storage-premium-storage-preview-portal.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](http://azure.microsoft.com/services/virtual-machines/) IaaS. In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure \(rete, archiviazione\) e alle macchine virtuali guest di Windows. Nell'esempio incluso nell'[Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell'archiviazione SSD locale migliorata con PowerShell.
 
 È importante comprendere il processo end-to-end di utilizzo di Archiviazione Premium di Azure con SQL Server in macchine virtuali IAAS. Sono inclusi:
 
@@ -32,7 +33,7 @@
 
 Per ottenere le informazioni più esaustive sull'utilizzo di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-**Revisori tecnici:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
+**Autore:** Daniel Sol **Revisori tecnici:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## Prerequisiti per Archiviazione Premium
 
@@ -40,21 +41,21 @@ Esistono diversi prerequisiti per l'utilizzo di Archiviazione Premium.
 
 ### Dimensione della macchina
 
-Per utilizzare Archiviazione Premium occorre usare macchine virtuali (VM) serie DS. Se in precedenza non sono state utilizzate macchine serie DS nel servizio cloud, è necessario eliminare la macchina virtuale esistente, mantenere i dischi collegati e creare quindi un nuovo servizio cloud prima di ricreare la macchina virtuale con dimensioni del ruolo DS*. Per ulteriori informazioni sulle dimensioni della macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Per utilizzare Archiviazione Premium occorre usare macchine virtuali \(VM\) serie DS. Se in precedenza non sono state utilizzate macchine serie DS nel servizio cloud, è necessario eliminare la macchina virtuale esistente, mantenere i dischi collegati e creare quindi un nuovo servizio cloud prima di ricreare la macchina virtuale con dimensioni del ruolo DS\*. Per ulteriori informazioni sulle dimensioni della macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 ### Microsoft Azure
 
-È possibile utilizzare le macchine virtuali DS* con Archiviazione Premium solo quando vengono create in un nuovo servizio cloud. Se si utilizza SQL Server AlwaysOn in Azure, il listener AlwaysOn farà riferimento all'indirizzo IP del servizio di bilanciamento del carico interno o esterno di Azure associato a un servizio cloud. In questo articolo viene illustrato come eseguire la migrazione mantenendo la disponibilità in questo scenario.
+È possibile utilizzare le macchine virtuali DS\* con Archiviazione Premium solo quando vengono create in un nuovo servizio cloud. Se si utilizza SQL Server AlwaysOn in Azure, il listener AlwaysOn farà riferimento all'indirizzo IP del servizio di bilanciamento del carico interno o esterno di Azure associato a un servizio cloud. In questo articolo viene illustrato come eseguire la migrazione mantenendo la disponibilità in questo scenario.
 
-> [AZURE.NOTE]Una macchina virtuale serie DS* deve essere la prima macchina virtuale distribuita nel nuovo servizio cloud.
+> [AZURE.NOTE]Una macchina virtuale serie DS\* deve essere la prima macchina virtuale distribuita nel nuovo servizio cloud.
 
 ### Reti virtuali regionali
 
-Per le macchine virtuali DS* è necessario configurare la rete virtuale (VNET) che ospita le macchine virtuali regionali. In tal modo si "amplia" la rete virtuale per consentire il provisioning delle macchine virtuali più grandi in altri cluster e permettere la comunicazione. Nella schermata seguente, la posizione evidenziata mostra le VNET regionali, mentre il primo risultato mostra una rete virtuale limitata.
+Per le macchine virtuali DS\* è necessario configurare la rete virtuale \(VNET\) che ospita le macchine virtuali regionali. In tal modo si "amplia" la rete virtuale per consentire il provisioning delle macchine virtuali più grandi in altri cluster e permettere la comunicazione. Nella schermata seguente, la posizione evidenziata mostra le VNET regionali, mentre il primo risultato mostra una rete virtuale limitata.
  
 ![RegionalVNET][1]
 
-È possibile generare un ticket di supporto Microsoft per eseguire la migrazione a una rete virtuale regionale.  Microsoft apporterà una modifica, quindi per completare la migrazione alle reti virtuali regionali sarà necessario modificare la proprietà AffinityGroup nella configurazione di rete. Esportare innanzitutto la configurazione di rete in PowerShell, quindi sostituire la proprietà **AffinityGroup** nell’elemento **VirtualNetworkSite** con una proprietà **Location**. Specificare `Location = XXXX` dove `XXXX` è un'area di Azure. Importare quindi la nuova configurazione.
+È possibile generare un ticket di supporto Microsoft per eseguire la migrazione a una rete virtuale regionale. Microsoft apporterà una modifica, quindi per completare la migrazione alle reti virtuali regionali sarà necessario modificare la proprietà AffinityGroup nella configurazione di rete. Esportare innanzitutto la configurazione di rete in PowerShell, quindi sostituire la proprietà **AffinityGroup** nell’elemento **VirtualNetworkSite** con una proprietà **Location**. Specificare `Location = XXXX` dove `XXXX` è un'area di Azure. Importare quindi la nuova configurazione.
 
 Ad esempio, prendere in considerazione la seguente configurazione di rete virtuale:
 
@@ -80,28 +81,28 @@ Per spostarla in una rete virtuale regionale in Europa occidentale, modificare l
     
 ### Account di archiviazione
 
-Occorre creare un nuovo account di archiviazione configurato per Archiviazione Premium. Si noti che l'utilizzo di Archiviazione Premium è impostato sull’account di archiviazione, non sui singoli dischi rigidi virtuali. Tuttavia, quando si utilizza una macchina virtuale serie DS* è possibile collegare i dischi rigidi virtuali dagli account di archiviazione Standard e Premium. Se non si desidera collocare il disco rigido virtuale del sistema operativo sull'account di Archiviazione Premium, è possibile valutare questa possibilità.
+Occorre creare un nuovo account di archiviazione configurato per Archiviazione Premium. Si noti che l'utilizzo di Archiviazione Premium è impostato sull’account di archiviazione, non sui singoli dischi rigidi virtuali. Tuttavia, quando si utilizza una macchina virtuale serie DS\* è possibile collegare i dischi rigidi virtuali dagli account di archiviazione Standard e Premium. Se non si desidera collocare il disco rigido virtuale del sistema operativo sull'account di Archiviazione Premium, è possibile valutare questa possibilità.
 
-Il seguente comando **New-AzureStorageAccountPowerShell** con **Type** "Premium_LRS" consente di creare un account di Archiviazione Premium:
+Il seguente comando **New-AzureStorageAccountPowerShell** con **Type** "Premium\_LRS" consente di creare un account di Archiviazione Premium:
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### Impostazioni della cache di dischi rigidi virtuali
 
-La differenza principale con la creazione di dischi che fanno parte di un account di Archiviazione Premium è l'impostazione della cache su disco. Per i dischi del volume di dati di SQL Server, è consigliabile utilizzare  **Read Caching**’. Per i volumi del log delle transazioni, l'impostazione della cache su disco deve essere impostata ‘**None**’. Questa impostazione differisce da quelle consigliate per gli account di archiviazione Standard.
+La differenza principale con la creazione di dischi che fanno parte di un account di Archiviazione Premium è l'impostazione della cache su disco. Per i dischi del volume di dati di SQL Server, è consigliabile utilizzare \*\*Read Caching\*\*’. Per i volumi del log delle transazioni, l'impostazione della cache su disco deve essere impostata ‘\*\*None\*\*’. Questa impostazione differisce da quelle consigliate per gli account di archiviazione Standard.
 
 Dopo aver collegato i dischi rigidi virtuali, l'impostazione della cache non può essere modificata. È necessario scollegare e ricollegare il disco rigido virtuale con un'impostazione di cache aggiornata.
 
 ### Spazi di archiviazione di Windows
 
-È possibile utilizzare [Spazi di archiviazione Windows](https://technet.microsoft.com/library/hh831739.aspx) come è avvenuto con la precedente Archiviazione Standard; questo consentirà di eseguire la migrazione di una macchina virtuale che già utilizza Spazi di archiviazione. Nell'esempio riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) (passaggio 9 e successivi) viene illustrato il codice di Powershell per estrarre e importare una macchina virtuale con più dischi rigidi virtuali collegati.
+È possibile utilizzare [Spazi di archiviazione Windows](https://technet.microsoft.com/library/hh831739.aspx) come è avvenuto con la precedente Archiviazione Standard; questo consentirà di eseguire la migrazione di una macchina virtuale che già utilizza Spazi di archiviazione. Nell'esempio riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) \(passaggio 9 e successivi\) viene illustrato il codice di Powershell per estrarre e importare una macchina virtuale con più dischi rigidi virtuali collegati.
 
 Sono stati utilizzati pool di archiviazione con account di archiviazione Azure Standard per migliorare la velocità effettiva e ridurre la latenza. Può essere utile testare i pool di archiviazione con Archiviazione Premium per le nuove distribuzioni, ma l’impostazione dell’archiviazione aggiunge ulteriore complessità.
 
 #### Come individuare quali dischi virtuali di Azure sono mappati ai pool di archiviazione
 
-Poiché esistono diverse indicazioni di impostazione della cache per i dischi rigidi virtuali collegati, è possibile copiare i dischi rigidi virtuali in un account di Archiviazione Premium. Tuttavia, quando vengono ricollegati alla nuova macchina virtuale serie DS, è necessario modificare le impostazioni della cache. È più semplice applicare le impostazioni della cache di Archiviazione Premium consigliate quando si dispone di dischi rigidi virtuali separati per i file di dati SQL e file di log (anziché di un singolo disco rigido virtuale che contiene entrambi).
+Poiché esistono diverse indicazioni di impostazione della cache per i dischi rigidi virtuali collegati, è possibile copiare i dischi rigidi virtuali in un account di Archiviazione Premium. Tuttavia, quando vengono ricollegati alla nuova macchina virtuale serie DS, è necessario modificare le impostazioni della cache. È più semplice applicare le impostazioni della cache di Archiviazione Premium consigliate quando si dispone di dischi rigidi virtuali separati per i file di dati SQL e file di log \(anziché di un singolo disco rigido virtuale che contiene entrambi\).
 
 > [AZURE.NOTE]Se si dispone di file di log e dati di SQL Server nello stesso volume, l'opzione di memorizzazione nella cache da scegliere dipende dai modelli di accesso I/O per i carichi di lavoro del database. Solo i test possono dimostrare quale opzione di memorizzazione nella cache è più adatta a questo scenario.
 
@@ -113,13 +114,13 @@ Per ogni disco, attenersi alla procedura seguente:
 
 1. Ottenere l’elenco di dischi collegati alla macchina virtuale con il comando **Get-AzureVM**:
 
-    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> \| Get-AzureDataDisk
 
 1. Prendere nota del nome del disco e del LUN.
 
 	![DisknameAndLUN][2]
 
-1. Desktop remoto nella macchina virtuale. Passare quindi a **Gestione computer** | **Gestione dispositivi** | **Unità disco**. Esaminare le proprietà di ciascun ’Disco virtuale Microsoft’
+1. Desktop remoto nella macchina virtuale. Passare quindi a **Gestione computer** \| **Gestione dispositivi** \| **Unità disco**. Esaminare le proprietà di ciascun ’Disco virtuale Microsoft’
 
 	![VirtualDiskProperties][3]
 
@@ -130,7 +131,7 @@ Per ogni disco, attenersi alla procedura seguente:
 
 2. Per ogni del pool di archiviazione eseguire il dump dei dischi associati:
 
-    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
+    Get-StoragePool -FriendlyName AMS1pooldata \| Get-PhysicalDisk
 
 	![GetStoragePool][5]
  
@@ -140,13 +141,13 @@ Una volta eseguito il mapping dei dischi rigidi virtuali ai dischi fisici nei po
 
 ### Larghezza di banda VM di archiviazione della macchina virtuale e velocità effettiva di archiviazione del disco rigido virtuale 
 
-Le prestazioni dell’archiviazione dipendono dalle dimensioni della macchina virtuale DS* specificate e della dimensioni del disco rigido virtuale. Le macchine virtuali hanno quote diverse per il numero di dischi rigidi virtuali che possono essere collegati e la larghezza di banda massima che supporteranno (MB/s). Per i numeri di larghezza di banda specifici, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Le prestazioni dell’archiviazione dipendono dalle dimensioni della macchina virtuale DS\* specificate e della dimensioni del disco rigido virtuale. Le macchine virtuali hanno quote diverse per il numero di dischi rigidi virtuali che possono essere collegati e la larghezza di banda massima che supporteranno \(MB/s\). Per i numeri di larghezza di banda specifici, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per informazioni dettagliate, [vedere la tabella per i tipi di disco e input/output al secondo](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-iting-premium-storage).
 
-Infine, tenere presente che le macchine virtuali supporteranno larghezza di banda massime diverse per tutti i dischi collegati. Con un carico elevato si potrebbe saturare la larghezza di banda su disco massima disponibile per le dimensioni del ruolo di macchina virtuale. Ad esempio, Standard_DS14 supporterà fino a 512 MB/s. Pertanto, con tre dischi P30 si potrebbe saturare la larghezza di banda del disco della macchina virtuale. In questo esempio, tuttavia, il limite di velocità effettiva potrebbe essere superato a seconda della combinazione di I/O di lettura e scrittura.
+Infine, tenere presente che le macchine virtuali supporteranno larghezza di banda massime diverse per tutti i dischi collegati. Con un carico elevato si potrebbe saturare la larghezza di banda su disco massima disponibile per le dimensioni del ruolo di macchina virtuale. Ad esempio, Standard\_DS14 supporterà fino a 512 MB/s. Pertanto, con tre dischi P30 si potrebbe saturare la larghezza di banda del disco della macchina virtuale. In questo esempio, tuttavia, il limite di velocità effettiva potrebbe essere superato a seconda della combinazione di I/O di lettura e scrittura.
 
-## Nuove distribuzioni 
+## Nuove distribuzioni
 
 Nelle due sezioni successive viene illustrato come distribuire le macchine virtuali di SQL Server in Archiviazione Premium. Come affermato in precedenza, non occorre necessariamente collocare il disco del sistema operativo su Archiviazione Premium. È possibile eseguire questa operazione se si intende posizionare i carichi di lavoro con numerose operazioni di I/O sul disco rigido virtuale del sistema operativo.
 
@@ -179,7 +180,7 @@ Nell'esempio seguente viene illustrato come collocare il disco rigido virtuale d
     New-AzureService $destcloudsvc -Location $location 
 
 
-#### Passaggio 3: Riservare un VIP di servizio cloud (facoltativo)
+#### Passaggio 3: Riservare un VIP di servizio cloud \(facoltativo\)
     #check exisitng reserved VIP
     Get-AzureReservedIP
     
@@ -197,7 +198,7 @@ Nell'esempio seguente viene illustrato come collocare il disco rigido virtuale d
     $containerName = 'vhds'
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
-#### Passaggio 5: Collocazione del disco rigido virtuale su Archiviazione Standard o Premium 
+#### Passaggio 5: Collocazione del disco rigido virtuale su Archiviazione Standard o Premium
     #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
     
     #If you want to place the OS VHD Premium Storage Account
@@ -272,7 +273,7 @@ Questo scenario mostra la posizione delle immagini personalizzate esistenti che 
 
  
 #### Passaggio 3: Utilizzare l’immagine esistente
-È possibile utilizzare un'immagine esistente. In alternativa, è possibile [acquisire un'immagine di una macchina esistente](virtual-machines-capture-image-windows-server.md). Si noti che la macchina non deve essere DS*. Dopo aver creato l'immagine, la procedura seguente illustra come copiarla nell’account di Archiviazione Premium con il commandlet **Start-AzureStorageBlobCopy** di PowerShell.
+È possibile utilizzare un'immagine esistente. In alternativa, è possibile [acquisire un'immagine di una macchina esistente](virtual-machines-capture-image-windows-server.md). Si noti che la macchina non deve essere DS\*. Dopo aver creato l'immagine, la procedura seguente illustra come copiarla nell’account di Archiviazione Premium con il commandlet **Start-AzureStorageBlobCopy** di PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -345,7 +346,7 @@ Si compila la macchina virtuale da un'immagine e si collegano due dischi rigidi 
 
 Esistono diverse considerazioni per le distribuzioni di SQL Server che non utilizzano i gruppi di disponibilità AlwaysOn e quelli che li utilizzano. Se non si utilizza AlwaysOn e si dispone di un SQL Server autonomo esistente, è possibile eseguire l’aggiornamento ad Archiviazione Premium tramite un nuovo account di archiviazione e servizio cloud. Valutare le opzioni seguenti:
 
-- **Creare una nuova macchina virtuale di SQL Server**. È possibile creare una nuova macchina virtuale di SQL Server che utilizza un account di Archiviazione Premium, come documentato in Nuove distribuzioni. Eseguire quindi il backup e ripristino della configurazione di SQL Server e dei database utente. L'applicazione dovrà essere aggiornata per fare riferimento al nuovo SQL Server se si accede internamente o esternamente. È necessario copiare tutti gli oggetti esterni al db, come se si eseguisse una migrazione di SQL Server SxS (Side by Side). Sono inclusi oggetti come account di accesso, certificati e server collegati.
+- **Creare una nuova macchina virtuale di SQL Server**. È possibile creare una nuova macchina virtuale di SQL Server che utilizza un account di Archiviazione Premium, come documentato in Nuove distribuzioni. Eseguire quindi il backup e ripristino della configurazione di SQL Server e dei database utente. L'applicazione dovrà essere aggiornata per fare riferimento al nuovo SQL Server se si accede internamente o esternamente. È necessario copiare tutti gli oggetti esterni al db, come se si eseguisse una migrazione di SQL Server SxS \(Side by Side\). Sono inclusi oggetti come account di accesso, certificati e server collegati.
 - **Eseguire la migrazione di una macchina virtuale di Server SQL esistente**. Sarà necessario disconnettere la macchina virtuale di SQL Server e trasferirla in un nuovo servizio cloud, operazione che implica la copia di tutti i relativi dischi rigidi virtuali collegati all'account di Archiviazione Premium. Quando la macchina virtuale torna online, l'applicazione farà riferimento al nome host del server come prima. Tenere presente che le dimensioni del disco esistente influiranno sulle prestazioni. Ad esempio, un disco di 400 GB viene arrotondato per eccesso a un P20. Se si sa che tali prestazioni del disco non sono necessarie, è possibile ricreare la macchina virtuale come macchina virtuale serie DS e collegare dischi rigidi di archiviazione virtuale di Archiviazione Premium con le prestazioni/dimensioni desiderate. È quindi possibile scollegare e ricollegare i file di database SQL.
 
 > [AZURE.NOTE]Quando si copiano i dischi rigidi virtuali è necessario fare attenzione alle dimensioni in quanto indicano in quale tipo di disco di Archiviazione Premium rientrano, determinando la specifica delle prestazioni del disco. Azure arrotonderà alla dimensione del disco più vicina, per cui se si dispone di un disco di 400 GB, questo verrà arrotondato a un P20. A seconda dei requisiti di I/O esistenti del disco rigido virtuale del sistema operativo, potrebbe essere necessario eseguirne la migrazione a un account di Archiviazione Premium.
@@ -362,7 +363,7 @@ I gruppi di disponibilità di SQL Server AlwaysOn locale utilizzano un lstener l
  
 ![DeploymentsUseAlwaysOn][6]
 
-In Microsoft Azure è consentito un solo indirizzo IP assegnato a una scheda di rete nella macchina virtuale, pertanto per conseguire lo stesso livello di astrazione possibile in locale, Azure utilizza l'indirizzo IP assegnato ai servizi di bilanciamento del carico interno ed esterno (ILB/ELB). La risorsa IP condivisa tra i server viene impostata sullo stesso IP del servizio ILB/ELB,  che viene pubblicato nel DNS, e il traffico del client viene passato attraverso il servizio ILB/ELB alla replica di SQL Server primario. Il servizio ILB/ELB sa che SQL Server è primario poiché utilizza i probe per verificare la presenza della risorsa IP AlwaysOn. Nell'esempio precedente, verifica ogni nodo che dispone di un endpoint a cui fa riferimento il servizio ELB/ILB. Quello che risponde è il Server SQL primario.
+In Microsoft Azure è consentito un solo indirizzo IP assegnato a una scheda di rete nella macchina virtuale, pertanto per conseguire lo stesso livello di astrazione possibile in locale, Azure utilizza l'indirizzo IP assegnato ai servizi di bilanciamento del carico interno ed esterno \(ILB/ELB\). La risorsa IP condivisa tra i server viene impostata sullo stesso IP del servizio ILB/ELB, che viene pubblicato nel DNS, e il traffico del client viene passato attraverso il servizio ILB/ELB alla replica di SQL Server primario. Il servizio ILB/ELB sa che SQL Server è primario poiché utilizza i probe per verificare la presenza della risorsa IP AlwaysOn. Nell'esempio precedente, verifica ogni nodo che dispone di un endpoint a cui fa riferimento il servizio ELB/ILB. Quello che risponde è il Server SQL primario.
 
 > [AZURE.NOTE]Il servizio ILB e il servizio ELB vengono assegnati a un servizio cloud di Azure specifico, pertanto qualsiasi migrazione cloud in Azure comporterà probabilmente la modifica dell'IP del servizio di bilanciamento del carico.
 
@@ -373,7 +374,7 @@ Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di
 1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
 1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
 
-#### 1. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
 
 Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
@@ -394,11 +395,11 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Creare due nuovi server SQL Server nel nuovo servizio cloud con Archiviazione Premium collegata.
 1. Copiare i backup completi e ripristinare con **NORECOVERY**.
 1. Copiare gli oggetti dipendenti esterni al database utente, ad esempio nomi di accesso e così via.
-1. Crea un nuovo servizio di carico bilanciamento interno (ILB) oppure utilizzare un servizio di bilanciamento del carico esterno (ELB) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
+1. Crea un nuovo servizio di carico bilanciamento interno \(ILB\) oppure utilizzare un servizio di bilanciamento del carico esterno \(ELB\) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
 > [AZURE.NOTE]
 
-1. Impedire all'utente/applicazione l’accesso a SQL Server (se si utilizzano pool di archiviazione).
-1. Arrestare i servizi motore di SQL Server in tutti i nodi (se si utilizzano il pool di archiviazione).
+1. Impedire all'utente/applicazione l’accesso a SQL Server \(se si utilizzano pool di archiviazione\).
+1. Arrestare i servizi motore di SQL Server in tutti i nodi \(se si utilizzano il pool di archiviazione\).
 1. Aggiungere nuovi nodi al cluster ed eseguire la convalida completa. 
 1. Quando la convalida ha esito positivo, avviare tutti i servizi di SQL Server.
 1. Eseguire il backup dei log delle transazioni e ripristinare i database utente.
@@ -410,7 +411,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 
 ##### Vantaggi
 
-- Nuovi SQL Server possono essere testati (SQL Server e applicazione) prima di essere aggiunti a AlwaysOn.
+- Nuovi SQL Server possono essere testati \(SQL Server e applicazione\) prima di essere aggiunti a AlwaysOn.
 - È possibile modificare le dimensioni della macchina virtuale e personalizzare la risorsa di archiviazione per i requisiti specifici. Tuttavia, sarebbe opportuno mantenere tutti i percorsi di file SQL inalterati.
 - È possibile controllare quando viene avviato il trasferimento dei backup del database per le repliche secondarie. Questo comportamento è diverso dal quello del commandlet di Azure **Start-AzureStorageBlobCopy** per copiare i dischi rigidi virtuali perché in quest’ultimo caso la copia è asincrona.
 
@@ -420,7 +421,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
 
 Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
 
@@ -451,7 +452,7 @@ Sono disponibili due strategie per la migrazione delle distribuzioni di AlwaysOn
 1. **Utilizzare una replica secondaria esistente: singolo sito**
 1. **Utilizzare repliche secondarie esistenti: multisito**
 
-#### 1. Utilizzare una replica secondaria esistente: singolo sito
+#### 1\. Utilizzare una replica secondaria esistente: singolo sito
 
 Una strategia per il tempo di inattività minimo consiste nel rimuovere una replica secondaria del cloud esistente dal servizio cloud corrente. Successivamente si copiano i dischi rigidi virtuali nel nuovo account di Archiviazione Premium e si crea la macchina virtuale nel nuovo servizio cloud. A questo punto, si aggiorna il listener in clustering e failover.
 
@@ -485,7 +486,7 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
  
 ![MinimalDowntime][8]
 
-- Raccogliere la configurazione del disco e rimuovere il nodo (non eliminare i dischi rigidi virtuali collegati).
+- Raccogliere la configurazione del disco e rimuovere il nodo \(non eliminare i dischi rigidi virtuali collegati\).
 - Creare un account di Archiviazione Premium e copiare i dischi rigidi virtuali dall'account di Archiviazione Standard
 - Creare il nuovo servizio cloud e ridistribuire la macchina virtuale SQL2 in tale servizio cloud. Creare la macchina virtuale utilizzando la copia del disco rigido virtuale del sistema operativo originale e collegare i dischi rigidi virtuali copiati.
 - Configurare ILB/ELB e aggiungere gli endpoint.
@@ -497,7 +498,7 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
 - Se si utilizzano i passaggi 5ii, aggiungere SQL1 come possibile proprietario per la risorsa indirizzo IP aggiunto
 - Testare i failover.
 
-#### 2. Utilizzare repliche secondarie esistenti: multisito
+#### 2\. Utilizzare repliche secondarie esistenti: multisito
 
 Se si dispone di nodi in più centri dati Azure o se si dispone di un ambiente ibrido, è possibile utilizzare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
 
@@ -520,7 +521,7 @@ Il tempo di inattività corrisponde al tempo necessario per il failover al centr
 ##### Svantaggi:
 
 - A seconda dell’accesso client a SQL Server, potrebbe esserci un aumento della latenza durante l'esecuzione di SQL Server in un centro dati alternativo per l'applicazione.
-- Il tempo di copia dei dischi rigidi virtuali in Archiviazione Premium potrebbe essere lungo. Ciò potrebbe influire sulla decisione relativa al mantenimento del nodo nel gruppo di disponibilità. Considerare questo aspetto quando carichi di lavoro a utilizzo intensivo di log vengono eseguiti durante le migrazioni richieste dal momento che il nodo primario dovrà mantenere le transazioni non replicate nel proprio log delle transazioni,  aumentando così in modo significativo.
+- Il tempo di copia dei dischi rigidi virtuali in Archiviazione Premium potrebbe essere lungo. Ciò potrebbe influire sulla decisione relativa al mantenimento del nodo nel gruppo di disponibilità. Considerare questo aspetto quando carichi di lavoro a utilizzo intensivo di log vengono eseguiti durante le migrazioni richieste dal momento che il nodo primario dovrà mantenere le transazioni non replicate nel proprio log delle transazioni, aumentando così in modo significativo.
 - Questo scenario prevede l’uso del commandlet **Start-AzureStorageBlobCopy** di Azure, che è asincrono. Non esiste alcun contratto di servizio al completamento. Il tempo delle copie varia perché dipende dal tempo di attesa in coda e dalla quantità di dati da trasferire. Di conseguenza, dal momento che si dispone di un solo nodo nel secondo centro dati, è opportuno prevedere operazioni di attenuazione per l’eventualità che la copia richieda più tempo durante i test. Valutare, ad esempio, le possibilità seguenti.
 	- Aggiungere un secondo nodo di SQL Server temporaneo per la disponibilità elevata prima della migrazione con tempi di inattività concordati.
 	- Eseguire la migrazione all'esterno della manutenzione pianificata di Azure. 
@@ -532,7 +533,7 @@ Questo scenario presuppone di aver documentato l'installazione e che si sappia c
 ![MultiSite2][10]
 
 - Rendere il centro dati di Azure locale/alternativo l'SQL Server primario e l’altro partner di failover automatico. 
-- Raccogliere la configurazione del disco da SQL2 e rimuovere il nodo (non eliminare i dischi rigidi virtuali collegati).
+- Raccogliere la configurazione del disco da SQL2 e rimuovere il nodo \(non eliminare i dischi rigidi virtuali collegati\).
 - Creare un account di Archiviazione Premium e copiare i dischi rigidi virtuali dall'account di Archiviazione Standard.
 - Creare un nuovo servizio cloud e la macchina virtuale SQL2 con relativi dischi di archiviazione Premium collegati.
 - Configurare ILB/ELB e aggiungere gli endpoint.
@@ -544,7 +545,7 @@ Questo scenario presuppone di aver documentato l'installazione e che si sappia c
 
 ## Appendice: Migrazione di un cluster di AlwaysOn multisito ad Archiviazione Premium 
 
-La parte restante di questo argomento fornisce un esempio dettagliato della conversione di un cluster di AlwaysOn multisito ad Archiviazione Premium. Il listener, inoltre, viene passato dall’uso di un servizio di bilanciamento del carico esterno (ELB) all’uso di un servizio di bilanciamento del carico interno (ILB).
+La parte restante di questo argomento fornisce un esempio dettagliato della conversione di un cluster di AlwaysOn multisito ad Archiviazione Premium. Il listener, inoltre, viene passato dall’uso di un servizio di bilanciamento del carico esterno \(ELB\) all’uso di un servizio di bilanciamento del carico interno \(ILB\).
 
 ### Environment
 
@@ -618,7 +619,7 @@ Se si dispone di un solo indirizzo IP per il gruppo cluster e questo viene allin
 
 L’implementazione di una transizione senza intoppi dipende dalla modalità di utilizzo e aggiornamento del DNS. Quando viene installato AlwaysOn, viene creato un gruppo di risorse cluster di Windows. Se si apre Gestione cluster di failover, si noterà la presenza di almeno tre risorse; le due a cui il documento fa riferimento sono:
 
-- Nome di rete virtuale (VNN): questo è il nome DNS a cui si connette il client quando si desidera connettersi a SQL Server tramite AlwaysOn.
+- Nome di rete virtuale \(VNN\): questo è il nome DNS a cui si connette il client quando si desidera connettersi a SQL Server tramite AlwaysOn.
 - Risorsa indirizzo IP: questo è l'indirizzo IP associato al nome di rete virtuale; possono essere più di uno e in una configurazione multisito sarà presente un indirizzo IP per sito/subnet.
 
 Quando ci si connette a SQL Sevrer, il driver del client di SQL Server recupererà i record DNS associati al listener e tenterà di connettersi a ogni indirizzo IP associato a AlwaysOn. Di seguito vengono illustrati alcuni fattori che possono influire su questa situazione.
@@ -646,7 +647,7 @@ Il codice riportato di seguito esegue dump delle impostazioni del nome di rete v
 
 In un passaggio successivo di migrazione è necessario aggiornare il listener AlwaysOn con un indirizzo IP aggiornato che farà riferimento a un servizio di bilanciamento del carico. Ciò comporterà la rimozione e l’aggiunta di una risorsa indirizzo IP. Dopo l’aggiornamento IP, è necessario assicurarsi che il nuovo indirizzo IP sia stato aggiornato nella zona DNS e che i client aggiornino la relativa cache DNS locale.
 
-Se i client si trovano in segmenti di rete diversi e fanno riferimento a un server DNS diverso, è necessario considerare ciò che accade sul trasferimento di zona DNS durante la migrazione dal momento che il tempo di riconnessione dell’applicazione sarà limitato di almeno il tempo di trasferimento di zona di ogni nuovo indirizzo IP per il listener. In caso di vincolo di tempo, è necessario discutere e verificare imponendo un trasferimento di zona incrementale con i team di Windows e, inoltre, impostare il record host DNS su una durata (TTL) inferiore, così i client si aggiornano. Per ulteriori informazioni, vedere [Trasferimenti di zona incrementali](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Se i client si trovano in segmenti di rete diversi e fanno riferimento a un server DNS diverso, è necessario considerare ciò che accade sul trasferimento di zona DNS durante la migrazione dal momento che il tempo di riconnessione dell’applicazione sarà limitato di almeno il tempo di trasferimento di zona di ogni nuovo indirizzo IP per il listener. In caso di vincolo di tempo, è necessario discutere e verificare imponendo un trasferimento di zona incrementale con i team di Windows e, inoltre, impostare il record host DNS su una durata \(TTL\) inferiore, così i client si aggiornano. Per ulteriori informazioni, vedere [Trasferimenti di zona incrementali](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 Per impostazione predefinita il valore TTL per il Record DNS associato al Listener in AlwaysOn in Azure è 1200 secondi. È possibile ridurre questo valore in caso di vincolo di tempo durante la migrazione per assicurarsi che i client aggiornino il proprio DNS con l'indirizzo IP aggiornato per il listener. È possibile visualizzare e modificare la configurazione eseguendo il dump della configurazione del nome di rete virtuale:
 
@@ -664,11 +665,11 @@ Si noti che più basso è 'HostRecordTTL' più alto sarà il traffico DNS.
 
 Se l'applicazione client SQL supporta .Net 4.5 SQLClient, sarà possibile utilizzare la parola chiave "MULTISUBNETFAILOVER=TRUE'. Tale operazione è consigliata poiché consente una connessione più veloce al gruppo di disponibilità SQL AlwaysOn durante il failover. Enumera tutti gli indirizzi IP associati al listener AlwaysOn in parallelo e consente di raggiungere una velocità di tentativi di connessione TCP maggiore durante un failover.
 
-Per ulteriori informazioni riguardanti le impostazioni precedenti, vedere [Parola chiave MultiSubnetFailover e funzionalità associate](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Vedere anche [Supporto SqlClient per disponibilità elevata, ripristino di emergenza](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
+Per ulteriori informazioni riguardanti le impostazioni precedenti, vedere [Parola chiave MultiSubnetFailover e funzionalità associate](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Vedere anche \[Supporto SqlClient per disponibilità elevata, ripristino di emergenza\]\(https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
 #### Passaggio 5: Impostazioni del quorum del cluster
 
-Poiché sarà portato offline almeno un SQL Server alla volta, è necessario modificare l'impostazione del quorum cluster, se si utilizza FSW(File Share Witnes) con due nodi. Il quorum deve essere impostato per consentire la maggioranza del nodo e per utilizzare la votazione dinamica al fine di permettere a un singolo nodo di rimanere permanente.
+Poiché sarà portato offline almeno un SQL Server alla volta, è necessario modificare l'impostazione del quorum cluster, se si utilizza FSW\(File Share Witnes\) con due nodi. Il quorum deve essere impostato per consentire la maggioranza del nodo e per utilizzare la votazione dinamica al fine di permettere a un singolo nodo di rimanere permanente.
 
 
     Set-ClusterQuorum -NodeMajority  
@@ -685,7 +686,7 @@ Salvarli in un file di testo.
 
 #### Passaggio 7: Modificare i partner di failover e le modalità di replica
 
-Se si dispone di più di 2 SQL Server, è necessario impostare su 'Sincrono' il failover di un’altra replica secondari in un altro centro dati o locale e renderlo Partner di failover automatico (AFP) in modo da mantenere la disponibilità elevata mentre si apportano modifiche. A tale scopo, è possibile utilizzare TSQL o SSMS:
+Se si dispone di più di 2 SQL Server, è necessario impostare su 'Sincrono' il failover di un’altra replica secondari in un altro centro dati o locale e renderlo Partner di failover automatico \(AFP\) in modo da mantenere la disponibilità elevata mentre si apportano modifiche. A tale scopo, è possibile utilizzare TSQL o SSMS:
  
 ![Appendix6][16]
 
@@ -1011,7 +1012,7 @@ Per i volumi di TLOG, devono essere impostate su NONE.
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
      
     
-È possibile controllare lo stato di copia del disco rigido virtuale per tutti i dischi rigidi virtuali: ForEach ($disk in $diskobjects) {$lun = $disk. LUN $vhdname = $disk.vhdname $cacheoption = $disk. HostCaching $disklabel = $disk. EtichettaDisco $diskName = $disk.DiskName
+È possibile controllare lo stato di copia del disco rigido virtuale per tutti i dischi rigidi virtuali: ForEach \($disk in $diskobjects\) {$lun = $disk. LUN $vhdname = $disk.vhdname $cacheoption = $disk. HostCaching $disklabel = $disk. EtichettaDisco $diskName = $disk.DiskName
       
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
     Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status 
@@ -1021,7 +1022,7 @@ Per i volumi di TLOG, devono essere impostate su NONE.
 
 Attendere che tutto venga registrato come esito positivo.
 
-Per informazioni sui singoli BLOB: #Controllare lo stato del singolo BLOB Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
+Per informazioni sui singoli BLOB: \#Controllare lo stato del singolo BLOB Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### Passaggio 21: Registrare un disco del sistema operativo
     #change storage account to the new XIO storage account
@@ -1140,5 +1141,6 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

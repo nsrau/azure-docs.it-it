@@ -20,7 +20,7 @@
 
 
 
-# Applicazione Web Hello World Django (mac-linux)
+# Applicazione Web Hello World Django \(mac-linux\)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
@@ -127,5 +127,6 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

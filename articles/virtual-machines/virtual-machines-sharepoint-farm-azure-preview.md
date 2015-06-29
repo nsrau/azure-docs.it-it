@@ -38,13 +38,13 @@ Per le informazioni di configurazione dettagliate di entrambe queste farm, veder
  
 Per creare la farm di SharePoint con il modello Farm di SharePoint Server, eseguire le operazioni seguenti:
 
-1. Nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Calcolo** > **Farm di SharePoint Server**. Se **Farm di SharePoint Server** non viene visualizzato, fare clic su **Nuovo** > **Calcolo** > **Azure Marketplace**, digitare **SharePoint** in **Cerca tutto** e quindi fare clic su **Farm di SharePoint Server**. 
+1. Nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/) fare clic su **Nuovo** \> **Calcolo** \> **Farm di SharePoint Server**. Se **Farm di SharePoint Server** non viene visualizzato, fare clic su **Nuovo** \> **Calcolo** \> **Azure Marketplace**, digitare **SharePoint** in **Cerca tutto** e quindi fare clic su **Farm di SharePoint Server**. 
 2. Nel riquadro **Crea una farm di SharePoint** digitare il nome di un gruppo di risorse.
 3. Digitare il nome utente e la password per l'account amministratore locale in ogni macchina virtuale della farm. Scegliere un nome e una password difficili da indovinare e trascriverli in un luogo sicuro.
 4. Per abilitare la farm con disponibilità elevata, fare clic su **Abilita disponibilità elevata**.
-5. Per configurare i controller di dominio, fare clic sulla freccia. È possibile specificare un prefisso di nome host (il valore predefinito è il nome del gruppo di risorse), il nome del dominio radice della foresta (il valore predefinito è contoso.com) e le dimensioni dei controller di dominio (il valore predefinito è A1).
-6. Per configurare i server SQL, fare clic sulla freccia. È possibile specificare un prefisso di nome host (il valore predefinito è il nome del gruppo di risorse), le dimensioni dei server SQL (il valore predefinito è A5), il nome e la password dell'account di accesso al database (per impostazione predefinita l'account amministratore), il nome dell'account del servizio SQL Server (il valore predefinito è sqlservice) e la password (per impostazione predefinita è la stessa password dell'account amministratore).
-7. Per configurare i server di SharePoint, fare clic sulla freccia. È possibile specificare un prefisso di nome host (il valore predefinito è il nome del gruppo di risorse), le dimensioni dei server di SharePoint (il valore predefinito è A2), un account utente per SharePoint (il valore predefinito è sp_setup) e la relativa password, il nome dell'account della farm di SharePoint (il valore predefinito è sp_farm) e la relativa password e una passphrase per la farm di SharePoint. Per impostazione predefinita, in genere viene usata la password dell'amministratore per l'account utente, l'account della farm e la passphrase di SharePoint.
+5. Per configurare i controller di dominio, fare clic sulla freccia. È possibile specificare un prefisso di nome host \(il valore predefinito è il nome del gruppo di risorse\), il nome del dominio radice della foresta \(il valore predefinito è contoso.com\) e le dimensioni dei controller di dominio \(il valore predefinito è A1\).
+6. Per configurare i server SQL, fare clic sulla freccia. È possibile specificare un prefisso di nome host \(il valore predefinito è il nome del gruppo di risorse\), le dimensioni dei server SQL \(il valore predefinito è A5\), il nome e la password dell'account di accesso al database \(per impostazione predefinita l'account amministratore\), il nome dell'account del servizio SQL Server \(il valore predefinito è sqlservice\) e la password \(per impostazione predefinita è la stessa password dell'account amministratore\).
+7. Per configurare i server di SharePoint, fare clic sulla freccia. È possibile specificare un prefisso di nome host \(il valore predefinito è il nome del gruppo di risorse\), le dimensioni dei server di SharePoint \(il valore predefinito è A2\), un account utente per SharePoint \(il valore predefinito è sp\_setup\) e la relativa password, il nome dell'account della farm di SharePoint \(il valore predefinito è sp\_farm\) e la relativa password e una passphrase per la farm di SharePoint. Per impostazione predefinita, in genere viene usata la password dell'amministratore per l'account utente, l'account della farm e la passphrase di SharePoint.
 8. Per configurare le impostazioni facoltative per la rete virtuale, l'account di archiviazione o la diagnostica, fare clic sulla freccia corrispondente.
 9. Per specificare la sottoscrizione, fare clic sulla freccia.
 10. Al termine dell'operazione, scegliere **Crea**.
@@ -53,7 +53,7 @@ Per creare la farm di SharePoint con il modello Farm di SharePoint Server, esegu
 
 ## Eseguire l'accesso e gestire le farm di SharePoint
 
-Le farm di SharePoint includono un endpoint preconfigurato per consentire il traffico Web non autenticato (porta TCP 80) al server Web SharePoint per un computer client connesso a Internet. Questo endpoint indirizza a un sito del team preconfigurato. Per accedere al sito del team, eseguire le operazioni seguenti:
+Le farm di SharePoint includono un endpoint preconfigurato per consentire il traffico Web non autenticato \(porta TCP 80\) al server Web SharePoint per un computer client connesso a Internet. Questo endpoint indirizza a un sito del team preconfigurato. Per accedere al sito del team, eseguire le operazioni seguenti:
 
 1.	Nel portale di anteprima di Azure fare clic su **Sfoglia** e quindi su **Gruppi di risorse**. 
 2.	Nell'elenco dei gruppi di risorse fare clic sul nome del gruppo di risorse della farm di SharePoint.
@@ -95,4 +95,4 @@ La funzionalità Farm di SharePoint Server usa Gestione risorse di Azure e scrip
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

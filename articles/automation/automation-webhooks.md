@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2015"
+   ms.date="06/03/2015"
    ms.author="bwren" />
 
 # Webhook di Automazione di Azure
@@ -32,7 +32,7 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 |Name | È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata, è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 |URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di anteprima di Azure al momento della creazione del webhook. È consigliabile prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
 |Expiration date | Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza non può essere modificata dopo la creazione del webhook e il webhook non può essere abilitato di nuovo dopo la data di scadenza. In questo caso, è necessario creare un altro webhhok per sostituire quello corrente e aggiornare il client per l'uso del nuovo webhook. |
-| Enabled | Un runbook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene impostato su Disabled, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
+| Enabled | Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene impostato su Disabled, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
 
 ### Parametri
@@ -40,7 +40,7 @@ Un webhook può definire valori per parametri di runbook usati quando il runbook
 
 >[AZURE.NOTE]I valori di parametri impostati da un webhook attualmente non possono essere modificati dopo la creazione del webhook. In questo caso sarà necessario creare un altro webhook che usa valori di parametri diversi.
 
-Quando avvia un runbook con un webhook, un client non può eseguire l'override dei valori di parametri definiti nel webhook. Per ricevere dati dal client, il runbook può accettare un singolo parametro denominato **$WebhookData** di tipo [object] che conterrà i dati inclusi dal client nella richiesta POST.
+Quando avvia un runbook con un webhook, un client non può eseguire l'override dei valori di parametri definiti nel webhook. Per ricevere dati dal client, il runbook può accettare un singolo parametro denominato **$WebhookData** di tipo \[object\] che conterrà i dati inclusi dal client nella richiesta POST.
 
 ![Webhookdata](media/automation-webhooks/webhookdata.png)
 
@@ -49,14 +49,15 @@ L'oggetto **$WebhookData** disporrà delle proprietà seguenti:
 | Proprietà | Descrizione |
 |:--- |:---|
 | WebhookName | Nome del webhook. |
-| RequestHeader | Intestazione della richiesta POST in ingresso. |
-| RequestBody | Corpo della richiesta POST in ingresso. |
+| RequestHeader | Tabella hash contenente le intestazioni della richiesta POST in ingresso. |
+| RequestBody | Corpo della richiesta POST in ingresso. Manterrà tutta la formattazione, ad esempio stringa, JSON, XML o dati codificati in un form. Il runbook deve essere scritto in modo che funzioni con il formato di dati previsto.|
+
 
 Non è richiesta alcuna configurazione del webhook per supportare il parametro **$WebhookData** e il runbook non deve necessariamente accettarlo. Se il runbook non definisce il parametro, gli eventuali dettagli della richiesta inviata dal client verranno ignorati.
 
 Se si specifica un valore per $WebhookData quando si crea il webhook, viene eseguito l'override di tale valore quando il webhook avvia il runbook con i dati della richiesta POST del client, anche se il client non include dati nel corpo della richiesta. Se si avvia un runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal runbook. Questo valore deve essere un oggetto con le stesse proprietà di $Webhookdata in modo che il runbook possa usarlo correttamente.
 
->[AZURE.NOTE]I valori di tutti i parametri di input vengono registrati con il processo di runbook. Qualsiasi input fornito dal client verrà quindi registrato con $WebhookData e sarà disponibile per chiunque abbia accesso al processo di automazione. Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
+>[AZURE.NOTE]I valori di tutti i parametri di input vengono registrati con il processo di runbook. Qualsiasi input fornito dal client nella richiesta del webhook verrà quindi registrato e sarà disponibile per chiunque abbia accesso al processo di automazione. Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
 
 ## Sicurezza
 
@@ -75,56 +76,101 @@ Seguire questa procedura per creare un nuovo webhook collegato a un runbook nel 
 4. Fare clic su **Create new webhook** per aprire il pannello **Create webhook**.
 5. Specificare un valore per **Name** ed **Expiration Date** per il webhook e indicare se deve essere abilitato. Per altre informazioni su queste proprietà, vedere [Informazioni dettagliate sui webhook](#details-of-a-webhook).
 6. Fare clic sull'icona di copia e premere CTRL+C per copiare l'URL del webhook. Annotarlo in un luogo sicuro. **Dopo aver creato il webhook, non è possibile recuperare di nuovo l'URL.** <br> ![URL di webhook](media/automation-webhooks/copy-webhook-url.png)
+3. Fare clic su **Parameters** per specificare i valori per i parametri del runbook. Se il runbook ha parametri obbligatori, non sarà possibile creare il webhook a meno che non vengono forniti i valori.
 1. Fare clic su **Create** per creare il webhook.
-3. Fare clic su **Parameters** per specificare i valori per i parametri del runbook. <br>
-1. Dopo aver configurato il webhook, fare clic su **OK**.
 
 
 ## Uso di un webhook
 
-Per usare un webhook, l'applicazione client deve inviare una richiesta HTTP POST con l'URL del webhook. La sintassi del webhook sarà nel formato seguente.
+Per usare un webhook dopo averlo creato, l'applicazione client deve inviare una richiesta HTTP POST con l'URL del webhook. La sintassi del webhook sarà nel formato seguente.
 
 	http://<Webhook Server>/token?=<Token Value>
 
-
-Il client riceverà uno dei codici seguenti in risposta alla richiesta POST.
+Il client riceverà uno dei codici restituiti seguenti dalla richiesta POST.
 
 | Codice | Testo | Descrizione |
 |:---|:----|:---|
-| 202 | Accepted | La richiesta è stata accettata e il runbook è stato avviato. |
+| 202 | Accepted | La richiesta è stata accettata e il runbook è stato accodato. |
 | 400 | Bad Request | La richiesta non è stata accettata per uno dei motivi seguenti. <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li> </ul>|
 | 500 | Internal Server Error | L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 
-Il client non può determinare quando viene completato il processo del runbook oppure ottenere lo stato di completamento da un webhook perché il webhook non restituisce un identificatore per il processo del runbook. È possibile convalidare solo che la richiesta è stata inviata correttamente.
+Presupponendo che la richiesta riesca, la risposta del webhook conterrà l'ID processo in formato JSON come indicato di seguito. Conterrà un singolo ID processo, ma il formato JSON consente potenziali miglioramenti futuri.
+
+	{"JobIds":["<JobId>"]}  
+
+Il client non è in grado di determinare quando viene completato il processo del runbook o lo stato di avanzamento dal webhook. Può determinare queste informazioni usando l'ID processo con un altro metodo, ad esempio [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) o l'[API di Automazione di Azure](https://msdn.microsoft.com/library/azure/mt163826.aspx).
 
 ### Esempio
 
-L'esempio seguente avvia un runbook usando un webhook con Windows PowerShell. Questo esempio include dati nell'intestazione e nel corpo che possono essere usati dal runbook. Si noti che qualsiasi linguaggio in grado di creare una richiesta HTTP può usare un webhook.
+L'esempio seguente usa Windows PowerShell per avviare un runbook con un webhook. Si noti che qualsiasi linguaggio in grado di creare una richiesta HTTP può usare un webhook. Windows PowerShell viene usato qui solo come esempio.
 
-	$uri = "https://oaaswebhookcurrent.cloudapp.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
-	$headers = @{"header1"="headerval1";"header2"="headerval2"}
-	$body = "some request body"
+Il runbook prevede un elenco di macchine virtuali in formato JSON nel corpo della richiesta. Nell'intestazione della richiesta vengono incluse anche informazioni sull'utente che avvia il runbook e la data e l'ora di avvio.
 
-	Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
+	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
+	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
+    
+    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
+    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+	$body = ConvertTo-Json -InputObject $vms 
 
-Il runbook di esempio seguente accetta la richiesta precedente e recupera i dati dal webhook.
+	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
+	$jobid = ConvertFrom-Json $response 
 
-	workflow Sample-Webhook
+
+L'immagine seguente illustra le informazioni di intestazione \(usando una traccia di [ Fiddler](http://www.telerik.com/fiddler)\) dalla richiesta. Sono incluse le intestazioni standard di una richiesta HTTP, oltre alla data personalizzata e le intestazioni DA aggiunte. Ognuno di questi valori è disponibile per il runbook nella proprietà **RequestHeaders** di **WebhookData**.
+
+![Pulsante Webhooks](media/automation-webhooks/webhook-request-headers.png)
+
+L'immagine seguente mostra il corpo della richiesta \(usando una traccia di [Fiddler](http://www.telerik.com/fiddler)\) disponibile per il runbook nella proprietà **RequestBody** di **WebhookData**. Viene formattata come JSON perché questo era il formato incluso nel corpo della richiesta.
+
+![Pulsante Webhooks](media/automation-webhooks/webhook-request-body.png)
+
+L'immagine seguente mostra la richiesta inviata da Windows PowerShell e la risposta risultante. L'ID processo viene estratto dalla risposta e convertito in una stringa.
+
+![Pulsante Webhooks](media/automation-webhooks/webhook-request-response.png)
+
+Il runbook di esempio seguente accetta la richiesta di esempio precedente e avvia le macchine virtuali specificate nel corpo della richiesta.
+
+	workflow Test-StartVirtualMachinesFromWebhook
 	{
 		param (	
-				[object]$WebhookData
+			[object]$WebhookData
 		)
-	
-		$WebhookName 	= 	$WebhookData.WebhookName
-		$WebhookHeaders = 	$WebhookData.RequestHeader
-		$WebhookBody 	= 	$WebhookData.RequestBody
-	} 
+
+		# If runbook was called from Webhook, WebhookData will not be null.
+		if ($WebhookData -ne $null) {	
+			
+			# Collect properties of WebhookData
+			$WebhookName 	= 	$WebhookData.WebhookName
+			$WebhookHeaders = 	$WebhookData.RequestHeader
+			$WebhookBody 	= 	$WebhookData.RequestBody
+			
+			# Collect individual headers. VMList converted from JSON.
+			$From = $WebhookHeaders.From
+			$VMList = (ConvertFrom-Json -InputObject $WebhookBody).VirtualMachines
+			Write-Output "Runbook started from webhook $WebhookName by $From."
+			
+			# Authenticate to Azure resources
+			$Cred = Get-AutomationPSCredential -Name 'MyAzureCredential'
+			Add-AzureAccount -Credential $Cred
+			
+            # Start each virtual machine
+			foreach ($VM in $VMList)
+			{
+				Write-Output "Starting $VM.Name."
+				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
+			}
+		}
+		else {
+			Write-Error "Runbook mean to be started only from webhook." 
+		} 
+	}
 
 	
 
 ## Articoli correlati
 
 - [Avvio di un runbook](automation-starting-a-runbook.md)
-- [Visualizzazione dello stato di un processo di runbook](automation-viewing-the-status-of-a-runbook-job.md)
+- [Visualizzazione dello stato di un processo di runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

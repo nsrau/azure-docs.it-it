@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2015"
+	ms.date="06/11/2015"
 	ms.author="szark"/>
 
 
@@ -35,7 +35,7 @@ In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell
 
 ## <a id="authentication"></a>Autenticazione: nomi utente, password e chiavi SSH
 
-Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
+Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema \(UID \<100\) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
 
 
  - Vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md)
@@ -44,7 +44,7 @@ Quando si crea una macchina virtuale Linux usando il portale di gestione di Azur
 
 ## <a id="superuserprivileges"></a>Uso di `sudo` per ottenere privilegi di utente avanzato
 
-L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo`. Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
+L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT \(account utente con privilegi avanzati\) tramite l'utilità `sudo`. Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
 
 	# sudo <COMMAND>
 
@@ -74,10 +74,13 @@ L'agente Linux di Azure include funzionalità per il rilevamento automatico dell
 
  - [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
-### Immagini Ubuntu
-Le immagini Ubuntu usano cloud-init, che offre capacità aggiuntive per il bootstrap di una macchina virtuale.
+### cloud-init
+Le immagini **Ubuntu** e **CoreOS** usano cloud-init in Azure, che offre capacità aggiuntive per il bootstrap di una macchina virtuale.
 
- - Vedere [How to Inject Custom Data](virtual-machines-how-to-inject-custom-data.md) e [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Come inserire dati personalizzati](virtual-machines-how-to-inject-custom-data.md)
+ - [Dati personalizzati e cloud-init in Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Creare partizioni di scambio di Azure con cloud-init](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [Come usare CoreOS in Azure](virtual-machines-linux-coreos-how-to.md)
 
 
 ## <a id="virtualmachine"></a>Acquisizione di immagini di macchine virtuali
@@ -97,12 +100,14 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 
 Ogni macchina virtuale ha un *disco risorse* temporaneo locale collegato. Poiché è possibile che i dati su un disco risorse non vengano mantenuti tra un riavvio e l'altro, questo tipo di disco viene spesso usato da applicazioni e processi in esecuzione nella macchina virtuale per l'archiviazione **temporanea** di dati. È anche usato per archiviare file di paging o di scambio per il sistema operativo.
 
-In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu).
+In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** \(o **/mnt** nelle immagini Ubuntu\).
+
 
 	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in dettaglio nell'esercitazione [Procedura: Come collegare un disco dati a una macchina virtuale](virtual-machines-linux-how-to-attach-disk.md).
 
- - Vedere anche: [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
+ - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Accedere dall'interfaccia della riga di comando di Azure "
+	pageTitle="Accedere dall'interfaccia della riga di comando di Azure | Microsoft Azure"
 	description="Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure è un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. In questo documento viene descritto come connettersi alla sottoscrizione di Azure da xplat-cli. Per istruzioni sull'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
+L'interfaccia della riga di comando di Azure è un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Questo documento spiega come connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure. Per istruzioni sull'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## Come connettersi alla sottoscrizione di Azure
 
 La maggior parte dei comandi forniti dall'interfaccia della riga di comando di Azure richiedono una connessione a un account Azure. Per configurare l'interfaccia della riga di comando di Azure per l'utilizzo con la sottoscrizione, è possibile eseguire una delle due seguenti operazioni:
 
-* Accedere ad Azure utilizzando un account aziendale o dell'istituto di istruzione (detto anche account aziendale). Questa procedura utilizza Azure Active Directory per autenticare le credenziali.
+* Accedere ad Azure utilizzando un account aziendale o dell'istituto di istruzione \(detto anche account aziendale\). Questa procedura utilizza Azure Active Directory per autenticare le credenziali.
 
 o
 
@@ -75,7 +75,7 @@ Per disconnettersi, usare il comando seguente:
 
 ### Usare il metodo del file di impostazioni di pubblicazione
 
-> [AZURE.NOTE]Se per connettersi viene utilizzato questo metodo, è possibile utilizzare solo i comandi di gestione del servizio Azure (o modalità ASM).
+> [AZURE.NOTE]Se per connettersi viene utilizzato questo metodo, è possibile utilizzare solo i comandi di gestione del servizio Azure \(o modalità ASM\).
 
 Per scaricare le impostazioni di pubblicazione per l'account, usare il comando seguente:
 
@@ -85,13 +85,13 @@ Verrà aperto il browser predefinito e verrà richiesto di effettuare l'accesso 
 
 > [AZURE.NOTE]Se l'account è associato a più tenant Azure Active Directory, è possibile che venga richiesto di selezionare per quale istanza di Active Directory si desidera scaricare un file di impostazioni di pubblicazione.
 >
-> Dopo aver effettuato la selezione tramite la pagina di download oppure visitando il portale di Azure, il tenant Active Directory selezionato diventerà quello usato per impostazione predefinita nel portale e nella pagina di download. Dopo la scelta di un'impostazione predefinita, nella parte superiore della pagina di download verrà visualizzato un messaggio analogo al seguente: '__fare clic qui per tornare nella pagina di selezione__'. Usare il collegamento specificato per tornare nella pagina di selezione.
+> Dopo aver effettuato la selezione tramite la pagina di download oppure visitando il portale di Azure, il tenant Active Directory selezionato diventerà quello usato per impostazione predefinita nel portale e nella pagina di download. Dopo la scelta di un'impostazione predefinita, nella parte superiore della pagina di download verrà visualizzato un messaggio analogo al seguente: '\_\_fare clic qui per tornare nella pagina di selezione\_\_'. Usare il collegamento specificato per tornare nella pagina di selezione.
 
 Importare `.publishsettings` eseguendo il comando seguente:
 
 	azure account import <path to your .publishsettings file>
 
-Dopo l'importazione delle impostazioni di pubblicazione, è consigliabile eliminare il file `.publishsettings` in quanto non è più necessario per gli strumenti da riga di comando e presenta un rischio di sicurezza perché può essere usato per ottenere l'accesso alla sottoscrizione.
+Dopo l'importazione delle impostazioni di pubblicazione, è consigliabile eliminare il file `.publishsettings` in quanto non è più necessario per l'interfaccia della riga di comando di Azure e presenta un rischio di sicurezza perché può essere usato per accedere alla sottoscrizione.
 
 > [AZURE.NOTE]Quando si effettua l'accesso con un account aziendale o dell'istituto di istruzione o si importano le impostazioni di pubblicazione, le informazioni per l'accesso alla sottoscrizione Azure vengono archiviate in una directory `.azure` all'interno della directory `user`. La directory `user` è protetta dal sistema operativo. Tuttavia, si consiglia di eseguire ulteriori passaggi per crittografare la directory `user`. A tale scopo, è possibile procedere come segue:
 >
@@ -101,7 +101,7 @@ Dopo l'importazione delle impostazioni di pubblicazione, è consigliabile elimin
 
 ### Più sottoscrizioni
 
-Se si dispone di più sottoscrizioni Azure, effettuando l'accesso ad Azure sarà possibile accedere a tutte le sottoscrizioni associate alle credenziali. Una sola sottoscrizione verrà selezionata come quella predefinita e usata da xplat-cli per l'esecuzione delle operazioni. Per visualizzare le sottoscrizioni, inclusa quella predefinita, utilizzare il comando `azure account list`. Questo comando restituirà informazioni simili alle seguenti:
+Se si dispone di più sottoscrizioni Azure, effettuando l'accesso ad Azure sarà possibile accedere a tutte le sottoscrizioni associate alle credenziali. Una sola sottoscrizione verrà selezionata come quella predefinita e usata dall'interfaccia della riga di comando di Azure per l'esecuzione delle operazioni. Per visualizzare le sottoscrizioni, inclusa quella predefinita, utilizzare il comando `azure account list`. Questo comando restituirà informazioni simili alle seguenti:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare
 <a id="additional-resources"></a>
 ## Risorse aggiuntive
 
-* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione servizi (o modalità ASM)][xplatasm]
+* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione servizi \(o modalità ASM\)][cliasm]
 
-* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione risorse (o modalità ASM)][xplatarm]
+* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione risorse \(o modalità ASM\)][cliarm]
 
 * Per informazioni sull'interfaccia della riga di comando di Azure, per scaricare il codice sorgente, segnalare problemi o contribuire al progetto, visitare l'[archivio GitHub per l'interfaccia della riga di comando di Azure](https://github.com/azure/azure-xplat-cli).
 
@@ -142,7 +142,7 @@ Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

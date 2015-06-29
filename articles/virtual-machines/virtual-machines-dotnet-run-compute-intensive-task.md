@@ -99,13 +99,13 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ## Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo
 
-1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://azure.microsoft.com/develop/net/).
-2. Creare un'applicazione console .NET con il progetto denominato **TSPSolver**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4 o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto nel modo seguente: nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
-3. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK (ad esempio nel percorso **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
+1. Sul computer di sviluppo \(che non deve essere la macchina virtuale creata dall'utente\) scaricare [Azure SDK per .NET](http://azure.microsoft.com/develop/net/).
+2. Creare un'applicazione console .NET con il progetto denominato **TSPSolver**. Verificare che il framework di destinazione sia impostato per .\*\*NET Framework 4 o versione successiva \(non **.NET Framework 4 Client Profile**\). Il framework di destinazione può essere impostato dopo aver creato un progetto nel modo seguente: nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
+3. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK \(ad esempio nel percorso **C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef**\) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
 4. Aggiungere la libreria System Runtime Serialization. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, scegliere su **Aggiungi riferimento**, quindi fare clic sulla scheda **.NET** e selezionare **System.Runtime.Serialization** come riferimento.
 5. Utilizzare il codice di esempio fornito al termine di questa sezione per i contenuti di **Program.cs**.
-6. Modificare il segnaposto **your_connection_string** per usare la **stringa di connessione** del bus di servizio.
-7. Compilare l'applicazione. Verrà creato **TSPSolver.exe** nella cartella **bin** del progetto ( **bin\release** o **bin\debug**, a seconda che la destinazione sia una build di rilascio o di debug). Questo eseguibile e Microsoft.ServiceBus.dll verranno copiati nella macchina virtuale in seguito.
+6. Modificare il segnaposto **your\_connection\_string** per usare la **stringa di connessione** del bus di servizio.
+7. Compilare l'applicazione. Verrà creato **TSPSolver.exe** nella cartella **bin** del progetto \( **bin\\release** o **bin\\debug**, a seconda che la destinazione sia una build di rilascio o di debug\). Questo eseguibile e Microsoft.ServiceBus.dll verranno copiati nella macchina virtuale in seguito.
 
 <p/>
 
@@ -325,12 +325,12 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ## Come creare un'applicazione .NET che monitori l'avanzamento dell'attività a elevato utilizzo di calcolo
 
-1. Sul computer di sviluppo, creare un'applicazione console .NET utilizzando il nome di progetto **TSPClient**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4 o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto nel modo seguente: nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
-2. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPClient**, fare clic su **Aggiungi riferimento**, quindi fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK (ad esempio al percorso **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
+1. Sul computer di sviluppo, creare un'applicazione console .NET utilizzando il nome di progetto **TSPClient**. Verificare che il framework di destinazione sia impostato per .\*\*NET Framework 4 o versione successiva \(non **.NET Framework 4 Client Profile**\). Il framework di destinazione può essere impostato dopo aver creato un progetto nel modo seguente: nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
+2. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPClient**, fare clic su **Aggiungi riferimento**, quindi fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK \(ad esempio al percorso **C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef**\) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
 3. Aggiungere la libreria System Runtime Serialization. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPClient**, fare clic su **Aggiungi riferimento**, quindi fare clic sulla scheda **.NET** e selezionare **System.Runtime.Serialization** come riferimento.
 4. Utilizzare il codice di esempio fornito al termine di questa sezione per i contenuti di **Program.cs**.
-5. Modificare il segnaposto **your_connection_string** per usare la **stringa di connessione** del bus di servizio.
-6. Compilare l'applicazione. Verrà creato **TSPClient.exe** nella cartella **bin** del progetto (**bin\release** o **bin\debug**, a seconda che la destinazione sia una build di rilascio o di debug). È possibile eseguire questo codice dal computer di sviluppo oppure copiare questo eseguibile e Microsoft.ServiceBus.dll in un computer sul quale verrà eseguita l'applicazione client (non è necessario che vena eseguita sulla macchina virtuale)
+5. Modificare il segnaposto **your\_connection\_string** per usare la **stringa di connessione** del bus di servizio.
+6. Compilare l'applicazione. Verrà creato **TSPClient.exe** nella cartella **bin** del progetto \(**bin\\release** o **bin\\debug**, a seconda che la destinazione sia una build di rilascio o di debug\). È possibile eseguire questo codice dal computer di sviluppo oppure copiare questo eseguibile e Microsoft.ServiceBus.dll in un computer sul quale verrà eseguita l'applicazione client \(non è necessario che vena eseguita sulla macchina virtuale\)
 
 <p/>
 
@@ -438,14 +438,14 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ## Come eseguire le applicazioni .NET
 
-Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato utilizzo di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
+Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato utilizzo di calcolo è in esecuzione \(oppure in seguito\), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
 
 ### Come eseguire l'applicazione a elevato utilizzo di calcolo
 
 1. Accedere alla macchina virtuale.
-2. Creare una cartella denominata **c:\TSP**. Si tratta della cartella in cui verrà eseguita l'applicazione.
-3. Copiare TSPSolver.exe and Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPSolver, in **c:\TSP**.
-4. Creare un file denominato **c:\TSP\cities.txt** con il seguente contenuto:
+2. Creare una cartella denominata **c:\\TSP**. Si tratta della cartella in cui verrà eseguita l'applicazione.
+3. Copiare TSPSolver.exe and Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPSolver, in **c:\\TSP**.
+4. Creare un file denominato **c:\\TSP\\cities.txt** con il seguente contenuto:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. Al prompt dei comandi passare alla directory c:\TSP.
+5. Al prompt dei comandi passare alla directory c:\\TSP.
 6. Sarà necessario creare la coda del bus di servizio prima di eseguire le permutazioni del risolutore TSP. Eseguire il comando seguente per creare la coda del bus di servizio:
 
         TSPSolver createqueue
@@ -511,13 +511,13 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 
 Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutte le route.
 
-> [AZURE.NOTE]Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
+> [AZURE.NOTE]Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime \(settimane, mesi e anni\). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
 
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPClient.exe** e Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPClient, nella cartella c:\TSP.
-4. Al prompt dei comandi passare alla directory c:\TSP.
+2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\\TSP**.
+3. Copiare **TSPClient.exe** e Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPClient, nella cartella c:\\TSP.
+4. Al prompt dei comandi passare alla directory c:\\TSP.
 5. Eseguire il comando seguente:
 
         TSPClient
@@ -526,7 +526,7 @@ Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutt
 
 	    TSPClient 1
 
-    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** (non **TSPClient**) seguente:
+    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** \(non **TSPClient**\) seguente:
 
         TSPSolver deletequeue
 
@@ -545,5 +545,6 @@ Per creare o eliminare la coda, è possibile utilizzare il [portale di gestione 
 [click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

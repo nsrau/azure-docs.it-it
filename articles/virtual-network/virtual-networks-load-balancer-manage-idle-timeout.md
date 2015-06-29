@@ -20,15 +20,15 @@
    
 # Gestione della rete virtuale: timeout di inattività TCP del servizio di bilanciamento del carico
 
-**Timeout di inattività TCP** consente allo sviluppatore di specificare una soglia di inattività certa per le sessioni client-server che coinvolgono il servizio di bilanciamento del carico di Azure. Un valore di timeout di inattività TCP pari a 4 minuti (l'impostazione predefinita per il servizio di bilanciamento del carico di Azure) comporta che se si verifica un periodo di inattività più lungo di 4 minuti durante una sessione client-server che utilizza il servizio di bilanciamento del carico di Azure, la connessione verrà chiusa.
+**Timeout di inattività TCP** consente allo sviluppatore di specificare una soglia di inattività certa per le sessioni client-server che coinvolgono il servizio di bilanciamento del carico di Azure. Un valore di timeout di inattività TCP pari a 4 minuti \(l'impostazione predefinita per il servizio di bilanciamento del carico di Azure\) comporta che se si verifica un periodo di inattività più lungo di 4 minuti durante una sessione client-server che utilizza il servizio di bilanciamento del carico di Azure, la connessione verrà chiusa.
 
 Quando una connessione client-server viene chiusa, l'applicazione client riceve un messaggio di errore simile a "Connessione sottostante chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
 
-[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) è una procedura comune per mantenere le connessioni per un lungo periodo di inattività [(esempio MSDN)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Quando si utilizza TCP Keep-Alive, vengono inviati periodicamente semplici pacchetti da un client (in genere con una frequenza inferiore alla soglia di timeout di inattività del server). Il server considera queste trasmissioni come prova dell'attività di connessione, anche in assenza di altre attività, e pertanto il valore di timeout di inattività non viene mai superato e la connessione viene mantenuta per un lungo periodo di tempo.
+[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) è una procedura comune per mantenere le connessioni per un lungo periodo di inattività [\(esempio MSDN\)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Quando si utilizza TCP Keep-Alive, vengono inviati periodicamente semplici pacchetti da un client \(in genere con una frequenza inferiore alla soglia di timeout di inattività del server\). Il server considera queste trasmissioni come prova dell'attività di connessione, anche in assenza di altre attività, e pertanto il valore di timeout di inattività non viene mai superato e la connessione viene mantenuta per un lungo periodo di tempo.
 
 Sebbene TCP Keep-Alive funzioni bene, in genere non è un'opzione per le applicazioni mobili in quanto dispendiosa per le risorse di alimentazione limitate dei dispositivi mobili. Un'applicazione mobile che utilizza TCP Keep-Alive esaurisce la batteria del dispositivo molto rapidamente perché assorbe continuamente energia per l'utilizzo della rete.
 
-Per supportare scenari di dispositivi mobili, il servizio di bilanciamento del carico di Azure supporta un timeout di inattività TCP configurabile. Gli sviluppatori possono impostare il timeout di inattività TCP su una durata compresa tra 4 e 30 minuti per le connessioni in ingresso (il timeout di inattività TCP configurabile non si applica alle connessioni in uscita). In tal modo i client possono mantenere una sessione con un server con lunghi periodi di inattività per molto più tempo. È comunque possibile impostare la tecnica TCP Keep-Alive per un'applicazione di un dispositivo mobile per mantenere le connessioni che prevedono periodi di inattività più lunghi di 30 minuti, ma questo timeout di inattività TCP più lungo consente alle applicazioni di emettere richieste TCP Keep-Alive molto meno frequentemente rispetto a prima, riducendo in modo significativo l'utilizzo delle risorse di alimentazione del dispositivo mobile.
+Per supportare scenari di dispositivi mobili, il servizio di bilanciamento del carico di Azure supporta un timeout di inattività TCP configurabile. Gli sviluppatori possono impostare il timeout di inattività TCP su una durata compresa tra 4 e 30 minuti per le connessioni in ingresso \(il timeout di inattività TCP configurabile non si applica alle connessioni in uscita\). In tal modo i client possono mantenere una sessione con un server con lunghi periodi di inattività per molto più tempo. È comunque possibile impostare la tecnica TCP Keep-Alive per un'applicazione di un dispositivo mobile per mantenere le connessioni che prevedono periodi di inattività più lunghi di 30 minuti, ma questo timeout di inattività TCP più lungo consente alle applicazioni di emettere richieste TCP Keep-Alive molto meno frequentemente rispetto a prima, riducendo in modo significativo l'utilizzo delle risorse di alimentazione del dispositivo mobile.
 
 ## Implementazione
 
@@ -58,7 +58,7 @@ IdleTimeoutInMinutes è facoltativo. Se non impostato, il timeout predefinito è
 
 ### Recuperare la configurazione del timeout di inattività
 
-    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -118,7 +118,7 @@ Gli sviluppatori possono configurare la distribuzione del servizio di bilanciame
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
-Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o Nessuno (per nessuna affinità, ad esempio 5 tuple)
+Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o Nessuno \(per nessuna affinità, ad esempio 5 tuple\)
 
 #### Response
 
@@ -150,5 +150,6 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
         </EndpointACL>
       </InputEndpoint>
     </LoadBalancedEndpointList>
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

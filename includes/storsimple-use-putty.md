@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,9 +15,9 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Per connettersi tramite console seriale
+#### Per connettersi tramite console seriale
 
-1. Collegare il cavo seriale al dispositivo (direttamente o tramite un adattatore seriale USB).
+1. Collegare il cavo seriale al dispositivo \(direttamente o tramite un adattatore seriale USB\).
 
 2. Aprire il **Pannello di controllo**, quindi aprire **Gestione dispositivi**.
 
@@ -38,10 +38,11 @@
 
     Queste impostazioni sono mostrate nella figura seguente.
 
-     ![Impostazioni puTTY](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png)
+     ![Impostazioni puTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
     > [AZURE.NOTE]Se l'impostazione del controllo di flusso predefinito non funziona, provare a impostare il controllo di flusso su XON/XOFF.
 
 7. Fare clic su **Apri** per avviare una sessione seriale.
  
-<!--HONumber=52-->
+
+<!---HONumber=58_postMigration-->

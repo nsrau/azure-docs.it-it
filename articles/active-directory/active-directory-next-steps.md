@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # Passaggi successivi per l'uso di Azure AD
 
 
-[Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Altre informazioni](active-directory-learn-map.md)
+###Altri articoli su questo argomento
+[Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
 ## Gestire gli utenti in Azure AD
 La gestione degli account utente non si limita alla creazione o all'eliminazione degli utenti e all'assegnazione delle autorizzazioni. È possibile generare report sugli accessi e sull'utilizzo, impostare criteri password, abilitare la reimpostazione delle password self-service, configurare l'autenticazione a più fattori e altro ancora. [Altre informazioni sulla gestione degli utenti](active-directory-create-users.md)
@@ -38,5 +39,6 @@ Registrazione dispositivo di Azure AD consente di eseguire il provisioning dei d
 
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

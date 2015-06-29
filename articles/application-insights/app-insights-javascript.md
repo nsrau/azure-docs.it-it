@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights per app JavaScript e pagine Web" 
-	description="Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle app JavaScript e nelle pagine Web." 
+	pageTitle="Application Insights per app JavaScript" 
+	description="Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# Application Insights per app JavaScript e pagine Web
+# Application Insights per app JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -44,29 +44,19 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
-* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
+* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\\_Layout.cshtml
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
 
-*(Se si usa un framework di pagine Web noto, cercare adattatori Application Insights. Ad esempio, [un modulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
+*\(Se si usa un framework di pagine Web noto, cercare adattatori Application Insights. Ad esempio, [un modulo AngularJS](http://ngmodules.org/modules/angular-appinsights)\).*
 
-#### Se l'app non è una pagina Web...
-
-Se l'app JavaScript è un'app [Cordova](http://cordova.apache.org/), inserire una riga supplementare dopo la chiave di strumentazione:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-Se è un [app di Windows Runtime che usa JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), aggiungere il pacchetto NuGet *Application Insights per App Javascript* al progetto. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. Selezionare "Includi versione preliminare" e cercare Application Insights.
  
 ## <a name="run"></a>Eseguire l'app
 
 Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla con F5 sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
 
-Se si vogliono controllare i dati di telemetria che un app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (F12 in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
+Se si vogliono controllare i dati di telemetria che un app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser \(F12 in molti browser\). I dati vengono inviati a dc.services.visualstudio.com.
 
 ## Esplorare i dati
 
@@ -108,7 +98,7 @@ Nel pannello Panoramica fare clic su Utilizzo:
 
 * **Utenti:** il numero di utenti distinti nell'intervallo di tempo del grafico. I cookie vengono usati per identificare gli utenti abituali.
 * **Sessioni:**: una sessione viene conteggiata quando un utente non ha eseguito alcuna richiesta per 30 minuti.
-* **Visualizzazioni pagina**: conta il numero di chiamate a trackPageView(), in genere chiamate una volta in ogni pagina Web.
+* **Visualizzazioni pagina**: conta il numero di chiamate a trackPageView\(\), in genere chiamate una volta in ogni pagina Web.
 
 
 ### Fare clic per visualizzare altri dettagli
@@ -134,7 +124,7 @@ Inserire una chiamata JavaScript simile a questa nel punto appropriato nel codic
 
     appInsights.trackPageView(myPageName);
 
-Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "#" o "?" verranno ignorati.
+Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "\#" o "?" verranno ignorati.
 
 
 ## Esaminare singoli eventi di visualizzazione pagina
@@ -147,7 +137,7 @@ Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 Selezionare qualsiasi evento per visualizzare altri dettagli.
 
-> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
+> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa\*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "\*irc" non si troverà "Circa".
 
 > [Altre informazioni sulla ricerca diagnostica][diagnostic]
 
@@ -185,4 +175,6 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

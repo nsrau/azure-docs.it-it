@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Guida introduttiva ai cmdlet Batch di Azure PowerShell"
-	description="Introduzione ai cmdlet di Azure PowerShell usati per gestire il servizio Batch di Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="Guida introduttiva ai cmdlet Batch di Azure PowerShell | Microsoft Azure"
+   description="Introduzione ai cmdlet di Azure PowerShell usati per gestire il servizio Batch di Azure"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
 # Guida introduttiva ai cmdlet Batch di Azure PowerShell
 Questo articolo contiene una rapida introduzione ai cmdlet di Azure PowerShell che è possibile usare per gestire gli account Batch e ottenere informazioni su elementi di lavoro, processi e attività Batch.
 
-Per la sintassi dettagliata dei cmdlet, digitare ```get-help <Cmdlet_name>```.
+Per la sintassi dettagliata dei cmdlet, digitare `get-help <Cmdlet_name>` o vedere le [informazioni di riferimento per i cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Prerequisiti
@@ -55,13 +55,13 @@ Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sot
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account_name*> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
+Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per \<\*account\_name\*\> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
-> [AZURE.NOTE]Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri (sono ammessi solo numeri e lettere minuscole).
+> [AZURE.NOTE]Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri \(sono ammessi solo numeri e lettere minuscole\).
 
 ### Ottenere le chiavi di accesso all'account
 **Get AzureBatchAccountKeys** mostra le chiavi di accesso associate a un account Batch di Azure. Ad esempio, eseguire le operazioni seguenti per ottenere le chiavi primarie e secondarie dell'account creato.
@@ -123,9 +123,9 @@ Get-AzureBatchPool -BatchContext $context
 È possibile fornire un filtro OData tramite il parametro **Filter** per trovare solo gli oggetti a cui si è interessati. Ad esempio, è possibile trovare tutti gli elementi di lavoro con nomi che iniziano con "myWork":
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
 Questo metodo non è flessibile come l'uso di "Where-Object" in una pipeline locale. Tuttavia, la query viene inviata al servizio Batch direttamente e quindi tutti i filtri vengono applicati sul lato server, consentendo un risparmio della larghezza di banda Internet.
 
@@ -133,8 +133,8 @@ Questo metodo non è flessibile come l'uso di "Where-Object" in una pipeline loc
 
 In alternativa a un filtro OData, è possibile usare il parametro **Name**. Per eseguire una query per un elemento di lavoro specifico chiamato "myWorkItem":
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
 Il parametro **Name** supporta solo la ricerca dei nomi completi, senza caratteri jolly o filtri di tipo OData.
@@ -144,7 +144,7 @@ Il parametro **Name** supporta solo la ricerca dei nomi completi, senza caratter
 I cmdlet Batch possono usare la pipeline di PowerShell per inviare dati tra i cmdlet. Questo equivale a specificare un parametro, ma rende più semplice la visualizzazione di più entità. Ad esempio, è possibile trovare tutte le attività dell'account:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Usare il parametro MaxCount
@@ -152,7 +152,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 Per impostazione predefinita, ogni cmdlet restituisce un massimo di 1000 oggetti. Se si raggiunge questo limite, è possibile perfezionare il filtro in modo da restituire meno oggetti o impostare esplicitamente un limite massimo tramite il parametro **MaxCount**. Ad esempio:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -161,6 +161,7 @@ Per rimuovere il limite superiore, impostare **MaxCount** su 0 o un valore infer
 ## Argomenti correlati
 * [Panoramica tecnica di Batch](batch-technical-overview.md)
 * [Download di Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
-* [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Query di elenco efficienti](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

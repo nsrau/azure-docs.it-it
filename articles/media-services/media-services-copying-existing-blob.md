@@ -29,15 +29,15 @@ I BLOB possono essere presenti sia in un account di archiviazione associato al p
 - Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
 - Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
 - .NET Framework 4.5
-- Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+- Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 \(Professional, Premium, Ultimate o Express\).
 
 ##Configurare il progetto
 
-In questa sezione si creerà e si configurerà un progetto di applicazione console in C#.
+In questa sezione si creerà e si configurerà un progetto di applicazione console in C\#.
 
-1. Usare Visual Studio 2012 o Visual Studio 2010 SP1 per creare una nuova soluzione contenente il progetto di applicazione console in C#. 
+1. Usare Visual Studio 2012 o Visual Studio 2010 SP1 per creare una nuova soluzione contenente il progetto di applicazione console in C\#. 
 2. Immettere CopyExistingBlobsIntoAsset per il nome e quindi fare clic su OK.
-1. Usare Nuget per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -> Gestione pacchetti libreria -> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
+1. Usare Nuget per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -\> Gestione pacchetti libreria -\> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
 1. Aggiungere gli altri riferimenti richiesti per il progetto System.Configuration.
 1. Sostituire le istruzioni using aggiunte per impostazione predefinita al file Programs.cs con le seguenti:
 		
@@ -146,7 +146,6 @@ L'esempio di codice che segue effettua le attività seguenti:
 		    static public CloudBlobContainer UploadContentToStorageAccount(string localPath)
 		    {
 		        CloudBlobClient externalCloudBlobClient = _sourceStorageAccount.CreateCloudBlobClient();
-		
 		        CloudBlobContainer externalMediaBlobContainer = externalCloudBlobClient.GetContainerReference("streamingfiles");
 		
 		        externalMediaBlobContainer.CreateIfNotExists();
@@ -171,10 +170,9 @@ L'esempio di codice che segue effettua le attività seguenti:
 		    static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer mediaBlobContainer)
 		    {
 		        // Create a new asset. 
-		        IAsset asset = _context.Assets.Create("NewAsset_" + Guid.NewGuid(), AssetCreationOptions.None);
+		        IAsset asset = _context.Assets.Create("Burrito_" + Guid.NewGuid(), AssetCreationOptions.None);
 		
-		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
-		            TimeSpan.FromHours(24), AccessPermissions.Write);
+		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy", TimeSpan.FromHours(24), AccessPermissions.Write);
 		        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 		
 		        CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
@@ -182,8 +180,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
 		        string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
 		
-		        CloudBlobContainer assetContainer =
-		            destBlobStorage.GetContainerReference(destinationContainerName);
+		        CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
 		
 		        if (assetContainer.CreateIfNotExists())
 		        {
@@ -198,6 +195,8 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        {
 		            var assetFile = asset.AssetFiles.Create((sourceBlob as ICloudBlob).Name);
 		            CopyBlob(sourceBlob as ICloudBlob, assetContainer);
+		            assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
+		            assetFile.Update();
 		        }
 		
 		        destinationLocator.Delete();
@@ -256,29 +255,8 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        {
 		            try
 		            {
-		                // Display the size of the source blob.
-		                Console.WriteLine(sourceBlob.Properties.Length);
-		
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
 		                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
-		
-		                while (true)
-		                {
-		                    // The StartCopyFromBlob is an async operation, 
-		                    // so we want to check if the copy operation is completed before proceeding. 
-		                    // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
-		                    destinationBlob.FetchAttributes();
-		                    if (destinationBlob.CopyState.Status != CopyStatus.Pending)
-		                    {
-		                        break;
-		                    }
-		                    //It's still not completed. So wait for some time.
-		                    System.Threading.Thread.Sleep(1000);
-		                }
-		
-		                // Display the size of the destination blob.
-		                Console.WriteLine(destinationBlob.Properties.Length);
-		
 		            }
 		            catch (Exception ex)
 		            {
@@ -286,6 +264,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 		            }
 		        }
 		    }
+		
 		    /// <summary>
 		    /// Sets a file with the .ism extension as a primary file.
 		    /// </summary>
@@ -295,11 +274,13 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        var ismAssetFiles = asset.AssetFiles.ToList().
 		            Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
 		
-		        // The following code assigns the first .ism file as the primary file in the asset.
-		        // An asset should have one .ism file.  
+		        if (ismAssetFiles.Count() != 1)
+		            throw new ArgumentException("The asset should have only one, .ism file");
+		
 		        ismAssetFiles.First().IsPrimary = true;
 		        ismAssetFiles.First().Update();
 		    }
 		}
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

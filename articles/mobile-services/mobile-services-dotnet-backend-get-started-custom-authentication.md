@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Introduzione all'autenticazione personalizzata
@@ -52,9 +52,7 @@ Poiché si sta usando l'autenticazione personalizzata senza affidarsi a un altro
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]Nei frammenti di codice in questa esercitazione viene usato `todoContext` come nome del contesto. È necessario aggiornare i frammenti di codice con il contesto del progetto.
-
-	Quindi, configurare le funzioni di sicurezza per elaborare questi dati.
+	>[AZURE.NOTE]Nei frammenti di codice in questa esercitazione viene usato `todoContext` come nome del contesto. È necessario aggiornare i frammenti di codice per il contesto del progetto. Successivamente verranno configurate le funzioni di sicurezza per usare questi dati.
  
 5. Creare una classe denominata `CustomLoginProviderUtils` e aggiungervi l'istruzione `using` seguente:
 
@@ -162,7 +160,7 @@ A questo punto, si ha tutto quanto necessario per iniziare a creare gli account 
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]Questo endpoint di registrazione è accessibile da qualsiasi client tramite HTTP. Prima di pubblicare
+>[AZURE.IMPORTANT]Questo endpoint di registrazione è accessibile da qualsiasi client tramite HTTP. Prima di pubblicare il servizio in un ambiente di produzione, è necessario implementare una sorta di schema per convalidare le registrazioni, ad esempio la verifica basata su SMS o sulla posta elettronica. In questo modo si impedirà a utenti malintenzionati di creare registrazioni fraudolente.
 
 ## Creare la proprietà LoginProvider
 
@@ -217,7 +215,7 @@ Uno dei costrutti fondamentali nella pipeline di autenticazione di Servizi mobil
             return;
         }
 
-	In questo caso il metodo è no-op perché **CustomLoginProvider** non si integra nella pipeline di autenticazione.
+	Questo metodo non viene implementato perché **CustomLoginProvider** non si integra nella pipeline di autenticazione.
 
 4. Aggiungere l'implementazione seguente del metodo astratto `ParseCredentials` a **CustomLoginProvider**.
 
@@ -252,6 +250,12 @@ Uno dei costrutti fondamentali nella pipeline di autenticazione di Servizi mobil
         }
 
 	Questo metodo converte un oggetto [ClaimsIdentity] in un oggetto [ProviderCredentials] usato nella fase di rilascio di un token di autenticazione. È nuovamente consigliabile acquisire le eventuali attestazioni aggiuntive in questo metodo.
+	
+6. Aprire il file di progetto WebApiConfig.cs nella cartella App\_Start. La riga di codice seguente verrà creata dopo **ConfigOptions**:
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Creare l'endpoint di accesso
 
@@ -342,7 +346,7 @@ Nell'applicazione client sarà necessario sviluppare una schermata di accesso pe
 
 	Verrà avviata una nuova istanza di debug del progetto back-end del servizio mobile. Dopo il corretto avvio del servizio, verrà visualizzata una pagina iniziale con il messaggio **Questo servizio mobile è attivo e in esecuzione**.
 
-2. Nella pagina di avvio del servizio fare clic su **Prova**, quindi digitare la password impostata per l'impostazione di app **MS_ApplicationKey** nel file web.config con un nome utente vuoto nella finestra di dialogo di autenticazione.
+2. Nella pagina di avvio del servizio fare clic su **Prova**, quindi digitare la password impostata per l'impostazione di app **MS\_ApplicationKey** nel file web.config con un nome utente vuoto nella finestra di dialogo di autenticazione.
 
 3. Nella pagina della guida fare clic sull'endpoint **CustomRegistration** e quindi su **Prova**.
 
@@ -414,4 +418,6 @@ L'esercitazione è terminata.
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

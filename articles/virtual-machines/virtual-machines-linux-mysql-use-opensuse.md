@@ -41,5 +41,6 @@ In questa esercitazione è stato illustrato come creare una macchina virtuale ch
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

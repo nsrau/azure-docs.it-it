@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2015"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#Come collegare un disco dati a una macchina virtuale Linux
+# Come collegare un disco dati a una macchina virtuale Linux
 
 È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
-> [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). In Linux, tuttavia, il kernel può assegnare al disco dati il nome `/dev/sdc`. In questo caso sarà necessario eseguire la partizione, la formattazione e il montaggio della risorsa. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/).
-
-- [Procedura: Collegare un disco vuoto](#attachempty)
-- [Procedura: Collegare un disco esistente](#attachexisting)
-- [Procedura: Inizializzare un nuovo disco dati in Linux](#initializeinlinux)
+> [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** \(o **/mnt** nelle immagini Ubuntu\). In Linux, tuttavia, il kernel può assegnare al disco dati il nome `/dev/sdc`. In questo caso sarà necessario eseguire la partizione, la formattazione e il montaggio della risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>Procedura: Inizializzare di un nuovo disco dati in Linux
+## Procedura: Inizializzare un nuovo disco dati in Linux
 
-
-
-1. Connettersi alla macchina virtuale utilizzando i passaggi descritti in precedenza in [Come accedere a una macchina virtuale che esegue Linux](logonlinux).
+1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Linux][Logon].
 
 
 
@@ -104,7 +98,7 @@
 
 11. Aggiungere la nuova unità a /etc/fstab:
 
-	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
+	Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID \(Universally Unique IDentifier\) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
 
 		# sudo -i blkid
 
@@ -137,8 +131,15 @@
 	Se il comando `mount` restituisce un errore, verificare che la sintassi del file /etc/fstab sia corretta. Anche le eventuali altre unità o partizioni dati create dovranno essere inserite separatamente in /etc/fstab.
 
 
-	>[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni fstab `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di errore di montaggio in fase di avvio. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
+>[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni fstab `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di errore di montaggio in fase di avvio. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
-[logonlinux]: virtual-machines-linux-how-to-log-on.md
+## Risorse aggiuntive
+[Come accedere a una macchina virtuale che esegue Linux][Logon]
 
-<!---HONumber=58--> 
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md
+ 
+
+<!---HONumber=58_postMigration-->

@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # Panoramica sugli indirizzi IP pubblici a livello di istanza
-Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP che è possibile assegnare direttamente all’istanza della macchina virtuale o del ruolo anziché al servizio cloud in cui risiede l'istanza della macchina virtuale o del ruolo. Tale indirizzo non sostituisce l'indirizzo VIP (Virtual IP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
+Un indirizzo IP pubblico a livello di istanza \(ILPIP\) è un indirizzo IP che è possibile assegnare direttamente all’istanza della macchina virtuale o del ruolo anziché al servizio cloud in cui risiede l'istanza della macchina virtuale o del ruolo. Tale indirizzo non sostituisce l'indirizzo VIP \(Virtual IP\) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
 
 >[AZURE.NOTE]In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
 
@@ -24,8 +24,10 @@ Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP che è 
 
 Come illustrato nella figura 1, al servizio cloud si accede tramite un indirizzo VIP, mentre alle singole macchine virtuali in genere si accede tramite VIP:&lt;numero di porta &gt;. Assegnando un ILPIP a una macchina virtuale specifica, è possibile accedere a questa macchina virtuale direttamente tramite l’indirizzo IP.
 
-Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo (FQDN) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP.
+Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo \(FQDN\) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP. Se ad esempio si crea un servizio cloud denominato *contosoadservice* e si configura un ruolo Web denominato *contosoweb* con due istanze, Azure registrerà i record A seguenti per le istanze:
 
+- contosoweb\_IN\_0.contosoadservice.cloudapp.net
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
 
@@ -90,7 +92,7 @@ Per aggiungere un ILPIP alla macchina virtuale creata usando lo script precedent
 	| Update-AzureVM
 
 ## Come associare un ILPIP a una macchina virtuale usando un file di configurazione del servizio
-È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione (CSCFG) del servizio. Il file xml di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un indirizzo IP riservato denominato *MyReservedIP* come un ILPIP per un'istanza del ruolo:
+È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione \(CSCFG\) del servizio. Il file xml di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un indirizzo IP riservato denominato *MyReservedIP* come un ILPIP per un'istanza del ruolo:
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -116,14 +118,11 @@ Per aggiungere un ILPIP alla macchina virtuale creata usando lo script precedent
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## Vedere anche
+## Passaggi successivi
 
-[IP privato riservato (DIP)](../virtual-networks-reserved-private-ip)
-
-[IP pubblico riservato](../virtual-networks-reserved-public-ip)
-
-[Panoramica di Rete virtuale](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+[IP riservato](../virtual-networks-reserved-public-ip)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

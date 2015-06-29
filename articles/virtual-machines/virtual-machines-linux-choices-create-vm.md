@@ -30,7 +30,7 @@ L'interfaccia utente grafica del portale di Azure è un modo semplice per provar
 
 ### Shell dei comandi: interfaccia della riga di comando di Azure o Azure PowerShell
 
-Se si preferisce lavorare in una shell dei comandi, scegliere tra l'interfaccia della riga di comando (CLI) di Azure per gli utenti Mac e Linux o Azure PowerShell, che dispone di cmdlet Windows PowerShell per Azure e una console personalizzata.
+Se si preferisce lavorare in una shell dei comandi, scegliere tra l'interfaccia della riga di comando \(CLI\) di Azure per gli utenti Mac e Linux o Azure PowerShell, che dispone di cmdlet Windows PowerShell per Azure e una console personalizzata.
 
 Per l’interfaccia della riga di comando di Azure, vedere [Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure][]. Per utilizzare un modello, vedere [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure][].
 
@@ -52,7 +52,7 @@ Con queste istruzioni viene illustrato come utilizzare un'immagine di Azure per 
 
 ### Utilizzare la propria immagine
 
-Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo* tale macchina virtuale oppure caricare un'immagine personalizzata, archiviata in un disco rigido virtuale (VHD):
+Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo* tale macchina virtuale oppure caricare un'immagine personalizzata, archiviata in un disco rigido virtuale \(VHD\):
 
 - [Come acquisire una macchina virtuale Linux da utilizzare come modello con l'interfaccia CLI][]
 - [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux][]
@@ -97,4 +97,4 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Ambiente di test di configurazione di base]: virtual-machines-base-configuration-test-environment.md
 [Ambienti di test basati su cloud ibrido di Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,4 +1,3 @@
-﻿File di immagine pubblicamente disponibile convertito in dati in formato CSV.<p> </p>Il codice per la conversione dell'immagine è disponibile nella pagina <strong>Quantizzazione di colori tramite clustering K-Means</strong>.
+File di immagine pubblicamente disponibile convertito in dati in formato CSV.<p> </p>Il codice per la conversione dell'immagine è disponibile nella pagina di dettagli del modello <strong>Color quantization using K-Means clustering</strong>.
 
-
-<!--HONumber=42-->
+<!---HONumber=58_postMigration-->

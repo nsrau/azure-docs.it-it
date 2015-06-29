@@ -56,7 +56,7 @@ Questo cmdlet restituisce diversi bit di metadati sul gruppo di risorse, inclusi
 
 ![Impostazione di tag con Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Tenere presente che i tag vengono aggiornati nel loro complesso, pertanto se si aggiunge un tag a una risorsa che è già stata contrassegnata con tag, è necessario salvare una matrice con tutti i tag che si vogliono mantenere. Se si vuole rimuovere un tag, è sufficiente salvare la matrice senza il tag da rimuovere.
+Tenere presente che i tag vengono aggiornati nel loro complesso, pertanto se si aggiunge un tag a una risorsa che è già stata contrassegnata con tag, è necessario usare una matrice con tutti i tag che si vogliono mantenere. Se si vuole rimuovere un tag, è sufficiente salvare la matrice senza il tag da rimuovere.
 
 Il processo è lo stesso per le risorse, ad eccezione del fatto che si useranno i cmdlet `Get-AzureResource` e `Set-AzureResource`. Per recuperare le risorse o i gruppi di risorse che presentano un tag specifico, usare il cmdlet `Get-AzureResource` o `Get-AzureResourceGroup` con il parametro `-Tag`.
 
@@ -87,7 +87,7 @@ Per visualizzare la tassonomia dei tag nel portale, usare l'hub Sfoglia per visu
 
 Aggiungere i tag più importanti alla propria schermata iniziale per accedervi velocemente. A questo punto si è pronti per iniziare. Buon divertimento!
 
-![Aggiungere tag alla Schermata iniziale
+![Aggiungere tag alla Schermata iniziale  
 ](./media/resource-group-using-tags/pin-tags.png)
 
 ## Passaggi successivi
@@ -113,4 +113,4 @@ Gestione e controllo dell'accesso
 - [Creare una nuova entità servizio di Azure usando il portale classico di Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

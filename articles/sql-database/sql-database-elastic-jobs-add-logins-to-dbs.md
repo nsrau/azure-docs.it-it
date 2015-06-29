@@ -18,10 +18,10 @@
 
 # Come aggiungere utenti a un pool elastico di database
 
-I processi elastici di database consentono di eseguire lo stesso script su ogni database di un [pool elastico di database](sql-database-elastic-pool.md). Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database del pool. Questo utente può essere la stessa entità di livello server creata al momento dell'installazione dei **processi elastici di database** e corrisponde alle **credenziali del processo** fornite per gestire i metadati nel database di **controllo**. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+I processi elastici di database consentono di eseguire lo stesso script su ogni database di un [pool elastico di database](sql-database-elastic-pool.md). Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database del pool. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisiti
-* [Creare un pool elastico di database (anteprima)](sql-database-elastic-pool-portal.md)
+* [Creare un pool elastico di database \(anteprima\)](sql-database-elastic-pool-portal.md)
 * Installare i [componenti del processo elastico](sql-database-elastic-jobs-service-installation.md). 
 
 ## Come aggiungere utenti ai database
@@ -34,7 +34,7 @@ I processi elastici di database consentono di eseguire lo stesso script su ogni 
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Seguire la procedura **sp_addrolemember** per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
+3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Seguire la procedura **sp\_addrolemember** per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
 
 ## Passaggi successivi
 
@@ -46,4 +46,4 @@ Eseguire un processo sul pool di database. Vedere [Creazione e gestione di proce
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

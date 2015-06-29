@@ -25,7 +25,7 @@ Questo argomento descrive i limiti del servizio per Azure RemoteApp.
 Tutte le raccolte:
 
 - Raccolte per utente: 1
-- App pubblicate per raccolta: 5000 
+- App pubblicate per raccolta: 100 
 
 Raccolte della versione di valutazione:
 
@@ -34,15 +34,15 @@ Raccolte della versione di valutazione:
 - Utenti per raccolta della versione di valutazione: 10 
 - Immagini modello della versione di valutazione: 25
  
-Raccolte attivate (versione a pagamento):
+Raccolte attivate \(versione a pagamento\):
 
-- Raccolte della versione a pagamento: 3 (è possibile richiedere un aumento di questo limite)
+- Raccolte della versione a pagamento: 3 \(è possibile richiedere un aumento di questo limite\)
 - Immagini modello della versione a pagamento: 25
 
  
 ## Limiti per gli utenti
 
-I limiti documentati delle raccolte sono flessibili (ossia possono essere modificati). Il numero massimo di utenti per ogni raccolta è un limite fisso e non può essere modificato. Tuttavia, il numero di utenti consentiti è determinato dal livello della raccolta, come indicato di seguito:
+I limiti documentati delle raccolte sono flessibili \(ossia possono essere modificati\). Il numero massimo di utenti per ogni raccolta è un limite fisso e non può essere modificato. Tuttavia, il numero di utenti consentiti è determinato dal livello della raccolta, come indicato di seguito:
 
 
 - Basic: 800 utenti
@@ -76,4 +76,6 @@ Per aprire un ticket di supporto, seguire questa procedura:
 8.	Seguire le istruzioni nella pagina successiva e quindi immettere i dettagli relativi all'estensione richiesta. Ad esempio, se si desidera estendere il periodo di valutazione, specificare questa richiesta indicando il numero di giorni. 
 9.	Fare clic su **Invia** per aprire il ticket.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

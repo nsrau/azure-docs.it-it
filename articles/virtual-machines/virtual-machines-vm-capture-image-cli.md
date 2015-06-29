@@ -160,5 +160,6 @@ Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della docum
 [Come creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

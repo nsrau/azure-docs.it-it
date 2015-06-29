@@ -1,27 +1,27 @@
-
-<properties 
-	pageTitle="Connettersi ed eseguire una query nel database SQL con C#" 
+<properties
+	pageTitle="Connettersi ed eseguire una query nel database SQL con C#"
 	description="Esempio di codice per un client C# che usa ADO.NET per connettersi e interagire con il database AdventureWorks nel servizio cloud del database SQL di Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Connettersi ed eseguire una query nel database SQL con C## 
+# Connettersi al database SQL con C&\#x23; ed eseguire query
 
-Questo argomento fornisce un esempio di codice C# che mostra come connettersi a un database SQL AdventureWorks esistente usando ADO.NET. L'esempio viene compilato in un'applicazione console che esegue una query nel database e visualizza i risultati.
+
+Questo argomento fornisce un esempio di codice C\# che mostra come connettersi a un database SQL AdventureWorks esistente usando ADO.NET. L'esempio viene compilato in un'applicazione console che esegue una query nel database e visualizza il set di risultati.
 
 
 ## Prerequisiti
@@ -34,7 +34,7 @@ Questo argomento fornisce un esempio di codice C# che mostra come connettersi a 
 ## Passaggio 1: Applicazione console
 
 
-1. Creare un'applicazione console C# usando Visual Studio.
+1. Creare un'applicazione console C\# con Visual Studio.
 
 
 ![Connettersi ed eseguire query](./media/sql-database-connect-query/ConnectandQuery_VisualStudio.png)
@@ -58,7 +58,7 @@ Questo codice non è stato progettato per ambienti di produzione. Se si desidera
 
 
 
-### Codice sorgente per l'esempio C#
+### Codice sorgente per l'esempio C\#
 
 
 Incollare il codice sorgente nel file **Program.cs**.
@@ -70,7 +70,7 @@ Incollare il codice sorgente nel file **Program.cs**.
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -114,26 +114,27 @@ Incollare il codice sorgente nel file **Program.cs**.
 ## Passaggio 3: Trovare la stringa di connessione per il database
 
 
-1. Aprire il [portale di Azure](http://portal.azure.com/).
-2. Fare clic su **Sfoglia** > **Database SQL** > **Database "Adventure Works"** > **Proprietà** > **Mostra stringhe di connessione database**.
+1. Aprire il [Portale di anteprima di Azure](http://portal.azure.com/).
+2. Fare clic su **Sfoglia** \> **Database SQL** \> **Database "Adventure Works"** \> **Proprietà** \> **Mostra stringhe di connessione database**.
 
 
 ![Portale](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-Nel pannello delle stringhe di connessione per il database, è possibile visualizzare le stringhe di connessione appropriate per ADO.NET, ODBC, PHP e JDBC.
+Nel pannello delle stringhe di connessione per il database sono presenti le stringhe di connessione appropriate per ADO.NET, ODBC, PHP e JDBC.
 
 
 ## Passaggio 4: Sostituire con informazioni di connessione reali
 
 
-Nel codice sorgente incollato sostituire il segnaposto *[Your_Connection_String]* con la stringa di connessione e assicurarsi di sostituire *your_password_here* in tale stringa con la password effettiva.
+- Nel codice sorgente incollato sostituire il segnaposto *\[Your\_Connection\_String\]* con la stringa di connessione e assicurarsi di sostituire *your\_password\_here* in tale stringa con la password effettiva.
 
 
 ## Passaggio 5: Eseguire l'applicazione
 
 
-1. Per compilare ed eseguire l'applicazione, fare clic su **DEBUG** > **Avvia debug**.
+1. Per compilare ed eseguire l'applicazione, fare clic su **DEBUG** \> **Avvia debug**.
 2. I risultati della query vengono visualizzati nella finestra della console.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

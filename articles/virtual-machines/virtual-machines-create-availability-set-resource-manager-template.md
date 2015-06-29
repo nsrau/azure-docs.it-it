@@ -33,7 +33,7 @@ Attenersi alla seguente procedura per creare un set di disponibilità per una ma
 
 ### Passaggio 1: scaricare il file JSON
 
-Designare una cartella locale come posizione per i file di modello JSON e crearla (ad esempio, C:\Azure\Templates\availability).
+Designare una cartella locale come posizione per i file di modello JSON e crearla \(ad esempio, C:\\Azure\\Templates\\availability\).
 
 Sostituire il nome della cartella, quindi copiare ed eseguire questi comandi.
 
@@ -75,7 +75,7 @@ Di seguito è riportato un esempio del set dei comandi PowerShell per il modello
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$folderName="C:\Azure\Templates[thing]"
+	$folderName="C:\Azure\Templates\[thing]"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -92,7 +92,7 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente:
 	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
 	...
 
-Per rimuovere il gruppo di risorse e tutte le relative risorse (l'account di archiviazione, le macchine virtuali e la rete virtuale), utilizzare questo comando.
+Per rimuovere il gruppo di risorse e tutte le relative risorse \(l'account di archiviazione, le macchine virtuali e la rete virtuale\), utilizzare questo comando.
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
@@ -103,4 +103,10 @@ Attenersi alla seguente procedura per creare un set di disponibilità utilizzand
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=58--> 
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

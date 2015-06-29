@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Protocolli di autenticazione di Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. Gli argomenti in questa sezione descrivono i protocolli supportati e l'implementazione di ciascuno in Azure AD. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.
+Azure Active Directory \(Azure AD\) supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. Gli argomenti in questa sezione descrivono i protocolli supportati e l'implementazione di ciascuno in Azure AD. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.
 
-Questa sezione include gli argomenti seguenti.
+## Articoli e riferimenti sui protocolli di autenticazione 
 
 - [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx): informazioni sulla cadenza di rollover della chiave di firma di Azure AD, sulle modifiche che è possibile apportare per aggiornare automaticamente la chiave e su come aggiornare gli scenari più comuni per le applicazioni.
 
@@ -49,8 +49,11 @@ Questa sezione include gli argomenti seguenti.
 
 ## Vedere anche 
 
+[Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-### Concetti
-[Uso di Azure AD per l'autenticazione](https://msdn.microsoft.com/library/azure/dn385718.aspx) [Esempi di codice di Active Directory](active-directory-code-samples.md)
+[Uso di Azure AD per l'autenticazione](https://msdn.microsoft.com/library/azure/dn385718.aspx)
 
-<!---HONumber=58--> 
+[Esempi di codice di Active Directory](active-directory-code-samples.md)
+ 
+
+<!---HONumber=58_postMigration-->

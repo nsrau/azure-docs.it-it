@@ -19,7 +19,7 @@
 
 # Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure#
 
-Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Hard Disk) con un sistema operativo in modo da poterlo usare come immagine in base alla quale creare macchine virtuali. Per altre informazioni su dischi e immagini in Microsoft Azure, vedere l'argomento relativo alla [gestione di dischi e immagini in Azure](http://msdn.microsoft.com/library/azure/jj672979.aspx).
+Questo articolo illustra come caricare un disco rigido virtuale \(VHD, Virtual Hard Disk\) con un sistema operativo in modo da poterlo usare come immagine in base alla quale creare macchine virtuali. Per altre informazioni su dischi e immagini in Microsoft Azure, vedere l'argomento relativo alla [gestione di dischi e immagini in Azure](http://msdn.microsoft.com/library/azure/jj672979.aspx).
 
 > [AZURE.NOTE]Quando si crea una macchina virtuale basata su un'immagine, è possibile personalizzare le impostazioni del sistema operativo come appropriato per le applicazioni che si intende eseguire sulla macchina virtuale. Questa configurazione viene salvata per la macchina virtuale e non influisce sull'immagine.
 
@@ -53,7 +53,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 1. Accedere al sistema operativo.
 
-2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\\system32\\sysprep**, quindi eseguire `sysprep.exe`.
 
 	![Apertura della finestra del Prompt dei comandi](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -76,7 +76,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
-3. Fare clic su **Servizi dati** > **Archiviazione** > **Creazione rapida**.
+3. Fare clic su **Servizi dati** \> **Archiviazione** \> **Creazione rapida**.
 
 	![Creazione rapida di un account di archiviazione](./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png)
 
@@ -198,7 +198,7 @@ Dopo avere caricato il file VHD, aggiungerlo come immagine all'elenco di immagin
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet Add-AzureVMImage PowerShell anziché il portale di gestione per aggiungere l'immagine (vedere il passaggio 5, sopra). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
+	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero \(espresso in MB\)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet Add-AzureVMImage PowerShell anziché il portale di gestione per aggiungere l'immagine \(vedere il passaggio 5, sopra\). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
 	
 ## Passaggi successivi ##
  
@@ -209,5 +209,6 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Passaggio 2: creare un account di archiviazione in Microsoft Azure]: #createstorage
 [Passaggio 3: preparare la connessione a Microsoft Azure]: #prepAzure
 [Passaggio 4: caricare il file VHD]: #upload
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

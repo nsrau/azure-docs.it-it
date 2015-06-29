@@ -22,10 +22,10 @@
 
 Se si sta sviluppando un'applicazione desktop, Azure AD semplifica e facilita l'autenticazione degli utenti con gli account Active Directory. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
-Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library (ADAL). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per far capire quanto è semplice, verrà compilata un'applicazione Android To-Do List che:
+Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library \(ADAL\). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per far capire quanto è semplice, verrà compilata un'applicazione Android To-Do List che:
 
 -	Ottiene i token di accesso per la chiamata all'API To-Do List con il [protocollo di autenticazione OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
--	Ottiene l'elenco attività (To-Do List) dell'utente.
+-	Ottiene l'elenco attività \(To-Do List\) dell'utente.
 -	Disconnette gli utenti.
 
 Per iniziare, sarà necessario un tenant di Azure AD in cui poter creare gli utenti e registrare un'applicazione. Se non si ha già un tenant, vedere le [informazioni su come ottenerne uno](active-directory-howto-tenant.md).
@@ -42,7 +42,7 @@ Per informazioni su come configurarlo, vedere gli esempi esistenti qui:
 
 **Che operazioni si stanno eseguendo?**
 
-*Microsoft Active Directory supporta l'aggiunta di due tipi di applicazioni. API Web che offrono servizi a utenti e applicazioni (sul Web o in un'applicazione in esecuzione su un dispositivo) che accedono a tali API Web. In questo passaggio si registrerà l'API Web in esecuzione in locale per il test di questo esempio. In genere questa API Web è un servizio REST che offre le funzionalità a cui un'app deve accedere. Microsoft Azure Active Directory è in grado di proteggere qualsiasi endpoint.*
+*Microsoft Active Directory supporta l'aggiunta di due tipi di applicazioni. API Web che offrono servizi a utenti e applicazioni \(sul Web o in un'applicazione in esecuzione su un dispositivo\) che accedono a tali API Web. In questo passaggio si registrerà l'API Web in esecuzione in locale per il test di questo esempio. In genere questa API Web è un servizio REST che offre le funzionalità a cui un'app deve accedere. Microsoft Azure Active Directory è in grado di proteggere qualsiasi endpoint.*
 
 *Qui si presume che verrà registrata l'API REST TODO citata sopra, ma questa procedura è valida per qualsiasi API Web che si vuole proteggere con Azure Active Directory.*
 
@@ -66,7 +66,7 @@ La registrazione dell'applicazione Web è il primo passaggio. Successivamente, s
 
 **Che operazioni si stanno eseguendo?**
 
-*Come indicato in precedenza, Microsoft Azure Active Directory supporta l'aggiunta di due tipi di applicazioni. API Web che offrono servizi a utenti e applicazioni (sul Web o in un'applicazione in esecuzione su un dispositivo) che accedono a tali API Web. In questo passaggio si registrerà l'applicazione di questo esempio. La registrazione è necessaria per permettere all'applicazione di richiedere l'accesso all'API Web appena registrata. Se l'applicazione non è registrata, Azure Active Directory non le consentirà nemmeno di chiedere di effettuare l'accesso. Questo fa parte della sicurezza del modello.*
+*Come indicato in precedenza, Microsoft Azure Active Directory supporta l'aggiunta di due tipi di applicazioni. API Web che offrono servizi a utenti e applicazioni \(sul Web o in un'applicazione in esecuzione su un dispositivo\) che accedono a tali API Web. In questo passaggio si registrerà l'applicazione di questo esempio. La registrazione è necessaria per permettere all'applicazione di richiedere l'accesso all'API Web appena registrata. Se l'applicazione non è registrata, Azure Active Directory non le consentirà nemmeno di chiedere di effettuare l'accesso. Questo fa parte della sicurezza del modello.*
 
 *Qui si presume che verrà registrata l'applicazione di esempio citata sopra, ma questa procedura è valida per qualsiasi app si voglia sviluppare.*
 
@@ -98,7 +98,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -268,7 +268,8 @@ Facoltativo: **acquireTokenSilent**
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Gestore**: l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
+11. **Gestore**: 
+  l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -280,7 +281,8 @@ Facoltativo: **acquireTokenSilent**
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` Se l'account è valido, verrà restituito l'utente gestore.
+ ``` 
+ Se l'account è valido, verrà restituito l'utente gestore.
 
  Il manifesto dell'app dovrà avere le autorizzazioni per usare gli account di AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -295,11 +297,11 @@ Tramite questa procedura dettagliata si dovrebbero avere tutte le informazioni n
 
 ### Personalizzazione
 
-Le risorse del progetto della libreria possono essere sovrascritte dalle risorse dell'applicazione. Ciò si verifica durante la compilazione dell'app. Per questo motivo, è possibile personalizzare il layout di Authentication Activity come si preferisce. È necessario accertarsi che venga mantenuto l'ID dei controlli usati da ADAL (Webview).
+Le risorse del progetto della libreria possono essere sovrascritte dalle risorse dell'applicazione. Ciò si verifica durante la compilazione dell'app. Per questo motivo, è possibile personalizzare il layout di Authentication Activity come si preferisce. È necessario accertarsi che venga mantenuto l'ID dei controlli usati da ADAL \(Webview\).
 
 ### Gestore
 
-Il componente gestore verrà fornito con l'app del portale aziendale di Intune. L'account verrà creato in Account Manager. Il tipo di account è "com.microsoft.workaccount" e consente l'uso solo di un account SSO (Single Sign-On). Dopo il completamento della richiesta di verifica del dispositivo per una delle app, verrà creato un cookie SSO per questo utente.
+Il componente gestore verrà fornito con l'app del portale aziendale di Microsoft Intune. L'account verrà creato in Account Manager. Il tipo di account è "com.microsoft.workaccount" e consente l'uso solo di un account SSO \(Single Sign-On\). Dopo il completamento della richiesta di verifica del dispositivo per una delle app, verrà creato un cookie SSO per questo utente.
 
 ### URL dell'autorità e ADFS
 
@@ -309,9 +311,12 @@ L'URL dell'autorità richiede un'istanza del servizio token di sicurezza e il no
 
 ### Esecuzione di query sugli elementi della cache
 
-ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con: ```Java
+ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con: 
+```Java
  ITokenCacheStore cache = mContext.getCache();
-``` È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla. ```Java
+``` 
+È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla. 
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -378,7 +383,8 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (a scopo informativo)
 + Verbose (più dettagli)
 
-Il livello di registrazione viene impostato nel modo seguente: ```Java
+Il livello di registrazione viene impostato nel modo seguente: 
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -386,7 +392,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` 
+ Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Tracce di rete
 
@@ -403,7 +410,7 @@ Il metodo acquireToken senza attività supporta prompt della finestra di dialogo
 
 ### Crittografia
 
-ADAL crittografa i token e li archivia in SharedPreferences per impostazione predefinita. È possibile esaminare la classe StorageHelper per visualizzare i dettagli. Android ha introdotto AndroidKeyStore 4.3 (API18) per l'archiviazione protetta delle chiavi private. ADAL lo usa per API18 e versioni successive. Se si vuole usare ADAL per versioni precedenti dell'SDK, è necessario fornire la chiave privata in AuthenticationSettings.INSTANCE.setSecretKey.
+ADAL crittografa i token e li archivia in SharedPreferences per impostazione predefinita. È possibile esaminare la classe StorageHelper per visualizzare i dettagli. Android ha introdotto AndroidKeyStore 4.3 \(API18\) per l'archiviazione protetta delle chiavi private. ADAL lo usa per API18 e versioni successive. Se si vuole usare ADAL per versioni precedenti dell'SDK, è necessario fornire la chiave privata in AuthenticationSettings.INSTANCE.setSecretKey.
 
 ### Richiesta di connessione di Oauth2
 
@@ -411,12 +418,14 @@ La classe AuthenticationParameters fornisce la funzionalità per ottenere author
 
 ### Cookie di sessione in Webview
 
-Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: ```java
+Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: 
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` 
+Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Override delle risorse
 
@@ -437,6 +446,7 @@ che dovranno essere sovrascritti dall'applicazione se si vogliono usare stringhe
 =======
 
 ### Finestra di dialogo NTLM
-ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tramite l'evento onReceivedHttpAuthRequest da WebViewClient. Il layout della finestra di dialogo e le stringhe possono essere personalizzati.### Passaggio 5: Scaricare il codice di esempio client nativo iOS
+ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tramite l'evento onReceivedHttpAuthRequest da WebViewClient. Il layout della finestra di dialogo e le stringhe possono essere personalizzati.\#\#\# Passaggio 5: Scaricare il codice di esempio client nativo iOS
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,18 +1,14 @@
-### Retrieving your connection string
-You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using an 
-Azure project template and/or have a reference to the
-Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
-can use the **CloudConfigurationManager** type
-to retrieve your storage connection string and storage account
-information from the Azure service configuration:
+### Recupero della stringa di connessione
+Per rappresentare le informazioni dell'account di archiviazione, è possibile utilizzare il tipo **CloudStorageAccount**. Se si intende usare un modello di progetto di Azure e/o si dispone di un riferimento allo spazio dei nomi Microsoft.WindowsAzure.CloudConfigurationManager, è possibile usare il tipo **CloudConfigurationManager** per recuperare la stringa di connessione di archiviazione e le informazioni dell'account di archiviazione dalla configurazione dei servizi di Azure:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the `web.config` or `app.config` as show above, then you can use **ConfigurationManager** to retrieve the connection string.  You will need to add a reference to System.Configuration.dll to your project and add another namespace declaration for it:
+Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.CloudConfigurationManager e la stringa di connessione si trova nel `web.config` o `app.config` come illustrato in precedenza, per recuperarla è possibile usare **ConfigurationManager**. Sarà necessario aggiungere un riferimento a System.Configuration.dll al progetto e aggiungere un'altra dichiarazione dello spazio dei nomi:
 
 	using System.Configuration;
 	...
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
+
+<!---HONumber=58_postMigration-->

@@ -18,14 +18,14 @@
    ms.author="telmos"
    />
    
-# Gestione della rete virtuale: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
-**Affinità IP di origine** (nota anche come **affinità sessione** o **affinità del client IP**) è una modalità di distribuzione del servizio di bilanciamento del carico di Azure che consente di associare connessioni da un singolo client a un singolo server ospitato di Azure, anziché distribuire ogni connessione client in modo dinamico ai diversi server ospitati di Azure (comportamento predefinito del servizio di bilanciamento del carico).
+# Gestione della rete virtuale: modalità di distribuzione del servizio di bilanciamento del carico \(affinità IP di origine\)
+**Affinità IP di origine** \(nota anche come **affinità sessione** o **affinità del client IP**\) è una modalità di distribuzione del servizio di bilanciamento del carico di Azure che consente di associare connessioni da un singolo client a un singolo server ospitato di Azure, anziché distribuire ogni connessione client in modo dinamico ai diversi server ospitati di Azure \(comportamento predefinito del servizio di bilanciamento del carico\).
 
-Utilizzando l'affinità IP di origine, il servizio di bilanciamento del carico di Azure può essere configurato per utilizzare una combinazione di 2 tuple (IP di origine, IP di destinazione) o una combinazione di 3 tuple (IP di origine, IP di destinazione, protocollo) per eseguire il mapping del traffico al pool di server ospitati di Azure disponibili. Quando si utilizza l'affinità IP di origine, le connessioni avviate dallo stesso computer client sono gestite da un singolo endpoint DIP (un singolo server ospitato di Azure).
+Utilizzando l'affinità IP di origine, il servizio di bilanciamento del carico di Azure può essere configurato per utilizzare una combinazione di 2 tuple \(IP di origine, IP di destinazione\) o una combinazione di 3 tuple \(IP di origine, IP di destinazione, protocollo\) per eseguire il mapping del traffico al pool di server ospitati di Azure disponibili. Quando si utilizza l'affinità IP di origine, le connessioni avviate dallo stesso computer client sono gestite da un singolo endpoint DIP \(un singolo server ospitato di Azure\).
 
 ## Origine del servizio
 
-L'affinità IP di origine risolve una precedente [incompatibilità tra il Gateway Desktop remoto (DOC) e il servizio di bilanciamento del carico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=517389).
+L'affinità IP di origine risolve una precedente [incompatibilità tra il Gateway Desktop remoto \(DOC\) e il servizio di bilanciamento del carico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=517389).
 
 ## Implementazione
 
@@ -38,7 +38,7 @@ L'affinità IP di origine può essere configurata per:
 
 ## Scenari
 1. Cluster di Gateway Desktop remoto utilizzando un singolo servizio cloud
-2. Caricamento di contenuti multimediali (ad esempio, UDP per i dati, TCP per il controllo)
+2. Caricamento di contenuti multimediali \(ad esempio, UDP per i dati, TCP per il controllo\)
   * Il client avvia una sessione TCP all'indirizzo IP pubblico con carico bilanciato ospitato di Azure
   * La richiesta del client viene indirizzata a un DIP dal bilanciamento del carico. Questo canale rimane attivo per monitorare l'integrità della connessione
   * Il client avvia una sessione UDP allo stesso indirizzo IP pubblico con carico bilanciato ospitato di Azure
@@ -46,7 +46,7 @@ L'affinità IP di origine può essere configurata per:
   * Il client carica i contenuti multimediali con una velocità effettiva UDP più elevata mantenendo il canale di controllo su TCP per l'affidabilità
   
 ## Avvertenze
-* Se il set con carico bilanciato viene modificato (ad esempio aggiungendo o rimuovendo una macchina virtuale), la distribuzione del canale client viene ricalcolata e le nuove connessioni dai client esistenti possono essere gestite da un server diverso da quello utilizzato originariamente
+* Se il set con carico bilanciato viene modificato \(ad esempio aggiungendo o rimuovendo una macchina virtuale\), la distribuzione del canale client viene ricalcolata e le nuove connessioni dai client esistenti possono essere gestite da un server diverso da quello utilizzato originariamente
 * L'utilizzo dell'affinità IP di origine può comportare una distribuzione diversa del traffico tra i server ospitati di Azure
 * I client che instradano il traffico attraverso un proxy possono essere considerati come un singolo client dal servizio di bilanciamento del carico di Azure
 
@@ -55,14 +55,14 @@ Scaricare [la versione più recente di Azure PowerShell](https://github.com/Azur
 
 ### Aggiungere un endpoint di Azure a una macchina virtuale e impostare la modalità di distribuzione del servizio di bilanciamento del carico
 
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
-
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
 
-LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito (bilanciamento del carico a 5 tuple).
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 Ã¢â‚¬â€œLoadBalancerDistribution Ã¢â‚¬Å“sourceIPÃ¢â‚¬ï¿½| Update-AzureVM  
+
+LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple \(IP di origine, IP di destinazione\), su sourceIPProtocol per il bilanciamento del carico a 3 tuple \(IP di origine, IP di destinazione, protocollo\) o su Nessuno per il comportamento predefinito \(bilanciamento del carico a 5 tuple\).
 
 ### Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint
-    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -86,9 +86,9 @@ Se l'elemento LoadBalancerDistribution non viene specificato, il bilanciamento d
 
 ### Impostare la modalità di distribuzione su un set di endpoint con carico bilanciato
 
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
-
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 Ã¢â‚¬â€œLoadBalancerDistribution "sourceIP"
     
 Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare la modalità di distribuzione sul set di endpoint con carico bilanciato.
 
@@ -148,7 +148,7 @@ Gli sviluppatori possono configurare la distribuzione del servizio di bilanciame
       </InputEndpoint> 
     </LoadBalancedEndpointList>
 
-Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o Nessuno (per nessuna affinità, ad esempio 5 tuple)
+Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o Nessuno \(per nessuna affinità, ad esempio 5 tuple\)
 
 #### Response
 
@@ -159,5 +159,6 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
     x-ms-servedbyregion: ussouth2 
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

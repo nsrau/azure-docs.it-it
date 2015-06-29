@@ -42,7 +42,7 @@ La restante parte di questo articolo sarà incentrata sulle indicazioni generali
 
 - Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
 
-- NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che usano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure (waagent) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux.
+- NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che usano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure \(waagent\) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux.
 
 - Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -51,7 +51,7 @@ La restante parte di questo articolo sarà incentrata sulle indicazioni generali
 
 ### Installazione di Linux senza Hyper-V ###
 
-In alcuni casi, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale (initrd o initramfs), a meno che non rilevi di essere in esecuzione in un ambiente Hyper-V. Quando si usa un sistema di virtualizzazione diverso (ad esempio Virtualbox, KVM e così via) per preparare l'immagine Linux, potrebbe essere necessario ricreare initrd per assicurarsi che almeno i moduli kernel `hv_vmbus` e `hv_storvsc` siano disponibili sul disco RAM iniziale. Questo è un problema noto, almeno nei sistemi basati sulla distribuzione upstream di Red Hat.
+In alcuni casi, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale \(initrd o initramfs\), a meno che non rilevi di essere in esecuzione in un ambiente Hyper-V. Quando si usa un sistema di virtualizzazione diverso \(ad esempio Virtualbox, KVM e così via\) per preparare l'immagine Linux, potrebbe essere necessario ricreare initrd per assicurarsi che almeno i moduli kernel `hv_vmbus` e `hv_storvsc` siano disponibili sul disco RAM iniziale. Questo è un problema noto, almeno nei sistemi basati sulla distribuzione upstream di Red Hat.
 
 Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda della distribuzione. Per la procedura appropriata, consultare la documentazione della distribuzione o il supporto. Di seguito è riportato un esempio di come ricreare l'immagine initrd tramite l'utilità `mkinitrd`:
 
@@ -73,9 +73,9 @@ Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 M
 
 Per risolvere questo problema, è possibile ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx).
 
-Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per convertire (se necessario) e ridimensionare il disco rigido virtuale:
+Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per convertire \(se necessario\) e ridimensionare il disco rigido virtuale:
 
- 1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può determinare un disco rigido virtuale che non può essere avviato. Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW. Se l'immagine della VM è già stata creata come immagine disco RAW (questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM), è possibile saltare questo passaggio:
+ 1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può determinare un disco rigido virtuale che non può essere avviato. Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW. Se l'immagine della VM è già stata creata come immagine disco RAW \(questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM\), è possibile saltare questo passaggio:
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
@@ -91,7 +91,7 @@ Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per converti
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. Ridimensionare il disco RAW usando $rounded_size, come impostato nello script precedente:
+ 3. Ridimensionare il disco RAW usando $rounded\_size, come impostato nello script precedente:
  
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -103,11 +103,11 @@ Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per converti
 
 ## Requisiti del kernel Linux ##
 
-I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (cioè 3.x) questi driver sono già disponibili; in alternativa, fornire versioni backport dei driver con i relativi kernel. Questi driver vengono aggiornati costantemente nel kernel upstream con nuove correzioni e funzionalità, pertanto, quando è possibile, è consigliabile eseguire una [distribuzione approvata](../linux-endorsed-distributions.md), che include tali correzioni e aggiornamenti.
+I driver di Linux Integration Services \(LIS\) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux \(cioè 3.x\) questi driver sono già disponibili; in alternativa, fornire versioni backport dei driver con i relativi kernel. Questi driver vengono aggiornati costantemente nel kernel upstream con nuove correzioni e funzionalità, pertanto, quando è possibile, è consigliabile eseguire una [distribuzione approvata](../linux-endorsed-distributions.md), che include tali correzioni e aggiornamenti.
 
-Se si esegue una variante di Red Hat Enterprise Linux versioni **6.0-6.3**, è necessario installare i driver LIS più recenti per Hyper-V. I driver sono disponibili [a questo indirizzo](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Per quanto riguarda RHEL **6.4 e versioni successive ** (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e pertanto non sono necessari pacchetti di installazione aggiuntivi per eseguire tali sistemi su Azure.
+Se si esegue una variante di Red Hat Enterprise Linux versioni **6.0-6.3**, è necessario installare i driver LIS più recenti per Hyper-V. I driver sono disponibili [a questo indirizzo](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Per quanto riguarda RHEL **6.4 e versioni successive ** \(e distribuzioni derivate\) i driver LIS sono già inclusi nel kernel e pertanto non sono necessari pacchetti di installazione aggiuntivi per eseguire tali sistemi su Azure.
 
-Se è necessario un kernel personalizzato, è consigliabile usare una versione più recente del kernel (ad esempio **3.8 e versioni successive**). Per le distribuzioni o i fornitori che gestiscono il proprio kernel, è consigliabile eseguire il backport ai driver LIS dal kernel upstream al kernel personalizzato. Anche se si esegue già una versione relativamente recente del kernel, è generalmente consigliabile tenere traccia di eventuali correzioni upstream nei driver LIS ed eseguirne il backport in base alle esigenze. La posizione dei file di origine dei driver LIS è disponibile nel file [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) nell'albero di origine del kernel Linux:
+Se è necessario un kernel personalizzato, è consigliabile usare una versione più recente del kernel \(ad esempio **3.8 e versioni successive**\). Per le distribuzioni o i fornitori che gestiscono il proprio kernel, è consigliabile eseguire il backport ai driver LIS dal kernel upstream al kernel personalizzato. Anche se si esegue già una versione relativamente recente del kernel, è generalmente consigliabile tenere traccia di eventuali correzioni upstream nei driver LIS ed eseguirne il backport in base alle esigenze. La posizione dei file di origine dei driver LIS è disponibile nel file [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) nell'albero di origine del kernel Linux:
 
 	F:	arch/x86/include/asm/mshyperv.h
 	F:	arch/x86/include/uapi/asm/hyperv.h
@@ -123,9 +123,9 @@ Se è necessario un kernel personalizzato, è consigliabile usare una versione p
 
 Come minimo, l'assenza delle seguenti patch causa problemi in Azure e quindi tali patch devono essere incluse nel kernel. L'elenco non è esaustivo o completo per tutte le distribuzioni:
 
-- [ata_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc: Account for in-transit packets in the RESET path](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc: avoid usage of WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: avoid usage of WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
 - [storvsc: Disable WRITE SAME for RAID and virtual host adapter drivers](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc: NULL pointer dereference fix](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc: ring buffer failures may result in I/O freeze](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
@@ -133,7 +133,7 @@ Come minimo, l'assenza delle seguenti patch causa problemi in Azure e quindi tal
 
 ## Agente Linux di Azure ##
 
-L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) è necessario per eseguire correttamente il provisioning di una macchina virtuale Linux in Azure. È possibile scaricare la versione più recente, inviare problemi o inviare richieste pull all'[archivio GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
+L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) \(waagent\) è necessario per eseguire correttamente il provisioning di una macchina virtuale Linux in Azure. È possibile scaricare la versione più recente, inviare problemi o inviare richieste pull all'[archivio GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
 
 - L'agente Linux viene rilasciato con la licenza Apache 2.0. Molte distribuzioni forniscono già pacchetti RPM o Debian per l'agente, che pertanto può, in alcuni casi, essere installato e aggiornato con un livello minimo di impegno.
 
@@ -162,7 +162,7 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Installazione dell'agente Linux di Azure
 
-	L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure. Molte distribuzioni forniscono l'agente come pacchetto RPM o Debian (il pacchetto è in genere denominato "WALinuxAgent" or "walinuxagent"). È inoltre possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](virtual-machines-linux-agent-user-guide.md).
+	L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure. Molte distribuzioni forniscono l'agente come pacchetto RPM o Debian \(il pacchetto è in genere denominato "WALinuxAgent" or "walinuxagent"\). È inoltre possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](virtual-machines-linux-agent-user-guide.md).
 
 - Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
 
@@ -189,4 +189,7 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

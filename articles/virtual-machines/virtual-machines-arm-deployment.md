@@ -65,9 +65,9 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questa esercitazione. È necessario installare la libreria di Gestione risorse di Azure, la libreria di autenticazione Azure Active Directory e la libreria provider Computer Resource. Per ottenere queste librerie in Visual Studio, eseguire le operazioni seguenti:
 
-1. Fare clic su **File** > **Nuovo** > **Progetto**.
+1. Fare clic su **File** \> **Nuovo** \> **Progetto**.
 
-2. In **Modelli** > **Visual C#** selezionare **Applicazione console**, immettere il nome e il percorso del progetto e fare clic su **OK**.
+2. In **Modelli** \> **Visual C\#** selezionare **Applicazione console**, immettere il nome e il percorso del progetto e fare clic su **OK**.
 
 3. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
 
@@ -345,7 +345,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
           }
         }
 
-	>[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Sostituire {subscription-id} con l'identificatore della sottoscrizione.
 
@@ -387,4 +387,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

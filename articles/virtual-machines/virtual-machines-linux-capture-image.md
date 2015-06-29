@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015" 
+	ms.date="06/11/2015" 
 	ms.author="kathydav"/>
 
 
@@ -34,16 +34,32 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 1. Connettere la macchina virtuale facendo clic su **Connetti** sulla barra dei comandi. Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Linux][].
 
-2. Nella finestra di SSH digitare il comando seguente, quindi immettere la password per l'account creato per la gestione della macchina virtuale. Si noti che l'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
+2. Nella finestra di SSH digitare il comando seguente. Si noti che l'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
-	`sudo waagent -deprovision`
+	`$ sudo waagent -deprovision+user`
+
+	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
+
+	- Rimuove le chiavi host SSH \(se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione\)
+	- Cancella la configurazione NameServer in /etc/resolv.conf
+	- Rimuove la password `root` dell'utente da /etc/shadow \(se Provisioning.DeleteRootPassword è 'y' nel file di configurazione\)
+	- Rimuove i lease client DHCP memorizzati nella cache
+	- Ripristina il nome host su localhost.localdomain
+	- Elimina anche l'ultimo account utente \(ottenuto da /var/lib/waagent\) di cui è stato effettuato il provisioning **e i dati associati**.
 
 	![Deprovisioning della macchina virtuale](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
+
+	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in macchine virtuali che si vogliono acquisire come nuovo modello di immagine.
 
 
 3. Digitare **y** per continuare.
 
 	![Deprovisioning della macchina virtuale effettuato correttamente](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
+
+	**Si noti** che è possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
+
+	>[AZURE.NOTE]Il deprovisioning generalizza solo l'immagine Linux, ma non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili e che sia adatta per la ridistribuzione a terzi.
+
 
 4. Digitare **Exit** per chiudere il client SSH.
 
@@ -61,12 +77,17 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 	![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
+
 ##Passaggi successivi##
 L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. Per effettuare questa operazione, creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionare l'immagine creata. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata][].
+
+**Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
 [Come accedere a una macchina virtuale che esegue Linux]: virtual-machines-linux-how-to-log-on.md
 [Informazioni sulle immagini di macchine virtuali in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Come creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

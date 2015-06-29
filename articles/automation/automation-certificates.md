@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Certificati"
+   pageTitle="Asset di tipo certificato in Automazione di Azure"
    description="I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che i Runbook possano accedervi per eseguire l'autenticazione rispetto a risorse di Azure e di terze parti. Questo articolo illustra nel dettaglio i certificati e spiega come usarli nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
-# Certificati
+# Asset di tipo certificato in Automazione di Azure
 
 I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che Runbook possano accedervi tramite l'attività **Get-AutomationCertificate**. Ciò permette di creare Runbook che usano certificati per l'autenticazione o di aggiungerli a risorse di Azure o di terze parti che possono essere create o configurate dal Runbook.
 
->[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e viene archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
+>[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
 
 ## Cmdlet di Windows PowerShell
 
@@ -98,13 +98,13 @@ Per aggiungere un'attività **Get-AutomationCerticiate** a un Runbook grafico, f
 
 La figura seguente mostra un esempio dell'uso di un certificato in un Runbook grafico. Si tratta dello stesso esempio mostrato in precedenza per l'aggiunta di un certificato a un servizio cloud da un Runbook testuale.
 
-Questo esempio usa il set di parametri **UseConnectionObject** per l'attività **Send-TwilioSMS** che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), poiché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
+Questo esempio usa il set di parametri **UseConnectionObject** per l'attività \*\*Send-TwilioSMS\*\* che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), poiché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
 
 ![](media/automation-certificates/add-certificate.png)
 
 
 ## Vedere anche
 
-- [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

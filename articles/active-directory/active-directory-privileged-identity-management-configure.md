@@ -18,7 +18,7 @@
 
 # Gestione identità con privilegi di Azure AD
 
-Gestione identità con privilegi di Azure AD consente di gestire, controllare e monitorare le identità con privilegi e il relativo accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Intune.
+Gestione identità con privilegi di Azure AD consente di gestire, controllare e monitorare le identità con privilegi e il relativo accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
 Per consentire agli utenti di eseguire operazioni con privilegi, spesso, in passato, le organizzazioni hanno dovuto concedere agli utenti accessi con privilegi permanenti in Azure AD, per le risorse di Azure o Office 365 o per altre app SaaS. Per molti clienti questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud, in quanto non è possibile monitorare completamente ciò che gli utenti fanno con i privilegi amministrativi. Un account utente con accesso privilegiato compromesso comporta un rischio elevato per la sicurezza complessiva del cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
 
@@ -105,4 +105,6 @@ Gestione identità con privilegi di Azure AD consente anche di rilevare le modif
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

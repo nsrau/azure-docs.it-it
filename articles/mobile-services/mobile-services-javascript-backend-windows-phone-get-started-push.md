@@ -10,26 +10,22 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/11/2015" 
 	ms.author="glenga"/>
 
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Windows Phone Silverlight. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
+##Panoramica
 
-Questa esercitazione descrive le operazioni di base per abilitare le notifiche push:
+Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Windows Phone Silverlight. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
-1. [Aggiornare l'app per la registrazione per le notifiche](#update-app)
-2. [Aggiornare gli script del server per l'invio di notifiche push](#update-scripts)
-3. [Inserire dati per la ricezione di notifiche push](#test)
-
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Introduzione ai dati] per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione.
+Questa esercitazione è basata sull'app di esempio TodoList. Prima di iniziare questa esercitazione, è necessario completare l'argomento [Aggiungere Servizi mobili a un'app esistente] per connettere il progetto al servizio mobile. Se non è stato collegato un servizio mobile, la procedura guidata Aggiungi notifica push può creare automaticamente la connessione.
 
 >[AZURE.NOTE]Per inviare notifiche push a un'app di Windows Phone 8.1 Store, vedere la versione per [app di Windows Store](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) dell'esercitazione.
 
@@ -66,11 +62,11 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
                 });
         }
 
-    Questo codice consente di recuperare il valore di ChannelURI per l'app dal Servizio notifica Push Microsoft (MPNS) usato da Windows Phone 8.x "Silverlight", quindi di registrarlo per le notifiche push.
+    Questo codice consente di recuperare il valore di ChannelURI per l'app dal Servizio notifica Push Microsoft \(MPNS\) usato da Windows Phone 8.x "Silverlight", quindi di registrarlo per le notifiche push.
 
 	>[AZURE.NOTE]In questa esercitazione il servizio mobile invia una notifica di tipo avviso popup al dispositivo. Quando si invia una notifica di tipo riquadro, è invece necessario chiamare il metodo **BindToShellTile** sul canale.
 
-4. All'inizio del gestore dell'evento **Application_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
+4. All'inizio del gestore dell'evento **Application\_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -78,7 +74,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 5. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
   
-6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID___CAP___PUSH_NOTIFICATION** sia selezionata.
+6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** sia selezionata.
 
    	![Abilitazione delle notifiche in Visual Studio](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -116,7 +112,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 		        });      
 		}
 
-	Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutte le app per Windows Phone registrate dopo la corretta esecuzione dell'inserimento.
+	Questo script insert invia una notifica push \(con il testo dell'elemento inserito\) a tutte le app per Windows Phone registrate dopo la corretta esecuzione dell'inserimento.
 
 3. Fare clic sulla scheda **Push**, selezionare **Abilita notifiche push non autenticate** e quindi fare clic su **Salva**.
 
@@ -128,7 +124,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 1. In Visual Studio premere F5 per eseguire l'app.
 
-    >[AZURE.NOTE]Durante il test sull'emulatore di Windows Phone è possibile che venga generata un'eccezione RegistrationAuthorizationException e che venga restituita una risposta 401 (Non autorizzato). Questa situazione può verificarsi durante la chiamata a `RegisterNativeAsync()` a causa della modalità errata con cui l'orologio dell'emulatore di Windows Phone viene sincronizzato con il PC host. Di conseguenza, è possibile che un token di sicurezza venga rifiutato. Per risolvere questo problema, è sufficiente impostare manualmente l'orologio prima del test.
+    >[AZURE.NOTE]Durante il test sull'emulatore di Windows Phone è possibile che venga generata un'eccezione RegistrationAuthorizationException e che venga restituita una risposta 401 \(Non autorizzato\). Questa situazione può verificarsi durante la chiamata a `RegisterNativeAsync()` a causa della modalità errata con cui l'orologio dell'emulatore di Windows Phone viene sincronizzato con il PC host. Di conseguenza, è possibile che un token di sicurezza venga rifiutato. Per risolvere questo problema, è sufficiente impostare manualmente l'orologio prima del test.
 
 5. Nell'app immettere il testo "hello push" nella casella di testo, fare clic su **Salva**, quindi fare immediatamente clic sul pulsante Avvia o Indietro per chiudere l'app.
 
@@ -138,7 +134,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 	![Ricezione di una notifica di avviso popup](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]La notifica non viene ricevuta se l'app è ancora aperta. Per ricevere una notifica di tipo avviso popup mentre l'app è attiva, è necessario gestire l'evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
+	>[AZURE.NOTE]La notifica non viene ricevuta se l'app è ancora aperta. Per ricevere una notifica di tipo avviso popup mentre l'app è attiva, è necessario gestire l'evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx).
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -172,8 +168,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: ../mobile-services-windows-phone-get-started.md
-[Introduzione ai dati]: mobile-services-windows-phone-get-started-data.md
+[Aggiungere Servizi mobili a un'app esistente]: mobile-services-windows-phone-get-started-data.md
 [Introduzione all'autenticazione]: mobile-services-windows-phone-get-started-users.md
 
 [Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
@@ -183,5 +178,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

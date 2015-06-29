@@ -113,11 +113,16 @@ Quando si specifica un valore per un parametro, è necessario selezionare un'ori
 
 | Origine dati | Descrizione |
 |:---|:---|
-|Activity Output|Output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Selezionare l'attività per usare il relativo output per il valore del parametro. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome della proprietà dopo aver selezionato l'attività.|
 |Constant Value|Digitare un valore per il parametro. Disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, Switch. |
+|Activity Output|Output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Selezionare l'attività per usare il relativo output per il valore del parametro. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome della proprietà dopo aver selezionato l'attività.|
+|Parametro Input di runbook<br>\*\(Presto disponibile\)\*|Selezionare un parametro input di runbook come input per il parametro dell'attività.|  
+|Asset di tipo variabile di Automazione<br>\*\(Presto disponibile\)\*|Selezionare una variabile di Automazione come input.|  
+|Asset credenziali di Automazione<br>\*\(Presto disponibile\)\*|Selezionare una credenziale di Automazione come input.|  
+|Asset di certificato di Automazione<br>\*\(Presto disponibile\)\*|Selezionare un certificato di Automazione come input.|  
+|Asset di connessione di Automazione<br>\*\(Presto disponibile\)\*|Selezionare una connessione di Automazione come input.| 
+|PowerShell Expression|Specificare un'espressione di PowerShell semplice. L'espressione verrà valutata prima dell'attività e il risultato verrà usato per il valore del parametro. È possibile usare variabili per fare riferimento all'output di un'attività o un parametro di input di runbook.|
 |Empty String|Valore di stringa vuota.|
 |Null|Valore Null.|
-|PowerShell Expression|Specificare un'espressione di PowerShell semplice. L'espressione verrà valutata prima dell'attività e il risultato verrà usato per il valore del parametro. È possibile usare variabili per fare riferimento all'output di un'attività o un parametro di input di runbook.|
 |Unselect|Cancella qualsiasi valore precedentemente configurato.|
 
 
@@ -180,7 +185,7 @@ Per un collegamento di tipo sequenza, la condizione viene valutata solo dopo la 
 
 Quando si usa un collegamento condizionale, i dati disponibili dall'attività di origine per altre attività nel ramo vengono filtrati dalla condizione. Se un'attività è all'origine di più collegamenti, i dati disponibili per le attività in ogni ramo variano in base alla condizione nel collegamento connesso a tale ramo.
 
-L'attività di origine del runbook seguente ad esempio recupera tutte le macchine virtuali. Dispone di due collegamenti condizionali e di un collegamento senza condizioni. Il primo collegamento condizionale usa l'espressione *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* per filtrare solo le macchine virtuali attualmente in esecuzione. Il secondo collegamento usa l'espressione *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* per filtrare solo le macchine virtuali attualmente arrestate.
+L'attività di origine del runbook seguente ad esempio recupera tutte le macchine virtuali. Dispone di due collegamenti condizionali e di un collegamento senza condizioni. Il primo collegamento condizionale usa l'espressione *$ActivityOutput\['Get-AzureVM'\].PowerState -eq 'Started'* per filtrare solo le macchine virtuali attualmente in esecuzione. Il secondo collegamento usa l'espressione *$ActivityOutput\['Get-AzureVM'\].PowerState -eq 'Stopped'* per filtrare solo le macchine virtuali attualmente arrestate.
 
 ![Esempio di collegamento condizionale](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -273,5 +278,6 @@ I dati creati da un'attività che non dispone di un collegamento in uscita verra
 
 - [Concetti relativi ai runbook di Automazione di Azure](automation-runbook-concepts.md)
 - [Asset di automazione](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

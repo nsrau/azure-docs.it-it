@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Data factory - Creazione di pipeline predittive tramite Data factory e Machine Learning | Azure" 
-	description="Viene descritto come creare creare pipeline predittive utilizzando Azuer dati Factory e Azure Machine Learning" 
+	pageTitle="Data factory - Creare pipeline predittive tramite Data factory e Machine Learning | Azure" 
+	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,33 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="spelluru"/>
 
-# Creazione di pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
+# Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
 ## Panoramica
-È possibile rendono operativi pubblicato [Azure Machine Learning][azure-machine-learning] modelli all'interno della pipeline di Factory di dati di Azure. Queste pipeline vengono chiamate pipeline predittive. Per creare una pipeline predittiva, sono necessari gli elementi seguenti:
+È possibile rendere operativi i modelli pubblicati di [Azure Machine Learning][azure-machine-learning] nelle pipeline di Data factory di Azure. Queste pipeline sono definite pipeline predittive. Per creare una pipeline predittiva, sono necessari gli elementi seguenti:
 
--	La chiave API del modello dell'area di lavoro pubblicato e l'URL per l'assegnazione dei punteggi di batch (vedere l'immagine seguente)
--	Un blob di Azure che contiene il file CSV di input (o) un database SQL Azure che contiene l'input di dati di archiviazione da valutare. 
--	Archiviazione di blob di Azure che conterrà il file CSV risultati punteggio (o) un database SQL Azure che conterrà i dati di output. 
+-	La chiave API del modello dell'area di lavoro pubblicato e l'URL per l'assegnazione dei punteggi di batch \(vedere l'immagine seguente\).
+-	Un archivio BLOB di Azure che include il file CSV di input \(oppure\) un database SQL di Azure contenente i dati di input a cui assegnare un punteggio. 
+-	Un archivio BLOB di Azure che conterrà il file CSV dei risultati di punteggio \(oppure\) un database SQL di Azure che conterrà i dati di output. 
 
-	![Machine Learning Dashboard][machine-learning-dashboard]
+	![Dashboard di Machine Learning][machine-learning-dashboard]
 
-	Il batch di assegnazione dei punteggi URL per il AzureMLLinkedService viene ottenuto da come indicato nella figura sopra riportata, meno ' * * Guida * * ': https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
+	L'URL per l'assegnazione dei punteggi di batch per AzureMLLinkedService viene ottenuto nel modo illustrato nella figura sopra riportata, meno '\*\*help\*\*': https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
 
-Oggetto **pipeline predittiva** include i seguenti elementi:
+Una **pipeline predittiva** include gli elementi seguenti:
 
 -	Tabelle di input e output
--	SQL Azure/archiviazione di Azure e Azure ML collegato servizi
+-	Servizi collegati di Archiviazione di Azure/SQL di Azure e Azure ML
 -	Una pipeline con attività di assegnazione dei punteggi di batch di Azure ML
 
-> [AZURE.NOTE]È possibile utilizzare i parametri di servizio Web esposto da un servizio Web di Azure Machine Learning pubblicato nelle pipeline Azure dati Factory (ADF). Per ulteriori informazioni, vedere la sezione di parametri del servizio Web in questo articolo.
+> [AZURE.NOTE]È possibile usare i parametri del servizio Web esposti da un servizio Web pubblicato di Azure Machine Learning nelle pipeline di Data factory di Azure. Per altre informazioni, vedere la sezione Parametri del servizio Web in questo articolo.
 
 ## Esempio
-In questo esempio utilizza l'archiviazione di Azure per contenere i dati di input e outpui. È possibile utilizzare anche il Database SQL Azure invece di utilizzare l'archiviazione di Azure.
+Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di output. È anche possibile usare il database SQL di Azure invece di Archiviazione di Azure.
 
-Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getstarted] esercitazione prima di essere mediante questo esempio e utilizzare l'Editor dei dati Factory per creare elementi di dati Factory (servizi collegati, tabelle, pipeline) in questo esempio.
+È consigliabile eseguire l'esercitazione [Introduzione a Data factory di Azure][adf-getstarted] prima di esaminare questo esempio e usare l'editor di Data factory per creare elementi di Data factory \(servizi collegati, tabelle, pipeline\) nell'esempio.
  
 
 1. Creare un servizio collegato per Archiviazione di Azure Se i file di output e input di assegnazione del punteggio si trovano in account di archiviazione diversi, sarà necessario disporre di due servizi collegati. Di seguito è fornito un esempio JSON:
@@ -53,7 +53,7 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 		    }
 		}
 
-2. Creare le tabelle di input e output di Data factory di Azure. Si noti che a differenza di altre tabelle di dati Factory, queste devono contenere entrambi **folderPath** e **fileName** valori. È possibile usare il partizionamento per fare in modo che ogni esecuzione di batch (ogni sezione di dati) elabori o produca file di input e di output univoci. Potrebbe essere necessario includere alcune attività upstream per trasformare il file di input in formato CSV e collocarlo nell'account di archiviazione per ogni sezione. In tal caso, non è necessario includere le impostazioni “waitOnExternal” illustrate nell'esempio seguente e ScoringInputBlob è la tabella di output di un'attività diversa.
+2. Creare le tabelle di input e output di Data factory di Azure. Si noti che, a differenza di altre tabelle di Data factory, queste tabelle devono includere valori sia **folderPath** che **fileName**. È possibile usare il partizionamento per fare in modo che ogni esecuzione di batch \(ogni sezione di dati\) elabori o produca file di input e di output univoci. Potrebbe essere necessario includere alcune attività upstream per trasformare il file di input in formato CSV e collocarlo nell'account di archiviazione per ogni sezione. In tal caso, non è necessario includere le impostazioni “waitOnExternal” illustrate nell'esempio seguente e ScoringInputBlob è la tabella di output di un'attività diversa.
 
 		{  
 			"name":"ScoringInputBlob",
@@ -85,7 +85,7 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 		   		}
 			}
 	
-	Il batch di classificazione file csv deve disporre la riga di intestazione di colonna. Se si utilizza il **attività Copia** per creare e lo spostamento csv nell'archiviazione blob, è necessario impostare la proprietà di sink **blobWriterAddHeader** a **true**. Ad esempio:
+	Il file CSV di punteggio di batch deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
 	
 	     sink: 
 	     {
@@ -93,7 +93,7 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 	         "blobWriterAddHeader": true 
 	     }
 	 
-	Se la riga di intestazione non dispone di file csv, si può vedere il seguente errore: **errore nell'attività: errore durante la lettura di stringa. Token imprevisto: StartObject. Percorso ', riga 1, posizione 1**.
+	Se il file CSV non ha la riga di intestazione, potrebbe essere visualizzato un messaggio di errore analogo al seguente: **Errore nell'attività: Errore di lettura della stringa. Token imprevisto: StartObject. Percorso '', riga 1, posizione 1**.
 3. In questo esempio il file di output usa il partizionamento per creare un percorso di output univoco per l'esecuzione di ciascuna sezione. Senza questa opzione, l'attività sovrascriverebbe il file.
 
 		{  
@@ -124,7 +124,7 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 		}
 
 
-4. Creare un servizio di tipo collegato: **AzureMLLinkedService**, offrendo la chiave dell'API e il modello batch URL punteggio.
+4. Creare un servizio collegato di tipo **AzureMLLinkedService**, che fornisce la chiave API e un modello di URL per l'assegnazione dei punteggi di batch.
 		
 		{
 		    "name": "MyAzureMLLinkedService",
@@ -136,7 +136,7 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 		    }
 		}
 
-5. Infine, creare una pipeline che contiene un **AzureMLBatchScoringActivity**. La pipeline otterrà il percorso del file di input dalle tabelle di input, chiamerà l'API per l'assegnazione dei punteggi di batch di Azure ML e copierà il file di output dell'assegnazione dei punteggi di batch nel BLOB specificato nella tabella di output. A differenza di altre attività di Data factory, AzureMLBatchScoringActivity può avere una sola tabella di input e una sola tabella di output.
+5. Creare infine una pipeline contenente un'attività **AzureMLBatchScoringActivity**. La pipeline otterrà il percorso del file di input dalle tabelle di input, chiamerà l'API per l'assegnazione dei punteggi di batch di Azure ML e copierà il file di output dell'assegnazione dei punteggi di batch nel BLOB specificato nella tabella di output. A differenza di altre attività di Data factory, AzureMLBatchScoringActivity può avere una sola tabella di input e una sola tabella di output.
 
 		 {
 		    "name": "PredictivePipeline",
@@ -165,10 +165,10 @@ Si consiglia di eseguire il [iniziare a utilizzare Azure dati Factory][adf-getst
 
 
 ## Parametri del servizio Web
-È possibile utilizzare i parametri di servizio Web esposto da un servizio Web di Azure Machine Learning pubblicato nelle pipeline Azure dati Factory (ADF). È possibile creare un esperimento in Azure Machine Learning e pubblicare come servizio web e quindi utilizzare tale servizio web in più file ADF pipeline o attività, passando diversi input tramite i parametri del servizio Web.
+È possibile usare i parametri del servizio Web esposti da un servizio Web pubblicato di Azure Machine Learning nelle pipeline di Data factory di Azure. È possibile creare un esperimento in Azure Machine Learning e pubblicarlo come servizio Web, quindi usare tale servizio Web in più pipeline o attività di Data factory di Azure, passando diversi input tramite i parametri del servizio Web.
 
-### Passaggio di valori per parametri di servizio Web
-Aggiungere un **trasformazione** sezione per la **AzureMLBatchScoringActivty** sezione nella pipeline di JSON per specificare valori per parametri di servizio Web in questa sezione come illustrato nell'esempio seguente:
+### Passaggio di valori per i parametri del servizio Web
+Aggiungere una sezione **transformation** alla sezione **AzureMLBatchScoringActivity** nel file JSON della pipeline per specificare i valori per i parametri del servizio Web in tale sezione, come illustrato nell'esempio seguente:
 
 	transformation: {
 		webServiceParameters: {
@@ -178,77 +178,77 @@ Aggiungere un **trasformazione** sezione per la **AzureMLBatchScoringActivty** s
 	}
 
 
-È inoltre possibile utilizzare [dati Factory funzioni](https://msdn.microsoft.com/library/dn835056.aspx) nel passaggio di valori per il Web service parametri, come illustrato nell'esempio seguente:
+È anche possibile usare le [funzioni di Data factory](https://msdn.microsoft.com/library/dn835056.aspx) per passare i valori per i parametri del servizio Web, come illustrato nell'esempio seguente:
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
-> [AZURE.NOTE]I parametri del servizio Web tra maiuscole e minuscole, verificare che i nomi specificati nell'attività JSON corrispondano a quelli esposti dal servizio Web.
+> [AZURE.NOTE]I parametri del servizio Web applicano la distinzione tra maiuscole e minuscole. È quindi necessario assicurarsi che i nomi specificati nel file JSON dell'attività corrispondano ai nomi esposti dal servizio Web.
 
-### Writer e visualizzatori di SQL azure
-Uno scenario comune per l'utilizzo di parametri del servizio Web è l'utilizzo di Azure SQL reader e writer. Il modulo del lettore viene utilizzato per caricare dati in un esperimento da servizi di gestione dei dati all'esterno di Azure Machine Learning Studio e il modulo writer consiste nel salvare i dati di esperimenti in servizi di gestione dei dati all'esterno di Azure Machine Learning Studio. Per informazioni dettagliate su SQL Azure/Blob di Azure in lettura/scrittura, vedere [lettore](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) argomenti in MSDN Library. Il lettore di Blob di Azure e la scrittura di Blob di Azure, verrà utilizzato l'esempio nella sezione precedente. In questa sezione viene illustrato l'utilizzo di SQL Azure reader e writer SQL Azure.
+### Reader e writer SQL di Azure
+Uno scenario comune per l'uso dei parametri del servizio Web è costituito dai reader e dai writer SQL di Azure. Il modulo reader viene usato per caricare dati in un esperimento da servizi di gestione dati esterni ad Azure Machine Learning Studio e il modulo writer consente di salvare i dati degli esperimenti in servizi di gestione dati esterni ad Azure Machine Learning Studio. Per informazioni dettagliate sui moduli reader/writer di BLOB di Azure/SQL di Azure, vedere gli argomenti [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) in MSDN Library. L'esempio della sezione precedente usa un reader e un writer di BLOB di Azure. Questa sezione illustra l'uso di un reader e un writer SQL di Azure.
 
-#### Lettore SQL Azure
-In Azure ML Studio, è possibile compilare un esperimento e pubblicare un servizio Web con un lettore di SQL Azure per l'input. Il lettore di SQL Azure dispone di proprietà di connessione che possono essere esposti come parametri del servizio Web, consentendo ai valori per le proprietà di connessione deve essere passato in fase di esecuzione del batch valutazione richiesta.
+#### Reader SQL di Azure
+In Azure ML Studio è possibile creare un esperimento e pubblicare un servizio Web con un reader SQL di Azure per l'input. Il reader SQL di Azure ha proprietà di connessione che possono essere esposte come parametri del servizio Web, consentendo il passaggio dei valori per le proprietà di connessione in fase di runtime nella richiesta di punteggio di batch.
 
-In fase di esecuzione, i dettagli della tabella dati Factory input utilizzerà il servizio dati Factory per riempire i parametri del servizio Web. Si noti che è necessario utilizzare nomi predefiniti (nome server Database, nome del Database, nome Server dell'account utente, password dell'account utente Server) per i parametri del servizio Web per l'integrazione con il servizio dati Factory per funzionare.
+In fase di runtime, i dettagli della tabella di Data factory di input verranno usati dal servizio Data factory per completare i parametri del servizio Web. Si noti che, per consentire il funzionamento dell'integrazione con il servizio Data factory, è necessario usare i nomi predefiniti \(Database server name, Database name, Server user account name, Server user account password\) per i parametri del servizio Web.
 
-Se si dispone di qualsiasi Web ulteriori parametri del servizio, utilizzare il **webServiceParameters** sezione dell'attività JSON. Se si specificano valori per i parametri del lettore di SQL Azure in questa sezione, i valori sostituirà i valori prelevati dal servizio di SQL Azure collegate input. Non è consigliabile che si specificano valori per la lettura di SQL Azure direttamente nella sezione webServiceParameters. Utilizzare la sezione per passare i valori per parametri aggiuntivi.
+Se sono disponibili parametri aggiuntivi del servizio Web, usare la sezione **webServiceParameters** del file JSON dell'attività. Se si specificano valori per i parametri del reader SQL di Azure in questa sezione, tali valori eseguiranno l'override dei valori recuperati dal servizio collegato SQL di Azure di input. Non è consigliabile specificare i valori per il reader SQL di Azure direttamente nella sezione webServiceParameters. Usare la sezione per passare valori per eventuali parametri aggiuntivi.
 
-Per utilizzare un lettore di SQL Azure tramite una pipeline di Factory di dati di Azure, procedere come segue:
+Per usare un reader SQL di Azure tramite una pipeline di Data factory di Azure, eseguire queste operazioni:
 
-- Creare un **SQL Azure collegate servizio**. 
-- Creare una Factory di dati **tabella** che utilizza **AzureSqlTableLocation**.
-- Impostare tale Factory dati **tabella** come il **input** per il **AzureMLBatchScoringActivity** nella pipeline di JSON. 
+- Creare un **servizio collegato SQL di Azure**. 
+- Creare una **tabella** di Data factory che usi **AzureSqlTableLocation**.
+- Impostare tale **tabella** di Data factory come **input** per **AzureMLBatchScoringActivity** nel file JSON della pipeline. 
 
 
 
-#### Writer SQL Azure
-Come con il lettore di SQL Azure, un Writer SQL Azure può anche avere le proprietà esposte come parametri di servizio Web. Un Writer SQL Azure utilizza impostazioni dal servizio collegato associato nella tabella di input o la tabella di output. Quando l'input e output viene utilizzato il servizio collegato collegato servizio descritti nella tabella seguente.
+#### Writer SQL di Azure
+Analogamente a un reader SQL di Azure, un writer SQL di Azure può avere proprietà esposte come parametri del servizio Web. Un writer SQL di Azure usa le impostazioni del servizio collegato associato alla tabella di input o alla tabella di output. La tabella seguente illustra le situazioni in cui viene usato il servizio collegato di input e quelle in cui viene usato il servizio collegato di output.
 
 <table>
 <tr>
-<td>Input/output</td>
-<td><b>Input è SQL Azure</b></td>
-<td><b>Input è il Blob di Azure</b></td>
+<td>Output/Input</td>
+<td><b>Input: SQL di Azure</b></td>
+<td><b>Input: BLOB di Azure</b></td>
 </tr>
 <tr>
-<td><b>Output è SQL Azure</b></td>
-<td><p>Il servizio dati Factory utilizza le informazioni della stringa di connessione dal servizio di INPUT collegato per generare i parametri del servizio web con nomi: "Nome server Database", "Nome Database", "Nome Server dell'account utente", "Password dell'account utente Server". Si noti che è necessario utilizzare questi nomi predefiniti per i parametri di servizio Web in Azure ML Studio.</p>
-<p>Se il lettore di SQL Azure e il Writer SQL Azure nel modello ML Azure condividono gli stessi parametri del servizio Web indicati in precedenza, sono corrette. Se non condividono paramers del servizio Web stesso, ad esempio, se il Writer SQL Azure utilizza i nomi dei parametri: Database nome1 server, Database nome1, name1 account utente di Server, Server user account password1 (con "1" alla fine), è necessario passare i valori per questi parametri OUTPUT del servizio web nella sezione webServiceParameters dell'attività JSON.</p>
+<td><b>Output: SQL di Azure</b></td>
+<td><p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p>
+<p>Se il reader e il writer SQL di Azure nel modello di Azure ML condividono gli stessi parametri del servizio Web indicati in precedenza, non si verificheranno problemi. Se non condividono gli stessi parametri del servizio Web, ad esempio se il writer SQL di Azure usa nomi di parametri quali Database server name1, Database name1, Server user account name1 e Server user account password1 (con "1" alla fine), sarà necessario passare i valori per questi parametri del servizio Web di OUTPUT nella sezione webServiceParameters del file JSON dell'attività.</p>
 <p>
-È possibile passare i valori per eventuali altri parametri del servizio Web utilizzando la sezione webServiceParameters dell'attività JSON.  
+È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività.  
 </p>
 
 </td>
 <td>
-<p>Il servizio dati Factory utilizza le informazioni della stringa di connessione dal servizio di OUTPUT collegato per generare i parametri del servizio web con nomi: "Nome server Database", "Nome Database", "Nome Server dell'account utente", "Password dell'account utente Server". Si noti che è necessario utilizzare questi nomi predefiniti per i parametri di servizio Web in Azure ML Studio.</p>
-<p>È possibile passare i valori per eventuali altri parametri del servizio Web utilizzando la sezione webServiceParameters dell'attività JSON. <p>Blob di input verrà utilizzato come percorso di input.</p>
+<p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di OUTPUT per generare parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p>
+<p>È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività. <p>Come percorso di input verrà usato il BLOB di input.</p>
 </td>
 </tr>
 <tr>
-<td><b>Output è il Blob di Azure</b></td>
-<td>Il servizio dati Factory utilizza le informazioni della stringa di connessione dal servizio di INPUT collegato per generare i parametri del servizio web con nomi: "Nome server Database", "Nome Database", "Nome Server dell'account utente", "Password dell'account utente Server". Si noti che è necessario utilizzare questi nomi predefiniti per i parametri di servizio Web in Azure ML Studio.
+<td><b>Output: BLOB di Azure</b></td>
+<td>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.
 </td>
 <td>
-<p>È necessario passare i valori per i parametri di servizio Web utilizzando la sezione WebServiceParameters dell'attività JSON.</p> 
+<p>È necessario passare i valori per qualsiasi parametro del servizio Web usando la sezione WebServiceParameters del file JSON dell'attività.</p> 
 
-<p>BLOB verrà utilizzato come percorsi di input e output.</p>
+<p>I BLOB verranno usati come percorsi di input e di output.</p>
 
 </td>
 <tr>
 
 </table>
 
-> [AZURE.NOTE]Writer SQL Azure potrebbero verificarsi violazioni di chiave, se sovrascrive una colonna identity. È necessario assicurarsi che la tabella di output per evitare questa situazione la struttura.
+> [AZURE.NOTE]È possibile che il writer SQL di Azure incontri violazioni delle chiavi se sovrascrive una colonna Identity. È consigliabile assicurarsi di strutturare la tabella di output in modo da evitare questa situazione.
 > 
-> È possibile utilizzare tabelle di gestione temporanea con un'attività di routine archiviate righe di tipo merge o per troncare i dati prima dell'assegnazione dei punteggi. Se si utilizza questo approccio, impostare i criteri di esecuzione impostazione concurrency su 1.
+> È possibile usare le tabelle di gestione temporanea con un'attività di stored procedure per unire le righe o per troncare i dati prima dell'assegnazione di punteggi. Se si usa questo approccio, configurare l'impostazione di concorrenza di executionPolicy su 1.
 
-### Esempio di utilizzo di parametri del servizio Web
-#### Pipeline con AzureMLBatchScoringActivity con parametri di servizio Web
+### Esempio di uso dei parametri del servizio Web
+#### Pipeline con AzureMLBatchScoringActivity con parametri del servizio Web
 
 	{
 		"name": "MLWithSqlReaderSqlWriter",
@@ -279,22 +279,26 @@ Come con il lettore di SQL Azure, un Writer SQL Azure può anche avere le propri
 		          		}  
 		        	}
 		      	}
-	    	]
+	    	],
+
+			"start": "2015-02-13T00:00:00Z",
+        	"end": "2015-02-14T00:00:00Z"
 		}
 	}
  
 Nell'esempio JSON precedente:
 
-- Il modello ML Azure utilizza Azure SQL Reader e Writer SQL Azure
-- Quando viene esposta tramite servizio Web, i nomi predefiniti vengono utilizzati per i parametri
-	- Per il **lettore**: nome del server, nome del Database, nome Server dell'account utente e password dell'account utente Server Database.
-	- Per il **writer**: nome1 server, Database nome1, nome1 account utente di Server e password1 account utente di Server di Database.
+- Il modello di Azure ML usa sia il reader che il writer SQL di Azure.
+- In caso di esposizione tramite il servizio Web, vengono usati i nomi predefiniti per i parametri.
+	- Per il **reader**: Database server name, Database name, Server user account name e Server user account password.
+	- Per il **writer**: Database server name1, Database name1, Server user account name1 e Server user account password1.
 	
-		Si noti che il reader e writer non condividano parametri in questo caso.  
-- Il servizio Factory dati genera automaticamente valori per parametri con i nomi del servizio Web **nome server Database**, **nome del Database**, **nome dell'account utente Server**, e **password dell'account utente Server**, che corrispondono ai nomi del lettore di input. Pertanto, non è necessario passare in modo esplicito i valori per questi parametri tramite **webServiceParameters** nell'attività JSON riportata di seguito.  
-- I parametri per il writer (quelli con suffisso '1') non vengono automaticamente compilati in dal servizio dati Factory. Pertanto, è necessario specificare i valori per questi parametri nel **webServiceParameters** sezione dell'attività JSON.  
-- **ID cliente**, **catalogato come etichette**, e **assegnati dei punteggi probabilità** vengono salvati come colonne separati da virgola. 
-- Il **nome della tabella dati** in questo esempio corrisponde a una tabella nel database di output.
+		Si noti che in questo caso il reader e il writer non condividono i parametri.  
+- Il servizio Data factory genera automaticamente i valori per i parametri del servizio Web con i nomi **Database server name**, **Database name**, **Server user account name** e **Server user account password**, che corrispondono ai nomi del reader di input. Non è quindi necessario passare esplicitamente i valori per questi parametri tramite **webServiceParameters** nel file JSON dell'attività seguente.  
+- I parametri per il writer \(con suffisso "1"\) non vengono completati automaticamente dal servizio Data factory. È quindi necessario specificare i valori per questi parametri nella sezione **webServiceParameters** del file JSON dell'attività.  
+- I valori **Customer ID**, **Scored Labels** e **Scored Probabilities** vengono salvati come colonne separate da virgola. 
+- Il valore **Data table name** di questo esempio corrisponde a una tabella nel database di output.
+- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -303,7 +307,7 @@ Nell'esempio JSON precedente:
 
 Articolo | Descrizione
 ------ | ---------------
-[Riferimenti per sviluppatori Factory di dati di Azure][developer-reference] | Il riferimento per sviluppatori presenta il contenuto di riferimento completo per i cmdlet, script JSON, libreria di classi .NET, funzioni e così via... 
+[Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference] | La guida di riferimento per gli sviluppatori include informazioni complete per cmdlet, script JSON, libreria di classi .NET, funzioni e così via. 
 
 [adf-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
@@ -318,4 +322,6 @@ Articolo | Descrizione
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=58_postMigration-->

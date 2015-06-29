@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -40,6 +40,4 @@
 
 La configurazione del dispositivo è stata completata.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

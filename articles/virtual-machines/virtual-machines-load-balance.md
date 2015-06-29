@@ -26,7 +26,7 @@ Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanci
 
 ## Bilanciamento del carico di Gestione traffico per servizi cloud e siti Web##
 
-Gestione traffico di Azure consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in datacenter ubicati in aree geografiche diverse.
+Gestione traffico di Azure consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS \(Domain Name System\) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in datacenter ubicati in aree geografiche diverse.
 
 Per configurare endpoint esterni o profili di Gestione traffico come endpoint, è necessario usare REST o Windows PowerShell.
 
@@ -57,7 +57,7 @@ Le macchine virtuali appartenenti allo stesso servizio cloud o alla stessa rete 
 
 Il servizio di bilanciamento del carico di Azure distribuisce in modo casuale un tipo specifico di traffico in ingresso tra più macchine virtuali o servizi di una configurazione nota come set con carico bilanciato. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web o ruoli Web.
 
-Nella figura seguente è illustrato un endpoint con carico bilanciato per il traffico Web (non crittografato) condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
+Nella figura seguente è illustrato un endpoint con carico bilanciato per il traffico Web \(non crittografato\) condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 
 ![bilanciamento del carico](./media/virtual-machines-load-balance/LoadBalancing.png)
 
@@ -66,12 +66,12 @@ Per altre informazioni, vedere [Bilanciamento del carico di Azure](http://msdn.m
 Azure è inoltre in grado di bilanciare il carico all'interno di un servizio cloud o una rete virtuale. Questo processo, noto come bilanciamento del carico interno, può essere usato per gli scopi seguenti:
 
 - Bilanciamento del carico tra server appartenenti a livelli diversi di un'applicazione multilivello, ad esempio tra il livello Web e quello di database.
-- Bilanciamento del carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. 
+- Bilanciamento del carico per applicazioni line-of-business \(LOB\) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. 
 - Inclusione di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
 
 Analogamente al bilanciamento del carico di Azure, il bilanciamento del carico interno viene facilitato con la configurazione di un set con carico bilanciato interno.
 
-Nella figura seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business (LOB) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise.
+Nella figura seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business \(LOB\) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise.
 
 ![bilanciamento del carico](./media/virtual-machines-load-balance/LOBServers.png)
 
@@ -83,4 +83,4 @@ Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del c
 
 <!-- LINKS -->
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->
