@@ -36,18 +36,18 @@ Per creare un'attività personalizzata:
 
 4. Aggiornare la classe per implementare l'interfaccia **IDotNetActivity**.
 	<ol type='a'>
-	<li>
-		Eseguire la derivazione della classe da <b>IDotNetActivity</b>.
-		<br/>
-		Esempio: <br/>
-		classe pubblica <b>MyDotNetActivity: IDotNetActivity</b>
-	</li>
+		<li>
+			Eseguire la derivazione della classe da <b>IDotNetActivity</b>.
+			<br/>
+			Esempio: <br/>
+			classe pubblica <b>MyDotNetActivity: IDotNetActivity</b>
+		</li>
 
-	<li>
-		Implementare il metodo <b>Execute</b> dell'interfaccia <b>IDotNetActivity</b>
-	</li>
+		<li>
+			Implementare il metodo <b>Execute</b> dell'interfaccia <b>IDotNetActivity</b>
+		</li>
 
-</ol>
+	</ol>
 5. Compilare il progetto.
 
 
@@ -58,13 +58,17 @@ Per usare l'attività personalizzata in una pipeline:
 2.	**Caricare il file ZIP** come BLOB nella propria **archiviazione BLOB di Azure**. 
 3.	Aggiornare il file **JSON della pipeline** per fare riferimento al file ZIP, al file DLL di attività personalizzata, alla classe di attività e al BLOB che contiene il file ZIP nel file JSON della pipeline. Nel file JSON:
 	<ol type ="a">
-	<li><b>Activity type</b> deve essere impostato su <b>DotNetActivity</b>.</li>
-	<li><b>AssemblyName</b> è il nome del file DLL di output relativo al progetto di Visual Studio.</li>
-	<li><b>EntryPoint</b> specifica lo <b>spazio dei nomi</b> e il <b>nome</b> della <b>classe</b> che implementa l'interfaccia <b>IDotNetActivity</b>.</li>
-	<li><b>PackageLinkedService</b> è il servizio collegato che fa riferimento al BLOB che contiene il file ZIP. </li>
-	<li><b>PackageFile</b> specifica il percorso e il nome del file ZIP che è stato caricato nell'archiviazione BLOB di Azure.</li>
-	<li><b>LinkedServiceName</b> è il nome del servizio collegato che consente di collegare un cluster HDInsight (su richiesta o personalizzato) a un data factory. L'attività personalizzata viene eseguita come processo solo di mapping nel cluster HDInsight specificato.</li>
-</ol>**Esempio JSON parziale**
+		<li><b>Activity type</b> deve essere impostato su <b>DotNetActivity</b>.</li>
+		<li><b>AssemblyName</b> è il nome del file DLL di output relativo al progetto di Visual Studio.</li>
+		<li><b>EntryPoint</b> specifica lo <b>spazio dei nomi</b> e il <b>nome</b> della <b>classe</b> che implementa l'interfaccia <b>IDotNetActivity</b>.</li>
+		<li><b>PackageLinkedService</b> è il servizio collegato che fa riferimento al BLOB che contiene il file ZIP. </li>
+		<li><b>PackageFile</b> specifica il percorso e il nome del file ZIP che è stato caricato nell'archiviazione BLOB di Azure.</li>
+		<li><b>LinkedServiceName</b> è il nome del servizio collegato che consente di collegare un cluster HDInsight (su richiesta o personalizzato) a un data factory. L'attività personalizzata viene eseguita come processo solo di mapping nel cluster HDInsight specificato.</li>
+	</ol>
+
+	
+
+	**Esempio JSON parziale**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",

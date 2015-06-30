@@ -98,7 +98,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -314,8 +314,8 @@ L'URL dell'autorità richiede un'istanza del servizio token di sicurezza e il no
 ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con: 
 ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla. 
+```
+È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla.
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -362,7 +362,8 @@ Questo è ovviamente il primo evento di diagnostica. Vengono forniti messaggi di
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` I messaggi possono essere scritti in un file di log personalizzato, come illustrato di seguito. Non esiste purtroppo un metodo standard per ottenere i log da un dispositivo. A questo scopo, sono disponibili alcuni servizi che possono risultare utili. È anche possibile crearne di personalizzati, ad esempio per l'invio del file a un server.
+ ```
+ I messaggi possono essere scritti in un file di log personalizzato, come illustrato di seguito. Non esiste purtroppo un metodo standard per ottenere i log da un dispositivo. A questo scopo, sono disponibili alcuni servizi che possono risultare utili. È anche possibile crearne di personalizzati, ad esempio per l'invio del file a un server.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -383,7 +384,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (a scopo informativo)
 + Verbose (più dettagli)
 
-Il livello di registrazione viene impostato nel modo seguente: 
+Il livello di registrazione viene impostato nel modo seguente:
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
@@ -392,7 +393,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
+ ```
  Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Tracce di rete
@@ -449,4 +450,4 @@ che dovranno essere sovrascritti dall'applicazione se si vogliono usare stringhe
 ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tramite l'evento onReceivedHttpAuthRequest da WebViewClient. Il layout della finestra di dialogo e le stringhe possono essere personalizzati.\#\#\# Passaggio 5: Scaricare il codice di esempio client nativo iOS
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->

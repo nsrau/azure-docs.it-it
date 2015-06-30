@@ -215,30 +215,30 @@ Per questa procedura, si presuppone quanto segue:
 3.	Per verificare la connessione, eseguire uno dei comandi seguenti:
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
-
-<tr>
-<td><b>Check main mode SAs</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>Check quick mode SAs</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>Check main mode SAs</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
+	
+	<tr>
+	<td><b>Check quick mode SAs</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  Passaggi successivi

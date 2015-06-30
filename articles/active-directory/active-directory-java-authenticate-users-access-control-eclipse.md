@@ -115,7 +115,11 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
 3.  Nella pagina **Add Relying Party Application** eseguire le operazioni seguenti:
     1.  Nel campo **Name** digitare il nome dell'applicazione relying party. Ai fini di questa esercitazione, digitare **Azure Web App**.
     2.  In **Mode** selezionare **Enter settings manually**.
-    3.  In **Realm** digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Ai fini di questa attività, digitare **http://localhost:8080/**. ![Area di autenticazione dell'applicazione relying party nell'emulatore di calcolo][relying_party_realm_emulator] 4.  In **Return URL** digitare l'URL a cui ACS restituisce il token di sicurezza. Ai fini di questa attività, digitare **http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL restituito dell'applicazione relying party nell'emulatore di calcolo][relying_party_return_url_emulator] 5.  Accettare i valori predefiniti nei campi rimanenti.
+    3.  In **Realm** digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Ai fini di questa attività, digitare **http://localhost:8080/**.
+        ![Area di autenticazione dell'applicazione relying party nell'emulatore di calcolo][relying_party_realm_emulator]
+    4.  In **Return URL** digitare l'URL a cui ACS restituisce il token di sicurezza. Ai fini di questa attività, digitare **http://localhost:8080/MyACSHelloWorld/index.jsp**
+        ![URL restituito dell'applicazione relying party nell'emulatore di calcolo][relying_party_return_url_emulator]
+    5.  Accettare i valori predefiniti nei campi rimanenti.
 
 4.  Fare clic su **Save**.
 
