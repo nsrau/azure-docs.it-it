@@ -1,4 +1,11 @@
-\<properties pageTitle="Usare l'insieme di credenziali chiave di Azure da un'applicazione Web \| Panoramica" description="In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//\>
+<properties 
+	pageTitle="Usare l'insieme di credenziali chiave di Azure da un'applicazione Web | Panoramica" 
+	description="In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web." 
+	services="key-vault" 
+	documentationCenter="" 
+	authors="adamhurwitz" 
+	manager=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="key-vault" 
