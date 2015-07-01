@@ -68,7 +68,7 @@ Per la procedura dettagliata di installazione di RAID, fare riferimento a questo
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE]Se si usa il file system XFS, eseguire la seguente procedura dopo aver creato RAID.
+>[AZURE.NOTE] Se si usa il file system XFS, eseguire la seguente procedura dopo aver creato RAID.
 
 Per installare XFS su Debian, Ubuntu o Linux Mint, usare il seguente comando:
 
@@ -103,13 +103,13 @@ Linux implementa quattro tipi di algoritmi di pianificazione di I/O:
 -	Algoritmo di accodamento pienamente equo (CFQ, Completely fair queuing)
 -	Algoritmo del periodo di budget (Anticipatorio)  
 
-Per ottimizzare le prestazioni è possibile selezionare diverse utilità di pianificazione di I/O in scenari diversi. In un ambiente ad accesso completamente casuale non esiste una differenza significativa tra gli algoritmi CFQ e di scadenza a livello di prestazioni. In genere, è consigliabile impostare l'ambiente del database MySQL sull'algoritmo di scadenza per maggiore stabilità. Se è presente un I/O sequenziale considerevole, l'algoritmo CFQ può ridurre le prestazioni di I/O del disco.
+Per ottimizzare le prestazioni è possibile selezionare diverse utilità di pianificazione di I/O in scenari diversi. In un ambiente ad accesso completamente casuale non esiste una differenza significativa tra gli algoritmi CFQ e di scadenza a livello di prestazioni. In genere, è consigliabile impostare l'ambiente del database MySQL sull'algoritmo di scadenza per maggiore stabilità. Se è presente un I/O sequenziale considerevole, l'algoritmo CFQ può ridurre le prestazioni di I/O del disco.   
 
-Per le unità SSD e altri dispositivi, con gli algoritmi NOOP o di scadenza è possibile ottenere prestazioni migliori rispetto all'utilità di pianificazione predefinita.
+Per le unità SSD e altri dispositivi, con gli algoritmi NOOP o di scadenza è possibile ottenere prestazioni migliori rispetto all'utilità di pianificazione predefinita.   
 
-Dal kernel 2.5, l'algoritmo di pianificazione di I/O predefinito è quello di scadenza. A partire dal kernel 2.6.18, l'algoritmo CFQ è diventato l'algoritmo di pianificazione di I/O predefinito. È possibile specificare questa impostazione in fase di avvio del kernel oppure modificare questa impostazione in maniera dinamica mentre il sistema è in esecuzione.
+Dal kernel 2.5, l'algoritmo di pianificazione di I/O predefinito è quello di scadenza. A partire dal kernel 2.6.18, l'algoritmo CFQ è diventato l'algoritmo di pianificazione di I/O predefinito. È possibile specificare questa impostazione in fase di avvio del kernel oppure modificare questa impostazione in maniera dinamica mentre il sistema è in esecuzione.  
 
-Il seguente esempio mostra come controllare e impostare l'utilità di pianificazione predefinita per l'algoritmo NOOP.
+Il seguente esempio mostra come controllare e impostare l'utilità di pianificazione predefinita per l'algoritmo NOOP.  
 
 Per il gruppo di distribuzione Debian:
 
@@ -131,7 +131,7 @@ Usare il seguente comando:
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE]Impostare questa opzione solo per /dev/sda è inutile. L'opzione deve essere impostata su tutti i dischi dati in cui si trova il database.
+>[AZURE.NOTE] Impostare questa opzione solo per /dev/sda è inutile. L'opzione deve essere impostata su tutti i dischi dati in cui si trova il database.
 
 Si dovrebbe visualizzare il seguente output, che indica che grub.cfg è stato ricreato correttamente e che l'utilità di pianificazione predefinita è stata impostata su NOOP.
 
@@ -144,16 +144,16 @@ Si dovrebbe visualizzare il seguente output, che indica che grub.cfg è stato ri
 	Found memtest86+ image: /memtest86+.bin
 	done
 
-Per il gruppo di distribuzione Redhat è necessario solo il seguente comando:
+Per il gruppo di distribuzione Redhat è necessario solo il seguente comando:   
 
 	echo 'echo noop >/sys/block/sda/queue/scheduler' > /etc/rc.local
 
 ##Configurare le impostazioni per le operazioni del file system
 Una delle procedure consigliate consiste nel disabilitare la funzionalità di registrazione dell'atime nel file system. L'atime è l'ora dell'ultimo accesso al file. Ogni volta che si accede a un file, il file system registra il timestamp nel log. Tuttavia, queste informazioni vengono usate raramente. Se non è necessaria, è possibile disabilitare questa opzione, riducendo così il tempo complessivo di accesso al disco.
  
-Per disattivare la registrazione dell'atime, è necessario modificare il file di configurazione del file system /etc/. fstab e aggiungere l'opzione **noatime**.
+Per disattivare la registrazione dell'atime, è necessario modificare il file di configurazione del file system /etc/. fstab e aggiungere l'opzione **noatime**.  
 
-Modificare ad esempio il file vim /etc/fstab aggiungendo l'opzione noatime come illustrato di seguito.
+Modificare ad esempio il file vim /etc/fstab aggiungendo l'opzione noatime come illustrato di seguito.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -167,7 +167,7 @@ Rimontare il file system con il seguente comando:
 
 Verificare il risultato modificato. Si noti che quando si modifica il file di test, il tempo di accesso non viene aggiornato.
 
-Prima (esempio):
+Prima (esempio):		
 
 ![][5]
  
@@ -213,7 +213,8 @@ I seguenti elementi di configurazione sono i principali fattori che influiscono 
 -	**innodb_buffer_pool_size**: il pool di buffer contiene i dati memorizzati nel buffer e l'indice. In genere è impostato al 70% della memoria fisica.
 -	**innodb_log_file_size**: la dimensione del log di ripristino. È possibile usare i log di ripristino per assicurare che le operazioni di scrittura siano veloci, affidabili e recuperabili dopo un arresto anomalo. È impostato su 512 MB, pertanto sarà disponibile una notevole quantità di spazio per la registrazione delle operazioni di scrittura.
 -	**max_connections**: in alcuni casi le applicazioni non chiudono correttamente le connessioni. Un valore più elevato garantirà al server più tempo per riciclare le connessioni inattive. Il numero massimo di connessioni è 10.000, ma quello consigliato è 5000.
--	**Innodb_file_per_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br> Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
+-	**Innodb_file_per_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br>
+	Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
 -	**innodb_flush_log_at_trx_commit**: il valore predefinito è 1, con l'ambito impostato su 0~2. Il valore predefinito è l'opzione più adatta per il database MySQL come pacchetto autonomo. Se impostato su 2, il valore assicura la massima integrità dei dati ed è appropriato per il server Master nel cluster MySQL. Se impostato su 0, il valore tollera la perdita di dati e questo può influire sulla affidabilità, garantendo in alcuni casi prestazioni migliori. Il valore 0 è appropriato per il server Slave nel cluster MySQL.
 -	**Innodb_log_buffer_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà usata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb_log_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
 -	**query_cache_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query_cache_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
@@ -237,7 +238,7 @@ Si noti che il log non è abilitato per impostazione predefinita. L'attivazione 
 
 ###Passaggio 3: verificare se l'impostazione è stata applicata tramite il comando “show”
  
-![][7]
+![][7]   
    
 ![][8]
  
@@ -265,13 +266,15 @@ Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti 
 <a name="AppendixB"></a>Appendice B: **Confronto delle prestazioni (velocità effettiva) di MySQL con livelli RAID diversi** (XFS file system)
 
  
-![][10] ![][11]
+![][10]  
+![][11]
 
 **Comandi di test:**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**Confronto delle prestazioni (OLTP) di MySQL con livelli RAID diversi** ![][12]
+**Confronto delle prestazioni (OLTP) di MySQL con livelli RAID diversi**
+![][12]
 
 **Comandi di test:**
 
