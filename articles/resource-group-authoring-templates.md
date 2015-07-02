@@ -46,7 +46,150 @@ Più avanti in questo argomento verranno esaminate le sezioni del modello in mag
 
 ## Espressioni e funzioni
 
-La sintassi di base del modello è JSON. Tuttavia, espressioni e funzioni estendono il codice JSON disponibile nel modello e consentono di creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra [, usare due parentesi quadre [[. Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index]. L'elenco seguente illustra le funzioni comuni. -**parameters(parameterName)** Restituisce un valore di parametro fornito quando viene eseguita la distribuzione. -**variables(variableName)** Restituisce una variabile definita nel modello. -**concat(arg1,arg2,arg3,...)** Consente di unire più valori stringa. Questa funzione può accettare un numero qualsiasi di argomenti. - **base64(inputString)** Restituisce la rappresentazione base64 della stringa di input. - **resourceGroup()** Restituisce un oggetto strutturato (con proprietà id, nome e percorso) che rappresenta il gruppo di risorse corrente. - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)** Restituisce l'identificatore univoco di una risorsa. Può essere usato per recuperare risorse da un altro gruppo di risorse. L'esempio seguente illustra come usare diverse funzioni per la costruzione di valori: "variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } Per ora, si hanno a disposizione conoscenze sufficienti sulle espressioni e sulle funzioni per comprendere le sezioni del modello. Per informazioni più dettagliate su tutte le funzioni dei modelli, inclusi i parametri e il formato dei valori restituiti, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md). ## Parametri Nella sezione dei parametri del modello è possibile specificare i valori che un utente può immettere durante la distribuzione delle risorse. È possibile usare questi valori dei parametri in tutto il modello per impostare valori per le risorse distribuite. Solo i parametri dichiarati nella sezione dei parametri possono essere usati in altre sezioni del modello. All'interno della sezione dei parametri non è possibile usare un valore di parametro per creare un altro valore di parametro. Questo tipo di operazione viene solitamente eseguita nella sezione delle variabili. I parametri vengono definiti con la struttura seguente: "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | Nome elemento | Obbligatorio | Descrizione | :------------: | :------: | :---------- | parameterName | Sì | Nome del parametro. Deve essere un identificatore JavaScript valido. | type | Sì | Tipo del valore del parametro. Vedere di seguito l'elenco dei tipi consentiti. | defaultValue | No | Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. | allowedValues | No | Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. I valori e i tipi consentiti sono: - string o secureString: tutte le stringhe JSON valide - int: tutti i valori integer JSON validi - bool: - tutti i valori booleani JSON validi - object: tutti gli oggetti JSON validi - array: tutti gli array JSON validi >[AZURE.NOTE] Tutte le password, le chiavi e altri segreti devono usare il tipo **secureString**. Non è possibile leggere i parametri di modello di tipo secureString dopo la distribuzione delle risorse. L'esempio seguente illustra come definire i parametri: "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "Free", "Shared", "Basic", "Standard", "Premium" ], "defaultValue": "Free" } } ## Variabili Nella sezione delle variabili è possibile creare valori da usare per semplificare le espressioni di linguaggio del modello. Solitamente, queste variabili sono basate sui valori forniti dai parametri. L'esempio seguente illustra come definire una variabile creata da due valori di parametro: "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } L'esempio successivo illustra una variabile che rappresenta un tipo JSON complesso e variabili create da altre variabili: "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+La sintassi di base del modello è JSON. Tuttavia, espressioni e funzioni estendono il codice JSON disponibile nel modello e consentono di creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra [, usare due parentesi quadre [[.
+
+Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
+
+Nell'elenco seguente vengono riportate le funzioni comuni.
+
+- **parameters(parameterName)**
+
+    Restituisce un valore di parametro che viene fornito al momento dell'esecuzione della distribuzione.
+
+- **variables(variableName)**
+
+    Restituisce una variabile che viene definita nel modello.
+
+- **concat(arg1,arg2,arg3,...)**
+
+    Combina più valori di stringa. Questa funzione può accettare qualsiasi numero di argomenti.
+
+- **base64(inputString)**
+
+    Restituisce la rappresentazione base64 della stringa di input.
+
+- **resourceGroup()**
+
+    Restituisce un oggetto strutturato (dotato di proprietà ID, nome e percorso) che rappresenta il gruppo di risorse corrente.
+
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+
+    Restituisce l'identificatore univoco di una risorsa. Può essere usato per recuperare risorse da un altro gruppo di risorse.
+
+L'esempio seguente illustra come usare diverse funzioni per la costruzione di valori:
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+Per ora, si hanno a disposizione conoscenze sufficienti sulle espressioni e sulle funzioni per comprendere le sezioni del modello. Per informazioni più dettagliate su tutte le funzioni dei modelli, inclusi i parametri e il formato dei valori restituiti, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
+
+
+## Parametri
+
+Nella sezione dei parametri del modello è possibile specificare i valori che un utente può immettere durante la distribuzione delle risorse. È possibile usare questi valori dei parametri in tutto il modello per impostare valori per le risorse distribuite. Solo i parametri dichiarati nella sezione dei parametri possono essere usati in altre sezioni del modello.
+
+All'interno della sezione dei parametri non è possibile usare un valore di parametro per creare un altro valore di parametro. Questo tipo di operazione viene solitamente eseguita nella sezione delle variabili.
+
+I parametri vengono definiti con la struttura seguente:
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| Nome dell'elemento | Obbligatorio | Descrizione
+| :------------: | :------: | :----------
+| parameterName | Sì | Nome del parametro. Deve essere un identificatore JavaScript valido.
+| type | Sì | Tipo di valore del parametro. Vedere di seguito l'elenco dei tipi consentiti.
+| defaultValue | No | Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro.
+| allowedValues | No | Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto.
+
+I valori e i tipi consentiti sono:
+
+- string o secureString: tutte le stringhe JSON valide
+- int: tutti i valori integer JSON validi
+- bool: tutti i valori booleani JSON validi
+- object: tutti gli oggetti JSON validi
+- array: tutte le matrici JSON valide
+
+
+>[AZURE.NOTE]Per tutte le password, le chiavi e altre informazioni riservate si consiglia di usare il tipo **secureString**. Non è possibile leggere i parametri di modello di tipo secureString dopo la distribuzione delle risorse.
+
+Il seguente esempio mostra come definire i parametri:
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## Variabili
+
+Nella sezione delle variabili è possibile creare valori da usare per semplificare le espressioni di linguaggio del modello. Solitamente, queste variabili sono basate sui valori forniti dai parametri.
+
+Nell'esempio seguente viene illustrato come definire una variabile creata da due valori di parametro:
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+Nell'esempio successivo viene illustrata una variabile che rappresenta un tipo JSON complesso e variabili create da altre variabili:
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## Risorse
 
@@ -254,7 +397,7 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 
 ## Passaggi successivi
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
 - [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)
 

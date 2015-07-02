@@ -113,7 +113,8 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
 1.  Nel portale di gestione ACS fare clic su **Relying party applications**.
 2.  Nella pagina **Relying Party Applications** fare clic su **Add**.
 3.  Nella pagina **Add Relying Party Application** eseguire le operazioni seguenti:
-    1.  Nel campo **Name** digitare il nome dell'applicazione relying party. Ai fini di questa esercitazione, digitare **Azure Web App**.
+    1.  Nel campo **Name** digitare il nome dell'applicazione relying party. Ai fini di questa esercitazione, digitare **Azure Web
+        App**.
     2.  In **Mode** selezionare **Enter settings manually**.
     3.  In **Realm** digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Ai fini di questa attività, digitare **http://localhost:8080/**.
         ![Area di autenticazione dell'applicazione relying party nell'emulatore di calcolo][relying_party_realm_emulator]
@@ -313,4 +314,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
