@@ -70,27 +70,27 @@ Per la procedura dettagliata di installazione di RAID, fare riferimento a questo
 
 >[AZURE.NOTE] Se si usa il file system XFS, eseguire la seguente procedura dopo aver creato RAID.
 
-Per installare XFS su Debian, Ubuntu o Linux Mint, usare il seguente comando:
+Per installare XFS su Debian, Ubuntu o Linux Mint, usare il seguente comando:  
 
 	apt-get -y install xfsprogs  
 
-Per installare XFS su Fedora, CentOS o RHEL, usare il seguente comando:
+Per installare XFS su Fedora, CentOS o RHEL, usare il seguente comando:  
 
 	yum -y install xfsprogs  xfsdump 
 
 
 ####Passaggio 3: impostare un nuovo percorso di archiviazione
-Usare il seguente comando:
+Usare il seguente comando:  
 
 	root@mysqlnode1:~# mkdir -p /RAID0/mysql
 
 ####Passaggio 4: copiare i dati originali nel nuovo percorso di archiviazione
-Usare il seguente comando:
+Usare il seguente comando:  
 
 	root@mysqlnode1:~# cp -rp /var/lib/mysql/* /RAID0/mysql/
 
 ####Passaggio 5: modificare le autorizzazioni in modo che MySQL possa avere accesso in lettura e in scrittura al disco dati
-Usare il seguente comando:
+Usare il seguente comando:  
 
 	root@mysqlnode1:~# chown -R mysql.mysql /RAID0/mysql && chmod -R 755 /RAID0/mysql
 
@@ -161,11 +161,11 @@ Modificare ad esempio il file vim /etc/fstab aggiungendo l'opzione noatime come 
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-Rimontare il file system con il seguente comando:
+Rimontare il file system con il seguente comando:  
 
 	mount -o remount /RAID0
 
-Verificare il risultato modificato. Si noti che quando si modifica il file di test, il tempo di accesso non viene aggiornato.
+Verificare il risultato modificato. Si noti che quando si modifica il file di test, il tempo di accesso non viene aggiornato.  
 
 Prima (esempio):		
 
@@ -179,7 +179,7 @@ Dopo (esempio):
 MySQL è un database a concorrenza elevata. Il numero predefinito di handle simultanei per Linux è pari a 1024, ma non sempre è sufficiente. **Eseguire la seguente procedura per aumentare il numero massimo di handle simultanei del sistema, in modo da supportare la concorrenza elevata di MySQL**.
 
 ###Passaggio 1: modificare il file limits.conf
-Aggiungere le seguenti quattro righe nel file /etc/security/limits.conf per aumentare il numero massimo di handle simultanei consentiti. Si noti che 65536 è il numero massimo di handle che il sistema è in grado di supportare.
+Aggiungere le seguenti quattro righe nel file /etc/security/limits.conf per aumentare il numero massimo di handle simultanei consentiti. Si noti che 65536 è il numero massimo di handle che il sistema è in grado di supportare.   
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -187,13 +187,13 @@ Aggiungere le seguenti quattro righe nel file /etc/security/limits.conf per aume
 	* hard nproc 65536
 
 ###Passaggio 2: aggiornare il sistema con i nuovi limiti
-Eseguire i comandi seguenti:
+Eseguire i comandi seguenti:  
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
 ###Passaggio 3: assicurarsi che i limiti vengano aggiornati in fase di avvio
-Immettere i seguenti comandi di avvio nel file /etc/rc.local in modo che la modifica sia applicata a ogni avvio.
+Immettere i seguenti comandi di avvio nel file /etc/rc.local in modo che la modifica sia applicata a ogni avvio.  
 
 	echo “ulimit -SHn 65536” >/etc/rc.local
 	echo “ulimit -SHu 65536” >/etc/rc.local
@@ -201,14 +201,14 @@ Immettere i seguenti comandi di avvio nel file /etc/rc.local in modo che la modi
 ##Ottimizzare il database MySQL 
 Per configurare MySQL in Azure è possibile usare la stessa strategia di ottimizzazione delle prestazioni di un computer locale.
 
-Le principali regole di ottimizzazione di I/O sono:
+Le principali regole di ottimizzazione di I/O sono:   
 
 -	Aumentare la dimensione della cache.
 -	Ridurre il tempo di risposta di I/O.  
 
 Per ottimizzare le impostazioni del server MySQL, è possibile aggiornare il file my.cnf, ovvero il file di configurazione predefinito per i computer server e client.
 
-I seguenti elementi di configurazione sono i principali fattori che influiscono sulle prestazioni di MySQL:
+I seguenti elementi di configurazione sono i principali fattori che influiscono sulle prestazioni di MySQL:  
 
 -	**innodb_buffer_pool_size**: il pool di buffer contiene i dati memorizzati nel buffer e l'indice. In genere è impostato al 70% della memoria fisica.
 -	**innodb_log_file_size**: la dimensione del log di ripristino. È possibile usare i log di ripristino per assicurare che le operazioni di scrittura siano veloci, affidabili e recuperabili dopo un arresto anomalo. È impostato su 512 MB, pertanto sarà disponibile una notevole quantità di spazio per la registrazione delle operazioni di scrittura.
@@ -223,7 +223,7 @@ Vedere [Appendice D](#AppendixD) per il confronto delle prestazioni dopo l'ottim
 
 
 ##Attivare il log di query lente di MySQL per l'analisi del collo di bottiglia delle prestazioni
-Il log di query lente di MySQL consente di identificare le query lente per MySQL. Dopo l'abilitazione del log di query lente di MySQL, è possibile usare strumenti di MySQL come **mysqldumpslow** per identificare il collo di bottiglia delle prestazioni.
+Il log di query lente di MySQL consente di identificare le query lente per MySQL. Dopo l'abilitazione del log di query lente di MySQL, è possibile usare strumenti di MySQL come **mysqldumpslow** per identificare il collo di bottiglia delle prestazioni.  
 
 Si noti che il log non è abilitato per impostazione predefinita. L'attivazione del log di query lente può usare alcune risorse della CPU. È pertanto consigliabile abilitarlo temporaneamente per la risoluzione dei colli di bottiglia delle prestazioni.
 
@@ -250,9 +250,9 @@ Come si può vedere, in questo esempio è stata attivata la funzionalità relati
 
 ##Appendice
 
-Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti nell'ambiente di destinazione, che forniscono informazioni generali sulla tendenza dei dati delle prestazioni con i diversi approcci di ottimizzazione delle prestazioni. I risultati possono tuttavia variare in ambienti o versioni di prodotto diverse.
+Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti nell'ambiente di destinazione, che forniscono informazioni generali sulla tendenza dei dati delle prestazioni con i diversi approcci di ottimizzazione delle prestazioni. I risultati possono tuttavia variare in ambienti o versioni di prodotto diverse. 
 
-<a name="AppendixA"></a>Appendice A: **Prestazioni del disco (IOPS) con livelli RAID diversi**
+<a name="AppendixA"></a>Appendice A: **Prestazioni del disco (IOPS) con livelli RAID diversi** 
 
 
 ![][9]
@@ -263,7 +263,8 @@ Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti 
 
 >AZURE.NOTE: il carico di lavoro di questo test usa 64 thread, al fine di raggiungere il limite massimo di RAID.
 
-<a name="AppendixB"></a>Appendice B: **Confronto delle prestazioni (velocità effettiva) di MySQL con livelli RAID diversi** (XFS file system)
+<a name="AppendixB"></a>Appendice B: **Confronto delle prestazioni (velocità effettiva) di MySQL con livelli RAID diversi**   
+(XFS file system)
 
  
 ![][10]  
@@ -273,14 +274,15 @@ Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti 
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**Confronto delle prestazioni (OLTP) di MySQL con livelli RAID diversi**
+**Confronto delle prestazioni (OLTP) di MySQL con livelli RAID diversi**  
 ![][12]
 
 **Comandi di test:**
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Appendice C: **Confronto delle prestazioni (IOPS) del disco per dimensioni del blocco diverse** (XFS file system)
+<a name="AppendixC"></a>Appendice C: **Confronto delle prestazioni (IOPS) del disco per dimensioni del blocco diverse**  
+(XFS file system)
 
  
 ![][13]
@@ -293,7 +295,8 @@ Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti 
 Si noti che le dimensioni del file usato per il test sono pari rispettivamente a 30 GB e 1 GB, con file system XFS RAID 0(4 dischi).
 
 
-<a name="AppendixD"></a>Appendice D: **Confronto delle prestazioni (velocità effettiva) di MySQL prima e dopo l'ottimizzazione** (XFS File System)
+<a name="AppendixD"></a>Appendice D:  
+**Confronto delle prestazioni (velocità effettiva) di MySQL prima e dopo l'ottimizzazione** (XFS File System)
 
   
 ![][14]
@@ -304,15 +307,15 @@ Si noti che le dimensioni del file usato per il test sono pari rispettivamente a
 
 **L'impostazione di configurazione per impostazione predefinita e per l'ottimizzazione è la seguente:**
 
-|Parametri |Default |optmization
+|Parametri	|Default	|optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |Nessuno |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8 MB |128M
-|**query_cache_size** |16M |0
+|**innodb_buffer_pool_size**	|Nessuno |7G
+|**innodb_log_file_size**	|5M	|512M
+|**max_connections**	|100	|5000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1 |2
+|**innodb_log_buffer_size**	|8 MB	|128M
+|**query_cache_size**	|16M	|0
 
 
 Per parametri di configurazione dell'ottimizzazione più dettagliati, fare riferimento alle istruzioni ufficiali di MySQL.
@@ -323,12 +326,12 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 
 **Ambiente di test**
 
-|Hardware |Dettagli
+|Hardware	|Dettagli
 |-----------|-------
-|Cpu |AMD Opteron(tm) Processore 4171 HE/4 core
-|Memoria |14G
-|disk |10G/disk
-|OS |Ubuntu 14.04.1 LTS
+|Cpu	|AMD Opteron(tm) Processore 4171 HE/4 core
+|Memoria	|14G
+|disk	|10G/disk
+|OS	|Ubuntu 14.04.1 LTS
 
 
 
@@ -347,4 +350,4 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 
