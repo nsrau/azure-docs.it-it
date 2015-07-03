@@ -48,7 +48,7 @@ Se si dispone già di un'app Web in Servizio app di Azure che si desidera usare 
 
 1. Copiare MONGOLAB_URI negli Appunti.  
 	![ConnectionInfoScreen][screen-connectioninfo]  
-	**Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.**
+	**Questo URI contiene il nome utente e la password per il database.  Trattare queste informazioni come dati sensibili e non condividerle.**
 
 1. Aggiungere il valore all'elenco Stringhe di connessione nel menu Configurazione dell'applicazione Web di Azure:  
 	![WebSiteConnectionStrings][focus-website-connectinfo]
@@ -499,4 +499,4 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
 [manage]: #manage
 
 
-<!---HONumber=54--> 
+<!----HONumber=54--> 
