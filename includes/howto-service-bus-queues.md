@@ -8,8 +8,13 @@ In modo asincrono, il consumer di messaggi (destinatario) recupera il messaggio 
 
 Le code del bus di servizio sono una tecnologia di carattere generale che può essere usata a in numerosi scenari:
 
--   Comunicazione tra ruoli Web e di lavoro in un'applicazione Azure multilivello -   Comunicazione tra app locali e app ospitate in Azure in una soluzione ibrida
--   Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione
+-   Comunicazione tra ruoli Web e di lavoro in un'applicazione
+    Azure multilivello
+-   Comunicazione tra app locali e app ospitate in Azure
+    in una soluzione ibrida
+-   Comunicazione tra componenti di un'applicazione distribuita in
+    esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa
+    organizzazione
 
 L'uso delle code consente la scalabilità orizzontale delle applicazioni e egarantisce maggiore resilienza all'architettura.
 
@@ -19,20 +24,24 @@ Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto neces
 
 Per creare uno spazio dei nomi del servizio:
  1.  Accedere al [portale di gestione di Azure][].
- 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
- 3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.   
+ 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
+    **Bus di servizio**.
 
+3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.   
 	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
- 4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.   
-
+4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi.
+    Verrà effettuato immediatamente un controllo sulla disponibilità del nome.   
 	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
- 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse del computer.
+5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il
+    paese o l'area in cui dovrà essere ospitato.
+    Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse del computer.
 
-	IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+	IMPORTANTE: selezionare la **stessa area** che si intende scegliere per
+    la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
-6.	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
@@ -43,23 +52,22 @@ Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione te 
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda nel tnuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo nspazio dei nomi. È possibile ottenerle dal portale di gestione oppure da Esplora server di Visual Studio.
 
 ### Per ottenere le credenziali di gestione dal portale
- 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili:   
-
+ 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per
+    visualizzare l'elenco degli spazi dei nomi disponibili:   
 	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
- 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:   
-
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:   
 	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
- 3.  Fare clic su **Informazioni di connessione**.   
-
+3.  Fare clic su **Informazioni di connessione**.   
 	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
- 4.  Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.   
+4.  Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.   
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
- 4.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
+
+4.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
 
 ### Per ottenere le credenziali di gestione da Esplora server
 
@@ -74,4 +82,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!--HONumber=47-->
+<!---HONumber=47-->

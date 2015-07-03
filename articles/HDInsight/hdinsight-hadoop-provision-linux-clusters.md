@@ -93,20 +93,22 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 	![Fornire dettagli del cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-	<tr><th>Proprietà</th><th>Valore</th></tr>
-	<tr><td>Nome del cluster</td>
-		<td><p>Assegnare un nome al cluster. </p>
-			<ul>
-			<li>Il nome DNS (Domain Name System) deve iniziare e finire con un carattere alfanumerico e può contenere trattini.</li>
-			<li>Il campo deve essere una stringa contenente da 3 a 63 caratteri.</li>
-			</ul></td></tr>
-	<tr><td>Tipo di cluster</td>
-		<td>Selezionare <strong>Hadoop</strong>.</td></tr>
-	<tr><td>Sistema operativo</td>
-		<td>Selezionare <b>Ubuntu 12.04 LTS Preview</b> per effettuare il provisioning del cluster HDInsight in Linux. Per effettuare il provisioning di un cluster Windows, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Effettuare il provisioning di cluster Hadoop in Windows in HDInsight</a>.</td></tr>
-	<tr><td>Versione HDInsight</td>
-		<td>Scegliere la versione. Per HDInsight in Linux l'impostazione predefinita è HDInsight versione 3.2, che usa Hadoop 2.6.</td></tr>
-	</table>Immettere o selezionare i valori come illustrato nella tabella, quindi fare clic sulla freccia destra.
+		<tr><th>Proprietà</th><th>Valore</th></tr>
+		<tr><td>Nome del cluster</td>
+			<td><p>Assegnare un nome al cluster. </p>
+				<ul>
+				<li>Il nome DNS (Domain Name System) deve iniziare e finire con un carattere alfanumerico e può contenere trattini.</li>
+				<li>Il campo deve essere una stringa contenente da 3 a 63 caratteri.</li>
+				</ul></td></tr>
+		<tr><td>Tipo di cluster</td>
+			<td>Selezionare <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Sistema operativo</td>
+			<td>Selezionare <b>Ubuntu 12.04 LTS Preview</b> per effettuare il provisioning del cluster HDInsight in Linux. Per effettuare il provisioning di un cluster Windows, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Effettuare il provisioning di cluster Hadoop in Windows in HDInsight</a>.</td></tr>
+		<tr><td>Versione HDInsight</td>
+			<td>Scegliere la versione. Per HDInsight in Linux l'impostazione predefinita è HDInsight versione 3.2, che usa Hadoop 2.6.</td></tr>
+		</table>
+
+	Immettere o selezionare i valori come illustrato nella tabella, quindi fare clic sulla freccia destra.
 
 4. Nella pagina **Configura cluster** immettere o selezionare i valori seguenti:
 
@@ -166,29 +168,31 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
     ![Fornire l'account di archiviazione per il cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-	<tr><th>Proprietà</th><th>Valore</th></tr>
-	<tr><td>Storage Account</td>
-		<td>Specificare l'account di archiviazione di Azure che verrà usato come file system predefinito per il cluster HDInsight. È possibile scegliere una delle tre opzioni seguenti:
-		<ul>
-			<li><strong>Utilizzare l'archiviazione esistente</strong></li>
-			<li><strong>Crea nuova archiviazione</strong></li>
-			<li><strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nome account</td>
-		<td><ul>
-			<li>Se si sceglie di usare l'archiviazione esistente, per il campo <strong>Nome account</strong> selezionare un account di archiviazione esistente. Nella casella di riepilogo vengono elencati solo gli account di archiviazione che si trovano nello stesso data center in cui si è scelto di effettuare il provisioning del cluster.</li>
-			<li>Se si sceglie l'opzione <strong>Crea nuova archiviazione</strong> o <strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong>, è necessario indicare il nome dell'account di archiviazione.</li>
-		</ul></td></tr>
-	<tr><td>Chiave account</td>
-		<td>Se si sceglie l'opzione <strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong>, specificare la chiave dell'account relativa a tale account di archiviazione.</td></tr>
-	<tr><td>Contenitore predefinito</td>
-		<td><p>Specificare il contenitore predefinito nell'account di archiviazione usato come file system predefinito per il cluster HDInsight. Se si sceglie <strong>Utilizzare l'archiviazione esistente</strong> per il campo <strong>Account di archiviazione</strong> e non ci sono contenitori in tale account, il contenitore verrà creato per impostazione predefinita con lo stesso nome del cluster. Se esiste già un contenitore con il nome del cluster, al nome del contenitore verrà aggiunto un numero di sequenza. Ad esempio, mycontainer1, mycontainer2 e così via. Tuttavia, se un account di archiviazione esistente ha un contenitore con un nome diverso da quello del cluster specificato, si potrà usare anche tale contenitore.</p>
-        <p>Se si è scelto di creare una nuova risorsa di archiviazione da un'altra sottoscrizione di Azure è necessario specificare il nome del contenitore predefinito.</p>
-    </td></tr>
-	<tr><td>Account di archiviazione aggiuntivi</td>
-		<td>HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni account di archiviazione aggiuntivo specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, è selezionato un account di archiviazione aggiuntivo, per cui viene aggiunta la pagina 5 alla finestra di dialogo.</td></tr>
-</table>Fare clic sulla freccia destra.
+		<tr><th>Proprietà</th><th>Valore</th></tr>
+		<tr><td>Storage Account</td>
+			<td>Specificare l'account di archiviazione di Azure che verrà usato come file system predefinito per il cluster HDInsight. È possibile scegliere una delle tre opzioni seguenti:
+			<ul>
+				<li><strong>Utilizzare l'archiviazione esistente</strong></li>
+				<li><strong>Crea nuova archiviazione</strong></li>
+				<li><strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nome account</td>
+			<td><ul>
+				<li>Se si sceglie di usare l'archiviazione esistente, per il campo <strong>Nome account</strong> selezionare un account di archiviazione esistente. Nella casella di riepilogo vengono elencati solo gli account di archiviazione che si trovano nello stesso data center in cui si è scelto di effettuare il provisioning del cluster.</li>
+				<li>Se si sceglie l'opzione <strong>Crea nuova archiviazione</strong> o <strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong>, è necessario indicare il nome dell'account di archiviazione.</li>
+			</ul></td></tr>
+		<tr><td>Chiave account</td>
+			<td>Se si sceglie l'opzione <strong>Utilizzare l'archiviazione da un'altra sottoscrizione</strong>, specificare la chiave dell'account relativa a tale account di archiviazione.</td></tr>
+		<tr><td>Contenitore predefinito</td>
+			<td><p>Specificare il contenitore predefinito nell'account di archiviazione usato come file system predefinito per il cluster HDInsight. Se si sceglie <strong>Utilizzare l'archiviazione esistente</strong> per il campo <strong>Account di archiviazione</strong> e non ci sono contenitori in tale account, il contenitore verrà creato per impostazione predefinita con lo stesso nome del cluster. Se esiste già un contenitore con il nome del cluster, al nome del contenitore verrà aggiunto un numero di sequenza. Ad esempio, mycontainer1, mycontainer2 e così via. Tuttavia, se un account di archiviazione esistente ha un contenitore con un nome diverso da quello del cluster specificato, si potrà usare anche tale contenitore.</p>
+            <p>Se si è scelto di creare una nuova risorsa di archiviazione da un'altra sottoscrizione di Azure è necessario specificare il nome del contenitore predefinito.</p>
+        </td></tr>
+		<tr><td>Account di archiviazione aggiuntivi</td>
+			<td>HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni account di archiviazione aggiuntivo specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, è selezionato un account di archiviazione aggiuntivo, per cui viene aggiunta la pagina 5 alla finestra di dialogo.</td></tr>
+	</table>
+
+	Fare clic sulla freccia destra.
 
 7. Se si è scelto di configurare un account di archiviazione aggiuntivo per il cluster, nella pagina **Account di archiviazione** immettere le informazioni relative all'account aggiuntivo:
 
