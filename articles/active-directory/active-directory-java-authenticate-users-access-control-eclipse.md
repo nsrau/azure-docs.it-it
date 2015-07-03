@@ -93,7 +93,7 @@ Per iniziare a usare il Servizio di controllo di accesso \(ACS\) in Azure, è ne
 6. Se si dispone di più sottoscrizioni, selezionare la sottoscrizione che si desidera usare per lo spazio dei nomi ACS.
 7. Fare clic su **Create**.
 
-Azure creerà e attiverà lo spazio dei nomi. Prima di continuare, attendere che lo stato del nuovo spazio dei nomi sia **Active**.
+Azure creerà e attiverà lo spazio dei nomi. Prima di continuare, attendere che lo stato del nuovo spazio dei nomi sia **Active**. 
 
 ## Aggiungere un provider di identità
 
@@ -117,9 +117,9 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
         App**.
     2.  In **Mode** selezionare **Enter settings manually**.
     3.  In **Realm** digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Ai fini di questa attività, digitare **http://localhost:8080/**.
-        ![Area di autenticazione dell'applicazione relying party nell'emulatore di calcolo][relying_party_realm_emulator]
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  In **Return URL** digitare l'URL a cui ACS restituisce il token di sicurezza. Ai fini di questa attività, digitare **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![URL restituito dell'applicazione relying party nell'emulatore di calcolo][relying_party_return_url_emulator]
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Accettare i valori predefiniti nei campi rimanenti.
 
 4.  Fare clic su **Save**.
