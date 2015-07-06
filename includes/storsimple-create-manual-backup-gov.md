@@ -1,4 +1,12 @@
-\<properties pageTitle="Create a manual backup" description="Explains how to start a manual, on-demand backup job." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito\*\*r="tysonn" /\> <tags 
+<properties 
+   pageTitle="Creazione di un backup manuale"
+   description="Explains how to start a manual, on-demand backup job."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS" 
+   manager="adinah"
+   edito**r="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -29,4 +37,4 @@
 
   Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-<!---HONumber=58_postMigration-->
+<!-----HONumber=58_postMigration-->
