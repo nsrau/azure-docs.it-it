@@ -60,7 +60,7 @@ Tenendo presente il diagramma riportato sopra, ecco cosa occorre sapere sui vari
 - Gli sviluppatori possono usare le librerie di autenticazione open source di Azure AD per semplificare l'autenticazione gestendo direttamente i dettagli del protocollo. Per altre informazioni, vedere [Librerie di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 
-• Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che per l'autenticazione le parti previste sia riuscita. Gli sviluppatori possono usare le librerie di autenticazione fornite per gestire la convalida dei token da Azure AD, inclusi i token Web JSON \(JWT\) o SAML 2.0. Per eseguire manualmente la convalida, vedere la documentazione relativa al \[gestore dei token JWT\]\(https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx\).
+• Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che per l'autenticazione le parti previste sia riuscita. Gli sviluppatori possono usare le librerie di autenticazione fornite per gestire la convalida dei token da Azure AD, inclusi i token Web JSON \(JWT\) o SAML 2.0. Per eseguire manualmente la convalida, vedere la documentazione relativa al [gestore dei token JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
 
 
 > [AZURE.IMPORTANT]Azure AD usa la crittografia a chiave pubblica per firmare i token e verificarne la validità. Per altre informazioni sulla logica richiesta nell'applicazione per assicurare che sia sempre aggiornata con le chiavi più recenti, vedere [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
@@ -466,4 +466,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
