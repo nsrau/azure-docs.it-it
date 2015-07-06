@@ -53,7 +53,8 @@ In questa procedura dettagliata, si raccoglieranno log di esempio, li si elabore
 	
 
 ## Panoramica
-Il flusso di lavoro end-to-end è illustrato di seguito:![Flusso end-to-end dell'esercitazione][image-data-factory-tutorial-end-to-end-flow]
+Il flusso di lavoro end-to-end è illustrato di seguito:
+	![Flusso end-to-end dell'esercitazione][image-data-factory-tutorial-end-to-end-flow]
 
 1. **PartitionGameLogsPipeline** legge gli eventi del gioco non elaborati da una risorsa di archiviazione BLOB \(RawGameEventsTable\) e crea partizioni basate su anno, mese e giorno \(PartitionedGameEventsTable\).
 2. **EnrichGameLogsPipeline** unisce gli eventi del gioco partizionati \(tabella PartitionedGameEvents, che è un output di PartitionGameLogsPipeline\) al codice dell'area geografica \(RefGetoCodeDictionaryTable\) e arricchisce i dati con il mapping di un indirizzo IP alla corrispondente posizione geografica \(EnrichedGameEventsTable\).
@@ -114,9 +115,9 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE] Questo script richiede che l'utilità sqlcmd sia installata nel computer. Se SQL Server è installato, anche l'utilità è già installata; in caso contrario, [scaricare][sqlcmd-install] e installare l'utilità.
+	Questo script richiede che l'utilità sqlcmd sia installata nel computer. Se SQL Server è installato, anche l'utilità è già installata; in caso contrario, [scaricare][sqlcmd-install] e installare l'utilità.
 	
-	> In alternativa, è possibile usare i file nella cartella C:\\ADFWalkthrough\\Scripts per caricare gli script pig/hive e i file di esempio nel contenitore adfwalkthrough nell'archiviazione BLOB e creare la tabella MarketingCampaignEffectiveness nel database SQL di Azure MarketingCamapaigns.
+	In alternativa, è possibile usare i file nella cartella C:\\ADFWalkthrough\\Scripts per caricare gli script pig/hive e i file di esempio nel contenitore adfwalkthrough nell'archiviazione BLOB e creare la tabella MarketingCampaignEffectiveness nel database SQL di Azure MarketingCamapaigns.
    
 2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il **Portale di gestione di Azure** o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall \(database SQL di Azure\)][azure-sql-firewall].
 4. In Azure PowerShell passare al percorso in cui si sono estratti gli esempi \(ad esempio, **C:\\ADFWalkthrough**\)
@@ -158,7 +159,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
 
 1.	Dopo aver eseguito l'accesso al [Portale di anteprima di Azure][azure-preview-portal], fare clic su **NUOVO** dall'angolo inferiore sinistro, quindi su **Data factory** nel pannello **Nuovo**. 
 
-	![Nuovo-\>DataFactory][image-data-factory-new-datafactory-menu]
+	![Nuovo->DataFactory][image-data-factory-new-datafactory-menu]
 	
 	Se **Data factory** non è visualizzato nel pannello **Nuovo**, scorrere verso il basso.
 	
@@ -193,7 +194,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
  
 ## <a name="MainStep3"></a> Passaggio 3: creare servizi collegati
 
-> [AZURE.NOTE]Questo articolo usa Azure PowerShell per creare servizi collegati, tabelle e pipeline. Per eseguire questa esercitazione usando il portale di Azure e in particolar modo l'Editor di Data factory, vedere l'esercitazione sull'uso dell'[Editor di Data factory][adftutorial-using-editor].
+> [AZURE.NOTE] Questo articolo usa Azure PowerShell per creare servizi collegati, tabelle e pipeline. Per eseguire questa esercitazione usando il portale di Azure e in particolar modo l'Editor di Data factory, vedere l'esercitazione sull'uso dell'[Editor di Data factory][adftutorial-using-editor]. 
 
 In questo passaggio verranno creati i servizi collegati seguenti: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService e HDInsightLinkedService.
 
@@ -250,8 +251,8 @@ In questo passaggio verranno creati i servizi collegati seguenti: StorageLinkedS
 17. Aprire **HDInsightLinkedService.json** nell'editor preferito e osservare che il tipo è impostato su **HDInsightOnDemandLinkedService**.
 
 
-	> [AZURE.NOTE]Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, quando si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster. Ai fini dell'esempio, viene usato un cluster su richiesta.
-	> 
+	Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, quando si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster. Ai fini dell'esempio, viene usato un cluster su richiesta.
+	
 	Il cmdlet HDInsightLinkedService collega un cluster HDInsight su richiesta alla Data factory. Per usare il proprio cluster HDInsight, aggiornare la sezione Proprietà del file HDInsightLinkedService.json come illustrato di seguito \(sostituire clustername, username e password con i valori appropriati\):
 	
 		"Properties": 
@@ -290,13 +291,13 @@ In questo passaggio si creeranno le tabelle seguenti:
 
 	![Flusso end-to-end dell'esercitazione][image-data-factory-tutorial-end-to-end-flow]
  
-L'immagine precedente visualizza le pipeline nella parte centrale e le tabelle nelle parti superiore e inferiore.
+L'immagine precedente visualizza le pipeline nella parte centrale e le tabelle nelle parti superiore e inferiore. 
 
 Poiché il portale di Azure non supporta ancora la creazione di set di dati/tabelle, sarà necessario usare Azure PowerShell per creare le tabelle in questa versione.
 
 ### Per creare le tabelle
 
-1.	In Azure PowerShell passare alla cartella **Tables** \(\*\*C:\\ADFWalkthrough\\Tables\*\*\) dal percorso in cui si sono estratti gli esempi. 
+1.	In Azure PowerShell passare alla cartella **Tables** (**C:\\ADFWalkthrough\\Tables\**) dal percorso in cui si sono estratti gli esempi. 
 2.	Usare il cmdlet **New-AzureDataFactoryTable** per creare le tabelle nel modo seguente per **RawGameEventsTable**.json	
 
 
@@ -559,4 +560,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
