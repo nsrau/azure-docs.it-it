@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Note sulla versione: Microsoft HDInsight Emulator per Azure | Microsoft Azure" 
-	description="Informazioni aggiornate sulle versioni più recenti di HDInsight Hadoop Emulator." 
+	description="Informazioni aggiornate sulle versioni più recenti di HDInsight Hadoop Emulator, un ambiente sandbox di Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# Note sulla versione: Microsoft HDInsight Emulator per Azure 
+# Note sulla versione: Microsoft HDInsight Emulator per Hadoop 
 
 
 
@@ -43,7 +43,7 @@
 
 ### Novità 
  
-* Sono stati aggiunti script per semplificare l'impostazione di tutti i servizi Apache Hadoop per l'avvio automatico o manuale. L'impostazione predefinita prevede ancora l'avvio automatico, ma è ora possibile modificare tutti i servizi mediante lo script set-onebox-manualstart.cmd o set-onebox-autostart.cmd, entrambi installati in C:\\Hadoop. 
+* Sono stati aggiunti script per semplificare l'impostazione di tutti i servizi Apache Hadoop per l'avvio automatico o manuale. L'impostazione predefinita prevede ancora l'avvio automatico, ma è ora possibile modificare tutti i servizi mediante lo script set-onebox-manualstart.cmd o set-onebox-autostart.cmd, entrambi installati in C:\Hadoop. 
 
 * Il numero di dipendenze di installazione necessarie è stato ridotto notevolmente, per accelerare le installazioni.
 
@@ -110,7 +110,7 @@
 
 	Nel dashboard sarà presente un cluster locale predefinito denominato "local (hdfs)". Se si vuole impostare l'archivio BLOB di Azure per l'archiviazione dell'installazione locale, eseguire le operazioni seguenti:
 
-	1. Aggiungere il tag account in core-site.xml disponibile in C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf:       
+	1. Aggiungere il tag account in core-site.xml disponibile in C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf:       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * Directory Temp
 	
-	Il file hadoop.tmp.dir punta al percorso sbagliato, ovvero C:\\hdfs anziché C:\\hadoop\\hdfs. Questo bug verrà corretto nel prossimo aggiornamento delle parti di codice HDP.
+	Il file hadoop.tmp.dir punta al percorso sbagliato, ovvero C:\hdfs anziché C:\hadoop\hdfs. Questo bug verrà corretto nel prossimo aggiornamento delle parti di codice HDP.
 
 * Restrizioni relative al sistema operativo
 
@@ -274,5 +274,6 @@
 
 [hdinsight-hadoop-emulator-get-started]: ../hdinsight-get-started-emulator.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

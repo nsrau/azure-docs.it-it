@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/12/2015" 
 	ms.author="awills"/>
 
 # Application Insights per app di Windows Phone e Store
@@ -64,10 +64,8 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Selezionare la versione più recente del pacchetto appropriato. I pacchetti disponibili sono:
-   * Application Insights per applicazioni Windows: *per app di Windows Store*
-   * Application Insights per applicazioni Windows Phone
-   * Application Insights per app Web: *usare questa opzione per un'applicazione desktop* 
+3. Selezionare **Application Insights per applicazioni Windows**.
+
 4. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
     `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
@@ -108,9 +106,16 @@ Per visualizzare altri dettagli, fare clic su qualsiasi grafico.
 
 [Pubblicare l'applicazione](http://dev.windows.com/publish) e controllare i dati accumulati quando gli utenti li scaricano e li usano.
 
-## <a name="ide"></a>Il metodo automatico
+## Passaggi successivi
 
-Se si preferisce usare Visual Studio per eseguire i passaggi di installazione, è possibile eseguire questa operazione con Windows Phone, Windows Store e molti altri tipi di app.
+* [Rilevare e diagnosticare gli arresti anomali nell'app][windowsCrash]
+* [Informazioni sulle metriche][metrics]
+* [Informazioni su Ricerca diagnostica][diagnostic]
+
+
+## <a name="ide"></a>Configurazione automatizzata
+
+Se si preferisce, è possibile consentire a Visual Studio di eseguire automaticamente la procedura di configurazione per Windows Phone, Windows Store e molti altri tipi di app.
 
 ###<a name="new"></a> Se si crea un nuovo progetto di app Windows...
 
@@ -131,11 +136,13 @@ Aggiungere Application Insights da Esplora soluzioni.
 
 ## <a name="usage"></a>Passaggi successivi
 
-[Tenere traccia dell'utilizzo dell'app][windowsUsage]
 
 [Rilevare e diagnosticare gli arresti anomali nell'app][windowsCrash]
 
 [Acquisire ed eseguire ricerche nei log di diagnostica][diagnostic]
+
+
+[Tenere traccia dell'utilizzo dell'app][windowsUsage]
 
 [Usare l'API per inviare dati di telemetria personalizzati][api]
 
@@ -148,11 +155,13 @@ Aggiungere Application Insights da Esplora soluzioni.
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: ../insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

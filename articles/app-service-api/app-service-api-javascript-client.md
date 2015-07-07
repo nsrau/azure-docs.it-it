@@ -20,7 +20,7 @@
 
 ## Panoramica
 
-Questo articolo illustra come creare un client HTML e JavaScript per un'[app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](/documentation/services/app-service/). In questo articolo si presuppone che l'utente abbia una conoscenza approfondita dei linguaggi HTML e JavaScript. Verrà descritto l'uso del framework JavaScript [AngularJS](https://angularjs.org/) per effettuare chiamate REST all'app per le API.
+Questo articolo illustra come creare un client HTML e JavaScript per un'[app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](/documentation/services/app-service/). In questo articolo si presuppone che l'utente abbia una conoscenza approfondita dei linguaggi HTML e JavaScript. Verrà usato il framework JavaScript [AngularJS](https://angularjs.org/) per effettuare chiamate REST all'app per le API.
 
 Prima di iniziare, è consigliabile leggere gli articoli seguenti.
 
@@ -143,7 +143,7 @@ La procedura per l'abilitazione della condivisione CORS nell'API Web è descritt
 
 In questa sezione verrà creata un'applicazione Web vuota, verrà installato e usato AngularJS e si assocerà un semplice front-end HTML all'app per le API. L'app Web verrà distribuita nel servizio app di Azure. L'app Web HTML verrà associata all'app per le API, visualizzerà i dati da essa recuperati e fornirà agli utenti una semplice interfaccia utente per l'API Contacts.
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi > Nuovo progetto**.
+1. Fare clic con il pulsante destro del mouse sulla soluzione creata in precedenza nell'esercitazione [Creare un'app per le API](app-service-dotnet-create-api-app.md) e scegliere **Aggiungi -> Nuovo progetto**
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -231,16 +231,16 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             </thead>
             <tbody>
                 <tr ng-repeat="con in contacts">
-                    <td>{{con.Id}}</td>
-                    <td>{{con.Name}}</td>
-                    <td>{{con.EmailAddress}}</td>
+                    <td>[[con.Id]]</td>
+                    <td>[[con.Name</td>
+                    <td>[[con.EmailAddress]]</td>
                     <td></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>Create a new Contact</th>
-                    <th colspan="2">API Status: {{status}}</th>
+                    <th colspan="2">API Status: [[status]]</th>
                     <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
                 </tr>
                 <tr>
@@ -252,11 +252,13 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             </tfoot>
         </table>
 
-1. Fare clic con il pulsante destro del mouse sul file *index.html* e scegliere la voce di menu **Imposta come pagina iniziale**. Eseguire quindi il debug del progetto Web in modo che venga aperto nel browser predefinito.
+1. Negli elementi `tbody` e `tfoot` sostituire ogni parentesi [ con una parentesi { e ogni parentesi ] con una parentesi }. Al momento questo sito non è in grado di visualizzare le espressioni con doppie parentesi graffe nei blocchi di codice.
 
-	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/08-run-the-web-app.png)
+2. Fare clic con il pulsante destro del mouse sul file *index.html* e scegliere **Imposta come pagina iniziale**.
 
-1. Prendere nota degli elementi handlebars del modello nell'output HTML. Questi elementi HTML verranno associati ai dati tramite AngularJS nel passaggio successivo.
+3. Fare clic con il pulsante destro del mouse sul file *index.html* e scegliere **Visualizza nel browser**.
+
+	Notare gli elementi handlebars del modello nell'output HTML. Questi elementi HTML verranno associati ai dati tramite AngularJS nel passaggio successivo.
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/09-template-ui.png)
 
@@ -308,13 +310,15 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             $scope.refresh();
         });
 
-	> **Nota**: il numero di porta può variare, quindi se il progetto API è in esecuzione su una porta diversa, modificare il codice JavaScript precedente per riflettere l'ambiente in uso.
+1. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
 
-1. Assicurarsi che sia in esecuzione anche il progetto di app per le API, perché in caso contrario il codice HTML JavaScript non funzionerà correttamente. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Proprietà**. Impostare quindi entrambi i progetti su **Avvia senza eseguire debug** e assicurarsi che il progetto API venga eseguito per primo.
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+
+1. Assicurarsi che quando si esegue il client HTML sia in esecuzione anche il progetto di app per le API, perché in caso contrario il codice HTML JavaScript non funzionerà correttamente. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Proprietà**. Impostare quindi entrambi i progetti su **Avvia senza eseguire debug** e assicurarsi che il progetto API venga eseguito per primo. 
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
-1. Eseguire il debug della soluzione e verificare che il client HTML/JavaScript si connetta al progetto di app per le API e che visualizzi i dati del progetto.
+1. Eseguire la soluzione e verificare che il client HTML/JavaScript si connetta al progetto di app per le API e che visualizzi i dati del progetto.
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/11-web-client-running.png)
 
@@ -331,6 +335,8 @@ In questa sezione verrà distribuito il client HTML/JavaScript come un'app Web d
 1. Incollare l'URL dell'app per le API in modo da sovrascrivere il valore precedente per la proprietà **$scope.baseUrl** nel codice JavaScript.
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+
+	Notare che l'URL specifica HTTPS. L'uso di HTTPS non è facoltativo, in quanto le app per le API non supportano HTTP.
 
 1. Fare clic con il pulsante destro del mouse sul progetto Web HTML/JavaScript e scegliere **Pubblica** nel menu di scelta rapida.
 
@@ -360,5 +366,8 @@ In questa sezione verrà distribuito il client HTML/JavaScript come un'app Web d
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
 ## Riepilogo 
-In questo esempio è stato descritto come usare AngularJS come piattaforma JavaScript per accedere ai back-end delle app per le API. È possibile modificare la funzionalità di accesso REST per usare qualsiasi altro framework JavaScript. <!--HONumber=52-->
+In questo esempio è stato descritto come usare AngularJS come piattaforma JavaScript per accedere ai back-end delle app per le API. È possibile modificare la funzionalità di accesso REST per usare qualsiasi altro framework JavaScript.
+
  
+
+<!---HONumber=62-->

@@ -1,39 +1,35 @@
-<properties 
-	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure (GoDaddy)" 
-	description="Informazioni su come usare un nome di dominio di GoDaddy con le app Web di Azure" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="wadepickett" 
-	manager="wpickett" 
+<properties
+	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure (GoDaddy)"
+	description="Informazioni su come usare un nome di dominio di GoDaddy con App Web di Azure"
+	services="app-service\web"
+	documentationCenter=""
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-services-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="wpickett"/>
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/12/2015"
+	ms.author="mwasson"/>
 
-#Configurazione di un nome di dominio personalizzato nel servizio app di Azure (GoDaddy)
+# Configurare un nome di dominio personalizzato nel servizio app di Azure (acquistato direttamente da GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+> [AZURE.NOTE]Se si è acquistato un dominio tramite App Web del servizio app di Azure, fare riferimento all'ultimo passaggio dell'articolo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acquistare un dominio per app Web</a>.
+
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-In questo articolo vengono fornite istruzioni generiche sull'utilizzo di un nome di dominio personalizzato acquistato da [Go Daddy](https://godaddy.com) con le [App Web per il servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
+Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato direttamente da [GoDaddy](https://godaddy.com) con [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
-
-Contenuto dell'articolo:
-
--   [Informazioni sui record DNS](#understanding-records)
--   [Aggiungere un record DNS per il dominio personalizzato](#bkmk_configurecname)
--   [Abilitazione del dominio nel Web](#enabledomain)
 
 <a name="understanding-records"></a>
 ##Informazioni sui record DNS
@@ -42,7 +38,7 @@ Contenuto dell'articolo:
 
 
 <a name="bkmk_configurecname"></a>
-## Aggiunta di un record DNS per il dominio personalizzato 
+## Aggiungere un record DNS per il dominio personalizzato
 
 Per associare il dominio personalizzato a un'app Web nel servizio app, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti da GoDaddy. Per individuare gli strumenti DNS per GoDaddy.com, attenersi alla procedura seguente
 
@@ -62,18 +58,18 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 4. Per aggiungere un record, è necessario innanzitutto selezionare un tipo di record.
 
-	![select record type](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
+	![selezionare il tipo di record](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
 
 	Quindi, è necessario specificare l'**Host** (il dominio o il sottodominio personalizzato) e l'opzione **Punta a**.
 
-	![add zone record](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
+	![aggiungere un record di zona](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
 	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su ****@**** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** sull'indirizzo IP dell'app Web di Azure.
-	
+
 		> [AZURE.NOTE]Quando si usa un record A (host), è anche necessario aggiungere un record CNAME con la configurazione seguente:
-		> 
-		> * Un valore **Host** di **awverify** che  **Punta a un valore** di **awverify.yourwebappname.azurewebsites.net**.
-		> 
+		>
+		> * Un valore **Host** di **awverify** che **Punta a** un valore di **awverify.&lt;nomeappweb&gt;.azurewebsites.net**.
+		>
 		> Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A.
 
 	* Quando si aggiunge un **record CNAME (alias)**, è necessario impostare il campo **Host** sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Punta a** sul nome di dominio **.azurewebsites.net** dell'app Web di Azure. ad esempio **contoso.azurwebsites.net**.
@@ -82,14 +78,15 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Fine** per salvare le modifiche.
 
 <a name="enabledomain"></a>
-## Abilitazione del nome del dominio nell'app Web 
+## Abilitare il nome del dominio nell'app Web
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

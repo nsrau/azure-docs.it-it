@@ -1,20 +1,19 @@
 <properties
-	 pageTitle="Sviluppare processi MapReduce in Scalding con Maven"
-	 description="Imparare a usare Maven per creare un processo MapReduce in Scalding, quindi distribuire ed eseguire il processo in un Hadoop nel cluster HDInsight."
-	 services="hdinsight"
-	 documentationCenter=""
-	 authors="Blackmist"
-	 manager="paulettm"
-	 editor="cgronlun"/> 
-
+ pageTitle="Sviluppare processi MapReduce in Scalding con Maven| Microsoft Azure"
+ description="Imparare a usare Maven per creare un processo MapReduce in Scalding, quindi distribuire ed eseguire il processo in un Hadoop nel cluster HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"/>
 <tags
-	 ms.service="hdinsight"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.tgt_pltfrm="na"
-	 ms.workload="big-data"
-	 ms.date="04/17/2015"
-	 ms.author="larryfr"/>
+ ms.service="hdinsight"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="04/17/2015"
+ ms.author="larryfr"/>
 
 # Sviluppare processi MapReduce in Scalding con Apache Hadoop in HDInsight
 
@@ -24,13 +23,12 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
 ## Prerequisiti
 
-* Una sottoscrizione di Azure
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Un cluster Hadoop basato su Windows o Linux in HDInsight**. Per altre informazioni vedere l'articolo relativo al [provisioning di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o relativo al [provisioning di Hadoop basato su Windows in HDInsight](hdinsight-provision-clusters.md).
 
-* Un Hadoop basato su Windows o Linux su un cluster HDInsight. Per altre informazioni vedere l'articolo relativo al [provisioning di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o relativo al [provisioning di Hadoop basato su Windows in HDInsight](hdinsight-provision-clusters.md).
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o versioni successive
+* **[Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o versioni successive**
 
 ## Salvare e compilare il progetto
 
@@ -77,7 +75,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -109,7 +107,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -146,9 +144,9 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
     * **maven-shade-plugin**: plug-in per creare file JAR (fat) con shade. Questo plug-in consente di applicare filtri e trasformazioni; in particolare:
 
-        * **filtri**: I filtri applicati modificano le metainformazioni incluse nel file jar. Per evitare eccezioni di accesso al runtime, vengono esclusi diversi file di firma che potrebbero essere inclusi con dipendenze.
+        * **filtri**: i filtri applicati modificano le metainformazioni incluse nel file jar. Per evitare eccezioni di firma in fase di esecuzione sono esclusi vari file di firma che potrebbero essere inclusi con le dipendenze.
 
-        * **esecuzioni**: La configurazione dell'esecuzione di fase del pacchetto specifica la classe **com.twitter.scalding.Tool** come classe principale per il pacchetto. Senza questa classe, sarebbe necessario specificare com.twitter.scalding.Tool, nonché la classe che contiene la logica dell'applicazione, durante l'esecuzione del processo con il comando hadoop.
+        * **esecuzioni**: la configurazione dell’esecuzione della fase pacchetto specifica la classe **com.twitter.scalding.Tool** come classe principale per il pacchetto. Senza questa opzione, è necessario specificare com.twitter.scalding.Tool, nonché la classe contenente la logica dell'applicazione, quando si esegue il processo con il comando di hadoop.
 
 3. Eliminare la directory **src/test**, perché per questo esempio non verranno creati test.
 
@@ -170,7 +168,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -290,6 +288,6 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

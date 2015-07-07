@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distribuzione e gestione di topologie Storm in HDInsight | Azure"
-   description="Informazioni su come distribuire, monitorare e gestire le topologie Storm usando Storm Dashboard, incluso in Apache Storm in HDInsight."
+   pageTitle="Distribuzione e gestione di topologie Apache Storm in HDInsight | Microsoft Azure"
+   description="Informazioni su come distribuire, monitorare e gestire le topologie Apache Storm mediante Storm Dashboard in HDInsight. Utilizzare gli strumenti Hadoop per Visual Studio"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -177,5 +177,6 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="App per le API Chatter Connector" 
-   description="Come usare Chatter Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="App per le API Chatter Connector"
+   description="Come usare Chatter Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/31/2015"
    ms.author="adgoda"/>
 
 
 # Uso di Chatter Connector nell'app per la logica #
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. 
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
 Chatter Connector consente di connettersi a Chatter e di eseguire diverse azioni, ad esempio Post Message e Search, e di attivare un trigger per recuperare nuovi messaggi.
 
@@ -29,42 +29,30 @@ Per usare Chatter Connector, è necessario innanzitutto creare un'istanza dell'a
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "Chatter Connector".
 3.	Configurare Chatter Connector nel modo seguente:
- 
-	![][1]
-	- **Location**: scegliere la località geografica in cui si vuole distribuire il connettore
-	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Web hosting plan**: selezionare o creare un piano di hosting Web
-	- **Pricing tier**: scegliere un piano tariffario per il connettore
-	- **Name**: assegnare un nome a Chatter Connector 
 
-4.	Fare clic su Create. Verrà creato un nuovo Chatter Connector.
-5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Chatter Connector. 
+	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore Chatter.
 
-## Usare Chatter Connector nell'app per la logica ##
+4.	Fare clic su Crea. Verrà creato un nuovo Chatter Connector.
+5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Chatter Connector.
+
+## Uso di Chatter Connector nell'app per la logica ##
 Dopo aver creato l'app per le API, è possibile usare Chatter Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Chatter Connector.
- 
+
 	![][2]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
- 
-	![][3]
+2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+
 3.	Chatter Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
- 
+
 	![][4]
-4. È possibile trascinare l'app per le API Chatter Connector nell'editor facendo clic su "Chatter Connector". Fare clic sul pulsante Authorize. Fornire le credenziali. Fare clic su "Allow".
- 
-	![][5]
-	![][6]
-	![][7]
+4. È possibile trascinare l'app per le API Chatter Connector nell'editor facendo clic su “Chatter Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali. Fare clic su “Allow”.
+
+	![][5] ![][6] ![][7]
 5.	È ora possibile usare Chatter Connector nel flusso. È possibile usare il nuovo messaggio recuperato dal trigger di Chatter ("New Message") in altre azioni del flusso. Configurare le proprietà di input per il trigger Chatter nel modo indicato di seguito:
-	- **Group ID**: specificare l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal feed dell'utente. 
+	- **Group ID**: specificare l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal feed dell'utente.
 
- 
-![][8]
-![][9]
-
+  ![][8] ![][9]
 
 6. Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Post Message" nel modo indicato di seguito:
 	- **Message Text**: contenuto di testo del messaggio da inviare
@@ -76,13 +64,9 @@ Dopo aver creato l'app per le API, è possibile usare Chatter Connector come tri
 	- 	**Mentions**: matrice di nomi utente a cui deve essere associato un tag nel messaggio
 	- 	**Hashtags**: matrice di hashtag da inviare insieme al messaggio
 
-![][10]
-![][11] 
+	![][10] ![][11]
 
-
-
-
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
 [2]: ./media/app-service-logic-connector-chatter/img2.PNG
 [3]: ./media/app-service-logic-connector-chatter/img3.png
@@ -94,6 +78,6 @@ Dopo aver creato l'app per le API, è possibile usare Chatter Connector come tri
 [9]: ./media/app-service-logic-connector-chatter/img9.PNG
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

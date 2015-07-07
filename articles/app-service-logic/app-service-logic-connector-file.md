@@ -18,53 +18,44 @@
 
 # Uso di File Connector nell'app per la logica #
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. 
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
-File Connector consente di caricare, scaricare ed eliminare file dal file system su un computer host.
+File Connector consente di caricare, scaricare ed eliminare file dal file system su un computer host. Usa Gestione connessione ibrida per la connettività ibrida al computer host.
 
 ## Creare File Connector per l'app per la logica ##
 Per usare File Connector, è necessario innanzitutto creare un'istanza dell'app per le API File Connector. Attenersi alla procedura riportata di seguito:
 
-1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
-2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "File Connector".
+1.	Aprire Azure Marketplace con l'opzione + NUOVO nella parte sinistra nel portale di Azure.
+2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "File Connector".
 3.	Configurare File Connector nel modo seguente:
  
 	![][1]
  
-	- **Name**: assegnare un nome a File Connector
+	- **Nome**: assegnare un nome al connettore File
 	- **Impostazioni pacchetto**
-		- **Root Folder**: specificare il percorso della cartella radice nel computer host, ed esempio D:\FileConnectorTest
-		- **Service Bus Connection String**: fornire una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia di tipo Standard, NON Base
-	- **App Service plan**: selezionare o creare un piano di servizio app
-	- **Pricing tier**: scegliere un piano tariffario per il connettore
-	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-	- **Location**: scegliere la località geografica in cui si vuole distribuire il connettore
+		- **Cartella radice**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\FileConnectorTest
+		- **Stringa di connessione del bus di servizio**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida. 
+	- **Piano di servizio app**: selezionare o creare un piano di servizio app
+	- **Piano tariffario**: scegliere un piano tariffario per il connettore
+	- **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
+	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
+	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 
-4. Fare clic su Create. Verrà creato un nuovo File Connector.
-5. Una volta creata l'istanza dell'app per le API, individuare il relativo dashboard. Questa operazione può essere eseguita facendo clic su Browse->Api Apps->Select your File Connector API App
-6. Nella sezione "Hybrid Connection" del dashboard di File Connector viene visualizzata la dicitura "On-Premise Setup Incomplete". Per completare la configurazione ibrida, aprire il dashboard dal computer host con il file system a cui è necessario connettersi. Fare clic su "Hybrid Connection". Nel pannello "Hybrid Connection" aperto fare clic sul collegamento "Download and configure" per installare On-premises Hybrid Connection Manager
+4. Fare clic su Crea. Verrà creato un nuovo connettore File.
 
-	![][2]
+## Configurare Gestione connessione ibrida ##
+Una volta creata l'istanza dell'app per le API, individuare il relativo dashboard. Questa operazione può essere eseguita facendo clic su Sfoglia > App per le API > selezionare la propria app per le API connettore File. Verrà visualizzato lo strumento Gestione connessione ibrida da configurare. Per altre informazioni su come configurare e risolvere i problemi relativi a Gestione connessione ibrida, vedere [Uso di Gestione connessione ibrida].
 
-7. Verrà avviato un programma di installazione che richiederà di immettere un valore per Relay Listen Connection String. Copiare e incollare la "Primary Configuration String" dal pannello "Hybrid Connection". Fare clic su Install.
-
-	![][3]
-
-8. Per verificare che l'installazione ibrida abbia avuto esito positivo, riaprire il dashboard di File Connector. Lo stato di Hybrid Connection deve essere "Connected"
-
-	![][4]
-
-## Usare File Connector nell'app per la logica ##
+## Uso di File Connector nell'app per la logica ##
 Dopo aver creato l'app per le API, è possibile usare File Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di File Connector. Seguire le istruzioni per [creare una nuova app per la logica].  	
 	
-2.	Aprire "Triggers and Actions" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.  	
+2.	Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
 	
 3.	File Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
  	
-4.	È possibile trascinare l'app per le API File Connector nell'editor facendo clic su "File Connector". File Connector espone un trigger e quattro azioni.
+4.	È possibile trascinare l'app per le API File Connector nell'editor facendo clic su “File Connector”. File Connector espone un trigger e quattro azioni.
  
 	![][5]
 
@@ -74,24 +65,24 @@ Dopo aver creato l'app per le API, è possibile usare File Connector come trigge
 
 7. Una volta completata la configurazione, è possibile usare il trigger e l'azione nel flusso. È possibile configurare anche altre azioni nello stesso modo.
 
-8. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->File Connector. È ora possibile fare clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
+> [AZURE.NOTE]Una volta letto dalla cartella, il trigger del file eliminerà il file.
+
+## API REST del connettore File ##
+Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. Per visualizzare le definizioni delle API, selezionare Sfoglia->App per le API->File Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
 
 	![][7]
 
-9. Per dettagli sulle API, vedere l'articolo relativo alla [definizione delle API di File Connector].
+Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API di File Connector].
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
-[2]: ./media/app-service-logic-connector-file/img2.PNG
-[3]: ./media/app-service-logic-connector-file/img3.PNG
-[4]: ./media/app-service-logic-connector-file/img4.PNG
 [5]: ./media/app-service-logic-connector-file/img5.PNG
 [6]: ./media/app-service-logic-connector-file/img6.PNG
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
 <!-- Links -->
-[Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
-[Definizione delle API di File Connector]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
+[definizione delle API di File Connector]: https://msdn.microsoft.com/it-it/library/dn936296.aspx
+[Uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

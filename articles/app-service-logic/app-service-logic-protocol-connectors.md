@@ -105,7 +105,7 @@ Un connettore può essere creato usando il portale di Azure.
 
 Verrà ora illustrata la creazione di un connettore SMTP usando Azure Marketplace
 
-1. Accedere al [portale](https://manage.windowsazure.com) di Microsoft Azure.
+1. Accedere al [portale di anteprima](https://portal.azure.com) di Microsoft Azure.
 2. Selezionare **NUOVO** > **Web e dispositivi mobili** > **Azure Marketplace**.
 3. Nella **casella di ricerca** immettere **protocollo**, quindi premere **Invio**. È anche possibile selezionarne uno dall'elenco. Una volta selezionato, si apre un nuovo pannello o finestra. Selezionare **Crea**. 
 4. Immettere le seguenti proprietà:
@@ -130,13 +130,13 @@ Il servizio app di Microsoft Azure espone diversi tipi di applicazione che posso
 
 Per usare i connettori nell'app per l'app per la *logica*, è sufficiente selezionare un connettore preconfigurato nell'elenco, aggiungerlo al flusso di lavoro di progettazione e apportare le modifiche necessarie alla configurazione.
 
-Per seguire questa procedura, è necessaria un'app Web, un'app mobile o un'app per la logica. Vedere <> per i passaggi specifici. Una volta che l'applicazione è disponibile, aggiungere i connettori. Ecco come:
+Per seguire questa procedura, è necessaria un'app Web, un'app per dispositivi mobili o un'app per la logica. Una volta che l'applicazione è disponibile, aggiungere i connettori. Ecco come:
 
 Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 
 1. Nella schermata iniziale del portale di Azure (la home page) passare a **Marketplace** e cercare la propria app per la logica, per dispositivi mobili o Web. 
 
-	Se si sta creando una nuova app, cercare un'app per la logica, un'app mobile o un'app Web. Selezionare l'app e nel nuovo pannello selezionare **Crea**. La procedura è descritta in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
+	Se si sta creando una nuova app, cercare un'app per la logica, un'app per dispositivi mobili o un'app Web. Selezionare l'app e nel nuovo pannello selezionare **Crea**. La procedura è descritta in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
 
 2. Aprire l'app e selezionare **Trigger e azioni**.
 3. Nella **Raccolta** selezionare il connettore. Verrà aggiunto all'app.
@@ -149,11 +149,12 @@ Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 I connettori usano OAuth oppure nomi utente e password.
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-app-azure-portal.md) |
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Altri connettori
 
 [Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md) | [Connettori Enterprise](app-service-logic-enterprise-connectors.md) | [Connettori di Business-to-Business](app-service-logic-b2b-connectors.md) | [Connettori per social network](app-service-logic-social-connectors.md) | [Connettori per i servizi app e dati](app-service-logic-data-connectors.md) | [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

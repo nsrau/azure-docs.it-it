@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Informazioni su Hadoop in HDInsight tramite la raccolta di esempi | Microsoft Azure" 
-   description="La raccolta di introduzione HDInsight fornisce un modo rapido per imparare a usare Hadoop eseguendo applicazioni di esempio in HDInsight. In alcuni esempi sono già inclusi dati oppure è possibile fornire i propri dati." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Informazioni su Hadoop in HDInsight tramite la raccolta di esempi | Microsoft Azure"
+   description="La raccolta di introduzione HDInsight fornisce un modo rapido per imparare a usare Hadoop eseguendo applicazioni di esempio. Usare dati di esempio o fornire dati personali."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # Informazioni su Hadoop tramite la raccolta di introduzione HDInsight
@@ -39,7 +39,7 @@ Il seguente video clip mostra come eseguire l'esempio relativo all'analisi delle
 **Per eseguire un esempio dalla raccolta di introduzione**
 
 1.	Accedere al [portale di Azure][azure.portal].
-2.	Fare clic su **HDInsight** nel menu a sinistra. Verrà visualizzato un elenco di cluster HDInsight esistenti, inclusi Hadoop, Storm e HBase. 
+2.	Fare clic su **HDInsight** nel menu a sinistra. Verrà visualizzato un elenco di cluster HDInsight esistenti, inclusi Hadoop, Storm e HBase.
 3.	Selezionare il cluster in cui si desidera eseguire l'esempio.
 4.	Fare clic su **QUERY CONSOLE** nella parte inferiore della pagina.
 5.	Immettere il nome utente e la password di Hadoop per il cluster.
@@ -62,4 +62,6 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

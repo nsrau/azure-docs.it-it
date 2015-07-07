@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
  
 # Introduzione ad Application Insights in un progetto Web Java
 
-*Application Insights è disponibile in Anteprima.*
+*Application Insights è disponibile in anteprima.*
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -26,7 +26,7 @@ Mediante l'aggiunta di Application Insights per Visual Studio al progetto, è po
 
 ![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
-È possibile inoltre impostare i [test Web][availability] per monitorare la disponibilità dell'applicazione e inserire [codice nelle pagine Web][track] per comprendere i modelli di uso.
+È possibile inoltre impostare i [test Web][availability] per monitorare la disponibilità dell'applicazione e inserire [codice nelle pagine Web][api] per comprendere i modelli di uso.
 
 Sono necessari gli elementi seguenti:
 
@@ -79,7 +79,10 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 
 
-* *Errori di convalida di compilazione o checksum? Provare a usare una versione specifica:* `<version>0.9.3</version>`
+* *Errori di convalida di compilazione o checksum?*
+ * Provare a usare una versione specifica, come * `<version>0.9.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Per eseguire l'aggiornamento a un nuovo SDK*
+ * Aggiornare le dipendenze del progetto.
 
 #### Se si usa Gradle...
 
@@ -96,7 +99,9 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
       // or applicationinsights-core for bare API
     }
 
-* *Errori di convalida di compilazione o checksum? Provare a usare una versione specifica:* `version:'0.9.3'`
+* *Errori di convalida di compilazione o checksum? Provare a usare una versione specifica, come* `version:'0.9.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).* 
+* *Per eseguire l'aggiornamento a un nuovo SDK*
+ * Aggiornare le dipendenze del progetto.
 
 #### In caso contrario...
 
@@ -106,6 +111,7 @@ Aggiungere manualmente SDK:
 2. Estrarre i file binari seguenti dal file ZIP e aggiungerli al progetto:
  * applicationinsights-core
  * applicationinsights-web
+ * annotation-detector
  * commons-codec
  * commons-io
  * commons-lang
@@ -115,15 +121,22 @@ Aggiungere manualmente SDK:
  * httpcore
  * jsr305
 
+Domande...
 
-*Qual è la relazione tra i componenti `-core` e `-web`?*
+* *Qual è la relazione tra i componenti `-core` e `-web`?*
 
-`applicationinsights-core` fornisce l'API con telemetria non automatica. `applicationinsights-web` fornisce le metriche rilevando i conteggi delle richieste HTTP e i tempi di risposta.
+ * `applicationinsights-core` fornisce la versione base dell'API senza telemetria automatica.
+ * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. 
+
+* *Per aggiornare l'SDK*
+ * Scaricare la versione più recente delle [librerie di Azure per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire quelle precedenti.
+ * Le modifiche sono descritte nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).
+
 
 
 ## 3. Aggiungere un file XML di Application Insights
 
-Aggiungere il file ApplicationInsights.xml alla cartella resources del progetto. Copiarvi il seguente file XML.
+Aggiungere ApplicationInsights.xml alla cartella resources del progetto oppure verificare che sia stato aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
 
 Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 
@@ -205,11 +218,20 @@ Aggiungere questa voce al file di configurazione Struts (in genere denominato st
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
-## 5. Visualizzare i dati di telemetria in Application Insights
 
-Eseguire l'applicazione.
+## 5. Abilitare la raccolta del contatore delle prestazioni
 
-Tornare alla risorsa di Application Insights in Microsoft Azure.
+Se il computer server è di tipo Windows, installare
+
+* [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
+
+## 6. Eseguire l'applicazione
+
+Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure pubblicarla nel server.
+
+## 7. Visualizzare i dati di telemetria in Application Insights
+
+Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
 Nel pannello Panoramica verranno visualizzati i dati delle richieste HTTP. Se non sono visualizzati, attendere alcuni secondi e quindi fare clic su Aggiorna.
 
@@ -239,7 +261,15 @@ Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home
 
 In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
-## 5. Contatori delle prestazioni
+## Eccezioni non gestite e richieste non eseguite
+
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+Per raccogliere dati relativi ad altre eccezioni, [inserire le chiamate a TrackException nel codice][apiexceptions].
+
+
+## Contatori delle prestazioni
 
 Fare clic sul riquadro Server e verrà visualizzato un intervallo di contatori delle prestazioni.
 
@@ -298,22 +328,27 @@ I contatori delle prestazioni sono visibili come metriche personalizzate in [Esp
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6. Acquisire le tracce dei log
+## Ottenere i dati relativi a utenti e sessioni
+
+I dati di telemetria vengono normalmente inviati dal server Web. Per un quadro completo a 360 gradi dell'applicazione, è però possibile aggiungere altre funzionalità di monitoraggio:
+
+* [Aggiungere la telemetria alle pagine Web][usage] per monitorare le visualizzazioni pagina e le metriche utente.
+* [Configurare i test Web][availability] in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
+
+## Acquisire le tracce dei log
 
 È possibile usare Application Insights per analizzare approfonditamente i log Log4J, Logback o altri framework di registrazione. È possibile correlare i log con le richieste HTTP e altri dati di telemetria. [Informazioni][javalogs].
 
-## 7. Inviare i propri dati di telemetria
+## Inviare i propri dati di telemetria
 
 Ora che è stato installato SDK, è possibile usare l'API per inviare i propri dati di telemetria.
 
-* [Tenere traccia di eventi personalizzati e metriche][track] per informazioni sulle attività svolte dagli utenti con l'applicazione.
+* [Tenere traccia di eventi personalizzati e metriche][api] per informazioni sulle attività svolte dagli utenti con l'applicazione.
 * [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
 
 
-Inoltre, è possibile offrire maggiori funzionalità di Application Insights all'applicazione:
 
-* [Aggiungere dati di telemetria al client Web][usage] per monitorare le visualizzazioni pagina e le metriche utente di base.
-* [Configurare i test Web][availability] in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
+
 
 
 ## Domande? Problemi?
@@ -324,13 +359,15 @@ Inoltre, è possibile offrire maggiori funzionalità di Application Insights all
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usare le azioni script in HDInsight per installare Giraph nel cluster Hadoop | Azure" 
-	description="Informazioni su come personalizzare un cluster HDInsight per installare Giraph. Verrà usata un'opzione di configurazione Azione script per installare Giraph tramite uno script." 
+	pageTitle="Installare e usare Giraph nei cluster Hadoop in HDInsight | Microsoft Azure" 
+	description="Informazioni su come personalizzare un cluster HDInsight con Giraph. Verrà usata un'opzione di configurazione Azione script per installare Giraph tramite uno script." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# Installare e usare Giraph nei cluster Hadoop di HDInsight
+# Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
 
 È possibile installare Giraph in qualsiasi tipo di cluster in Hadoop su Azure HDInsight usando la personalizzazione dei cluster **Azione script**. Azione script consente di eseguire script per personalizzare un cluster solo durante la creazione. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize].
 
@@ -79,7 +79,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
 
 	
 
-4. Eseguire l'esempio SimpleShortestPathsComputation. Usare i cmdlet di Azure PowerShell seguenti per eseguire l'esempio specificando come input il file tiny_graph.txt. In questo caso è necessario avere installato e configurato [Azure PowerShell][powershell-install-configure].
+4. Eseguire l'esempio SimpleShortestPathsComputation. Usare i cmdlet di Azure PowerShell seguenti per eseguire l'esempio specificando come input il file tiny_graph.txt. In questo caso è necessario avere installato e configurato [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -150,7 +150,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
 
 ## <a name="usingPS"></a>Installare Giraph nei cluster Hadoop di HDInsight mediante Azure PowerShell
 
-In questa sezione si usa il cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** per richiamare gli script usando l'azione script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet Azure PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
+In questa sezione si usa il cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** per richiamare gli script usando l'azione script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet Azure PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell][powershell-install].
 
 Eseguire la procedura seguente:
 
@@ -222,7 +222,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
 - Eseguire l'applicazione
 
 
-**Per installare HDInsight .NET SDK**
+**Per installare .NET SDK per HDInsight**
 
 È possibile installare l'ultima build pubblicata dell'SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Le istruzioni verranno illustrate nella procedura successiva.
 
@@ -235,7 +235,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 1. Aprire Visual Studio 2013.
 
-2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
+2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 
 3. In **Nuovo progetto** digitare o selezionare i valori seguenti:
 	
@@ -329,7 +329,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 **Per eseguire l'applicazione**
 
-Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \\bin\\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
+Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \bin\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -346,9 +346,11 @@ Specificare un nome per il cluster e premere INVIO per effettuare il provisionin
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

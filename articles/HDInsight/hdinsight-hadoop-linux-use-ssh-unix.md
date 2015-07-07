@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usare chiavi SSH con Hadoop in HDInsight basato su Linux da Linux, Unix o OS X | Aure"
-   description="Informazioni su come creare e usare chiavi SSH per l'autenticazione nei cluster HDInsight basati su Linux."
+   pageTitle="Usare chiavi SSH con Hadoop basato su Linux da Linux, Unix o OS X | Microsoft Azure"
+   description="È possibile accedere a HDInsight basato su Linux tramite Secure Shell (SSH). Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -61,7 +61,7 @@ Quando si crea un cluster HDInsight basato su Linux, è possibile usare una pass
 
 	Verrà richiesto di specificare le seguenti informazioni:
 
-	* Il percorso del file: il percorso predefinito è ~/.ssh/id_rsa.
+	* Il percorso del file: il percorso predefinito è ~/.ssh/id\_rsa.
 	* Una passphrase: verrà richiesto di immetterla una seconda volta.
 
 		> [AZURE.NOTE]È consigliabile usare una passphrase sicura per la chiave. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
@@ -269,7 +269,7 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 	![foxyproxy proxy](./media/hdinsight-hadoop-linux-use-ssh-unix/foxyproxyproxy.png)
 
-4. Fare clic sulla scheda **URL Patterns** e selezionare  **Add New Pattern**. Usare i campi seguenti per definire il criterio, quindi fare clic su **OK**:
+4. Fare clic sulla scheda **URL Patterns** e selezionare **Add New Pattern**. Usare i campi seguenti per definire il criterio, quindi fare clic su **OK**:
 
 	* **Pattern Name** - **headnode**: si tratta di un nome descrittivo per il criterio.
 
@@ -294,5 +294,6 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

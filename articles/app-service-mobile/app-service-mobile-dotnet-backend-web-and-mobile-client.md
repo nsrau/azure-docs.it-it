@@ -2,7 +2,7 @@
 	pageTitle="Creare un'app con un client mobile e Web nel servizio app di Azure"
 	description="Informazioni su come creare un'app multicanale con un client mobile e un sito Web nel servizio app di Azure."
 	services="app-service\mobile"
-	documentationCenter=".net" 
+	documentationCenter=".net"
 	authors="lindydonna"
 	manager="dwrede"
 	editor=""/>
@@ -12,10 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="03/10/2015"
 	ms.author="donnam"/>
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
+# Creare un'app con un client mobile e Web nel servizio app di Azure
 
-<!--HONumber=49--> 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
+ 
+
+<!---HONumber=62-->

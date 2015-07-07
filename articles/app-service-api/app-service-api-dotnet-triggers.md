@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Trigger delle app per le API del servizio app di Azure
@@ -22,11 +22,7 @@
 
 Questo articolo spiega come implementare i trigger delle app per le API e usarli da un'app per la logica.
 
-Se non si ha familiarità con le app per le API, consultare gli articoli seguenti.
-
-1. [Creare un'app per le API](app-service-dotnet-create-api-app.md) - Illustra come creare una nuova app per le API da zero o convertire un progetto API Web esistente in un'app per le API. 
-2. [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md) - Illustra come distribuire un'app per le API nella sottoscrizione di Azure.
-3. [Eseguire il debug di un'app per le API](../app-service-dotnet-remotely-debug-api-app.md) - Illustra come usare Visual Studio per eseguire il debug remoto di un'app per le API in esecuzione in Azure.
+Se non si ha familiarità con le [app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md), è consigliabile leggere la serie in più parti sulla [creazione di app per le API](app-service-dotnet-create-api-app.md)
 
 Tutti i frammenti di codice in questo argomento sono stati copiati dall'[esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
@@ -36,7 +32,7 @@ Per la corretta compilazione ed esecuzione del codice riportato in questo artico
 
 In genere, le app per le API generano eventi in modo che i client dell'app per le API possano eseguire l'azione appropriata in risposta all'evento. Il meccanismo basato sull'API REST che supporta questo scenario è definito come trigger dell'app per le API.
 
-Si supponga, ad esempio, che il codice client usi l'[app per le API Twitter Connector](../app-service-logic/app-service-logic-connector-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di push o di polling.
+Si supponga, ad esempio, che il codice client usi l'[app per le API Twitter Connector](../app-service-logic/app-service-logic-connector-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di polling o di push.
 
 ## Trigger di polling e trigger di push
 
@@ -343,6 +339,6 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -1,45 +1,44 @@
-﻿
 
-Per creare una nuova app mobile, attenersi alla procedura seguente.
 
-1. Accedere al [Portale di Azure]. In basso a sinistra nella finestra fare clic su **+NUOVO**. Scorrere fino all'elemento **App mobile**.
+Per creare una nuova app per dispositivi mobili, attenersi alla procedura seguente.
 
-   ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
+1. Accedere al [Portale di Azure]. Nella parte inferiore sinistra della finestra fare clic su **+NUOVO**. Scorrere fino all'elemento **App per dispositivi mobili**.
 
-   Verrà visualizzata la finestra di dialogo **Nuova app mobile**.
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
 
-2. Digitare un nome per l'app mobile. Tale nome deve essere lungo almeno 8 caratteri e contenere lettere minuscole dalla a alla z.  
+    Verrà visualizzato il pannello **Nuova app per dispositivi mobili**.
 
-7. Scegliere un'area, In questa esesercitazione verrà utilizzata l'area **South Central US**.
+2. Digitare un nome per l'app per dispositivi mobili. Tale nome deve essere lungo almeno 8 caratteri e contenere lettere minuscole dalla a alla z.
 
-   > [AZURE.NOTE] Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riusare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa area del nuovo backend di app mobile si dispone già di un database, è possibile scegliere **Utilizza database esistente** e quindi selezionare questo database. Non è consigliabile usare un database in un'area diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate.
+7. Scegliere un'area, In questa esercitazione verrà usata l'area **Stati Uniti centro-meridionali**.
+
+    > [AZURE.NOTE]Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa area del nuovo back-end dell'app per dispositivi mobili è già presente un database, è possibile scegliere **Utilizza database esistente** e quindi selezionare questo database. Non è consigliabile utilizzare un database in un'area diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate.
 
 3. Selezionare la propria sottoscrizione.
 
-4. Creare un nuovo gruppo di risorse con lo stesso nome dell'app mobile.
+4. Creare un nuovo gruppo di risorse con lo stesso nome dell'app per dispositivi mobili.
 
-5. In **Impostazioni pacchetto**, selezionare **USERDATABASE**, è possibile scegliere un database esistente o crearne uno nuovo. Per creare un nuovo database, digitare il nome del nuovo **database**, creare un nuovo **server**, digitare il nome di tale server, quindi scegliere un **nome di accesso**, che è il nome di accesso dell'amministratore per il nuovo server di database SQL, digitare e confermare la password e fare clic sul pulsante Ok per completare la procedura. Se so seleziona un database esistente, è necessario fornire una **password di amministratore server**.
+5. In **Impostazioni pacchetto** selezionare **USERDATABASE**, quindi scegliere un database esistente o crearne uno nuovo. Per creare un nuovo database, digitare il nome del nuovo **database**, creare un nuovo **server**, digitare il nome del server, quindi scegliere un **nome di accesso**, ovvero il nome di accesso dell'amministratore per il nuovo server di database SQL, digitare e confermare la password e infine fare clic sul pulsante OK per completare la procedura. Se si seleziona un database esistente, è necessario specificare una **password di amministratore del server**.
 
-   ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-6. Creare un nuovo piano di webhosting con lo stesso nome dell'app mobile.
+6. Creare un nuovo piano di hosting Web con lo stesso nome dell'app per dispositivi mobili.
 
-   > [AZURE.NOTE] Digitare, non copiare e incollare, il nome del piano di webhosting. Questo è il campo di convalida del nome, se il nome non viene digitato non viene convalidato. Non è necessario che corrisponda esattamente al nome del sito Web (ma deve seguire le stesse regole).
+    > [AZURE.NOTE]Digitare il nome del piano di hosting Web anziché copiarlo e incollarlo. Questo è il campo di convalida del nome, se il nome non viene digitato non viene convalidato. Non è necessario che corrisponda esattamente al nome del sito Web (ma deve seguire le stesse regole).
 
-8. Selezionare un piano tariffario. In questa esercitazione sarà utilizzato il piano **Standard 1**.
+8. Selezionare un piano tariffario. In questa esercitazione si userà il piano **Standard 1**.
 
-   La pagina delle impostazioni della nuova app mobile apparirà simile alla seguente:
+    La pagina delle impostazioni della nuova app per dispositivi mobili apparirà simile alla seguente:
 
-   ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
 
-9. Fare clic sul pulsante **Crea** in fondo al pannello. Sarà avviata la distribuzione nella finestra di notifica.
+9. Fare clic sul pulsante **Crea** nella parte inferiore del pannello. Nella finestra di notifica verrà visualizzato l'avvio della distribuzione.
 
+A questo punto è stato creato un nuovo back-end di app per dispositivi mobili che può essere usato dalle app per dispositivi mobili.
 
-A questo punto è stata creata un nuovo backend di app mobile che può essere usato dalle app per dispositivi mobili.
-
-> [AZURE.NOTE] Una volta creata l'app mobile, spostarsi nel portale sul server sql creato (accertarsi di selezionare il sever e non il db sql azure). Da qui, fare clic sulla parte delle impostazioni, espandere la parte del firewall e cambiare "Consenti accesso ai servizi Azure". In caso contrario, l'applicazione non funziona.
+> [AZURE.NOTE]Una volta creata l'app per dispositivi mobili, nel portale passare al server SQL appena creato (accertarsi di selezionare il sever e non il database SQL di Azure). Da qui, fare clic sulla parte delle impostazioni, espandere la parte del firewall e cambiare "Consenti accesso ai servizi Azure". In caso contrario, l'applicazione non funziona.
 
 <!-- URLs. -->
 [Portale di Azure]: https://portal.azure.com/
 
-<!--HONumber=49-->
+<!---HONumber=62-->

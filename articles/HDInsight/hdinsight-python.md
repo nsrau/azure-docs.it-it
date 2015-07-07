@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usare Python con Hive e Pig in Azure HDInsight"
-	description="Informazioni su come usare le funzioni definite dall'utente di Python da Hive e Pig in Azure HDInsight."
+	pageTitle="Usare Python con Hive e Pig in HDInsight | Microsoft Azure"
+	description="Informazioni su come usare le funzioni definite dall'utente di Python da Hive e Pig in HDInsight, lo stack di tecnologie Hadoop in Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -329,5 +329,6 @@ Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapRedu
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

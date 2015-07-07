@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight | Azure" 
+	pageTitle="Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight | Microsoft Azure" 
 	description="Informazioni sullo sviluppo di programmi MapReduce per la creazione di flussi Hadoop in C# e sulla distribuzione in Azure HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -37,7 +37,7 @@ Questa esercitazione illustra come:
 Prima di iniziare questa esercitazione, è necessario eseguire le operazioni seguenti:
 
 - Installare HDInsight Emulator. Per istruzioni, vedere [Introduzione a HDInsight Emulator][hdinsight-get-started-emulator].
-- Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure].
+- Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
 - Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 
 
@@ -149,8 +149,8 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 
 I file eseguibili di mapper e reducer si trovano nei percorsi seguenti:
 
-- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
-- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
+- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
+- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
 
 
 ##<a name="test"></a>Testare il programma nell'emulatore
@@ -167,7 +167,7 @@ Per impostazione predefinita, HDInsight Emulator usa HDFS (Hadoop Distributed Fi
 
 In questa esercitazione viene utilizzata la struttura di cartelle seguente:
 
-<table border="1"> <tr><td>Cartella</td><td>Nota</td></tr> <tr><td>\\WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr> <tr><td>\\WordCount\\Apps</td><td>Cartella per i file eseguibili di mapper e reducer.</td></tr> <tr><td>\\WordCount\\Input</td><td>Cartella dei file di origine di MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>Cartella dei file di output di MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>Cartella di output del processo.</td></tr> </table></br>
+<table border="1"> <tr><td>Cartella</td><td>Nota</td></tr> <tr><td>\WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr> <tr><td>\WordCount\Apps</td><td>Cartella per i file eseguibili di mapper e reducer.</td></tr> <tr><td>\WordCount\Input</td><td>Cartella dei file di origine di MapReduce.</td></tr> <tr><td>\WordCount\Output</td><td>Cartella dei file di output di MapReduce.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>Cartella di output del processo.</td></tr> </table></br>
 
 In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop_home%.
 
@@ -215,7 +215,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per eseguire il processo MapReduce tramite Azure PowerShell**
 
-1. Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure]. 
+1. Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install]. 
 3. Per impostare le variabili, eseguire i comandi seguenti.
 
 		$clusterName = "http://localhost:50111"
@@ -278,7 +278,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 	È possibile aggiungere "|more" alla fine del comando per ottenere la visualizzazione della pagina
 
 ##<a id="upload"></a>Caricare dati nell'archivio BLOB di Azure
-Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. È possibile configurare un cluster HDInsight per l'utilizzo di archiviazione BLOB aggiuntiva per i file di dati. In questa sezione verrà creato un account di archiviazione di Azure e i file di dati verranno caricati nell'archivio BLOB. I file di dati sono file con estensione txt disponibili nella directory %hadoop_home%\\share\\doc\\hadoop\\common.
+Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. È possibile configurare un cluster HDInsight per l'utilizzo di archiviazione BLOB aggiuntiva per i file di dati. In questa sezione verrà creato un account di archiviazione di Azure e i file di dati verranno caricati nell'archivio BLOB. I file di dati sono file con estensione txt disponibili nella directory %hadoop_home%\share\doc\hadoop\common.
 
 
 **Per creare un account di archiviazione e un contenitore**
@@ -316,7 +316,7 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Si noti che la cartella di file di origine locale è **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** e la cartella di destinazione è **WordCount/Input**. Il percorso di origine è il percorso dei file txt nell'emulatore HDInsight. La destinazione è la struttura di cartelle che sarà rispecchiata nel contenitore BLOB di Azure.
+	Si noti che la cartella di file di origine locale è **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** e la cartella di destinazione è **WordCount/Input**. Il percorso di origine è il percorso dei file txt nell'emulatore HDInsight. La destinazione è la struttura di cartelle che sarà rispecchiata nel contenitore BLOB di Azure.
 
 3. Eseguire i comandi seguenti per ottenere un elenco dei file con estensione txt disponibili nella cartella di file di origine:
 
@@ -540,7 +540,7 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flusso dell'applicazione per il conteggio di parole MapReduce"
 
@@ -549,5 +549,6 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

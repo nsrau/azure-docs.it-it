@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure"
+	pageTitle="Configurare un nome di dominio personalizzato nel servizio app di Azure"
 	description="Ulteriori informazioni su come usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure."
 	services="app-service\web"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
-# Configurazione di un nome di dominio personalizzato nel servizio app di Azure
+# Configurare un nome di dominio personalizzato nel servizio app di Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="App Web" class="current">App Web</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="App Web con Traffic Manager">App Web con Traffic Manager</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Acquistare un dominio per app Web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">App Web con domini esterni</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">App Web con Gestione traffico</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 </div>
 
@@ -27,14 +27,14 @@
 
 Quando si crea un'app Web, Azure la assegna a un sottodominio di azurewebsites.net. Ad esempio, se l'app Web è denominata **contoso**, l'URL corrisponderà a **contoso.azurewebsites.net**. Azure assegna anche un indirizzo IP virtuale.
 
-Per un'app Web di produzione, è probabile che l'amministratore desideri che gli utenti vedano un nome di dominio personalizzato. In questo articolo viene spiegato come configurare un dominio personalizzato utilizzando il [Servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714). L'articolo fornisce istruzioni di carattere generale per qualsiasi registrar di dominio. Le schede riportate all'inizio dell'articolo consentono di visualizzare articoli relativi a registrar specifici.
+Per un'app Web di produzione, è probabile che l'amministratore desideri che gli utenti vedano un nome di dominio personalizzato. Questo articolo spiega come acquistare e configurare un dominio personalizzato con [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). L'articolo fornisce istruzioni di carattere generale per qualsiasi registrar di dominio. Le schede riportate all'inizio dell'articolo consentono di visualizzare articoli relativi a registrar specifici.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 
 ## Panoramica
 
-Di seguito sono riportati i passaggi generali per la configurazione di un nome di dominio personalizzato:
+Se si dispone già di un nome di dominio o si desidera riservare un dominio da altri registrar, questa è la procedura generale da seguire per definire un nome di dominio personalizzato per l'app Web:
 
 1. Riservare il nome di dominio. Questo processo non viene descritto in questo articolo. Sono disponibili numerosi registrar di dominio. Quando si esegue l'accesso, il sito del registrar fornisce la procedura per il processo.
 1. Creare record DNS che eseguono il mapping del dominio all'app Web di Azure.
@@ -44,7 +44,7 @@ All'interno del quadro di base, esistono diversi casi specifici da prendere in c
 
 - Mapping del dominio radice. Il dominio radice è il dominio riservato con il registrar, ad esempio **contoso.com**.
 - Mapping di un sottodominio, ad esempio **blogs.contoso.com**. È possibile eseguire il mapping di sottodomini a differenti app Web.
-- Mapping di un carattere jolly, ad esempio, ***.contoso.com**. Una voce con caratteri jolly si applica a tutti i sottodomini del dominio.
+- Mapping di un carattere jolly, ad esempio ***.contoso.com**. Una voce con caratteri jolly si applica a tutti i sottodomini del dominio.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -61,7 +61,7 @@ Se l'indirizzo IP cambia, una voce CNAME resta valida, mentre un record A deve e
 > [AZURE.NOTE]L'indirizzo IP può cambiare se si elimina e si crea nuovamente l'app Web oppure se la sua modalità viene reimpostata su gratuita.
 
 
-## Individuazione dell'indirizzo IP virtuale
+## Trovare l'indirizzo IP virtuale
 
 Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un record A, è necessario disporre dell'indirizzo IP virtuale dell'app Web. Per ottenere l'indirizzo IP:
 
@@ -72,7 +72,7 @@ Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un reco
 5.	Nella pagina **Elementi essenziali**, fare clic su **Tutte le impostazioni**.
 6.	Fare clic su **Domini e SSL personalizzati**. L'indirizzo IP si trova nella parte inferiore della pagina (proprio al di sopra della sezione **Binding SSL**).
 
-## Creazione dei record DNS
+## Creare i record DNS
 
 Accedere al registrar di dominio e usare i relativi strumenti per aggiungere un record A o CNAME. L'app Web di ogni registrar è leggermente differente. Di seguito, sono riportate le linee guida comuni.
 
@@ -108,8 +108,10 @@ Si supponga che il nome di dominio personalizzato sia contoso.com. In questo cas
 - **contoso.com** associato a 127.0.0.1.
 - **www.contoso.com** associato a **contoso.azurewebsites.net**.
 
+>[AZURE.NOTE]È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns-web-sites-custom-domain).
+
 <a name="awverify" />
-## Creazione di un record "awverify" (solo record A)
+## Creare un record awverify (solo record A)
 
 Se si crea un record A, l'app web richiede anche uno speciale record CNAME usato per verificare che l'utente sia proprietario del dominio che sta tentando di usare. Tale record CNAME deve avere il formato seguente.
 
@@ -118,15 +120,20 @@ Se si crea un record A, l'app web richiede anche uno speciale record CNAME usato
 
 I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awverify, usato soltanto da Azure per la verifica del dominio.
 
-## Abilitazione del nome del dominio nell'app Web
+## Abilitare il nome del dominio nell'app Web
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
+
+## Passaggi successivi
+
+Per altre informazioni, vedere: [Introduzione a DNS di Azure](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) e [Delegare un dominio a DNS di Azure](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -137,5 +144,6 @@ I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awv
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

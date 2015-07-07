@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Eseguire un esempio MapReduce di Hadoop relativo al conteggio di parole in HDInsight | Azure"
-	description="Eseguire un esempio di conteggio delle parole MapReduce in un cluster Hadoop in HDInsight. Il programma, scritto in Java, conta le occorrenze delle parole in un file di testo."
+	pageTitle="Esempio MapReduce di Hadoop relativo al conteggio di parole in HDInsight | Microsoft Azure"
+	description="Eseguire un esempio MapReduce relativo al conteggio di parole in un cluster Hadoop in HDInsight. Il programma, scritto in Java, conta le occorrenze delle parole in un file di testo."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-#Eseguire un esempio MapReduce relativo al conteggio di parole in un cluster Hadoop in HDInsight
+#Eseguire un esempio MapReduce relativo al conteggio di parole scritto in Java in un cluster Hadoop in HDInsight
 
 Questa esercitazione mostra come eseguire un esempio MapReduce relativo al conteggio di parole in un cluster Hadoop in HDInsight. Il programma, scritto in Java, conta le occorrenze delle parole in un file di testo e fornisce come output un nuovo file di testo contenente ogni parola associata alla rispettiva frequenza. Il file di testo analizzato in questo esempio è l'edizione Project Gutenberg eBook di The Notebooks of Leonardo Da Vinci.
 
+> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un client Windows. Per i passaggi per l'utilizzo dell'esempio di conteggio di parole da un client Unix, Linux o OS con un cluster HDInsight basato su Linux, vedere [Usare MapReduce con Hadoop in HDInsight con SSH](hdinsight-hadoop-use-mapreduce-ssh.md) o [Usare MapReduce con Hadoop in HDInsight con Curl](hdinsight-hadoop-use-mapreduce-curl.md).
 
 **Si acquisiranno le nozioni seguenti:**
 
@@ -29,13 +30,15 @@ Questa esercitazione mostra come eseguire un esempio MapReduce relativo al conte
 
 **Prerequisiti**:
 
-- È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- È necessario avere completato il provisioning di un cluster HDInsight. Per istruzioni sui vari metodi di creazione di tali cluster, vedere [Introduzione all'uso di Azure HDInsight][hdinsight-get-started] o l'articolo [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
+- **Un cluster HDInsight**. Per istruzioni sui vari metodi di creazione di tali cluster, vedere [Introduzione all'uso di Azure HDInsight][hdinsight-get-started] o l'articolo [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
 
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-<h2><a id="run-sample"></a>Eseguire l'esempio con Azure PowerShell</h2>
+
+
+## <a id="run-sample"></a>Eseguire l'esempio con Azure PowerShell</h2>
 
 **Per inviare il processo a MapReduce**
 
@@ -95,7 +98,7 @@ Questa esercitazione mostra come eseguire un esempio MapReduce relativo al conte
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	La cartella */example/data/WordCountOutput* è la cartella di output specificata durante l'esecuzione del processo MapReduce. Il valore *part-r-00000* corrisponde al nome file predefinito per l'output del processo MapReduce. Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C. Il file verrà scaricato nella cartella *C:\\example\\data\\WordCountOutput*.
+	La cartella */example/data/WordCountOutput* è la cartella di output specificata durante l'esecuzione del processo MapReduce. Il valore *part-r-00000* corrisponde al nome file predefinito per l'output del processo MapReduce. Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C. Il file verrà scaricato nella cartella *C:\example\data\WordCountOutput*.
 
 5. Per stampare il file di output del processo MapReduce, eseguire il comando seguente:
 
@@ -110,7 +113,7 @@ L'output dello script WordCount dovrebbe essere visualizzato nella finestra dei 
 
 Si noti che i file di output di un processo MapReduce non sono modificabili. Se pertanto si esegue di nuovo l'esempio, è necessario cambiare il nome del file di output.
 
-<h2><a id="java-code"></a>Codice Java per il programma MapReduce WordCount</h2>
+## <a id="java-code"></a>Codice Java per il programma MapReduce WordCount</h2>
 
 
 
@@ -186,7 +189,7 @@ Si noti che i file di output di un processo MapReduce non sono modificabili. Se 
 
 In questa esercitazione è stato illustrato come eseguire un programma MapReduce per il conteggio delle occorrenze delle parole in un file di testo con HDInsight tramite Azure PowerShell.
 
-<h2><a id="next-steps"></a>Passaggi successivi</h2>
+## <a id="next-steps"></a>Passaggi successivi</h2>
 
 Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzioni per l'uso di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
@@ -210,8 +213,9 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

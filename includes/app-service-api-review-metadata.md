@@ -21,5 +21,8 @@ I contenuti predefiniti del file *apiapp.json* sono analoghi a quelli dell'esemp
 		    }
 		}
 
+Si noti l'endpoint `apiDefinition` `/swagger/docs/v1`: per impostazione predefinita, i progetti di app per le API usano il pacchetto NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) per fornire la generazione automatica dei metadati [Swagger](http://swagger.io/).
+
 Per questa esercitazione è possibile accettare le impostazioni predefinite. La sezione [Metadati delle app per le API](#api-app-metadata) più avanti nell'esercitazione illustra come personalizzare i metadati.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

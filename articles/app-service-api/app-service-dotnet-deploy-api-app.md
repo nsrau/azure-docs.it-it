@@ -67,9 +67,11 @@ In questa sezione verranno illustrati i passaggi necessari per distribuire un'ap
 
 	![Distribuzione dell'app per le API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-La finestra **Attività del servizio app di Azure** mostra l'avanzamento della distribuzione.
+	La finestra **Attività del servizio app di Azure** mostra l'avanzamento della distribuzione.
 
-![Notifica sullo stato della finestra Attività del servizio app di Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Notifica sullo stato della finestra Attività del servizio app di Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	Durante questo processo di distribuzione, Visual Studio riavvia automaticamente il *gateway*. Il gateway è un'app Web che gestisce le funzioni amministrative per tutte le app per le API in un gruppo di risorse e deve essere riavviato affinché riconosca le modifiche apportate all'API in un'app per le API. Se si usa un altro modo per distribuire un'app per le API e la distribuzione modifica l'API, potrebbe essere necessario riavviare il gateway manualmente. Per informazioni su come riavviare il gateway nel portale, vedere [Gestire un'app per le API](app-service-api-manage-in-portal.md).
 
 ## Visualizzare l'app nel portale di anteprima di Azure
 
@@ -102,7 +104,7 @@ In questa sezione si passerà al portale per visualizzare le impostazioni di bas
 
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
-	![Menu contestuale per la pubblicazione del progetto](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+	![Menu di scelta rapida per la pubblicazione del progetto](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
 
 7. Fare clic sulla scheda **Impostazioni**.
 
@@ -125,5 +127,6 @@ In questa sezione si passerà al portale per visualizzare le impostazioni di bas
 ## Passaggi successivi
 
 Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di eseguire rapidamente le attività di iterazione e distribuzione e di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

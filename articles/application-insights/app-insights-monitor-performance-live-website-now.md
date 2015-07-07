@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Diagnosi dei problemi di prestazioni in un sito Web in esecuzione" 
-	description="Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Usare la versione autonoma o con Application Insights SDK" 
+	description="Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Usare la versione autonoma o con Application Insights SDK per ottenere la telemetria di dipendenza." 
 	services="application-insights" 
-documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,57 +12,67 @@ documentationCenter=".net"
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/23/2015" 
+	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
 
-# Monitorare le prestazioni in un sito Web attivo
+# Installare Application Insights Status Monitor per monitorare le prestazioni del sito Web
 
 *Application Insights è disponibile in anteprima.*
 
-Se un'applicazione Web non funziona correttamente, è possibile diagnosticare rapidamente eccezioni e problemi di prestazioni senza ricompilarla o ridistribuirla. È sufficiente installare l'agente di Application Insights nel server per individuare i colli di bottiglia delle prestazioni e ottenere le analisi dello stack per tutte le eccezioni. 
+Application Insights Status Monitor di Visual Studio consente di diagnosticare le eccezioni e i problemi di prestazioni nelle applicazioni Web eseguite in qualsiasi server IIS. Basta installarlo sul proprio server Web IIS per instrumentare le app Web ASP.NET rilevate, inviando i dati al portale di Application Insights per poi poter condurre ricerche e analisi. È possibile installarlo in qualsiasi server fisico o virtuale a cui si ha accesso come amministratore.
+
+![grafici di esempio](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+
+È possibile scegliere di applicare Application Insights alle applicazioni Web IIS in tre modi:
+
+* **Tempo di compilazione:** [Aggiungere Application Insights SDK][greenbrown] al codice dell'app Web: Il risultato è il seguente:
+ * Una gamma di diagnostica standard e telemetria relativa all'utilizzo. 
+ * È anche possibile usare l'[API di Application Insights][api] se si vogliono scrivere i propri dati di telemetria per tenere traccia dell'utilizzo o diagnosticare i problemi.
+* **Tempo di esecuzione**: usare Status Monitor per instrumentare l'app Web sul server.
+ * Monitorare le app Web che sono già in esecuzione, senza doverle ricompilare o ripubblicare.
+ * Una gamma di diagnostica standard e telemetria relativa all'utilizzo.
+ * Diagnostica delle dipendenze: trovare gli errori o le prestazioni scarse in cui l'app usa altri componenti come database, API REST o altri servizi.
+ * Risolvere eventuali problemi di telemetria.
+* **Entrambi:** compilare l'SDK nel codice dell'app Web ed eseguire Status Monito nel server Web. Offre le migliori funzionalità:
+ * Diagnostica standard e telemetria relativa all'utilizzo.
+ * Diagnostica delle dipendenze.
+ * Scrittura di dati di telemetria personalizzati usando l'API.
+ * Risolvere eventuali problemi dell'SDK e di telemetria.
 
 
-#### Per usare questo metodo per configurare Application Insights
 
-Questo approccio viene usato in genere per diagnosticare rapidamente problemi di prestazioni in un sito Web IIS attivo.
+> [AZURE.TIP]Nel caso si tratti di un'[app Web del Servizio app di Azure](../app-service-web/websites-learning-map.md), [aggiungere Application Insights SDK][greenbrown] quindi [aggiungere l'estensione di Application Insights](../insights-perf-analytics.md) dal pannello di controllo dell'app in Azure.
 
-È infatti sufficiente installare un agente nel server per visualizzare i dati relativi alle prestazioni in Application Insights.
 
-- Lo stesso approccio è valido anche per un'app ASP.NET ospitata in un server IIS.
+## Installare Application Insights Status Monitor sul proprio server Web IIS
 
-- Per visualizzare i dati, server un [account Microsoft Azure](http://azure.com).
+1. È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com). 
 
-- È necessario l'accesso amministrativo al server in cui è in esecuzione l'app Web. 
+1. Nel server Web IIS accedere con le credenziali di amministratore.
+2. Scaricare e installare il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-- *Non è* necessario il codice dell'app Web, né occorre ricompilare o ridistribuire l'app. 
-
-- Questo metodo consente di instrumentare l'app Web così com'è, senza inserire codice per la traccia o il log, anche se è possibile effettuare in seguito questa operazione.
-
-Per inserire le tracce di registrazione o diagnostiche, non procedere nella lettura di questo articolo, ma [aggiungere Application Insights al progetto][greenbrown] e ridistribuirlo. Per conoscere l'intera gamma di opzioni, leggere [Introduzione ad Application Insights][start].
-
-## Installare l'agente di Application Insights nel server Web
-
-1. Nel server Web accedere con le credenziali di amministratore.
-
-2. Assicurarsi che sia installata la versione 5.0 o successiva di [Installazione guidata piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx)..
-3. Installare l'agente di Application Insights tramite Installazione guidata piattaforma Web.
-
-    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-031-wpi.png)
 4. Nell'Installazione guidata accedere a Microsoft Azure.
 
-    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-5. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare il nome con cui visualizzare i risultati nel portale Application Insights. Fare infine clic sul pulsante 'Aggiungi'.
+    ![Accedere ad Azure con le credenziali dell'account Microsoft](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
-    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
+5. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare la risorsa in cui visualizzare i risultati nel portale Application Insights.
 
-    In genere, è consigliabile scegliere di creare una nuova risorsa.
+    ![Scegliere un'applicazione e una risorsa.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    È possibile usare una risorsa esistente se, ad esempio, sono già stati configurati [test web][availability] per il sito.  
+    In genere, è consigliabile scegliere di configurare una nuova risorsa e un nuovo [gruppo di risorse][roles].
 
-6. Si noti che ApplicationInsights.config è stato inserito tra i siti Web da monitorare.
+    È possibile usare una risorsa esistente se sono già stati configurati [test Web][availability] per il sito o il [monitoraggio del client Web][client].
 
-    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
+6. Riavviare IIS.
+
+    ![Scegliere Riavvia nella parte superiore della finestra di dialogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
+
+    Il servizio Web verrà interrotto per un breve periodo di tempo.
+
+6. Si noti che ApplicationInsights.config è stato inserito tra le app Web da monitorare.
+
+    ![Trovare il file con estensione config insieme ai file di codice dell'app Web.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
 
    Sono inoltre state apportate alcune modifiche al file web.config.
 
@@ -70,49 +80,94 @@ Per inserire le tracce di registrazione o diagnostiche, non procedere nella lett
 
 Dopo aver completato la procedura guidata, è possibile riconfigurare l'agente in qualsiasi momento. È inoltre possibile usare questa stessa procedura se l'agente è stato installato ma la configurazione iniziale presenta alcuni problemi.
 
-![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+![Fare clic sull'icona di Application Insights sulla barra delle applicazioni](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
 
-## Visualizzare i dati
+## Visualizzare i dati di telemetria relativi alle prestazioni
 
-Aprire l'account in Azure, passare a Application Insights e aprire la risorsa creata.
+Accedere al [portale di anteprima di Azure](http://portal.azure.com), passare ad Application Insights e aprire la risorsa creata.
 
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
+![Scegliere Sfoglia, Application Insights, quindi selezionare l'app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
-I dati sono visualizzati in Integrità applicazione.
+Aprire il pannello Prestazioni per vedere la dipendenza e altri dati.
 
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-037-results.png)
+![Prestazioni](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-#### Dati non visualizzati
+Fare clic su qualsiasi grafico per visualizzare altri dettagli.
+
+
+![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+
+#### Dipendenze
+
+I grafici denominati HTTP, SQL e AZUREBLOB mostrano i tempi di risposta e il numero di chiamate alle dipendenze, cioè i servizi esterni usati dall'applicazione.
+
+
+
+#### Contatori delle prestazioni
+
+Fare clic su qualsiasi contatore delle prestazioni per modificare la visualizzazione. In alternativa, è possibile aggiungere un nuovo grafico.
+ 
+#### Eccezioni
+
+![Fare clic nel grafico di eccezioni del server](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
+
+È possibile eseguire il drill down di eccezioni specifiche (degli ultimi sette giorni) e ottenere le analisi dello stack e i dati di contesto.
+
+
+### Nessun dato di telemetria?
 
   * Usare il sito per generare alcuni dati.
-  * Attendere qualche minuto l'arrivo dei dati.
-  * Assicurarsi che il firewall del server consenta il traffico in uscita sulla porta 443 a dc.services.visualstudio.com 
+  * Attendere qualche minuto l'arrivo dei dati, quindi fare clic su Aggiorna.
+  * Aprire il riquadro Ricerca diagnostica (il riquadro Ricerca) per visualizzare i singoli eventi. Gli eventi sono spesso visibili in Ricerca diagnostica prima che vengano visualizzati i dati aggregati nei grafici.
+  * Aprire Status Monitor e selezionare la propria applicazione nel pannello a sinistra. Verificare se sono presenti messaggi di diagnostica per l'applicazione nella sezione "Configuration notifications":
+  
+  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-#### Come usare i report di Integrità applicazione?
- * [Informazioni sui dati e sulla configurazione dei riquadri][perf]
+  * Assicurarsi che il firewall del server consenta il traffico in uscita sulla porta 443 a dc.services.visualstudio.com. 
+  * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti:
+  * In Gestione IIS, selezionare il pool di applicazioni, aprire Impostazioni avanzate e prendere nota dell'identità in Modello di processo.
+  * Nel pannello di controllo Gestione computer, aggiungere questa identità al gruppo Utenti di Performance Monitor.
+  * Vedere [Risoluzione dei problemi][qna].
+
+## Requisiti di sistema
+
+Supporto del sistema operativo per Application Insights Status Monitor sul server
+
+- Windows Server 2008
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+con la Service Pack più recente e .NET Framework 4.0 e 4.5
+
+Sul lato client Windows 7, 8 e 8.1, con .NET Framework 4.0 e 4.5
+
+Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 ## <a name="next"></a>Passaggi successivi
 
+* [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
+* [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
+* [Aggiungere dati di telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
+* [Aggiungere Application Insights SDK al codice del servizio Web][greenbrown] per poter inserire chiamate di traccia e log nel codice del server.
 
-[Visualizzare i dati][perf]
+## Video
 
-[Ricerca nei registri di diagnostica][diagnostic]
+#### Monitoraggio delle prestazioni
 
-[Test Web][availability]
+[AZURE.VIDEO app-insights-performance-monitoring]
 
-[Configurare il monitoraggio dell'utilizzo][start]
+<!--Link references-->
 
-[Risoluzione dei problemi][qna]
+[api]: app-insights-api-custom-events-metrics.md
+[availability]: app-insights-monitor-web-app-availability.md
+[client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[roles]: app-insights-resources-roles-access-control.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
-
-
-
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

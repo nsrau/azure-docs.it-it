@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,15 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
 
 Si vogliono effettuare alcune analisi personalizzate sui dati di telemetria? Oppure forse si vuole un messaggio di avviso di posta elettronica relativo a eventi con proprietà specifiche? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.
 
+La funzionalità Esportazione continua è disponibile nel periodo di valutazione gratuita e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Configurare l'esportazione continua
+## <a name="setup"></a> Configurare Esportazione continua
 
 Nel pannello Panoramica dell'applicazione nel portale di Application Insights, aprire Esportazione continua:
 
@@ -45,6 +46,7 @@ Se si vogliono modificare i tipi di eventi in un secondo momento, è sufficiente
 Per interrompere il flusso, fare clic su Disabilita. Quando si fa nuovamente clic su Abilita, il flusso verrà riavviato con nuovi dati. Non si otterranno i dati che arrivano nel portale mentre l'esportazione è stata disabilitata.
 
 Per interrompere il flusso in modo permanente, eliminare l'esportazione. Questa operazione non elimina i dati dalla risorsa di archiviazione.
+
 #### Non si riesce ad aggiungere o modificare un'esportazione?
 
 * Per aggiungere o modificare le esportazioni, è necessario avere i diritti di accesso proprietario, collaboratore o collaboratore di Application Insights. [Informazioni sui ruoli][roles].
@@ -58,7 +60,7 @@ I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazion
 
 Le metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati da cui viene calcolata la media.
 
-## <a name="get"></a> Come si ottengono?
+## <a name="get"></a> Esaminare i dati
 
 Quando si apre l'archivio BLOB con uno strumento come [Esplora Server](http://msdn.microsoft.com/library/azure/ff683677.aspx), si noterà un contenitore con un set di file BLOB. L'URI di ogni file è application-id/telemetry-type/date/time.
 
@@ -66,18 +68,11 @@ Quando si apre l'archivio BLOB con uno strumento come [Esplora Server](http://ms
 
 La data e ora sono UTC e lo sono quando i dati di telemetria sono stati depositati nell'archivio, non l'ora in cui sono stati generati. Di conseguenza, se si scrive codice per scaricare i dati, è possibile spostarlo in modo lineare attraverso i dati.
 
-Per scaricare questi dati in modo programmatico, usare l'[API REST dell'archivio BLOB](../storage-dotnet-how-to-use-blobs.md#configure-access) o i [cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-In alternativa, considerare [DataFactory](http://azure.microsoft.com/services/data-factory/), in cui è possibile impostare pipeline per la gestione di dati su larga scala.
-
-La scrittura di un nuovo BLOB viene avviata a tutte le ore (se vengono ricevuti gli eventi). Di conseguenza, è necessario sempre eseguire elaborazioni fino all'ora precedente, ma attendere l'ora corrente per il completamento.
-
-[Esempio di codice][exportcode]
 
 
-## <a name="format"></a> Che aspetto hanno i dati?
+## <a name="format"></a> Formato dati
 
-* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
+* Ogni BLOB è un file di testo che contiene più righe separate da '\n'.
 * Ogni riga è un documento JSON non formattato. Se si vuole stare seduti e esaminali, usare un visualizzatore, ad esempio Blocco note++ con il plug-in JSON:
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
@@ -90,9 +85,9 @@ Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi v
 
 
 
-## Come eseguire l'elaborazione?
+## Elaborazione dei dati
 
-Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. ad esempio:
+Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. Ad esempio:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -111,8 +106,17 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
       }
     }
 
+Per un esempio di codice più esaustivo, vedere la sezione in cui viene [usato un ruolo di lavoro][exportasa].
 
-In alternativa, è possibile spostarli in un database SQL; vedere l'[esempio di codice][exportcode].
+#### Esportare in SQL
+
+È anche possibile spostare i dati in un database SQL, dove è possibile eseguire analisi più dettagliate.
+
+Gli esempi disponibili illustrano i due metodi alternativi per spostare i dati dall'archivio BLOB a un database:
+
+* [Esportare in SQL usando un ruolo di lavoro][exportcode]
+* [Esportare in SQL usando Analisi dei flussi][exportasa]
+
 
 Su scala più grande valutare i cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
 
@@ -129,10 +133,6 @@ Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare
 
 L'esportazione continua verrà riavviata.
 
-
-## Esempio di codice
-
-[Spostare i dati esportati in un database SQL][exportcode]
 
 ## Domande e risposte
 
@@ -170,7 +170,9 @@ L'esportazione continua verrà riavviata.
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

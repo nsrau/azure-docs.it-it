@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analizzare ed elaborare documenti JSON con Hive in HDInsight | Microsoft Azure"
-   description="Informazioni su come usare e analizzare i documenti JSON usando Hive in HDInsight"
+   description="Informazioni su come usare e analizzare i documenti JSON usando Hive in HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -122,7 +122,7 @@ Questa funzione definita dall'utente presenta alcune limitazioni.
 
 
 - Una delle limitazioni principali è dovuta al fatto che questa funzione definita dall'utente non offre prestazioni elevate, poiché ogni campo della query richiede una nuova analisi della query, influendo negativamente sulle prestazioni.
-- Secondariamente, get_json_object() restituisce una rappresentazione di stringa di una matrice. Per convertirla in una matrice Hive, sarà necessario usare le espressioni regolari per sostituire le parentesi quadre '[' e ']' e quindi chiamare una suddivisione per ottenere la matrice.
+- Secondariamente, get_json_object() restituisce una rappresentazione di stringa di una matrice. Per convertirla in una matrice Hive, sarà necessario usare le espressioni regolari per sostituire le parentesi quadre (‘[' e ']’), quindi chiamare una suddivisione per ottenere la matrice.
 
 
 Il wiki relativo a Hive consiglia quindi di usare json_tuple, come illustrato più avanti.
@@ -157,11 +157,11 @@ Passaggio 1: Assicurarsi che [Java SE Development Kit 7u55 JDK 1.7.0_55](http://
 
 
 - Se si usa la distribuzione Windows di HDInsight, scegliere la versione Windows x64 del JDK.
-- Al termine dell'installazione, passare a Pannello di controllo --> Aggiungi Variabili di ambiente e aggiungere una nuova variabile di ambiente JAVA_HOME facendo riferimento a C:\\Programmi\\Java\\jdk1.7.0_55 o al percorso di installazione del JDK. Le schermate seguenti illustrano la procedura di configurazione della variabile di ambiente.
+- Al termine dell'installazione, passare a Pannello di controllo --> Aggiungi Variabili di ambiente e aggiungere una nuova variabile di ambiente JAVA_HOME facendo riferimento a C:\Programmi\Java\jdk1.7.0_55 o al percorso di installazione del JDK. Le schermate seguenti illustrano la procedura di configurazione della variabile di ambiente.
 
 ![Configurazione dei valori di configurazione corretti per JDK][image-hdi-hivejson-jdk]
 
-Passaggio 2: Selezionare [questo](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) collegamento e scaricare Maven 3.3.1. Decomprimere l'archivio in cui archiviare i file binari. In questo caso verrà decompresso in C:\\Programmi\\Maven. Aggiungere la cartella bin al percorso scegliendo Pannello di controllo-->Modificare le variabili di ambiente relative al sistema per l'account. La schermata seguente illustra la procedura.
+Passaggio 2: Selezionare [questo](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) collegamento e scaricare Maven 3.3.1. Decomprimere l'archivio in cui archiviare i file binari. In questo caso verrà decompresso in C:\Programmi\Maven. Aggiungere la cartella bin al percorso scegliendo Pannello di controllo-->Modificare le variabili di ambiente relative al sistema per l'account. La schermata seguente illustra la procedura.
 
 ![Configurazione di Maven][image-hdi-hivejson-maven]
 
@@ -171,9 +171,9 @@ Passaggio 3: Clonare il progetto dal sito GitHub [Hive-JSON-SerDe](https://githu
 
 Passaggio 4: Passare alla cartella in cui è stato scaricato il pacchetto, quindi digitare "mvn package". Verranno creati i file jar necessari, che verranno quindi copiati nel cluster.
 
-Passaggio 5: Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin o in una cartella analoga.
+Passaggio 5: Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin o in una cartella analoga.
  
-Passaggio 6: Nel prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\\apps\\dist\\hive-0.13.x\\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
+Passaggio 6: Nel prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\apps\dist\hive-0.13.x\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -258,6 +258,6 @@ Il team di HDInsight si impegna per semplificare sempre più l'uso di più forma
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

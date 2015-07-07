@@ -1,26 +1,26 @@
 <properties
-	 pageTitle="Elaborare i dati del sensore veicolo con gli hub eventi di Azure e Apache Storm in HDInsight"
-	 description="Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight Durante l'elaborazione, i dati vengono arricchiti cercando le informazioni sul modello del veicolo in DocumentDB. Infine i dati vengono scritti in Archiviazione di Azure."
-	 services="hdinsight"
-	 documentationCenter=""
-	 authors="Blackmist"
-	 manager="paulettm"
-	 editor="cgronlun"/>
+ pageTitle="Elaborare i dati del sensore veicolo con Apache Storm in HDInsight | Microsoft Azure"
+ description="Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi usando Apache Storm in HDInsight Aggiungere i dati del modello del database DocumentDB e archiviarne l'output nella risorsa di archiviazione."
+ services="hdinsight,documentdb,notification-hubs"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="04/28/2015"
-	ms.author="larryfr"/>
+ms.service="hdinsight"
+ms.devlang="java"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="big-data"
+ms.date="04/28/2015"
+ms.author="larryfr"/>
 
-#Elaborare i dati del sensore dagli hub eventi di Azure usando Apache Storm in HDInsight
+#Elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight
 
 Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight Questo esempio legge i dati del sensore dagli hub eventi di Azure, arricchisce i dati facendo riferimento ai dati archiviati in Azure DocumentDB e infine archivia i dati in Archiviazione di Azure usando il file system Hadoop (HDFS).
 
-![diagramma dell'architettura](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![HDInsight e il diagramma dell'architettura IoT (Internet of Things)](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Panoramica
 
@@ -57,6 +57,6 @@ Una soluzione completa e automatizzata per questo scenario è disponibile nel re
 ## Passaggi successivi
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

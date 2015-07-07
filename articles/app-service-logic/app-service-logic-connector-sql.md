@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Connector" 
+   pageTitle="Uso del connettore SQL in Microsoft Azure App Service" 
    description="Come usare SQL Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,162 +13,125 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Microsoft SQL Connector #
+# Microsoft SQL Connector
 
-I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. Esistono scenari in cui è necessario lavorare con database SQL in SQL Azure o SQL Server (installato in locale e protetto da un firewall). Inserendo SQL Connector nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:  
+Connettersi a un'istanza di SQL Server in locale o a un database SQL di Azure per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore SQL nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
-1.	Esporre una sezione dei dati presenti nel database SQL tramite un front-end utente mobile o Web.
-2.	Aggiungere dati alla tabella del database SQL per l'archiviazione, ad esempio record relativi ai dipendenti, ordini di vendita e così via
-3.	Estrarre dati da SQL per usarli in un processo aziendale
+- Esporre una sezione dei dati presenti nel database SQL usando un'applicazione Web o per dispositivi mobili. 
+- Aggiungere dati alla tabella del database SQL per l'archiviazione. Ad esempio, è possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
+- Ottenere dati da SQL per usarli in un processo aziendale. Ad esempio, è possibile ottenere i record cliente e inserirli in SalesForce. 
 
-Per questi scenari è necessario quanto segue: 
+## Trigger e azioni
+I *trigger* sono eventi che si verificano, ad esempio, quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger; ad esempio, quando si aggiorna un ordine, inviare un avviso al venditore oppure, quando si aggiunge un nuovo cliente, inviargli/le un messaggio di benvenuto.
 
-1. Creare un'istanza dell'app per le API SQL Connector
-2. Stabilire la connettività ibrida per la comunicazione tra l'app per le API e il sistema SQL locale. Questo passaggio è facoltativo. È obbligatorio solo per SQL Server installato in locale, non per SQL Azure.
-3. Usare l'app per le API creata in un'app per la logica per ottenere il processo aziendale desiderato
+Il connettore SQL può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML.
 
-	###Trigger e azioni di base
-		
-    - Polling dei dati (trigger) 
-    - Inserimento nella tabella
-    - Aggiornamento della tabella
-    - Selezione dalla tabella
-    - Eliminazione dalla tabella
-    - Chiamata a una stored procedure
+Il connettore SQL ha a disposizione i seguenti trigger e azioni:
 
-## Creare un'istanza dell'app per le API SQL Connector ##
+Trigger | Azioni
+--- | ---
+Poll Data | <ul><li>Inserimento nella tabella</li><li>Aggiornamento della tabella</li><li>Selezione dalla tabella</li><li>Eliminazione dalla tabella</li><li>Chiamata della stored procedure</li>
 
-Per usare SQL Connector è necessario creare un'istanza dell'app per le API SQL Connector. A questo scopo, procedere come segue:
+## Creare il connettore SQL
 
-1. Aprire Azure Marketplace con l'opzione '+ NUOVO' in basso a sinistra nel portale di Azure.
-2. Andare a "Web e dispositivi mobili > App per le API" e cercare "SQL Connector".
-3. Inserire i dettagli generici, come nome, piano di servizio app e così via nel primo pannello
-4. Specificare le impostazioni pacchetto indicate nella tabella seguente.	
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>Nome</th><th>Obbligatorio</th><th>Valore predefinito</th><th>Descrizione</th></tr>
- <tr><td>Server Name</td><td>Sì</td><td>&nbsp;</td><td>Specificare il nome di SQL Server, ad esempio "SQLserver", "SQLserver/sqlexpress" o "SQLserver.mydomain.com".</td></tr>
- <tr><td>Port</td><td>No</td><td> 1433</td><td>Facoltativo. Il numero di porta in cui viene stabilita la connessione. Se non si specifica un valore, il connettore si connette tramite la porta predefinita.</td></tr>
- <tr><td>User Name</td><td>Sì</td><td>&nbsp;</td><td>Specificare un nome utente valido per la connessione a SQL Server.</td></tr>
- <tr><td>Password</td><td>Sì</td><td>&nbsp;</td><td>Specificare un nome utente valido per la connessione a SQL Server.</td></tr>
- <tr><td>Database Name</td><td>Sì</td><td>&nbsp;</td><td>Specificare un nome di database valido in SQL Server, ad esempio "orders", "dbo/orders" o "myaccount/employees".</td></tr>
- <tr><td>On-Premises</td><td>Sì</td><td>FALSE</td><td>Specificare se SQL Server installato in locale è protetto da firewall o no. Se impostato su TRUE, è necessario installare un agente listener in un server che può accedere a SQL Server. Per installare l'agente, passare alla pagina di riepilogo dell'app per le API e fare clic su  'Hybrid Connection'.</td></tr>
- <tr><td>Service Bus Connection String</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare questo parametro se SQL Server è installato in locale. Deve trattarsi di una stringa di connessione valida allo spazio dei nomi del bus di servizio. Assicurarsi di usare l'edizione  'Standard' del bus di servizio di Azure, non l'edizione  'Basic'.</td></tr>
- <tr><td>Partner Server Name</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare il server partner a cui connettersi quando il server primario è inattivo.</td></tr>
- <tr><td>Tables</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare le tabelle del database che possono essere modificate dal connettore, ad esempio OrdersTable o EmployeeTable.</td></tr>
- <tr><td>Stored Procedures</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio IsEmployeeEligible o CalculateOrderDiscount.</td></tr>
- <tr><td>Data Available Query</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare l'istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Esempio: SELECT COUNT(*) from table_name.</td></tr>
- <tr><td>Poll Data Query</td><td>No</td><td>&nbsp;</td><td>Facoltativo. Specificare l'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile specificare un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Esempio: SELECT * from table_name; DELETE from table_name. NOTA: è necessario specificare l'istruzione di polling in modo che non determini un ciclo infinito. Un'operazione di selezione, ad esempio, deve essere seguita da un'operazione di eliminazione, mentre un'operazione di selezione in base a un flag deve essere seguita da un'operazione di aggiornamento del flag stesso.</td></tr>
-</table>
+1. Nella schermata iniziale di Azure selezionare **Marketplace**.
+2. Selezionare **App per le API** e cercare "Connettore SQL".
+3. Immettere il Nome, il Piano di servizio app e altre proprietà.
+4. Immettere le impostazioni pacchetto seguenti:
 
+	Nome | Obbligatorio | Descrizione
+--- | --- | ---
+Server Name | Sì | Immettere il nome dell'istanza di SQL Server, ad esempio *SQLserver/sqlexpress* o *SQLserver.mydomain.com*.
+Port | No | Il valore predefinito è 1433.
+User Name | Sì | Immettere un nome utente che può accedere all'istanza di SQL Server. Se ci si connette a un'istanza di Server SQL locale, immettere dominio\nome utente. 
+Password | Sì | Immettere il nome utente e la password.
+Database Name | Sì | Immettere il database a cui connettersi, ad esempio *Customers* o *dbo/orders*.
+On-Premises | Sì | Il valore predefinito è False. Immettere False per la connessione a un database SQL di Azure. Immettere True per la connessione a un'istanza di Server SQL locale. 
+Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup. 
+Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide. 
+Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp_IsEmployeeEligible* o *sp_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide. 
+Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table_name. 
+Poll Data Query | Per il supporto dei trigger | Istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati. 
 
- ![][1]  
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
 
-## Configurazione ibrida (facoltativo) ##
-
-Nota: questo passaggio è obbligatorio solo se si utilizza SQL Server installato in locale e protetto da firewall.
-
-Individuare l'applicazione API creata scegliendo Sfoglia -> App per le API -> <Nome dell'app per le API creata>. Verrà visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita.
-
-![][2] 
-
-Per stabilire la connettività ibrida eseguire le operazioni seguenti:
-
-1. Copiare la stringa di connessione primaria
-2. Fare clic sul collegamento  'Download and Configure'
-3. Seguire il processo di installazione che viene avviato e, quando viene richiesto, fornire la stringa di connessione primaria
-4. Al termine del processo di installazione verrà visualizzata una finestra di dialogo simile alla seguente
-
-![][3] 
-
-A questo punto, quando si passa nuovamente all'app per le API creata, lo stato della connessione ibrida visualizzato sarà Connected. 
-
-![][4] 
-
-Nota: per passare alla stringa di connessione secondaria è sufficiente ripetere la configurazione della connessione ibrida e inserire la stringa di connessione secondaria al posto della stringa di connessione primaria.  
-
-## Utilizzo in un'app per la logica ##
-
-SQL Connector può essere usato come trigger o azione in un'app per la logica. Il trigger e tutte le azioni supportano i formati dati JSON e XML. Per ogni tabella fornita come parte delle impostazioni pacchetto sarà disponibile un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'app per le API Transform per convertire i dati in un altro formato dati XML. 
-
+## Usare il connettore come trigger
 In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella SQL, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
+Per usare il connettore SQL come trigger, immettere i valori per **Data Available Query** e **Poll Data Query**. **Data Available Query** viene eseguito in base alla pianificazione immessa e determina se sono disponibili dati. Poiché questa query restituisce solo un numero scalare, può essere ottimizzata per l'esecuzione frequente.
 
+**Poll Data Query** viene eseguito solo quando Data Available Query indica che sono disponibili dati. Questa istruzione viene eseguita all'interno di una transazione e ne viene eseguito il commit solo quando i dati estratti vengono archiviati in modo permanente nel flusso di lavoro. È importante evitare di estrarre sempre gli stessi dati. La natura transazionale di questa esecuzione può essere usata per eliminare o aggiornare i dati per garantire che non vengano raccolti la volta successiva che viene eseguita una query sui dati.
 
--  Quando si crea o modifica un'app per la logica, scegliere l'app per le API SQL Connector creata come trigger. In questo modo verranno elencati i trigger disponibili, ovvero Poll Data (JSON) e Poll Data (XML).
+> [AZURE.NOTE]Lo schema restituito da questa istruzione identifica le proprietà disponibili nel connettore. Tutte le colonne devono essere denominate.
 
- ![][5] 
+#### Esempio di Data Available Query
 
+	SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
 
-- Selezionare il trigger Poll Data (JSON), specificare la frequenza e fare clic su ✓.
+#### Esempio di Poll Data Query
 
-![][6] 
+	SELECT *, GetData() as 'PollTime' FROM [Order] 
+		WHERE OrderStatus = 'ProcessedForCollection' 
+		ORDER BY Id DESC; 
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
+		WHERE Id = 
+		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
+### Aggiungere il trigger
+1. Quando si crea o modifica un'app per la logica, selezionare il connettore SQL creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/> ![][5] 
 
+2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓: <br/> ![][6]
 
-- Il trigger verrà ora visualizzato come configurato nell'app per la logica. Verranno visualizzati gli output del trigger, che possono essere usati come input in azioni successive. 
+3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive: <br/> ![][7]
 
-![][7] 
+## Usare il connettore come azione
+Usando un semplice scenario di app per la logica che esegue il polling dei dati da una tabella SQL, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
+Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o delle stored procedure immesse durante la creazione del connettore del connettore SQL:
 
-- Selezionare lo stesso connettore SQL dalla raccolta come azione. Selezionare una delle azioni di inserimento, ovvero Insert Into TempEmployeeDetails (JSON).
+1. Dopo il trigger (o dopo aver scelto 'Esegui la logica manualmente'), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ossia *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
-![][8] 
+2. Immettere i valori di input del record da inserire e fare clic su ✓: <br/> ![][9]
 
+3. Dalla raccolta, selezionare lo stesso connettore SQL creato. Come azione, selezionare l'azione Update nella stessa tabella, ad esempio *Update EmployeeDetails*: <br/> ![][11]
 
-
-- Fornire gli input del record da inserire e fare clic su ✓. 
-
-![][9] 
-
-
-
-- Selezionare lo stesso connettore SQL dalla raccolta come azione. Selezionare l'azione di aggiornamento nella stessa tabella, ad esempio Update EmployeeDetails.
-
-![][11] 
-
-
-
-- Fornire gli input per l'azione di aggiornamento e fare clic su ✓. 
-
-![][12] 
+4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: <br/> ![][12]
 
 È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene effettuato il polling.
 
+## Configurazione ibrida (facoltativo)
+
+> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa SQL Server installato in locale e protetto da firewall.
+
+Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa un'istanza di SQL Server locale, è richiesta la Gestione connessione ibrida.
+
+Vedere [Uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
+
+
+## Più vantaggi con il connettore
+Dopo aver creato il connettore è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e il connettore](../app-service-api/app-service-api-manage-in-portal.md).
+
+
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.jpg
-[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-sql/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-sql/Create.png
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.png
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.png
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.png
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.png
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.png
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

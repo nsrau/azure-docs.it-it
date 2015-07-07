@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Utilizzo dei connettori" 
-   description="Utilizzo dei connettori" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Utilizzo dei connettori"
+   description="Utilizzo dei connettori"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@ Azure App Service fornisce una serie di connettori predefiniti:
 * [Connettore HTTP]
 * [Connettore Office 365]
 * [Connettore OneDrive]
-* [Connettore Oracle]
 * [Connettore POP3]
 * [Connettore QuickBooks]
 * [Connettore Salesforce]
@@ -53,18 +52,18 @@ Azure App Service fornisce una serie di connettori predefiniti:
 ##Connettori Premium e app per le API##
 * AS2 Connector
 * BizTalk EDIFACT
-* BizTalk Flat File Encoder
+* [BizTalk Flat File Encoder]
 * BizTalk Transform Service
-* BizTalk Rules
+* [BizTalk Rules]
 * BizTalk X12
-* BizTalk XPath Extractor
-* BizTalk XML Validator
+* [BizTalk XPath Extractor]
+* [BizTalk XML Validator]
 * DB2 Connector
 * Informix Connector
-* Oracle Database Connector
+* [Connettore Oracle]
 * MQ Connector
 * [SAP connector]
- 
+
 Per altre informazioni, vedere i riferimenti ai connettori e alle API [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Connettori e app per la logica##
@@ -108,6 +107,10 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 [Connettore OneDrive]: app-service-logic-connector-onedrive.md
 [Connettore File]: app-service-logic-connector-file.md
 [Connettore Slack]: app-service-logic-connector-slack.md
+[BizTalk Flat File Encoder]: app-service-logic-flatfile-encoder.md
+[BizTalk XPath Extractor]: app-service-logic-xpath-extract.md
+[BizTalk XML Validator]: app-service-logic-xml-validator.md
+[BizTalk Rules]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

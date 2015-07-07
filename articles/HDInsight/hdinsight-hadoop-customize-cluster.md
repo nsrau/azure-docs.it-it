@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalizzare cluster HDInsight mediante le azioni script | Azure" 
+	pageTitle="Personalizzare cluster HDInsight mediante le azioni script | Microsoft Azure" 
 	description="Informazioni su come personalizzare cluster HDInsight tramite le azioni script." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -43,7 +43,7 @@ Lo script viene richiamato dopo che il processo di creazione del cluster ha comp
 
 > [AZURE.NOTE]Perché durante la fase **ClusterCustomization** si dispone dei privilegi di amministratore sui nodi del cluster, è possibile usare lo script per eseguire operazioni come arresto e avvio dei servizi, inclusi quelli correlati a Hadoop. Pertanto, come parte dello script, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati a Hadoop siano attivi prima che lo script termini l'esecuzione. Questi servizi sono necessari per verificare correttamente l'integrità e lo stato del cluster durante la creazione. Se si modifica qualsiasi configurazione del cluster che influisce su questi servizi, è necessario usare le funzioni di supporto fornite. Per altre informazioni sulle funzioni di supporto, vedere [Sviluppo di azioni script con HDInsight][hdinsight-write-script].
 
-L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\\frammento-nome-cluster><\\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
+L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\frammento-nome-cluster><\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
 
 ## <a name="writescript"></a>Come scrivere uno script per la personalizzazione di un cluster
 
@@ -162,5 +162,6 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

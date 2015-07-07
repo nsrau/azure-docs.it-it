@@ -26,9 +26,9 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)
+- **Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)**
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ##<a id="powershell"></a>Eseguire un processo MapReduce con Azure PowerShell
 
@@ -172,5 +172,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

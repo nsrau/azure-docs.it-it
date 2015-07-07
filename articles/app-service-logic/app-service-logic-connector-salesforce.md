@@ -28,7 +28,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 Tra le impostazioni del pacchetto del connettore, l'utente può specificare le entità che il connettore può gestire e le azioni e i parametri di input e di output vengono popolati in modo dinamico. Di seguito sono elencate le diverse azioni disponibili nel connettore Salesforce.
  
-- Crea entità: usare questa azione per creare una nuova entità Salesforce, ad esempio un account o un caso.
+- Create Entity: usare questa azione per creare una nuova entità Salesforce, ad esempio un account, un case o un oggetto personalizzato
 
 - Aggiorna entità: usare questa azione per aggiornare un'entità Salesforce esistente
 
@@ -134,5 +134,6 @@ A questo punto è possibile creare un'app per le API per il connettore SalesForc
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

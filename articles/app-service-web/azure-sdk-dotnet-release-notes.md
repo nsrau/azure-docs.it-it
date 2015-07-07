@@ -22,6 +22,11 @@
 
 Questo argomento contiene collegamenti alle note sulla versione di Azure SDK per .NET.
 
+
+##Note sulla versione di Azure SDK per .NET 2.6
+
+[Note sulla versione di Azure SDK per .NET 2.6](azure-sdk-dotnet-release-notes-2_6.md)
+
 ##Note sulla versione di Azure SDK per .NET 2.5.1
 
 [Note sulla versione di Azure SDK per .NET 2.5.1](../app-service/app-service-release-notes.md)
@@ -54,5 +59,7 @@ Questo argomento contiene collegamenti alle note sulla versione di Azure SDK per
 
 [Azure SDK per .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[Note sulla versione di Azure SDK su MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx) <!--HONumber=52-->
+[Note sulla versione di Azure SDK su MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
+
+<!---HONumber=62-->

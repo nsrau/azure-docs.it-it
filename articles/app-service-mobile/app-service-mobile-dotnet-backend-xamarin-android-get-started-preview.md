@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/11/2014"
+	ms.topic="get-started-article"
+	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>Creare un'app per Xamarin Android
@@ -54,13 +54,13 @@ In questa esercitazione verrà scaricata una nuova app per Xamarin Android e un 
     Vengono visualizzati i tre semplici passaggi per creare un'app per Xamarin Android connessa al back-end dell'app per dispositivi mobili.
 
 
-3. Se necessario, scaricare e installare <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> nel computer locale o nella macchina virtuale.  
+3. Se necessario, scaricare e installare <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> nel computer locale o nella macchina virtuale.
 
 4. Se necessario, scaricare e installare [Xamarin Studio]. È anche possibile usare Xamarin per Visual Studio.
 
 5. In **Scaricare e pubblicare il servizio nel cloud** fare clic su **Scarica**.
 
-  Verrà scaricata una soluzione che contiene progetti sia per il codice del back-end dell'app per dispositivi mobili, sia per l'applicazione client _To do list_ di esempio connessa al back-end dell'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+  	Verrà scaricata una soluzione che contiene progetti sia per il codice del back-end dell'app per dispositivi mobili, sia per l'applicazione client _To do list_ di esempio connessa al back-end dell'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 6. Scaricare il proprio profilo di pubblicazione, salvare il file scaricato nel computer locale e prendere nota del percorso.
 
@@ -90,10 +90,9 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	![][10]
 
-	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end dell'app per dispositivi mobili e i dati vengono visualizzati nell'elenco.
+	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
 
-	> [AZURE.NOTE]
-   	> È possibile esaminare il codice che accede al back-end dell'app per dispositivi mobili per eseguire una query e inserire i dati trovati nel file C# ToDoActivity.cs.
+	> [AZURE.NOTE]È possibile esaminare il codice che accede al back-end per app mobili per eseguire una query e inserire i dati trovati nel file C# ToDoActivity.cs.
 
 
 
@@ -109,6 +108,6 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

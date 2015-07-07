@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Come configurare un ambiente del servizio app" 
 	description="Configurazione, gestione e monitoraggio degli ambienti del servizio app" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,7 +20,7 @@
 
 ## Panoramica ##
 
-Ambienti del servizio app è una nuova funzionalità del piano tariffario Premium offerta in anteprima. Offre nuove funzionalità di scalabilità e accesso alla rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento [Informazioni sull'ambiente del servizio app][WhatisASE] Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app][HowtoCreateASE].
+Ambienti del servizio app è una nuova funzionalità del piano tariffario Premium offerta in anteprima. Offre nuove funzionalità di scalabilità e accesso alla rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento disponible qui [Informazioni sull'ambiente del servizio app]/app-service-app-service-environment-intro.md). Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 In generale, un ambiente del servizio app è costituito da vari componenti principali:
 
@@ -30,7 +30,7 @@ In generale, un ambiente del servizio app è costituito da vari componenti princ
 - Rete virtuale con almeno una subnet
 - Subnet con il servizio ospitato Ambiente del servizio app in esecuzione al suo interno
 
-Per gestire e monitorare gli ambienti del servizio app, nel portale di Azure selezionare Sfoglia -> Ambienti del servizio app per accedere all'interfaccia utente dedicata. La versione iniziale offre tutte le opzioni necessarie per gestire il sistema e continuerà a migliorare tramite l'aggiunta di ulteriori funzionalità nelle prossime settimane.
+Per gestire e monitorare gli ambienti del servizio app, è possibile accedere all'interfaccia utente dedicata nel portale di anteprima di Azure selezionando Sfoglia -> Ambienti del servizio app. La versione iniziale offre tutte le opzioni necessarie per gestire il sistema e continuerà a migliorare tramite l'aggiunta di ulteriori funzionalità nelle prossime settimane.
 
 ![][1]
 
@@ -61,7 +61,7 @@ All'interno di un singolo pool di lavoro, i requisiti di tolleranza di errore pr
 - se X è compreso tra 21 e 40, la quantità di risorse di calcolo che si può usare per i carichi di lavoro è pari a X-2
 - se X è compreso tra 41 e 53, la quantità di risorse di calcolo che si può usare per i carichi di lavoro è pari a X-3
 
-Oltre a poter gestire la quantità di risorse di calcolo che si possono assegnare a un determinato pool, è anche possibile gestire le dimensioni. Con gli ambienti del servizio app, è possibile scegliere tra 4 dimensioni diverse, denominate da P1 a P4. Per informazioni dettagliate sulle dimensioni e sui rispettivi prezzi, vedere [Dettagli prezzi del servizio app][AppServicePricing]. Le dimensioni delle risorse di calcolo da P1 a P3 corrispondono a quelle disponibili normalmente. La risorsa di calcolo con dimensioni P4 offre 8 core con 14 GB di RAM ed è disponibile solo in un ambiente del servizio app.
+Oltre a poter gestire la quantità di risorse di calcolo che si possono assegnare a un determinato pool, è anche possibile gestire le dimensioni. Con gli ambienti del servizio app, è possibile scegliere tra 4 dimensioni diverse, denominate da P1 a P4. Per informazioni dettagliate sulle dimensioni e sui rispettivi prezzi, vedere [Dettagli prezzi del servizio app](../app-service/app-service-value-prop-what-is.md). Le dimensioni delle risorse di calcolo da P1 a P3 corrispondono a quelle disponibili normalmente. La risorsa di calcolo con dimensioni P4 offre 8 core con 14 GB di RAM ed è disponibile solo in un ambiente del servizio app.
 
 Come indicato in precedenza, la funzionalità Ambiente del servizio app è attualmente disponibile in anteprima e, in quanto tale, potrà ancora crescere in futuro. Oltre alle funzionalità di monitoraggio, verranno aggiunte altre funzionalità di gestione non appena gli ambienti del servizio app passeranno alla fase di disponibilità generale. Per ora, l'interfaccia consente di gestire solo alcuni elementi:
 
@@ -84,7 +84,7 @@ L'aggiunta di altre istanze a un pool di lavoro è un'operazione innocua che non
 - usare un pool di lavoro inutilizzato per aggiungere le istanze necessarie con le dimensioni desiderate
 - ridimensionare i piani di servizio app in base al nuovo pool di lavoro.  
  
-Rispetto alla modifica delle dimensioni della risorsa di calcolo mentre sono in esecuzione i carichi di lavoro, questa alternativa non genera alcun impatto sulle app in esecuzione. Per informazioni dettagliate sulla scalabilità delle app Web in un ambiente del servizio app, vedere [Scalabilità delle app Web in un ambiente del servizio app][HowtoScale].
+Rispetto alla modifica delle dimensioni della risorsa di calcolo mentre sono in esecuzione i carichi di lavoro, questa alternativa non genera alcun impatto sulle app in esecuzione. Per informazioni dettagliate sulla scalabilità delle app Web in un ambiente del servizio app, vedere [Scalabilità delle app Web in un ambiente del servizio app](app-service-web-scale-a-web-app-in-an-app-service-environment.md).
 
 ## Rete virtuale ##
 
@@ -98,7 +98,7 @@ La [rete virtuale][virtualnetwork] e la subnet sono controllate dall'utente. Gli
 
 Poiché il servizio app di Azure è collocato all'interno della rete virtuale, le app ospitate nell'ambiente del servizio app possono accedere direttamente alle risorse rese disponibili tramite le reti private virtuali ExpressRoute o da sito a sito. Le app all'interno degli ambienti del servizio app non richiedono ulteriori funzionalità di rete per accedere alle risorse disponibili nella rete virtuale che ospita l'ambiente del servizio app.
 
-Se necessario, è anche possibile controllare gli accessi tramite i gruppi di sicurezza di rete. Questa funzionalità consente di bloccare l'ambiente del servizio app e consentire l'accesso solo agli indirizzi IP desiderati. Per altre informazioni su come limitare gli accessi, vedere [Come controllare il traffico in ingresso in un ambiente del servizio app][ControlInbound].
+Se necessario, è anche possibile controllare gli accessi tramite i gruppi di sicurezza di rete. Questa funzionalità consente di bloccare l'ambiente del servizio app e consentire l'accesso solo agli indirizzi IP desiderati. Per altre informazioni su come limitare gli accessi, vedere [Come controllare il traffico in ingresso in un ambiente del servizio app](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Eliminazione di un ambiente del servizio app ##
 
@@ -106,10 +106,13 @@ Per eliminare un ambiente del servizio app, usare l'opzione Elimina nella parte 
 
 ## Introduzione
 
-Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE].
+Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/configureaseblade.png
@@ -120,11 +123,12 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment/
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

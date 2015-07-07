@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configurare una connessione VPN tra due reti virtuali di Azure | Azure" 
-   description="Informazioni su come configurare le connessioni VPN tra due reti virtuali di Azure, come configurare la risoluzione dei nomi di dominio tra due reti virtuali e come configurare la replica geografica di HBase" 
-   services="hdinsight" 
+   pageTitle="Configurare una connessione VPN tra due reti virtuali | Microsoft Azure" 
+   description="Informazioni su come configurare le connessioni VPN e la risoluzione dei nomi di dominio tra due reti virtuali di Azure e come configurare la replica geografica di HBase." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -31,6 +31,10 @@ La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per f
 
 Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
+Per visualizzare un video:
+
+> [AZURE.VIDEO configure-the-vpn-connectivity-between-two-azure-virtual-networks]
+
 Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione della replica geografica di HBase.
 
 - Configurare una connessione VPN tra due reti virtuali (questa esercitazione)
@@ -45,9 +49,9 @@ Il diagramma seguente illustra le due reti virtuali create in questa esercitazio
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una workstation in cui sia stato installato e configurato Azure PowerShell**. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
@@ -74,20 +78,20 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- **NOME**: Contoso-VNet-EU
 	- **LOCALITÀ**: Europa settentrionale
 
-		In questa esercitazione vengono utilizzati i centri dati del Nord Europa e degli Stati Uniti orientali. È possibile scegliere altri centri dati.
+		In questa esercitazione vengono usati i data center di Europa settentrionale e Stati Uniti orientali. È possibile scegliere il proprio data center.
 4.	Digitare:
 
 	- **SERVER DNS**: (lasciare vuoto) 
 	
-		Sarà necessario il proprio server DNS per la risoluzione dei nomi nelle reti virtuali. Per ulteriori informazioni su quando utilizzare la risoluzione dei nomi fornita da Azure e quando utilizzare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Per istruzioni sulla configurazione della risoluzione dei nomi tra VNet, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
+		È necessario il proprio server DNS per la risoluzione dei nomi all'interno di reti virtuali. Per altre informazioni su quando usare la risoluzione dei nomi fornita da Azure e quando usare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Per istruzioni su come configurare la risoluzione dei nomi tra reti virtuali, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
   
 	- **Configurare una VPN Point-to-Site**: (deselezionato)
 
-		Point-to-site non si applica a questo scenario.
+		Point-to-site non è valido per questo scenario.
 
  	- **Configurare una VPN Site-to-Site**: (deselezionato)
  	
-		Sarà configurata una connessione VPN tra siti alla rete virtuale di Azure nel centro dati degli Stati Uniti orientali.
+		Verrà configurata la connessione VPN da sito a sito per la rete virtuale di Azure nel data center degli Stati Uniti orientali.
 5.	Digitare:
 
 	- 	**IP INIZIALE SPAZIO DI INDIRIZZI**: 10.1.0.0
@@ -146,7 +150,7 @@ Quando si crea una configurazione tra reti virtuali, è necessario configurare c
 	- **NAME**: Contoso-LNet-EU
 	- **INDIRIZZO IP DISPOSITIVO VPN**: 192.168.0.1 (questo indirizzo verrà aggiornato in seguito)
 
-		In genere, si utilizza l'indirizzo IP esterno effettivo per un dispositivo VPN. Per le configurazioni VNet-VNet, si utilizza l'indirizzo IP del gateway VPN. Dal momento che non sono stati ancora creati i gateway VPN per i due VNet, si immette un indirizzo IP arbitrario da correggere in un secondo momento.
+		In genere, si utilizzerà l'indirizzo IP esterno effettivo di un dispositivo VPN. Per le configurazioni da rete virtuale a rete virtuale verrà usato l’indirizzo IP del gateway VPN. Dato che non sono stati ancora creati i gateway VPN per le due reti virtuali, immettere un indirizzo IP arbitrario e tornare a risolvere il problema.
 4.	Digitare:
 
 	- **IP INIZIALE SPAZIO DI INDIRIZZI:** 10.1.0.0
@@ -266,5 +270,5 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

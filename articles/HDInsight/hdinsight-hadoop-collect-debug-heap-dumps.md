@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Raccogliere dump di heap per il debug e l'analisi| Azure" 
-	description="Raccogliere dump di heap per il debug e l'analisi" 
+	pageTitle="Eseguire il debug e analizzare i servizi Hadoop con i dump di heap | Microsoft Azure" 
+	description="Raccogliere automaticamente i dump di heap per i servizi Hadoop e inserirli nell'account di archiviazione BLOB di Azure per il debug e l’analisi." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,8 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Raccogliere dump di heap per il debug e l'analisi
+
+# Raccogliere i dump di heap nell’archiviazione BLOB per eseguire il debug e analizzare i servizi Hadoop
 
 È possibile raccogliere automaticamente i dump di heap per i servizi Hadoop e posizionarli nell'account di archiviazione BLOB di Azure di un utente in HDInsightHeapDumps/. I file di dump relativi a un servizio con heap contengono uno snapshot della memoria dell'applicazione. Sono inclusi i valori delle variabili al momento della creazione del dump.
 
@@ -48,7 +49,7 @@ Ad esempio, per attivare i dump di heap usando Azure PowerShell per jobhistoryse
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 
-	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
+	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## <a name="sdk"></a>Come abilitare i dump di heap con Azure HDInsight .NET SDK
 
@@ -56,9 +57,10 @@ Ad esempio, per attivare i dump di heap usando Azure HDInsight .NET SDK per jobh
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 
-	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
+	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

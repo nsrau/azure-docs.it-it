@@ -1,7 +1,7 @@
 <properties
    pageTitle="Elaborare eventi dell'hub eventi con Storm in HDInsight | Azure"
    description="Informazioni su come elaborare i dati dell'hub eventi con una topologia Storm C# creata in Visual Studio tramite HDInsight Tools per Visual Studio."
-   services="hdinsight"
+   services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="05/29/2015"
    ms.author="larryfr"/>
 
 # Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)
@@ -226,12 +226,12 @@ In questa sezione si creerà una topologia che scrive dati nell'hub eventi usand
 
 A questo punto, la procedura per **Program.cs** è completata. La topologia è stata definita, ma è ora necessario modificare **Spout.cs** in modo da generare dati che l'hub eventi sia in grado di usare.
 
-> [AZURE.NOTE]Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia a un cluster di produzione, è necessario aggiungere quanto riportato di seguito e regolare il numero di processi di lavoro che si desidera creare.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia a un cluster di produzione, è necessario aggiungere quanto riportato di seguito per modificare il numero di processi di lavoro:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Modificare lo spout
 
@@ -304,9 +304,9 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 <tr><th style="text-align:left">TableName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
 </table>Per **TableName** immettere il nome della tabella da usare per archiviare gli eventi.
 
-  Per **StorageConnection** immettere un valore di `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Sostituire **myAccount** e **myKey** con la chiave e il nome dell'account di archiviazione ottenuti in precedenza.
+    Per **StorageConnection** immettere un valore di `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Sostituire **myAccount** e **myKey** con la chiave e il nome dell'account di archiviazione ottenuti in precedenza.
 
-	These values will be used by the topology to communicate with Event Hubs and Table Storage.
+	Questi valori verranno usati dalla topologia per comunicare con gli hub eventi e l'archivio tabelle.
 
 4. Salvare e chiudere la pagina **Proprietà**.
 
@@ -317,23 +317,16 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 2. Aprire il file **Program.cs** e aggiungere il codice seguente immediatamente dopo la riga `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");`:
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
-		JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
-            String.Format(@"(com.microsoft.eventhubs.spout.EventHubSpout. (com.microsoft.eventhubs.spout.EventHubSpoutConfig. " +
-                @"""{0}"" ""{1}"" ""{2}"" ""{3}"" {4} ""{5}""))",
+		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
                 Properties.Settings.Default.EventHubPolicyName,
                 Properties.Settings.Default.EventHubPolicyKey,
                 Properties.Settings.Default.EventHubNamespace,
                 Properties.Settings.Default.EventHubName,
-                partitionCount,
-                "")); //Last value is the zookeeper connection string - leave empty
+                partitionCount);
 
 	Il conteggio delle partizioni viene letto e assegnato a una variabile locale. Verrà usato più volte.
 
-	`JavaComponentConstructor` definisce la modalità di costruzione dello spout Java in fase di esecuzione. In questo caso si userà <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> per configurare lo spout con le informazioni di configurazione dell'hub eventi aggiunte in precedenza. In particolare, questo codice viene usato da HDInsight in fase di esecuzione per eseguire le operazioni seguenti:
-
-	* Creare una nuova istanza di **com.microsoft.eventhubs.spout.EventHubSpoutConfig** usando le informazioni dell'hub eventi fornite.
-
-	* Creare una nuova istanza di **com.microsoft.eventhubs.spout.EventHubSpout** passando l'istanza di **EventHubSpoutConfig**.
+	Il `EventHubSpoutConfig` definisce la configurazione dello spout dell'hub eventi. In questo caso, le informazioni di configurazione degli hub eventi aggiunte in precedenza. In modo invisibile viene utilizzato lo spot dell'hub eventi Java e viene creata una nuova istanza di **com.microsoft.eventhubs.spout.EventHubSpoutConfig** mediante le informazioni dell'hub eventi.
 
 5. Trovare il codice seguente:
 
@@ -348,12 +341,12 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 
 	Sostituirlo con quanto riportato di seguito:
 
-        topologyBuilder.SetJavaSpout(
-            "EventHubSpout",
-            constructor,
-            partitionCount);
+        topologyBuilder.SetEventHubSpout(
+            "EventHubSpout", 
+            ehConfig, 
+            partitionCount); 
 
-	Indica alla topologia di usare come spout **JavaComponentConstructor** dal passaggio precedente e di assegnargli il nome "EventHubSpout". Per il componente viene anche impostato l'hint di parallelismo sul numero di partizioni nell'hub eventi.
+	Ciò indica alla topologia di creare un nuovo spout dell'hub eventi e di utilizzare il `EventHubSpoutConfig` utilizzato nel passaggio precedente come configurazione. "EventHubSpout" imposta il nome descrittivo dello spout e `partitionCount` viene utilizzato per impostare l'hint di parallelismo. In modo invisibile verrà creata una nuova istanza del componente Java **com.microsoft.eventhubs.spout.EventHubSpout** utilizzando le informazioni di configurazione fornite.
 
 2. Aggiungere quanto riportato di seguito immediatamente dopo il codice precedente:
 
@@ -386,12 +379,12 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 
 A questo punto, la procedura per **Program.cs** è completata. La topologia è stata definita, ma è ora necessario creare una classe helper per scrivere dati nell'archivio tabelle. Occorre quindi modificare il file **Bolt.cs** affinché sia in grado di riconoscere i dati prodotti dallo spout.
 
-> [AZURE.NOTE]Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia a un cluster di produzione, è necessario aggiungere quanto riportato di seguito e regolare il numero di processi di lavoro che si desidera creare.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia a un cluster di produzione, è necessario aggiungere quanto riportato di seguito per modificare il numero di processi di lavoro:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Creare una classe helper
 
@@ -529,44 +522,6 @@ Per arrestare le topologie, selezionarle singolarmente in **Storm Topology Viewe
 
 ## Note
 
-### Configurazione
-
-Quando si crea EventHubSpoutConfig, sono disponibili diversi metodi di overload. Utilizzare le informazioni riportate di seguito per trovare quello che meglio si adatta alle specifiche esigenze.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
-
-    * PolicyName: nome dei criteri di accesso condiviso che possono essere letti dall'hub specificato.
-
-    * PolicyKey: chiave per i criteri di accesso condiviso.
-
-    * Namespace: spazio dei nomi ServiceBus in cui è presente l'hub.
-
-    * HubName: nome dell'hub eventi da cui leggere.
-
-    * PartitionCount: numero di partizioni per l'hub.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection)
-
-    Oltre alle proprietà descritte in precedenza:
-
-    * ZooKeeperConnection: stringa di connessione per il nodo ZooKeeper. Non specificare per Storm su server HDInsight.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds,Int ReceiverCredits)
-
-    Oltre alle proprietà descritte in precedenza:
-
-    * CheckPointIntervalInSeconds: intervallo di tempo per cui lo stato di Zookeeper viene mantenuto.
-
-    * ReceiverCredits: numero di eventi che vengono eseguiti in batch prima di essere rilasciati nella topologia Storm.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
-
-    Oltre alle proprietà descritte in precedenza:
-
-    * MaxPendingMsgsPerPartition: numero massimo di eventi recuperati dall'hub. Il valore predefinito è 1024.
-
-    * EnqueueTimeFilter: filtra gli eventi in base al timestamp con cui l'evento è stato inserito nella coda.
-
 ### Checkpoint
 
 EventHubSpout controlla periodicamente il proprio stato nel nodo Zookeeper, operazione che salva l'offset corrente per i messaggi letti dalla coda. Questo consente al componente di avviare la ricezione di messaggi in corrispondenza dell'offset salvato negli scenari seguenti:
@@ -577,7 +532,7 @@ EventHubSpout controlla periodicamente il proprio stato nel nodo Zookeeper, oper
 
 * La topologia viene arrestata e riavviata **con lo stesso nome**.
 
-È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
+È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
 
 >[AZURE.NOTE]Il numero di versione indicato nel percorso può essere diverso, poiché la versione di Storm installata nel cluster può cambiare.
 
@@ -600,5 +555,6 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

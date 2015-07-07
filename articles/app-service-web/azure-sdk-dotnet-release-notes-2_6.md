@@ -54,7 +54,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 	Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
-##Aggiornamenti alla Cache nel ruolo 
+##Aggiornamenti alla Cache nel ruolo
 
 - La **Cache nel ruolo ** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo ** ha usato Azure Storage SDK versione 1.7.
 
@@ -91,7 +91,16 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
  
 ##Problemi noti
 
-Per la raccolta di log di diagnostica nell'emulatore è necessario un sistema operativo a 64 bit. I log di diagnostica non verranno raccolti se si usa un sistema operativo a 32 bit. Ciò non influisce su altre funzionalità dell'emulatore.
+- Per la raccolta di log di diagnostica nell'emulatore è necessario un sistema operativo a 64 bit. I log di diagnostica non verranno raccolti se si usa un sistema operativo a 32 bit. Ciò non influisce su altre funzionalità dell'emulatore. 
 
-<!--HONumber=52-->
+- La versione Azure SDK 2.6 rilasciata il 29/04/2015 presentava due problemi:
+
+	- Non era possibile caricare l'app universale in Visual Studio 2015 durante l'installazione di Azure SDK 2.6 nel computer.
+	- Il debug di un progetto di servizio cloud aveva esito negativo in Visual Studio 2013 e Visual Studio 2015: Visual Studio non rispondeva e si bloccava, mostrando una finestra di dialogo con il messaggio "Configurazione della diagnostica per l'emulatore".
+	
+	Il 18/05/2015 è stato rilasciato un aggiornamento di Azure SDK 2.6. La versione aggiornata è 2.6.30508.1601; contiene correzioni per i due problemi descritti in precedenza. È possibile identificare la compilazione dell'SDK tramite Pannello di controllo -> Programmi e funzionalità -> Strumenti di Microsoft Azure per Microsoft Visual Studio 2013 – v 2.6. Nella colonna relativa alla versione verrà visualizzato il numero di build.
+
+	Se i problemi illustrati persistono, installare la versione più recente di Azure 2.6 SDK per [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [2015 VS](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+
+<!---HONumber=62-->

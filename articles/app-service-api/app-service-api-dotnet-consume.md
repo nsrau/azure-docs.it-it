@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # Usare un'app per le API nel servizio app di Azure da un client .NET 
 
@@ -27,9 +27,11 @@ Questa esercitazione descrive come usare App Service SDK per scrivere codice che
 
 Le sezioni dell'esercitazione sono indipendenti: è possibile seguire le istruzioni per il secondo scenario senza aver completato i passaggi per il primo.
 
+Per informazioni su come chiamare un'app per le API **interna**, vedere [Utilizzare un'app per le API interna da un client .NET](app-service-api-dotnet-consume-internal.md).
+
 ## Prerequisiti
 
-Nell'esercitazione si presuppone che l'utente abbia familiarità con le procedure per creare progetti e aggiungervi codice in Visual Studio e per [gestire le app per le API nel portale di anteprima di Azure](../app-service-api-apps-manage-in-portal.md).
+Nell'esercitazione si presuppone che l'utente abbia familiarità con le procedure per creare progetti e aggiungervi codice in Visual Studio e per [gestire le app per le API nel portale di anteprima di Azure](app-service-api-apps-manage-in-portal.md).
 
 Il progetto e gli esempi di codice mostrati in questo articolo sono basati sul progetto di app per le API. Per informazioni su come creare, distribuire e proteggere questo progetto, vedere:
 
@@ -201,6 +203,6 @@ Le app per le API di Azure supportano anche il flusso di autenticazione client. 
 In questo articolo è stato illustrato come usare un'app per le API da un client .NET per le app per le API impostate sui livelli di accesso **Pubblico (autenticato)** e **Pubblico (anonimo)**
 
 Per altri esempi di codice per chiamare app per le API dai client .NET, scaricare l'applicazione di esempio [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

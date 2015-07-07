@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Oracle Database Connector" 
+   pageTitle="Uso del connettore Oracle nel Servizio app di Azure di Microsoft Azure" 
    description="Come usare Oracle Database Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,163 +13,109 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Oracle Database Connector #
+# Oracle Database Connector
 
-I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. Inserendo Oracle Database Connector nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:  
+Connettersi a un server di Oracle Database in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
-1.	Esporre una sezione dei dati presenti nel database Oracle tramite un front-end utente mobile o Web.
-2.	Aggiungere dati alla tabella del database Oracle per l'archiviazione, ad esempio record relativi ai dipendenti, ordini di vendita e così via
-3.	Estrarre dati da Oracle per usarli in un processo aziendale
-
-Per questi scenari è necessario quanto segue: 
-
-1. Creare un'istanza dell'app per le API Oracle Database Connector
-2. Stabilire la connettività ibrida per la comunicazione tra l'app per le API e il server Oracle locale.
-3. Usare l'app per le API creata in un'app per la logica per ottenere il processo aziendale desiderato
-
-	###Trigger e azioni di base
-		
-    - Polling dei dati (trigger) 
-    - Inserimento nella tabella
-    - Aggiornamento della tabella
-    - Selezione dalla tabella
-    - Eliminazione dalla tabella
-    - Chiamata a una stored procedure
-
-## Creare un'istanza dell'app per le API Oracle Database Connector ##
-
-Per usare Oracle Database Connector è necessario creare un'istanza dell'app per le API Oracle Database Connector. A questo scopo, procedere come segue:
-
-1. Aprire Azure Marketplace con l'opzione '+ NEW' in basso a sinistra nel portale di Azure
-2. Andare a "Web e dispositivi mobili > App per le API" e cercare "Oracle Database Connector".
-3. Inserire i dettagli generici, come nome, piano di servizio app e così via nel primo pannello
-4. Specificare le impostazioni pacchetto indicate nella tabella seguente.
-
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>Nome</th><th>Obbligatorio</th><th>Descrizione</th></tr>
- <tr><td>Data Source</td><td>Sì</td><td>Un nome di origine dati (servizio di rete) specificato nel file tnsnames.ora sul computer in cui è installato il client Oracle. Per altre informazioni sui nomi delle origini dati e sul file tnsnames.ora, vedere l'articolo relativo alla [configurazione del client Oracle]</td></tr>
- <tr><td>User Name</td><td>Sì</td><td>Specificare un nome utente valido per la connessione al server Oracle.</td></tr>
- <tr><td>Password</td><td>Sì</td><td>Specificare una password valida per la connessione al server Oracle.</td></tr>
- <tr><td>Service Bus Connection String</td><td>Sì</td><td>Facoltativo. Specificare questo parametro se il server Oracle è installato in locale. Deve trattarsi di una stringa di connessione valida allo spazio dei nomi del bus di servizio. È necessario installare un agente listener in un server che può accedere al server Oracle. Per installare l'agente, passare alla pagina di riepilogo dell'app per le API e fare clic su  'Hybrid Connection'.</td></tr>
- <tr><td>Tables</td><td>No</td><td>Facoltativo. Specificare le tabelle del database che possono essere modificate dal connettore, ad esempio OrdersTable o EmployeeTable.</td></tr>
- <tr><td>Stored Procedures</td><td>No</td><td>Facoltativo. Specificare le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio IsEmployeeEligible o CalculateOrderDiscount.</td></tr>
- <tr><td>Functions</td><td>No</td><td>Facoltativo. Specificare le funzioni presenti nel database che possono essere chiamate dal connettore, ad esempio IsEmployeeEligible o CalculateOrderDiscount.</td></tr>
- <tr><td>Package Entities</td><td>No</td><td>Facoltativo. Specificare i pacchetti presenti nel database che possono essere chiamati dal connettore, ad esempio PackageOrderProcessing.CompleteOrder o PackageOrderProcessing.GenerateBill</td></tr>
- <tr><td>Data Available Statement</td><td>No</td><td>Facoltativo. Specificare l'istruzione per determinare se sono disponibili dati per il polling. Esempio: SELECT * from table_name</td></tr>
- <tr><td>Poll Type</td><td>No</td><td>Facoltativo. Specificare il tipo di polling. I valori consentiti sono "Select", "Procedure", "Function" e "Package"</td></tr>
- <tr><td>Poll Statement</td><td>No</td><td>Facoltativo. Specificare l'istruzione per il polling del database del server Oracle. Esempio: SELECT * from table_name</td></tr>
- <tr><td>Post Poll Statement</td><td>No</td><td>Facoltativo. Specificare l'istruzione da eseguire dopo il polling. Esempio: DELETE * from table_name.</td></tr>
-</table>
+- Esporre una sezione dei dati presenti nel database Oracle usando un'applicazione Web o per dispositivi mobili.
+- Aggiungere dati alla tabella del database Oracle per l'archiviazione. Ad esempio, è possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
+- Ottenere dati da Oracle per usarli in un processo aziendale. Ad esempio, è possibile ottenere i record cliente e inserirli in SalesForce. 
 
 
+## Trigger e azioni
+I *trigger* sono eventi che si verificano, ad esempio, quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger; ad esempio, quando si aggiorna un ordine, inviare un avviso al venditore oppure, quando si aggiunge un nuovo cliente, inviargli/le un messaggio di benvenuto.
 
- ![][1]  
+Oracle Database Connector può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'[app per le API Transform](app-service-logic-transform-xml-documents.md) per convertire i dati in un altro formato dati XML.
 
-## Configurazione ibrida ##
+Oracle Database Connector ha a disposizione i seguenti trigger e azioni:
 
-Individuare l'applicazione API creata scegliendo Sfoglia -> App per le API -> <Nome dell'app per le API creata>. Verrà visualizzato il comportamento seguente. La configurazione è incompleta, in quanto la connessione ibrida non è stata ancora stabilita.
+Trigger | Azioni
+--- | ---
+Poll Data | <ul><li>Inserimento nella tabella</li><li>Aggiornamento della tabella</li><li>Selezione dalla tabella</li><li>Eliminazione dalla tabella</li><li>Chiamata della stored procedure</li>
 
-![][2] 
 
-Per stabilire la connettività ibrida eseguire le operazioni seguenti:
+## Creare un Oracle Database Connector
 
-1. Copiare la stringa di connessione primaria
-2. Fare clic sul collegamento 'Download and Configure'
-3. Seguire il processo di installazione che viene avviato e, quando viene richiesto, fornire la stringa di connessione primaria
-4. Al termine del processo di installazione verrà visualizzata una finestra di dialogo simile alla seguente
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore usando Azure Marketplace:
 
-![][3] 
+1. Nella schermata iniziale di Azure selezionare **Marketplace**.
+2. Selezionare **App per le API** e cercare "Oracle Database Connector".
+3. Immettere il Nome, il Piano di servizio app e altre proprietà.
+4. Immettere le impostazioni pacchetto seguenti:
 
-A questo punto, quando si passa nuovamente all'app per le API creata, lo stato della connessione ibrida visualizzato sarà Connected. 
+	Nome | Obbligatorio | Descrizione
+--- | --- | ---
+Origine dati | Sì | Un nome di origine dati (servizio di rete) specificato nel file tnsnames.ora sul computer in cui è installato il client Oracle. Per informazioni sui nomi delle origini dati e sul file tnsnames.ora, vedere l'articolo relativo alla [configurazione del client Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
+User Name | Sì | Immettere un nome utente valido per la connessione al server Oracle.
+Password | Sì | Immettere il nome utente e la password.
+Service Bus Connection String | Sì | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+Tables | No | Immettere le tabelle del database che possono essere modificate dal connettore, ad esempio *OrdersTable, tabella EmployeeTable*.
+Stored procedure | No | Immettere le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
+Functions | No | Immettere le funzioni presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
+Package Entities | No | Immettere i pacchetti presenti nel database che possono essere chiamati dal connettore, ad esempio *PackageOrderProcessing.CompleteOrder o PackageOrderProcessing.GenerateBill*
+Data Available Statement | No | Immettere l'istruzione per determinare se sono disponibili dati per il polling, ad esempio *SELECT * from table_name*.
+Poll Type | No | Immettere il tipo di polling. I valori consentiti sono "Select", "Procedure", "Function" e "Package".
+Poll Statement | No | Immettere l'istruzione per il polling del database del server Oracle, ad esempio *SELECT * from table_name*.
+Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, ad esempio *DELETE * from table_name*.
 
-![][4] 
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
 
-Nota: per passare alla stringa di connessione secondaria è sufficiente ripetere la configurazione della connessione ibrida e inserire la stringa di connessione secondaria al posto della stringa di connessione primaria.  
 
-## Utilizzo in un'app per la logica ##
-
-Oracle Connector può essere usato come trigger o azione in un'app per la logica. Il trigger e tutte le azioni supportano i formati dati JSON e XML. Per ogni tabella fornita come parte delle impostazioni pacchetto sarà disponibile un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'app per le API Transform per convertire i dati in un altro formato dati XML. 
-
+## Usare il connettore come trigger
 In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
+### Aggiungere il trigger
+1. Quando si crea o modifica un'app per la logica, selezionare il connettore Oracle creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/> ![][5] 
 
+2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓: <br/> ![][6]
 
--  Quando si crea o modifica un'app per la logica, scegliere l'app per le API Oracle Connector creata come trigger. In questo modo verranno elencati i trigger disponibili, ovvero Poll Data (JSON) e Poll Data (XML).
+3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive:<br/> ![][7]
 
- ![][5] 
+## Usare il connettore come azione
+Usando una semplice app per la logica che esegue il polling dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
+Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o le stored procedure immesse durante la creazione del connettore Oracle:
 
-- Selezionare il trigger Poll Data (JSON), specificare la frequenza e fare clic su ✓.
+1. Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ossia *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
-![][6] 
+2. Immettere i valori di input del record da inserire e fare clic su ✓: <br/> ![][9]
 
+3. Dalla raccolta, selezionare lo stesso connettore Oracle creato. Come azione, selezionare l'azione Update nella stessa tabella, ad esempio *Update TempEmployeeDetails*: <br/> ![][11]
 
-
-- Il trigger verrà ora visualizzato come configurato nell'app per la logica. Verranno visualizzati gli output del trigger, che possono essere usati come input in azioni successive. 
-
-![][7] 
-
-
-- Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ovvero Insert Into TempEmployeeDetails (JSON).
-
-![][8] 
-
-
-
-- Fornire gli input del record da inserire e fare clic su ✓. 
-
-![][9] 
-
-
-
-- Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare l'azione di aggiornamento nella stessa tabella, ad esempio Update EmployeeDetails.
-
-![][11] 
-
-
-
-- Fornire gli input per l'azione di aggiornamento e fare clic su ✓. 
-
-![][12] 
+4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: <br/> ![][12]
 
 È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene effettuato il polling.
 
+## Configurazione ibrida
+
+> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa Oracle installato in locale e protetto da firewall.
+
+Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa Oracle in locale, è richiesta la Gestione connessione ibrida.
+
+Vedere [Uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
+
+## Più vantaggi con il connettore
+Dopo aver creato il connettore è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e il connettore](../app-service-api/app-service-api-manage-in-portal.md).
+
+
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-oracle/Create.jpg
-[2]: ./media/app-service-logic-connector-oracle/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-oracle/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-oracle/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-oracle/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-oracle/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-oracle/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-oracle/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-oracle/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
-
-<!--Links-->
-[Configurazione del Client Oracle]: https://msdn.microsoft.com/it-it/library/dd787872.aspx
+[1]: ./media/app-service-logic-connector-oracle/Create.png
+[5]: ./media/app-service-logic-connector-oracle/LogicApp1.png
+[6]: ./media/app-service-logic-connector-oracle/LogicApp2.png
+[7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
+[8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
+[9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
+[12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
 
 
-<!--HONumber=52--> 
+ 
+
+<!---HONumber=62-->

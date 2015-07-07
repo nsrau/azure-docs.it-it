@@ -41,7 +41,7 @@ Sono consentiti i tipi di file seguenti:
 
 ## <a name="CreateOnDemand"></a>Creare un processo Web su richiesta nel portale
 
-1. Nel pannello  **Web App** del [Portale di Azure](http://portal.azure.com), fare clic su  **Tutte le impostazioni > Processi Web** per visualizzare il pannello **Processi Web**.
+1. Nel pannello **Web App** del [Portale di Azure](http://portal.azure.com), fare clic su **Tutte le impostazioni > Processi Web** per visualizzare il pannello **Processi Web**.
 	
 	![Pannello Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -71,7 +71,7 @@ Sono consentiti i tipi di file seguenti:
 	
 > [AZURE.NOTE]Se l'app Web è in esecuzione su più di un'istanza, il processo Web con esecuzione continua verrà eseguito su tutte le istanze. I processi Web su richiesta e pianificati vengono eseguiti su una singola istanza selezionata per il bilanciamento del carico da Microsoft Azure.
 	
-> Nel caso dei processi Web con esecuzione continua, si consiglia di abilitare l'opzione **Sempre attivata** per l'app Web. La funzionalità Sempre attivata, disponibile in modalità di base e standard, impedisce alle app Web di essere scaricate anche se sono rimaste inattive per qualche tempo. Se l'app Web in uso è sempre caricata, il processo Web con esecuzione continua potrebbe essere eseguito con maggiore affidabilità.
+> Per i processi Web continui da eseguire in modo affidabile su tutte le istanze, abilitare l'impostazione di configurazione Always On* per l'app Web, altrimenti è possibile che l'esecuzione dei processi venga interrotta quando il sito host SCM rimane inattivo per troppo tempo.
 
 ## <a name="CreateScheduled"></a>Creare un processo Web pianificato
 
@@ -172,15 +172,15 @@ I processi pianificati possono essere ulteriormente configurati mediante l'Utili
 - Le modalità di base e standard offrono la funzionalità Sempre attivata che, se abilitata, impedisce alle app Web di diventare inattive.
 - È possibile solo eseguire il debug di processi Web con esecuzione continua. Il debug di processi Web pianificati o su richiesta non è supportato.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## <a name="NextSteps"></a>Passaggi successivi
  
 Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure][WebJobsRecommendedResources].
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -208,5 +208,6 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

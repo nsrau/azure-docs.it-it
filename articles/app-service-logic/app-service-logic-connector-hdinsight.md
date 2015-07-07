@@ -19,7 +19,7 @@
 
 # Microsoft HDInsight Connector #
 
-I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. HDInsight Connector consente di creare un cluster Hadoop in Azure e di inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Il servizio Azure HDInsight distribuisce ed esegue il provisioning dei cluster Apache Hadoop nel cloud, offrendo un framework software progettato per gestire, analizzare e creare report sui Big Data. La memoria centrale di Hadoop fornisce un'archiviazione dei dati affidabile grazie ad Hadoop Distributed File System (HDFS), nonché un modello di programmazione semplice, MapReduce, per elaborare e analizzare in parallelo i dati archiviati nel sistema distribuito. Con HDInsight Connector è possibile avviare un cluster, inviare un processo e attenderne il completamento.
+I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. HDInsight Connector consente di creare un cluster Hadoop in Azure e di inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Il servizio Azure HDInsight distribuisce ed esegue il provisioning dei cluster Apache Hadoop nel cloud, offrendo un framework software progettato per gestire, analizzare e creare report sui Big Data. La memoria centrale di Hadoop fornisce un'archiviazione dei dati affidabile grazie ad Hadoop Distributed File System (HDFS), nonché un modello di programmazione semplice, MapReduce, per elaborare e analizzare in parallelo i dati archiviati nel sistema distribuito. Con HDInsight Connector è possibile creare o eliminare un cluster, inviare un processo e attenderne il completamento.
 
 ###Azioni di base
 		
@@ -36,80 +36,79 @@ I connettori possono essere usati nelle app per la logica per operazioni di recu
 
 Per usare HDInsight Connector è necessario creare un'istanza dell'app per le API HDInsight Connector. A questo scopo, procedere come segue:
 
-1. Aprire Azure Marketplace con l'opzione '+ NEW' in basso a sinistra nel portale di Azure
-2. Andare a "Web e dispositivi mobili > App per le API" e cercare "HDInsight Connector".
-3. Inserire i dettagli generici, come nome, piano di servizio app e così via nel primo pannello
-4. Come parte delle impostazioni pacchetto, specificare la password e il nome utente del cluster HDInsight
+1. Aprire Azure Marketplace con l'opzione '+ NUOVO' nella parte sinistra del portale di Azure e selezionare 'Marketplace'.
+2. Passare a 'App per le API', cercare "HDInsight Connector", selezionare l'app e quindi fare clic su 'Crea'.
+3. Nel primo pannello specificare i dettagli generali, ad esempio nome, piano di servizio app e così via.
+4. Nelle impostazioni del pacchetto specificare il nome utente e la password del cluster HDInsight e fare clic su OK.
+5. Fare clic su 'Crea'.
 
 
- ![][1]  
+ ![][1]
 
 ## Configurazione dei certificati (facoltativo) ##
 
-Nota: questo passaggio è necessario solo se si desidera eseguire operazioni di gestione (creazione ed eliminazione di cluster) nell'app per la logica.
+Nota: questo passaggio è necessario solo per eseguire operazioni di gestione (creazione ed eliminazione di cluster) nell'app per la logica.
 
-Individuare l'applicazione API creata scegliendo Sfoglia -> App per le API -> <Nome dell'app per le API appena creata>. Verrà visualizzato il comportamento seguente. Nel componente  'Security' viene visualizzato 0, ad indicare che non esiste alcun certificato di gestione caricato.
+Passare all'app per le API HDInsight Connector appena creata. Nel componente 'Sicurezza' verrà visualizzato il valore 0, che indica che non è stato caricato alcun certificato di gestione.
 
-![][2] 
+![][2]
 
-Per caricare il certificato di gestione dell'app per le API, è necessario eseguire le operazioni seguenti
-1. Fare clic sul componente  'Security'
-2. Fare clic su 'Upload certificate' nel pannello 'Security' visualizzato
-3. Individuare e selezionare il file del certificato nel pannello successivo
-4. Dopo aver selezionato il certificato, fare clic su OK.
+Per caricare il certificato di gestione ndell'app per le API, è necessario eseguire le operazioni seguenti. 1. Fare clic sul componente Sicurezza 2. Nel pannello 'Sicurezza' fare clic su 'CARICA CERTIFICATO'. 3. Individuare e selezionare il file del certificato nel pannello successivo. 4. Dopo aver selezionato il certificato, fare clic su OK.
 
 Una volta che il certificato è stato caricato, vengono visualizzati i relativi dettagli.
 
-![][3] 
+![][3]
 
-Nota: nel caso in cui si desideri modificare il certificato, è possibile caricarne un altro che sostituirà quello esistente.
+Nota: se è necessario cambiare il certificato, è possibile caricarne un altro che sostituirà quello esistente.
 
 ## Utilizzo in un'app per la logica ##
 
-HDInsight Connector può essere usato solo come azione in un'app per la logica. In questa sezione viene descritta una semplice app per la logica che crea un cluster, esegue un processo  'Hive' ed elimina il cluster dopo il completamento del processo.
+HDInsight Connector può essere usato solo come azione in un'app per la logica. In questa sezione viene descritta una semplice app per la logica che crea un cluster, esegue un processo 'Hive' ed elimina il cluster dopo il completamento del processo.
 
 
-- Durante la creazione o la modifica di un'app per la logica, scegliere come azione l'app per le API HDInsight Connector creata. Verranno visualizzate tutte le azioni disponibili.
+- Nella scheda 'Avvia logica' fare clic su 'Esegui la logica manualmente'.
+- Selezionare l'app per le API HDInsight Connector creata dalla raccolta per visualizzare tutte le azioni disponibili.
 
-![][5] 
+![][5]
 
 
-- Selezionare 'Create Cluster', fornire tutti i parametri del cluster richiesti e fare clic su ✓.
+- Selezionare 'Crea cluster', specificare tutti i parametri del cluster necessari e fare clic su ✓.
 
-![][6] 
+![][6]
 
 
 
 - L'azione verrà ora visualizzata come configurata nell'app per la logica. Verranno visualizzati gli output dell'azione, che possono essere usati come input in azioni successive. 
 
-![][7] 
+![][7]
 
 
 
-- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Wait For Cluster Creation', fornire tutti i parametri richiesti e fare clic su ✓.
+- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Wait For Cluster Creation', specificare tutti i parametri necessari e fare clic su ✓.
 
-![][8] 
-
-
-
-- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Submit Hive Job', fornire tutti i parametri richiesti e fare clic su ✓.
-
-![][9] 
+![][8]
 
 
 
-- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Wait For Job Completion', fornire tutti i parametri richiesti e fare clic su ✓.
+- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Submit Hive Job', specificare tutti i parametri necessari e fare clic su ✓.
 
-![][10] 
-
-
-
-- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Submit Hive Job', fornire tutti i parametri richiesti e fare clic su ✓.
-
-![][11] 
+![][9]
 
 
-È possibile fare clic su 'Run' per avviare l'app per la logica manualmente allo scopo di testare lo scenario.
+
+- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Wait For Job Completion', specificare tutti i parametri necessari e fare clic su ✓.
+
+![][10]
+
+
+
+- Selezionare lo stesso HDInsight Connector dalla raccolta come azione. Selezionare l'azione 'Delete Cluster', specificare tutti i parametri necessari e fare clic su ✓.
+
+![][11]
+
+- Salvare l'app per la logica usando il comando salva nella parte superiore dell'area di progettazione.
+
+È possibile fare clic su 'Esegui adesso' per avviare l'app per la logica manualmente allo scopo di testare lo scenario.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
@@ -122,6 +121,6 @@ HDInsight Connector può essere usato solo come azione in un'app per la logica. 
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

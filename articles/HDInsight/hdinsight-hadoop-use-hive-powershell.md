@@ -1,6 +1,6 @@
 <properties
    pageTitle="Usare Hive di Hadoop con PowerShell in HDInsight | Microsoft Azure"
-   description="Informazioni sull'uso di Hive di Hadoop in HDInsight tramite PowerShell."
+   description="Usare PowerShell per eseguire query Hive in Hadoop in HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -29,10 +29,8 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)
-
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
-
+- **Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)**
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ##<a id="powershell"></a>Eseguire query Hive usando Azure PowerShell
 
@@ -144,5 +142,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

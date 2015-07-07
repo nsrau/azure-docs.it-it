@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="05/19/2014" 
 	ms.author="bradsev"/>
 
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
 
-## Introduzione ##
+
 È stato aggiunto un secondo nodo head ai cluster Hadoop distribuiti da Azure HDInsight al fine di aumentare la disponibilità e l'affidabilità del servizio necessario per gestire i carichi di lavoro. Le implementazioni standard dei cluster Hadoop hanno in genere un singolo nodo head. Questi cluster hanno l'obiettivo di gestire semplicemente gli errori dei nodi di lavoro, ma eventuali interruzioni dei servizi principali in esecuzione sul nodo head potrebbero causare il mancato funzionamento del cluster.
 
 ![Diagramma dei nodi head ad alta affidabilità nell'implementazione di HDInsight Hadoop.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight elimina questo singolo punto di errore con l'aggiunta di un nodo head secondario (Head Node1). Sono stati aggiunti i nodi [ZooKeeper][zookeeper] (ZK), usati per l'elezione del leader dei nodi head e per garantire che i nodi di lavoro e i gateway (GW) sappiano quando eseguire il failover sul nodo head secondario (Head Node1) nel momento in cui il nodo head attivo (Node0) diventa inattivo.
+HDInsight elimina questo singolo punto di errore con l'aggiunta di un nodo head secondario (Head Node1). Sono stati aggiunti i nodi [ZooKeeper](http://zookeeper.apache.org/) (ZK), usati per l'elezione del leader dei nodi head e per garantire che i nodi di lavoro e i gateway (GW) sappiano quando eseguire il failover sul nodo head secondario (Head Node1) nel momento in cui il nodo head attivo (Node0) diventa inattivo.
 
 
 ## Come controllare lo stato dei servizi del nodo head attivo ##
@@ -33,7 +33,7 @@ Per determinare quale nodo head è attivo e verificare lo stato dei servizi in e
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Come accedere ai file di log sul nodo head secondario ##
+## Come accedere ai file di log sul nodo head secondario \
 
 Per accedere ai log dei processi sul nodo head secondario nel caso in cui sia diventato il nodo head attivo, è possibile usare l'interfaccia utente di JobTracker esattamente come per il nodo attivo primario. Per accedere a JobTracker è necessario connettersi al cluster Hadoop usando il protocollo RDP, come descritto nella sezione precedente. Dopo aver eseguito l'accesso remoto al cluster, fare doppio clic sull'icona **Hadoop Name Node** sul desktop e quindi su **NameNode logs** per ottenere la directory dei log sul nodo head secondario.
 
@@ -71,17 +71,16 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
 **Riferimenti**
 
-- [ZooKeeper][zookeeper]
+- [ZooKeeper](http://zookeeper.apache.org/)
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk) 
 
 
-[zookeeper]: http://zookeeper.apache.org/
 
 
 
 
 
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

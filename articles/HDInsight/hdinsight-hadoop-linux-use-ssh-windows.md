@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usare chiavi SSH con Hadoop in HDInsight basato su Linux da Windows | Aure"
-   description="Informazioni su come creare e usare chiavi SSH per l'autenticazione nei cluster HDInsight basati su Linux."
+   pageTitle="Usare chiavi SSH con Hadoop in cluster basati su Linux da Windows | Microsoft Azure"
+   description="Informazioni su come creare e usare chiavi SSH per l'autenticazione nei cluster HDInsight basati su Linux. Connettere cluster da client basati su Windows usando il client SSH PuTTY."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -114,7 +114,7 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo <a href="..
 
 5. Fare clic su **Open** per connettersi al cluster.
 
-	> [AZURE.NOTE]Se questa è la prima volta che ci si è connessi al cluster, si riceverà un avviso di sicurezza. Si tratta di una situazione normale.  Per continuare, fare clic su **Yes** per memorizzare nella cache la chiave RSA2 del server.
+	> [AZURE.NOTE]Se questa è la prima volta che ci si è connessi al cluster, si riceverà un avviso di sicurezza. Si tratta di una situazione normale. Per continuare, fare clic su **Yes** per memorizzare nella cache la chiave RSA2 del server.
 
 6. Quando richiesto, immettere il nome utente immesso durante la creazione del cluster. Se è stata specificata una password per l'utente, sarà necessario specificare anch'essa.
 
@@ -252,7 +252,7 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 	![foxyproxy proxy](./media/hdinsight-hadoop-linux-use-ssh-windows/foxyproxyproxy.png)
 
-4. Fare clic sulla scheda **URL Patterns** e selezionare  **Add New Pattern**. Usare i campi seguenti per definire il criterio, quindi fare clic su **OK**:
+4. Fare clic sulla scheda **URL Patterns** e selezionare **Add New Pattern**. Usare i campi seguenti per definire il criterio, quindi fare clic su **OK**:
 
 	* **Pattern Name** - **headnode**: si tratta di un nome descrittivo per il criterio.
 
@@ -277,5 +277,6 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

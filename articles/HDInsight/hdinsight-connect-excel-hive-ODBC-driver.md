@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connettere Excel a Hadoop mediante Hive ODBC Driver | Microsoft Azure" 
-   description="Informazioni su come configurare e usare Microsoft Hive ODBC Driver per Excel per eseguire query su dati in cluster HDInsight." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="bradsev" 
-   manager="paulettm" 
+<properties
+   pageTitle="Connettere Excel a Hadoop mediante Hive ODBC Driver | Microsoft Azure"
+   description="Informazioni su come configurare e usare Microsoft Hive ODBC Driver per Excel per eseguire query su dati in cluster HDInsight."
+   services="hdinsight"
+   documentationCenter=""
+   authors="bradsev"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="03/31/2015"
+   ms.workload="big-data"
+   ms.date="06/08/2015"
    ms.author="bradsev"/>
 
 #Connettere Excel a Hadoop mediante Microsoft Hive ODBC Driver
@@ -23,13 +23,14 @@ La soluzione Microsoft per Big Data integra componenti di Microsoft Business Int
 
 È inoltre possibile connettere i dati associati a un cluster HDInsight e ad altre origini dati, inclusi altri cluster Hadoop (non HDInsight), da Excel mediante il componente aggiuntivo Microsoft Power Query per Excel. Per informazioni sull'installazione e l'uso di Power Query, vedere [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query].
 
+> [AZURE.NOTE]Mentre i passaggi descritti in questo articolo possono essere utilizzati con un cluster HDInsight basato su Windows o Linux, Windows è necessario per la workstation client.
+
 **Prerequisiti**:
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- Un cluster HDInsight. Per configurarne uno, vedere [Introduzione ad Azure HDInsight][hdinsight-get-started].
-- Un computer che esegue Windows 8, Windows 7, Windows Server 2012 o Windows Server 2008 R2.
-- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
+- **Un cluster HDInsight**. Per configurarne uno, vedere [Introduzione ad Azure HDInsight][hdinsight-get-started].
+- **Una workstation** con Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
 
 
 ##<a id="InstallHiveODBCDriver"></a>Installare Microsoft Hive ODBC Driver
@@ -43,12 +44,12 @@ Questo driver può essere installato nelle versioni a 32 bit o a 64 bit di Windo
 I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 1. In Windows 8 premere il tasto Windows per aprire la schermata Start e quindi digitare **data sources**.
-2. Fare clic su **Configura origini dati ODBC (32 bit)** o **Configura origini dati ODBC (64 bit)** a seconda della versione di Office. Se si usa Windows 7, scegliere **Origini dati ODBC (32 bit)** o **Origini dati ODBC (64 bit)** da **Strumenti di amministrazione**. Verrà aperta la finestra di dialogo **Amministrazione origine dati ODBC**. 
- 
+2. Fare clic su **Configura origini dati ODBC (32 bit)** o **Configura origini dati ODBC (64 bit)** a seconda della versione di Office. Se si usa Windows 7, scegliere **Origini dati ODBC (32 bit)** o **Origini dati ODBC (64 bit)** da **Strumenti di amministrazione**. Verrà aperta la finestra di dialogo **Amministrazione origine dati ODBC**.
+
 	![Amministrazione origine dati ODBC][img-hdi-simbahiveodbc-datasource-admin]
 
 3. In DNS utente fare clic su **Aggiungi** per aprire la procedura guidata **Crea nuova origine dati**.
-4. Selezionare **Microsoft Hive ODBC Driver** e quindi fare clic su **Fine**. Verrà aperta la finestra di dialogo **Microsoft Hive ODBC Driver DNS Setup**. 
+4. Selezionare **Microsoft Hive ODBC Driver** e quindi fare clic su **Fine**. Verrà aperta la finestra di dialogo **Microsoft Hive ODBC Driver DNS Setup**.
 
 5. Digitare o selezionare i valori seguenti:
 
@@ -74,9 +75,9 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 </table>![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Fare clic su **Test** per testare l'origine dati. Quando l'origine dati è configurata correttamente, viene visualizzato *TESTS COMPLETED SUCCESSFULLY!*
-7. Fare clic su **OK** per chiudere la finestra di dialogo Test. La nuova origine dati sarà ora elencata in **Amministrazione origine dati ODBC**. 
+7. Fare clic su **OK** per chiudere la finestra di dialogo Test. La nuova origine dati sarà ora elencata in **Amministrazione origine dati ODBC**.
 8. Fare clic su **OK** per chiudere la procedura guidata.
-	
+
 ##<a id="ImportData"></a>Importare dati in Excel da un cluster HDInsight
 
 I passaggi seguenti descrivono come importare dati da una tabella hive in una cartella di lavoro di Excel usando l'origine dati ODBC creata nei passaggi precedenti.
@@ -124,5 +125,6 @@ In questo articolo è stato illustrato come usare Microsoft Hive ODBC Driver per
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

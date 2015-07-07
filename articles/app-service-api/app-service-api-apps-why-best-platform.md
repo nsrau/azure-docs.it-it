@@ -22,38 +22,45 @@ Le app per le API fanno parte della famiglia di prodotti del [servizio app di Az
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-La parte relativa alle app per le API di questa famiglia di prodotti fornisce una piattaforma avanzata e un ecosistema per lo sviluppo, l'utilizzo e la distribuzione di API nel cloud e in locale.
+La parte relativa alle app per le API di questa famiglia di prodotti fornisce una piattaforma avanzata e un ecosistema per la creazione, l'hosting, l'utilizzo e la distribuzione di API nel cloud e in locale.
 
->[AZURE.NOTE]Le app per le API sono attualmente disponibili in anteprima pubblica. Sono basate sulle [app Web del servizio app](../app-service-web/app-service-web-overview.md), ovvero un servizio disponibile a livello generale progettato per lo sviluppo e l'hosting di applicazioni mission-critical sicure su scala globale. Le app Web sono un'opzione ottimale se si cerca un servizio disponibile a livello generale per lo sviluppo di API. Quando le app per le API saranno disponibili a livello generale, verrà fornito un percorso per permettere di sfruttare le funzionalità delle app per le API nelle app Web esistenti.
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) è un servizio a parte che offre funzionalità come la limitazione e il consolidamento degli endpoint. È possibile usare Gestione API con le app per le API.
+>
+>Le app per le API sono attualmente disponibili in anteprima pubblica. Sono basate sulle [app Web del servizio app](../app-service-web/app-service-web-overview.md), ovvero un servizio disponibile a livello generale progettato per lo sviluppo e l'hosting di applicazioni mission-critical sicure su scala globale. Le app Web sono un'opzione ottimale se si cerca un servizio disponibile a livello generale per lo sviluppo di API. Quando le app per le API saranno disponibili a livello generale, verrà fornito un percorso per permettere di sfruttare le funzionalità delle app per le API nelle app Web esistenti.
 
 ## Vantaggi delle app per le API
 
 Un'app per le API e un'[app Web del servizio app](../app-service-web/app-service-web-overview.md) con funzionalità aggiuntive che migliorano l'esperienza di sviluppo, distribuzione, pubblicazione, utilizzo, gestione e monetizzazione di API Web RESTful.
 
-Le app per le API condividono quindi con le app Web tutte le funzionalità di hosting della piattaforma del servizio app di Azure:
+### Funzionalità delle app Web per i servizi Web
+
+È possibile usare le app per le API per ospitare un servizio Web e disporre di tutte le funzionalità di hosting della piattaforma del servizio app di Azure:
 
 - Applicazione automatica di patch al sistema operativo
 - Sicurezza di livello aziendale
 - Disponibilità elevata
 - Scalabilità automatica e bilanciamento del carico
 - [Processi Web](../app-service-web/websites-webjobs-resources.md) per l'elaborazione in background
-- Sviluppo semplice e rapido e molte opzioni per la distribuzione continuativa. Per altre informazioni sulla gamma di opzioni di distribuzione disponibili per le app per le API, vedere [Distribuzione di un'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md). 
+- Distribuzione semplice e rapida e [numerose opzioni di recapito continuo](../app-service-web/web-sites-deploy.md)
+- Accesso ai dati locali tramite [connessioni ibride](../integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md)
 
-Le funzionalità aggiuntive offerte dalla piattaforma delle app per le API semplificano lo sviluppo, l'hosting e l'utilizzo delle API:
+### Funzionalità delle app per le API disponibili in anteprima
 
-- **Uso dell'API così com'è**: usare ASP.NET, Java, PHP, Node.js o Python per le API. Le API possono sfruttare i vantaggi della piattaforma delle app per le API, senza modifiche.
+Se per ospitare i servizi Web si usano le app per le API invece delle app Web, il servizio app offre diverse funzionalità aggiuntive:
 
-- **Semplice controllo di accesso**: è possibile configurare le API per l'autenticazione usando Azure Active Directory o servizi di terze parti quali Facebook e Twitter, senza modificare il codice. Usare una sintassi semplificata per il codice di autorizzazione. Per altre informazioni, vedere [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md).
+- **Facilità di utilizzo**: grazie al supporto integrato per [Swagger](http://swagger.io/) le API sono più facilmente utilizzabili da client diversi. È possibile usare l'API Apps SDK per generare codice client per le API in diversi linguaggi, inclusi C#, Java e Javascript.
+
+- **Controllo di accesso semplificato**: i servizi di autenticazione incorporati supportano Azure Active Directory o servizi di terze parti quali Facebook e Twitter. È possibile proteggere un app per le API da accessi non autenticati senza apportare modifiche al codice. Se si conoscono già i servizi di autenticazione forniti da [Servizi mobili di Azure](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), le app per le API si basano su tale framework e lo estendono ai servizi Web ospitati. App Service SDK consente inoltre di usare una sintassi semplificata per il codice di autorizzazione. Per altre informazioni, vedere [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md).
 
 - **Connessione facile alle piattaforme SaaS**: le [app per le API per i connettori](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) in Azure Marketplace vengono fornite da Microsoft e da terze parti per semplificare il codice scritto per l'interazione con SalesForce, Office 365, Twitter, Facebook, Dropbox e molti altri.
 
-- **Accesso ai dati in locale**: le app per le API possono esporre API che utilizzano i dati del proprio data center tramite [connessioni ibride](../integration-hybrid-connection-overview.md) e [rete virtuale](../app-service-web/web-sites-integrate-with-vnet.md).
-
-- **Facilità di utilizzo**: è possibile usare il supporto integrato per [Swagger](http://swagger.io/) per rendere le API facilmente utilizzabili da diversi client. In alternativa, è possibile usare l'API Apps SDK per generare codice client per le API in diversi linguaggi, inclusi C#, Java e Javascript.
-
-- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle app per la logica del servizio app.
+- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 - **Integrazione con Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di [creazione](app-service-dotnet-create-api-app.md), [distribuzione](app-service-dotnet-deploy-api-app.md), [debug](app-service-dotnet-remotely-debug-api-app) e gestione delle app per le API.
+
+È possibile usare le API esistenti così come sono, senza modificarne il codice. Per sfruttare tutte queste funzionalità, è sufficiente distribuire il codice in un'app per le API. Per le API è possibile usare ASP.NET, Java, PHP, Node.js o Python.
+
+### Funzionalità delle app per le API disponibili in futuro
 
 Prossimamente la piattaforma delle app per le API permetterà anche di creare un ecosistema avanzato di API, semplificando la condivisione del codice:
 
@@ -77,9 +84,10 @@ Molte di queste funzionalità, ad esempio il Marketplace pubblico e gli aggiorna
 
 Per iniziare a usare le app per le API, seguire l'esercitazione [Creare un'app per le API](app-service-dotnet-create-api-app.md).
 
-Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere [questo post del forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere [questo post del forum MSDN](https://social.msdn.microsoft.com/Forums/it-it/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

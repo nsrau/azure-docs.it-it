@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scalabilità del cluster in HDInsight | Azure"
-   description="Modificare il numero di nodi dati in un cluster in esecuzione in HDInsight senza eliminare e ricreare il cluster."
+   pageTitle="Ridimensionare i cluster Hadoop, HBase o Apache Storm in HDInsight | Microsoft Azure"
+   description="Modificare il numero di nodi dati in un cluster Hadoop, Apache Storm o HBase in esecuzione in HDInsight senza eliminare e ricreare il cluster."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#Scalabilità del cluster in HDInsight
+#Ridimensionare i cluster Hadoop, HBase o Apache Storm per modificare il numero di nodi dati in HDInsight 
 
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi dati usati da un cluster in esecuzione in Azure HDInsight senza dover eliminare e ricreare il cluster. L'operazione può essere eseguita tramite Azure PowerShell, HDInsight SDK o il portale Azure.
 
@@ -24,7 +24,7 @@ La funzionalità di scalabilità del cluster consente di modificare il numero di
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
 * Hadoop
-* Storm
+* Apache Storm
 * HBase 
 
 ## Hadoop 
@@ -47,7 +47,7 @@ Per altre informazioni, fare riferimento alla [documentazione su Apache Storm](h
 
 L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-![image1](./media/hdinsight-hadoop-cluster-scaling/StormUI.png)
+![Immagine1](./media/hdinsight-hadoop-cluster-scaling/StormUI.png)
 
 Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
@@ -143,5 +143,6 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 
 
 Per altre informazioni sull'uso di HDInsight .NET SDK, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
 
-Nell'[argomento precedente][Create a new logic app] è stata creata la prima app per la logica. In questa fase verrà mostrato come creare un processo più completo usando le app per la logica del servizio app. Questo argomento introduce i nuovi concetti relativi alle app per la logica elencati di seguito:
+Nell'[argomento precedente][Create a new logic app] è stata creata la prima app per la logica. In questa fase verrà mostrato come creare un processo più completo usando le app per la logica di Servizi app. Questo argomento introduce i nuovi concetti relativi alle app per la logica elencati di seguito:
 
 - Logica condizionale, che esegue un'azione solo quando viene soddisfatta una determinata condizione.
 - Ripetizione di azioni.
@@ -89,15 +89,17 @@ Il codice seguente consente di aggiornare l'app per la logica esistente in modo 
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Scorrere fino all'azione `twitterconnector`, individuare il valore della query e sostituirlo con `@concat('#', parameters('topic'))`. La funzione **concat** unisce due o più stringhe.
+2. Scorrere fino all'azione `twitterconnector`, individuare il valore della query e sostituirlo con `#@{parameters('topic')}`. È anche possibile usare la funzione **concat** per unire due o più stringhe, ad esempio, `@concat('#',parameters('topic'))` corrisponde a quanto scritto sopra.
  
 3. Infine, passare all'azione `dropboxconnector` e aggiunger il parametro dell'argomento, come segue:
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 A questo punto, quando si fa clic su **Salva**, ogni ora tutti i nuovi tweet con più di 5 retweet verranno recapitati in una cartella denominata **tweet** nel proprio Dropbox.
+
+Per informazioni sulle definizioni dell'app per la logica, vedere [Creare definizioni di app per la logica](app-service-logic-author-definitions.md).
 
 ## Avvio di un flusso di lavoro dell'app per la logica
 Vi sono diverse opzioni per avviare il flusso di lavoro definito nell'app per la logica. Un flusso di lavoro può sempre essere avviato su richiesta nel [portale di Azure].
@@ -130,4 +132,5 @@ Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui ad
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

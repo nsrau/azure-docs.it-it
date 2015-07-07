@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Esempio GraySort da 10 GB | Azure"
-	description="Informazioni su come eseguire un ordinamento GraySort generico per grandi quantità di dati, in genere almeno 100 TB, su Hadoop con HDInsight usando Azure PowerShell."
+	pageTitle="Esempio MapReduce GraySort per Hadoop da 10 GB | Microsoft Azure"
+	description="Informazioni su come eseguire un GraySort generico per grandi quantità di dati, in genere almeno 100 TB, su Hadoop con HDInsight usando Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# Esempio GraySort di Hadoop da 10 GB in HDInsight
+# Esempio MapReduce GraySort per Hadoop da 10 GB in HDInsight
 
 Questo argomento di esempio illustra come eseguire un ordinamento GraySort generico con un programma MapReduce per Hadoop in Azure HDInsight usando Azure PowerShell. GraySort è un ordinamento benchmark che usa come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità di dati molto elevate, in genere almeno 100 TB.
 
@@ -25,7 +25,7 @@ In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'ese
 In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 1. **TeraGen** è un programma MapReduce utilizzabile per generare le righe di dati da ordinare.
-2. **TeraSort** esegue il campionamento dei dati di input e utilizza MapReduce per ordinare i dati in un ordine totale. TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che utilizza un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1] <= chiave < sample[i] vengono inviate alla funzione reduce i. Ciò garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
+2. **TeraSort** esegue il campionamento dei dati di input e utilizza MapReduce per ordinare i dati in un ordine totale. TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che usa un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Ciò garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 3. **TeraValidate** è un programma MapReduce che convalida l'ordinamento globale dell'output. Crea una funzione map per ogni file nella directory di output e ogni funzione map assicura che ogni chiave sia inferiore o uguale alla precedente. La funzione map genera inoltre record della prima e dell'ultima chiave di ogni file, mentre la funzione reduce assicura che la prima chiave del file sia superiore all'ultima chiave di file i-1. Eventuali problemi vengono segnalati come output della funzione reduce insieme alle chiavi che non rispettano l'ordinamento.
 
 Il formato di input e il formato di output, usati da tutte e tre le applicazioni, consentono di leggere e scrivere i file di testo nel formato corretto. Nell'output della funzione reduce la replica è impostata su 1, anziché sul valore predefinito 3, poiché il contesto del benchmark non richiede la replica dei dati di output in più nodi.
@@ -36,14 +36,13 @@ Il formato di input e il formato di output, usati da tutte e tre le applicazioni
 
 **Prerequisiti:**
 
-- È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
-
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md).
-
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un cluster HDInsight**. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md).
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
-##Esecuzione dell'esempio con Azure PowerShell
+
+##Eseguire l'esempio con Azure PowerShell
 
 L'esempio richiede tre attività, ognuna delle quali corrisponde a uno dei programmi MapReduce illustrati nell'introduzione:
 
@@ -418,7 +417,7 @@ Per le esercitazioni relative all'esecuzione di altri esempi che forniscono istr
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -430,5 +429,6 @@ Per le esercitazioni relative all'esecuzione di altri esempi che forniscono istr
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

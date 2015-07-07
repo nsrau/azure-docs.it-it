@@ -69,6 +69,8 @@ Per impostazione predefinita, i progetti delle app per le API vengono abilitati 
 
 Il modello di nuovo progetto di app per le di Azure, tuttavia, disabilita la pagina di test dell'API. Se il progetto di app per le API è stato creato usando il modello di progetto di app per le API, sarà necessario eseguire i passaggi seguenti per abilitare la pagina di test.
 
+**Nota:** se si distribuisce l'app per le API come *anonima pubblica* e con l'interfaccia utente di Swagger abilitata, tutti potranno usare tale interfaccia utente per individuare e chiamare le API.
+
 1. Aprire il file *App_Start/SwaggerConfig.cs* e cercare **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

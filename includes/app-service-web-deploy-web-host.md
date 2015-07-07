@@ -1,7 +1,6 @@
-### App Service plan
+### Piano di servizio app
 
-Creates the service plan for hosting the web app. You provide the name of the plan through the **hostingPlanName** parameter. The location of the plan is the 
-same location used for the web app. The pricing tier and worker size are specified in the **sku** and **workerSize** parameters
+Consente di creare il piano di servizio per ospitare l'app Web. Fornire il nome del piano tramite il parametro **hostingPlanName**. Il percorso del piano è identico a quello utilizzato per l'app Web. Il livello di prezzo e le dimensioni dei processi di lavoro sono specificati nei parametri **sku** e **workerSize**
 
     {
        "apiVersion":"2015-04-01",
@@ -15,3 +14,5 @@ same location used for the web app. The pricing tier and worker size are specifi
          "numberOfWorkers":1
        }
     }
+
+<!---HONumber=62-->

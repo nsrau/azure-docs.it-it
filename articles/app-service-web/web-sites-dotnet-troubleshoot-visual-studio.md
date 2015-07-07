@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
@@ -49,26 +49,25 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 1. Se non è già stato effettuato l'accesso ad Azure in Visual Studio, fare clic sul pulsante **Connetti ad Azure** in **Esplora server**.
 
-	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Manage Subscriptions** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione (denominato anche file *.publishsettings* per l'account Azure.
+	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Gestisci sottoscrizioni di Azure** fare clic sulla scheda **Certificati** e quindi su **Importa**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
 
-	> [AZURE.NOTE]
-	> Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
+	> [AZURE.NOTE]Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
 
 	Per ulteriori informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
-2. In **Esplora server**, espandere **Azure**, quindi espandere **App Web**.
+2. In **Esplora server** espandere **Azure** e quindi espandere **App Web**.
 
 3. Fare clic con il pulsante destro del mouse sul nodo del sito Web creato in [Introduzione ad Azure e ASP.NET][GetStarted], quindi scegliere **Visualizza impostazioni**.
 
 	![Visualizza impostazioni in Esplora server](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-	Verrà visualizzata la scheda **App Web di Azur**e in cui è possibile visualizzare le attività di gestione e configurazione di app Web disponibili in Visual Studio.
+	Verrà visualizzata la scheda **App Web di Azure** in cui è possibile visualizzare le attività di gestione e configurazione di app Web disponibili in Visual Studio.
 
 	![Finestra di Azure Web App](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
 	In questa esercitazione verranno utilizzati gli elenchi a discesa relativi a registrazione e traccia. Verrà inoltre utilizzato il debug remoto, che tuttavia verrà abilitato con un metodo diverso.
    
-	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere [applicazioni Web di Azure: come stringhe di applicazione e di lavoro di stringhe di connessione](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere l'argomento relativo a [impostazioni dell'applicazione e stringhe di connessione di App Web di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
 	Se si desidera eseguire un'attività di gestione app Web che non può essere completata in questa finestra, è possibile fare clic su **Full Web App Settings** per aprire una finestra del browser nel portale di gestione. Per altre informazioni, vedere [Come configurare app Web](/it-it/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
@@ -88,19 +87,17 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Che richiede una modifica nel file Web. config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
+Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Questo richiede una modifica nel file Web.config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
 
-1. In **Esplora server**, espandere **Azure**, **App Web** e il nodo relativo all'app Web in cui eseguire la distribuzione.
+1. In **Esplora server** espandere **Azure** e **App Service**, quindi espandere il gruppo di risorse in cui si trova l'app Web e infine espandere il nodo relativo all'app Web.
 
 	Verranno visualizzati i nodi che forniscono l'accesso ai file di contenuto e ai file di log dell'app Web.
-
-	![File di contenuto e di log](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
 2. Espandere il nodo **File** e fare doppio clic sul file *Web.config*.
 
 	![Apertura di Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-	Il file Web.config verrà aperto in Visual Studio dall'app Web remoto e accanto al relativo nome, sulla barra del titolo, verrà visualizzata l'indicazione [Remoto].
+	Il file Web.config verrà aperto in Visual Studio dall'app Web remota e accanto al relativo nome, sulla barra del titolo, verrà visualizzata l'indicazione [Remoto].
 
 3. Aggiungere la riga seguente all'elemento `system.web`:
 
@@ -112,7 +109,7 @@ Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abi
 
 	![Messaggi di errore dettagliati](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	L'errore illustrato è stato creato aggiungendo la riga mostrata in rosso a *Views\\Home\\Index.cshtml*.
+	L'errore illustrato è stato creato aggiungendo la riga mostrata in rosso a *Views\Home\Index.cshtml*.
 
 La modifica del file Web.config è solo un esempio degli scenari in cui la possibilità di leggere e modificare file nell'app Web di Azure semplifica la risoluzione dei problemi.
 
@@ -126,7 +123,7 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 1. Aprire il progetto Web creato in [Introduzione ad Azure e ASP.NET][GetStarted].
 
-1. Aprire il file *Controllers\\HomeController.cs*.
+1. Aprire il file *Controllers\HomeController.cs*.
 
 2. Eliminare il metodo `About()` e sostituirlo con il codice seguente.
 
@@ -159,7 +156,7 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 	* Nel portale di gestione di Azure passare a **Impostazioni > Impostazioni applicazione** per l'app Web, quindi scorrere in basso fino alla sezione **Debug**.
 
-	* Impostare **Debug remoto**  su **On** e impostare **Versione remota di Visual Studio** su **2012**.
+	* Impostare **Debug remoto** su **On** e impostare **Versione remota di Visual Studio** su **2012**.
 
 	* Nel menu **Debug** di Visual Studio fare clic su **Connetti a processo**.
 
@@ -299,7 +296,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 ### Aggiungere istruzioni di traccia all'applicazione
 
-1. Aprire il file *Controllers\\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
+1. Aprire il file *Controllers\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -480,7 +477,7 @@ Per impostazione predefinita, quando vengono abilitati per la prima volta tramit
 
 Se si utilizza il portale di gestione per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
 
-## Visualizzazione dei log dei messaggi di errore dettagliati
+## <a name="detailederrorlogs"></a>Visualizzare i log dei messaggi di errore dettagliati
 
 I log dei messaggi di errore dettagliati forniscono informazioni aggiuntive sulle richieste HTTP che generano codici di risposta di errore (400 o superiore). Per visualizzarli nella finestra **Output**, è necessario abilitarli per l'app Web e indicare a Visual Studio che si desidera monitorarli.
 
@@ -520,13 +517,13 @@ Tutti i log che è possibile monitorare nella finestra **Output** possono anche 
 
 	![File scaricato](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* I log di traccia dell'applicazione sono contenuti in file con estensione *txt* nella cartella *LogFiles\\Application*.
-	* I log del server Web sono contenuti in file con estensione *log* nella cartella *LogFiles\\http\\RawLogs*. Per visualizzare e manipolare questi file, è possibile utilizzare uno strumento come [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659).
-	* I log dei messaggi di errore dettagliati sono contenuti in file con estensione *html* nella cartella *LogFiles\\DetailedErrors*.
+	* I log di traccia dell'applicazione sono contenuti in file con estensione *txt* nella cartella *LogFiles\Application*.
+	* I log del server Web sono contenuti in file con estensione *log* nella cartella *LogFiles\http\RawLogs*. Per visualizzare e manipolare questi file, è possibile utilizzare uno strumento come [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659).
+	* I log dei messaggi di errore dettagliati sono contenuti in file con estensione *html* nella cartella *LogFiles\DetailedErrors*.
 
 	La cartella *deployments* contiene i file creati dalla pubblicazione del controllo del codice sorgente e non include contenuto correlato alla pubblicazione di Visual Studio. La cartella *Git* contiene le tracce correlate alla pubblicazione del controllo del codice sorgente e al servizio di streaming di file di log.
 
-## <a name="storagelogs"></a>Visualizzazione dei log di archiviazione
+## <a name="storagelogs"></a>Visualizzare i log di archiviazione
 
 I log di traccia dell'applicazione possono anche essere inviati a un account di archiviazione di Azure ed è possibile visualizzarli in Visual Studio. A questo scopo, creare un account di archiviazione, abilitare i log di archiviazione nel portale di gestione e visualizzarli nella scheda **Log** della finestra **App Web di Azure**.
 
@@ -562,14 +559,13 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/#replication-options).
 
-5. Fare clic su **Create**.
+5. Fare clic su **Crea**.
 
 	![Nuovo account di archiviazione](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)
 
 1. Nella finestra **App Web di Azure** di Visual Studio fare clic sulla scheda **Log**, quindi su **Configura registrazione nel portale di gestione**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Nel portale di gestione verrà visualizzata la scheda **Configura** relativa all'app Web. In alternativa, è possibile fare clic sulla scheda **App Web**, quindi sull'app Web e infine sulla scheda **Configura**.
 
@@ -686,7 +682,7 @@ In questo articolo è stato illustrato come visualizzare in Visual Studio i log 
 
 ### Risoluzione dei problemi relativi alle app Web di Azure
 
-Per altre informazioni sulla risoluzione dei problemi di app Web in Servizio app di Azure, vedere le risorse seguenti:
+Per altre informazioni sulla risoluzione dei problemi di App Web nel servizio app di Azure, vedere le risorse seguenti:
 
 * [Come monitorare le app Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Analisi delle perdite di memoria in App Web di Azure con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
@@ -706,9 +702,9 @@ Per ulteriori informazioni su come utilizzare la modalità debug in Visual Studi
 
 Per altre informazioni sul debug remoto per app Web di Azure e per i processi Web, vedere le risorse seguenti:
 
-* [Introduzione al debug remoto sul servizio app per app Web di Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introduzione al debug remoto sul servizio app per app Web di Azure parte 2 - Informazioni di approfondimento](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introduzione al debug remoto sul servizio app per app Web di Azure parte 3 - Ambiente con più istanze e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduzione al debug remoto di App Web del servizio app di Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introduzione al debug remoto di App Web del servizio app di Azure parte 2 - Informazioni di approfondimento](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduzione al debug remoto di App Web del servizio app di Azure parte 3 - Ambiente con più istanze e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Debug di processi Web (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se per l'app Web viene usato un back-end di API Web di Azure o di Servizi mobili che è necessario sottoporre a debug, vedere [Debug di back-end .NET in Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
@@ -738,7 +734,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 
 Per la registrazione degli errori, in alternativa alla scrittura di codice di traccia personalizzato, è possibile utilizzare un framework di registrazione open source come [ELMAH](http://nuget.org/packages/elmah/). Per ulteriori informazioni, vedere i [post di blog di Scott Hanselman su ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Si noti inoltre che non è necessario utilizzare le funzionalità di traccia di ASP.NET o System.Diagnostics se si desidera ottenere log in streaming da Azure. Il servizio di log in streaming di Siti Web di Azure trasmette tutti i file con estensione *txt*, *html* o *log* che si trovano nella cartella *LogFiles*. Pertanto, è possibile creare un sistema di registrazione personalizzato per scrivere nel file system dell'app Web. In questo modo il file verrà automaticamente trasmesso e scaricato. È sufficiente scrivere codice di applicazione che crea file nella cartella *d:\\home\\logfiles*.
+Si noti inoltre che non è necessario utilizzare le funzionalità di traccia di ASP.NET o System.Diagnostics se si desidera ottenere log in streaming da Azure. Il servizio di log in streaming di Siti Web di Azure trasmette tutti i file con estensione *txt*, *html* o *log* che si trovano nella cartella *LogFiles*. Pertanto, è possibile creare un sistema di registrazione personalizzato per scrivere nel file system dell'app Web. In questo modo il file verrà automaticamente trasmesso e scaricato. È sufficiente scrivere codice di applicazione che crea file nella cartella *d:\home\logfiles*.
 
 ### Analisi dei log del server Web
 
@@ -757,13 +753,14 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 
 Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'app Web, vedere [Debug di servizi cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

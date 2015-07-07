@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configurare DNS tra due reti virtuali di Azure | Azure" 
-   description="Informazioni su come configurare le connessioni VPN tra due reti virtuali di Azure, come configurare la risoluzione dei nomi di dominio tra due reti virtuali e come configurare la replica geografica di HBase" 
-   services="hdinsight" 
+   pageTitle="Configurare DNS tra due reti virtuali di Azure | Microsoft Azure" 
+   description="Informazioni su come configurare le connessioni VPN e la risoluzione dei nomi di dominio tra due reti virtuali e come configurare la replica geografica di HBase" 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -40,9 +40,9 @@ Il diagramma seguente illustra le due reti virtuali create nell'articolo su come
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una workstation in cui sia stato installato e configurato Azure PowerShell**. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
@@ -52,7 +52,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **Due reti virtuali di Azure con connettività VPN**. Per istruzioni, vedere [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-replication-vnet].
+- **Due reti virtuali di Azure con connettività VPN**. Per istruzioni, vedere [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-vnet].
 
 >[AZURE.NOTE]I nomi dei servizi Azure e i nomi delle macchine virtuali devono essere univoci. Il nome usato in questa esercitazione è Contoso-[servizio di Azure/nome macchina virtuale]-[EU/US]. Ad esempio, Contoso-VNet-EU è la rete virtuale di Azure nel data center in Europa settentrionale; Contoso-DNS-US è la macchina virtuale del server DNS nel data center degli Stati Uniti orientali. È necessario indicare dei nomi a scelta.
  
@@ -73,9 +73,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- **SUBNET DELLA RETE VIRTUALE**: Subnet-1
 	- **ACCOUNT DI ARCHIVIAZIONE**: usare un account di archiviazione generato automaticamente
 	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+		Il nome del servizio cloud sarà identico al nome della macchina virtuale. In questo caso, è Contoso-DNS-EU. Per le macchine virtuali successive, è possibile scegliere di usare lo stesso servizio cloud. Tutte le macchine virtuali nello stesso servizio cloud condividono la stessa rete virtuale e lo stesso suffisso di dominio.
 
-		The storage account is used to store the virtual machine image file. 
+		L'account di archiviazione viene usato per archiviare il file di immagine della macchina virtuale. 
 	- **ENDPOINT**: (scorrere verso il basso e selezionare **DNS**) 
 
 Dopo aver creato la macchina virtuale, individuare l'IP interno e l'IP esterno.
@@ -216,7 +216,8 @@ In questa esercitazione si è appreso come configurare la risoluzione dei nomi t
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

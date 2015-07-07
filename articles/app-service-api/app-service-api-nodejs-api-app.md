@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Compilare e distribuire un'app per le API Node.js API nel servizio app di Azure" 
-	description="Informazioni su come creare un pacchetto dell'app per le API e distribuirlo nel servizio app di Azure." 
-	services="app-service-api" 
-	documentationCenter="nodejs" 
-	authors="pkefal" 
-	manager="", 
+<properties
+	pageTitle="Compilare e distribuire un'app per le API Node.js in Servizio app di Azure"
+	description="Informazioni su come creare un pacchetto dell'app per le API Node.js e distribuirlo nel servizio app di Azure."
+	services="app-service\api"
+	documentationCenter="nodejs"
+	authors="pkefal"
+	manager=""
 	editor=""/>
 
 <tags
@@ -24,6 +24,8 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ![][sample-api-app-page]
 
+> [AZURE.NOTE]Per creare e distribuire un'app per le API Node.js nel servizio app di Azure è anche possibile usare Visual Studio Code. Per altre informazioni su Visual Studio Code e Node.js, vedere [Visual Studio Code](http://code.visualstudio.com/Docs/) e l'articolo relativo allo [sviluppo di applicazioni Node](http://code.visualstudio.com//Docs/nodejs).
+
 ## Creare un'app per le API nel portale di anteprima di Azure
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/). È anche possibile provare gratuitamente gli [esempi di app del servizio app](http://tryappservice.azure.com).
@@ -42,7 +44,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 	![][portal-create-api]
 
-6. Fare clic su **Create**.
+6. Fare clic su **Crea**.
 
 	![][api-app-blade]
 
@@ -189,7 +191,7 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	* [new branch] master -> master
+	 	* [new branch]      master -> master
 
 ## Visualizzare la definizione dell'API nel portale di anteprima di Azure
 
@@ -219,8 +221,6 @@ Nel portale di anteprima di Azure passare al pannello **Host app per le API** re
 
 Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio è stata eseguita localmente.
 
-## Metadati dell'app per le API
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Passaggi successivi
@@ -243,6 +243,6 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

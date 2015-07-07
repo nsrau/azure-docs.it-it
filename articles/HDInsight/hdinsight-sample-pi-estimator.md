@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Esempio di calcolo del Pi greco di Hadoop in HDInsight | Azure"
-	description="Informazioni su come eseguire un esempio MapReduce di Hadoop in HDInsight."
+	pageTitle="Esempio di calcolo del Pi greco di Hadoop in HDInsight | Microsoft Azure"
+	description="Informazioni su come eseguire un esempio di calcolo del Pi greco per MapReduce di Hadoop in HDInsight."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -37,14 +37,13 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 
 **Prerequisiti**:
 
-- È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
-
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md).
-
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un cluster HDInsight**. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md).
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
-<h2><a id="run-sample"></a>Esecuzione dell'esempio con Azure PowerShell</h2>
+
+## <a id="run-sample"></a>Eseguire l'esempio con Azure PowerShell
 
 **Per inviare il processo MapReduce**
 
@@ -78,7 +77,7 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 	A scopo di confronto, si noti che le prime 10 cifre decimali di Pi greco sono 3,1415926535.
 
 
-<h2><a id="java-code"></a>Codice Java per il programma MapReduce per il calcolo del Pi greco</h2>
+## <a id="java-code"></a>Codice Java per il programma MapReduce per il calcolo del Pi greco
 
 
 
@@ -419,10 +418,9 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 	 }
 	 }
 
+## <a id="summary"></a>Riepilogo
 
-<h2><a id="summary"></a>Riepilogo</h2>
-
-In questa esercitazione è stato illustrato come eseguire un processo MapReduce in HDInsight e come usare metodi Monte Carlo che richiedono e generano set di dati di grandi dimensioni gestibili mediante questo servizio.
+In questa esercitazione è stato illustrato come eseguire un processo MapReduce su HDInsight e come usare metodi Monte Carlo che richiedono e generano set di dati di grandi dimensioni, che possono essere gestiti da questo servizio.
 
 Di seguito è disponibile lo script completo usato per eseguire questo esempio in un cluster HDInsight 3.1 o 3.0 predefinito:
 
@@ -447,7 +445,7 @@ Di seguito è disponibile lo script completo usato per eseguire questo esempio i
 
 
 
-<h2><a id="next-steps"></a>Passaggi successivi</h2>
+## <a id="next-steps"></a>Passaggi successivi
 
 Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istruzioni sull'uso di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
@@ -461,7 +459,7 @@ Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istru
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -473,5 +471,6 @@ Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istru
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

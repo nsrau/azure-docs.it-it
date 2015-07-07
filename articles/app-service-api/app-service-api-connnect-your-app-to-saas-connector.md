@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare un connettore SaaS dal codice" 
+	pageTitle="Distribuire e configurare un'app per le API del connettore SaaS" 
 	description="Informazioni su come configurare un connettore SaaS installato nella sottoscrizione di Azure da Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Usare un connettore SaaS dal codice
+# Distribuire e configurare un'app per le API del connettore SaaS nel servizio app di Azure
 
 ## Panoramica
 
@@ -24,7 +24,7 @@ Questa esercitazione illustra come installare, configurare e testare un [connett
 
 Ad esempio, il processo di autenticazione per l'uso diretto di Dropbox per codificare le richieste HTTP in modo che leggano e scrivano file nell'account Dropbox risulta complicato. Un connettore Dropbox gestisce automaticamente la complessità dell'autenticazione, permettendo agli sviluppatori di concentrarsi sulla scrittura di codice specifico per l'azienda.
 
-> [AZURE.WARNING]È **consigliabile *non* seguire queste istruzioni se si vuole usare un connettore SaaS da un'app per la logica**. Per informazioni dettagliate su come usare i connettori SaaS all'interno di app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Questo articolo riguarda in modo specifico l'uso di *codice* per chiamare il connettore.
+> [AZURE.NOTE]Queste istruzioni non sono necessarie se si vuole usare un connettore SaaS da un'app per la logica. Per informazioni su come usare i connettori SaaS all'interno di app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
  
 Questa esercitazione usa un connettore DropBox come esempio e illustra in modo dettagliato i passaggi seguenti:
 
@@ -275,4 +275,6 @@ Nei passaggi seguenti verrà effettuata una richiesta Get al connettore Dropbox 
 
 [portale di anteprima di Azure]: https://portal.azure.com/
 [portale di Azure]: https://manage.windowsazure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

@@ -33,4 +33,4 @@ Se questi file non esistono, Azure creerà uno script di distribuzione temporane
 
 [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

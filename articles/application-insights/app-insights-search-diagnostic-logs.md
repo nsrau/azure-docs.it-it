@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Ricerca nei registri di diagnostica" 
-	description="Cercare i log generati con Trace, NLog o Log4Net." 
+	pageTitle="Log, eccezioni e diagnostica personalizzata per ASP.NET in Application Insights" 
+	description="Diagnosticare i problemi nelle app Web ASP.NET eseguendo ricerche in richieste, eccezioni e log generati con Trace, NLog or Log4Net." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,39 +12,120 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Ricerca diagnostica in Application Insights
+# Log, eccezioni e diagnostica personalizzata per ASP.NET in Application Insights
 
-Uno dei metodi di debugging più tradizionali prevede l'inserimento di righe di codice che generano un log di traccia. [Application Insights][start] è in grado di acquisire i log dei server Web e ne facilita la ricerca e il filtro. Se si usa già log4Net, NLog o System.Diagnostics.Trace, è possibile acquisire questi log con l'adattatore. In alternativa, è possibile usare i metodi TrackTrace ed TrackException integrati in Application Insights SDK.
+[Application Insights][start] include un potente strumento di [Ricerca diagnostica][diagnostic] che consente di esplorare e analizzare i dati di telemetria inviati da Application Insights SDK dall'applicazione. Molti eventi come le visualizzazioni pagina dell'utente vengono inviate automaticamente dall'SDK.
 
-I risultati della ricerca possono includere inoltre i normali eventi di visualizzazione delle pagine e di richiesta usati per creare i report di [utilizzo][usage] e [prestazioni][perf], insieme a eventuali [chiamate TrackEvent personalizzate][track] che sono state scritte.
+È anche possibile scrivere il codice per inviare eventi personalizzati, report di eccezioni e tracce. E se si usa già un framework di registrazione, ad esempio log4J, log4net, NLog o System.Diagnostics.Trace, è possibile acquisire tali log e includerli nella ricerca. Ciò semplifica la correlazione delle tracce dei log con azioni utente, eccezioni e altri eventi.
+
+## <a name="send"></a>Prima di scrivere i dati di telemetria personalizzati
+
+Se non si è ancora [configurato Application Insights per il progetto][start], è possibile farlo ora.
+
+Quando si esegue l'applicazione, vengono inviati alcuni dati di telemetria che vengono visualizzati nella ricerca diagnostica, tra cui le richieste ricevute dal server, le visualizzazioni pagina registrate nel client e le eccezioni non rilevate.
+
+Aprire Ricerca diagnostica per visualizzare i dati di telemetria inviati automaticamente dall'SDK.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-45diagnostic.png)
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
+
+I dettagli variano da un tipo di applicazione all'altro. È possibile fare clic su un singolo evento per ottenere altri dettagli.
+
+##<a name="events"></a>Eventi personalizzati
+
+Gli eventi personalizzati vengono visualizzati in [Ricerca diagnostica][diagnostic] e in [Esplora metriche][metrics]. È possibile inviarli da dispositivi, pagine web e applicazioni server. Possono essere usati per scopi diagnostici e per [comprendere i criteri di utilizzo][track].
+
+Un evento personalizzato è contraddistinto da un nome e può contenere anche proprietà che è possibile filtrare, insieme alle misurazioni numeriche.
+
+JavaScript nel client
+
+    appInsights.trackEvent("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+C# nel server
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
 
 
-2. [Installare un adattatore per il framework di registrazione](#capture)
-+ [Inserire chiamate di log di diagnostica](#pepper)
-+ [Eccezioni](#exceptions)
-+ [Visualizzare i dati del registro](#view)
-+ [Eseguire la ricerca di dati di log](#search)
-+ [Risoluzione dei problemi](#questions)
-+ [Passaggi successivi](#next)
+VB nel server
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+### Eseguire l'app e visualizzare i risultati.
+
+Aprire Ricerca diagnostica.
+
+Selezionare Evento personalizzato e selezionare un nome di evento specifico.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-332filterCustom.png)
 
 
+Filtrare i dati ulteriormente immettendo un termine di ricerca per un valore della proprietà.
 
-## <a name="capture"></a> Installare un adattatore per il framework di registrazione
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-5.png)
 
-Se non si è ancora [installato Application Insights nel progetto][start], è possibile farlo ora.
+Analizzare un singolo evento per visualizzarne le proprietà dettagliate.
 
-Se verranno usate le chiamate Application Insights SDK Track*() integrate, non è necessario un adattatore ed è possibile [passare alla sezione successiva](#pepper).
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-Per eseguire la ricerca dei log generati con log4Net, NLog o System.Diagnostics.Trace, installare l'adattatore appropriato:
+##<a name="pages"></a> Visualizzazioni pagina
+
+La telemetria delle visualizzazioni pagina viene inviata dalla chiamata a trackPageView() nel [frammento di codice JavaScript inserito nelle pagine web][usage]. Lo scopo principale è quello di contribuire al conteggio delle visualizzazioni pagina che si verificano nella pagina di panoramica.
+
+In genere viene eseguita una sola chiamata in ogni pagina HTML, ma è possibile inserire ulteriori chiamate, ad esempio se si ha un'app di una sola pagina e si vuole registrare una nuova pagina ogni volta che l'utente ottiene altri dati.
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
+
+A volte è utile collegare le proprietà che è possibile usare come filtri nella ricerca di diagnostica:
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
+     {Game: currentGame.name, Difficulty: currentGame.difficulty});
+
+
+##<a name="trace"></a> Telemetria di traccia
+
+La telemetria di traccia rappresenta il codice che viene inserito specificamente per creare i log di diagnostica.
+
+È, ad esempio, possibile inserire chiamate simili alla seguente:
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+
+####  Installare un adattatore per il framework di registrazione
+
+È anche possibile eseguire la ricerca nei log generati con un framework di registrazione come log4Net, NLog o System.Diagnostics.Trace.
 
 1. Se si intende usare log4Net o NLog, installarlo nel progetto. 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**..
-3. Selezionare Online > Tutti, quindi selezionare **Includi versione preliminare** e cercare "Microsoft.ApplicationInsights"
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
+3. Selezionare Online > Tutti, quindi selezionare **Includi versione preliminare** e cercare "Microsoft.ApplicationInsights".
 
-    ![Get the prerelease version of the appropriate adapter](./media/app-insights-search-diagnostic-logs/appinsights-36nuget.png)
+    ![Ottenere la versione preliminare dell'adattatore appropriato](./media/app-insights-search-diagnostic-logs/appinsights-36nuget.png)
 
 4. Selezionare il pacchetto appropriato tra:
   + Microsoft.ApplicationInsights.TraceListener (per acquisire le chiamate System.Diagnostics.Trace)
@@ -52,16 +134,9 @@ Per eseguire la ricerca dei log generati con log4Net, NLog o System.Diagnostics.
 
 Il pacchetto NuGet installa gli assembly necessari e modifica inoltre web.config o app.config.
 
-## <a name="pepper"></a>3. Inserire chiamate di log di diagnostica
+#### <a name="pepper"></a>Inserire chiamate di log di diagnostica
 
-Inserire chiamate di registrazione eventi usando il framework di registrazione preferito. 
-
-Ad esempio, se si usa Application Insights SDK, si potrebbe inserire:
-
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
-
-Se invece si usa System.Diagnostics.Trace:
+Se si usa System.Diagnostics.Trace, una tipica chiamata sarà simile alla seguente:
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
@@ -69,13 +144,19 @@ Se si preferisce log4net o NLog:
 
     logger.Warn("Slow response - database01");
 
-Eseguire l'app in modalità di debug e distribuirla nel server Web.
+Eseguire l'app in modalità debug o distribuirla.
+
+I messaggi verranno visualizzati in Ricerca diagnostica quando si seleziona il filtro di traccia.
 
 ### <a name="exceptions"></a>Eccezioni
 
-Per inviare eccezioni al log:
+La visualizzazione dei report delle eccezioni in Application Insights è molto utile, soprattutto perché è possibile spostarsi tra le richieste non riuscite e le eccezioni e leggere lo stack dell'eccezione.
 
-JavaScript nel client
+In alcuni casi, è necessario [inserire alcune righe di codice][exceptions] per fare in modo che le eccezioni vengano rilevate automaticamente.
+
+È anche possibile scrivere codice esplicito per inviare dati di telemetria per le eccezioni:
+
+JavaScript
 
     try 
     { ...
@@ -87,7 +168,7 @@ JavaScript nel client
          State: currentGame.State.ToString()});
     }
 
-C# nel server
+C#
 
     var telemetry = new TelemetryClient();
     ...
@@ -107,7 +188,7 @@ C# nel server
        telemetry.TrackException(ex, properties, measurements);
     }
 
-VB nel server
+VB
 
     Dim telemetry = New TelemetryClient
     ...
@@ -127,162 +208,56 @@ VB nel server
 
 I parametri delle proprietà e delle misurazioni sono facoltativi, ma sono utili per filtrare e aggiungere altre informazioni. Ad esempio, per un'app in grado di eseguire diversi giochi, è possibile trovare tutti i report di eccezione correlati a un gioco specifico. È possibile aggiungere qualsiasi numero di elementi a ogni dizionario.
 
-## <a name="view"></a>4. Visualizzare i dati del registro
+#### Visualizzazione delle eccezioni
+
+Nel pannello Panoramica viene visualizzato un riepilogo delle eccezioni segnalate ed è possibile fare clic sulle singole eccezioni per visualizzare altri dettagli. Ad esempio:
 
 
-1. In Application Insights aprire la ricerca diagnostica.
+![](./media/app-insights-search-diagnostic-logs/appinsights-039-1exceptions.png)
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-30openDiagnostics.png)
-   
-2. Impostare il filtro per i tipi di eventi da visualizzare.
+Fare clic su qualsiasi tipo di eccezione per visualizzare occorrenze specifiche:
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-331filterTrace.png)
+![](./media/app-insights-search-diagnostic-logs/appinsights-333facets.png)
 
+È anche possibile aprire direttamente Ricerca diagnostica, filtrare le eccezioni e scegliere il tipo di eccezione che si vuole visualizzare.
 
-I tipi di eventi sono i seguenti:
+### Segnalazione di eccezioni non gestite
 
-* **Traccia**: ricerca di log di diagnostica che sono stati acquisiti dal server Web. Sono incluse le chiamate log4Net, NLog, System.Diagnostic.Trace e ApplicationInsights TrackTrace.
-* **Richiesta**: ricerca di richieste HTTP ricevute dal componente server dell'app Web, incluse le pagine delle richieste, le richieste di dati, le immagini e così via. Gli eventi visualizzati sono i dati di telemetria inviati dall'SDK del server di Application Insights, che vengono usati per creare il report relativo ai conteggi delle richieste.
-* **Visualizzazione Pagina**: ricerca di eventi di visualizzazione pagina. Questi eventi vengono inviati al client Web e sono usati per creare report di visualizzazioni di pagine. Se non viene visualizzato alcun contenuto, configurare il [monitoraggio del client Web][usage].
-* **Evento personalizzato**: se sono state inserite chiamate a TrackEvent() e TrackMetric() per [monitorare l'utilizzo][track], è possibile cercarle qui.
+Quando possibile, Application Insights segnala le eccezioni non gestite restituite da dispositivi, [Web browser][usage] o server Web, indipendentemente se instrumentati da [Status Monitor][redfield] o [Application Insights SDK][greenbrown].
 
-Selezionare un registro eventi per visualizzarne i dettagli. 
+Tuttavia, in alcuni casi non è sempre possibile eseguire questa operazione perché .NET Framework rileva le eccezioni. Per fare in modo che vengano visualizzate tutte le eccezioni, è pertanto necessario scrivere un semplice gestore di eccezioni. La procedura migliore dipende dalla tecnologia. Per altre informazioni, vedere [Telemetria delle eccezioni per ASP.NET][exceptions].
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-32detail.png)
+### Correlazione con una compilazione
 
-È possibile usare stringhe normali, senza caratteri jolly, per filtrare i dati dei campi in un elemento.
+Quando si leggono i log di diagnostica, è probabile che il codice sorgente sia stato modificato rispetto a quando è stato distribuito il codice attivo.
 
-I campi disponibili dipendono dal framework di registrazione e dai parametri usati nella chiamata.
+È pertanto utile inserire le informazioni di compilazione, ad esempio l'URL della versione corrente, in una proprietà insieme a ogni eccezione o a una traccia.
 
+Invece di aggiungere la proprietà separatamente a ogni chiamata di eccezione, è possibile impostare le informazioni nel contesto predefinito.
 
-## <a name="search"></a>5. Cercare i dati
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
 
-Impostare un intervallo di tempo e cercare i termini. Le ricerche in un intervallo breve risultano più veloci. 
+Nell'inizializzatore di app, ad esempio Global.asax.cs, procedere come segue:
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-311search.png)
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
 
-Si noti che si stanno cercando termini, non sottostringhe. I termini sono stringhe alfanumeriche che includono segni di punteggiatura quali '.' e '_'. ad esempio:
+###<a name="requests"></a> Richieste del server Web
 
-<table>
-  <tr><th>termine</th><th>non trova corrispondenza con</th><th>ma trova corrispondenza con</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>Nuovo ritardo</td><td>w r</td><td>nuovo<br/>ritardo<br/>n* AND r*</td></tr>
-</table>
+I dati di telemetria delle richieste vengono inviati automaticamente quando si [installa Status Monitor nel server Web][redfield] o quando si [aggiunge Application Insights al progetto Web][greenbrown]. Vengono inoltre aggiunti nei grafici dei tempi di richiesta e di risposta in Esplora metriche e nella pagina Panoramica.
 
-È possibile usare espressioni di ricerca quali le seguenti:
-
-<table>
-                    <tr>
-                      <th>
-                        <p>Query di esempio</p>
-                      </th>
-                      <th>
-                        <p>Effetto</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">lento</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Individuazione di tutti gli eventi nell'intervallo di date i cui campi includono il termine "lento".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">database??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corrispondenza con database01, databaseAB, ...</p>
-                        <p>? non può essere usato all'inizio di un termine di ricerca.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">database*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corrispondenza con database, database01, databaseNNNN</p>
-                        <p>* non può essere usato all'inizio del termine di ricerca.</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">mela AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">mela OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">mela banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Individuazione di eventi che contengono uno dei termini.. Usare "OR", non "or".</p>
-                        <p>Forma breve.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">mela NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">mela-banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Individuazione di eventi che contengono un termine ma non l'altro.</p>
-                        <p>Forma breve.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>me* AND banana NOT (uva OR pera)</p>
-                        <p>
-                          <span class="code">me* AND banana-(uva pera)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Operatori logici e parentesi.</p>
-                        <p>Forma più breve.</p>
-                      </td>
-                    </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">message:slow</span>
-                        </p>
-                        <p>
-                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corrispondenza con il campo specificato. Per impostazione predefinita, la ricerca viene eseguita in tutti i campi. Per visualizzare i campi disponibili, selezionare un evento per verificarne i dettagli.</p>
-                      </td>
-                    </tr>
- -->
-</table>
-
+Se si vogliono inviare eventi aggiuntivi, è possibile usare l'API TrackRequest().
 
 ## <a name="questions"></a>Domande e risposte
 
@@ -296,30 +271,28 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
 
-### <a name="cani"></a>È possibile...?
-
-- Impostare avvisi su eventi ed eccezioni
-- Esportare log per ulteriori analisi
-- Eseguire ricerche su proprietà specifiche
-
-Inoltre, tutte queste funzionalità sono incluse nel backlog.
-
 ## <a name="add"></a>Passaggi successivi
 
-* [Configurare i test per la disponibilità e la velocità di risposta][availability]
+* [Configurare i test di disponibilità e velocità di risposta][availability]
 * [Risoluzione dei problemi][qna]
 
 
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

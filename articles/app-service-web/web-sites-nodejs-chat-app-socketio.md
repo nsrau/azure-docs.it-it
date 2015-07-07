@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure" 
-	description="Esercitazione che illustra l'uso di socket.io in un'applicazione Web node.js ospitata in Azure." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Creare un'applicazione di chat Node.js con Socket.IO nel servizio app di Azure"
+	description="Esercitazione che illustra l'uso di socket.io in un'applicazione Web node.js ospitata in Azure."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 
 
 
-# Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure
+# Creare un'applicazione di chat Node.js con Socket.IO nel servizio app di Azure
 
-Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache). Per ulteriori informazioni su Socket.IO, vedere [http://socket.io/][socketio].
+Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache). Per altre informazioni su Socket.IO, vedere [http://socket.io/][socketio].
 
-> [AZURE.NOTE]Le procedure descritte in questa attività si applicano alle [app Web App di Servizio Web](http://go.microsoft.com/fwlink/?LinkId=529714); per Servizi cloud, vedere <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure</a>.
+> [AZURE.NOTE]Le procedure descritte in questa attività si applicano ad [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). Per Servizi cloud, vedere <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure</a>.
 
 
 ## Scaricare l'esempio di chat
@@ -33,7 +33,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 1.  Scaricare una [versione archiviata ZIP o GZ][release] del progetto Socket.IO (per questo documento è stata usata la versione 1.3.5)
 
 
-3.  Estrarre l'archivio e copiare la directory **examples\\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
+3.  Estrarre l'archivio e copiare la directory **examples\chat** in una nuova posizione. Ad esempio, **\node\chat**.
 
 ## Modificare app.js e installare i moduli
 
@@ -57,7 +57,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 		  "socket.io": "1.3.5"
 		}
 
-4. Dalla riga di comando passare alla directory **\\\\node\\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
+4. Dalla riga di comando passare alla directory **\node\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
 
         npm install
 
@@ -69,14 +69,14 @@ Per creare un'app Web di Azure, abilitare la pubblicazione Git e quindi abilitar
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-1. Installare l'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) e connettersi alla propria sottoscrizione. Vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli).
+1. Installare l'interfaccia della riga di comando di Azure e connettersi alla propria sottoscrizione. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli).
 
-2. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso. Da xplat-cli, immettere il comando seguente:
+2. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso. Dall'interfaccia della riga di comando di Azure, immettere il comando seguente:
 
-		azure site deployment user set [username] [password] 
+		azure site deployment user set [username] [password]
 
 
-3. Passare alla directory **\\node\\chat** e utilizzare il comando seguente per creare una nuova app Web di Azure e un repository Git locale. Verrà inoltre creato un repository Git remoto denominato .
+3. Passare alla directory **\node\chat** e utilizzare il comando seguente per creare una nuova app Web di Azure e un repository Git locale. Verrà inoltre creato un repository Git remoto denominato .
 
 		azure site create mysitename --git
 
@@ -101,10 +101,10 @@ Per creare un'app Web di Azure, abilitare la pubblicazione Git e quindi abilitar
 
 	Se richiesto, immettere il nome dell'app Web.
 
-	>[AZURE.NOTE]Il comando funzionerà solo con la versione 0.7.4 o superiore dell'interfaccia della riga di comando multipiattaforma di Azure. È anche possibile abilitare il supporto WebSocket utilizzando il [Portale di Azure](https://portal.azure.com).
+	>[AZURE.NOTE]Il comando 'azure site set -w' funzionerà solo con la versione 0.7.4 o superiore dell'interfaccia della riga di comando di Azure. È anche possibile abilitare il supporto WebSocket utilizzando il [Portale di Azure](https://portal.azure.com).
 	>
 	>Per abilitare i WebSocket utilizzando il Portale di Azure, fare clic sull'app Web dal pannello App Web, selezionare **Tutte le impostazioni** > **Impostazioni dell'applicazione**. In **Web Socket**, fare clic su **Attivo**. Fare quindi clic su **Salva**.
-	
+
 5. Per visualizzare l'app Web in Azure, utilizzare il comando seguente per avviare il browser Web e passare all'app Web ospitata:
 
 		azure site browse
@@ -125,7 +125,7 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 
 ###Aggiungere i moduli redis e socket.io-redis
 
-1. Dalla riga di comando, passare alla directory __\\node\\chat__ e usare il comando seguente.
+1. Dalla riga di comando, passare alla directory __\node\chat__ e usare il comando seguente.
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -135,7 +135,7 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
-		
+
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
@@ -144,14 +144,14 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 	In questo modo viene creato un client di pubblicazione e sottoscrizione alla cache Redis creata in precedenza. I client vengono quindi usati con l'adattatore per configurare Socket.IO in modo da usare la cache Redis per passare messaggi ed eventi tra le istanze dell'applicazione
 
 	> [AZURE.NOTE]Anche se l'adattatore __socket.io-redis__ possa comunicare direttamente con Redis, la versione corrente non supporta l'autenticazione richiesta dalla cache Redis di Azure. Pertanto, la connessione iniziale viene creata usando il modulo __redis__, quindi il client viene passato all'adattatore __socket.io-redis__.
-	> 
+	>
 	> Nonostante la cache Redis di Azure supporti le connessioni sicure usando la porta 6380, alla data del 14 luglio 2014 i moduli usati in questo esempio non supportano le connessioni sicure. Il codice riportato sopra usa la porta 6380, predefinita e non sicura.
 
 3. Salvare il file __app.js modificato__
 
 ###Eseguire il commit delle modifiche ed effettuare la ridistribuzione
 
-Dalla riga di comando nella directory __\\node\\chat__, usare i comandi seguenti per eseguire il commit delle modifiche e ridistribuire l'applicazione.
+Dalla riga di comando nella directory __\node\chat__, usare i comandi seguenti per eseguire il commit delle modifiche e ridistribuire l'applicazione.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -215,10 +215,10 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 		<!--
 		     This configuration file is required if iisnode is used to run node processes behind
 		     IIS or IIS Express.  For more information, visit:
-		
+
 		     https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config
 		-->
-		
+
 		<configuration>
 		  <system.webServer>
 		    <!-- Visit http://blogs.msdn.com/b/windowsazure/archive/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites.aspx for more information on WebSocket support -->
@@ -233,12 +233,12 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
 		          <match url="^app.js/debug[/]?" />
 		        </rule>
-		
+
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
 		        <rule name="StaticContent">
 		          <action type="Rewrite" url="public{REQUEST_URI}"/>
 		        </rule>
-		
+
 		        <!-- All other URLs are mapped to the node.js web app entry point -->
 		        <rule name="DynamicContent">
 		          <conditions>
@@ -253,7 +253,7 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 		        * watchedFiles: semi-colon separated list of files that will be watched for changes to restart the server
 		        * node_env: will be propagated to node as NODE_ENV environment variable
 		        * debuggingEnabled - controls whether the built-in debugger is enabled
-		
+
 		      See https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config for a full list of options
 		    -->
 		    <!--<iisnode watchedFiles="web.config;*.js"/>-->
@@ -262,15 +262,15 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 
 	> [AZURE.NOTE]Se l'applicazione utilizza un punto di ingresso diverso da **app.js**, è necessario sostituire tutte le ricorrenze di **app.js** con il punto di ingresso corretto. ad esempio, la sostituzione di **app.js** con **server.js**.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Passaggi successivi
 
 In questa esercitazione è stato illustrato come creare un'applicazione di chat ospitata in un'app Web di Azure. È inoltre possibile ospitare l'applicazione come un servizio cloud di Azure. Per le procedure che illustrano come eseguire questa operazione, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure][cloudservice].
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
@@ -281,5 +281,6 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [pricing]: /pricing/details/web-sites/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
