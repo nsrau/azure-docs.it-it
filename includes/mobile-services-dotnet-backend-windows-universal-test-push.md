@@ -11,7 +11,7 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
-   Si noti che, al termine dell'inserimento, sia l'app di Windows Store che quella di Windows Phone ricevono una notifica push da WNS.
+   	Si noti che, al termine dell'inserimento, sia l'app di Windows Store che quella di Windows Phone ricevono una notifica push da WNS.
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png)
 
@@ -20,4 +20,4 @@
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
 
-<!--HONumber=42-->
+<!---HONumber=42-->
