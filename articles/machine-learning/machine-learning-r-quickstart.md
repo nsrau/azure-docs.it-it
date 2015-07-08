@@ -188,7 +188,7 @@ Ora che sono presenti dei dati in Machine Learning Studio, è necessario creare 
 
 - Trascinare il modulo [Execute R Script][execute-r-script] nel pallet.
 
-- Connettere l'output del **set di dati csdairydata.csv** all'input più a sinistra \(\*\*Dataset1\*\*\) del modulo [Execute R Script][execute-r-script].
+- Connettere l'output del **set di dati csdairydata.csv** all'input più a sinistra (**Dataset1**) del modulo [Execute R Script][execute-r-script].
 
 - **Non dimenticare di fare clic su 'Save'.**
 
@@ -384,7 +384,7 @@ Eseguiamo il codice e analizziamo l'output. L'output da **Visualize** nel menu R
 
 *Figura 9. Riepilogo del frame di dati con una variabile di fattore.*
 
-Il tipo per Month sarà: '\*\*Factor w/ 14 levels\*\*'. Questo è ovviamente un problema poiché in un anno ci sono solo 12 mesi. È anche possibile controllare che il tipo in **Visualize** della porta Result Dataset sia '\*\*Categorical\*\*'.
+Il tipo per Month sarà: '**Factor w/ 14 levels**'. Questo è ovviamente un problema poiché in un anno ci sono solo 12 mesi. È anche possibile controllare che il tipo in **Visualize** della porta Result Dataset sia '**Categorical**'.
 
 Il problema è che la colonna "Month" non è stata codificata in modo sistematico. Un mese può essere denominato Aprile in alcuni casi e abbreviato in Apr. in altri. Per risolvere il problema, è possibile ridurre la stringa a tre caratteri. La riga di codice dovrebbe ora apparire così:
 
@@ -523,7 +523,8 @@ Il codice R completo per questa sezione è disponibile nel file zip scaricato in
 
 Come già accennato, le serie temporali sono costituite da una serie di valori di dati indicizzati per data e ora. Gli oggetti serie temporale vengono usati in R per creare e gestire l'indice temporale. Questi oggetti offrono infatti una serie di vantaggi. Gli oggetti della serie temporale consentono di liberarsi delle numerose attività di gestione dei valori di indice della serie temporale incapsulati nell'oggetto. Consentono inoltre di usare i vari metodi messi a disposizione dalle serie temporali per operazioni di tracciamento, stampa, modeling, ecc.
 
-In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. 
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Esempio di oggetto della serie temporale
 
