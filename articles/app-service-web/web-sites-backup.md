@@ -127,7 +127,8 @@ Si supponga di avere un sito che contiene file di log e immagini statiche degli 
 
 e di disporre già di un backup completo del sito che include le vecchie immagini. Si desidera ora eseguire il backup del sito ogni giorno, senza però dover pagare per l'archiviazione dei file di log o per i file di immagini statiche che non vengono mai modificati.
 
-![Cartella dei log][LogsFolder] ![Cartella delle immagini][ImagesFolder]
+![Cartella dei log][LogsFolder]
+![Cartella delle immagini][ImagesFolder]
 	
 I passaggi seguenti illustrano come escludere tali file dal backup.
 
@@ -267,4 +268,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
