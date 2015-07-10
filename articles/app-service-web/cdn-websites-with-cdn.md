@@ -67,11 +67,13 @@ In questa sezione verrà distribuito nel servizio app il modello di applicazione
 
 8. Se non è stata creata un'app Web in Azure, è possibile farlo facilmente in Visual Studio. Nella finestra di dialogo **Configura sito Web di Microsoft Azure** verificare che il nome del sito sia univoco. Fare quindi clic su **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro Attività di pubblicazione Web facendo clic su **Pubblica `<app name>`￼ su questo sito adesso**. Fare clic su **Pubblica** per completare il processo.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Dopo il completamento della pubblicazione, l'app Web verrà visualizzata nel browser.
 
@@ -558,4 +560,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
