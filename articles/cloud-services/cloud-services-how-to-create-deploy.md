@@ -60,7 +60,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 ## Procedura: Creare un servizio cloud con Creazione rapida
 
-1. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Nuovo**\>\*\*Calcolo\*\*\>\*\*Servizio cloud\*\*\>\*\*Creazione rapida\*\*.
+1. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Nuovo**>**Calcolo**>**Servizio cloud**>**Creazione rapida**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -115,7 +115,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 4. In **Configuration** usare **Browse** per selezionare il file di configurazione del servizio \(.cscfg\) da usare.
 
-5. Se il servizio cloud includerà ruoli con una sola istanza, selezionare la casella di controllo **Deploy even if one or more roles contain a single instance** per abilitare la distribuzione.
+5. Se il servizio cloud includerà ruoli con una sola istanza, selezionare la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** per abilitare la distribuzione.
 
  Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio cloud solo al 99,95% in fase di manutenzione e aggiornamento del servizio. Se necessario, è possibile aggiungere istanze del ruolo aggiuntive alla pagina **Scale** dopo aver distribuito il servizio cloud. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
 
