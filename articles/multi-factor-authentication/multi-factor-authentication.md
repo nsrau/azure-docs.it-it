@@ -18,11 +18,11 @@
 
 # Sicurezza aggiuntiva per un mondo sempre connesso
 
-Multi-Factor Authentication \(MFA\) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
+Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
 
-- Un'informazione nota \(in genere una password\)
-- Un oggetto che si possiede \(un dispositivo attendibile non facile da duplicare, ad esempio un telefono\)
-- Una caratteristica fisica dell'utente \(biometrica\)
+- Un'informazione nota (in genere una password)
+- Un oggetto che si possiede (un dispositivo attendibile non facile da duplicare, ad esempio un telefono)
+- Una caratteristica fisica dell'utente (biometrica)
 
 <center>![Nome utente e password](./media/multi-factor-authentication/pword.png) &#160;&#160;&#160;&#160;&#160;![Certificati](./media/multi-factor-authentication/phone.png) &#160;&#160;&#160;&#160;&#160;![Smartphone](./media/multi-factor-authentication/hware.png) &#160;&#160;&#160;&#160;&#160;![Smart card](./media/multi-factor-authentication/smart.png) &#160;&#160;&#160;&#160;&#160;![Smart card virtuale](./media/multi-factor-authentication/vsmart.png) &#160;&#160;&#160;&#160;&#160;![Nome utente e password](./media/multi-factor-authentication/cert.png)</center>
 
@@ -61,4 +61,4 @@ Per altre informazioni sui motivi per cui è consigliabile usare Azure Multi-Fac
 * [Per gli utenti](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

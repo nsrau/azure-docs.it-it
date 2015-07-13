@@ -35,7 +35,7 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 	![Creazione rapida di una nuova area di lavoro][3]
 
-5. Specificare i valori per **NOME AREA DI LAVORO** e **PROPRIETARIO DELL'AREA DI LAVORO**. Il proprietario dell'area di lavoro deve essere un account Microsoft valido \(ad esempio, name@outlook.com).
+5. Specificare i valori per **NOME AREA DI LAVORO** e **PROPRIETARIO DELL'AREA DI LAVORO**. Il proprietario dell'area di lavoro deve essere un account Microsoft valido (ad esempio, name@outlook.com).
 
     > [AZURE.NOTE]Successivamente, è possibile condividere gli esperimenti su cui si sta lavorando invitando altri utenti nella propria area di lavoro. Questa operazione può essere eseguita nella pagina **SETTINGS** di Machine Learning Studio. È sufficiente conoscere l'account Microsoft o l'account aziendale di ogni utente.
 
@@ -63,4 +63,4 @@ Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di 
 
 <!--Link references-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

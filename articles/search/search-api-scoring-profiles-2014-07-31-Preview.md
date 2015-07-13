@@ -1,26 +1,14 @@
-<properties 
-	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 2014-07-31-Preview)" 
-	description="Profili di punteggio (API REST di Ricerca di Azure versione 2014-07-31-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="Aggiungere profili di punteggio a un’API REST dell’indice di ricerca versione 2014-07-31-Preview" description="Aggiungere profili di punteggio a un indice di ricerca: versione 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
       
-#Profili di punteggio (API REST di Ricerca di Azure versione 2014-07-31-Preview)#
+#Aggiungere profili di punteggio a un indice di ricerca (API REST di Ricerca di Azure versione 2014-07-31-Preview)
 
-L'assegnazione di punteggio fa riferimento al calcolo di un punteggio di ricerca per ogni elemento restituito nei risultati della ricerca. Il punteggio è un indicatore della rilevanza di un elemento nel contesto dell'operazione di ricerca attuale. Maggiore è il punteggio, più rilevante sarà l'elemento. Nei risultati della ricerca gli elementi vengono classificati dal maggiore al minore, in base ai punteggi di ricerca calcolati per ogni elemento.
+Questa documentazione sui profili di punteggio è relativa alla precedente API REST di Ricerca di Azure, versione 2014-07-31-Preview, che è stata sostituita dalla versione disponibile a livello generale in [Profili di punteggio (MSDN)](https://msdn.microsoft.com/library/dn798928.aspx).
 
-Ricerca di Azure usa l'assegnazione predefinita del punteggio per calcolare un punteggio, ma è possibile personalizzare il calcolo tramite un profilo di punteggio. I profili di punteggio offrono maggiore controllo sulla classificazione degli elementi nei risultati della ricerca. Ad esempio, è possibile aumentare la priorità degli elementi in base al rispettivo potenziale di profitto, alzare di livello elementi più recenti o evidenziare elementi che sono rimasti troppo a lungo in magazzino.
+**Informazioni sui profili di punteggio**
+
+L'assegnazione di punteggio fa riferimento al calcolo di un punteggio di ricerca per ogni elemento restituito nei risultati della ricerca. Il punteggio è un indicatore della rilevanza di un elemento nel contesto dell'operazione di ricerca attuale. Maggiore è il punteggio, più rilevante sarà l'elemento. Nei risultati della ricerca gli elementi vengono classificati dal maggiore al minore, in base ai punteggi di ricerca calcolati per ogni elemento. Ricerca di Azure usa l'assegnazione predefinita del punteggio per calcolare un punteggio, ma è possibile personalizzare il calcolo tramite un profilo di punteggio. I profili di punteggio offrono maggiore controllo sulla classificazione degli elementi nei risultati della ricerca. Ad esempio, è possibile aumentare la priorità degli elementi in base al rispettivo potenziale di profitto, alzare di livello elementi più recenti o evidenziare elementi che sono rimasti troppo a lungo in magazzino.
 
 Un profilo di punteggio fa parte della definizione dell'indice, costituita da campi, funzioni e parametri.
 
@@ -51,11 +39,11 @@ Per usare il profilo di punteggio, la query viene formulata in modo da specifica
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)]().
 
 Fare clic su [Esempio](#bkmk_ex) per esaminare un esempio più dettagliato del profilo di punteggio.
 
-## Informazioni sull'assegnazione predefinita di punteggio ##
+## Informazioni sull'assegnazione predefinita di punteggio
 
 L'assegnazione di punteggio calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in base a una classificazione. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore. Gli elementi con i punteggi maggiori vengono restituiti all'applicazione. Per impostazione predefinita, vengono restituiti i primi 50 elementi, ma è possibile usare il parametro `$top` per restituire un numero minore o maggiore di elementi, fino a un massimo di 1000 elementi in una singola risposta.
 
@@ -63,20 +51,19 @@ Per impostazione predefinita, un punteggio di ricerca viene calcolato in base al
 
 I valori dei punteggi di ricerca possono essere ripetuti in un set di risultati. Ad esempio, possono essere presenti 10 elementi con punteggio pari a 1,2, 20 elementi con punteggio pari a 1,0 e 20 elementi con punteggio pari a 0,5. Quando più riscontri hanno lo stesso punteggio di ricerca, l'ordine degli stessi elementi con punteggio non è definito e non è quindi stabile. Se si esegue di nuovo la query, è possibile che gli elementi cambino posizione. Se due elementi hanno punteggio identico, non vi è alcuna garanzia su quale elemento verrà visualizzato per primo.
 
-## Quando usare l'assegnazione personalizzata di punteggio##
+## Quando usare l'assegnazione personalizzata di punteggio
 
 È consigliabile creare uno o più profili di punteggio quando il comportamento di classificazione predefinito non permette di raggiungere gli obiettivi aziendali stabiliti. È ad esempio possibile che si voglia assegnare una rilevanza di ricerca maggiore agli elementi aggiunti di recente. Analogamente, è possibile che sia presente un campo che include i margini di profitto o un altro campo che indica il potenziale di ricavi. L'aumento della priorità dei riscontri utili per l'azienda può essere un fattore importante nella decisione di usare i profili di punteggio,
 
 che permettono anche di implementare l'ordinamento basato sulla rilevanza. È consigliabile esaminare le pagine di risultati della ricerca usate in precedenza e che permettevano di ordinare i risultati in base a prezzo, data, classificazione o rilevanza. In Ricerca di Azure i profili di punteggio determinano l'opzione di "rilevanza". La definizione della rilevanza è controllata dall'utente, in base agli obiettivi aziendali specifici e al tipo di esperienza di ricerca che si vuole offrire.
 
-<a name="example"></a>
-## Esempio##
+## Esempio
 
 Come indicato in precedenza, l'assegnazione personalizzata di punteggio viene implementata tramite profili di punteggio definiti in uno schema di indice.
 
 Questo esempio illustra lo schema di un indice con due profili di punteggio (`boostGenre`, `newAndHighlyRated`). Qualsiasi query eseguita in questo indice e che include uno dei profili come parametro di query userà il profilo per assegnare un punteggio al set di risultati.
 
-[Provare a eseguire questo esempio](search-get-started-scoring-profiles.md).
+[Provare a eseguire questo esempio]().
 
     {
       "name": "musicstoreindex",
@@ -135,51 +122,21 @@ Questo esempio illustra lo schema di un indice con due profili di punteggio (`bo
     }
 
 
-##Flusso di lavoro##
+##Flusso di lavoro
 
 Per implementare un comportamento predefinito per l'assegnazione di punteggio, aggiungere un profilo di punteggio allo schema che definisce l'indice. Un indice può includere più profili di punteggio, ma è possibile specificare solo un profilo alla volta in una determinata query.
 
-Iniziare con il profilo [Modello][#bkmk_template] fornito in questo argomento.
+Iniziare con il profilo [Modello](#bkmk_template) fornito in questo argomento.
 
-Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne aggiunge uno è necessario specificare un nome. Assicurarsi di rispettare le convenzioni di denominazione per i campi (deve iniziare con una lettera ed evitare caratteri speciali e parole riservate). Per altre informazioni, vedere [Regole di denominazione](http://msdn.microsoft.com/library/azure/dn857353.aspx).
+Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne aggiunge uno è necessario specificare un nome. Assicurarsi di rispettare le convenzioni di denominazione per i campi (deve iniziare con una lettera ed evitare caratteri speciali e parole riservate). Per altre informazioni, vedere [Regole di denominazione](https://msdn.microsoft.com/library/dn857353.aspx).
 
 Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>Elemento</td><td>Descrizione</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Pesi</b></td>
-<td>
-Specificare coppie nome-valore che assegnano un peso relativo a un campo. In Esempio [#bkmk_ex], ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
-</td>
-</tr>
-<tr>
-<td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono.
-<br> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness.
-<br> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer.
-<br> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`.
-<br>
-<b>Regole per l'uso delle funzioni</b>
-<br>
-Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole <br> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
-<br>
-Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#createindex).
-<br>
-Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>Elemento</td><td>Descrizione</td></tr></thead> <tbody <tr> <td><b>Pesi</b></td> <td> Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#bkmk_ex), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore. </td> </tr> <tr> <td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono. <br> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness. <br> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer. <br> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`. <br> <b>Regole per l'uso delle funzioni</b> <br> Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole <br> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore. <br> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)](). <br> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. <td> </tr> </tbody> </table> </font>
 
-Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#createindex) e [Aggiungere o aggiornare documenti (API di Ricerca di Azure)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
+Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice (API di Ricerca di Azure)]() e [Aggiungere o aggiornare documenti (API di Ricerca di Azure)](). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
 
-<a name="bkmk_template"></a>
-##Modello##
-
+##Modello
 Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per descrizioni degli attributi, vedere [Riferimento agli attributi dell'indice](#bkmk_indexref) nella sezione seguente.
 
     ...
@@ -226,8 +183,7 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
     "defaultScoringProfile": (optional) "...",
     ...
 
-<a name="bkmk_indexref"></a>
-##Riferimento agli attributi dell'indice##
+##Riferimento agli attributi dell'indice
 
 **Nota** Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
 
@@ -276,20 +232,18 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 </tr><tr>
 <td>distance</td>	<td>La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene fornita come parte della query in un parametro, usando l'opzione di stringa 'scoringParameterquery' sotto forma di argomento lon,lat.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti (API di Ricerca di Azure)](../search-api-2014-07-31-preview.md#SearchDocs).</td>
+<td>distance | referencePointParameter</td>	<td>Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti (API di Ricerca di Azure)]().</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>Facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base è basato sul valore tf-idf calcolato dal documento e dalla query di ricerca.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo.
-</td>
+<td>defaultScoringProfile</td>	<td>Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo. </td>
 </tr>
 </tbody>
 </table>
 
-<a name="bkmk_interpolation"></a>
-##Impostare le interpolazioni##
+##Impostare le interpolazioni
 
 Le interpolazioni permettono di definire il coefficiente angolare in base al quale viene incrementato l'aumento di priorità del punteggio dall'inizio alla fine dell'intervallo. È possibile usare le interpolazioni seguenti:
 
@@ -301,15 +255,14 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 - `Logarithmic` Rispetto all'interpolazione lineare che presenta un aumento di priorità costantemente decrescente, l'interpolazione logaritmica diminuirà inizialmente a un ritmo più elevato e diminuirà con un intervallo molto più ridotto quando si avvicina all'intervallo finale.
  
-<a name="Figure1"></a>
-![][1]
+<a name="Figure1"></a> ![](https://findable.blob.core.windows.net/docs/scoring_interpolations.png)
 
-<a name="bkmk_boostdur"></a>
-##Impostare boostingDuration##
+<a name="bkmk_boostdu"></a>
+##Impostare boostingDuration
 
 `boostingDuration` è un attributo della funzione freshness. Consente di impostare un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Ad esempio, per aumentare la priorità di una linea di prodotti o una marca per un periodo promozionale di 10 giorni, è necessario specificare tale periodo come "P10D" per questi documenti.
 
-Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: "P[nD][T[nH][nM][nS]]".
+Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: "P(nD)(T(nH)(nM](nS))".
 
 La tabella seguente fornisce alcuni esempi.
 
@@ -332,12 +285,12 @@ La tabella seguente fornisce alcuni esempi.
 </tbody>
 </table>
 
+Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML (W3.org)]().
+
 **Vedere anche**
 
-Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML (W3.org)](http://www.w3.org/TR/xmlschema11-2/). [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) su MSDN <br/> [Creare un indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) su MSDN<br/> [Aggiungere un profilo di punteggio a un indice di ricerca](http://msdn.microsoft.com/library/azure/dn798928.aspx) su MSDN<br/>
+Creare un indice dell’API REST di Ricerca di Azure (API di Ricerca di Azure)
 
-<!--Image references-->
-[1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
+ 
 
-
-<!---HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,8 +21,8 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-#Panoramica
-In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per sfruttare i dati in un'app di Windows Store. In questa esercitazione si scaricherà un progetto di Visual Studio 2013 per un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
+##Panoramica
+In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per sfruttare i dati in un'app di Windows Store. Questa esercitazione consente di scaricare un progetto di Visual Studio 2013 per un'app che archivia dati in memoria, di creare un nuovo servizio mobile e integrarlo con l'app e quindi di accedere al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -35,7 +35,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 
 1. Scaricare la versione JavaScript dell'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network]. 
 
-2. In Visual Studio 2012 Express per Windows 8 aprire il progetto scaricato, espandere la cartella **js** ed esaminare il file default.js.
+2. In Visual Studio aprire il progetto scaricato, espandere la cartella **js** ed esaminare il file default.js.
 
    	Si noti che gli oggetti **TodoItem** aggiunti sono archiviati in un oggetto **List** in memoria.
 
@@ -66,7 +66,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../../includes/mobile-services-create-new-table-vs2013.md)]
 
-#Aggiornare l'app per l'uso del servizio mobile
+##Aggiornare l'app per l'uso del servizio mobile
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../../includes/mobile-services-windows-javascript-update-data-app.md)]
 
@@ -84,7 +84,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
   
    	Si noti che la tabella **TodoItem** ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
 
-5. Nell'app selezionare uno degli elementi nell'elenco, quindi tornare alla scheda Sfoglia nel portale e fare clic su **Aggiorna**.
+5. Nell'app selezionare uno degli elementi nell'elenco, quindi tornare alla scheda Browse nel portale e fare clic su **Refresh**.
 
   	Si noti che il valore di complete è cambiato da **false** a **true**.
 
@@ -110,9 +110,9 @@ L'esercitazione **Introduzione ai dati** è terminata.
 
 In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows Store di usare dati in Servizi mobili. Successivamente, è consigliabile leggere uno di questi altri argomenti:
 
-* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app.
+* [Aggiungere l'autenticazione all'app](mobile-services-windows-store-javascript-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push all'app](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 * [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript](mobile-services-html-how-to-use-client-library.md) <br/>Ulteriori informazioni su come utilizzare Servizi mobili con HTML e JavaScript.
 
@@ -133,18 +133,12 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: ../mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
-[Refine queries with paging]: ../mobile-services-windows-store-javascript-add-paging-data.md
-[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
-[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
-[Introduzione all'autenticazione]: mobile-services-windows-store-javascript-get-started-users.md
-[Introduzione alle notifiche push]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [portale di gestione]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

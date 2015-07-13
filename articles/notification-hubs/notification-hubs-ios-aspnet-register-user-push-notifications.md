@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
@@ -21,9 +21,9 @@
     <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-##Informazioni generali
+##Panoramica
 
-Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per altre informazioni sullo scenario relativo all'invio di notifiche agli utenti, vedere [Uso di Hub di notifica per inviare notifiche agli utenti].
+Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
 
 ##Aggiornamento dell'app  
 
@@ -53,12 +53,12 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 		- (IBAction)login:(id)sender;
 
-5. Creare una classe denominata **DeviceInfo** e copiare il seguente codice nella sezione dell'interfaccia del file DeviceInfo.h:
+5. Creare una classe denominata **DeviceInfo** e copiare il codice seguente nella sezione dell'interfaccia del file DeviceInfo.h:
 
 		@property (readonly, nonatomic) NSString* installationId;
 		@property (nonatomic) NSData* deviceToken;
 
-6. Copiare il seguente codice nella sezione di implementazione del file DeviceInfo.m:
+6. Copiare il codice seguente nella sezione di implementazione del file DeviceInfo.m:
 
 			@synthesize installationId = _installationId;
 
@@ -90,11 +90,11 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 			    return hexToken;
 			}
 
-7. In PushToUserAppDelegate.h aggiungere il singleton della seguente proprietà:
+7. In PushToUserAppDelegate.h aggiungere il singleton della proprietà seguente:
 
 		@property (strong, nonatomic) DeviceInfo* deviceInfo;
 
-8. Nel metodo **didFinishLaunchingWithOptions** di PushToUserAppDelegate.m aggiungere il seguente codice:
+8. Nel metodo **didFinishLaunchingWithOptions** di PushToUserAppDelegate.m aggiungere il codice seguente:
 
 		self.deviceInfo = [[DeviceInfo alloc] init];
 
@@ -102,13 +102,13 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 	La prima riga inizializza il singleton **DeviceInfo**. La seconda riga avvia la registrazione per le notifiche push, che è già presente se si è completata l'esercitazione [Introduzione ad Hub di notifica].
 
-9. In PushToUserAppDelegate.m implementare il metodo **didRegisterForRemoteNotificationsWithDeviceToken** nel delegato dell'app e aggiungere il seguente codice:
+9. In PushToUserAppDelegate.m implementare il metodo **didRegisterForRemoteNotificationsWithDeviceToken** nel delegato dell'app e aggiungere il codice seguente:
 
 		self.deviceInfo.deviceToken = deviceToken;
 
 	Questo codice consente di impostare il token di dispositivo per la richiesta.
 
-	> [AZURE.NOTE] A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica],(/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") è necessario impostare la chiamata come commento oppure rimuoverla.
+	> [AZURE.NOTE]A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), è necessario impostare la chiamata come commento oppure rimuoverla.
 
 10.	Nel file PushToUserAppDelegate.m aggiungere il metodo del seguente gestore:
 
@@ -122,7 +122,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 	 Questo metodo visualizza un avviso nell'interfaccia utente quando l'app riceve notifiche mentre è in esecuzione.
 
-9. Aprire il file PushToUserViewController.m e restituire la tastiera nella seguente implementazione:
+9. Aprire il file PushToUserViewController.m e restituire la tastiera nell'implementazione seguente:
 
 		- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
 		    if (theTextField == self.User || theTextField == self.Password) {
@@ -136,12 +136,12 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 		Self.installationId.text = deviceInfo.installationId;
 
-10. In PushToUserViewController.m aggiungere le seguenti proprietà nell'interfaccia:
+10. In PushToUserViewController.m aggiungere le proprietà seguenti nell'interfaccia:
 
 		@property (readonly) NSOperationQueue* downloadQueue;
 		- (NSString*)base64forData:(NSData*)theData;
 
-11. Aggiungere quindi la seguente implementazione:
+11. Aggiungere quindi l'implementazione seguente:
 
 			- (NSOperationQueue *)downloadQueue {
 			    if (!_downloadQueue) {
@@ -186,7 +186,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 			}
 
 
-12. Copiare il seguente codice nel metodo del gestore **login** creato da XCode:
+12. Copiare il codice seguente nel metodo del gestore **login** creato da XCode:
 
 			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
@@ -219,9 +219,9 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 		        }
 		    }];
 
-	Questo metodo ottiene un ID di installazione e un canale per le notifiche push e li invia, insieme al tipo di dispositivo, al metodo API Web di autenticazione che crea una registrazione in Hub di notifica. Questa API Web è stata definita nell'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti].
+	Questo metodo ottiene un ID di installazione e un canale per le notifiche push e li invia, insieme al tipo di dispositivo, al metodo API Web di autenticazione che crea una registrazione in Hub di notifica. Questa API Web è stata definita in [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
 
-Ora che l'app client è stata aggiornata, tornare a [Uso di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile in modo che invii notifiche tramite Hub di notifica.
+Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
 <!-- Anchors. -->
 
@@ -230,9 +230,10 @@ Ora che l'app client è stata aggiornata, tornare a [Uso di Hub di notifica per 
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Uso di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
+[Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="05/20/2015" 
 	ms.author="kathydav"/>
 
-# Informazioni su Chef e macchine virtuali di Azure
+#Informazioni su Chef e macchine virtuali di Azure
 
-Chef fornisce un sistema di automazione per compilare, distribuire e gestire l'infrastruttura. Le risorse vengono gestite tramite soluzioni, ovvero definizioni riutilizzabili che forniscono istruzioni per attività quali la configurazione di un server Web.   
+Chef fornisce un sistema di automazione per compilare, distribuire e gestire l'infrastruttura. Le risorse vengono gestite tramite soluzioni, ovvero definizioni riutilizzabili che forniscono istruzioni per attività quali la configurazione di un server Web.
 
-Chef è un sistema client-server. Per conoscere le opzioni per l'uso di un server Chef, vedere la pagina che descrive come [scegliere l'installazione](http://www.getchef.com/chef/choose-your-version/). Per configurare il client, sono necessarie le informazioni sul server Chef. 
+Chef è un sistema client-server. Per conoscere le opzioni per l'uso di un server Chef, vedere la pagina che descrive come [scegliere l'installazione](http://www.getchef.com/chef/choose-your-version/). Per configurare il client, sono necessarie le informazioni sul server Chef.
 
 Per installare il client Chef in una macchina virtuale di Azure, sono disponibili le opzioni seguenti:
 
@@ -29,7 +29,7 @@ Per installare il client Chef in una macchina virtuale di Azure, sono disponibil
 - Usare un plug-in di Chef, [knife-azure](http://docs.getchef.com/plugin_knife_azure.html), per creare un'istanza della macchina virtuale e installare il client Chef.   
 
 
-## Risorse aggiuntive
+##Risorse aggiuntive
 [Chef e Microsoft Azure]
 
 [Come accedere a una macchina virtuale che esegue Windows Server]
@@ -40,11 +40,11 @@ Per installare il client Chef in una macchina virtuale di Azure, sono disponibil
 
 <!--Link references-->
 [Chef e Microsoft Azure]: http://www.getchef.com/solutions/azure/
-[Come accedere a una macchina virtuale che esegue Windows Server]: ../virtual-machines-log-on-windows-server/
-[Come accedere a una macchina virtuale che esegue Linux]: ../virtual-machines-linux-how-to-log-on
+[Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-log-on-windows-server.md
+[Come accedere a una macchina virtuale che esegue Linux]: virtual-machines-linux-how-to-log-on.md
 [Gestione delle estensioni]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

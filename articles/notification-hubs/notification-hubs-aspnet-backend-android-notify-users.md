@@ -23,9 +23,9 @@
 
 ##Panoramica
 
-Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx). Questa esercitazione si basa sull'hub di notifica creato nell'esercitazione [Introduzione ad Hub di notifica \(Android\)](notification-hubs-android-get-started.md).
+Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx). Questa esercitazione si basa sull'hub di notifica creato nell'esercitazione [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md).
 
-> [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica \(Android\)](notification-hubs-android-get-started.md). Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-android-push-notifications-app-users.md) di questa esercitazione.
+> [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md). Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-android-push-notifications-app-users.md) di questa esercitazione.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -33,9 +33,9 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
-1. Seguire l'esercitazione [Introduzione ad Hub di notifica \(Android\)](notification-hubs-android-get-started.md) per creare e configurare l'app per la ricezione di notifiche push da GCM.
+1. Seguire l'esercitazione [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md) per creare e configurare l'app per la ricezione di notifiche push da GCM.
 
-2. Aprire il file **res/layout/activity\_main.xml** e sostituire il contenuto con le definizioni seguenti.
+2. Aprire il file **res/layout/activity_main.xml** e sostituire il contenuto con le definizioni seguenti.
  
     Verranno aggiunti nuovi controlli EditText per l'accesso come utente. Viene aggiunto anche un campo per un tag username che farà parte delle notifiche inviate:
 			
@@ -133,7 +133,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 			Recipient username tag
 		</string>
 
-	A questo punto il layout grafico del file main\_activity.xml dovrebbe essere simile al seguente:
+	A questo punto il layout grafico del file main_activity.xml dovrebbe essere simile al seguente:
 
 	![][A1]
 
@@ -372,7 +372,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
         }
 
 
-	Il gestore `login` per il pulsante **Log in** genera un token di autenticazione di base usando il nome utente e la password di input \(si noti che rappresenta qualsiasi token usato dallo schema di autenticazione\), quindi usa `RegisterClient` per chiamare il back-end per la registrazione.
+	Il gestore `login` per il pulsante **Log in** genera un token di autenticazione di base usando il nome utente e la password di input (si noti che rappresenta qualsiasi token usato dallo schema di autenticazione), quindi usa `RegisterClient` per chiamare il back-end per la registrazione.
 
 	Il metodo `sendPush` chiama il back-end per attivare una notifica sicura per l'utente in base al tag user. Il servizio di notifica della piattaforma a cui è destinato `sendPush` dipende dalla stringa `pns` passata.
 
@@ -393,7 +393,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
                     .getText().toString();
     
             // JSON String
-            nhMessage = "\"" + nhMessage + "\"";
+            nhMessage = """ + nhMessage + """;
     
             if (((ToggleButton)findViewById(R.id.toggleButtonWNS)).isChecked())
             {
@@ -434,4 +434,4 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

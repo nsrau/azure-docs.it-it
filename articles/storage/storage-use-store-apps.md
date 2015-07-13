@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
+	ms.date="06/18/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,34 +22,36 @@
 
 # Come usare l'archiviazione di Azure nelle app di Windows Store
 
+## Panoramica
+
 In questa guida viene illustrato come iniziare a sviluppare un'applicazione Windows Store che utilizzi l'archiviazione di Azure.
 
 ## Download degli strumenti richiesti ##
 
 - [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) facilita le operazioni di compilazione, debug, localizzazione, creazione pacchetti e distribuzione delle app di Windows Store.
-- La [libreria client di archiviazione di Microsoft Azure per Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fornisce una libreria di classi per usare l'archiviazione di Azure.
-- Gli [strumenti dei Servizi dati WCF per le app di Windows Store](http://www.microsoft.com/it-it/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio 2012.
+- La [libreria client di Archiviazione di Azure per Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fornisce una libreria di classi per usare Archiviazione di Azure.
+- Gli [strumenti dei Servizi dati WCF per le app di Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio 2012.
 
 ## Sviluppo di applicazioni ##
 
-<h3>Preparazione</h3>
+### Preparazione
 
 Creare un nuovo progetto di app di Windows Store in Visual Studio 2012 o versione successiva:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
 
-Quindi, aggiungere un riferimento alla libreria client di archiviazione di Azure facendo clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliendo **Aggiungi riferimento** e passando alla libreria client di archiviazione per Windows Runtime scaricata:
+Quindi, aggiungere un riferimento alla libreria client di archiviazione di Azure facendo clic con il pulsante destro del mouse su **References**, quindi scegliendo **Add Reference** e passando alla libreria client di archiviazione per Windows Runtime scaricata:
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-<h3>Usare la libreria con BLOB e i servizi di accodamento</h3>
+### Usare la libreria con BLOB e i servizi di accodamento
 
 A questo punto l'app è pronta per chiamare i servizi BLOB e di accodamento. Aggiungere le seguenti istruzioni **using** in modo che sia possibile fare direttamente riferimento ai tipi di archiviazione di Azure:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo del gestore eventi con la [parola chiave async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
+Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo di gestione degli eventi con la [parola chiave async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -57,13 +59,13 @@ Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguent
     var container = blobClient.GetContainerReference("container1");
     await container.CreateIfNotExistsAsync();
     
-In questo codice si suppone che siano disponibili due variabili di stringa, *accountName* e *accountKey*, che rappresentano il nome dell'account di archiviazione e la chiave dell'account associata a tale account.
+In questo codice si suppone che siano disponibili due variabili di stringa, *accountName* e *accountKey*, che rappresentano il nome dlel'account di archiviazione e la chiave account associata a tale account.
 
 Compilare ed eseguire l'applicazione. Fare clic sul pulsante per controllare prima se esiste un contenitore denominato *container1* nel proprio account e crearlo in caso contrario.
 
-<h3>Usare la libreria con il servizio tabelle</h3>
+### Utilizzare la libreria con il servizio tabelle
 
-I tipi usati per comunicare con il servizio tabelle dipendono dalla libreria di Servizi dati WCF per le app di Windows Store. Quindi, aggiungere un riferimento alle librerie WCF richieste usando la Console di Gestione pacchetti:
+I tipi utilizzati per comunicare con il servizio tabelle dipendono dalla libreria di Servizi dati WCF per le app di Windows Store. Quindi, aggiungere un riferimento alle librerie WCF richieste usando la Console di Gestione pacchetti:
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
 
@@ -90,6 +92,6 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
-<!--HONumber=42-->
  
+
+<!---HONumber=July15_HO1-->

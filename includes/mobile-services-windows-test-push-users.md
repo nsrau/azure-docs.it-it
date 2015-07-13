@@ -11,4 +11,4 @@
 
 	Verificare che la notifica venga ricevuta su questo dispositivo, perché il dispositivo precedente non è stato contrassegnato con l'ID utente corrente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

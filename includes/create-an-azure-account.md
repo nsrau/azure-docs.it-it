@@ -1,4 +1,4 @@
-Per distribuire applicazioni in Azure, è necessario disporre di un account. In questo articolo viene illustrato come creare un account di valutazione gratuito e come abilitare l'anteprima delle funzionalità di Azure, inclusi i Servizi BizTalk, HDInsight e Azure Backup, per l'account.
+Per distribuire applicazioni in Azure, è necessario disporre di un account. Questo articolo illustra come creare un account di valutazione gratuito e come abilitare l'anteprima delle funzionalità di Azure, inclusi i Servizi BizTalk, HDInsight e Azure Backup, per l'account.
 
 ## Creare un account Azure
 
@@ -18,4 +18,4 @@ Per distribuire applicazioni in Azure, è necessario disporre di un account. In 
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

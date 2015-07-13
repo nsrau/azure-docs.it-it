@@ -93,7 +93,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 	a) Aprire il file /etc/grub.d/00_header.
 
-	b) Nella funzione **make_timeout()**, cercare **if ["\${recordfail}" = 1 ]; then**
+	b) Nella funzione **make_timeout()** cercare **if ["\${recordfail}" = 1 ]; then**
 
 	c) Modificare l'istruzione sotto questa riga in **set timeout=5**.
 
@@ -122,4 +122,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 11. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # Introduzione a Mobile Analytics (Capptain)
@@ -100,5 +100,6 @@ Per altre informazioni sui vantaggi offerti da Capptain per la propria app, visi
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [Livello standard di Servizi mobili]: /pricing/details/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

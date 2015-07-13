@@ -25,7 +25,7 @@ Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configu
 
 ##Proprietario dell'area di lavoro
 
-Quando si crea una nuova area di lavoro di Machine Learning, l'ID immesso nel campo WORKSPACE OWNER deve essere un account Microsoft valido \(in precedenza Windows Live ID\), ad esempio, john-contoso@live.com o john-contoso@hotmail.com. Non è possibile usare un account non Microsoft, ad esempio l'account di posta elettronica aziendale. Per creare un account Microsoft gratuito, passare a [www.live.com](http://www.live.com).
+Quando si crea una nuova area di lavoro di Machine Learning, l'ID immesso nel campo WORKSPACE OWNER deve essere un account Microsoft valido (in precedenza Windows Live ID), ad esempio, john-contoso@live.com o john-contoso@hotmail.com. Non è possibile usare un account non Microsoft, ad esempio l'account di posta elettronica aziendale. Per creare un account Microsoft gratuito, passare a [www.live.com](http://www.live.com).
 
 Tenere presente che l'account Microsoft usato per accedere al portale di Azure per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro, a meno di specificare quell'account come proprietario. Per aprire un'area di lavoro in Machine Learning Studio, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro. Dal portale di Azure è tuttavia possibile *gestire* l'area di lavoro, con la possibilità, ad esempio, di modificare il proprietario e configurare l'accesso.
 
@@ -77,4 +77,4 @@ L'obiettivo consiste nel semplificare al massimo l'esperienza di Machine Learnin
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

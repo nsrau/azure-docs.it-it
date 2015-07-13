@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come gestire asset in Servizi multimediali - Azure" 
+	pageTitle="Come gestire asset in Servizi multimediali" 
 	description="Informazioni su come gestire asset in Servizi multimediali. È anche possibile gestire processi, attività, criteri di accesso, localizzatori e altro ancora. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Procedura: Gestire gli asset in archivio
+#Procedura: Gestire gli asset in archivio
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
+Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
 
 Dopo avere creato gli asset multimediali, è possibile accedervi e gestirli sul server. Sul server è possibile gestire anche altri oggetti che fanno parte di Servizi multimediali, tra cui processi, attività, criteri di accesso, localizzatori e altro ancora.
 
-Nel seguente esempio viene mostrato come eseguire una query per ottenere un asset in base all'ID asset. 
+Nel seguente esempio viene mostrato come eseguire una query per ottenere un asset in base all'ID asset.
 
 	static IAsset GetAsset(string assetId)
 	{
@@ -84,6 +84,6 @@ Il seguente frammento di codice elimina tutti gli asset dall'account di Servizi 
 	    asset.Delete();
 	}
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

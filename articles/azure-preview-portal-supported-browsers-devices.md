@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Browser e dispositivi supportati" 
 	description="" 
 	services="" 
@@ -17,11 +17,11 @@
 	ms.date="11/16/2014" 
 	ms.author="justbe"/>
 
-# Browser e dispositivi supportati
+#Browser e dispositivi supportati
 Il portale Microsoft Azure Preview viene eseguito in tutti i moderni browser e dispositivi tablet e desktop.
 
 ### Dispositivi supportati
-Il portale di anteprima funziona perfettamente su PC, Mac e tablet moderni. I telefoni cellulari non sono al momento supportati.
+Il portale Preview viene eseguito correttamente nei moderni PC, Mac e tablet. I telefoni cellulari non sono al momento supportati.
 
 ### Browser supportati
 Sono supportate le versioni più recenti dei browser seguenti:
@@ -31,7 +31,6 @@ Sono supportate le versioni più recenti dei browser seguenti:
 - Chrome (versione più recente)
 - Firefox (versione più recente)
 
-*Safari 6 e versioni precedenti non sono supportati. Se si usa OS X, è possibile usare Chrome o Firefox oppure effettuare l'aggiornamento a OS X Mavericks per ottenere Safari 7.*
+*Safari 6 e versioni precedenti non sono supportati. Se si utilizza OS X, è possibile utilizzare Chrome o Firefox oppure effettuare l'aggiornamento a OS X Mavericks per ottenere Safari 7.*
 
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

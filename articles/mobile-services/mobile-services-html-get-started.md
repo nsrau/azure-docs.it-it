@@ -76,7 +76,7 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
   	Vengono scaricati i file del sito Web per l'applicazione _Elenco azioni_ di esempio connessa al servizio mobile. Salvare il file compresso nel computer locale e prendere nota del percorso.
 
-5. Nella scheda **Configura** verificare che `localhost` sia già indicato nell'elenco **Consentire le richieste da nomi host** in **Condivisione risorse tra le origini \(CORS\)**. In caso contrario, digitare `localhost` nel campo **Nome host** e quindi fare clic su **Salva**.
+5. Nella scheda **Configura** verificare che `localhost` sia già indicato nell'elenco **Consentire le richieste da nomi host** in **Condivisione risorse tra le origini (CORS)**. In caso contrario, digitare `localhost` nel campo **Nome host** e quindi fare clic su **Salva**.
 
   	![][9]
 
@@ -88,9 +88,9 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
 1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi avviare uno dei file di comando seguenti dalla sottocartella **server**.
 
-	+ **launch-windows** \(computer Windows\)
-	+ **launch-mac.command** \(computer Mac OS X\)
-	+ **launch-linux.sh** \(computer Linux\)
+	+ **launch-windows** (computer Windows)
+	+ **launch-mac.command** (computer Mac OS X)
+	+ **launch-linux.sh** (computer Linux)
 
 	> [AZURE.NOTE]In un computer Windows digitare `R` quando PowerShell chiede di confermare l'esecuzione dello script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
@@ -159,4 +159,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

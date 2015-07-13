@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Elaborazione dati in  BLOB Azure" 
-	description="Elaborazione dati in BLOB Azure" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="Elaborare i dati BLOB di Azure con analisi avanzate | Microsoft Azure" 
+	description="Elaborare dati nell'archivio BLOB di Azure." 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Elaborazione dei dati dei BLOB di Azure nell'ambiente di analisi scientifica dei dati
+#<a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 
-Questo documento tratta l'esplorazione dei dati e le funzionalità di generazione da dati archiviati in BLOB Azure. A tale scopo, i dati devono essere scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas per l'esplorazione e la modifica. Ecco i passaggi da seguire:
+In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. A tale scopo, i dati devono essere scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas per l'esplorazione e la modifica. Ecco i passaggi da seguire:
 
 1. Scaricare i dati da BLOB Azure con il codice Python di esempio riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
 
@@ -48,7 +47,7 @@ Questo documento tratta l'esplorazione dei dati e le funzionalità di generazion
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-####<a name="blob-dataexploration"></a>Esplorazione dei dati
+##<a name="blob-dataexploration"></a>Esplorazione dei dati
 
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
@@ -89,7 +88,7 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. Creare un grafico istogramma utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile	
+8. Creare un grafico istogramma utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
@@ -104,11 +103,11 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>Creazione di funzionalità
+##<a name="blob-featuregen"></a>Creazione di funzionalità
 	
 È quindi possibile generare funzionalità tramite Python come indicato di seguito:
 
-#####<a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
+###<a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
 
 Le funzionalità relative alle categorie possono essere create come indicato di seguito:
 
@@ -121,7 +120,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. Unire la colonna indicatore con il frame di dati originale 
+3. Unire la colonna indicatore con il frame di dati originale
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -131,7 +130,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+###<a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 
 Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
@@ -148,11 +147,9 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Scrittura dei dati nei BLOB Azure e utilizzo in Azure ML
+##<a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
 
-Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB Azure utilizzarli in Azure ML attenendosi alla procedura seguente:
-Tenere presente che è possibile creare ulteriori funzionalità anche in Azure ML Studio. 
-1. Scrivere il frame di dati in file locali
+Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 1. Scrivere il frame di dati in file locali
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
@@ -178,10 +175,15 @@ Tenere presente che è possibile creare ulteriori funzionalità anche in Azure M
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Ora i dati possono essere letti dal BLOB utilizzando *Reader Module* di Azure ML come illustrato nella schermata riportata di seguito:
+3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Lettore][reader] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
-![reader blob][1]
+![lettore BLOB][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

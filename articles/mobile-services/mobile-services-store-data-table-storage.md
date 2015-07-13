@@ -11,16 +11,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="06/05/2015" 
 	ms.author="yuaxu"/>
 
 # Archiviare i dati con l'archiviazione tabelle di Azure usando Servizi mobili
 
-Informazioni su come usare l'archiviazione tabelle con Servizi mobili nell'esercitazione di Chris Risner relativa a [Servizi mobili e Archiviazione di Microsoft Azure].
+Informazioni su come usare l’archiviazione tabelle con Servizi mobili nell’esercitazione di Chris Risner relativa a [Servizi mobili e Archiviazione di Microsoft Azure].
 
 [Servizi mobili e Archiviazione di Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

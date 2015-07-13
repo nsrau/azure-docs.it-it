@@ -23,15 +23,15 @@
 
 ## <a name="Overview"></a>Panoramica
 
-Azure Government è un cloud della community governativa \(GCC\) progettato allo scopo di supportare scenari governativi strategici che richiedono rapidità, scalabilità, sicurezza, conformità e aspetti legati all'attività economica per le organizzazioni governative statunitensi. È stato sviluppato in base alla vasta esperienza di Microsoft nel fornire software, sicurezza, conformità e controlli in altre offerte cloud Microsoft, come il cloud pubblico di Azure, Office 365, O365 Government Community Cloud \(GCC\), Microsoft CRM Online e così via.
+Azure Government è un cloud della community governativa (GCC) progettato allo scopo di supportare scenari governativi strategici che richiedono rapidità, scalabilità, sicurezza, conformità e aspetti legati all'attività economica per le organizzazioni governative statunitensi. È stato sviluppato in base alla vasta esperienza di Microsoft nel fornire software, sicurezza, conformità e controlli in altre offerte cloud Microsoft, come il cloud pubblico di Azure, Office 365, O365 Government Community Cloud (GCC), Microsoft CRM Online e così via.
 
-Inoltre, Azure Government è progettato per soddisfare le esigenze di conformità e sicurezza di alto livello per i carichi di lavoro sensibili e dedicati dell'amministrazione pubblica statunitense rilevati nelle regolamentazioni, quali il programma FedRAMP \(United States Federal Risk and Authorization Management Program\), l'ECSB \(Department of Defense Enterprise Cloud Service Broker\), i requisiti della politica di sicurezza CJIS \(Criminal Justice Information Services\) e l'atto HIPAA \(Health Insurance Portability and Accountability Act\).
+Inoltre, Azure Government è progettato per soddisfare le esigenze di conformità e sicurezza di alto livello per i carichi di lavoro sensibili e dedicati dell'amministrazione pubblica statunitense rilevati nelle regolamentazioni, quali il programma FedRAMP (United States Federal Risk and Authorization Management Program), l'ECSB (Department of Defense Enterprise Cloud Service Broker), i requisiti della politica di sicurezza CJIS (Criminal Justice Information Services) e l'atto HIPAA (Health Insurance Portability and Accountability Act).
 
 Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei servizi e dell'infrastruttura del cloud di Azure Government, disponibili al fine di agevolare le organizzazioni governative nella creazione di soluzioni cloud ibride per raggiungere i loro obiettivi. Dal momento che alcuni dei servizi riportati di seguito sono disponibili solo in anteprima, consultare la [pagina delle aree](http://azure.microsoft.com/regions/#services) in cui è presente un elenco più aggiornato dei servizi generalmente disponibili.
 
 ![][2]
 
-Azure Government include i componenti fondamentali di IaaS \(infrastruttura distribuita come servizio\) e PaaS \(piattaforma distribuita come servizio\), tra cui l'infrastruttura, la rete, l'archiviazione, la gestione dati, la gestione dell'identità e molti altri servizi. Azure Government supporta le stesse utili funzionalità di cui si sono avvantaggiati i clienti del cloud pubblico di Azure, come la replica dati geografica e sincronica e il ridimensionamento automatico. Microsoft è stato riconosciuto leader in <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> dagli analisti leader del settore.
+Azure Government include i componenti fondamentali di IaaS (infrastruttura distribuita come servizio) e PaaS (piattaforma distribuita come servizio), tra cui l'infrastruttura, la rete, l'archiviazione, la gestione dati, la gestione dell'identità e molti altri servizi. Azure Government supporta le stesse utili funzionalità di cui si sono avvantaggiati i clienti del cloud pubblico di Azure, come la replica dati geografica e sincronica e il ridimensionamento automatico. Microsoft è stato riconosciuto leader in <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> dagli analisti leader del settore.
 
 Oltre a fornire funzionalità e servizi del cloud pubblico di Azure, Azure Government offre una serie di funzionalità per assicurare agli enti governativi statunitensi l'assoluta sicurezza dei dati tramite:
 
@@ -39,7 +39,7 @@ Oltre a fornire funzionalità e servizi del cloud pubblico di Azure, Azure Gover
 
 - **Sicurezza, privacy e conformità**: Microsoft ha implementato i requisiti di sicurezza, privacy e il framework relativo ai controlli della conformità, unendo ulteriori controlli rigidi per soddisfare i requisiti di alto livello rilevati nei livelli di impatto ECSB e CJIS.
 
-- **Archiviazione dati**: l'ambiente di Azure Government mantiene 2 datacenter a oltre 500 miglia di distanza. Tutti i dati gestiti dai clienti vengono archiviati all'interno dei datacenter CONUS \(Continental United States\).
+- **Archiviazione dati**: l'ambiente di Azure Government mantiene 2 datacenter a oltre 500 miglia di distanza. Tutti i dati gestiti dai clienti vengono archiviati all'interno dei datacenter CONUS (Continental United States).
 
 - **Personale degli USA**: tutti gli amministratori e gli operatori di Azure Government sono selezionati tra i cittadini statunitensi.
 
@@ -103,4 +103,4 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

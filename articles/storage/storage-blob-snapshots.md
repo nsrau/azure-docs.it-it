@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/27/2015" 
 	ms.author="tamram"/>
 
 # Creare uno snapshot del BLOB
 
-## Informazioni generali
+## Panoramica
 
-Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. 
+Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
-Uno snapshot di un BLOB ha lo stesso nome del BLOB di base da cui deriva, con un valore **DateTime** aggiunto per indicare l'ora in cui lo snapshot è stato acquisito. Ad esempio, se un URI del BLOB di pagine è  `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot sarà simile a  `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tutti gli snapshot di un BLOB ne condividono l'URI e si distinguono solo per il valore **DateTime** aggiunto.
+Uno snapshot di un BLOB ha lo stesso nome del BLOB di base da cui deriva, con un valore **DateTime** aggiunto per indicare l'ora in cui lo snapshot è stato acquisito. Ad esempio, se un URI del BLOB di pagine`http://storagesample.core.blob.windows.net/mydrives/myvhd` è , l'URI dello snapshot sarà simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tutti gli snapshot di un BLOB ne condividono l'URI e si distinguono solo per il valore **DateTime** aggiunto.
 
 Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino all'eliminazione esplicita. Uno snapshot non può sopravvivere al relativo BLOB di origine. È possibile enumerare gli snapshot associati al BLOB per tenere traccia degli snapshot correnti.
 
-Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori. 
+Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori.
 
 Eventuali lease associati al BLOB di base non vengono copiati nello snapshot. Non è possibile acquisire un lease in uno snapshot.
 
@@ -38,7 +38,7 @@ Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguent
 
 - È possibile copiare uno snapshot in un BLOB di destinazione con un nome diverso. Il BLOB di destinazione risultante è un BLOB scrivibile, non uno snapshot.
 
-- Quando si copia un BLOB di origine, gli snapshot del BLOB di origine non vengono copiati nella destinazione. Quando un BLOB di destinazione viene sovrascritto con una copia, gli snapshot associati al BLOB di destinazione al momento della sovrascrittura rimangono invariati con il relativo nome. 
+- Quando si copia un BLOB di origine, gli snapshot del BLOB di origine non vengono copiati nella destinazione. Quando un BLOB di destinazione viene sovrascritto con una copia, gli snapshot associati al BLOB di destinazione al momento della sovrascrittura rimangono invariati con il relativo nome.
 
 - Quando si crea uno snapshot di un BLOB in blocchi, anche l'elenco di blocchi di cui è stato eseguito il commit del BLOB viene copiato nello snapshot. Eventuali blocchi di cui non è stato eseguito il commit non vengono copiati.
 
@@ -53,24 +53,33 @@ Non è possibile eliminare un BLOB contenente snapshot a meno che non vengano el
 ## Snapshot con Archiviazione Premium
 Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole seguenti:
 
-- Il numero di snapshot per BLOB di pagine in un account di Archiviazione Premium è limitato a 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnapshotCountExceeded**).
+- Il numero di snapshot per BLOB di pagine in un account di Archiviazione Premium è limitato a 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (SnapshotCountExceeded).
 
-- Uno snapshot di un BLOB di pagine in un account di Archiviazione Premium può essere adottato una volta ogni dieci minuti. Se tale frequenza viene superata, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnaphotOperationRateExceeded**).
+- Uno snapshot di un BLOB di pagine in un account di Archiviazione Premium può essere adottato una volta ogni dieci minuti. Se tale frequenza viene superata, l'operazione Snapshot BLOB restituisce il codice errore 409 (SnaphotOperationRateExceeded).
 
-- La lettura di uno snapshot di un BLOB di pagine in un account di Archiviazione Premium tramite l'operazione Get BLOB non è supportata. La chiamata Get BLOB per uno snapshot in un account di Archiviazione Premium restituisce il codice errore 400 (**InvalidOperation**). Tuttavia, le chiamate Get Blob Properties e Get Blob Metadata su uno snapshot sono supportate.
+- La lettura di uno snapshot di un BLOB di pagine in un account di Archiviazione Premium tramite l'operazione Get BLOB non è supportata. La chiamata Get BLOB per uno snapshot in un account di Archiviazione Premium restituisce il codice errore 400 (InvalidOperation). Tuttavia, le chiamate Get Blob Properties e Get Blob Metadata su uno snapshot sono supportate.
 
-- Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (**SnapshotsPresent**).
+- Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (SnapshotsPresent).
 
-## Costruzione dell'URI assoluto di uno snapshot 
+## L'URI assoluto deve tornare ad uno snapshot 
 
-In questo esempio di codice C# viene costruito l'URI assoluto di uno snapshot dal relativo oggetto BLOB di base.
+Questo esempio di codice c# consente di creare un nuovo snapshot e scrive l'URI assoluto per la posizione primaria.
 
-	var snapshot = blob.CreateSnapshot();
-	var uri = Microsoft.WindowsAzure.StorageClient.Protocol.BlobRequest.Get
-    (snapshot.Uri, 
-    0, 
-    snapshot.SnapshotTime.Value, 
-    null).Address.AbsoluteUri;
+    //Create the blob service client object.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+
+    //Get a reference to a blob.
+    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+    blob.UploadText("This is a blob.");
+
+    //Create a snapshot of the blob and write out its primary URI.
+    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 ## Informazioni sull'incremento dei costi dovuto agli snapshot
 
@@ -88,17 +97,17 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 - Il servizio BLOB di Azure non dispone dei mezzi per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante considerare che se si aggiorna un BLOB che contiene uno snapshot si genereranno altri blocchi univoci e costi aggiuntivi.
 
-> [AZURE.NOTE] Le procedure consigliate indicano di gestire gli snapshot con attenzione per evitare costi supplementari. È consigliabile gestire gli snapshot nel modo descritto di seguito:
+> [AZURE.NOTE]Le procedure consigliate indicano di gestire gli snapshot con attenzione per evitare costi supplementari. È consigliabile gestire gli snapshot nel modo descritto di seguito:
 
-> - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, anche se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
+> - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
 
-> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare UploadFile, UploadText, UploadStream o UploadByteArray per aggiornare il BLOB, in quanto questi metodi sostituiscono tutti i blocchi del BLOB. Aggiornare, invece, il minor numero possibile di blocchi usando i metodi PutBlock e PutBlockList.
+> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare UploadFile, UploadText, UploadStream, o UploadByteArray per aggiornare il BLOB, in quanto questi metodi sostituiscono tutti i blocchi del BLOB. Aggiornare, invece, il minor numero possibile di blocchi usando i metodi PutBlock e PutBlockList.
 
 
 ### Scenari di fatturazione degli snapshot
 
 
-Gli scenari seguenti dimostrano in che modo aumentano i costi per un BLOB in blocchi e i relativi snapshot. 
+Gli scenari seguenti dimostrano in che modo aumentano i costi per un BLOB in blocchi e i relativi snapshot.
 
 Nello Scenario 1, il BLOB di base non è stato aggiornato da quanto è stato scattato lo snapshot, pertanto i costi sono relativi sono ai blocchi univoci 1, 2 e 3.
 
@@ -116,5 +125,4 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

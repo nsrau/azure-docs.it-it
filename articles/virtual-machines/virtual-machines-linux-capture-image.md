@@ -40,12 +40,12 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
 
-	- Rimuove le chiavi host SSH \(se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione\)
+	- Rimuove le chiavi host SSH (se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione)
 	- Cancella la configurazione NameServer in /etc/resolv.conf
-	- Rimuove la password `root` dell'utente da /etc/shadow \(se Provisioning.DeleteRootPassword è 'y' nel file di configurazione\)
+	- Rimuove la password `root` dell'utente da /etc/shadow (se Provisioning.DeleteRootPassword è 'y' nel file di configurazione)
 	- Rimuove i lease client DHCP memorizzati nella cache
 	- Ripristina il nome host su localhost.localdomain
-	- Elimina anche l'ultimo account utente \(ottenuto da /var/lib/waagent\) di cui è stato effettuato il provisioning **e i dati associati**.
+	- Elimina anche l'ultimo account utente (ottenuto da /var/lib/waagent) di cui è stato effettuato il provisioning **e i dati associati**.
 
 	![Deprovisioning della macchina virtuale](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
 
@@ -90,4 +90,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

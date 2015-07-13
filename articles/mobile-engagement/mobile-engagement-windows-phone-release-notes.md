@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -29,5 +29,6 @@
 -   Versione iniziale di Azure Mobile Engagement
 -   La configurazione di appId/sdkKey viene sostituita da una configurazione della stringa di connessione.
 -   Sono stati introdotti miglioramenti per la sicurezza.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

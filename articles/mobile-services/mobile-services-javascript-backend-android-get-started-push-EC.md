@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -199,7 +199,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [configurazione di Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Come usare la libreria client di Android per Servizi mobili]: mobile-services-android-how-to-use-client-library.md
 
@@ -208,9 +207,10 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-[Introduzione a Servizi mobili]: mobile-services-android-get-started.md
+
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -13,23 +13,42 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 
 
 #Hub di notifica di Azure
 
-##Informazioni generali
+##Panoramica
 
-Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
+Gli hub di notifica di Azure forniscono un'infrastruttura push di facile utilizzo, multipiattaforma e con scalabilità orizzontale che consente di inviare notifiche push mobili da qualsiasi back-end (nel cloud o locale) a qualsiasi piattaforma mobile.
+
+Con Hub di notifica che è possibile inviare facilmente notifiche push multipiattaforma personalizzate, astraendo i dettagli dei sistemi di notifica di diverse piattaforme (PNS). Con una singola chiamata di API, è possibile indirizzarsi a singoli utenti o interi segmenti di destinatari contenenti milioni di utenti, in tutti i dispositivi.
+
+È possibile utilizzare Hub di notifica per scenari aziendali e di consumo. ad esempio:
+
+- Inviare notifiche relative alle ultime notizie a milioni di utenti con bassa latenza (Hub di notifica alimenta applicazioni Bing preinstallate in tutti i dispositivi Windows e Windows Phone).
+
+- Inviare coupon basati sulla posizione a segmenti di utenti.
+
+- Inviare le notifiche degli eventi a utenti o gruppi per applicazioni di sport, finanza e gioco.
+
+- Notificare agli utenti eventi aziendali, come nuovi messaggi/posta elettronica e clienti potenziali.
+- Inviare password monouso richieste per Multi-Factor Authentication.
+
+
 
 ##Cosa sono le notifiche push?
 
-Smartphone e tablet sono in grado di "notificare" agli utenti il verificarsi di un evento. Nelle applicazioni Windows Store la notifica può produrre un _avviso popup_, ovvero la visualizzazione di una finestra non modale associata a un avviso acustico. Analogamente, nei dispositivi Apple iOS la notifica push visualizza una finestra di dialogo in cui viene richiesto all'utente se desidera visualizzare o chiudere la notifica. Facendo clic su **Visualizza** è possibile aprire l'applicazione che sta ricevendo il messaggio.
+Smartphone e tablet sono in grado di "notificare" agli utenti il verificarsi di un evento. Queste notifiche possono assumere molte forme.
 
-Le notifiche push consentono ai dispositivi mobili di visualizzare informazioni aggiornate con un consumo minimo di energia. Rappresentano un elemento essenziale per le app consumer, in cui vengono usate per migliorare l'uso e l'interesse verso l'app. Le notifiche sono utili anche per le aziende, in cui la disponibilità di informazioni aggiornate aumenta la velocità di risposta dei dipendenti agli eventi aziendali. 
+Nelle applicazioni Windows Store e Windows Phone la notifica può essere sotto forma di _avviso popup_, ovvero viene visualizzata una finestra senza modo, con un suono, per segnalare una nuova notifica. Altri tipi di notifica supportati sono le notifiche _riquadro_, _non elaborate_ e _badge_. Per ulteriori informazioni sui tipi di notifiche supportati nei dispositivi Windows, vedere [Riquadri, badge e notifiche](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
 
-Di seguito sono illustrati alcuni scenari d'uso delle notifiche su dispositivi mobili:
+Analogamente, nei dispositivi Apple iOS la notifica push visualizza una finestra di dialogo in cui viene richiesto all'utente se desidera visualizzare o chiudere la notifica. Facendo clic su **Visualizza** è possibile aprire l'applicazione che sta ricevendo il messaggio. Per ulteriori informazioni sulle notifiche di iOS, vedere [Notifiche di iOS](http://go.microsoft.com/fwlink/?LinkId=615245).
+
+Le notifiche push consentono ai dispositivi mobili di visualizzare informazioni aggiornate con un consumo minimo di energia. È possibile inviare notifiche da sistemi back-end a dispositivi mobili anche quando le app corrispondenti in un dispositivo non sono attive. Rappresentano un elemento essenziale per le app consumer, in cui vengono usate per migliorare l'uso e l'interesse verso l'app. Le notifiche sono utili anche per le aziende, in cui la disponibilità di informazioni aggiornate aumenta la velocità di risposta dei dipendenti agli eventi aziendali.
+
+Di seguito sono illustrati alcuni scenari di utilizzo delle notifiche su dispositivi mobili:
 
 1.  Aggiornamento di un riquadro in Windows 8 o in Windows Phone con le ultime informazioni finanziarie.
 2.  Comunicazione a un utente che gli è stato assegnato un elemento di lavoro mediante una notifica di tipo avviso popup in un'app aziendale basata sul flusso di lavoro.
@@ -37,11 +56,11 @@ Di seguito sono illustrati alcuni scenari d'uso delle notifiche su dispositivi m
 
 ##Funzionamento delle notifiche push
 
-Le notifiche push vengono recapitate attraverso infrastrutture specifiche della piattaforma denominate PNS (Platform Notification System, sistema di notifica tramite piattaforma). I sistemi PNS offrono funzioni limitate. Non forniscono, ad esempio, il supporto per la trasmissione o la personalizzazione e non offrono un'interfaccia comune. Per inviare una notifica a un'app di Windows Store, ad esempio, uno sviluppatore deve contattare Servizi notifica Push Windows (WNS). Per inviare una notifica a un dispositivo iOS, lo stesso sviluppatore deve contattare Apple Push Notification Service (APN) e inviare nuovamente il messaggio.
+Le notifiche push vengono recapitate attraverso infrastrutture specifiche della piattaforma denominate _PNS_ (Platform Notification System, sistema di notifica tramite piattaforma). I sistemi PNS offrono funzioni limitate. Non forniscono, ad esempio, il supporto per la trasmissione o la personalizzazione e non offrono un'interfaccia comune. Per inviare una notifica a un'app di Windows Store, ad esempio, uno sviluppatore deve contattare Servizi notifica Push Windows (WNS). Per inviare una notifica a un dispositivo iOS, lo stesso sviluppatore deve contattare Apple Push Notification Service (APN) e inviare nuovamente il messaggio. Hub di notifica di Azure fornisce un'interfaccia comune, insieme ad altre funzionalità per supportare le notifiche push tra le piattaforme.
 
 A livello generale, tuttavia, i sistemi di notifica tramite piattaforma seguono tutti lo stesso modello:
 
-1.  L'app client contatta il sistema PNS per recuperare il proprio _handle_. Il tipo di handle dipende dal sistema. Per WNS si tratta di un URI o un "canale di notifica", mentre per il servizio APN si tratta di un token.
+1.  L'app client contatta il sistema PNS per recuperare il proprio _handle_. Il tipo di handle dipende dal sistema. Per WNS si tratta di un URI o un "canale di notifica", mentre per APNS si tratta di un token.
 2.  L'app client archivia l'handle nel _back-end_ dell'app per l'uso successivo. Per WNS, il back-end è generalmente un servizio cloud. Per Apple, il sistema prende il nome di _provider_.
 3.  Per inviare una notifica push, il back-end dell'app contatta il PNS usando l'handle per individuare una specifica istanza di app client.
 4.  Il PNS inoltra quindi la notifica al dispositivo specificato dall'handle.
@@ -56,22 +75,57 @@ Le notifiche push rappresentano attualmente una delle funzionalità più richies
 
 - **Dipendenza dalla piattaforma.** Per poter inviare notifiche a dispositivi basati su piattaforme diverse, è necessario codificare nel back-end più tipi di interfacce. Non solo, infatti, i dettagli del codice a basso livello sono diversi, ma la presentazione stessa della notifica (riquadro, popup o badge) dipende dalla piattaforma. Queste differenze possono portare alla generazione di un codice di back-end complesso e difficile da gestire.
 
-- **Scalabilità.** Per quanto riguarda il ridimensionamento di questa infrastruttura, è necessario prendere in considerazione due aspetti:
-1. In base alle linee guida dei sistemi PNS,è necessario aggiornare i token di dispositivo a ogni avvio dell'app. Questo comporta la produzione di un grande volume di traffico e di conseguenti accessi al database solo per tenere aggiornati i token di dispositivo. Se il numero di dispositivi cresce, fino a raggiungere potenzialmente i milioni di unità, i costi per la creazione e la gestione dell'infrastruttura diventano piuttosto significativi.
-2.  La maggior parte dei sistemi PNS non supporta la trasmissione a più dispositivi. Ne consegue che per la trasmissione a milioni di dispositivi è necessario effettuare milioni di chiamate ai sistemi PNS. Scalare correttamente queste richieste è pertanto un obiettivo difficile da raggiungere, poiché in genere gli sviluppatori desiderano tenere bassa la latenza totale. L'ultimo dispositivo a cui viene inviato il messaggio, ad esempio, dovrebbe ricevere la notifica non più di 30 minuti dopo l'invio della prima notifica per non annullare il presupposto essenziale delle notifiche push.
+- **Scalabilità.** Il ridimensionamento di questa infrastruttura deve tenere in considerazione due aspetti:
+	+ In base alle linee guida dei sistemi PNS,è necessario aggiornare i token di dispositivo a ogni avvio dell'app. Questo comporta la produzione di un grande volume di traffico e di conseguenti accessi al database solo per tenere aggiornati i token di dispositivo. Se il numero di dispositivi cresce, fino a raggiungere potenzialmente i milioni di unità, i costi per la creazione e la gestione dell'infrastruttura diventano piuttosto significativi.
+
+	+ La maggior parte dei sistemi PNS non supporta la trasmissione a più dispositivi. Ne consegue che per la trasmissione a milioni di dispositivi è necessario effettuare milioni di chiamate ai sistemi PNS. Scalare correttamente queste richieste è pertanto un obiettivo difficile da raggiungere, poiché in genere gli sviluppatori desiderano tenere bassa la latenza totale. L'ultimo dispositivo a cui viene inviato il messaggio, ad esempio, dovrebbe ricevere la notifica non più di 30 minuti dopo l'invio della prima notifica per non annullare il presupposto essenziale delle notifiche push.
 - **Routing.** I sistemi PNS offrono un modo per inviare un messaggio a un dispositivo. Nella maggior parte delle app, tuttavia, le notifiche sono destinate a utenti e/o gruppi di interesse, ad esempio, tutti i dipendenti assegnati a un determinato account cliente. Per instradare le notifiche ai dispositivi corretti, il back-end dell'app deve quindi mantenere un registro in cui i vari gruppi di interesse siano associati ai relativi token di dispositivo. Questo aumento del carico di lavoro contribuisce inevitabilmente ad aumentare i tempi di produzione e i costi di manutenzione di un'app.
 
 ##Perché usare gli Hub di notifica?
 
-Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'uso in grado di supportare:
-
-- **Piattaforme multiple.** Gli hub di notifica forniscono un'interfaccia comune per l'invio di notifiche a tutte le piattaforme supportate.Il back-end dell'app può inviare notifiche sia nel formato specifico di una piattaforma sia in un formato indipendente dalle piattaforme. Gli hub di notifica possono inviare notifiche push ad app di Windows Store, per iOS, per Android e per Windows Phone.
-- **Routing di pubblicazione/sottoscrizione.** Quando invia l'handle a un hub di notifica, ogni dispositivo può specificare uno o più _tag_. Per altre informazioni sui tag, vedere la seguente sezione. Non è necessario eliminare o eseguire preventivamente il provisioning dei tag. I tag offrono un modo molto semplice per inviare notifiche a utenti o gruppi di interesse. Poiché possono contenere qualsiasi identificatore specifico dell'app, ad esempio ID utente o di gruppo, i tag eliminano la necessità di usare il back-end dell'app per archiviare e gestire gli handle di dispositivo.
-- **Scalabilità.** Gli hub di notifica garantiscono la scalabilità necessaria per inviare notifiche a milioni di dispositivi senza dover eseguire il partizionamento o la riprogettazione dell'architettura.
-
-Usano un'infrastruttura per notifiche push con scalabilità orizzontale e completamente multipiattaforma, in grado di ridurre considerevolmente il codice specifico del push eseguito nel back-end dell'app. Implementano inoltre tutte le funzionalità di un'infrastruttura push. I dispositivi devono eseguire soltanto la registrazione dei propri handle PNS, mentre il back-end è responsabile dell'invio di messaggi indipendenti dalla piattaforma a utenti o gruppi di interesse.
+Eliminano la complessità: non è necessario gestire le problematiche delle notifiche push se si utilizzano gli Hub di notifica. Usano un'infrastruttura completa per notifiche push con scalabilità orizzontale e multipiattaforma, in grado di ridurre considerevolmente il codice specifico del push eseguito nel back-end dell'app. Gli Hub di notifica implementano tutte le funzionalità di un'infrastruttura push. I dispositivi devono eseguire soltanto la registrazione dei propri handle PNS, mentre il back-end è responsabile dell'invio di messaggi indipendenti dalla piattaforma a utenti o gruppi di interesse.
 
 ![][1]
+
+
+
+
+
+
+Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'uso in grado di supportare:
+
+- **Piattaforme multiple.**   
+	+  Supporto per tutte le principali piattaforme mobili. Gli hub di notifica possono inviare notifiche push ad app di Windows Store, per iOS, per Android e per Windows Phone.
+
+
+	+  Gli hub di notifica forniscono un'interfaccia comune per l'invio di notifiche a tutte le piattaforme supportate. Non sono necessari i protocolli specifici della piattaforma. Il back-end dell'app può inviare notifiche sia nel formato specifico di una piattaforma sia in un formato indipendente dalle piattaforme. L'applicazione comunica solo con gli hub di notifica.
+
+	+  Gestione dell'handle di dispositivo. Hub di notifica gestisce il registro degli handle e il feedback proveniente dai PNS.
+
+- **Funziona con qualsiasi back-end**: cloud o in locale, .NET, PHP, Java, nodo e così via.
+
+- **Scalabilità.** Gli hub di notifica garantiscono la scalabilità necessaria per inviare notifiche a milioni di dispositivi senza dover eseguire il partizionamento o la riprogettazione dell'architettura.
+
+
+- **Insieme completo di modelli di recapito**:
+
+	- *Trasmissione*: consente la trasmissione quasi simultanea a milioni di dispositivi con una singola chiamata API.
+
+	- *Unicast/Multicast*: push a tag che rappresentano singoli utenti, inclusi tutti i relativi dispositivi, o il gruppo più ampio, ad esempio fattori di forma distinti (tablet e telefono).
+
+	- *Segmentazione*: push a segmenti complessi definiti da espressioni tag (ad esempio dispositivi a New York che seguono gli Yankees).
+
+	Quando invia l'handle a un hub di notifica, ogni dispositivo può specificare uno o più _tag_. Per altre informazioni sull'uso di [tag](http://msdn.microsoft.com/library/azure/dn530749.aspx). Non è necessario eliminare o eseguire preventivamente il provisioning dei tag. I tag offrono un modo molto semplice per inviare notifiche a utenti o gruppi di interesse. Poiché possono contenere qualsiasi identificatore specifico dell'app, ad esempio ID utente o di gruppo, i tag eliminano la necessità di usare il back-end dell'app per archiviare e gestire gli handle di dispositivo.
+
+- **Personalizzazione**: ogni dispositivo può avere uno o più modelli, per ottenere la localizzazione per dispositivo e la personalizzazione senza influire sul codice di back-end.
+
+- **Protezione**: accesso segreto condiviso (SAS) o autenticazione federata.
+
+- **Telemetria avanzata**: disponibile nel portale e a livello di codice.
+
+
+
+
 
 ##Passaggi successivi
 
@@ -79,7 +133,7 @@ Nei seguenti argomenti sono disponibili altre informazioni su Hub di notifica:
 
 + **[Uso di Hub di notifica da parte dei clienti]**
 
-+ **[Esercitazioni e guide su HUB di notifica]** 
++ **[Esercitazioni e guide su Hub di notifica]**
 
 + **Introduzione ad Hub di notifica** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
 
@@ -89,8 +143,8 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
 + [Microsoft.ServiceBus.Notifications] 
 
 
-  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
-  [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
+  [0]: ./media/notification-hubs-overview/registration-diagram.png
+  [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
   [Uso di Hub di notifica da parte dei clienti]: http://azure.microsoft.com/services/notification-hubs
   [Esercitazioni e guide su Hub di notifica]: http://azure.microsoft.com/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
@@ -104,4 +158,6 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   
 
-<!--HONumber=49--> 
+ 
+
+<!---HONumber=July15_HO1-->

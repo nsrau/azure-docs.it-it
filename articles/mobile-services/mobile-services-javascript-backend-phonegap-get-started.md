@@ -30,14 +30,14 @@ Di seguito è riportata una schermata dell'app completata:
 
 Il completamento di questa esercitazione richiede gli elementi seguenti:
 
-+ Strumenti PhoneGap \(per i progetti Windows Phone 8 è richiesta la versione 3.2 o successiva\).
++ Strumenti PhoneGap (per i progetti Windows Phone 8 è richiesta la versione 3.2 o successiva).
 
 + Account Microsoft Azure attivo.
 
 + PhoneGap supporta lo sviluppo per più piattaforme. Oltre agli strumenti PhoneGap, è necessario installare gli strumenti relativi a ogni piattaforma di destinazione:
 
 	- Windows Phone: installare [Visual Studio 2012 Express per Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: installare [Xcode] \(è richiesta la versione 4.4 o successiva\)
+	- iOS: installare [Xcode] (è richiesta la versione 4.4 o successiva)
 	- Android: Installare [Android Developer Tools][Android SDK]<br/>. Mobile Services SDK per Android supporta le app per Android 2.2 o versione successiva. Per l'esecuzione dell'app di guida introduttiva è necessario Android 4.2 o versione successiva.
 
 ## Creare un nuovo servizio mobile
@@ -58,7 +58,7 @@ In questa sezione si creerà una nuova app PhoneGap connessa al servizio mobile.
 
   	![][1]
 
-3. Se necessario, scaricare e installare PhoneGap e almeno uno strumento di sviluppo della piattaforma \(Windows Phone, iOS o Android\).
+3. Se necessario, scaricare e installare PhoneGap e almeno uno strumento di sviluppo della piattaforma (Windows Phone, iOS o Android).
 
 4. Fare clic su **Create TodoItem table** per creare una tabella in cui archiviare i dati dell'app.
 
@@ -76,7 +76,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8: aprire il file con estensione sln nella cartella **platforms\\wp8** in Visual Studio 2012 Express per Windows Phone.
+		1. Windows Phone 8: aprire il file con estensione sln nella cartella **platforms\wp8** in Visual Studio 2012 Express per Windows Phone.
 
 		2. Premere **F5** per ricompilare il progetto e avviare l'app.
 
@@ -100,7 +100,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 			![][4]
 
-		>[AZURE.NOTE]Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo Android Virtual Device \(AVD\). Utilizzare AVD Manager per creare e gestire questi dispositivi.
+		>[AZURE.NOTE]Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo Android Virtual Device (AVD). Utilizzare AVD Manager per creare e gestire questi dispositivi.
 
 
 3. Dopo aver avviato l'app in uno degli emulatori mobili, digitare un testo nella casella di testo e quindi fare clic su **Add**.
@@ -171,4 +171,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Elaborazione dei dati di SQL Azure | Azure" 
+	pageTitle="Elaborazione dei dati di SQL Azure | Microsoft Azure" 
 	description="Elaborazione dei dati di SQL Azure" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -15,15 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
 In questo documento viene descritta l'elaborazione dei dati e la creazione di funzionalità per i dati archiviati in una macchina virtuale di SQL Server su Azure. Questa operazione può essere eseguita nei modi seguenti:
 
-1. [Utilizzando SQL](#sql)
-2. [Utilizzando un linguaggio di programmazione quale Python](#python) 
+1. [Utilizzo di SQL](#sql)
+2. [Utilizzo di un linguaggio di programmazione quale Python](#python) 
 
 
 **Nota**
@@ -44,13 +43,13 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
 
 1. Visualizzare il numero di osservazioni per giorno
 
-	`SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
+	`SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
 
 2. Visualizzare i livelli in una colonna di categoria
 
 	`select  distinct <column_name> from <databasename>`
 
-3. Visualizzare il numero di livelli in una combinazione di due colonne di categoria 
+3. Visualizzare il numero di livelli in una combinazione di due colonne di categoria
 
 	`select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 
@@ -61,14 +60,14 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
 
 ####<a name="sql-featuregen"></a>Creazione di funzionalità
 
-In questa sezione viene descritto come creare funzionalità tramite SQL:  
+In questa sezione viene descritto come creare funzionalità tramite SQL:
 
 1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
 2. [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
 3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
 **Nota**
->Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale. 
+>Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
 
 ####<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 
@@ -103,7 +102,7 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 - La quinta posizione decimale è caratterizzata da un valore massimo a 1,1 m: consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
 - La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
 
-le informazioni sulla posizione possono essere inserite in funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile nel sito  `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
+le informazioni sulla posizione possono essere inserite in funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
 
 	select 
 		<location_columnname>
@@ -116,7 +115,7 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio. 
+Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
 
 
 **SUGGERIMENTO**
@@ -126,9 +125,9 @@ Le funzionalità basate su posizione descritte in precedenza possono essere util
 
 ####<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
-La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create usando  *Reader Module* in Azure ML, come descritto di seguito:
+La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create usando il modulo [Lettore][reader] in Azure ML, come descritto di seguito:
 
-![azureml readers][1] 
+![lettori azureml][1]
 
 ###<a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
 
@@ -140,7 +139,7 @@ Il seguente formato della stringa di connessione può essere utilizzato per conn
 	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [libreria Pandas](http://pandas.pydata.org/) di Python offre una vasta gamma di strutture di dati e di strumenti di analisi dei dati che consentono di manipolare i dati per la programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
+La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
 
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
@@ -149,8 +148,13 @@ A questo punto, è possibile utilizzare il frame di dati di Pandas, come descrit
 
 ### Analisi scientifica dei dati di Azure nell'esempio di azione
 
-Per un esempio della procedura dettagliata end-to-end del processo di analisi scientifica dei dati di Azure utilizzando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati di Azure in azione](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end del processo di analisi scientifica dei dati di Azure usando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati di Azure in azione](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

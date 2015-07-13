@@ -37,4 +37,4 @@ In questa sezione, vengono aggiunti alla directory due nuovi utenti, oltre al nu
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

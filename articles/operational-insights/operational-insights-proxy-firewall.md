@@ -27,7 +27,8 @@ Per connettersi e registrarsi al servizio Operational Insights, Microsoft Monito
 
 |**Risorsa agente**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com\|Porta 443\| \|*.oms.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443|
+|*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/*|Porta 443|
 
@@ -85,16 +86,22 @@ Per connettersi e registrarsi al servizio Operational Insights, un gruppo di ges
 
 |**Risorsa del server di gestione**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com\|Porta 443\| \|service.systemcenteradvisor.com\|Porta 443\| \|scadvisor.accesscontrol.windows.net\|Porta 443\| \|scadvisorservice.accesscontrol.windows.net\|Porta 443\| \|*.blob.core.windows.net/\*|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443|
+|service.systemcenteradvisor.com|Porta 443|
+|scadvisor.accesscontrol.windows.net|Porta 443|
+|scadvisorservice.accesscontrol.windows.net|Porta 443|
+|*.blob.core.windows.net/*|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
-|*.systemcenteradvisor.com\|Porta 443\|
+|*.systemcenteradvisor.com|Porta 443|
 
 
 |**Risorsa della console di Operational Insights e Operations Manager**|**Porte**|
 |---|---|
-|*.systemcenteradvisor.com\|Porte 80 e 443\| \|*.live.com|Porte 80 e 443|
-|*.microsoftonline.com\|Porte 80 e 443\| \|login.windows.net\|Porte 80 e 443\|
+|*.systemcenteradvisor.com|Porte 80 e 443|
+|*.live.com|Porte 80 e 443|
+|*.microsoftonline.com|Porte 80 e 443|
+|login.windows.net|Porte 80 e 443|
 
 
 Usare le procedure seguenti per registrare il gruppo di gestione di Operations Manager con il servizio Operational Insights. Se si verificano problemi di comunicazione tra il gruppo di gestione e il servizio Operational Insights, usare le procedure di convalida per risolvere i problemi relativi alla trasmissione dei dati al servizio Operational Insights.
@@ -105,7 +112,7 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 2. Usare le informazioni della seconda tabella riportata precedentemente per verificare che le risorse necessarie per la console operatore in Operations Manager e Operational Insights siano accessibili da qualsiasi firewall in uso.
 
-3. Se si usa un server proxy con Internet Explorer, verificare che sia configurato e che funzioni correttamente. Per verificarlo, aprire una connessione Web sicura \(HTTPS\), ad esempio [https://bing.com](https://bing.com). Se la connessione Web sicura non funziona in un browser, è probabile che non funzionerà nella console di gestione di Operations Manager con i servizi Web nel cloud.
+3. Se si usa un server proxy con Internet Explorer, verificare che sia configurato e che funzioni correttamente. Per verificarlo, aprire una connessione Web sicura (HTTPS), ad esempio [https://bing.com](https://bing.com). Se la connessione Web sicura non funziona in un browser, è probabile che non funzionerà nella console di gestione di Operations Manager con i servizi Web nel cloud.
 
 ### Per configurare il server proxy nella console di Operations Manager
 
@@ -139,7 +146,7 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 2. Digitare **netsh winhttp set proxy myproxy:80**.
 
-3. Chiudere la finestra del prompt dei comandi e riavviare il servizio System Center Management \(HealthService\).
+3. Chiudere la finestra del prompt dei comandi e riavviare il servizio System Center Management (HealthService).
 
 4. Eseguire il passaggio 2 per ogni server di gestione del gruppo di gestione.
 
@@ -162,12 +169,13 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 ### Per convalidare l'invio dei dati di Operations Manager al servizio Operational Insights
 
-1. Nel server di gestione di Operations Manager, aprire Monitoraggio delle prestazioni \(perfmon.exe\) e selezionare **Monitoraggio delle prestazioni**.
+1. Nel server di gestione di Operations Manager, aprire Monitoraggio delle prestazioni (perfmon.exe) e selezionare **Monitoraggio delle prestazioni**.
 
 2. Fare clic su **Aggiungi**, quindi selezionare **Gruppi di gestione Servizio integrità**.
 
 3. Aggiungere tutti i contatori che iniziano con **HTTP**. ![Aggiungi contatori](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se la configurazione di Operations Manager è valida, verrà visualizzata l'attività dei contatori di gestione Servizio integrità per gli eventi e altri elementi di dati in base ai Management Pack aggiunti a Operational Insights e ai criteri di raccolta del log configurati. ![Attività di Monitoraggio prestazioni](./media/operational-insights-proxy-firewall/sendingdata2.png)
  
+<!--BugFixing Comment-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

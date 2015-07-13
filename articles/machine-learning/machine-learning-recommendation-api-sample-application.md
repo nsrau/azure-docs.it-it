@@ -45,8 +45,8 @@ Per abilitare lo scenario precedente, eseguire le operazioni seguenti nel serviz
 
 * Caricare i dati di utilizzo: i dati di utilizzo vengono aggiunti al contenitore del modello.
 * Compilare un modello di raccomandazione: quando sono disponibili dati sufficienti, si potrà compilare il modello di raccomandazione. Questa operazione usa algoritmi di Machine Learning avanzati per creare un modello di raccomandazione. A ogni compilazione è associato un ID univoco, che dovrà essere conservato, essendo necessario per la funzionalità di alcune API.
-* Monitorare il processo di compilazione: la compilazione di un modello di raccomandazione è un'operazione asincrona e può richiedere diversi minuti o diverse ore, a seconda della quantità di dati \(catalogo e utilizzo\) e dei parametri di compilazione. È quindi necessario monitorare la compilazione. Un modello di raccomandazione viene creato solo se la compilazione associata riesce.
-* \(Facoltativo\) Scegliere una compilazione del modello di raccomandazione attivo: questo passaggio è necessario solo se nel contenitore del modello è disponibile più di una compilazione del modello di raccomandazione. Qualsiasi richiesta di ottenere raccomandazioni senza indicare il modello di raccomandazione attivo viene reindirizzata automaticamente dal sistema alla compilazione attiva predefinita. 
+* Monitorare il processo di compilazione: la compilazione di un modello di raccomandazione è un'operazione asincrona e può richiedere diversi minuti o diverse ore, a seconda della quantità di dati (catalogo e utilizzo) e dei parametri di compilazione. È quindi necessario monitorare la compilazione. Un modello di raccomandazione viene creato solo se la compilazione associata riesce.
+* (Facoltativo) Scegliere una compilazione del modello di raccomandazione attivo: questo passaggio è necessario solo se nel contenitore del modello è disponibile più di una compilazione del modello di raccomandazione. Qualsiasi richiesta di ottenere raccomandazioni senza indicare il modello di raccomandazione attivo viene reindirizzata automaticamente dal sistema alla compilazione attiva predefinita. 
 
 **Nota**: un modello di raccomandazione attivo è pronto per la produzione e viene compilato per i carichi di lavoro di produzione. Differisce da un modello di raccomandazione non attivo che rimane in un ambiente di tipo test, definito a volte gestione temporanea.
 
@@ -77,7 +77,7 @@ L'applicazione usa la funzionalità di raccomandazione di Machine Learning trami
 
 Per una descrizione completa delle API, vedere la documentazione di Microsoft Azure Marketplace.
 
-**Nota**: con il tempo, un modello può avere diverse compilazioni \(non contemporaneamente\). Ogni compilazione viene creata con lo stesso catalogo o un catalogo aggiornato e dati di utilizzo aggiuntivi.
+**Nota**: con il tempo, un modello può avere diverse compilazioni (non contemporaneamente). Ogni compilazione viene creata con lo stesso catalogo o un catalogo aggiornato e dati di utilizzo aggiuntivi.
 
 ## Inconvenienti comuni
 
@@ -89,4 +89,4 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

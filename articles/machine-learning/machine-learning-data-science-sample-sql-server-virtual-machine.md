@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dati di esempio in SQL Server in Azure| Azure" 
+	pageTitle="Dati di esempio in SQL Server in Azure| Microsoft Azure" 
 	description="Dati di esempio in SQL Server in Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,20 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio in SQL Server in Azure
 
-In questo documento sono contenuti dati di esempio archiviati in SQL Server in Azure nei modi seguenti:
+In questo documento viene illustrato il campionamento dei dati archiviati in SQL Server in Azure tramite SQL e l’uso del linguaggio di programmazione Python.
 
-1. [Utilizzando SQL](#sql)
-2. [Utilizzando il linguaggio di programmazione Python](#python) 
+>[AZURE.NOTE]Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all’argomento [Spostamento dei dati in SQL Server in Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) nella [guida Elaborazione dati avanzata](machine-learning-data-science-advanced-data-processing.md) per istruzioni su come spostare i dati in un Server SQL in Azure.
 
-**Nota**
->Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento alla mappa relativa al processo di scienza dei dati cloud per ottenere indicazioni sul trasferimento di dati in un server SQL in Azure.
-
-###<a name="SQL"></a>Utilizzo di SQL
+##<a name="SQL"></a>Utilizzo di SQL
 
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
 
@@ -37,7 +33,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 	    select  * from <table_name> where <primary_key> in 
     	(select top 10 percent <primary_key> from <table_name> order by newid())
 
-2. Campionamento più casuale 
+2. Campionamento più casuale
 
 	    SELECT * FROM <table_name>
     	WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
@@ -52,15 +48,15 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 > È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
 
 
-####<a name="sql-aml"></a>Connessione ad Azure Machine Learning
+###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
 È possibile utilizzare direttamente le query di esempio sopra menzionate nel modulo Reader di Azure ML per ricampionare i dati in tempo reale e inserirli in un esperimento di Azure ML. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
    
-![reader sql][1]
+![lettore sql][1]
 
-###<a name="python"></a>Utilizzo del linguaggio di programmazione Python 
+##<a name="python"></a>Utilizzo del linguaggio di programmazione Python 
 
-In questa sezione viene mostrato l'uso della libreria pyodbc per connettersi al database di un server SQL in Python. La stringa di connessione del database è la seguente (sostituire servername, dbname, username e password con la propria configurazione):
+In questa sezione viene mostrato l'uso della libreria pyodbc per connettersi al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire servername, dbname, username e password con la propria configurazione):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -73,11 +69,11 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-È ora possibile lavorare con i dati campionati nel frame di dati Pandas. 
+È ora possibile lavorare con i dati campionati nel frame di dati Pandas.
 
-####<a name="python-aml"></a>Connessione ad Azure Machine Learning
+###<a name="python-aml"></a>Connessione ad Azure Machine Learning
 
-È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure ML utilizzando il  *Reader Module*. Attenersi alla procedura seguente: 
+È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure ML utilizzando il *modulo Lettore*. Attenersi alla procedura seguente:
 
 1. Scrivere il frame di dati Pandas in un file locale
 
@@ -105,16 +101,17 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leggere i dati nel BLOB di Azure utilizzando il  *Reader Module* di Azure ML come mostrato nella schermata riportata di seguito:
+3. Leggere i dati nel BLOB di Azure utilizzando il *modulo Lettore* di Azure ML come mostrato nella schermata riportata di seguito:
  
-![reader blob][2]
+![lettore BLOB][2]
 
-### Analisi scientifica dei dati di Azure nell'esempio di azione
+## Esempio di ADAPT (Advanced Analytics Process and Technology) in azione
 
-Per un esempio della procedura dettagliata end-to-end del processo di analisi scientifica dei dati di Azure utilizzando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati di Azure in azione](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end di ADAPT (Advanced Analytics Process and Technology) tramite un set di dati pubblici, vedere [Azure Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

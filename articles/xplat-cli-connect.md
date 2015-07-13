@@ -25,7 +25,7 @@ L'interfaccia della riga di comando di Azure è un insieme di comandi open sourc
 
 La maggior parte dei comandi forniti dall'interfaccia della riga di comando di Azure richiedono una connessione a un account Azure. Per configurare l'interfaccia della riga di comando di Azure per l'utilizzo con la sottoscrizione, è possibile eseguire una delle due seguenti operazioni:
 
-* Accedere ad Azure utilizzando un account aziendale o dell'istituto di istruzione \(detto anche account aziendale\). Questa procedura utilizza Azure Active Directory per autenticare le credenziali.
+* Accedere ad Azure utilizzando un account aziendale o dell'istituto di istruzione (detto anche account aziendale). Questa procedura utilizza Azure Active Directory per autenticare le credenziali.
 
 o
 
@@ -75,7 +75,7 @@ Per disconnettersi, usare il comando seguente:
 
 ### Usare il metodo del file di impostazioni di pubblicazione
 
-> [AZURE.NOTE]Se per connettersi viene utilizzato questo metodo, è possibile utilizzare solo i comandi di gestione del servizio Azure \(o modalità ASM\).
+> [AZURE.NOTE]Se per connettersi viene utilizzato questo metodo, è possibile utilizzare solo i comandi di gestione del servizio Azure (o modalità ASM).
 
 Per scaricare le impostazioni di pubblicazione per l'account, usare il comando seguente:
 
@@ -85,7 +85,7 @@ Verrà aperto il browser predefinito e verrà richiesto di effettuare l'accesso 
 
 > [AZURE.NOTE]Se l'account è associato a più tenant Azure Active Directory, è possibile che venga richiesto di selezionare per quale istanza di Active Directory si desidera scaricare un file di impostazioni di pubblicazione.
 >
-> Dopo aver effettuato la selezione tramite la pagina di download oppure visitando il portale di Azure, il tenant Active Directory selezionato diventerà quello usato per impostazione predefinita nel portale e nella pagina di download. Dopo la scelta di un'impostazione predefinita, nella parte superiore della pagina di download verrà visualizzato un messaggio analogo al seguente: '\_\_fare clic qui per tornare nella pagina di selezione\_\_'. Usare il collegamento specificato per tornare nella pagina di selezione.
+> Dopo aver effettuato la selezione tramite la pagina di download oppure visitando il portale di Azure, il tenant Active Directory selezionato diventerà quello usato per impostazione predefinita nel portale e nella pagina di download. Dopo la scelta di un'impostazione predefinita, nella parte superiore della pagina di download verrà visualizzato un messaggio analogo al seguente: '__fare clic qui per tornare nella pagina di selezione__'. Usare il collegamento specificato per tornare nella pagina di selezione.
 
 Importare `.publishsettings` eseguendo il comando seguente:
 
@@ -124,9 +124,9 @@ Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare
 <a id="additional-resources"></a>
 ## Risorse aggiuntive
 
-* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione servizi \(o modalità ASM\)][cliasm]
+* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione servizi (o modalità ASM)][cliasm]
 
-* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione risorse \(o modalità ASM\)][cliarm]
+* [Utilizzo dell'interfaccia della riga di comando di Azure con i comandi di Gestione risorse (o modalità ASM)][cliarm]
 
 * Per informazioni sull'interfaccia della riga di comando di Azure, per scaricare il codice sorgente, segnalare problemi o contribuire al progetto, visitare l'[archivio GitHub per l'interfaccia della riga di comando di Azure](https://github.com/azure/azure-xplat-cli).
 
@@ -142,7 +142,7 @@ Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

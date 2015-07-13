@@ -2,6 +2,7 @@
 	pageTitle="Autorizzazione sul lato servizio degli utenti in Servizi mobili con back-end .NET | Mobile Developer Center"
 	description="Informazioni su come autorizzare gli utenti nel back-end .NET di Servizi mobili di Azure."
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-Questo argomento illustra come usare la logica sul lato servizio per autorizzare gli utenti. In questa esercitazione, vengono modificati i metodi di accesso ai dati in .NET, vengono filtrate le query in base agli ID utente e si consente agli utenti di accedere solo ai propri dati.
+Questo argomento illustra come usare la logica sul lato servizio per autorizzare gli utenti. In questa esercitazione vengono modificati i controller di tabella, vengono filtrate le query in base agli ID utente e si consente agli utenti di accedere solo ai propri dati. Il filtro dei risultati di query dell'utente per ID utente è la forma più elementare di autorizzazione. A seconda dello scenario specifico, è possibile creare tabelle di utenti e ruoli al fine di tenere traccia delle informazioni di autorizzazione utente più dettagliate, ad esempio gli endpoint a cui un determinato utente può accedere.
 
 Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobili e fa riferimento ad [Aggiungere l'autenticazione all'app di Servizi mobili esistente]. Completare prima l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili esistente].
 
@@ -67,11 +69,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

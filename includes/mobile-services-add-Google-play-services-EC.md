@@ -27,4 +27,4 @@
 
 9. Fare clic su **Apply** e quindi su **OK**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

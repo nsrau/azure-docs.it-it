@@ -61,4 +61,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

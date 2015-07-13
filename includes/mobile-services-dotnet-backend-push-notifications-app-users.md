@@ -92,4 +92,4 @@
 A questo punto il servizio usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni di app di Windows Store create dall'utente connesso.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

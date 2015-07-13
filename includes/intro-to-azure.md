@@ -84,7 +84,7 @@ Per lo sviluppo, Siti Web supporta .NET, PHP, Node.js, Java e Python insieme a d
 
 Siti Web è ideale per aziende, sviluppatori e agenzie di progettazione Web. Per le aziende, si tratta di una soluzione di facile gestione, scalabile, estremamente sicura e a disponibilità elevate per l'esecuzione di siti Web di presenza. Quando è necessario impostare un sito Web, è preferibile iniziare con Siti Web di Azure e procedere con Servizi cloud quando è necessaria una funzionalità che non è disponibile in Siti Web. Vedere la fine della sezione "Calcolo" per ulteriori collegamenti utili per scegliere tra le varie opzioni.
 
-###Microsoft Azure###
+###Servizi cloud###
 ![Servizio cloud di Azure](./media/intro-to-azure/CloudServicesIntroNew.png) **Figura: Servizi cloud di Azure fornisce una posizione in cui eseguire un codice personalizzato altamente scalabile in un ambiente di piattaforma distribuita come servizio (PaaS)**
 
 Si supponga di voler sviluppare un'applicazione cloud in grado di supportare molti utenti contemporaneamente, che richieda poca amministrazione e che rimanga sempre attiva. Potrebbe essere il caso di un fornitore di software che ha deciso di utilizzare una piattaforma SaaS (Software as a Service) per sviluppare una versione delle proprie applicazioni nel cloud. Oppure di una start-up che si propone di creare un'applicazione per il grande pubblico per la quale è prevista una crescita rapida. Se si sceglie di utilizzare Azure, sarà necessario individuare il modello di esecuzione più adatto.
@@ -178,7 +178,7 @@ In locale è frequente la disponibilità di un'elevata quantità di archiviazion
 
 **Scenari per File di Azure**
 
-- **Migrazione delle app esistenti nel cloud**: è più semplice eseguire la migrazione di applicazioni locali nel cloud che usare condivisioni di file tra parti dell'applicazione. Ogni virtual machine si connette alla condivisione file e quindi esegue la lettura e la scrittura di file analogamente così come farebbe su una condivisione file locale.
+- **Migrazione delle app esistenti nel cloud**: è più semplice eseguire la migrazione di applicazioni locali nel cloud che usare condivisioni di file tra parti dell'applicazione. Ogni macchina virtuale si connette alla condivisione file e quindi esegue la lettura e la scrittura di file come farebbe su una condivisione file locale.
 
 - **Impostazioni delle applicazioni condivise**: in uno schema comune per le applicazioni distribuite i file di configurazione si trovano in una posizione centralizzata dove numerose macchine virtuali diverse possono accedervi. Questi file di configurazione possono essere archiviati in una condivisione di File Azure ed essere letti da tutte le istanze delle applicazioni. Le impostazioni possono inoltre essere gestite tramite l'interfaccia REST, che consente l'accesso a livello globale ai file di configurazione.
 
@@ -367,16 +367,16 @@ Consente di inviare ultime notizie, informazioni sugli eventi sportivi e annunci
 
 
 <h2><a id="Backup"></a>Backup</h2>
-Ogni azienda deve eseguire il backup e il ripristino dei data. È possibile usare Azure per eseguire il backup e il ripristino dell'applicazione nel cloud o in locale. Azure offre opzioni diverse a seconda del tipo di backup.
+Ogni azienda deve eseguire il backup e il ripristino dei dati. È possibile usare Azure per eseguire il backup e il ripristino dell'applicazione nel cloud o in locale. Azure offre opzioni diverse a seconda del tipo di backup.
 
 ###Site Recovery###
 
  
-Azure Site Recovery (in precedenza Gestione di ripristino di Hyper-V) può contribuire a proteggere le applicazioni importanti coordinando la replica e il ripristino delle immagini Hyper-V in più siti. È possibile eseguire il backup sul proprio sito secondario, sul sito di un provider di servizi di hosting oppure usare Azure ed evitare i costi e la complessità associati alla creazione e alla gestione della posizione secondaria. Azure crittografa i dati e le comunicazioni ed è possibile abilitare la crittografia anche per i dati at-rest.
+Azure Site Recovery (in precedenza Gestione di ripristino di Hyper-V) consente di proteggere le applicazioni importanti coordinando la replica e il ripristino in più siti. Site Recovery consente di proteggere le applicazioni basate su Hyper-v, VMWare o SAN nel sito secondario, nel sito di un host o in Azure e di evitare difficoltà e costi correlati con le operazioni di creazione e gestione della propria posizione secondaria. Azure crittografa i dati e le comunicazioni ed è possibile abilitare la crittografia anche per i dati at-rest.
 
-Monitora continuamente l'integrità dei servizi e contribuisce ad automatizzare il ripristino ordinato dei servizi nell'eventualità di un'interruzione del sito presso il data center primario. Le macchine virtuali possono essere attivate in modo orchestrato per facilitare il rapido ripristino del servizio, anche per carichi di lavoro multilivello complessi.
+Monitora continuamente l'integrità dei servizi e contribuisce ad automatizzare il ripristino ordinato dei servizi nell'eventualità di un'interruzione del sito presso il data center primario. Le macchine virtuali possono essere attivate in modo orchestrato per semplificare il ripristino rapido delle applicazioni, anche per carichi di lavoro multilivello complessi.
 
-Site Recovery funziona con tecnologie esistenti quali la replica Hyper-V, System Center e SQL Server AlwaysOn.
+Site Recovery funziona con tecnologie esistenti quali la replica Hyper-V, System Center e SQL Server AlwaysOn. Per informazioni dettagliate, consultare [Panoramica di Azure Site Recovery](hyper-v-recovery-manager-overview.md).
 
 ###Backup di Azure###
 ![Backup di Azure](./media/intro-to-azure/AzureBackupIntroNew.png) **Figura: Backup di Azure esegue il backup dei dati da server Windows locali nel cloud.**
@@ -578,4 +578,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

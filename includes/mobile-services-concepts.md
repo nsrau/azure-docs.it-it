@@ -22,4 +22,4 @@ Di seguito sono illustrati i concetti e le funzionalità più importanti di Serv
 + **Scala:** possibilità di aggiungere, a un costo aggiuntivo, potenza di elaborazione, prestazioni e spazio di archiviazione quando l'app acquisisce popolarità.
 + **Processo pianificato:** codice personalizzato eseguito in base a una pianificazione predeterminata o su richiesta.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

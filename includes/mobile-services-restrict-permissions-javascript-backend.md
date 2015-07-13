@@ -7,4 +7,4 @@ Per proteggere gli endpoint, è necessario limitare l'accesso ai soli client aut
 
 	 In questo modo, tutte le operazioni eseguite sulla tabella richiedono un utente autenticato, necessario per questa esercitazione. È possibile impostare autorizzazioni diverse su ogni operazione per supportare uno scenario specifico.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

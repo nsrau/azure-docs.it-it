@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory
@@ -62,7 +62,7 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
 1. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**.
 
-2. Nella finestra di dialogo Gestione pacchetti NuGet, immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile. Questa esercitazione è stata testata di recente con la versione provvisoria 3.0.110281957-alpha del pacchetto ADAL.
+2. Nella finestra di dialogo Gestione pacchetti NuGet, immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile. Questa esercitazione è stata testata di recente con la versione provvisoria 3.3.205061641-alpha del pacchetto ADAL.
 
 3. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di servizio mobile e fare clic su **Aggiungi**, quindi **Nuova cartella**. Denominare la nuova cartella **Utilità**.
 
@@ -178,7 +178,8 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
     >[AZURE.NOTE]In ADAL per .NET è inclusa per impostazione predefinita una cache dei token in memoria che consente di ridurre il traffico di rete in eccesso in Active Directory. È tuttavia possibile scrivere un'implementazione della cache o disattivare la cache completamente. Per altre informazioni, visitare il sito Web di [ADAL per .NET].
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else
@@ -390,4 +391,5 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL per .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO1-->

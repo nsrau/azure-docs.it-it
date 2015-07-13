@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Concetti relativi a Mobile Engagement" 
+<properties
+	pageTitle="Concetti relativi a Mobile Engagement"
 	description="Concetti relativi a Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="01/24/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="01/24/2015"
 	ms.author="kapiteir" />
 
 #Concetti relativi ad Azure Mobile Engagement
@@ -67,14 +67,16 @@ Le informazioni sull'applicazione (o `app info`) vengono usate per aggiungere ta
 
 Le informazioni sull'applicazione possono essere registrate usando l'API di Mobile Engagement SDK o l'API dispositivo della piattaforma Mobile Engagement.
 
-Le informazioni sull'applicazione sono costituite da una coppia chiave/valore associata a un dispositivo. La chiave è il nome delle informazioni sull'applicazione (costituito al massimo da 64 lettere ASCII [a-zA-Z], numeri [0-9] e caratteri di sottolineatura [_]). Il valore (costituito da un massimo di 1024 caratteri) può essere qualsiasi stringa, numero intero, data (aaaa-MM-gg) o valore booleano (true o false).
+Le informazioni sull'applicazione sono costituite da una coppia chiave/valore associata a un dispositivo. La chiave è il nome delle informazioni sull'applicazione (costituito da un massimo di 64 lettere ASCII [a-zA-Z], numeri [0-9] e caratteri di sottolineatura [_]). Il valore (costituito da un massimo di 1024 caratteri) può essere qualsiasi stringa, numero intero, data (aaaa-MM-gg) o valore booleano (true o false).
 
 A ogni dispositivo può essere associato un numero qualsiasi di informazioni sull'applicazione, entro i limiti definiti dalle condizioni tariffarie di Mobile Engagement. Per una determinata chiave, Mobile Engagement tiene traccia solo dell'ultimo valore impostato (senza cronologia). Se si imposta o si modifica il valore delle informazioni sull'applicazione, Mobile Engagement valuta nuovamente i criteri dei destinatari impostati nelle informazioni sull'applicazione, se presenti, pertanto le informazioni sull'applicazione possono essere usate per attivare push in tempo reale.
 
 ##Dati aggiuntivi
 I dati aggiuntivi (o extra) sono dati arbitrari che possono essere collegati a eventi, errori, attività e processi.
 
-La loro struttura è simile a quella degli oggetti JSON: sono costituiti da un albero di coppie chiave/valore. Le chiavi sono costituite al massimo da 64 lettere ASCII [a-zA-Z], numeri [0-9] e caratteri di sottolineatura [_] e la dimensione totale dei dati aggiuntivi è limitata a 1024 caratteri (dopo la codifica in JSON tramite Mobile Engagement SDK).
+La loro struttura è simile a quella degli oggetti JSON: sono costituiti da un albero di coppie chiave/valore. Le chiavi sono costituite al massimo da 64 lettere ASCII [a-zA-Z], numeri [0-9] e caratteri di sottolineatura [_] e le dimensioni totali dei dati aggiuntivi sono limitate a 1024 caratteri (dopo la codifica in JSON tramite Mobile Engagement SDK).
 
 L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tuttavia, solo il primo livello di chiavi/valori viene scomposto per essere direttamente accessibile per alcune funzioni avanzate come i segmenti (ad esempio, è possibile definire in modo semplice un segmento "SciFi fans" costituito da tutti gli utenti che hanno inviato almeno 10 volte l'evento denominato "content_viewed" con la chiave aggiuntiva "content_type" impostata sul valore "scifi" nell'ultimo mese). È pertanto consigliabile inviare solo dati aggiuntivi costituiti da semplici elenchi di coppie chiave/valore con valori scalari (ad esempio stringhe, date, numeri interi o valori booleani).
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO1-->

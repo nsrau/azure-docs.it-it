@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Procedura: Distribuire contenuti in streaming
+#Procedura: Distribuire contenuti in streaming
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
+Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
-## Informazioni generali
+##Panoramica
 
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-rest-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](media-services-rest-configure-asset-delivery-policy.md) argomento. 
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-rest-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](media-services-rest-configure-asset-delivery-policy.md) argomento.
 
-È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
+È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.
 
 Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo.
 
-La [seguente](#types) sezione mostra i tipi enum i cui valori vengono usati nelle chiamate REST.   
+La sezione [seguente](#types) mostra i tipi enum i cui valori vengono usati nelle chiamate REST.
   
-## Creare un localizzatore di streaming OnDemand
+##Creare un localizzatore di streaming OnDemand
 
 Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
@@ -45,7 +45,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
    4. Creare URL che puntano al file manifesto o ai file MP4. 
 
 
-### Creare i criteri di accesso
+###Creare i criteri di accesso
 
 Richiesta:
 		
@@ -63,7 +63,7 @@ Richiesta:
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Risposta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -82,7 +82,7 @@ Response:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### Creare un localizzatore di streaming OnDemand
+###Creare un localizzatore di streaming OnDemand
 
 Creare il localizzatore per l'asset specificato e i relativi criteri.
 
@@ -102,7 +102,7 @@ Richiesta:
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Response:
+Risposta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -121,9 +121,9 @@ Response:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### Creare URL di streaming
+###Creare URL di streaming
 
-Usare il valore **Path** restituito dopo la creazione del localizzatore per creare gli URL Smooth, HLS e MPEG DASH. 
+Usare il valore **Path** restituito dopo la creazione del localizzatore per creare gli URL Smooth, HLS e MPEG DASH.
 
 Smooth Streaming: **Path** + nome file manifesto + "/manifest"
 
@@ -146,9 +146,9 @@ esempio:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### Creare URL di download progressivo
+###Creare URL di download progressivo
 
-Usare il valore **Path** restituito dopo la creazione del localizzatore per creare l'URL di download progressivo.   
+Usare il valore **Path** restituito dopo la creazione del localizzatore per creare l'URL di download progressivo.
 
 URL: **Path** + nome file mp4 asset
 
@@ -156,7 +156,7 @@ esempio:
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipi enum
+##<a id="types"></a>Tipi enum
 
     [Flags]
     public enum AccessPermissions
@@ -173,7 +173,6 @@ esempio:
         None = 0,
         Sas = 1,
         OnDemandOrigin = 2,
-    }
+    } 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

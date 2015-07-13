@@ -29,16 +29,22 @@ Con questo metodo la procedura guidata genera un nuovo file push.register.cs nel
 
 	In questo modo si garantisce che la registrazione venga effettuata usando la stessa istanza di client con le credenziali utente autenticate. In caso contrario la registrazione avrà esito negativo con un errore Non autorizzato (401).
 
-3. Aprire il file di progetto MainPage.xaml.cs e sostituire l'override del metodo **OnNavigatedTo** con il seguente:
+3. Aprire il file di progetto MainPage.cs condiviso e sostituire il gestore **ButtonLogin_Click** con il codice seguente:
 
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await AuthenticateAsync();            
-            todolistPush.UploadChannel();
-            RefreshTodoItems();
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+			todolistPush.UploadChannel();
+
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            await RefreshTodoItems();
         }
 
-	In questo codice è necessario sostituire il nome della classe push generato (`todolistPush`) con il nome della classe generato dalla procedura guidata, in genere nel formato <code><em>servizio_mobile</em>Push</code>.
+	Ciò garantisce che l'autenticazione si verifichi prima che venga tentata la registrazione push.
+
+4. 	Nel codice precedente è necessario sostituire il nome della classe push generato (`todolistPush`) con il nome della classe generato dalla procedura guidata, in genere nel formato <code><em>servizio_mobile</em>Push</code>.
 
 ###Notifiche push abilitate manualmente		
 
@@ -48,13 +54,19 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
  
 2. Modificare l'accessibilità del metodo **InitNotificationsAsync** da `private` a `public` e aggiungere il modificatore `static`.
 
-3. Aprire il file di progetto MainPage.xaml.cs e sostituire l'override del metodo **OnNavigatedTo** con il seguente:
+3. Aprire il file di progetto MainPage.cs condiviso e sostituire il gestore **ButtonLogin_Click** con il codice seguente:
 
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await AuthenticateAsync();            
-            App.InitNotificationsAsync();
-            RefreshTodoItems();
-        }
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+			App.InitNotificationsAsync();
 
-<!---HONumber=62-->
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            await RefreshTodoItems();
+        }
+	
+	Ciò garantisce che l'autenticazione si verifichi prima che venga tentata la registrazione push.
+
+<!---HONumber=July15_HO1-->

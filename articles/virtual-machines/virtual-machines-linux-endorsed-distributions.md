@@ -27,7 +27,7 @@ Le immagini Linux nella raccolta di Azure sono fornite da diversi partner e Micr
 
 Nella tabella seguente sono elencate le distribuzioni e versioni di Linux supportate in Azure.
 
-I driver di Linux Integration Services \(LIS\) per Hyper-V e Azure sono moduli kernel forniti da Microsoft direttamente nel kernel Linux upstream. I driver LIS sono compilati nel kernel della distribuzione per impostazione predefinita oppure, per le distribuzioni basate su RHEL/CentOS precedenti, sono disponibili come download separato [qui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Per ulteriori informazioni sui driver LIS, consultare [questo articolo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements).
+I driver di Linux Integration Services (LIS) per Hyper-V e Azure sono moduli kernel forniti da Microsoft direttamente nel kernel Linux upstream. I driver LIS sono compilati nel kernel della distribuzione per impostazione predefinita oppure, per le distribuzioni basate su RHEL/CentOS precedenti, sono disponibili come download separato [qui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Per ulteriori informazioni sui driver LIS, consultare [questo articolo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements).
 
 L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di Azure ed è in genere disponibile dal repository del pacchetto della distribuzione. Il codice sorgente è disponibile su [GitHub](https://github.com/azure/walinuxagent).
 
@@ -124,4 +124,4 @@ SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

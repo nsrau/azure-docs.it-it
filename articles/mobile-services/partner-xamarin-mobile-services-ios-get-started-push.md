@@ -10,28 +10,19 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
-	ms.devlang="Java"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="3/10/2015"
+	ms.date="05/13/2015"
 	ms.author="yuaxu"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.iOS 8. In questa esercitazione si userà il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+##Panoramica
 
-Questa esercitazione descrive le operazioni di base per abilitare le notifiche push:
-
-1. [Generare la richiesta di firma del certificato]
-2. [Registrare l'app e abilitare le notifiche push]
-3. [Creare un profilo di provisioning per l'app]
-4. [Configurare Servizi mobili]
-5. [Configurare l'app per Xamarin.iOS]
-6. [Aggiungere notifiche push all'app]
-7. [Aggiornare gli script per l'invio di notifiche push]
-8. [Inserire i dati per la ricezione delle notifiche]
+Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.iOS 8. In questa esercitazione si userà il servizio di notifiche push di Apple (Apple Push Notification Service, APN) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -40,9 +31,9 @@ Per completare questa esercitazione, è necessario disporre di:
 + [Xamarin.iOS Studio]
 + [Componente Servizi mobili di Azure]
 
-   >[AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
+>[AZURE.IMPORTANT]Considerati i requisiti di configurazione del servizio APN, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
-Il servizio APNS usa i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APNS, vedere [Apple Push Notification Service].
+Il servizio APN usa i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APN, vedere [Apple Push Notification Service].
 
 ## <a name="certificates"></a>Generare il file della richiesta di firma del certificato
 
@@ -124,7 +115,7 @@ Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessar
 
     Nota: il nome del certificato può essere diverso, ma sarà preceduto dalla dicitura <strong>Apple Development iOS Push Notification Services:</strong>.
 
-Questo certificato verrà usato in un secondo momento per generare un file con estensione p12 e verrà caricato in Servizi mobili per abilitare l'autenticazione con APNS.
+Questo certificato verrà usato in un secondo momento per generare un file con estensione p12 e verrà caricato in Servizi mobili per abilitare l'autenticazione con il servizio APN.
 
 ## <a name="profile"></a>Creare un profilo di provisioning per l'app
 
@@ -156,7 +147,7 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
 ## <a name="configure-mobileServices"></a>Configurare Servizi mobili per l'invio di richieste push
 
-Dopo aver registrato l'app con APNS e aver configurato il progetto, è necessario configurare il servizio mobile in modo che si integri con APNS.
+Dopo aver registrato l'app con il servizio APN e aver configurato il progetto, è necessario configurare il servizio mobile in modo che si integri con APN.
 
 1. In Access Portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato, fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12**, quindi fare clic su **Salva**.
 
@@ -164,7 +155,7 @@ Dopo aver registrato l'app con APNS e aver configurato il progetto, è necessari
 
     Annotare il nome del file e il percorso del certificato esportato.
 
-2. Accedere al [portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
+2. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
     ![][18]
 
@@ -178,7 +169,7 @@ Dopo aver registrato l'app con APNS e aver configurato il progetto, è necessari
 
     ![][20]
 
-Il servizio mobile è ora configurato per funzionare con APNS.
+Il servizio mobile è ora configurato per funzionare con il servizio APN.
 
 ## <a name="configure-app"></a>Configurare l'applicazione per Xamarin.iOS
 
@@ -286,7 +277,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 ## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
 
-1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
+1. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
     ![][21]
 
@@ -296,7 +287,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
     Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **TodoItem**.
 
-3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
+3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
 
         function insert(item, user, request) {
             request.execute();
@@ -324,7 +315,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
    >[AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Digitare testo significativo nell'app, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un testo significativo, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
 
     ![][24]
 
@@ -339,14 +330,14 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 L'esercitazione è stata completata.
 
 <!-- Anchors. -->
-[Generare la richiesta di firma del certificato]: #certificates
-[Registrare l'app e abilitare le notifiche push]: #register
-[Creare un profilo di provisioning per l'app]: #profile
-[Configurare Servizi mobili]: #configure-mobileServices
-[Configurare l'app per Xamarin.iOS]: #configure-app
-[Aggiornare gli script per l'invio di notifiche push]: #update-scripts
-[Aggiungere notifiche push all'app]: #add-push
-[Inserire i dati per la ricezione delle notifiche]: #test
+[Generate the certificate signing request]: #certificates
+[Register your app and enable push notifications]: #register
+[Create a provisioning profile for the app]: #profile
+[Configure Mobile Services]: #configure-mobileServices
+[Configure the Xamarin.iOS App]: #configure-app
+[Update scripts to send push notifications]: #update-scripts
+[Add push notifications to the app]: #add-push
+[Insert data to receive notifications]: #test
 
 <!-- Images. -->
 
@@ -396,12 +387,8 @@ L'esercitazione è stata completata.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
+
 [provisioning del dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
@@ -410,5 +397,6 @@ L'esercitazione è stata completata.
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

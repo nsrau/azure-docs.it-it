@@ -22,15 +22,13 @@
 
 In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
 
-Informazioni su New Relic
---
+Informazioni su New Relic --
 
 New Relic è uno strumento destinato agli sviluppatori per il monitoraggio delle applicazioni di produzione, in grado di fornire informazioni molto approfondite su prestazioni e affidabilità. Lo strumento è progettato per consentire di risparmiare tempo quando si identificano o si diagnosticano problemi di prestazioni ed è in grado di mettere alla portata dell'utente tutte le informazioni necessarie per la risoluzione di tali problemi.
 
 New Relic tiene traccia del tempo di caricamento e della velocità effettiva della transazione Web, sia dal server che dai browser degli utenti. Visualizza il tempo trascorso nel database, analizza le query e le richieste Web più lente, fornisce il monitoraggio del tempo di attività e l'invio di avvisi, tiene traccia delle eccezioni delle applicazioni e molto altro ancora.
 
-New Relic a un prezzo speciale tramite Azure Store
---
+New Relic a un prezzo speciale tramite Azure Store --
 
 New Relic Standard è gratuito per gli utenti di Azure. New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi cloud di Azure
 
@@ -40,8 +38,7 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Sto
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-Iscrizione a New Relic tramite Azure Store
---
+Iscrizione a New Relic tramite Azure Store --
 
 New Relic si integra facilmente con i ruoli Web e di lavoro di Azure.
 
@@ -50,16 +47,16 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 ### Passaggio 1. Effettuare l'iscrizione tramite Azure Store
 
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
-2. Nel riquadro inferiore del portale di gestione fare clic su **Nuovo**.
+2. Nel riquadro inferiore del portale di gestione fare clic su **New**.
 3. Fare clic su **Store**.
-4. Nella finestra di dialogo **Scegliere un componente aggiuntivo** selezionare **New Relic** e fare clic su **Avanti**.
+4. Nella finestra di dialogo **Choose an Add-on** selezionare **New Relic** e fare clic su **Next**.
 5. Nella finestra di dialogo **Personalizza componente aggiuntivo** selezionare il piano New Relic a cui si desidera iscriversi.
 6. Se disponibile, immettere un codice di promozione.
 7. Immettere il nome con il quale si desidera che il servizio New Relic venga visualizzato nelle impostazioni di Azure oppure utilizzare il valore predefinito **NewRelic**. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
 8. Scegliere un valore per l'area, ad esempio **West US**.
-9. Fare clic su **Avanti**.
-10. Nella finestra di dialogo **Rivedi acquisto** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Se si accettano le condizioni, fare clic su **Acquisto**.
-11. Dopo avere fatto clic su **Acquisto**, verrà avviata la creazione del nuovo account New Relic. È possibile monitorare lo stato nel portale di gestione di Azure.
+9. Fare clic su **Next**.
+10. Nella finestra di dialogo **Review Purchase** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Se si accettano le condizioni, fare clic su **Purchase**.
+11. Dopo avere fatto clic su **Purchase**, verrà avviata la creazione del nuovo account New Relic. È possibile monitorare lo stato nel portale di gestione di Azure.
 12. Per recuperare il codice di licenza di New Relic, fare clic su **Output Values**. 
 13. Copiare il codice di licenza visualizzato. Sarà necessario immetterlo durante l'installazione del pacchetto New Relic Nuget.
 
@@ -176,4 +173,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

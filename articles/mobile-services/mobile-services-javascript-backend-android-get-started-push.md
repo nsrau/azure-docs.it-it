@@ -15,25 +15,23 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 
-# Aggiungere notifiche push all'app di Servizi mobili
+# Aggiungere notifiche push all'app Android per Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ## Riepilogo
 
-Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android tramite Google Cloud Messaging (GCM). In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android tramite Google Cloud Messaging ("GCM"). Le notifiche push verranno aggiunte al progetto di guida introduttiva che costituisce un prerequisito per questa esercitazione. Le notifiche push vengono abilitate tramite Hub di notifica di Azure, incluso nel servizio mobile. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 <!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
 -->
 
-> [AZURE.NOTE]Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione alle notifiche push (Eclipse)].
 
-
-##Prerequisiti
+## Prerequisiti
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -47,9 +45,7 @@ Questo argomento descrive come usare Servizi mobili di Azure per inviare notific
 
 ##<a id="add-push"></a>Aggiungere notifiche push all'app
 
-###Verificare la versione di Android SDK
 
-[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e il testing. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti.
 
@@ -77,17 +73,11 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 Quando si esegue l'app nell'emulatore, assicurarsi di usare un emulatore Android Virtual Device (AVD) con il supporto per Google APIs.
 
-1. Riavviare Eclipse, quindi in Package Explorer fare clic con il pulsante destro del mouse sul progetto, scegliere **Properties**, fare clic su **Android**, selezionare **Google APIs** e infine fare clic su **OK**.
-
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-import-android-properties.png)
-
-  	Il progetto farà quindi riferimento a Google APIs.
-
-2. Da **Window** selezionare **Android Virtual Device Manager**, quindi selezionare il dispositivo e fare clic su **Edit**.
+1. Sul lato destro della barra degli strumenti selezionare Android Virtual Device Manager, selezionare il dispositivo e fare clic sull'icona Edit a destra.
 
 	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. Selezionare **Google APIs** in **Target**, quindi fare clic su OK.
+2. Selezionare **Change** nella riga di descrizione del dispositivo, selezionare **Google APIs**, quindi fare clic su OK.
 
    	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -95,16 +85,32 @@ Quando si esegue l'app nell'emulatore, assicurarsi di usare un emulatore Android
 
 ###Esecuzione del test
 
-1. Dal menu **Run** di Eclipse, fare clic su **Run** per avviare l'app.
+1. Nel menu **Run** scegliere **Run app** per avviare il progetto.
 
 2. Digitare testo significativo nell'app, ad esempio _A new Mobile Services task_, quindi fare clic sul pulsante **Add**.
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
-3. Scorrere verso il basso dalla parte superiore della schermata per aprire il Notification Center del dispositivo e visualizzare la notifica.
+3. Scorrere verso il basso dall'alto della schermata per aprire Notification Center del dispositivo e visualizzare la notifica.
 
 
 L'esercitazione è stata completata.
+
+## Risoluzione dei problemi
+
+### Verificare la versione di Android SDK
+
+[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+## Versioni del codice precedenti
+
+Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione alle notifiche push (Eclipse)].
+
+
+<!--
+To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
+-->
 
 
 ## <a name="next-steps"> </a>Passaggi successivi
@@ -123,7 +129,7 @@ L'esercitazione è stata completata.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite servizi mobili.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -171,5 +177,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

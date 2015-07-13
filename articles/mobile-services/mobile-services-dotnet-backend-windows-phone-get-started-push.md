@@ -1,10 +1,9 @@
 <properties 
-	pageTitle="Introduzione agli hub di notifica push tramite i servizi mobili di runtime .NET" 
+	pageTitle="Usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store" 
 	description="Informazioni su come usare Hub di notifica con Servizi mobili di Azure per inviare notifiche push all'app per Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/04/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -23,12 +22,11 @@
 
 ##Panoramica
 
-Questo argomento illustra come usare Servizi mobili di Azure con un back-end .NET per inviare notifiche push a un'app per Windows Phone Silverlight 8. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
+Questo argomento illustra come usare Servizi mobili di Azure con un back-end .NET per inviare notifiche push a un'app per Windows Phone Silverlight 8 tramite MPNS (Microsoft Push Notification Service). In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
+Questa esercitazione è basata sul progetto TodoList di Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Aggiungere Servizi mobili a un'app esistente] per connettere il progetto al servizio mobile.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Aggiungere Servizi mobili a un'app esistente] per connettere il progetto al servizio mobile.
-
->[AZURE.NOTE]Questa esercitazione è destinata alle app di Windows Phone 8.1 "Silverlight". Se invece si intende creare un'app di Windows Phone 8.1 Store, vedere la versione dell'esercitazione per l' [app di Windows Store](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push). Per informazioni sulle app per Windows Phone Silverlight e sul confronto di tali app con quelle di Windows Phone Store, vedere l'argomento relativo alle [app per Windows Phone Silverlight 8.1].
+>[AZURE.NOTE]Questa esercitazione è destinata alle app Windows Phone 8.1 Silverlight. Se invece si intende creare un'app di Windows Phone 8.1 Store, vedere la versione dell'esercitazione per l' [app di Windows Store](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push). Per informazioni sulle app per Windows Phone Silverlight e sul confronto di tali app con quelle di Windows Phone Store, vedere l'argomento relativo alle [app per Windows Phone Silverlight 8.1].
 
 ##Aggiornamento dell'app per la registrazione per le notifiche
 
@@ -140,7 +138,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 3. Fare clic sulla scheda **Push**, selezionare **Abilita notifiche push non autenticate** e quindi fare clic su **Salva**.
 
-   	![][4]
+   	![Scheda Push di Servizi mobili:](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
 	>[AZURE.NOTE]In questa esercitazione verrà usato il Servizio notifica push Microsoft in modalità senza autenticazione. In tale modalità, il Servizio notifica push Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su <strong>Carica</strong> e selezionando il certificato. Per altre informazioni sulla generazione del certificato, vedere l'argomento relativo alla <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone</a>.
 
@@ -159,29 +157,21 @@ In questo modo il servizio mobile verrà abilitato per la connessione al Servizi
 
 5. Nell'app immettere il testo "hello push" nella casella di testo, fare clic su **Salva**, quindi fare immediatamente clic sul pulsante Avvia o Indietro per chiudere l'app.
 
-   	![][2]
+   	![Inserimento testo][2]
 
   	Al servizio mobile verrà inviata una richiesta insert per archiviare l'elemento aggiunto. Si noti che il dispositivo riceve una notifica di tipo avviso popup con il testo **hello push**.
 
-	![][5]
+	![Ricezione di una notifica push](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]La notifica non viene ricevuta se l'app è ancora aperta. Per ricevere una notifica di tipo avviso popup mentre l'app è attiva, è necessario gestire l'evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx).
 
 ##Passaggi successivi
 
-Questa esercitazione ha illustrato le nozioni di base per consentire a un'app per Windows Phone di usare Servizi mobili e Hub di notifica per l'invio di notifiche push. In seguito si consiglia di passare all'esercitazione seguente, [Invio di notifiche push agli utenti autenticati], che spiega come utilizzare i tag per inviare notifiche push da un servizio mobile unicamente agli utenti autenticati.
+Questa esercitazione ha illustrato le nozioni di base per consentire a un'app per Windows Phone di usare Servizi mobili e Hub di notifica per l'invio di notifiche push. In seguito, è consigliabile eseguire l'esercitazione seguente, [Invio di notifiche push agli utenti autenticati], che mostra come usare i tag per inviare notifiche push da un servizio mobile solo agli utenti autenticati.
 
-<!--+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
--->
 Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hub di notifica:
 
-* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
-
-* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
+* [Aggiungere l'autenticazione all'app] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante i servizi mobili.
 
 * [Informazioni su Hub di notifica] <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
@@ -197,16 +187,10 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-[4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
-[5]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Introduzione all'autenticazione]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Aggiungere l'autenticazione all'app]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
 
 [Invio di notifiche push agli utenti autenticati]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
@@ -218,5 +202,6 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: mobile-services-html-how-to-use-client-library.md
 [app per Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [portale di gestione di Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 # Connessione a un account di Servizi multimediali mediante l'SDK di Servizi multimediali per .NET
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
+Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
 Questo argomento descrive come ottenere una connessione a Servizi multimediali di Microsoft Azure a livello di codice quando si programma con l'SDK di Servizi multimediali per .NET.
 
@@ -34,17 +34,17 @@ Al termine del processo di configurazione dell'account di Servizi multimediali, 
 
 - Chiave dell'account di Servizi multimediali
 
-Per trovare questi valori, passare al portale di gestione di Azure, selezionare l'account di Servizi multimediali e fare clic sull'icona **GESTISCI CHIAVI** nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
+Per trovare questi valori, passare al portale di gestione di Azure, selezionare l'account di Servizi multimediali e fare clic sull'icona "**GESTISCI CHIAVI**" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
 
 
 ## Creazione di un'istanza di CloudMediaContext
 
-Prima di iniziare la programmazione basata su Servizi multimediali è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori.
+Prima di iniziare la programmazione basata su Servizi multimediali, è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori.
 
->[AZURE.NOTE] La classe **CloudMediaContext** non è di tipo thread-safe. È quindi necessario creare una nuova istanza di CloudMediaContext per ogni thread o set di operazioni.
+>[AZURE.NOTE]La classe **CloudMediaContext** non è di tipo thread-safe. È quindi necessario creare una nuova istanza di CloudMediaContext per ogni thread o set di operazioni.
 
 
-CloudMediaContext include cinque overload del costruttore. Si consiglia di usare costruttori che accettano **MediaServicesCredentials** come parametro. Per altre informazioni, vedere la seguente sezione **Riutilizzo dei token del Servizio di controllo di accesso**. 
+CloudMediaContext include cinque overload del costruttore. Si consiglia di usare costruttori che accettano **MediaServicesCredentials** come parametro. Per altre informazioni, vedere la sezione **Riutilizzo dei token del Servizio di controllo di accesso** seguente.
 
 Nel seguente esempio viene usato il costruttore pubblico CloudMediaContext(MediaServicesCredentials credentials):
 
@@ -61,7 +61,7 @@ Nel seguente esempio viene usato il costruttore pubblico CloudMediaContext(Media
 Questa sezione mostra come riutilizzare i token del Servizio di controllo di accesso mediante i costruttori CloudMediaContext che accettano MediaServicesCredentials come parametro.
 
 
-[Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (noto anche come Servizio di controllo di accesso o ACS) è un servizio basato su cloud che offre un modo semplice per autenticare e autorizzare gli utenti affinché possano accedere alle applicazioni Web. Servizi multimediali di Microsoft Azure controlla l'accesso ai servizi tramite il protocollo OAuth che richiede un token ACS. Servizi multimediali riceve i token ACS da un server di autorizzazione.
+[Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (noto anche come Servizio di controllo di accesso o ACS) è un servizio basato sul cloud che offre un modo semplice per autenticare e autorizzare gli utenti, in modo che possano accedere alle applicazioni Web. Servizi multimediali di Microsoft Azure controlla l'accesso ai servizi tramite il protocollo OAuth che richiede un token ACS. Servizi multimediali riceve i token ACS da un server di autorizzazione.
 
 Quando si sviluppa usando l'SDK di Servizi multimediali, è possibile scegliere di non gestire i token, poiché questi vengono gestiti automaticamente dal codice dell'SDK. Tuttavia, se si lascia all'SDK la gestione completa dei token ACS, possono verificarsi richieste di token non necessarie. Le richieste di token richiedono tempo e utilizzano le risorse di client e server. Inoltre, il server ACS limita le richieste in caso di velocità eccessiva. Il limite è di 30 richieste al secondo. Per informazioni dettagliate, vedere [Limitazioni del servizio ACS](https://msdn.microsoft.com/library/gg185909.aspx).
 
@@ -69,7 +69,7 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 
 - È possibile memorizzare l'oggetto **MediaServicesCredentials** nella cache, ad esempio in una variabile di classe statica, e quindi passare l'oggetto memorizzato nella cache al costruttore CloudMediaContext. L'oggetto MediaServicesCredentials contiene un token ACS che, se ancora valido, può essere riutilizzato. Se il token non è più valido, verrà aggiornato dall'SDK di Servizi multimediali usando le credenziali fornite al costruttore MediaServicesCredentials.
 
-	Si noti che l'oggetto **MediaServicesCredentials** ottiene un token valido dopo la chiamata a RefreshToken. **CloudMediaContext** chiama il metodo **RefreshToken** nel costruttore. Se si prevede si salvare i valori dei token in una risorsa di archiviazione esterna, assicurarsi che il valore di TokenExpiration sia ancora valido prima di salvare i dati del token. Se non è valido, chiamare RefreshToken prima di procedere alla memorizzazione nella cache.
+	Si noti che l'oggetto **MediaServicesCredentials** ottiene un token valido dopo la chiamata a RefreshToken. **CloudMediaContext** chiama il metodo **RefreshToken** nel costruttore. Se si prevede di salvare i valori dei token in una risorsa di archiviazione esterna, assicurarsi che il valore di TokenExpiration sia ancora valido prima di salvare i dati del token. Se non è valido, chiamare RefreshToken prima di procedere alla memorizzazione nella cache.
 
 		// Create and cache the Media Services credentials in a static class variable.
 		_cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName, _mediaServicesAccountKey);
@@ -83,9 +83,9 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 		
 		CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-- È anche possibile memorizzare nella cache la stringa AccessToken e i valori TokenExpiration. I valori possono essere usati successivamente per creare un nuovo oggetto MediaServicesCredentials con i dati del token memorizzati nella cache.  Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
+- È anche possibile memorizzare nella cache la stringa AccessToken e i valori TokenExpiration. I valori possono essere usati successivamente per creare un nuovo oggetto MediaServicesCredentials con i dati del token memorizzati nella cache. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
 
-	I seguenti frammenti di codice chiamano i metodi SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage e UpdateTokenDataInExternalStorageIfNeeded che non sono definiti in questo esempio. È possibile definire questi metodi per archiviare, recuperare e aggiornare i dati del token in una risorsa di archiviazione esterna. 
+	I seguenti frammenti di codice chiamano i metodi SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage e UpdateTokenDataInExternalStorageIfNeeded che non sono definiti in questo esempio. È possibile definire questi metodi per archiviare, recuperare e aggiornare i dati del token in una risorsa di archiviazione esterna.
 
 		CloudMediaContext context1 = new CloudMediaContext(_mediaServicesAccountName, _mediaServicesAccountKey);
 		
@@ -96,7 +96,7 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 		// Save token values for later use. 
 		// The SaveTokenDataToExternalStorage method should check 
 		// whether the TokenExpiration value is valid before saving the token data. 
-		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
+		// If it is not valid, call MediaServicesCredentials’s RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
 	Usare i valori del token per creare MediaServicesCredentials.
@@ -117,7 +117,7 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Aggiornare la copia del token, nel caso in cui il token sia stato aggiornato dall'SDK di Servizi multimediali. 
+	Aggiornare la copia del token, nel caso in cui il token sia stato aggiornato dall'SDK di Servizi multimediali.
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -125,7 +125,7 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 		}
 		
 
-- Se sono presenti più account di Servizi multimediali, ad esempio per la condivisione del carico o la distribuzione geografica, è possibile memorizzare nella cache gli oggetti MediaServicesCredentials tramite la raccolta System.Collections.Concurrent.ConcurrentDictionary, una raccolta thread-safe di coppie chiave/valore a cui possono accedere simultaneamente più thread. È quindi possibile usare il metodo GetOrAdd per ottenere le credenziali memorizzate nella cache. 
+- Se sono presenti più account di Servizi multimediali, ad esempio per la condivisione del carico o la distribuzione geografica, è possibile memorizzare nella cache gli oggetti MediaServicesCredentials tramite la raccolta System.Collections.Concurrent.ConcurrentDictionary, una raccolta thread-safe di coppie chiave/valore a cui possono accedere simultaneamente più thread. È quindi possibile usare il metodo GetOrAdd per ottenere le credenziali memorizzate nella cache.
 
 		// Declare a static class variable of the ConcurrentDictionary type in which the Media Services credentials will be cached.  
 		private static readonly ConcurrentDictionary<string, MediaServicesCredentials> mediaServicesCredentialsCache = 
@@ -172,12 +172,12 @@ Il file App.config contiene i valori di configurazione necessari. I valori nell'
 
 
 <pre><code>
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
 </code></pre>
 
 Per recuperare i valori di connessione dalla configurazione, è possibile usare la classe **ConfigurationManager** e quindi assegnare i valori ai campi nel codice:
@@ -191,5 +191,4 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

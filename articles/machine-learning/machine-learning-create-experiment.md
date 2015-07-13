@@ -52,11 +52,11 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 
 ## Passaggio 1: Ottenere i dati
 
-In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed è possibile importare dati da diverse origini. Per questo esempio verrà usato il set di dati di esempio incluso, **Automobile price data \(Raw\)**. Questo set di dati include voci per diverse singole automobili, tra cui informazioni come la marca, il modello, le specifiche tecniche e il prezzo.
+In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed è possibile importare dati da diverse origini. Per questo esempio verrà usato il set di dati di esempio incluso, **Automobile price data (Raw)**. Questo set di dati include voci per diverse singole automobili, tra cui informazioni come la marca, il modello, le specifiche tecniche e il prezzo.
 
 1. Avviare un nuovo esperimento facendo clic su **+NEW** nella parte inferiore della finestra di Machine Learning Studio, selezionando **EXPERIMENT** e quindi selezionando "Blank Experiment". Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
 
-2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per individuare il set di dati denominato **Automobile price data \(Raw\)**.
+2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per individuare il set di dati denominato **Automobile price data (Raw)**.
 
 	![Ricerca nella tavolozza][screen1a]
 
@@ -64,11 +64,11 @@ In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed �
 
 	![Set di dati][screen1]
 
-Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati delle automobili e selezionare **Visualize**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra \(colonna 26 e intitolata "price"\) è la variabile di destinazione che verrà stimata.
+Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati delle automobili e selezionare **Visualize**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra (colonna 26 e intitolata "price") è la variabile di destinazione che verrà stimata.
 
 ![Visualizzazione set di dati][screen1b]
 
-Chiudere la finestra di visualizzazione facendo clic su "\*\*x\*\*" nell'angolo superiore destro.
+Chiudere la finestra di visualizzazione facendo clic su "**x**" nell'angolo superiore destro.
 
 ## Passaggio 2: Pre-elaborare i dati
 
@@ -78,13 +78,13 @@ Prima di poter analizzare un set di dati è in genere necessario pre-elaborarlo.
 
 Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno rimosse tutte le righe con dati mancanti.
 
-1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data \(Raw\)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
+1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
 2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro delle proprietà.
 
 	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Project Columns][project-columns] esaminerà tutte le colonne, ad eccezione di quelle che verranno escluse.
 	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
-	- Fare clic sul pulsante del segno di spunta \(OK\) per chiudere il selettore di colonne.
+	- Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne.
 
     ![Selezione colonne][screen3]
 
@@ -104,15 +104,15 @@ Al termine dell'esperimento, tutti i moduli saranno contraddistinti da un segno 
 
 ![Prima esecuzione esperimento][screen5]
 
-Fino a questo momento, nell'esperimento sono stati soltanto puliti i dati. Per visualizzare il set di dati pulito, fare clic sulla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] \("Cleaned dataset"\) e selezionare **Visualize**. Si noti che la colonna **normalized-losses** non è più inclusa e che non ci sono valori mancanti.
+Fino a questo momento, nell'esperimento sono stati soltanto puliti i dati. Per visualizzare il set di dati pulito, fare clic sulla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] ("Cleaned dataset") e selezionare **Visualize**. Si noti che la colonna **normalized-losses** non è più inclusa e che non ci sono valori mancanti.
 
 A questo punto, una volta puliti i dati è possibile specificare le caratteristiche da usare nel modello predittivo.
 
 ## Passaggio 3: Definire le caratteristiche
 
-In Machine Learning le *caratteristiche* sono singole proprietà misurabili di un elemento a cui si è interessati. Nel set di dati corrente ogni riga rappresenta un'automobile e ogni colonna è una caratteristica di tale automobile. Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Inoltre, alcune caratteristiche sono strettamente correlate ad altre \(ad esempio city-mpg e highway-mpg\), di conseguenza non aggiungono nuove informazioni al modello e possono essere rimosse.
+In Machine Learning le *caratteristiche* sono singole proprietà misurabili di un elemento a cui si è interessati. Nel set di dati corrente ogni riga rappresenta un'automobile e ogni colonna è una caratteristica di tale automobile. Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Inoltre, alcune caratteristiche sono strettamente correlate ad altre (ad esempio city-mpg e highway-mpg), di conseguenza non aggiungono nuove informazioni al modello e possono essere rimosse.
 
-Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Come prima ipotesi, verranno selezionate le seguenti caratteristiche \(colonne\) con il modulo [Project Columns][project-columns]. Tenere presente che per il training del modello è necessario includere il valore *price* relativo al prezzo che si intende stimare.
+Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Come prima ipotesi, verranno selezionate le seguenti caratteristiche (colonne) con il modulo [Project Columns][project-columns]. Tenere presente che per il training del modello è necessario includere il valore *price* relativo al prezzo che si intende stimare.
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
@@ -124,7 +124,7 @@ Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del s
 
 	> [AZURE.TIP]Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Project Columns][project-columns] a [Clean Missing Data][clean-missing-data], il modulo [Project Columns][project-columns] riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
 
-4. Fare clic sul pulsante di segno di spunta \(OK\).
+4. Fare clic sul pulsante di segno di spunta (OK).
 
 ![Selezione colonne][screen6]
 
@@ -134,7 +134,7 @@ Si ottiene in tal modo il set di dati che verrà usato nell'algoritmo di apprend
 
 I dati sono pronti, di conseguenza la creazione del modello predittivo implica la fase di training e test. I dati verranno usati per il training del modello e quindi il modello verrà testato per determinare la precisione di stima dei prezzi.
 
-La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Learning controllato. La classificazione viene usata per effettuare una stima in base a un insieme di valori definiti, ad esempio un colore \(rosso, blu o verde\). La regressione viene invece usata per effettuare una stima in base a un insieme continuo di valori, ad esempio l'età di una persona.
+La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Learning controllato. La classificazione viene usata per effettuare una stima in base a un insieme di valori definiti, ad esempio un colore (rosso, blu o verde). La regressione viene invece usata per effettuare una stima in base a un insieme continuo di valori, ad esempio l'età di una persona.
 
 Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi, si userà un modello basato su regressione. Per questo esempio, verrà eseguito il training di un semplice modello di *regressione lineare*, che verrà testato nel passaggio successivo.
 
@@ -146,9 +146,9 @@ Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi,
 
 3. Per selezionare l'algoritmo di apprendimento, espandere la categoria **Machine Learning** nella tavolozza dei moduli a sinistra dell'area di disegno e quindi espandere **Initialize Model**. Verranno visualizzate diverse categorie di moduli che possono essere usate per inizializzare gli algoritmi di Machine Learning.
 
-	Per questo esperimento, selezionare il modulo [Linear Regression][linear-regression] nella categoria **Regression** \(è anche possibile trovare il modulo digitando "linear regression" nella casella Search della tavolozza\) e trascinarlo nell'area di disegno dell'esperimento.
+	Per questo esperimento, selezionare il modulo [Linear Regression][linear-regression] nella categoria **Regression** (è anche possibile trovare il modulo digitando "linear regression" nella casella Search della tavolozza) e trascinarlo nell'area di disegno dell'esperimento.
 
-4. Individuare e trascinare il modulo [Train Model][train-model] nell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training \(porta sinistra\) del modulo [Split][split].
+4. Individuare e trascinare il modulo [Train Model][train-model] nell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training (porta sinistra) del modulo [Split][split].
 
 5. Selezionare il modulo [Train Model][train-model], fare clic su **Launch column selector** nel riquadro **Properties** e selezionare la colonna **price**. Questo è il valore che si intende stimare con il modello.
 
@@ -164,7 +164,7 @@ Il risultato è un modello di regressione basato su training che può essere usa
 
 Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile usarlo per classificare il restante 25% e verificarne il funzionamento.
 
-1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test \(porta destra\) del modulo [Split][split].  
+1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test (porta destra) del modulo [Split][split].  
 
 	![Modulo Score Model][screen8a]
 
@@ -176,13 +176,13 @@ Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile 
 
 Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic sulla porta di output e selezionare **Visualize**. Per il modello vengono visualizzate le seguenti statistiche:
 
-- **Mean Absolute Error** \(MAE, errore assoluto medio\): media degli errori assoluti \(un *errore* è la differenza tra il valore stimato e quello effettivo\).
-- **Root Mean Squared Error** \(RMSE, radice errore quadratico medio\): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-- **Relative Absolute Error** \(errore assoluto relativo\): media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-- **Relative Squared Error** \(errore quadratico relativo\): media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-- **Coefficient of Determination** \(coefficiente di determinazione\): noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+- **Mean Absolute Error** (MAE, errore assoluto medio): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
+- **Root Mean Squared Error** (RMSE, radice errore quadratico medio): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
+- **Relative Absolute Error** (errore assoluto relativo): media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+- **Relative Squared Error** (errore quadratico relativo): media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+- **Coefficient of Determination** (coefficiente di determinazione): noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
-Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination** più il valore si avvicina a uno \(1,0\) più le stime sono migliori.
+Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination** più il valore si avvicina a uno (1,0) più le stime sono migliori.
 
 ![Valutazione dei risultati][screen9]
 
@@ -233,4 +233,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

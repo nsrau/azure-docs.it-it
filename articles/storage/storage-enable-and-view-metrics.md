@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="06/18/2015" 
 	ms.author="tamram"/>
 
 # Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica
 
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il portale di gestione di Azure o Windows PowerShell. In alternativa, è possibile abilitare il monitoraggio a livello di codice tramite un'API di archiviazione.
+Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il portale di gestione di Azure o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione.
 
 Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
@@ -50,13 +50,13 @@ I cmdlet che controllano Metriche di archiviazione usano i seguenti parametri:
 
 Ad esempio, il seguente comando attiva le metriche al minuto per il servizio BLOB nell'account di archiviazione predefinito con il periodo di memorizzazione impostato su cinque giorni:
 
-`Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi -RetentionDays 5`
+`Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 
 Il seguente comando recupera il livello delle metriche orarie corrente e i giorni di memorizzazione per il servizio BLOB nell'account di archiviazione predefinito:
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
 ## Come abilitare Metriche di archiviazione a livello di codice
 
@@ -64,15 +64,15 @@ Per controllare Metriche di archiviazione, oltre a usare il portale di gestione 
 
 Le classi CloudBlobClient, CloudQueueClient e CloudTableClient hanno tutte metodi come SetServiceProperties e SetServicePropertiesAsync, che usano un oggetto ServiceProperties come parametro. È possibile usare l'oggetto ServiceProperties per configurare Metriche di archiviazione. Ad esempio, nel frammento di codice c# riportato di seguito viene illustrato come modificare il livello di metrica e i giorni di memorizzazione per le metriche di accodamento orarie:
 
- var storageAccount = CloudStorageAccount.Parse(connStr);
- var queueClient = storageAccount.CreateCloudQueueClient();
- var serviceProperties = queueClient.GetServiceProperties();
- 
- serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;
- serviceProperties.HourMetrics.RetentionDays = 10;
- 
- queueClient.SetServiceProperties(serviceProperties);
- 
+    var storageAccount = CloudStorageAccount.Parse(connStr);
+    var queueClient = storageAccount.CreateCloudQueueClient();
+    var serviceProperties = queueClient.GetServiceProperties();
+     
+    serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;
+    serviceProperties.HourMetrics.RetentionDays = 10;
+     
+    queueClient.SetServiceProperties(serviceProperties);
+    
 ## Visualizzazione di Metriche di archiviazione
 
 Una volta configurato Metriche di archiviazione per monitorare l'account di archiviazione, le metriche vengono registrate in un set di tabelle note nell'account di archiviazione. È possibile usare la pagina Monitoraggio relativa all'account di archiviazione nel portale di gestione per visualizzare in un grafico le metriche orarie non appena risultano disponibili. In questa pagina del portale di gestione è possibile:
@@ -106,12 +106,12 @@ Se si desidera scaricare le metriche per l'archiviazione a lungo termine o per a
 
 È possibile trovare i dettagli completi degli schemi di queste tabelle in [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx). Le righe di esempio riportate di seguito mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui Metriche di archiviazione salva queste metriche:
 
-| PartitionKey | RowKey |  Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Availability | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Availability | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 |---------------|:------------------:|-----------------------------:|---------------|-----------------------|--------------|-------------|--------------|-------------------|----------------------|----------------|
-| 20140522T1100 | user;All | 2014-05-22T11:01:16.7650250Z | 7 | 7   | 4003  | 46801 | 100 | 104.4286 | 6.857143 | 100 |
-| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5 | 5   | 2694 | 45951 | 100  | 143.8 | 7.8  | 100  |
-| 20140522T1100 | user;QueryEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1  | 538 | 633 | 100 | 3  | 3   | 100  |
-| 20140522T1100 | user;UpdateEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1  | 771 | 217  | 100 | 9  | 6  | 100  |
+| 20140522T1100 | user;All | 2014-05-22T11:01:16.7650250Z | 7 | 7 | 4003 | 46801 | 100 | 104.4286 | 6.857143 | 100 |
+| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5 | 5 | 2694 | 45951 | 100 | 143.8 | 7.8 | 100 |
+| 20140522T1100 | user;QueryEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 538 | 633 | 100 | 3 | 3 | 100 |
+| 20140522T1100 | user;UpdateEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 771 | 217 | 100 | 9 | 6 | 100 |
 
 Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa la risoluzione ora al minuto. La chiave di riga identifica il tipo di informazioni archiviate nella riga ed è composta da due informazioni, il tipo di accesso e il tipo di richiesta:
 
@@ -130,46 +130,46 @@ I dati di esempio sopra riportati mostrano tutti i record per un solo minuto (a 
 
 Nell'elenco riportato di seguito viene illustrato il codice C# che consente l'accesso alle metriche al minuto per un intervallo di minuti. Vengono inoltre visualizzati i risultati in una finestra della console. Viene utilizzata la libreria di archiviazione di Azure versione 4 che include la classe CloudAnalyticsClient, in grado di semplificare l'accesso alle tabelle di metrica nell'archiviazione.
 
- private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
- {
- // Convert the dates to the format used in the PartitionKey
- var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
- var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
- 
- var services = Enum.GetValues(typeof(StorageService));
- foreach (StorageService service in services)
- {
- Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
- var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
- var t = analyticsClient.GetMinuteMetricsTable(service);
- var opContext = new OperationContext();
- var query =
- from entity in metricsQuery
- // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
- // because they are calculated fields in the MetricsEntity class.
- // The PartitionKey identifies the DataTime of the metrics.
- where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
- select entity;
- 
- // Filter on "user" transactions after fetching the metrics from Table Storage.
- // (StartsWith is not supported using LINQ with Azure table storage)
- var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
- var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
- Console.WriteLine(resultString);
- }
- }
- 
- private static string MetricsString(MetricsEntity entity, OperationContext opContext)
- {
- var entityProperties = entity.WriteEntity(opContext);
- var entityString =
- string.Format("Time: {0}, ", entity.Time) +
- string.Format("AccessType: {0}, ", entity.AccessType) +
- string.Format("TransactionType: {0}, ", entity.TransactionType) +
- string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
- return entityString;
- 
- }
+    private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
+    {
+    // Convert the dates to the format used in the PartitionKey
+    var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
+    var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
+    
+    var services = Enum.GetValues(typeof(StorageService));
+    foreach (StorageService service in services)
+    {
+    Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
+    var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
+    var t = analyticsClient.GetMinuteMetricsTable(service);
+    var opContext = new OperationContext();
+    var query =
+    from entity in metricsQuery
+    // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
+    // because they are calculated fields in the MetricsEntity class.
+    // The PartitionKey identifies the DataTime of the metrics.
+    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+    select entity;
+    
+    // Filter on "user" transactions after fetching the metrics from Table Storage.
+    // (StartsWith is not supported using LINQ with Azure table storage)
+    var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
+    var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
+    Console.WriteLine(resultString);
+    }
+    }
+    
+    private static string MetricsString(MetricsEntity entity, OperationContext opContext)
+    {
+    var entityProperties = entity.WriteEntity(opContext);
+    var entityString =
+    string.Format("Time: {0}, ", entity.Time) +
+    string.Format("AccessType: {0}, ", entity.AccessType) +
+    string.Format("TransactionType: {0}, ", entity.TransactionType) +
+    string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
+    return entityString;
+    
+    }
 
 
 
@@ -190,6 +190,6 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 
 ## Passaggi successivi:
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

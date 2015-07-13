@@ -5,18 +5,19 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/> <tags 
+	editor="mollybos"/>
+<tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Supporto di piattaforme per più dispositivi da un singolo servizio mobile
  
-Uno dei principali vantaggi offerto da Servizi mobili di Azure nello sviluppo di app per dispositivi mobili è la possibilità di usare un unico servizio back-end che supporta un'app su più piattaforme client. Servizi mobili fornisce librerie client native per le principali piattaforme per dispositivi, semplificando lo sviluppo di app mediante l'uso di un unico servizio back-end e di strumenti multipiattaforma. Questo argomento illustra gli aspetti relativi all'esecuzione di app su più piattaforme client usando al tempo stesso un unico servizio mobile back-end: Per informazioni di carattere generale su Servizi mobili, fare riferimento al [Centro sviluppatori di Servizi mobili](/documentation/services/mobile-services/).
+Uno dei principali vantaggi offerto da Servizi mobili di Azure nello sviluppo di app per dispositivi mobili è la possibilità di usare un unico servizio back-end che supporta un'app su più piattaforme client. Servizi mobili fornisce librerie client native per le principali piattaforme per dispositivi, semplificando lo sviluppo di app mediante l'uso di un unico servizio back-end e di strumenti multipiattaforma. Questo argomento illustra gli aspetti relativi all'esecuzione di app su più piattaforme client usando al tempo stesso un unico servizio mobile back-end:
 
 ##<a id="push"></a>Notifiche push multipiattaforma
 
@@ -205,5 +206,6 @@ La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Stor
 [novità di Windows Phone 8 per gli sviluppatori]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Creazione di app Windows universali per tutti i dispositivi Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [progetto di app Windows universale per Servizi mobili di Azure mediante MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

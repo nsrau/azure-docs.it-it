@@ -18,7 +18,7 @@
 
 # Creare una macchina virtuale che esegue Linux
 
-La creazione di una macchina virtuale \(VM\) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. In questa esercitazione viene illustrato come utilizzare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows \(la CLI di Azure\) per creare rapidamente una macchina virtuale di Ubuntu Server in esecuzione in Azure, effettuare la connessione alla macchina virtuale utilizzando **ssh**, nonché creare e montare un nuovo disco. \(In questo argomento viene utilizzata una macchina virtuale di Ubuntu Server, ma è anche possibile creare macchine virtuali Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md)\).
+La creazione di una macchina virtuale (VM) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. In questa esercitazione viene illustrato come utilizzare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (la CLI di Azure) per creare rapidamente una macchina virtuale di Ubuntu Server in esecuzione in Azure, effettuare la connessione alla macchina virtuale utilizzando **ssh**, nonché creare e montare un nuovo disco. (In questo argomento viene utilizzata una macchina virtuale di Ubuntu Server, ma è anche possibile creare macchine virtuali Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md)).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -34,7 +34,7 @@ Ancora meglio. Ora accedere con l'id di lavoro o scuola digitando `azure login` 
 
 ## Creare la macchina virtuale di Azure
 
-Digitare `azure group create <my-group-name> westus` sostituendo _&lt;nome gruppo&gt;_ con il nome di un gruppo univoco per l'utente \(se si desidera, è possibile utilizzare un'area diversa\). Verrà visualizzata una schermata simile alla seguente:
+Digitare `azure group create <my-group-name> westus` sostituendo _&lt;nome gruppo&gt;_ con il nome di un gruppo univoco per l'utente (se si desidera, è possibile utilizzare un'area diversa). Verrà visualizzata una schermata simile alla seguente:
 
 	azure group create myuniquegroupname westus
 	info:    Executing command group create
@@ -189,7 +189,7 @@ Il collegamento di un nuovo disco è un’operazione rapida. È sufficiente digi
 	info:    vm disk attach-new command OK
 
 
-A questo punto trovare il disco usando `dmesg | grep SCSI` \(il metodo usato per individuare il nuovo disco può variare\). In questo caso, avrà un aspetto simile al seguente:
+A questo punto trovare il disco usando `dmesg | grep SCSI` (il metodo usato per individuare il nuovo disco può variare). In questo caso, avrà un aspetto simile al seguente:
 
 	dmesg | grep SCSI
 	[    0.294784] SCSI subsystem initialized
@@ -297,4 +297,4 @@ Per altre informazioni su Linux in Azure, vedere:
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

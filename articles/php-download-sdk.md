@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Scaricare Azure SDK per PHP" 
-	description="Informazioni su come scaricare e installare Azure SDK per PHP." 
-	documentationCenter="php" 
-	services="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Scaricare Azure SDK per PHP"
+	description="Informazioni su come scaricare e installare Azure SDK per PHP."
+	documentationCenter="php"
+	services=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="2/5/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="03/20/2015"
 	ms.author="tomfitz"/>
 
 #Scaricare Azure SDK per PHP
@@ -22,46 +22,46 @@
 
 Azure SDK per PHP include componenti che consentono di sviluppare, distribuire e gestire applicazioni PHP per Azure. In particolare, Azure SDK per PHP include i seguenti componenti:
 
-* **Librerie client PHP per Azure**. Queste librerie di classi offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud. 
-* **Strumenti da riga di comando di Azure per Mac e Linux**. Questo insieme di strumenti da riga di comando permette la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali di Azure. Gli strumenti funzionano su qualsiasi piattaforma, incluse le piattaforme Mac, Linux e Windows.
+* **Librerie client PHP per Azure**. Queste librerie di classi offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud.  
+* **Interfaccia della riga di comando di Azure per Mac, Linux e Windows** Un insieme di comandi che permette la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali di Azure. L’interfaccia della riga di comando di Azure funziona su qualsiasi piattaforma, incluse le piattaforme Mac, Linux e Windows.
 * **Azure PowerShell (solo Windows)**. Questo insieme di cmdlet di PowerShell consente la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali.
 * **Emulatori di Azure (solo Windows)**. Gli emulatori di calcolo e archiviazione sono emulatori locali di servizi cloud e di gestione dati che consentono di testare un'applicazione in locale. Gli emulatori di Azure funzionano solo su Windows.
 
-Le sezioni seguenti illustrano come eseguire il download e l'installazione dei componenti sopra descritti. 
+Nella sezione seguente viene indicato come eseguire il download e l'installazione dei componenti sopra descritti.
 
-Le istruzioni fornite in questo argomento presuppongono che [PHP][install-php] sia installato.
+Le istruzioni fornite in questo argomento presuppongono che [PHP][install-php] sia installato nel computer in uso.
 
-> [AZURE.NOTE] 
-> È necessario disporre di PHP 5.3 o versione successiva per usare le librerie client PHP per Azure. 
+> [AZURE.NOTE]È necessario disporre di PHP 5.3 o versione successiva per usare le librerie client PHP per Azure.
 
 ##Librerie client PHP per Azure
 
 Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Possono essere installate tramite Composer, gli strumenti di gestione dei pacchetti PEAR oppure manualmente.
 
-Per informazioni su come utilizzare le librerie Client PHP per Azure, vedere [Come utilizzare il servizio Blob][blob-service], [Come utilizzare il servizio tabelle][table-service] e [Come utilizzare il servizio di accodamento][queue-service].
+Per informazioni su come utilizzare le librerie client PHP per Azure, vedere [Come utilizzare il servizio BLOB][blob-service], [Come utilizzare il servizio tabelle][table-service] e [Come utilizzare il servizio di accodamento][queue-service].
 
 ###Installazione tramite Composer
 
-1. [Installazione di Git][install-git]. 
+1. [Installare Git][install-git].
 
 
-	> [AZURE.NOTE] 
-	> In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+	> [AZURE.NOTE]In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+        {
+            "repositories": [
+                {
+                    "type": "pear",
+                    "url": "http://pear.php.net"
+                }
+            ],
+            "require": {
+                "pear-pear.php.net/mail_mime" : "*",
+                "pear-pear.php.net/http_request2" : "*",
+                "pear-pear.php.net/mail_mimedecode" : "*",
+                "microsoft/windowsazure": "*"
+            }
+        }
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 
@@ -87,36 +87,34 @@ Al termine dell'installazione, è possibile fare riferimento alle librerie di cl
 
 Per scaricare e installare manualmente le librerie client PHP per Azure, attenersi alla procedura seguente:
 
-1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork del repository, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
+1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork dell'archivio, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
 
-	> [AZURE.NOTE] 
-	> Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [la gestione dei pacchetti PEAR](http://pear.php.net/manual/en/installation.php)
+	> [AZURE.NOTE]Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti utilizzando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
 
-2. Copiare la directory  `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione e fare riferimento alle classi dall'applicazione.
+2. Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione e fare riferimento alle classi dall'applicazione.
 
 ##Azure PowerShell ed emulatori di Azure
 
 Azure PowerShell è un insieme di cmdlet di PowerShell per la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali. Gli emulatori di Azure sono emulatori di servizi cloud e di gestione dati che consentono di verificare un'applicazione in locale. Questi componenti sono supportati solo in Windows.
 
-Il metodo consigliato per installare Azure PowerShell e gli emulatori di Azure è tramite l'[Installazione guidata della piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
+Il metodo consigliato per installare Azure PowerShell e gli emulatori di Azure è tramite l'[Installazione guidata piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
 
-Per informazioni sull'utilizzo di Azure PowerShell, vedere [Come usare Azure PowerShell][powershell-tools].
+Per informazioni sull'utilizzo di Azure PowerShell, vedere [Come utilizzare Azure PowerShell][powershell-tools].
 
-##Strumenti da riga di comando di Azure per Mac e Linux
+##Interfaccia della riga di comando di Azure
 
-Gli strumenti da riga di comando di Azure per Mac e Linux sono un insieme di strumenti da riga di comando per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali di Azure. Nell'elenco seguente viene descritto come installare questi strumenti in base al sistema operativo in uso:
+Un’interfaccia della riga di comando di Azure è un insieme di comandi per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali. Nell'elenco seguente viene descritto come installare l’interfaccia della riga di comando di Azure in base al sistema operativo in uso:
 
-* **Mac**: scaricare il programma di installazione di Azure SDK all'indirizzo: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Aprire il file con estensione pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
+* **Mac**: scaricare il programma di installazione di Azure SDK: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Aprire il file con estensione pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
 
-* **Linux**: installare la versione più recente di [Node.js][nodejs-org] (vedere l'articolo sull'[installazione di Node.js mediante Gestione pacchetti][install-node-linux]), quindi eseguire il comando seguente:
+* **Linux**: installare la versione più recente di [Node.js][nodejs-org] (vedere l'articolo relativo all'[installazione di Node.js tramite Gestione pacchetti][install-node-linux]), quindi eseguire il comando seguente:
 
 		npm install azure-cli -g
 
-	> [AZURE.NOTE] 
-	> per l'esecuzione di questo comando potrebbero essere necessari privilegi elevati:  `sudo npm install azure-cli -g`
+	> [AZURE.NOTE]Per l'esecuzione di questo comando potrebbero essere necessari privilegi elevati: `sudo npm install azure-cli -g`
 
 
-Per informazioni sull'utilizzo degli strumenti da riga di comando di Azure per Mac e Linux, vedere [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][crossplat-tools].
+Per informazioni su come usare l'interfaccia della riga di comando di Azure, vedere [Come usare l’interfaccia della riga di comando di Azure per Mac, Linux e Windows][azure cli]
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -133,9 +131,9 @@ Per informazioni sull'utilizzo degli strumenti da riga di comando di Azure per M
 [blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
 [table-service]: http://go.microsoft.com/fwlink/?LinkId=252715
 [queue-service]: http://go.microsoft.com/fwlink/?LinkId=252716
-[crossplat-tools]: http://go.microsoft.com/fwlink/?LinkId=252717
+[azure cli]: http://go.microsoft.com/fwlink/?LinkId=252717
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

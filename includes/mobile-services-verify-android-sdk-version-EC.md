@@ -19,4 +19,4 @@ Se si manifesta uno di questi sintomi, la versione di Android SDK installata in 
 	
 3. In Eclipse Package Explorer fare clic con il pulsante destro del mouse sul nodo di progetto, scegliere **Properties** e quindi nella colonna sinistra scegliere **Android**. Assicurarsi che il valore di **Project Build Target** sia impostato sulla stessa versione dell'SDK di **targetSdkVersion**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

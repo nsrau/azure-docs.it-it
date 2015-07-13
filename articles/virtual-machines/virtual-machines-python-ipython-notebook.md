@@ -46,7 +46,7 @@ Attenersi alle istruzioni riportate [qui][portal-vm-windows] per creare una macc
 
 ## Creazione di un endpoint per IPython Notebook
 
-Questo passaggio si applica alla macchina virtuale sia Linux che Windows. In seguito, IPython verrà configurato per eseguire il proprio server notebook sulla porta 9999. Per rendere questa porta pubblicamente disponibile, è necessario creare un endpoint nel portale di gestione di Azure. Questo endpoint apre una porta nel firewall di Azure e mappa la porta pubblica \(HTTPS, 443\) alla porta privata sulla VM \(9999\).
+Questo passaggio si applica alla macchina virtuale sia Linux che Windows. In seguito, IPython verrà configurato per eseguire il proprio server notebook sulla porta 9999. Per rendere questa porta pubblicamente disponibile, è necessario creare un endpoint nel portale di gestione di Azure. Questo endpoint apre una porta nel firewall di Azure e mappa la porta pubblica (HTTPS, 443) alla porta privata sulla VM (9999).
 
 Per creare un endpoint, accedere al dashboard della macchina virtuale, fare clic su "Endpoint", quindi su "Aggiungi endpoint" e creare un nuovo endpoint, in questo esempio denominato `ipython_nb`. Selezionare TCP come protocollo, 443 come porta pubblica e 9999 come porta privata:
 
@@ -60,7 +60,7 @@ Dopo questo passaggio, la scheda "Endpoint" del dashboard avrà l'aspetto seguen
 
 Per eseguire IPython Notebook nella VM, è necessario installare prima IPython e le relative dipendenze.
 
-### Linux \(OpenSUSE\)
+### Linux (OpenSUSE)
 
 Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
 
@@ -71,7 +71,7 @@ Installare [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e altre 
     sudo zypper install python-jinja2
     sudo zypper install ipython
 
-### Linux \(Ubuntu\)
+### Linux (Ubuntu)
 
 Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
 
@@ -149,9 +149,9 @@ In Linux:
 
 In Windows:
 
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd \users\azureuser.ipython\profile_nbserver
 
-Creare il certificato SSL come indicato di seguito \(Linux e Windows\):
+Creare il certificato SSL come indicato di seguito (Linux e Windows):
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -180,7 +180,7 @@ In seguito verrà modificato il file di configurazione del profilo, che corrispo
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -241,7 +241,7 @@ Questo paradigma di combinare la potenza del moderno Web con il calcolo in tempo
 
 * Come blocco appunti computazionale per registrare il lavoro esplorativo su un problema.
 
-* Per condividere i risultati con i colleghi, sotto forma di calcolo in tempo reale o in formati stampabili \(HTML, PDF\).
+* Per condividere i risultati con i colleghi, sotto forma di calcolo in tempo reale o in formati stampabili (HTML, PDF).
 
 * Per distribuire e presentare materiale di formazione in tempo reale che implica calcoli, in modo che gli studenti possano sperimentare immediatamente con codice reale, modificarlo e rieseguirlo interattivamente.
 
@@ -257,7 +257,7 @@ Nel [repository][] di codice sorgente di IPython è disponibile un'intera direct
 
 IPython Notebook offre un'eccellente interfaccia per l'accesso interattivo alla potenza dell'ecosistema Python in Azure. Rende possibile un'ampia gamma di casi di utilizzo, tra cui la semplice esplorazione di Python per apprenderne le funzionalità, l'analisi e la visualizzazione di dati, la simulazione e l'elaborazione parallela. I documenti risultanti contengono un record completo dei calcoli eseguiti e possono essere condivisi con altri utenti di IPython. È possibile utilizzare IPython Notebook come applicazione locale, ma si tratta di una soluzione particolarmente indicata per le distribuzioni cloud in Azure.
 
-Le funzionalità di base di IPython sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] \(PTVS\), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
+Le funzionalità di base di IPython sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] (PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
 
 
 
@@ -276,4 +276,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

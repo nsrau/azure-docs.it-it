@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -272,7 +272,7 @@ L'app è ora in grado di ricevere eventi da Pusher e di aggiornare l'elenco atti
 
 
 
-<h2><a name="install-scripts"></a>Installazione degli script del server</h2>
+##<a name="install-scripts"></a>Installazione degli script del server
 
 
 
@@ -385,7 +385,7 @@ Ora non rimane che configurare gli script del server. Verrà inserito uno script
 
 
 
-<h2><a name="test-app"></a>Test dell'app</h2>
+##<a name="test-app"></a>Test dell'app
 
 
 
@@ -442,5 +442,6 @@ Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
 [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Spostamento dei dati in SQL Server in Azure| Azure" 
+	pageTitle="Spostamento dei dati in SQL Server in Azure| Microsoft Azure" 
 	description="Spostamento dei dati in SQL Server in Azure" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="06/04/2015" 
+	ms.author="fashah;garye;mohabib;bradsev" />
 
 #Spostamento dei dati in SQL Server in Azure
 
-In questo documento si parla dello spostamento dei dati da file flat (csv o tsv) o da un SQL Server locale a un SQL Server in Azure
+In questo documento viene illustrato lo spostamento dei dati da file flat (csv o tsv) o da un SQL Server locale a un SQL Server in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
 
 
 <table>
@@ -55,12 +54,14 @@ In questo documento si parla dello spostamento dei dati da file flat (csv o tsv)
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
 
+> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/it-it/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](../data-factory/data-factory-copy-activity.md).
+
 
 ## <a name="sqlonazurevm"></a>Spostamento dei dati a una macchina virtuale di SQL Server in Azure
 
-In questa sezione viene illustrato il processo di spostamento dei dati in una macchina virtuale di SQL Server in Azure. Se la macchina virtuale di SQL Server non è stata configurata, eseguire il provisioning di una nuova macchina virtuale SQL Server per l'analisi scientifica dei dati come descritto in [Configurazione di una macchina virtuale di Azure per l'analisi scientifica dei dati](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/ "Set up a Data Science Virtual Machine in Azure"). 
+In questa sezione viene illustrato il processo di spostamento dei dati in una macchina virtuale di SQL Server in Azure. Se la macchina virtuale di SQL Server non è stata configurata, eseguire il provisioning di una nuova macchina virtuale di SQL Server per l'analisi avanzata come descritto in [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
 
-In questo documento viene descritto lo spostamento dei dati dalle origini dei dati seguenti: 
+In questo documento viene descritto lo spostamento dei dati dalle origini dei dati seguenti:
   
 1. [Da file flat](#filesource_to_sqlonazurevm) 
 2. [Da un SQL Server locale](#sqlonprem_to_sqlonazurevm)
@@ -77,10 +78,9 @@ Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), 
 
 ### <a name="insert-tables-bcp"></a>Utilità copia di massa della riga di comando (BCP)
 
-BCP è un'utilità della riga di comando installata con SQL Server e rappresenta uno dei metodi più rapidi per spostare i dati. Funziona in tutte e tre le varianti di SQL Server (SQL Server locale, SQL Azure e macchine virtuali SQL Server in Azure). 
+BCP è un'utilità della riga di comando installata con SQL Server e rappresenta uno dei metodi più rapidi per spostare i dati. Funziona in tutte e tre le varianti di SQL Server (SQL Server locale, SQL Azure e macchine virtuali SQL Server in Azure).
 
-> [AZURE.NOTE] **Dove devono trovarsi i dati per eseguire la copia BCP?**  
-> Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server e utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage-use-azcopy.md), [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
+> [AZURE.NOTE]**Dove devono trovarsi i dati per eseguire la copia BCP?** Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage-use-azcopy.md), [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
 
 1. Assicurarsi che il database e le tabelle vengano create nel database di SQL Server di destinazione. Ecco un esempio di come procedere utilizzando i comandi `Create Database` e `Create Table`:
 
@@ -95,7 +95,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 	
 2. Generare il file di formato che descrive lo schema per la tabella eseguendo il comando seguente dalla riga di comando del computer in cui è installato bcp.
 
-	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n` 
+	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
 3. Inserire i dati nel database utilizzando il comando bcp come indicato di seguito. Dovrebbe funzionare dalla riga di comando, presupponendo che SQL Server sia installato nello stesso computer:
 
@@ -107,8 +107,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 
 Se i dati che si stanno spostando sono grandi, è possibile velocizzare l'operazione eseguendo contemporaneamente più comandi BCP in uno script di PowerShell.
 
-> [AZURE.NOTE] **Inserimento di Big Data** 
-> Per ottimizzare il caricamento dei dati per set di dati grandi e molto grandi, partizionare le tabelle dei database logici e fisici mediante più filegroup e tabelle di partizione. Per ulteriori informazioni sulla creazione e sul caricamento dei dati in tabelle di partizione, vedere [Caricamento parallelo di tabelle di partizione SQL](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables).
+> [AZURE.NOTE]**Inserimento di Big Data** Per ottimizzare il caricamento dei dati per set di dati grandi e molto grandi, partizionare le tabelle dei database logici e fisici mediante più filegroup e tabelle di partizione. Per ulteriori informazioni sulla creazione e sul caricamento dei dati in tabelle di partizione, vedere [Caricamento parallelo di tabelle di partizione SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 Lo script PowerShell di esempio illustra gli inserimenti mediante bcp:
@@ -150,15 +149,15 @@ Lo script PowerShell di esempio illustra gli inserimenti mediante bcp:
 
 ### <a name="insert-tables-bulkquery"></a>Inserimento di massa query SQL
 
-L'[inserimento di massa di query SQL](https://msdn.microsoft.com/library/ms188365) può essere utilizzato per importare dati nel database da file basati su righe/colonne (i tipi supportati sono indicati [qui](https://msdn.microsoft.com/library/ms188609)). 
+L'[inserimento di massa di query SQL](https://msdn.microsoft.com/library/ms188365) può essere utilizzato per importare dati nel database da file basati su righe/colonne (i tipi supportati sono indicati [qui](https://msdn.microsoft.com/library/ms188609)).
 
-Ecco alcuni comandi di esempio per l'inserimento di massa:  
+Ecco alcuni comandi di esempio per l'inserimento di massa:
 
 1. Analizzare i dati e impostare le opzioni personalizzate prima dell'importazione per assicurarsi che il database SQL Server presupponga lo stesso formato per tutti i campi speciali, ad esempio le date. Ecco un esempio di come impostare il formato della data come anno-mese-giorno (se i dati contengono la data in formato anno-mese-giorno):
 
 		SET DATEFORMAT ymd;	
 	
-2. Importare i dati utilizzando le istruzioni per eseguire importazioni di massa:
+2. portare i dati utilizzando le istruzioni per eseguire importazioni di massa
 
     	BULK INSERT <tablename>
     	FROM	
@@ -173,13 +172,12 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 
 ### <a name="sql-builtin-utilities"></a>Utilità integrate in SQL Server
 
-È possibile utilizzare SQL Server Integrations Services (SSIS) per importare i dati nelle macchine virtuali SQL Server in Azure da un file flat. 
-SSIS è disponibile in due ambienti studio. Per ulteriori informazioni, vedere [Integration Services (SSIS) e ambienti Studio ](https://technet.microsoft.com/library/ms140028.aspx):
+È possibile utilizzare SQL Server Integrations Services (SSIS) per importare i dati nelle macchine virtuali SQL Server in Azure da un file flat. SSIS è disponibile in due ambienti studio. Per ulteriori informazioni, vedere [Integration Services (SSIS) e ambienti Studio](https://technet.microsoft.com/library/ms140028.aspx):
 
 - Per informazioni dettagliate su SQL Server Data Tools, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - Per informazioni dettagliate sull'importazione/esportazione guidata, vedere [Importazione/esportazione guidata di SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Spostamento dei dati dal Server SQL locale
+### <a name="sqlonprem_to_sqlonazurevm"></a>Spostamento dei dati da SQL Server locale
 
 I dati possono essere spostati da SQL Server locale nel modo seguente:
 
@@ -191,21 +189,21 @@ Tali procedure vengono descritte qui di seguito:
 
 #### <a name="export-flat-file"></a>Esportazione in un file flat
 
-È possibile utilizzare diversi metodi per l'esportazione di massa dei dati da SQL Server locale come descritto [qui](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa. 
+È possibile utilizzare diversi metodi per l'esportazione di massa dei dati da SQL Server locale come descritto [qui](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
 
 1. Esportare i dati da SQL Server locale in un file mediante l'utilità bcp come indicato di seguito
 
 	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
 
-2. Creare il database e la tabella nella macchina virtuale di SQL Server in Azure tramite  `create database` e `create table` per lo schema della tabella esportato nel passaggio 1.
+2. Creare il database e la tabella nella macchina virtuale di SQL Server in Azure tramite `create database` e `create table` per lo schema della tabella esportato nel passaggio 1.
 
 3. Creare un file di formato per la descrizione dello schema della tabella dei dati da importare/esportare. Dettagli sul file di formato sono descritti [qui](https://msdn.microsoft.com/library/ms191516.aspx).
 
-	Creazione di file di formato quando si esegue BCP dal computer SQL Server 
+	Creazione di file di formato quando si esegue BCP dal computer SQL Server
 
 		bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n 
 
-	Creazione di file di formato quando si esegue BCP in remoto rispetto a SQL Server 
+	Creazione di file di formato quando si esegue BCP in remoto rispetto a SQL Server
 
 		bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
 		
@@ -214,24 +212,25 @@ Tali procedure vengono descritte qui di seguito:
 
 #### <a name="sql-migration"></a>Migrazione guidata database SQL
 
-[Migrazione guidata database SQL Server](http://sqlazuremw.codeplex.com/) descrive  un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.  
+[Migrazione guidata database SQL Server](http://sqlazuremw.codeplex.com/) fornisce un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.
 
-![SQL Server Migration Wizard][2]
+![Migrazione guidata in SQL Server][2]
 
 #### <a name="sql-backup"></a>Backup e ripristino database
 
-SQL Server supporta: 
+SQL Server supporta:
 
 1. La [funzionalità di backup e ripristino del database](https://msdn.microsoft.com/library/ms187048.aspx) (sia in un file locale o in un'esportazione bacpac in un BLOB) e [applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx) (tramite bacpac). 
 2. Possibilità di creare direttamente le macchine virtuali SQL Server in Azure con un database copiato o di copiare in un database esistente di SQL Azure. Per ulteriori informazioni, vedere [Utilizzo della procedura guidata di copia del database](https://msdn.microsoft.com/library/ms188664.aspx). 
 
 Seguito è riportata una schermata delle opzioni di backup e ripristino del database da SQL Server Management Studio.
 
-![SQL Server Import Tool][1]
+![Strumento di importazione di SQL Server][1]
 
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

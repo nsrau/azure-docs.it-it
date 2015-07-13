@@ -1,11 +1,24 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties 
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) - Azure" 
+	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
+	authors="thinkingserious"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 
 # Come usare il servizio di posta elettronica SendGrid da PHP
 
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP.
-Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, l'**invio di messaggi di posta elettronica**, e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][].
+Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP. Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, **l'invio di messaggi di posta elettronica** e ** l'aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio della posta elettronica, vedere la sezione [Passaggi successivi][].
 
 ## Sommario
 
@@ -23,7 +36,7 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 
 -   Invio automatico di ricevute ai clienti
 -   Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali
--   Raccolta di metriche in tempo reale, ad esempio per indirizzi di posta elettronica bloccati e velocità di risposta al cliente
+-   Raccolta di metriche in tempo reale per elementi quali indirizzi di posta elettronica bloccati e velocità di risposta al cliente
 -   Generazione di report per agevolare l'identificazione delle tendenze
 -   Inoltro di richieste dei clienti
 - Notifiche di posta elettronica dall'applicazione
@@ -32,7 +45,7 @@ Per altre informazioni, vedere [https://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Creare un account SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Usare SendGrid dall'applicazione PHP
 
@@ -44,7 +57,7 @@ L'uso di SendGrid in un'applicazione PHP di Azure non richiede speciali attivit�
 
 ### API SMTP
 
-Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][] v5.3.0 (usare [Composer] per installare Swift Mailer). L'invio di messaggi di posta elettronica tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> e <span class="auto-style2">Swift_Message</span>, l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift_Mailer::send</span>.
+Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][] v5.3.0 (usare [Composer] per installare Swift Mailer). L'invio di messaggi di posta elettronica tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> e <span class="auto-style2">Swift_Message</span> l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -281,13 +294,11 @@ Esempio:
 
 SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso di "filtri". Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via.
 
-È possibile applicare filtri a un messaggio usando la proprietà filters. Ogni filtro è specificato da un hash che contiene impostazioni specifiche del filtro. Nell'esempio seguente viene abilitato il filtro piè di pagina e viene specificato un messaggio di testo che verrà aggiunto nella parte inferiore del messaggio di posta elettronica:
-Per questo esempio si userà [la libreria sendgrid-php].
-Usare [Composer] per installare la libreria:
+È possibile applicare filtri a un messaggio usando la proprietà filters. Ogni filtro è specificato da un hash che contiene impostazioni specifiche del filtro. Nell'esempio seguente viene abilitato il filtro piè di pagina e viene specificato un messaggio di testo che verrà aggiunto nella parte inferiore del messaggio di posta elettronica: Per questo esempio si userà la[libreria sendgrid-php]. Usare [Composer] per installare la libreria:
     
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-Esempio:    
+Esempio:
 
     <?php
      /*
@@ -384,8 +395,7 @@ Esempio:
 
 ## <a name="bkmk_NextSteps"> </a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, è possibile
-usare i collegamenti seguenti per ottenere altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
 -   Documentazione su SendGrid: <https://sendgrid.com/docs>
 -   Libreria PHP di SendGrid: <https://github.com/sendgrid/sendgrid-php>
@@ -398,16 +408,16 @@ usare i collegamenti seguenti per ottenere altre informazioni.
   [Procedura: Inviare un messaggio di posta elettronica]: #bkmk_HowToSendEmail
   [Procedura: Aggiungere un allegato]: #bkmk_HowToAddAttachment
   [Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi]: #bkmk_HowToUseFilters
-  [Procedura: Usare servizi aggiuntivi forniti da SendGrid]: #bkmk_HowToUseAdditionalSvcs
+  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
-  [offerta speciale]: https://www.sendgrid.com/windowsazure.html
-  [Creazione di un pacchetto per applicazioni PHP e relativa distribuzione in Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+  [special offer]: https://www.sendgrid.com/windowsazure.html
+  [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
-  [curl (funzione)]: http://php.net/curl
+  [funzione curl]: http://php.net/curl
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
-  [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!--HONumber=35.2-->
+<!---HONumber=July15_HO1-->

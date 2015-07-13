@@ -3,18 +3,17 @@
 	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app HTML che usa Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
-	writer="jparrel" 
+	authors="bureado"  
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Chiamare un'API personalizzata da un'applicazione HTML
@@ -23,21 +22,15 @@
 
 Questo argomento descrive come chiamare un'API personalizzata da un'app HTML. Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
-L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il contrassegno di completamento su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
+L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il contrassegno di completamento su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. A questo scopo, verranno eseguiti i passaggi seguenti:
-
-1. [Definire l'API personalizzata]
-2. [Aggiornare l'app per la chiamata all'API personalizzata]
-3. [Testare l'app] 
-
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili] o [Introduzione ai dati].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
 
 ## <a name="define-custom-api"></a>Definire l'API personalizzata
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a>Aggiornamento dell'app per la chiamata all'API personalizzata</h2>
+##<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
 1. Nell'editor di testo aprire il file index.html, individuare l'elemento **button** denominato `buttonRefresh` e aggiungere subito dopo il nuovo elemento seguente: 
 
@@ -79,19 +72,24 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## Passaggi successivi
 
-Dopo avere creato un'API personalizzata e averla chiamata dall'app HTML, per altre informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
+In questo argomento è stato illustrato come usare la funzione **invokeApi** per chiamare un'API personalizzata abbastanza semplice dall'app HTML/JavaScript. Per altre informazioni sull'uso della funzione **invokeApi**, vedere il post sull'[API personalizzata in Servizi mobili di Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+
+Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
 * [Riferimento per gli script del server di Servizi mobili] <br/>Ulteriori informazioni sulla creazione di API personalizzate.
 
+* [Archiviazione degli script del server nel controllo del codice sorgente] <br/> Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
+
 <!-- Anchors. -->
-[Definire l'API personalizzata]: #define-custom-api
-[Aggiornare l'app per la chiamata all'API personalizzata]: #update-app
-[Testare l'app]: #test-app
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
 [Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Introduzione a Servizi mobili]: mobile-services-html-get-started.md
-[Introduzione ai dati]: mobile-services-html-get-started-data.md
-<!--HONumber=54--> 
+[Aggiungere Servizi mobili a un'app esistente]: mobile-services-html-get-started-data.md
+[Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
+
+<!---HONumber=July15_HO1-->

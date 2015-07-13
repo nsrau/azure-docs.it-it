@@ -93,8 +93,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. 
-<!--
+Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -119,7 +118,7 @@ No, non è supportato. Tuttavia, è possibile usare il codice personalizzato R e
 
 
 ###Elaborazione dei dati 
-**Esiste la possibilità di visualizzare i dati \(oltre alle visualizzazioni R\) in modo interattivo all'interno dell'esperimento?**
+**Esiste la possibilità di visualizzare i dati (oltre alle visualizzazioni R) in modo interattivo all'interno dell'esperimento?**
 
 Facendo clic sull'output di un modulo è possibile visualizzare i dati e ottenere le statistiche.
 
@@ -154,7 +153,7 @@ No. Attualmente è supportata solo la ripetizione del training a livello di codi
 
 No.
 
-**È possibile creare dei moduli personalizzati in C\# o in altri linguaggi?**
+**È possibile creare dei moduli personalizzati in C# o in altri linguaggi?**
 
 Attualmente, i nuovi moduli personalizzati possono essere creati solo in R.
 
@@ -198,7 +197,7 @@ Vedere [Limiti relativi alle sottoscrizioni](../azure-subscription-service-limit
 ###Uso
 **Quando si esegue il modello predittivo come servizio di esecuzione batch invece che come servizio richiesta-risposta?**
 
-Il servizio richiesta-risposta \(RRS\) è un servizio Web a bassa latenza e a scalabilità elevata usato per fornire un'interfaccia ai modelli senza stato creati e pubblicati dall'ambiente dell'esperimento. Il servizio di esecuzione batch \(BES\) è un servizio per il punteggio asincrono di un batch di record di dati. L'input per BES è simile all'input di dati usato in RRS. La differenza principale è che BES legge un blocco di record da diverse origini, ad esempio il servizio BLOB e il servizio tabelle in Azure, il database SQL di Azure, HDInsight \(query hive\) e origini HTTP. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+Il servizio richiesta-risposta (RRS) è un servizio Web a bassa latenza e a scalabilità elevata usato per fornire un'interfaccia ai modelli senza stato creati e pubblicati dall'ambiente dell'esperimento. Il servizio di esecuzione batch (BES) è un servizio per il punteggio asincrono di un batch di record di dati. L'input per BES è simile all'input di dati usato in RRS. La differenza principale è che BES legge un blocco di record da diverse origini, ad esempio il servizio BLOB e il servizio tabelle in Azure, il database SQL di Azure, HDInsight (query hive) e origini HTTP. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
 
 **Come si aggiorna il modello per il servizio Web distribuito?**
 
@@ -219,7 +218,7 @@ Sì. È necessario fornire una posizione di archiviazione BLOB in cui verrà ins
 
 **Che cos'è la scalabilità del servizio Web?**
 
-Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 80 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse \(300 processi di lavoro\).
+Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 80 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse (300 processi di lavoro).
 
 
 **I processi R sono distribuiti in più nodi?**
@@ -305,4 +304,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

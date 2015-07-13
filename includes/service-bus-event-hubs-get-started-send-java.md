@@ -95,4 +95,4 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

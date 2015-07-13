@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/28/2015" 
 	ms.author="kathydav"/>
 
 
-
+# Come connettere le macchine virtuali con una rete virtuale o un servizio cloud
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
-
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

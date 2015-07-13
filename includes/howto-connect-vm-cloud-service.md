@@ -1,4 +1,3 @@
-
 Le macchine virtuali sono sempre disponibili in un servizio cloud, che funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può trovarsi facoltativamente in una rete virtuale.
 
 Se un servizio cloud non si trova in una rete virtuale, è detto servizio cloud *autonomo*. Le macchine virtuali in tale servizio cloud possono comunicare solo con altre macchine virtuali usando i nomi DNS pubblici delle altre macchine virtuali e il traffico verrà trasmesso attraverso Internet. Se un servizio cloud si trova in una rete virtuale, le macchine virtuali in tale servizio cloud possono comunicare con tutte le altre macchine virtuali nella rete virtuale senza inviare traffico su Internet.
@@ -11,7 +10,7 @@ Se si inseriscono le macchine virtuali in una rete virtuale, è possibile decide
 
 ![Macchine virtuali in una rete virtuale](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali in Azure. La procedura consigliata consiste nel configurare ogni livello dell'applicazione in un servizio cloud separato. In questo modo viene abilitata la delega dei diritti utente avanzato tramite il Controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](../articles/role-based-access-control-configure.md). Tuttavia, potrebbe essere necessario combinare le macchine virtuali da diversi livelli dell'applicazione nello stesso servizio cloud in modo da rimanere entro il numero massimo di 200 servizi cloud per ogni sottoscrizione.
+Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali in Azure. La procedura consigliata consiste nel configurare ogni livello dell'applicazione in un servizio cloud separato. In questo modo viene abilitata la delega dei diritti utente avanzata tramite il Controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](../articles/role-based-access-control-configure.md). Tuttavia, potrebbe essere necessario combinare le macchine virtuali da diversi livelli dell'applicazione nello stesso servizio cloud in modo da rimanere entro il numero massimo di 200 servizi cloud per ogni sottoscrizione.
 
 ## Connettere le macchine virtuali in una rete virtuale
 
@@ -25,12 +24,12 @@ Di seguito è illustrato un esempio di uso del portale di gestione di Azure.
 
 ![Selezione di un servizio cloud per una macchina virtuale](./media/howto-connect-vm-cloud-service/VMConfig1.png)
 
-## Connettere macchine virtuali in un servizio cloud autonomo
+## Connettere le macchine virtuali in un servizio cloud autonomo
  
 Per connettere le macchine virtuali in un servizio cloud autonomo:
 
 1.	Creare il servizio cloud per la distribuzione nel portale di gestione di Azure. Fare clic su **Nuovo > Calcolo > Servizio cloud > Creazione personalizzata**.
-2.	Quando si crea la macchina virtuale, specificare il nome del servizio cloud creato al passaggio precedente. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
+2.	Quando si crea la macchina virtuale, specificare il nome del servizio cloud creato nel passaggio precedente. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
 
 Di seguito è illustrato un esempio di uso del portale di gestione di Azure per il servizio cloud esistente denominato EndpointTest.
  
@@ -49,4 +48,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

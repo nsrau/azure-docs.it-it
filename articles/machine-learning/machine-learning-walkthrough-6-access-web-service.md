@@ -38,8 +38,8 @@ Perché un servizio Web sia utile, gli utenti devono essere in grado di inviare 
 
 Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a informazioni utili agli sviluppatori per scrivere codice per l'accesso al servizio. Fare clic sul collegamento alla **pagina della guida per l'API** nella riga **RICHIESTA/RISPOSTA**. Verrà visualizzata una pagina contenente codice di esempio per l'uso del protocollo di richiesta/risposta del servizio. Analogamente, il collegamento nella riga **ESECUZIONE BATCH** offre accesso a codice di esempio per l'esecuzione di una richiesta batch al servizi.
 
-La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C\# e Python.
+La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C# e Python.
 
 <!-- Add link to Derrick's articles on web services -->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

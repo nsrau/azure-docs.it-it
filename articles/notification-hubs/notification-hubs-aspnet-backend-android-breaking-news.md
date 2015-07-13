@@ -36,7 +36,7 @@ Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag.
 
-1. Aprire il file res/layout/activity\_main.xml e sostituire il contenuto con il seguente:
+1. Aprire il file res/layout/activity_main.xml e sostituire il contenuto con il seguente:
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	A questo punto il layout grafico del file main\_activity.xml dovrebbe essere simile al seguente:
+	A questo punto il layout grafico del file main_activity.xml dovrebbe essere simile al seguente:
 
 	![][A1]
 
@@ -221,7 +221,7 @@ L'app può quindi archiviare un set di categorie nell'archiviazione locale del d
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale.
 
-> [AZURE.NOTE]Poiché il valore di registrationId assegnato da Google Cloud Messaging \(GCM\) può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+> [AZURE.NOTE]Poiché il valore di registrationId assegnato da Google Cloud Messaging (GCM) può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
 1. Aggiungere il codice seguente alla classe **Notifications**:
 
@@ -236,7 +236,7 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per queste categorie. Il metodo **InitNotificationsAsync** è stato creato nell'ambito dell'esercitazione \[Introduzione ad Hub di notifica\], ma non è necessario in questo argomento.
+	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per queste categorie. Il metodo **InitNotificationsAsync** è stato creato nell'ambito dell'esercitazione [Introduzione ad Hub di notifica], ma non è necessario in questo argomento.
 
 3. Aggiungere quindi il metodo seguente a **MainActivity**:
 
@@ -319,4 +319,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

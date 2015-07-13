@@ -20,7 +20,7 @@
 
 Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare un'unità diversa per il disco temporaneo. Non usare mai l'unità temporanea per archiviare i dati che si intende conservare.
 
-Prima di iniziare è necessario disporre di un disco dati collegato alla macchina virtuale da usare per l'archiviazione del file di paging di Windows \(pagefile.sys\) durante la procedura. Se non si dispone di un disco dati collegato, vedere [Come collegare un disco dati a una macchina virtuale Windows][Attach]. Per istruzioni su come individuare i dischi collegati, vedere "Gestire i dischi" in [Informazioni sui dischi delle macchine virtuali in Azure][Disks].
+Prima di iniziare è necessario disporre di un disco dati collegato alla macchina virtuale da usare per l'archiviazione del file di paging di Windows (pagefile.sys) durante la procedura. Se non si dispone di un disco dati collegato, vedere [Come collegare un disco dati a una macchina virtuale Windows][Attach]. Per istruzioni su come individuare i dischi collegati, vedere "Gestire i dischi" in [Informazioni sui dischi delle macchine virtuali in Azure][Disks].
 
 Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere caricato anche il disco rigido virtuale nell'account di archiviazione. Per le istruzioni, vedere i passaggi 3 e 4 in [Creare e caricare un disco rigido virtuale di Windows Server in Azure][VHD].
 
@@ -67,4 +67,4 @@ Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

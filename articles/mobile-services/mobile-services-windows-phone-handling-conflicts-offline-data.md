@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##Panoramica
 
@@ -239,5 +239,6 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite per Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

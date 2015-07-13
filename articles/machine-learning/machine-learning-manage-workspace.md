@@ -66,7 +66,7 @@ Dalla scheda di configurazione è possibile:
 - Sospendere l'accesso all'area di lavoro di Machine Learning facendo clic su DENY. Gli utenti non saranno più in grado di aprire l'area di lavoro in Machine Learning Studio. Per ripristinare l'accesso, fare clic su ALLOW.
 - Modificare il proprietario dell'area di lavoro specificando un account Microsoft diverso. 
 
-Per gestire chi può accedere all'area di lavoro in Machine Learning Studio, fare clic su **APRI IN STUDIO** \(vedere la nota che riguarda **APRI IN STUDIO**\). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
+Per gestire chi può accedere all'area di lavoro in Machine Learning Studio, fare clic su **APRI IN STUDIO** (vedere la nota che riguarda **APRI IN STUDIO**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
 
 
 ## Per gestire i servizi Web in questa area di lavoro
@@ -94,4 +94,4 @@ Da questa pagina è anche possibile pubblicare il servizio Web nel Marketplace d
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

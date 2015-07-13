@@ -1,6 +1,6 @@
 <properties
    pageTitle="Funzioni del modello di Gestione risorse di Azure"
-   description="Descrive le funzioni da usare in un modello di Gestione risorse di Azure per distribuire le app in Azure."
+   description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
 
@@ -52,9 +52,36 @@ L'esempio seguente mostra come combinare più valori per restituirne uno solo.
         }
     }
 
+## deployment
+
+**deployment()**
+
+Restituisce informazioni sull'operazione di distribuzione corrente.
+
+Le informazioni sulla distribuzione vengono restituite come oggetto con le seguenti proprietà:
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+L'esempio seguente mostra come restituire le informazioni di distribuzione nella sezione dell’output.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
-**listKeys (resourceName o resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 Restituisce le chiavi di un account di archiviazione. È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **providerNamespace/resourceType/resourceName**. È possibile usare la funzione per ottenere i valori primaryKey e secondaryKey.
   
@@ -71,6 +98,28 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a sinistra, fino a raggiungere la lunghezza totale specificata.
+  
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringToPad | Sì | Stringa allineata a destra.
+| totalLength | Sì | Numero totale di caratteri della stringa restituita.
+| paddingCharacter | Sì | Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale.
+
+Nell'esempio seguente viene illustrato come il valore del parametro fornito dall'utente viene completato aggiungendo il carattere zero finché la stringa non raggiunge i 10 caratteri. Se il valore del parametro originale è più lungo di 10 caratteri, non vengono aggiunti caratteri.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## parameters
 
@@ -128,7 +177,7 @@ L'esempio seguente mostra come usare la funzione provider:
 
 ## reference
 
-**reference (resourceName o resourceIdentifier, [apiVersion])**
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 Consente a un'espressione di derivare il valore dallo stato di runtime di un'altra risorsa.
 
@@ -146,6 +195,27 @@ Usando l'espressione di riferimento è possibile dichiarare che una risorsa dipe
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Restituisce una nuova stringa con tutte le istanze di un carattere della stringa specificata sostituito con un altro carattere.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalString | Sì | Stringa che disporrà di tutte le istanze di un carattere sostituito da un altro carattere.
+| oldCharacter | Sì | Carattere da rimuovere dalla stringa originale.
+| newCharacter | Sì | Carattere da aggiungere al posto del carattere rimosso.
+
+Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla stringa fornita dall'utente.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,6 +326,45 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
       } 
     } 
 
+## toLower
+
+**toLower(stringToChange)**
+
+Converte la stringa specificata in caratteri minuscoli.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sì | Stringa da convertire in lettere minuscole.
+
+Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere minuscole.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+Converte la stringa specificata in lettere maiuscole.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sì | Stringa da convertire in lettere maiuscole.
+
+Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere maiuscole.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variables
 
 **variables (variableName)**
@@ -270,7 +379,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 ## Passaggi successivi
 - [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resouce-group-template-deploy.md)
-- [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
+- [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

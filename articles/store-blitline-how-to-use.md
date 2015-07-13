@@ -143,12 +143,11 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
 * Libreria NuGet di terze parti <http://nuget.org/packages/Blitline.Net>
 
 
-[Passaggi successivi]: #nextsteps
-[Informazioni su Blitline]: #whatis
-[Operazioni NON eseguite da Blitline]: #whatisnot
-[Creazione di un account Blitline]: #createaccount
-[Come creare un processo di Blitline]: #createjob
-[Come salvare un'immagine nell'archiviazione di Azure]: #saveazure
+  [Passaggi successivi]: #nextsteps
+  [Informazioni su Blitline]: #whatis
+  [Operazioni NON eseguite da Blitline]: #whatisnot
+  [Creazione di un account Blitline]: #createaccount
+  [Come creare un processo di Blitline]: #createjob
+  [Come salvare un'immagine nell'archiviazione di Azure]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

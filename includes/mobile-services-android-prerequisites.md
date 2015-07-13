@@ -1,6 +1,6 @@
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
+- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 
 - [Azure Mobile Services Android SDK](http://aka.ms/Iajk6q).
@@ -14,4 +14,4 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 [Introduzione a Servizi mobili]: ../articles/mobile-services/mobile-services-android-get-started.md
 [Aggiungere Servizi mobili a un'app esistente]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

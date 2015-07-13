@@ -16,7 +16,6 @@
    ms.date="02/19/2015"
    ms.author="kundanap"/>
 
-
 # Estensione Script personalizzato per Windows
 
 In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Script personalizzato per Windows tramite i cmdlet PowerShell di Azure.
@@ -79,5 +78,6 @@ Prossimamente verranno fornite le informazioni di utilizzo e gli esempi di Scrip
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

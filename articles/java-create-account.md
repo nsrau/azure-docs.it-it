@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="Creazione account Java" 
 	description="Creare un account in Azure." 
 	documentationCenter="java" 
 	services="" 
 	manager="wpickett" 
-	editor="mollybos" 
+	editor="jimbe" 
 	authors="rmcmurray"/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+# Creare un account Azure e abilitare l'anteprima delle funzionalità
 
-<!--HONumber=46--> 
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
-<!--HONumber=46--> 
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/22/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # Caricare immagini in Archiviazione di Azure mediante Servizi mobili
@@ -24,17 +24,14 @@ In questo argomento verrà illustrato come utilizzare Servizi mobili di Azure pe
 
 Non è possibile distribuire in modo sicuro con l'app client le credenziali necessarie per caricare i dati nel servizio di archiviazione BLOB senza rischi. Queste credenziali devono invece essere archiviate nel servizio mobile ed essere utilizzate per generare una firma di accesso condiviso utilizzata per caricare una nuova immagine. La firma di accesso condiviso, ovvero una credenziale con una scadenza breve, in questo caso 5 minuti, viene restituita in modo sicuro da Servizi mobili all'app client. L'app usa quindi questa credenziale temporanea per caricare l'immagine. In questo esempio, i download del servizio BLOB sono pubblici.
 
-In questa esercitazione verranno aggiunte funzionalità all'app di guida introduttiva per Servizi mobili per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili. L'esercitazione fornisce istruzioni dettagliate sulle operazioni di base per aggiornare il progetto di guida introduttiva per Servizi mobili in modo da caricare immagini nel servizio di archiviazione BLOB:
+In questa esercitazione verranno aggiunte funzionalità all'app di guida introduttiva per Servizi mobili per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili.
 
-1. [Installare la libreria client di archiviazione]
-2. [Aggiornare lo script insert per generare una firma di accesso condiviso]
-3. [Aggiornare l'app client per l'acquisizione di immagini]
-4. [Caricare le immagini per testare l'app]
+##Prerequisiti
 
 Per completare questa esercitazione, è necessario disporre di:
 
 + Microsoft Visual Studio 2012 Express per Windows 8 o versione successiva
-+ [Account di archiviazione di Azure][How To Create a Storage Account]
++ [Account di archiviazione di Azure](../storage-create-storage-account.md)
 + Una fotocamera o un altro dispositivo per l'acquisizione di immagini collegato al computer.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
@@ -77,14 +74,14 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
  
 + [Riferimento per i concetti e le procedure di .NET per Servizi mobili]
 
-  Ulteriori informazioni su come usare Servizi mobili con .NET.
+  Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
   
  
 <!-- Anchors. -->
-[Installare la libreria client di archiviazione]: #install-storage-client
-[Aggiornare l'app client per l'acquisizione di immagini]: #add-select-images
-[Aggiornare lo script insert per generare una firma di accesso condiviso]: #update-scripts
-[Caricare le immagini per testare l'app]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Update the insert script to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -93,16 +90,17 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
 
 <!-- URLs. -->
-[Inviare posta elettronica da Servizi mobili con SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[Inviare posta elettronica da Servizi mobili con SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
 [Pianificare processi back-end in Servizi mobili]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Introduzione a Servizi mobili]: ../mobile-services-windows-store-get-started.md
+[Riferimento per gli script del server di Servizi mobili]: mobile-services-how-to-use-server-scripts.md
+[Introduzione a Servizi mobili]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Riferimento per i concetti e le procedure di .NET per Servizi mobili]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

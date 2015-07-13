@@ -21,7 +21,7 @@
 
 ## Panoramica
 
-Nella [parte 1](storage-dotnet-shared-access-signature-part-1.md) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. Nella parte 2 verrà spiegato come generare e quindi utilizzare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C\#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
+Nella [parte 1](storage-dotnet-shared-access-signature-part-1.md) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. Nella parte 2 verrà spiegato come generare e quindi utilizzare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
 
 - Generazione di una firma di accesso condiviso per un contenitore
 - Generazione di una firma di accesso condiviso per un BLOB
@@ -37,7 +37,7 @@ In primo luogo verificare che la libreria client di archiviazione di Azure per .
 
 In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **GenerateSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, utilizzando uno dei seguenti approcci:
 
-- 	Se si desidera installare il pacchetto NuGet, installare prima l'[estensione Gestione pacchetti NuGet per Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). In Visual Studio selezionare **Progetto \| Manage NuGet Packages**, cercare online **Archiviazione di Azure** e attenersi alle istruzioni per l'installazione.
+- 	Se si desidera installare il pacchetto NuGet, installare prima l'[estensione Gestione pacchetti NuGet per Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). In Visual Studio selezionare **Progetto | Manage NuGet Packages**, cercare online **Archiviazione di Azure** e attenersi alle istruzioni per l'installazione.
 - 	In alternativa, individuare gli assembly nell'installazione di Azure SDK e aggiungervi i riferimenti.
  
 All'inizio del file Program.cs aggiungere le istruzioni **using** seguenti:
@@ -62,7 +62,7 @@ Modificare il file app.config in modo che contenga un'impostazione di configuraz
 
 Per iniziare, verrà aggiunto un metodo per generare una firma di accesso condiviso per un nuovo contenitore. In questo caso la firma non è associata a criteri di accesso archiviati, pertanto include nell'URI le informazioni relative alla scadenza e alle autorizzazioni concesse.
 
-In primo luogo, aggiungere al metodo **Main\(\)** il codice per autenticare l'accesso all'account di archiviazione e creare un nuovo contenitore:
+In primo luogo, aggiungere al metodo **Main()** il codice per autenticare l'accesso all'account di archiviazione e creare un nuovo contenitore:
 
     static void Main(string[] args)
     {
@@ -99,7 +99,7 @@ Aggiungere quindi un nuovo metodo che genera la firma di accesso condiviso per i
 	    return container.Uri + sasContainerToken;
     }
 
-Aggiungere le righe seguenti alla fine del metodo **Main\(\)**, prima della chiamata a **Console.ReadLine\(\)**, per chiamare **GetContainerSasUri\(\)** e scrivere l'URI della firma nella finestra della console:
+Aggiungere le righe seguenti alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, per chiamare **GetContainerSasUri()** e scrivere l'URI della firma nella finestra della console:
 
     //Generate a SAS URI for the container, without a stored access policy.
     Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
@@ -147,7 +147,7 @@ Aggiungere un nuovo metodo che crea un nuovo BLOB e vi scrive del testo, quindi 
 	    return blob.Uri + sasBlobToken;
     }
 
-Alla fine del metodo **Main\(\)**, prima della chiamata a **Console.ReadLine\(\)**, aggiungere le righe seguenti per chiamare **GetBlobSasUri\(\)** e scrivere l'URI della firma di accesso condiviso nella finestra della console:
+Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, aggiungere le righe seguenti per chiamare **GetBlobSasUri()** e scrivere l'URI della firma di accesso condiviso nella finestra della console:
     
     //Generate a SAS URI for a blob within the container, without a stored access policy.
     Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
@@ -162,7 +162,7 @@ Compilare ed eseguire nell'output l'URI della firma di accesso condiviso per il 
 
 A questo punto verranno creati criteri di accesso archiviati per il contenitore che consentiranno di definire i vincoli per le eventuali firme di accesso condiviso ad essi associate.
 
-Negli esempi precedenti l'ora di inizio \(implicitamente o esplicitamente\), la scadenza e le autorizzazioni sono state specificate nell'URI stesso della firma di accesso condiviso. Negli esempi seguenti questi parametri verranno specificati nei criteri di accesso archiviati e non nella firma di accesso condiviso. In tal modo sarà possibile modificare questi vincoli senza creare nuovamente la firma di accesso condiviso.
+Negli esempi precedenti l'ora di inizio (implicitamente o esplicitamente), la scadenza e le autorizzazioni sono state specificate nell'URI stesso della firma di accesso condiviso. Negli esempi seguenti questi parametri verranno specificati nei criteri di accesso archiviati e non nella firma di accesso condiviso. In tal modo sarà possibile modificare questi vincoli senza creare nuovamente la firma di accesso condiviso.
 
 È possibile specificare uno più vincoli nella firma di accesso condiviso e quelli rimanenti nei criteri di accesso archiviati. È tuttavia possibile specificare ora di inizio, scadenza e autorizzazioni solo in una delle due posizioni, pertanto non è consentito specificare le autorizzazioni sia nella firma di accesso condiviso che nei criteri di accesso archiviati.
 
@@ -188,7 +188,7 @@ Aggiungere un nuovo metodo che crea nuovi criteri di accesso archiviati su un co
         container.SetPermissions(permissions);
     }
 
-Alla fine del metodo **Main\(\)**, prima della chiamata a **Console.ReadLine\(\)**, aggiungere le righe seguenti per cancellare prima di tutto eventuali criteri di accesso esistenti, quindi per chiamare il metodo **CreateSharedAccessPolicy\(\)**:
+Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, aggiungere le righe seguenti per cancellare prima di tutto eventuali criteri di accesso esistenti, quindi per chiamare il metodo **CreateSharedAccessPolicy()**:
 
     //Clear any existing access policies on container.
     BlobContainerPermissions perms = container.GetPermissions();
@@ -218,7 +218,7 @@ Aggiungere un nuovo metodo per generare un'altra firma di accesso condiviso per 
 	    return container.Uri + sasContainerToken;
     }
     
-Alla fine del metodo **Main\(\)**, prima della chiamata a **Console.ReadLine\(\)**, aggiungere le righe seguenti per chiamare il metodo **GetContainerSasUriWithPolicy**:
+Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, aggiungere le righe seguenti per chiamare il metodo **GetContainerSasUriWithPolicy**:
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -253,13 +253,13 @@ Aggiungere un nuovo metodo per creare un BLOB e generare una firma di accesso co
 	    return blob.Uri + sasBlobToken;
     }
 
-Alla fine del metodo **Main\(\)**, prima della chiamata a **Console.ReadLine\(\)**, aggiungere le righe seguenti per chiamare il metodo **GetBlobSasUriWithPolicy**:
+Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, aggiungere le righe seguenti per chiamare il metodo **GetBlobSasUriWithPolicy**:
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-L'intero metodo **Main\(\)** dovrebbe ora essere simile al seguente. Eseguirlo per scrivere gli URI delle firme di accesso condiviso nella finestra della console, quindi copiarli e incollarli in un file di testo per utilizzarli nella seconda parte dell'esercitazione.
+L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per scrivere gli URI delle firme di accesso condiviso nella finestra della console, quindi copiarli e incollarli in un file di testo per utilizzarli nella seconda parte dell'esercitazione.
 
     static void Main(string[] args)
     {
@@ -320,7 +320,7 @@ All'inizio del file Program.cs aggiungere le istruzioni **using** seguenti:
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     
-Nel corpo del metodo **Main\(\)** aggiungere le seguenti costanti e aggiornarne i valori in base alle firme di accesso condiviso generate nella parte 1 dell'esercitazione.
+Nel corpo del metodo **Main()** aggiungere le seguenti costanti e aggiornarne i valori in base alle firme di accesso condiviso generate nella parte 1 dell'esercitazione.
 
     static void Main(string[] args)
     {
@@ -423,7 +423,7 @@ Aggiungere il metodo seguente a Program.cs:
     }
 
 
-Aggiornare il metodo **Main\(\)** in modo che chiami **UseContainerSAS\(\)** con entrambe le firme di accesso condiviso create per il contenitore:
+Aggiornare il metodo **Main()** in modo che chiami **UseContainerSAS()** con entrambe le firme di accesso condiviso create per il contenitore:
 
 	static void Main(string[] args)
 	{
@@ -442,7 +442,7 @@ Aggiornare il metodo **Main\(\)** in modo che chiami **UseContainerSAS\(\)** con
 
 ### Aggiunta di un metodo per testare le operazioni su BLOB con una firma di accesso condiviso
 
-Verrà infine aggiunto un metodo per testare alcune operazioni rappresentative sul BLOB utilizzando una firma di accesso condiviso. In questo caso verrà utilizzato il costruttore **CloudBlockBlob\(String\)**, passandolo nella firma di accesso condiviso, per restituire un riferimento al BLOB. Non è richiesto un altro tipo di autenticazione; è basato esclusivamente sulla firma.
+Verrà infine aggiunto un metodo per testare alcune operazioni rappresentative sul BLOB utilizzando una firma di accesso condiviso. In questo caso verrà utilizzato il costruttore **CloudBlockBlob(String)**, passandolo nella firma di accesso condiviso, per restituire un riferimento al BLOB. Non è richiesto un altro tipo di autenticazione; è basato esclusivamente sulla firma.
 
 Aggiungere il metodo seguente a Program.cs:
 
@@ -516,7 +516,7 @@ Aggiungere il metodo seguente a Program.cs:
     }
 
 
-Aggiornare il metodo **Main\(\)** in modo che chiami **UseBlobSAS\(\)** con entrambe le firme di accesso condiviso create nel BLOB:
+Aggiornare il metodo **Main()** in modo che chiami **UseBlobSAS()** con entrambe le firme di accesso condiviso create nel BLOB:
 
 	static void Main(string[] args)
 	{
@@ -546,7 +546,7 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 
 [Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
 
-[Delega dell'accesso con una firma di accesso condiviso \(API REST\)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
 [Introduzione alla firma di accesso condiviso per tabelle e code](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
@@ -555,4 +555,4 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -30,12 +30,12 @@ Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si 
 
 Iniziare creando una macchina virtuale di Azure con un'immagine Linux.
 
-Per creare la macchina virtuale, è possibile usare il portale di gestione di Azure o l'interfaccia della riga di comando \(CLI\) di Azure.
+Per creare la macchina virtuale, è possibile usare il portale di gestione di Azure o l'interfaccia della riga di comando (CLI) di Azure.
 
 ### Portale di gestione di Azure
 
 1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
-2. Fare clic su **Nuovo** \> **Calcolo** \> **Macchina virtuale** \> **Creazione rapida**. Selezionare un'immagine Linux.
+2. Fare clic su **Nuovo** > **Calcolo** > **Macchina virtuale** > **Creazione rapida**. Selezionare un'immagine Linux.
 3. Immettere una password.
 
 Dopo che viene eseguito il provisioning della macchina virtuale, fare clic sul nome della macchina virtuale e quindi fare clic su **Dashboard**. Trovare l'endpoint SSH, elencato in **Dettagli su SSH**.
@@ -78,7 +78,7 @@ Mentre si è ancora connessi con SSH, eseguire i comandi seguenti:
 	cd myapp
 	rails server -b 0.0.0.0 -p 3000
 
-Il comando [new](http://guides.rubyonrails.org/command_line.html#rails-new) crea una nuova applicazione Rails. Il comando [server](http://guides.rubyonrails.org/command_line.html#rails-server) avvia il server Web WEBrick fornito con Rails \(per l'uso in un ambiente di produzione sarà opportuno usare un server differente, ad esempio Unicorn o Passenger\).
+Il comando [new](http://guides.rubyonrails.org/command_line.html#rails-new) crea una nuova applicazione Rails. Il comando [server](http://guides.rubyonrails.org/command_line.html#rails-server) avvia il server Web WEBrick fornito con Rails (per l'uso in un ambiente di produzione sarà opportuno usare un server differente, ad esempio Unicorn o Passenger).
 
 L'output dovrebbe essere simile al seguente.
 
@@ -172,4 +172,4 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

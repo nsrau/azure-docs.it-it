@@ -40,7 +40,7 @@ In questo caso, all'utente verrà richiesta una password. Dopo avere immesso la 
 È anche possibile abilitare sudo senza password modificando il file `/etc/sudoers.d/waagent`, ad esempio:
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 Questa modifica permetterà all'utente azureuser di usare sudo senza password.
 
@@ -52,4 +52,6 @@ Accedere alla macchina virtuale Linux usando l'autenticazione con chiave SSH, qu
 
 In questo caso, all'utente **non** verrà richiesta una password. Dopo aver premuto `<enter>`, `sudo` eseguirà il comando con privilegi `root`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

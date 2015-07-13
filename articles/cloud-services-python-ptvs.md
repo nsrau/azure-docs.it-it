@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Ruoli Web e ruoli di lavoro Python con Python Tools 2.1 per Visual Studio" 
-	description="Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Ruoli Web e ruoli di lavoro Python con Python Tools 2.1 per Visual Studio"
+	description="Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -104,7 +104,7 @@ Per informazioni dettagliate sull'uso di ruoli di lavoro e Web in Python Tools p
 - [Progetti servizio cloud][]
 
 Per informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere le guide seguenti:
- 
+
 - [Servizio BLOB][]
 - [Servizio tabelle][]
 - [Servizio di accodamento][]
@@ -139,4 +139,4 @@ Per informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e 
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

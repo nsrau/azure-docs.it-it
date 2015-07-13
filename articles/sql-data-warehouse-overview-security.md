@@ -1,0 +1,81 @@
+<properties
+   pageTitle="Proteggere un database in SQL Data Warehouse | Microsoft Azure"
+   description="Suggerimenti per proteggere un database in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/22/2015"
+   ms.author="sahajs"/>
+
+# Proteggere un database in SQL Data Warehouse
+
+Questo articolo illustra i concetti di base relativi alla protezione del proprio database di Azure SQL Data Warehouse. In particolare l'articolo spiegherà come iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database.
+
+## Sicurezza delle connessioni
+
+La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
+
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di gestione di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per altre informazioni, vedere [Firewall di database SQL di Azure][].
+
+
+## Autenticazione
+
+Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. SQL Data Warehouse attualmente supporta l'autenticazione SQL con un nome utente e una password.
+
+Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Usando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo".
+
+È tuttavia consigliabile che gli utenti dell'organizzazione usino un account diverso per l'autenticazione. In questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. L'approccio consigliato consiste nel creare un utente del database indipendente perché, in questo modo, l'app può essere autenticata direttamente per un singolo database con un nome utente e una password. È possibile creare un utente del database indipendente tramite l'esecuzione dell'istruzione T-SQL seguente durante la connessione al database utente con l'account di accesso di amministrazione del server:
+
+```
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+```
+
+Per altre informazioni su come avviene l'autenticazione per un database SQL, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure][].
+
+
+## Autorizzazione
+
+Per autorizzazione si intendono le operazioni che è possibile effettuare all'interno di un database di Azure SQL Data Warehouse e questa funzionalità viene controllata mediante le autorizzazioni e le appartenenze ai ruoli dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. Azure SQL Data Warehouse ne semplifica la gestione con i ruoli in T-SQL:
+
+```
+ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
+ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
+```
+
+L'account di amministrazione del server a cui ci si sta connettendo è un membro del ruolo db_owner, che è autorizzato a eseguire qualsiasi operazione all'interno del database. Salvare questo account per la distribuzione degli aggiornamenti allo schema e altre operazioni di gestione. Usare l'account "ApplicationUser" con autorizzazioni più limitate per la connessione dall'applicazione al database con i privilegi minimi richiesti dall'applicazione.
+
+Esistono diversi modi per limitare ulteriormente le operazioni che un utente può eseguire con il database SQL di Azure: - È possibile usare [ruoli del database][] diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. - È possibile usare [autorizzazioni][] granulari per controllare le operazioni consentite per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. - È possibile usare [stored procedure][] per limitare le operazioni che possono essere eseguite sul database.
+
+La gestione di database e server logici dal portale di gestione di Azure o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere l'articolo relativo al [controllo degli accessi in base al ruolo nel portale di anteprima di Azure][].
+
+
+## Passaggi successivi
+Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
+
+<!--Image references-->
+
+<!--Article references-->
+[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+
+
+<!--MSDN references-->
+[Firewall di database SQL di Azure]: https://msdn.microsoft.com/library/ee621782.aspx
+[ruoli del database]: https://msdn.microsoft.com/library/ms189121.aspx
+[Gestione di database, account di accesso e utenti in database SQL di Azure]: https://msdn.microsoft.com/library/ee336235.aspx
+[autorizzazioni]: https://msdn.microsoft.com/library/ms191291.aspx
+[stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
+[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+
+<!--Other Web references-->
+[controllo degli accessi in base al ruolo nel portale di anteprima di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+
+<!---HONumber=July15_HO1-->

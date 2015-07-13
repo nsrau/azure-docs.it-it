@@ -29,7 +29,7 @@ I passaggi seguenti consentono di pubblicare un servizio Web di Azure Machine Le
 
 1. Creare e pubblicare un servizio di richiesta-risposta di Machine Learning.
 2. Distribuire il servizio in produzione e ottenere le informazioni sull'endpoint OData e sulla chiave API.
-3. Usare l'URL del servizio Web pubblicato per la pubblicazione in [Azure Marketplace](https://publish.windowsazure.com/workspace/) \(store online per dati\). 
+3. Usare l'URL del servizio Web pubblicato per la pubblicazione in [Azure Marketplace](https://publish.windowsazure.com/workspace/) (store online per dati). 
 4. Una volta inviata, l'offerta viene esaminata e deve essere approvata prima che i clienti possano iniziare ad acquistarla. La procedura di pubblicazione può richiedere alcuni giorni lavorativi. 
 
 ## Procedura dettagliata
@@ -62,9 +62,9 @@ distribuire il servizio in produzione.
 
 
 
-###Passaggio 3: Usare l'URL del servizio Web pubblicato per la pubblicazione in Azure Marketplace \(store online per dati\)###
+###Passaggio 3: Usare l'URL del servizio Web pubblicato per la pubblicazione in Azure Marketplace (store online per dati)###
 
-1.  Passare ad [Azure Marketplace \(store online per dati\)](http://datamarket.azure.com/home) 
+1.  Passare ad [Azure Marketplace (store online per dati)](http://datamarket.azure.com/home) 
 2.  Fare clic sul collegamento **Pubblica** nella parte superiore della pagina. Verrà visualizzato il [portale di pubblicazione di Microsoft Azure](https://publish.windowsazure.com)
 3.  Fare clic sulla sezione **editori** per registrarsi come editore.
 4.	Quando si crea una nuova offerta, selezionare **Servizi dati**, quindi fare clic su **Crea un nuovo servizio dati**. 
@@ -91,7 +91,7 @@ distribuire il servizio in produzione.
 11. Per **Autenticazione** scegliere **Intestazione** come **Schema di autenticazione**.
 
 	- Immettere "Autorizzazione" per **Nome intestazione**.
-	- Per **Valore intestazione** immettere "Portante" \(senza virgolette\), fare clic sulla **BARRA SPAZIATRICE** e quindi incollare la chiave API.
+	- Per **Valore intestazione** immettere "Portante" (senza virgolette), fare clic sulla **BARRA SPAZIATRICE** e quindi incollare la chiave API.
 	- Selezionare la casella di controllo **Questo servizio è OData**.
 	- Fare clic su **Test connessione** per testare la connessione.
 
@@ -109,4 +109,4 @@ distribuire il servizio in produzione.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

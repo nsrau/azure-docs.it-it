@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 
 #Push sicuro degli hub di notifica di Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
-#Informazioni generali
+##Panoramica
 
-Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura push di facile utilizzo, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. 
+Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura push di facile utilizzo, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
 
 A causa di vincoli normativi o di sicurezza, un'applicazione potrebbe talvolta includere nella notifica informazioni che non è possibile trasmettere attraverso l'infrastruttura di notifiche push standard. In questa esercitazione viene descritto come conseguire la stessa esperienza inviando informazioni sensibili attraverso una connessione autenticata e sicura tra il dispositivo client e il back-end dell'app.
 
@@ -38,27 +37,26 @@ A livello generale, il flusso è il seguente:
 	- Il dispositivo contatta il back-end richiedendo il payload sicuro.
 	- L'app può indicare il payload come una notifica sul dispositivo.
 
-È importante notare che nel flusso precedente (e in questa esercitazione) si presume che il dispositivo archivi un token di autenticazione nell'archiviazione locale, dopo che l'utente ha eseguito l'accesso. Ciò garantisce un'esperienza del tutto uniforme, in quanto il dispositivo può recuperare il payload sicuro della notifica usando questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
+È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l’accesso dell'utente. Ciò garantisce un'esperienza completamente lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
-In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione relativa all'**invio di notifiche agli utenti con Hub di notifica**, sarà prima necessario completare i passaggi di tale esercitazione.
+In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione **Utilizzo di Hub di notifica per inviare notifiche agli utenti**, sarà prima necessario completare i passaggi di quest'ultima.
 
-> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md).
+> [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificare il progetto Android
 
-Ora che è stato modificato il back-end dell'app in modo da inviare solo l' *id* di una notifica, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
-Per conseguire questo obiettivo, è necessario assicurarsi che l'app per Android sia in grado di eseguire l'autenticazione con il back-end quando riceve le notifiche push.
+Ora che è stato modificato il back-end dell'app in modo da inviare solo l'*id* di una notifica, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare. Per conseguire questo obiettivo, è necessario assicurarsi che l'app per Android sia in grado di eseguire l'autenticazione con il back-end quando riceve le notifiche push.
 
-Ora si modificherà il flusso di  *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app dovrà usare senza richiedere le credenziali dell'utente.
+Ora si modificherà il flusso di *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app dovrà usare senza richiedere le credenziali dell'utente.
 
-1. Nel progetto di app per Android, aggiungere le seguenti costanti all'inizio della classe **MainActivity**:
+1. Nel progetto di app per Android, aggiungere le costanti seguenti all'inizio della classe **MainActivity**:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. Sempre nella classe **MainActivity** aggiornare il metodo  `getAuthorizationHeader()` in modo che contenga il seguente codice:
+2. Sempre nella classe **MainActivity** aggiornare il metodo `getAuthorizationHeader()` in modo che contenga il seguente codice:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -72,13 +70,13 @@ Ora si modificherà il flusso di  *accesso* per salvare il valore dell'intestazi
     		return basicAuthHeader;
 		}
 
-3. Aggiungere le seguenti istruzioni di  `importazione` all'inizio del file **MainActivity**:
+3. Aggiungere le seguenti istruzioni `import` all'inizio del file **MainActivity**:
 
 		import android.content.SharedPreferences;
 
 A questo punto, modificare il gestore chiamato quando si riceve la notifica.
 
-4. Nella classe **MyHandler** modificare il metodo  `OnReceive()` in modo che contenga:
+4. Nella classe **MyHandler** modificare il metodo `OnReceive()` in modo che contenga:
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -86,7 +84,7 @@ A questo punto, modificare il gestore chiamato quando si riceve la notifica.
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. Aggiungere quindi il metodo  `retrieveNotification()`, sostituendo il segnaposto  `{back-end endpoint}` con l'endpoint del back-end ottenuto durante la distribuzione del back-end:
+5. Aggiungere quindi il metodo `retrieveNotification()`, sostituendo il segnaposto `{back-end endpoint}` con l'endpoint del back-end ottenuto durante la distribuzione del back-end:
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -122,7 +120,7 @@ Notare che è preferibile gestire i casi in cui manca la proprietà dell'intesta
 
 ## Esecuzione dell'applicazione
 
-Per eseguire l'applicazione, seguire questa procedura:
+Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 1. Assicurarsi che il progetto **AppBackend** sia distribuito in Azure. Se si usa Visual Studio, eseguire l'applicazione API Web **AppBackend**. Verrà visualizzata una pagina Web ASP.NET.
 
@@ -130,6 +128,7 @@ Per eseguire l'applicazione, seguire questa procedura:
 
 3. Nell'interfaccia utente dell'app per Android immettere un nome utente e una password. Può trattarsi di qualsiasi stringa, ma devono avere lo stesso valore.
 
-4. Nell'interfaccia utente di Android, fare clic su **Log in**. Fare quindi clic su **Send push**.
+4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

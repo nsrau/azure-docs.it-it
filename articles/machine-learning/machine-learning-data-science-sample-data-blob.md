@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Dati di esempio nell'archivio BLOB di Azure| Azure" 
+	pageTitle="Dati di esempio nell'archivio BLOB di Azure| Microsoft Azure" 
 	description="Dati di esempio nell'archivio BLOB di Azure" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
@@ -45,7 +45,7 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Eseguire il campionamento dei dati usando  `numpy`  `random.choice` nel modo seguente:
+3. Eseguire il campionamento dei dati usando `random.choice` di `numpy` nel modo seguente:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -85,10 +85,15 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Leggere i dati del BLOB di Azure tramite il  *Reader Module* di Azure, come illustrato dalla schermata successiva:
+3. Leggere i dati del BLOB di Azure tramite il [Lettore](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure ML, come illustrato nell’immagine successiva:
  
-![reader blob][1]
+![lettore BLOB][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

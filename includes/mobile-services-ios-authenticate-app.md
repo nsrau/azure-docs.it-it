@@ -20,6 +20,6 @@
         [self loginAndGetData];
 ```
 
-* Fare clic su **segui** per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
+* Fare clic su **Esegui** per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

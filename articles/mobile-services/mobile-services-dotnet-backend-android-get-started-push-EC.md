@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/12/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
 
+##Panoramica
+
 Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android. L'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite Google Cloud Messaging (GCM). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
-Questa esercitazione descrive le operazioni seguenti:
-
-1. [Abilitare Google Cloud Messaging](#register)
-2. [Configurare il servizio mobile per l'invio di richieste push](#configure)
-5. [Aggiornare il server per l'invio di notifiche push](#update-server)
-7. [Aggiungere notifiche push all'app](#update-app)
-8. [Abilitare le notifiche push per i test locali](#local-testing)
-9. [Testare l'app sul servizio mobile pubblicato](#test-app)
-
-
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Introduzione ai dati] per collegare il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
-
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
-
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un’app esistente] per collegare il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
 
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
@@ -58,11 +47,11 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
 
 
-<h2><a name="download-the-service"></a>Scaricare il servizio nel computer locale</h2>
+##<a name="download-the-service"></a>Scaricare il servizio nel computer locale
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>Testare il servizio mobile</h2>
+##<a name="test-the-service"></a>Testare il servizio mobile
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -101,7 +90,7 @@ Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
     Questo codice invierà una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
 
 
-<h2><a name="publish-the-service"></a>Pubblicare il servizio mobile in Azure</h2>
+##<a name="publish-the-service"></a>Pubblicare il servizio mobile in Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -125,7 +114,7 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>Testare l'app sul servizio mobile pubblicato</h2>
+##<a name="test-app"></a>Testare l'app sul servizio mobile pubblicato
 
 È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB oppure usando un dispositivo virtuale nell'emulatore.
 
@@ -177,7 +166,7 @@ L'esercitazione è stata completata.
 -->
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite servizi mobili.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -230,19 +219,13 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-android-get-started.md
-[Introduzione ai dati]: mobile-services-dotnet-backend-android-get-started-data.md
+[Aggiungere Servizi mobili a un’app esistente]: mobile-services-dotnet-backend-android-get-started-data.md
 [Introduzione all'autenticazione]: mobile-services-dotnet-backend-android-get-started-users.md
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 [Come usare la libreria client di Android per Servizi mobili]: mobile-services-android-how-to-use-client-library.md
 
@@ -252,5 +235,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [portale di gestione di Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

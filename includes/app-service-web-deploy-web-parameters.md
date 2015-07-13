@@ -2,7 +2,7 @@ Gestione risorse di Azure permette di definire i parametri per i valori da speci
 
 Durante la definizione dei parametri, usare il campo **allowedValues** per specificare i valori che l'utente può fornire durante la distribuzione. Usare il campo **defaultValue** per assegnare un valore al parametro, se non viene specificato alcun valore durante la distribuzione.
 
-Di seguito è riportata la descrizione di ogni parametro del modello.
+Di seguito è fornita la descrizione di ogni parametro del modello.
 
 ### siteName
 
@@ -22,7 +22,7 @@ Il nome del piano di servizio app da usare per l'hosting dell'app Web.
 
 ### siteLocation
 
-Il percorso da usare per la creazione dell'app Web e del piano di hosting. Deve essere uno dei percorsi di Azure che supportano le app Web.
+Il percorso da usare per la creazione dell'app Web e il piano di hosting. Deve essere uno dei percorsi di Azure che supportano le app Web.
 
     "siteLocation":{
       "type":"string"
@@ -30,7 +30,7 @@ Il percorso da usare per la creazione dell'app Web e del piano di hosting. Deve 
 
 ### sku
 
-Il piano tariffario per l'hosting.
+Il piano tariffario del piano di hosting.
 
     "sku":{
       "type":"string",
@@ -43,11 +43,11 @@ Il piano tariffario per l'hosting.
       "defaultValue":"Free"
     }
 
-Il modello definisce i valori consentiti per il parametro (Gratuito, Condiviso, Basic o Standard) e assegna un valore predefinito (Gratuito) nel caso in cui non venga specificato alcun valore.
+Il modello definisce i valori consentiti per il parametro (Gratuito, Condiviso, Basic o Standard) e assegna un valore predefinito (Gratuito) nel caso in cui non viene specificato alcun valore.
 
 ### workerSize
 
-Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi).
+Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi dimensioni).
 
     "workerSize":{
       "type":"string",
@@ -59,6 +59,6 @@ Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi).
       "defaultValue":"0"
     }
     
-Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non venga specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
+Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non viene specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

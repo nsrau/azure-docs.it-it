@@ -1,38 +1,25 @@
-<properties 
-	pageTitle="API REST di Ricerca di Azure versione 2014-07-31-Preview" 
-	description="API REST di Ricerca di Azure versione 2014-07-31-Preview" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="API REST di Ricerca di Azure versione 2014-07-31-Preview" description="API REST di Ricerca di Azure: versione 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/11/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-# API REST di Ricerca di Azure versione 2014-07-31-Preview #
+# API REST di Ricerca di Azure versione 2014-07-31-Preview
 
-Questo documento descrive la versione **2014-07-31-Preview** dell'API REST di Ricerca di Azure. Questa è l'API REST per la versione di anteprima di Ricerca di Azure.
+In questo documento viene descritta la versione **2014-07-31-Preview** precedente dell’API REST di Ricerca di Azure, rilasciata per l'anteprima pubblica di Ricerca di Azure nell’agosto 2014. La documentazione relativa alla versione corrente e disponibile a livello generale dell'API REST di Ricerca di Azure è disponibile in MSDN. Per altre informazioni, vedere [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-A questa versione è correlato anche il contenuto API seguente:
+Se si utilizza una versione di anteprima dell'API nel codice dell'applicazione, si consiglia di eseguire la migrazione alla versione disponibile a livello generale. Per ulteriori informazioni, vedere [Transizione dalla versione di anteprima alla versione dell'API disponibile a livello generale](search-transition-from-preview.md).
 
-- [Profili di punteggio (API REST di Ricerca di Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview/)
+Alla versione **2014-07-31-Preview** è correlato anche il contenuto API seguente:
 
-La documentazione relativa alla versione rilasciata dell'API REST di Ricerca di Azure è disponibile su MSDN. Per altre informazioni, vedere [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
+- [Profili di punteggio (API REST di Ricerca di Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
 
-##Informazioni sull'API REST del servizio##
+
+##Informazioni sull'API REST del servizio
 
 Ricerca di Azure è un servizio basato sul cloud che è possibile usare per creare applicazioni di ricerca personalizzate. Questo servizio è basato sui concetti di *servizi di ricerca* e *indici*, dove un servizio di ricerca contiene uno o più indici. Il servizio di ricerca è identificato in modo univoco da un nome di dominio completo, ad esempio `mysearchservice.search.windows.net`. Per effetto del provisioning del servizio viene generata una chiave API, usata per autenticare le richieste inviate a Ricerca di Azure.
 
 In Ricerca di Azure è possibile eseguire due tipi di azioni:
 
-- **Gestione degli indici**: le attività amministrative eseguite su un servizio o un indice di ricerca. 
+- **Gestione degli indici**: le attività amministrative eseguite su un servizio o un indice di ricerca.
 
 - **Azioni sui documenti**: le azioni di query e gestione dell'insieme di dati per un determinato indice.
 
@@ -46,24 +33,24 @@ Le API illustrate in questa sezione consentono di accedere alle operazioni sui d
 
 - Tutte le richieste API devono includere il parametro della stringa di query `api-version`. Il valore di questo elemento deve essere impostato sulla versione corrente del servizio, come illustrato nell'esempio seguente:
 
-    GET /indexes?api-version=2014-07-31-Preview
+GET /indexes?api-version=2014-07-31-Preview
 
 - Tutte le richieste API possono impostare l'intestazione HTTP `Accept`. Se il valore non viene impostato, l'impostazione predefinita è `application/json`.
 
 Per l'amministrazione del servizio viene fornita un'API distinta. Tra le operazioni di amministrazione del servizio è incluso, ad esempio, il provisioning del servizio o la modifica della capacità. Per altre informazioni su questa API, vedere l'articolo API REST di gestione di Ricerca di Azure.
 
-### Endpoint ###
+### Endpoint
 
 L'endpoint per le operazioni del servizio è l'URL di Ricerca di Azure di cui è stato effettuato il provisioning: https://<yourService>.search.windows.net.
 
 
-### Versioni ###
+### Versioni
 
 Sono disponibili più versioni dell'API di Ricerca di Azure. Se si sta valutando Ricerca di Azure per l'uso con un'applicazione di produzione, si consiglia di esaminare le informazioni sulla versione pubblicate per ogni set di API. Per istruzioni sulla scelta di una determinata versione, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 
 <a name="Authentication"></a>
-### Autenticazione e controllo di accesso###
+### Autenticazione e controllo di accesso
 
 L'autenticazione a Ricerca di Azure richiede due tipi di informazioni: un URL del servizio di ricerca e un elemento `api-key`. Gli elementi `api-keys` vengono generati quando viene creato il servizio e possono essere rigenerati su richiesta dopo il provisioning del servizio. Un elemento `api-key` è una chiave amministratore che concede l'accesso a tutte le operazioni o una chiave di query che autentica solo le richieste di query. Sono previste 2 chiavi amministratore e fino a 50 chiavi di query per servizio.
 
@@ -73,7 +60,7 @@ L'accesso alle operazioni sui dati eseguite in un endpoint del servizio di ricer
 
 **Nota**: dal punto di vista della sicurezza, in genere non è consigliabile passare dati sensibili, come un elemento `api-key` nell'URI della richiesta. Per questo motivo, Ricerca di Azure accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione, a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. In alternativa, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.
 
-###Riepilogo delle API###
+###Riepilogo delle API
 
 L'API di Ricerca di Azure supporta due tipi di sintassi per la ricerca di entità. L'elenco seguente mostra la sintassi semplice e la sintassi di OData alternativa.
 
@@ -121,8 +108,9 @@ L'API di Ricerca di Azure supporta due tipi di sintassi per la ricerca di entit�
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-________________________________________ <a name="IndexOps"></a>
-# Operazioni sugli indici #
+________________________________________
+<a name="IndexOps"></a>
+## Operazioni sugli indici
 
 È possibile creare e gestire gli indici in Ricerca di Azure tramite semplici richieste HTTP (POST, GET, PUT, DELETE) su una risorsa indice specifica. Per creare un indice, eseguire innanzitutto la richiesta POST di un documento JSON che descrive lo schema dell'indice. Lo schema definisce i campi dell'indice, i relativi tipi di dati e la modalità d'uso, ad esempio ricerche full-text, filtri, ordinamento, uso di facet o suggerimenti. Definisce anche i profili di punteggio e altri attributi per configurare il comportamento dell'indice.
 
@@ -152,7 +140,7 @@ Per un video introduttivo all'indicizzazione di Ricerca di Azure, vedere l'[epis
 
 
 <a name="CreateIndex"></a>
-## Creare un indice ##
+## Creare un indice
 
 È possibile creare un nuovo indice in Ricerca di Azure mediante una richiesta HTTP POST. Il corpo della richiesta è un documento JSON che specifica il nome dell'indice, i campi, gli attributi per il controllo del comportamento delle query, il punteggio dei risultati e le opzioni CORS.
 
@@ -182,7 +170,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per 
 - per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Configurare Ricerca di Azure nel portale di anteprima](../search-configure.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 <a name="RequestData"></a> **Sintassi del corpo della richiesta**
 
@@ -632,7 +620,7 @@ Per una richiesta con esito positivo: "201 Creato".
 Per impostazione predefinita, il corpo della risposta contiene il codice JSON per la definizione di indice creata. Se l'intestazione della richiesta `Prefer` è impostata su `return=minimal`, il corpo della risposta sarà vuoto e il codice di stato per l'esito positivo sarà "204 Nessun contenuto" anziché "201 Creato". Questo vale indipendentemente dall'uso del metodo PUT o POST per creare l'indice.
 
 <a name="UpdateIndex"></a>
-## Aggiornare un indice ##
+## Aggiornare un indice
 
 È possibile aggiornare un indice esistente in Ricerca di Azure usando una richiesta HTTP PUT. Nella versione di anteprima pubblica le operazioni di aggiornamento valide includono l'aggiunta di nuovi campi allo schema esistente, la modifica delle opzioni CORS e la modifica dei profili di punteggio (vedere [Aggiungere profili di punteggio a un indice di ricerca](http://msdn.microsoft.com/library/azure/dn798928.aspx)). È necessario specificare il nome dell'indice da aggiornare nell'URI della richiesta:
 
@@ -659,7 +647,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiornamento dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Sintassi del corpo della richiesta**
 
@@ -732,7 +720,7 @@ Per una richiesta con esito positivo: "204 Nessun contenuto".
 Per impostazione predefinita, il corpo della risposta è vuoto. Se invece l'intestazione della richiesta `Prefer` è impostata su `return=representation`, il corpo della risposta conterrà il codice JSON per la definizione di indice aggiornata. In questo caso, il codice di stato di esito positivo sarà "200 OK".
 
 <a name="ListIndexes"></a>
-## Elencare gli indici ##
+## Elencare gli indici
 
 L'operazione per **elencare gli indici** restituisce un elenco degli indici attualmente disponibili in Ricerca di Azure.
 
@@ -751,7 +739,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **elencare gli indici** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -797,7 +785,7 @@ In questo caso, la risposta dell'esempio precedente sarà simile alla seguente:
 Questa è una tecnica utile per risparmiare larghezza di banda, se nel servizio di ricerca sono presenti numerosi indici.
 
 <a name="GetIndex"></a>
-## Ottenere un indice ##
+## Ottenere un indice
 
 L'operazione per **ottenere un indice** recupera la definizione dell'indice da Ricerca di Azure.
 
@@ -818,7 +806,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -831,7 +819,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
 Per un esempio di payload di risposta, vedere l'esempio JSON nella sezione relativa alla [creazione di un indice](#CreateUpdateIndexExample).
 
 <a name="DeleteIndex"></a>
-## Eliminare un indice ##
+## Eliminare un indice
 
 L'operazione di **eliminazione di un indice** rimuove un indice e i documenti associati da Ricerca di Azure. È possibile ottenere il nome dell'indice dal dashboard servizi nel portale di anteprima di Azure oppure dall'API. Per informazioni dettagliate, vedere [Elencare gli indici](#ListIndexes).
 
@@ -852,7 +840,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **eliminazione di un indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Configurare Ricerca di Azure nel portale di anteprima](../search-configure.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -863,7 +851,7 @@ Nessuno.
 Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun contenuto.
 
 <a name="GetIndexStats"></a>
-## Ottenere le statistiche di un indice ##
+## Ottenere le statistiche di un indice
 
 L'operazione per **ottenere le statistiche di un indice** restituisce il numero dei documenti per l'indice corrente da Ricerca di Azure, oltre all'utilizzo dello spazio di archiviazione.
 
@@ -884,7 +872,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere le statistiche di un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -901,8 +889,9 @@ Il corpo della risposta è nel formato seguente:
 	  "storageSize": number (size of the index in bytes)
     }
 
-________________________________________ <a name="DocOps"></a>
-# Operazioni sui documenti #
+________________________________________
+<a name="DocOps"></a>
+## Operazioni sui documenti
 
 In Ricerca di Azure un indice viene popolato usando i documenti JSON caricati nel servizio. Tutti i documenti caricati costituiscono l'insieme dei dati di ricerca. I documenti includono campi, alcuni dei quali sono stati suddivisi in token corrispondenti a termini di ricerca durante il caricamento. Il segmento `/docs` dell'URL nell'API di Ricerca di Azure rappresenta la raccolta di documenti in un indice. Tutte le operazioni sulla raccolta, ad esempio caricamento, unione, eliminazione o query nei documenti, vengono eseguite nel contesto di un singolo indice e quindi gli URL per queste operazioni inizieranno sempre con `/indexes/[index name]/docs` per un nome di indice specifico.
 
@@ -919,7 +908,7 @@ Prima di poter caricare documenti, è necessario aver creato l'indice nel serviz
 **Nota**: la versione di anteprima pubblica di Ricerca di Azure supporta solo la lingua inglese per la ricerca full-text.
 
 <a name="AddOrUpdateDocuments"></a>
-## Aggiungere, aggiornare o eliminare documenti ##
+## Aggiungere, aggiornare o eliminare documenti
 
 È possibile caricare, unire o eliminare documenti da un indice specificato usando HTTP POST. Per un numero elevato di aggiornamenti, è consigliabile creare batch di documenti (fino a 1000 documenti per batch o circa 16 MB per batch).
 
@@ -942,7 +931,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiunta di documenti** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1046,8 +1035,9 @@ Il codice di stato 429 indica che è stata superata la quota del numero di docum
         }
       ]
     }
-________________________________________ <a name="SearchDocs"></a>
-## Eseguire ricerche nei documenti ##
+________________________________________
+<a name="SearchDocs"></a>
+## Eseguire ricerche nei documenti
 
 Un'operazione di **ricerca** viene generata come richiesta GET e specifica i parametri della query che forniscono i criteri per la selezione di documenti corrispondenti.
 
@@ -1114,7 +1104,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1215,7 +1205,7 @@ Si noti che è possibile eseguire query su un solo indice alla volta. Non creare
 
 
 <a name="LookupAPI"></a>
-##Cercare un documento##
+##Cercare un documento
 
 L'operazione di **ricerca di un documento** recupera un documento da Ricerca di Azure. È utile quando un utente fa clic su un risultato della ricerca e si desidera cercare dettagli specifici su tale documento.
 
@@ -1248,7 +1238,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca di un documento** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1273,7 +1263,7 @@ Cercare il documento con chiave '3' usando la sintassi di OData:
     GET /indexes('hotels')/docs('3')?api-version=2014-07-31-Preview
 
 <a name="CountDocs"></a>
-##Contare i documenti##
+##Conteggio documenti
 
 L'operazione di **conteggio dei documenti** recupera un conteggio del numero di documenti in un indice di ricerca. La sintassi `$count` fa parte del protocollo OData.
 
@@ -1296,7 +1286,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Accept`: questo valore deve essere impostato su `text/plain`.
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **conteggio dei documenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1309,7 +1299,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
 Il corpo della risposta include il valore count sotto forma di Integer formattato in testo normale.
 
 <a name="Suggestions"></a>
-##Suggerimenti##
+##Suggerimenti
 
 L'operazione di recupero dei **suggerimenti** ottiene i suggerimenti in base a un input di ricerca parziale. In genere, viene usata nelle caselle di ricerca per fornire suggerimenti durante la digitazione quando gli utenti immettono i termini di ricerca.
 
@@ -1350,7 +1340,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di recupero dei **suggerimenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1392,5 +1382,6 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

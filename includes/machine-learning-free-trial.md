@@ -2,4 +2,4 @@
 >
 >Non è necessaria né una carta di credito né una sottoscrizione di Azure. <a href="https://studio.azureml.net/Home" target="_blank">**Per iniziare >**</a>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

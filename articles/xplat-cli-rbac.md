@@ -1,39 +1,39 @@
-﻿<properties 
-	pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma di Azure" 
-	description="Gestione del controllo degli accessi basato su ruoli con l'interfaccia della riga di comando multipiattaforma" 
-	services="" 
-	documentationCenter="" 
-	authors="guangyang" 
-	manager="terrylan" 
-	editor="mollybos"/>
+<properties
+	pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI)"
+	description="Gestione del controllo di accesso basato sui ruoli con XPLAT CLI"
+	services=""
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tomfitz"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/26/2014" 
-	ms.author="guayan"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/26/2015"
+	ms.author="tomfitz"/>
 
-# Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma #
+# Gestione del controllo di accesso basato sui ruoli con l’interfaccia della riga di comando di Azure (Azure CLI)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/it-it/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Interfaccia della riga di comando multipiattaforma</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Interfaccia della riga di comando di Azure">Interfaccia della riga di comando di Azure</a></div>
 
-Nel portale di anteprima Azure e nell'API di Gestione risorse di Azure, il controllo degli accessi in base al ruolo (RBAC) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
+Nel portale di Azure e nell'API di Gestione risorse di Azure, il controllo di accesso basato sui ruoli (RBAC) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
-In questa esercitazione verrà illustrato come usare l'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) per la gestione di RBAC. Verrà inoltre descritto il processo di creazione e controllo delle assegnazioni dei ruoli.
+In questa esercitazione vengono fornite informazioni sull'utilizzo dell’interfaccia della riga di comando di Azure per la gestione di RBAC. Verrà inoltre descritto il processo di creazione e controllo delle assegnazioni dei ruoli.
 
 **Tempo previsto per il completamento:** 15 minuti
 
 ## Prerequisiti ##
 
-Per usare xplat-cli per la gestione del controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
+Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
 
-- Azure Cross-Platform Command-Line Interface versione 0.8.8 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
-- Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'utilizzo di Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure: [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare](xplat-cli-install.md).
+- Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'uso di Gestione risorse di Azure nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
 
-## Contenuto dell'esercitazione ##
+## Contenuto dell'esercitazione: ##
 
 * [Connettersi alle sottoscrizioni](#connect)
 * [Controllare le assegnazioni di ruoli esistenti](#check)
@@ -47,13 +47,13 @@ Poiché RBAC funziona solo con Gestione risorse di Azure, occorre innanzitutto p
 
     azure config mode arm
 
-Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+Per maggiori informazioni, vedere [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
 
 Per connettersi alle proprie sottoscrizioni di Azure, digitare:
 
     azure login -u <username>
 
-Nel prompt della riga di comando, immettere la password dell'account Azure (usare solo un ID aziendale di supporto). Xplat-cli recupererà tutte le sottoscrizioni di cui si dispone con questo account e utilizzerà la prima come predefinita. Si noti che con RBAC sarà possibile ottenere le sottoscrizioni solo se si dispone di alcune autorizzazioni, sia come coamministratori che come aventi assegnazioni di ruolo. 
+Nel prompt della riga di comando, immettere la password dell'account Azure (usare solo un ID di lavoro o scolastico di supporto - detto anche **ID aziendale **). L’interfaccia della riga di comando di Azure recupererà tutte le sottoscrizioni di cui si dispone con questo account e utilizzerà la prima come predefinita. Si noti che con RBAC sarà possibile ottenere le sottoscrizioni solo se si dispone di alcune autorizzazioni, sia come coamministratori che come aventi assegnazioni di ruolo.
 
 Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
 
@@ -62,11 +62,11 @@ Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+Per maggiori informazioni, consultare [i comandi dell’interfaccia della riga di comando di Azure](azure-cli-arm-commands.md).
 
 ## <a id="check"></a>Controllare le assegnazioni di ruoli esistenti ##
 
-Controlliamo ora quali assegnazioni di ruoli esistono già nella sottoscrizione. Digitare:
+Controllare ora quali assegnazioni di ruoli esistono già nella sottoscrizione. Digitare:
 
     azure role assignment list
 
@@ -107,18 +107,18 @@ Per creare un'assegnazione di ruolo è necessario prendere in considerazione qua
 - Quale ambito assegnare: gli ambiti sono riconducibili a tre livelli
 
     - La sottoscrizione corrente
-    - Un gruppo di risorse: per ottenere un elenco di gruppi di risorse, digitare `azure group list`
-    - Una risorsa: per ottenere un elenco di risorse, digitare `azure resource list`
+    - Un gruppo di risorse per ottenere un elenco di gruppi di risorse, digitare `azure group list`
+    - Una risorsa per ottenere un elenco di risorse, digitare `azure resource list`
 
 Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo. Ad esempio:
 
- - In questo modo verrà creata per un utente un'assegnazione di ruolo al livello della sottoscrizione attuale come lettore.
+ - Questo comando creerà per un utente un'assegnazione di ruolo come lettore al livello della sottoscrizione corrente.
 
     `azure role assignment create --mail <user's email> -o Reader`
 
 - In questo modo verrà creata un'assegnazione di ruolo a livello di gruppo di risorse
 
-    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - In questo modo verrà creata un'assegnazione di ruolo a livello di risorsa
 
@@ -128,22 +128,19 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
 Dopo aver controllato che l'account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni accordate da tali assegnazioni di ruoli eseguendo
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si dispone dell'autorizzazione di lettura. Inoltre, verranno visualizzate anche le autorizzazioni di cui si dispone.
 
-Quando si tenta di eseguire altri cmdlet come `azure group create`, viene restituito un errore di accesso negato se non si dispone dell'autorizzazione adeguata.
+Quando si proverà a eseguire un altro cmdlet, ad esempio `azure group create`, verrà restituito un errore di accesso negato se non si dispone dell'autorizzazione necessaria.
 
 ## <a id="next"></a>Passaggi successivi ##
 
-Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con xplat-cli e per gli argomenti correlati:
+Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure e per gli argomenti correlati:
 
-- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
-- [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
-- [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
+- [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md)
+- [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
+- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](resource-groups-overview.md): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=July15_HO1-->

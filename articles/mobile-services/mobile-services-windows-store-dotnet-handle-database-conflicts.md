@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Gestione di conflitti di scrittura nel database
@@ -31,7 +31,7 @@ Nel corso dell'esercitazione si aggiungeranno all'app di guida introduttiva funz
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ Microsoft Visual Studio 2012 Express per Windows o versione successiva.
++ Microsoft Visual Studio 2013 o versione successiva.
 + Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili]. 
 + [Account Azure]
 + Pacchetto NuGet per Servizi mobili di Azure 1.1.0 o versione successiva. Per ottenere l'ultima versione, eseguire la procedura seguente:
@@ -66,12 +66,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
 		</ListView>
 
 
-3. In MainPage.xaml.cs aggiungere la direttiva `using` seguente nella parte superiore della pagina.
-
-		using System.Threading.Tasks;
-
-
-4. In Esplora soluzioni di Visual Studio aprire MainPage.xaml.cs. Aggiungere a MainPage il gestore per l'evento `LostFocus` del controllo TextBox, come illustrato di seguito.
+4. In Esplora soluzioni di Visual Studio aprire MainPage.cs nel progetto condiviso. Aggiungere a MainPage il gestore per l'evento `LostFocus` del controllo TextBox, come illustrato di seguito.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -86,7 +81,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
             }
         }
 
-4. In MainPage.xaml.cs aggiungere la definizione per il metodo `UpdateToDoItem()` di MainPage a cui viene fatto riferimento nel gestore eventi, come illustrato di seguito.
+4. In MainPage.cs per il progetto condiviso aggiungere la definizione per il metodo `UpdateToDoItem()` MainPage a cui viene fatto riferimento nel gestore eventi, come illustrato di seguito.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -112,7 +107,7 @@ Ora, quando il controllo TextBox perde lo stato attivo, l'applicazione scrive ne
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il [controllo della concorrenza ottimistica] presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione. Servizi mobili di Azure supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento tramite la colonna di proprietà di sistema `__version` aggiunta a ogni tabella. In questa sezione si abiliterà il rilevamento dei conflitti di scrittura nell'applicazione tramite la proprietà di sistema `__version`. Durante un tentativo di aggiornamento, se il record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException`. Sarà quindi possibile scegliere se eseguire il commit della modifica nel database o lasciare intatta l'ultima modifica al database. Per ulteriori informazioni sulle proprietà di sistema relative a Servizi mobili, vedere le [proprietà di sistema].
 
-1. In MainPage.xaml.cs aggiornare la definizione della classe **TodoItem** con il codice seguente in modo da includere la proprietà di sistema **__version**, che abilita il supporto per il rilevamento dei conflitti di scrittura. 
+1. Aprire TodoItem.cs nel progetto condiviso e aggiornare la definizione della classe `TodoItem` con il codice seguente per includere la proprietà di sistema `__version` che abilita il supporto per il rilevamento dei conflitti di scrittura.
 
 		public class TodoItem
 		{
@@ -133,7 +128,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. Aggiungendo la proprietà `Version` alla classe `TodoItem`, se il record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException` durante un aggiornamento. Questa eccezione include l'ultima versione dell'elemento dal server. In MainPage.xaml.cs aggiungere il codice seguente per gestire l'eccezione nel metodo `UpdateToDoItem()`.
+2. Aggiungendo la proprietà `Version` alla classe `TodoItem`, se il record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException` durante un aggiornamento. Questa eccezione include l'ultima versione dell'elemento dal server. In MainPage.cs per il progetto condiviso aggiungere il codice seguente per gestire l'eccezione nel metodo `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -167,7 +162,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. In MainPage.xaml.cs aggiungere la definizione per il metodo `ResolveConflict()` a cui viene fatto riferimento in `UpdateToDoItem()`. Si noti che, per risolvere il conflitto, prima di eseguire il commit della decisione dell'utente la versione dell'elemento locale viene impostata sulla versione aggiornata dal server. In caso contrario, il conflitto continuerà a verificarsi.
+3. In MainPage.cs aggiungere la definizione per il metodo `ResolveConflict()` a cui viene fatto riferimento in `UpdateToDoItem()`. Si noti che, per risolvere il conflitto, prima di eseguire il commit della decisione dell'utente la versione dell'elemento locale viene impostata sulla versione aggiornata dal server. In caso contrario, il conflitto continuerà a verificarsi.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -369,5 +364,6 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

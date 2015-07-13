@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Gestire l'accesso alle risorse di archiviazione di Azure" 
-	description="Informazioni sui diversi modi in cui è possibile gestire l'accesso alle risorse di archiviazione di Azure." 
+	pageTitle="Gestire l'accesso alle risorse di archiviazione di Azure | Microsoft Azure" 
+	description="Informazioni su come gestire l'accesso degli utenti alle vostre risorse di archiviazione di Azure." 
 	services="storage" 
 	documentationCenter="" 
-	authors="micurd,tamram" 
-	manager="jahogg" 
+	authors="tamram" 
+	manager="jdial" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="micurd"/>
+	ms.date="05/28/2015" 
+	ms.author="micurd;tamram"/>
 
 # Gestire l'accesso alle risorse di archiviazione di Azure
 
-## Informazioni generali
+## Panoramica
 
-Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere a BLOB, tabelle e code all'interno dell'account. Se il servizio o l'applicazione deve rendere disponibili queste risorse per altri client senza condividere la chiave di accesso, è possibile usare le seguenti opzioni per consentire l'accesso:
+Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Se il servizio o l'applicazione deve rendere disponibili queste risorse per altri client senza condividere la chiave di accesso, è possibile usare le seguenti opzioni per consentire l'accesso:
 
 - È possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB. Questa operazione non è consentita per le tabelle o le code.
 
@@ -34,49 +34,49 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 
 I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al contenitore:
 
-- Accesso in lettura pubblico completo: Dati BLOB e contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
+- **Accesso in lettura pubblico completo:** I dati BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-- Accesso in lettura pubblico solo per i BLOB: I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
+- **Accesso in lettura pubblico solo per i BLOB:** I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
 
-- Nessun accesso in lettura pubblico: Dati BLOB e contenitore possono essere letti solo dal proprietario dell'account.
+- **Nessun accesso in lettura pubblico:** I dati BLOB e del contenitore possono essere letti solo dal proprietario dell'account.
 
->[AZURE.NOTE]Se il servizio richiede un controllo più granulare delle risorse BLOB o se si desidera fornire autorizzazioni per operazioni diverse dalla lettura, è possibile usare una firma di accesso condiviso per rendere una risorsa accessibile agli utenti. 
+>[AZURE.NOTE]Se il servizio richiede un controllo più granulare delle risorse BLOB o se si desidera fornire autorizzazioni per operazioni diverse dalla lettura, è possibile usare una firma di accesso condiviso per rendere una risorsa accessibile agli utenti.
 
 ### Funzionalità disponibili per utenti anonimi
 Nella tabella seguente sono riportate le operazioni che possono essere richiamate da utenti anonimi quando l'ACL di un contenitore è impostato per consentire l'accesso pubblico.
 
-| Operazione REST                                         | Autorizzazione con accesso in lettura pubblico completo | Autorizzazione con accesso in lettura pubblico solo per i BLOB |
+| Operazione REST | Autorizzazione con accesso in lettura pubblico completo | Autorizzazione con accesso in lettura pubblico solo per BLOB |
 |--------------------------------------------------------|-----------------------------------------|---------------------------------------------------|
-| List Containers                                        | Solo proprietario                              | Solo proprietario                                        |
-| Create Container                                       | Solo proprietario                              | Solo proprietario                                        |
-| Get Container Properties                               | Tutti                                     | Solo proprietario                                        |
-| Get Container Metadata                                 | Tutti                                     | Solo proprietario                                        |
-| Set Container Metadata                                 | Solo proprietario                              | Solo proprietario                                        |
-| Get Container ACL                                      | Solo proprietario                              | Solo proprietario                                        |
-| Set Container ACL                                      | Solo proprietario                              | Solo proprietario                                        |
-| Delete Container                                       | Solo proprietario                              | Solo proprietario                                        |
-| List Blobs                                             | Tutti                                     | Solo proprietario                                        |
-| Put Blob                                               | Solo proprietario                              | Solo proprietario                                        |
-| Get Blob                                               | Tutti                                     | Tutti                                               |
-| Get Blob Properties                                    | Tutti                                     | Tutti                                               |
-| Set Blob Properties                                    | Solo proprietario                              | Solo proprietario                                        |
-| Get Blob Metadata                                      | Tutti                                     | Tutti                                               |
-| Set Blob Metadata                                      | Solo proprietario                              | Solo proprietario                                        |
-| Put Block                                              | Solo proprietario                              | Solo proprietario                                        |
-| Get Block List (solo blocchi di cui è stato eseguito il commit)                 | Tutti                                     | Tutti                                               |
-| Get Block List (solo blocchi di cui non è stato eseguito il commit o tutti i blocchi) | Solo proprietario                              | Solo proprietario                                        |
-| Put Block List                                         | Solo proprietario                              | Solo proprietario                                        |
-| Delete Blob                                            | Solo proprietario                              | Solo proprietario                                        |
-| Copy Blob                                              | Solo proprietario                              | Solo proprietario                                        |
-| Snapshot Blob                                          | Solo proprietario                              | Solo proprietario                                        |
-| Lease Blob                                             | Solo proprietario                              | Solo proprietario                                        |
-| Put Page                                               | Solo proprietario                              | Solo proprietario                                        |
-| Get Page Ranges                                        | Tutti                                     | Tutti                                                  |
+| List Containers | Solo proprietario | Solo proprietario |
+| Create Container | Solo proprietario | Solo proprietario |
+| Get Container Properties | Tutti | Solo proprietario |
+| Get Container Metadata | Tutti | Solo proprietario |
+| Set Container Metadata | Solo proprietario | Solo proprietario |
+| Get Container ACL | Solo proprietario | Solo proprietario |
+| Set Container ACL | Solo proprietario | Solo proprietario |
+| Delete Container | Solo proprietario | Solo proprietario |
+| List Blobs | Tutti | Solo proprietario |
+| Put Blob | Solo proprietario | Solo proprietario |
+| Get Blob | Tutti | Tutti |
+| Get Blob Properties | Tutti | Tutti |
+| Set Blob Properties | Solo proprietario | Solo proprietario |
+| Get Blob Metadata | Tutti | Tutti |
+| Set Blob Metadata | Solo proprietario | Solo proprietario |
+| Put Block | Solo proprietario | Solo proprietario |
+| Get Block List (solo blocchi con commit) | Tutti | Tutti |
+| Get Block List (solo blocchi senza commit o tutti i blocchi) | Solo proprietario | Solo proprietario |
+| Put Block List | Solo proprietario | Solo proprietario |
+| Delete Blob | Solo proprietario | Solo proprietario |
+| Copy Blob | Solo proprietario | Solo proprietario |
+| Snapshot Blob | Solo proprietario | Solo proprietario |
+| Lease Blob | Solo proprietario | Solo proprietario |
+| Put Page | Solo proprietario | Solo proprietario |
+| Get Page Ranges | Tutti | Tutti |
 
 ## Creare e usare una firma di accesso condiviso
 Una firma di accesso condiviso è un URI che concede diritti di accesso limitati a contenitori, BLOB, code e tabelle per un intervallo di tempo specifico. Fornendo a un client una firma di accesso condiviso, è possibile consentire a tale client l'accesso alle risorse presenti nell'account di archiviazione, senza condividere la chiave dell'account.
 
->[AZURE.NOTE] Per una panoramica dei concetti e un'esercitazione sulle firme di accesso condiviso, vedere [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+>[AZURE.NOTE]Per una panoramica dei concetti e un'esercitazione sulle firme di accesso condiviso, vedere [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Le operazioni supportate mediante le firme di accesso condiviso includono:
 
@@ -94,7 +94,7 @@ Le operazioni supportate mediante le firme di accesso condiviso includono:
 
 I parametri di query dell'URI della firma di accesso condiviso incorporano tutte le informazioni necessarie per concedere l'accesso controllato a una risorsa di archiviazione. I parametri di query dell'URI specificano il periodo di validità della firma di accesso condiviso, le autorizzazioni concesse, la risorsa che deve essere resa disponibile e la firma che i servizi di archiviazione devono usare per autenticare la richiesta.
 
-L'URI della firma di accesso condiviso può inoltre fare riferimento a criteri di accesso archiviati che forniscono un livello di controllo aggiuntivo su un set di firme, inclusa la possibilità di modificare o revocare l'accesso alla risorsa, se necessario. 
+L'URI della firma di accesso condiviso può inoltre fare riferimento a criteri di accesso archiviati che forniscono un livello di controllo aggiuntivo su un set di firme, inclusa la possibilità di modificare o revocare l'accesso alla risorsa, se necessario.
 
 Per informazioni sul formato URI di una firma di accesso condiviso, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -103,7 +103,7 @@ Una firma di accesso condiviso concede l'accesso alla risorsa specificata dalle 
 
 Se una firma di accesso condiviso concede l'accesso non destinato al pubblico, deve essere creata con il minor numero possibile di autorizzazioni. Inoltre, una firma di accesso condiviso deve essere distribuita in modo sicuro ai client tramite una connessione protetta, deve essere associata a criteri di accesso archiviati a scopo di revoca e deve specificare la durata più breve possibile per la firma.
 
->[AZURE.NOTE] L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account. 
+>[AZURE.NOTE]L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
 ### Creazione di una firma di accesso condiviso
 L'esempio di codice seguente crea criteri di accesso per un contenitore e genera quindi una firma di accesso condiviso per il contenitore. Questa firma di accesso condiviso può essere quindi fornita ai client:
@@ -138,7 +138,7 @@ L'esempio di codice seguente crea criteri di accesso per un contenitore e genera
     // read/write access to the container for 10 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
-       // To ensure SAS is valid immediately, don't set start time.
+       // To ensure SAS is valid immediately, don’t set start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
        Permissions = SharedAccessBlobPermissions.Write |
@@ -182,7 +182,7 @@ I criteri di accesso archiviati offrono maggiore controllo sulle firme di access
 
 Si supponga, ad esempio, di avere emesso una firma di accesso condiviso associata a criteri di accesso archiviati. Se è stata specificata la scadenza nei criteri di accesso archiviati, è possibile modificare i criteri di accesso per estendere la durata della firma, senza dover emettere una nuova firma.
 
-È consigliabile specificare criteri di accesso archiviati per qualsiasi risorsa firmata per cui si emette una firma di accesso condiviso, in quanto i criteri archiviati possono essere usati per modificare o revocare la firma dopo l'emissione. Se non si specificano criteri archiviati, è consigliabile limitare la durata della firma per ridurre i rischi per le risorse dell'account di archiviazione. 
+È consigliabile specificare criteri di accesso archiviati per qualsiasi risorsa firmata per cui si emette una firma di accesso condiviso, in quanto i criteri archiviati possono essere usati per modificare o revocare la firma dopo l'emissione. Se non si specificano criteri archiviati, è consigliabile limitare la durata della firma per ridurre i rischi per le risorse dell'account di archiviazione.
 
 ### Associazione di una firma di accesso condiviso a un criterio di accesso archiviato
 Un criterio di accesso archiviato include un nome di una lunghezza massima di 64 caratteri univoco all'interno del contenitore, coda o tabella. Per associare una firma di accesso condiviso a un criterio di accesso archiviato, è necessario specificare questo identificatore quando si crea la firma di accesso condiviso. Nell'URI della firma di accesso condiviso, il campo *signedidentifier* specifica l'identificatore per il criterio di accesso archiviato.
@@ -208,5 +208,10 @@ Insieme, la firma di accesso condiviso e i criteri di accesso archiviati devono 
 
 Per revocare l'accesso alle firme di accesso condiviso che usano lo stesso criterio di accesso archiviato, rimuovere il criterio archiviato dalla risorsa di archiviazione sovrascrivendo l'elenco dei criteri archiviati con un nuovo elenco che non contiene il nome del criterio. Per modificare le impostazioni di accesso di un criterio di accesso archiviato, sovrascrivere l'elenco dei criteri archiviati con un nuovo elenco contenente un criterio dello stesso nome con nuovi dettagli di controllo di accesso.
 
+## Vedere anche
 
-<!--HONumber=52--> 
+- [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+- [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+- [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+
+<!---HONumber=July15_HO1-->

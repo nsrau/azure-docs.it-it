@@ -52,5 +52,6 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

@@ -1,3 +1,3 @@
 Subset del database relativo al censimento del 1994, che usa adulti lavoratori di età superiore ai 16 anni con un indice di reddito adeguato > 100.<p> </p><b>Utilizzo:</b> classificare le persone usando dati demografici per prevedere se una persona ha un guadagno superiore a 50.000 all'anno.<p> </p><b>Ricerca correlata:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

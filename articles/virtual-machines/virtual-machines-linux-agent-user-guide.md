@@ -22,7 +22,7 @@
 
 ##Introduzione
 
-L’agente Linux di Azure \(/usr/sbin/waagent\) gestisce l’interazione tra una macchina virtuale e il controller di infrastruttura di Azure. Effettua le seguenti operazioni:
+L’agente Linux di Azure (/usr/sbin/waagent) gestisce l’interazione tra una macchina virtuale e il controller di infrastruttura di Azure. Effettua le seguenti operazioni:
 
 * **Provisioning dell'immagine**
   - Crea un account utente
@@ -40,13 +40,13 @@ L’agente Linux di Azure \(/usr/sbin/waagent\) gestisce l’interazione tra una
 * **Kernel**
   - Configura la piattaforma virtuale NUMA
   - Usa l'entropia Hyper-V per /dev/random
-  - Configura i timeout SCSI per il dispositivo radice \(che può essere remoto\)
+  - Configura i timeout SCSI per il dispositivo radice (che può essere remoto)
 * **Diagnostica**
   - Reindirizza la console alla porta seriale
 * **Distribuzioni SCVMM**
     - Rileva e avvia l'agente VMM per Linux durante l'esecuzione in un ambiente System Center Virtual Machine Manager 2012 R2
 * **Estensione VM**
-    - Inserire il componente creato da Microsoft e partner in VM Linux \(IaaS\) per attivare il software e l'automazione di configurazione
+    - Inserire il componente creato da Microsoft e partner in VM Linux (IaaS) per attivare il software e l'automazione di configurazione
     - Implementazione di riferimento di estensione VM in [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 
@@ -80,7 +80,7 @@ I seguenti sistemi sono stati testati e funzionano con l'agente Linux di Azure. 
 
 Altri sistemi supportati:
 
-* FreeBSD 9 + \(agente Linux di Azure v2.0.10 +\)
+* FreeBSD 9 + (agente Linux di Azure v2.0.10 +)
 
 
 Per il corretto funzionamento dell'agente Linux sono necessari alcuni package di sistema:
@@ -120,7 +120,7 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 - install: consente di installare manualmente l'agente
  * Verifica il sistema per le dipendenze necessarie
 
- * Crea lo script di inizializzazione SysV \(/etc/init.d/waagent\), il file di configurazione logrotate \(/etc/logrotate.d/waagent\) e configura l'immagine per l'esecuzione dello script di inizializzazione all'avvio
+ * Crea lo script di inizializzazione SysV (/etc/init.d/waagent), il file di configurazione logrotate (/etc/logrotate.d/waagent) e configura l'immagine per l'esecuzione dello script di inizializzazione all'avvio
 
  * Scrive il file di configurazione di esempio in /etc/waagent.conf
 
@@ -128,7 +128,7 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 
  * Rileva la versione del kernel e applica la soluzione alternativa VNUMA, se necessario
 
- * Sposta le regole udev che possono interferire con la rete \(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules\) in /var/lib/waagent/
+ * Sposta le regole udev che possono interferire con la rete (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) in /var/lib/waagent/
 
 - uninstall: rimuove waagent e i file associati
  * Annulla la registrazione dello script di inizializzazione dal sistema e lo elimina
@@ -140,11 +140,11 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
  * Il ripristino automatico della soluzione alternativa VNUMA non è supportato, pertanto è necessario modificare i file di configurazione GRUB manualmente per riabilitare NUMA, se necessario.
 
 - deprovision: tenta di pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione comporta l'eliminazione di quanto segue:
- * Tutte le chiavi host \(se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione\)
+ * Tutte le chiavi host (se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione)
 
  * Configurazione NameServer in /etc/resolv.conf
 
- * Password radice da /etc/shadow \(se Provisioning.DeleteRootPassword è 'y' nel file di configurazione\)
+ * Password radice da /etc/shadow (se Provisioning.DeleteRootPassword è 'y' nel file di configurazione)
 
  * Lease client DHCP memorizzati nella cache
 
@@ -152,17 +152,17 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 
  **Avviso:** il deprovisioning non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili e che sia adatta per la ridistribuzione.
 
-- deprovision+user: esegue tutte le operazioni in -deprovision \(sopra\) ed elimina l'ultimo account utente sottoposto a provisioning \(ottenuto da /var/lib/waagent\) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
+- deprovision+user: esegue tutte le operazioni in -deprovision (sopra) ed elimina l'ultimo account utente sottoposto a provisioning (ottenuto da /var/lib/waagent) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
 
 - version: visualizza la versione di waagent
 
-- serialconsole: configura GRUB affinché contrassegni ttyS0 \(la prima porta seriale\) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
+- serialconsole: configura GRUB affinché contrassegni ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
 
 - daemon: esegue waagent come daemon per gestire l'interazione con la piattaforma. Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
 
 ##Configurazione
 
-Un file di configurazione \(/etc/waagent.conf\) controlla le azioni dell'agente waagent. Di seguito è riportato un file di configurazione di esempio:
+Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Di seguito è riportato un file di configurazione di esempio:
 	
 	#
 	# Azure Linux Agent Configuration	
@@ -223,7 +223,7 @@ Se questa voce è impostata, la password radice nel file /etc/shadow viene cance
 
 Tipo: Boolean Predefinito: y
 
-Se questa voce è impostata, tutte le coppie di chiavi host SSH \(ecdsa, dsa e rsa\) vengono eliminate da /etc/ssh/ durante il processo di provisioning e viene generata un'unica coppia di chiavi aggiornata.
+Se questa voce è impostata, tutte le coppie di chiavi host SSH (ecdsa, dsa e rsa) vengono eliminate da /etc/ssh/ durante il processo di provisioning e viene generata un'unica coppia di chiavi aggiornata.
 
 Il tipo di crittografia per la coppia di chiavi aggiornata è configurabile dalla voce Provisioning.SshHostKeyPairType. Si noti che alcune distribuzioni ricreeranno le coppie di chiavi SSH per qualsiasi tipo di crittografia mancante al riavvio del daemon SSH, ad esempio in caso di riavvio.
 
@@ -237,13 +237,13 @@ Tipo: String Predefinito: rsa
 
 Tipo: Boolean Predefinito: y
 
-Se questa voce è impostata, waagent monitorerà la macchina virtuale Linux per rilevare modifiche del nome host \(come restituite dal comando "hostname"\) e aggiornerà automaticamente la configurazione di rete nell'immagine per riflettere la modifica. Per effettuare il push della modifica del nome ai server DNS, la funzionalità di rete nella macchina virtuale verrà riavviata, causando una breve interruzione nella connettività Internet.
+Se questa voce è impostata, waagent monitorerà la macchina virtuale Linux per rilevare modifiche del nome host (come restituite dal comando "hostname") e aggiornerà automaticamente la configurazione di rete nell'immagine per riflettere la modifica. Per effettuare il push della modifica del nome ai server DNS, la funzionalità di rete nella macchina virtuale verrà riavviata, causando una breve interruzione nella connettività Internet.
 
 **ResourceDisk.Format:**
 
 Tipo: Boolean Predefinito: y
 
-Se questa voce è impostata, il disco risorse fornito dalla piattaforma verrà formattato e montato da waagent se il tipo di file system richiesto dall'utente in "ResourceDisk.Filesystem" è diverso da "ntfs". Una singola partizione di tipo Linux \(83\) verrà resa disponibile nel disco. Si noti che la partizione non verrà formattata se è possibile montarla correttamente.
+Se questa voce è impostata, il disco risorse fornito dalla piattaforma verrà formattato e montato da waagent se il tipo di file system richiesto dall'utente in "ResourceDisk.Filesystem" è diverso da "ntfs". Una singola partizione di tipo Linux (83) verrà resa disponibile nel disco. Si noti che la partizione non verrà formattata se è possibile montarla correttamente.
 
 **ResourceDisk.Filesystem:**
 
@@ -261,7 +261,7 @@ Specifica il percorso in cui è montato il disco risorse. Si noti che il disco r
 
 Tipo: Boolean Predefinito: n
 
-Se questa voce è impostata, viene creato un file di scambio \(/swapfile\) nel disco risorse e aggiunto all'area di swap del sistema.
+Se questa voce è impostata, viene creato un file di scambio (/swapfile) nel disco risorse e aggiunto all'area di swap del sistema.
 
 **ResourceDisk.SwapSizeMB:**
 
@@ -273,7 +273,7 @@ Dimensione del file di scambio in megabyte.
 
 Tipo: Boolean Predefinito: y
 
-Se questa voce è impostata, waagent risponderà ai probe di bilanciamento del carico dalla piattaforma \(se presente\).
+Se questa voce è impostata, waagent risponderà ai probe di bilanciamento del carico dalla piattaforma (se presente).
 
 **Logs.Verbose:**
 
@@ -317,4 +317,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

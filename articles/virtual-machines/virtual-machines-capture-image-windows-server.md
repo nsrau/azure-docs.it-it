@@ -42,7 +42,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 4. 	Verrà visualizzata la finestra di dialogo **Utilità preparazione sistema**. Eseguire le operazioni seguenti:
 
 
-	- In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che l'opzione **Generalizza** sia selezionata. Per ulteriori informazioni sull'utilizzo di Sysprep, vedere il relativo  [documento introduttivo][].
+	- In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che l'opzione **Generalizza** sia selezionata. Per ulteriori informazioni sull'utilizzo di Sysprep, vedere il relativo [documento introduttivo][].
 
 	- In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
 
@@ -87,5 +87,6 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

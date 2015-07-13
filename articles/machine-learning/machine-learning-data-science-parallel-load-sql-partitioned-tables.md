@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Azure" 
+	pageTitle="Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Microsoft Azure" 
 	description="Importazione di dati in blocco utilizzando le tabelle di partizione SQL" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="msolhab" /> 
+	ms.date="05/29/2015" 
+	ms.author="msolhab" />
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
 Per il caricamento/trasferimento di dati di grandi dimensioni, l'importazione di dati nel database SQL e le query successive possono essere migliorate utilizzando _tabelle e visualizzazioni di partizione_. In questo documento viene descritto come creare tabelle partizionate per l'importazione parallela in blocco di dati in un database di SQL Server.
+
 
 ## Creazione di un nuovo database e di un set di filegroup
 
@@ -30,7 +30,7 @@ Per il caricamento/trasferimento di dati di grandi dimensioni, l'importazione di
 
 - Aggiungere uno o più file (se necessario) per ogni filegroup del database
 
- > [AZURE.NOTE] Specificare il filegroup di destinazione che conterrà i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
+ >[AZURE.NOTE]Specificare il filegroup di destinazione che conterrà i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
  
 Nell'esempio seguente vengono creati un nuovo database con tre filegroup diverso da quello primario e gruppi di log, ognuno contenente un file fisico. I file di database vengono creati nella cartella dei dati di SQL Server predefinita, come configurato nell'istanza di SQL Server. Per ulteriori informazioni sui percorsi dei file predefiniti, vedere [Percorsi dei file per istanze predefinite e denominate di SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -90,7 +90,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- Per ulteriori informazioni, vedere [Creazione do tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
+- Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## Importazione in blocco dei dati per ogni singola tabella di partizione
 
@@ -178,10 +178,11 @@ o
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenterà il caricamento dei dati.
+ >[AZURE.NOTE]È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenterà il caricamento dei dati.
 
-### Analisi scientifica dei dati di Azure nell'esempio di azione
+### Esempio di Advanced Analytics Process and Technology in azione
 
-Per un esempio della procedura dettagliata end-to-end del processo di analisi scientifica dei dati di Azure utilizzando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati di Azure in azione](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end in cui viene usato ADAPT (Advanced Analytics Process and Technology) con un set di dati pubblici, vedere [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

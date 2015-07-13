@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Risolvere i problemi delle raccolte ibride - creazione"
+    pageTitle="Risoluzione dei problemi di creazione di raccolte ibride di RemoteApp di Azure "
     description="Informazioni su come risolvere i problemi relativi agli errori di creazione delle raccolte ibride di RemoteApp" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
@@ -9,51 +9,78 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="vikbucha" />
+    ms.date="06/30/2015" 
+    ms.author="elizapo" />
 
 
 
-# Risolvere i problemi delle raccolte ibride - creazione
+# Risoluzione dei problemi di creazione di raccolte ibride di Azure RemoteApp
 
-Prima di risolvere gli errori che si verificano durante la creazione delle raccolte ibride, è utile comprendere in che modo vengono create le raccolte ibride. Una raccolta ibrida richiede che le istanze di RemoteApp siano aggiunte a un dominio. Questa operazione viene eseguita durante la creazione della raccolta.  Quando il processo di creazione della raccolta viene avviato, vengono create delle copie delle immagini modello caricate nella rete virtuale che, mediante un tunnel VPN da sito a sito, vengono aggiunte a un dominio risolto dal record IP DNS specificato durante la creazione della rete virtuale.
+Una raccolta ibrida è ospitata nel cloud di Azure insieme ai dati ma consente agli utenti di accedere anche ai dati e alle risorse archiviati nella rete locale. Gli utenti possono accedere alle app effettuando l'accesso con le credenziali aziendali sincronizzate o federate con Azure Active Directory. È possibile distribuire una raccolta ibrida che utilizza una rete virtuale di Azure esistente oppure è possibile creare una nuova rete virtuale. Si consiglia di creare o utilizzare una subnet di rete virtuale con un intervallo CIDR sufficientemente ampio per la crescita prevista per RemoteApp di Azure.
 
-Errori più frequenti visualizzati nel portale di gestione di Azure:
+Se la raccolta non è stata ancora creata, vedere [Come creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 
-	DNS server could not be reached
+Se si verificano problemi durante la creazione della raccolta o se la raccolta non funziona nel modo previsto, consultare le informazioni seguenti.
 
-	Could not join the domain. Unable to reach the domain.
+## La rete virtuale usa il tunneling forzato? ##
+RemoteApp non supporta attualmente l'utilizzo di reti virtuali con tunneling forzato attivato. Se questa funzione è necessaria, contattare il team di RemoteApp per assistenza.
 
-Se si verifica uno degli errori riportati in precedenza, verificare quanto segue:
+Dopo l’approvazione della richiesta, assicurarsi che le seguenti porte siano aperte nella subnet scelta per RemoteApp di Azure e le macchine virtuali nella subnet. Le macchine virtuali nelle subnet, inoltre, devono essere in grado di accedere gli URL indicati nella sezione sui gruppi di protezione di rete.
 
-- Verificare che le configurazioni IP DNS siano valide
-- Verificare che i record IP DNS siano record IP pubblici o facciano parte dello "spazio di indirizzi locale" specificato durante la creazione della rete virtuale
-- Verificare il tunnel della rete virtuale per assicurarsi che sia in stato attivo o connesso 
-- Verificare che il lato locale della connessione VPN non stia bloccando il traffico di rete. Per farlo, individuare i log del dispositivo VPN locale o del software.
-- Verificare che il dominio specificato durante la creazione della raccolta sia attivo e in esecuzione.
+In uscita: TCP: 443, TCP: 10101-10175
 
-	ProvisioningTimeout
+## Per la rete virtuale sono definiti gruppi di protezione di rete? ##
+Se sono stati definiti gruppi di protezione di rete nella subnet utilizzata per la raccolta, assicurarsi che gli URL seguenti siano accessibili dalla subnet:
 
+	https://management.remoteapp.windowsazure.com  
+	https://opsapi.mohoro.com  
+	https://telemetry.remoteapp.windowsazure.com  
+	https://*.remoteapp.windowsazure.com  
+	https://login.windows.net (if you have Active Directory)  
+	https://login.microsoftonline.com  
+	Azure storage *.remoteapp.windowsazure.com  
+	*.core.windows.net  
+	https://www.remoteapp.windowsazure.com  
+	https://www.remoteapp.windowsazure.com  
 
-Se viene visualizzato questo errore, verificare quanto segue:
+Aprire le porte seguenti nella subnet di rete virtuale:
 
-- Verificare che il lato locale della connessione VPN non stia bloccando il traffico di rete. Per farlo, individuare i log del dispositivo VPN locale o del software.
-- Verificare che l'immagine modello di RemoteApp caricata sia stata preparata correttamente con SYSPREP. I requisiti dell'immagine di RemoteApp possono essere controllati da qui: http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/ 
-- Provare a creare una macchina virtuale usando l'immagine modello caricata e verificare che venga avviata ed eseguita correttamente (a) in un server Hyper-V locale oppure (b) creando una macchina virtuale Azure IAAS nella sottoscrizione di Azure. Errori nella creazione o nell'avvio della macchina virtuale indicano, in genere, che l'immagine modello non è stata preparata correttamente ed è necessario correggerla.
+In ingresso - TCP: 3030, TCP: 443 In uscita - TCP: 443
 
-	DomainJoinFailed_InvalidUserNameOrPassword
+È possibile aggiungere gruppi di protezione di rete aggiuntivi alle macchine virtuali distribuite nella subnet per un maggiore controllo.
 
-	DomainJoinFailed_InvalidParameter
+## Si utilizzano propri server DNS? Sono accessibili dalla subnet di rete virtuale? ##
+Per le raccolte ibride è possibile utilizzare i propri server DNS. Specificarli nello schema di configurazione di rete o tramite il portale di gestione quando si crea la rete virtuale. I server DNS vengono utilizzati nell'ordine in cui vengono specificati in modo failover (anziché round robin).
 
-Se si verifica uno degli errori riportati in precedenza, verificare quanto segue:
+Verificare che i server DNS per la raccolta siano accessibili e disponibili dalla subnet di rete virtuale specificata per questa raccolta.
 
-- Verificare che le credenziali immesse per l'aggiunta a un dominio siano valide
-- Verificare che le credenziali per l'aggiunta a un dominio siano corrette o di disporre delle autorizzazioni per l'aggiunta a un dominio appropriate
-- Verificare che l'unità organizzativa sia formattata correttamente e non esista in Active Directory.
+ad esempio:
 
+	<VirtualNetworkConfiguration>
+    <Dns>
+      <DnsServers>
+        <DnsServer name="" IPAddress=""/>
+      </DnsServers>
+    </Dns>
+	</VirtualNetworkConfiguration>
 
-<!--HONumber=52--> 
+![Definire il DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
+
+Per ulteriori informazioni, vedere [Risoluzione dei nomi utilizzando il proprio server DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
+
+## Si sta utilizzando un controller di dominio di Active Directory nella raccolta? ##
+Attualmente solo un dominio di Active Directory può essere associato a RemoteApp di Azure. La raccolta ibrida supporta solo gli account Azure Active Directory che sono stati sincronizzati mediante uno strumento come DirSync da una distribuzione di Windows Server Active Directory. In particolare, sincronizzati con l'opzione di sincronizzazione password oppure con la federazione di Active Directory Federation Services (ADFS) configurata. È necessario creare un dominio personalizzato che corrisponda al suffisso di dominio UPN per il dominio locale e impostare l'integrazione di directory.
+
+Per informazioni sulla pianificazione, vedere [Configurare Active Directory per RemoteApp di Azure](remoteapp-ad.md).
+
+Assicurarsi che i dettagli del dominio forniti siano validi e che il controller di dominio sia raggiungibile dalla macchina virtuale creata nella subnet utilizzata per RemoteApp di Azure. Assicurarsi inoltre che le credenziali dell'account di servizio fornite dispongano delle autorizzazioni per aggiungere computer al dominio specificato e che il nome di Active Directory specificato posa essere risolto dal DNS fornito nella rete virtuale.
+
+## Quale nome di dominio è stato specificato quando è stata creata la raccolta? ##
+
+Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
+
+<!---HONumber=July15_HO1-->

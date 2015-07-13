@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Panoramica del portale di anteprima di Microsoft Azure" 
-	description="Informazioni su come usare il portale di anteprima di Microsoft Azure." 
-	services="" 
-	documentationCenter="" 
-	authors="davidwrede" 
-	manager="dwrede" 
+<properties
+	pageTitle="Panoramica del portale di anteprima di Microsoft Azure"
+	description="Informazioni su come usare il portale di anteprima di Microsoft Azure."
+	services=""
+	documentationCenter=""
+	authors="davidwrede"
+	manager="dwrede"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="na" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="na"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.topic="hero-article"
+	ms.date="04/28/2015"
 	ms.author="dwrede"/>
 
 # Panoramica del portale di anteprima di Microsoft Azure
@@ -32,7 +32,7 @@ Il Marketplace di Azure offre migliaia di elementi che possono essere creati da 
 
 1.	Windows Server 2012 è disponibile, quindi è possibile selezionarlo dalla categoria Calcolo.  
 2.	Inserire alcuni input di base in un form.
-3.	Fare clic su 'Crea' e il provisioning della macchina virtuale verrà avviato immediatamente. 
+3.	Fare clic su 'Crea' e il provisioning della macchina virtuale verrà avviato immediatamente.
 
 L'hub di notifica avviserà l'utente quando la risorsa è stata creata e verrà visualizzato un pannello di gestione. È possibile passare alle risorse anche in seguito.
 
@@ -87,4 +87,4 @@ Il portale di anteprima di Microsoft Azure semplifica in modo radicale lo svilup
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,48 +13,42 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="ricksal"/>
+	ms.date="04/27/2015" 
+	ms.author="wesmc"/>
+
 # Uso di Hub di notifica per inviare le ultime notizie localizzate
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
-Questo argomento descrive come usare la funzionalità relativa ai **modelli** di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà usata l'app di Windows Store creata in [Uso di Hub di notifica per inviare le ultime notizie]. Al termine, sarà possibile effettuare la registrazione per le categorie di proprio interesse, specificare la lingua in cui ricevere le notifiche e ricevere solo notifiche push per le categorie selezionate nella lingua scelta.
+##Panoramica
 
-In questa esercitazione vengono descritte le operazioni di base per abilitare questo scenario:
-
-1. [Concetti relativi ai modelli] 
-2. [Interfaccia utente dell'app]
-3. [Compilazione dell'app client di Windows Store]
-4. [Inviare notifiche dal back-end]
+In questo argomento viene illustrato come utilizzare la funzionalità relativa ai **modelli** di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione verrà utilizzata l'app di Windows Store creata in [Utilizzo di Hub di notifica per inviare le ultime notizie]. Al termine, sarà possibile effettuare la registrazione per le categorie di proprio interesse, specificare la lingua in cui ricevere le notifiche e ricevere solo notifiche push per le categorie selezionate nella lingua scelta.
 
 
 Lo scenario è composto da due parti:
 
 - l'app di Windows Store consente ai dispositivi client di specificare una lingua e di sottoscrivere categorie diverse di ultime notizie; 
 
-- il back-end trasmette le notifiche usando le funzionalità relative ai **tag** e ai **modelli** di Hub di notifica di Azure.
+- il back-end trasmette le notifiche utilizzando le funzionalità relative ai **tag** e ai **modelli** di Hub di notifica di Azure.
 
 
 
-##Prerequisiti ##
+##Prerequisiti
 
-È necessario aver completato l'esercitazione [Uso di Hub di notifica per inviare le ultime notizie] e disporre del relativo codice, in quanto questa esercitazione è basata direttamente su tale codice. 
+È necessario aver completato l'esercitazione [Utilizzo di Hub di notifica per inviare le e ultime notizie] e disporre del relativo codice, in quanto questa esercitazione è basata direttamente su tale codice.
 
 È inoltre necessario disporre di Visual Studio 2012.
 
 
-<h2><a name="concepts"></a>Concetti relativi ai modelli</h2>
+##Concetti relativi ai modelli
 
-In [Uso di Hub di notifica per inviare le ultime notizie] è stata creata un'app che usa i **tag** per sottoscrivere le notifiche per diverse categorie di notizie.
-Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche deve essere localizzato e inviato al set di dispositivi corretto.
-In questo argomento verrà illustrato come usare la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
+In [Utilizzo di Hub di notifica per inviare le ultime notizie] è stata creata un'app che utilizza i **tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche deve essere localizzato e inviato al set di dispositivi corretto. In questo argomento verrà illustrato come utilizzare la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
 
-Nota: un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world_en", "world_fr" e "world_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno usati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
+Nota: un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world_en", "world_fr" e "world_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno utilizzati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
 
-A livello generale, i modelli consentono di specificare in che modo un particolare dispositivo deve ricevere una notifica. Il modello definisce lo specifico formato di payload da usare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questo caso verrà inviato un messaggio indipendente dalle impostazioni locali, che contiene tutte le lingue supportate:
+In linea generale, i modelli consentono di specificare in che modo uno specifico dispositivo deve ricevere una notifica. Il modello definisce lo specifico formato di payload da utilizzare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questo caso verrà inviato un messaggio indipendente dalle impostazioni locali, che contiene tutte le lingue supportate:
 
 	{
 		"News_English": "...",
@@ -62,7 +56,7 @@ A livello generale, i modelli consentono di specificare in che modo un particola
 		"News_Mandarin": "..."
 	}
 
-Si procederà quindi a verificare che i dispositivi effettuino la registrazione con un modello che faccia riferimento alla proprietà corretta. Ad esempio, un'app di Windows Store che desidera ricevere un semplice avviso popup effettuerà la registrazione per il seguente modello:
+Si procederà quindi a verificare che i dispositivi effettuino la registrazione con un modello che faccia riferimento alla proprietà corretta. Ad esempio, un'app di Windows Store che desidera ricevere un semplice avviso popup effettuerà la registrazione per il modello seguente:
 
 	<toast>
 	  <visual>
@@ -77,12 +71,12 @@ Si procederà quindi a verificare che i dispositivi effettuino la registrazione 
 I modelli rappresentano uno strumento particolarmente efficace. Per altre informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica]. In [Procedure di Hub di notifica per Windows Store] è disponibile un riferimento al linguaggio di espressione dei modelli.
 
 
-<h2><a name="ui"></a>Interfaccia utente dell'app</h2>
+##Interfaccia utente dell'app
 
-L'app Breaking News creata nell'argomento [Uso di Hub di notifica per inviare le ultime notizie] verrà ora modificata in modo da inviare notizie localizzate usando modelli.
+L'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] verrà ora modificata in modo da inviare notizie localizzate utilizzando modelli.
 
 
-Per adattare le app client alla ricezione di messaggi localizzati è necessario sostituire le registrazioni * native*, ovvero prive di modello, con registrazioni modello.
+Per adattare le app client alla ricezione di messaggi localizzati è necessario sostituire le registrazioni *native*, ovvero prive di modello, con registrazioni modello.
 
 
 Nell'app di Windows Store:
@@ -118,9 +112,9 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-<h2><a name="building-client"></a><span class="building app">Interfaccia utente dell'app</span>Compilazione dell'app client di Windows Store</h2>
+##Compilazione dell'app client di Windows Store
 
-1. Nella classe Notifications, aggiungere un parametro relativo alle impostazioni locali ai metodi  *StoreCategoriesAndSubscribe* e  *SubscribeToCateories*.
+1. Nella classe Notifications aggiungere un parametro "locale" ai metodi *StoreCategoriesAndSubscribe* e *SubscribeToCategories*.
 
 		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -137,11 +131,11 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
         }
 
-	Tenere presente che anziché chiamare il metodo  *RegisterNativeAsync*, verrà chiamato  *RegisterTemplateAsync*: si registra un formato di notifica specifico, in cui il modello dipende dalle impostazioni locali. Verrà inoltre fornito un nome per il modello ("newsTemplate") in quanto può essere necessario registrare più modelli, ad esempio uno per le notifiche di tipo avviso popup e uno per le notifiche di tipo riquadro. In questo caso, per avere la possibilità di aggiornare o eliminare i modelli è necessario assegnare loro un nome.
+	Tenere presente che anziché chiamare il metodo *RegisterNativeAsync*, verrà chiamato *RegisterTemplateAsync*: si registra un formato di notifica specifico, in cui il modello dipende dalle impostazioni locali. Verrà inoltre fornito un nome per il modello ("newsTemplate") in quanto può essere necessario registrare più modelli, ad esempio uno per le notifiche di tipo avviso popup e uno per le notifiche di tipo riquadro. In questo caso, per avere la possibilità di aggiornare o eliminare i modelli è necessario assegnare loro un nome.
 
 	Si noti che, se un dispositivo registra più modelli con lo stesso tag, un messaggio in arrivo destinato a tale tag ha come esito il recapito al dispositivo di più notifiche, una per ogni modello. Questo comportamento risulta utile quando lo stesso messaggio logico deve avere produrre più notifiche visive, ad esempio visualizzare sia una notifica badge che una notifica di tipo avviso popup in un'app di Windows Store.
 
-2. Aggiungere il seguente metodo per recuperare le impostazioni locali archiviate:
+2. Aggiungere il metodo seguente per recuperare le impostazioni locali archiviate:
 
 		public string RetrieveLocale()
         {
@@ -167,13 +161,12 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Infine, nel file App.xaml.cs aggiornare la chiamata al 
-singleton Notifications nel metodo  *OnLaunched*:
+4. Infine, nel file App.xaml.cs aggiornare la chiamata alla classe singleton Notifications nel metodo *OnLaunched*:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
 
-<h2><a name="send"></a>Inviare notifiche localizzate dal back-end</h2>
+##Inviare notifiche localizzate dal back-end
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -183,14 +176,14 @@ singleton Notifications nel metodo  *OnLaunched*:
 
 ## Passaggi successivi
 
-Per altre informazioni sull'uso dei modelli, vedere [Uso di Hub di notifica per inviare notifiche agli utenti: ASP.NET], [Uso di Hub di notifica per inviare notifiche agli utenti: Servizi mobili], nonché l'articolo sulle [linee guida su Hub di notifica]. In [Procedure di Hub di notifica per Windows Store] è disponibile un riferimento al linguaggio di espressione dei modelli.
+Per altre informazioni sull'uso dei modelli, vedere [Usare hub di notifica per inviare notifiche agli utenti: ASP.NET], [Usare hub di notifica per inviare notifiche agli utenti: Servizi mobili] e vedere anche [Panoramica di Hub di notifica]. In [Procedure di Hub di notifica per Windows Store] è disponibile un riferimento al linguaggio di espressione dei modelli.
 
 <!-- Anchors. -->
-[Concetti relativi ai modelli]: #concepts
-[Interfaccia utente dell'app]: #ui
-[Compilazione dell'app client di Windows Store]: #building-client
-[Inviare notifiche dal back-end]: #send
-[Passaggi successivi]:#next-steps
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -215,26 +208,29 @@ Per altre informazioni sull'uso dei modelli, vedere [Uso di Hub di notifica per 
 
 
 <!-- URLs. -->
-[Servizio mobile]: /develop/mobile/tutorials/get-started
-[Uso di Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Uso di Hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /manage/services/notification-hubs/notify-users
-[Uso di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet 
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Usare hub di notifica per inviare notifiche agli utenti: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Usare hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /manage/services/notification-hubs/notify-users
+[Utilizzo di Hub di notifica per inviare le e ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
-[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Inviare notifiche push agli utenti di app]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Azure Management Portal]: https://manage.windowsazure.com/
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Panoramica di Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

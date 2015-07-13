@@ -1,44 +1,34 @@
-<properties 
-	pageTitle="Anteprima di API REST di gestione di Ricerca di Azure versione 2014-07-31" 
-	description="Anteprima di API REST di gestione di Ricerca di Azure versione 2014-07-31" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="Anteprima di API REST di gestione di Ricerca di Azure versione 2014-07-31" description="API REST di gestione di Ricerca di Azure: versione 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/11/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-# Anteprima di API REST di gestione di Ricerca di Azure versione 2014-07-31 #
+# API di gestione: versione 2014-07-31-Preview
+
+In questo documento viene descritta la versione **2014-07-31-Preview** dell’API REST di gestione di Ricerca di Azure. È stata sostituita dalla versione disponibile a livello generale [API REST di gestione di Ricerca di Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) in MSDN.
+
+## Operazioni di gestione del servizio
 
 L'API REST di gestione del servizio Ricerca di Azure fornisce l'accesso a livello di codice a gran parte delle funzionalità disponibili tramite il portale, consentendo agli amministratori di automatizzare le operazioni seguenti:
 
 - Creazione o eliminazione di un servizio Ricerca di Azure.
-- Creare, modificare o recuperare `api-keys` per automatizzare le normali modifiche alle chiavi di amministrazione utilizzate per l'autenticazione delle operazioni di ricerca dei dati. 
+- Creare, modificare o recuperare `api-keys` per automatizzare le normali modifiche alle chiavi di amministrazione utilizzate per l'autenticazione delle operazioni di ricerca dei dati.
 - Regolare la scalabilità di un servizio di Ricerca di Azure in risposta alle modifiche nei requisiti di volume di query o archiviazione.
 
 Per amministrare completamente il servizio a livello di codice, saranno necessarie due API: l'API REST di gestione di Ricerca di Azure e l’[API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) comune. L'API di Gestione risorse viene utilizzata per operazioni generali non specifiche del servizio, ad esempio l’esecuzione di query dei dati di sottoscrizione, l’elenco delle georilevazioni e così via. Per creare e gestire i servizi di Ricerca di Azure nella sottoscrizione, assicurarsi che la richiesta HTTP includa l'endpoint di Gestione risorse, l’ID sottoscrizione, il provider (in questo caso, Ricerca di Azure) e l'operazione di ricerca specifica del servizio.
 
 [Introduzione all'API REST di gestione di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) è una procedura dettagliata del codice di esempio nella quale vengono illustrate le operazioni di configurazione delle applicazioni e di gestione dei servizi. L’applicazione di esempio invia richieste all’API di Gestione risorse di Azure e all’API di gestione dei servizi per Ricerca di Azure, illustrando, in tal modo, come mettere insieme un’applicazione logica che utilizzi entrambe le API.
 
-### Endpoint ###
+### Endpoint
 
 L'endpoint per le operazioni di amministrazione dei servizi è l'URL di Gestione risorse di Azure, `https://management.azure.com`.
 
 Si noti che tutte le chiamate API di gestione devono includere l'ID sottoscrizione e una versione dell'API.
 
-### Versioni ###
+### Versioni
 
 La versione corrente dell’API REST di gestione di Ricerca di Azure è `api-version=2014-07-31-Preview`. Si tratta dell'unica versione di questa API.
 
-### Autenticazione e controllo di accesso###
+### Autenticazione e controllo di accesso
 
 L'API REST gestione di Ricerca di Azure è un'estensione di Gestione risorse di Azure e ne condivide le dipendenze. Di conseguenza, Active Directory è un prerequisito per l'amministrazione dei servizi di Ricerca di Azure. Tutte le richieste amministrative dal codice client devono essere autenticate tramite Azure Active Directory prima che la richiesta raggiunga la gestione risorse.
 
@@ -52,7 +42,7 @@ Nell'applicazione di esempio documentata in [Introduzione all'API REST di gestio
 Controllo di accesso per Gestione risorse di Azure utilizza i ruoli predefiniti Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario. Per informazioni dettagliate, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](../role-based-access-control-configure.md).
 
 
-### Riepilogo delle API ##
+### Riepilogo delle API
 
 Le operazioni includono le API indicate di seguito.
 
@@ -97,7 +87,7 @@ Le operazioni includono le API indicate di seguito.
     `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/deleteQueryKey/[key]?api-version=2014-07-31-Preview`
 
 <a name="ServiceOps"></a>
-## Operazioni di servizio ##
+## Operazioni di servizio
 
 È possibile effettuare il provisioning o il deprovisioning dei servizi di Ricerca di Azure inviando richieste HTTP per la propria sottoscrizione Azure. Gli scenari abilitati tramite queste operazioni includono la creazione di strumenti di amministrazione personalizzati o di un ambiente di produzione o di sviluppo end-to-end (dalla creazione del servizio, fino al popolamento di un indice). Analogamente, i fornitori di soluzioni che progettano e vendono soluzioni cloud potrebbero desiderare un approccio automatizzato e ripetibile per il provisioning di servizi per ogni nuovo cliente.
 
@@ -113,13 +103,13 @@ Le opzioni correlate ai servizi includono le API indicate di seguito:
 
 
 <a name="CreateService"></a>
-## Create Search Service ##
+## Create Search Service
 
 Le operazioni **Create Search Service** effettuano il provisioning di un nuovo servizio di ricerca con i parametri specificati. Questa API può essere utilizzata anche per aggiornare una definizione di servizio esistente.
 
     PUT	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### Richiedere parametri URI  ###
+### Richiedere parametri URI
 
 `subscriptionId`: richiesto. L’`subscriptionID` per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -130,18 +120,18 @@ Le operazioni **Create Search Service** effettuano il provisioning di un nuovo s
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. Quando diventano disponibili versioni più recenti, è possibile specificare la versione da utilizzare per ogni richiesta per ottenere i comportamenti specifici della versione.
 
 
-### Request Headers ###
+### Request Headers
 
 `Content-Type`: richiesto. Impostare questa intestazione su application/json.
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
 
-### Request Body ###
+### Request Body
 
 { "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free | standard | standard2" }, "replicaCount": 1 | 2 | 3 | 4 | 5 | 6, "partitionCount": 1 | 2 | 3 | 4 | 6 | 12 } }
 
-### Parametri del corpo della richiesta ###
+### Parametri del corpo della richiesta
 
 `location`: richiesto. Una delle aree geografiche di Azure supportate e registrate (ad esempio, Stati Uniti Occidentali, Stati Uniti Orientali, Sud-est asiatico e così via). Si noti che una volta creato, il percorso di una risorsa non può essere modificato.
 
@@ -154,19 +144,19 @@ Le operazioni **Create Search Service** effettuano il provisioning di un nuovo s
 `partitionCount`: facoltativo. Il valore predefinito è 1. I valori validi includono 1, 2, 3, 4, 6 o 12. Valido solo quando `sku` è `standard`.
 
 
-### Response ###
+### Response 
 
 Viene restituito HTTP 200 (OK) quando viene aggiornata una definizione del servizio. Viene restituito HTTP 201 (Created) quando viene creato un nuovo servizio.
 
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
 
-### Contenuto risposta ###
+### Contenuto risposta
 
 Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio.
     
@@ -193,7 +183,7 @@ Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio
     } 
 
 
-### Elementi del corpo della risposta ###
+### Elementi del corpo della risposta
 
 `id`: l'ID è l'URL (escluso nome host/schema) per questo servizio di ricerca.
 
@@ -235,13 +225,13 @@ Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio
 Il provisioning è uno stato intermedio che si verifica quando viene stabilita la capacità del servizio. Una volta configurata la capacità, `provisioningState` passa a "riuscito" o "non riuscito". Le applicazioni client possono eseguire il polling dello stato del provisioning (la scelta consigliata per l’intervallo di polling è da 30 secondi a un minuto) utilizzando l’operazione **Get Search Service** per controllare quando viene completata un'operazione. Se si utilizza il servizio gratuito, questo valore tende a tornare come "riuscito", direttamente nella chiamata di creazione del servizio. Ciò avviene perché il servizio gratuito utilizza una capacità che è già configurata.
 
 <a name="GetService"></a>
-## Get Search Service  ##
+## Get Search Service
 
 L’operazione **Get Search Service** restituisce le proprietà per il servizio di ricerca specificato. Si noti che le chiavi di amministrazione non vengono restituite. Utilizzare l’operazione **Get Admin Keys** per recuperare le chiavi di amministrazione.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### URI della richiesta ###
+### URI della richiesta 
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -251,28 +241,28 @@ L’operazione **Get Search Service** restituisce le proprietà per il servizio 
 
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. Quando diventano disponibili versioni più recenti, è possibile specificare la versione da utilizzare per ogni richiesta per ottenere i comportamenti specifici della versione.
 
-### Request Headers ###
+### Request Headers 
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
 
-### Request Body ###
+### Request Body 
 
 Nessuno.
 
 
-### Codice di stato della risposta ###
+### Codice di stato della risposta 
 
 HTTP 200 (OK) in caso di esito positivo.
 
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-### Contenuto risposta ###
+### Contenuto risposta 
 
     {
       "id": "/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]",
@@ -296,7 +286,7 @@ HTTP 200 (OK) in caso di esito positivo.
       }
     }
 
-### Elementi del corpo della risposta ###
+### Elementi del corpo della risposta
 
 `id`: l'ID è l'URL (escluso nome host/schema) per questo servizio di ricerca.
 
@@ -337,13 +327,13 @@ HTTP 200 (OK) in caso di esito positivo.
 
 
 <a name="ListService"></a>
-## List Search Services ##
+## List Search Services
 
 L’operazione **List Services** restituisce un elenco di tutti i servizi di ricerca nella sottoscrizione di un gruppo di risorse specifico. Questa operazione restituisce le definizioni dei servizi, meno le chiavi api di amministrazione. Utilizzare l’operazione **Get Admin Keys** per recuperare le chiavi di amministrazione.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2014-07-31-Preview
     
-### Richiedere parametri URI ###
+### Richiedere parametri URI 
 
 `subscriptionId`: richiesto. L’`subscriptionID` per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -351,26 +341,26 @@ L’operazione **List Services** restituisce un elenco di tutti i servizi di ric
 
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. Quando diventano disponibili versioni più recenti, è possibile specificare la versione da utilizzare per ogni richiesta per ottenere i comportamenti specifici della versione.
 
-### Request Headers ###
+### Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Il codice di stato è HTTP 200 (OK) in caso di esito positivo.
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
 
-### Contenuto risposta ###
+### Contenuto risposta
 
 Il corpo della risposta è un elenco di servizi, restituiti come matrice JSON, nel quale ogni servizio segue il formato nell’operazione **Get Search Service**.
 
@@ -424,7 +414,7 @@ Si noti che il campo `nextLink` è sempre null poiché la versione corrente non 
 
 
 <a name="DeleteService"></a>
-## Delete service ##
+## Delete service 
 
 L’operazione **Delete Service** consente di eliminare il servizio di ricerca e i dati della ricerca, inclusi tutti gli indici e i documenti.
     
@@ -432,7 +422,7 @@ L’operazione **Delete Service** consente di eliminare il servizio di ricerca e
 
 **Nota:** amministratori e sviluppatori sono abituati a eseguire il backup dei dati dell'applicazione prima di eliminarla da un server di produzione. In Ricerca di Azure, non esiste alcuna operazione di backup. Se si utilizza l'indice come archiviazione primaria per l'applicazione, sarà necessario utilizzare un'operazione di ricerca per restituire tutti i dati dell'indice, che è possibile archiviare esternamente.
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -442,30 +432,30 @@ L’operazione **Delete Service** consente di eliminare il servizio di ricerca e
 
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. Quando diventano disponibili versioni più recenti, è possibile specificare la versione da utilizzare per ogni richiesta per ottenere i comportamenti specifici della versione.
 
-###Request Headers###
+###Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Per HTTP 200, il corpo della risposta sarà vuoto. HTTP 200 (OK) è la risposta corretta se la risorsa non esiste.
 
 È possibile utilizzare **Get Search Service API** per eseguire il polling dello stato del servizio di eliminazione. È consigliabile utilizzare intervalli di polling da 30 secondi a un minuto.
 
-###Intestazioni della risposta###
+###Intestazioni della risposta
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
 Nessuno.
 
 <a name="UpdateService"></a>
-## Update Service ##
+## Update Service
 
 L’operazione **Update Service** modifica la configurazione del servizio di ricerca. Le modifiche valide includono la modifica dei tag, della partizione o del conteggio di replica che aggiunge o rimuove le unità di ricerca per il servizio come evento fatturabile. Se si tenta di ridurre le partizioni al di sotto della quantità necessaria per archiviare il corpo di ricerche esistente, si verificherà un errore e il blocco dell’operazione. Le modifiche alla topologia del servizio possono richiedere alcuni minuti. Lo spostamento dei dati e la configurazione o la rimozione cluster nel centro dati richiedono tempo.
 
@@ -477,7 +467,7 @@ In alternativa, è possibile utilizzare PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L’`subscriptionID` per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -487,13 +477,13 @@ In alternativa, è possibile utilizzare PUT.
 
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. Quando diventano disponibili versioni più recenti, è possibile specificare la versione da utilizzare per ogni richiesta per ottenere i comportamenti specifici della versione.
 
-###Request Headers###
+###Request Headers
 
 `Content-Type`: richiesto. Impostare questa intestazione su application/json.
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
     {
       "tags": {
@@ -506,7 +496,7 @@ In alternativa, è possibile utilizzare PUT.
      	}
     }
 
-###Parametri del corpo della richiesta###
+###Parametri del corpo della richiesta
 
 `tags`: facoltativo. Elenco di coppie chiave-valore che descrivono la risorsa. Questi tag possono essere utilizzati nella visualizzazione e nel raggruppamento di questa risorsa (tra gruppi di risorse). È possibile fornire un massimo di 10 tag per una risorsa. Ogni tag deve avere una chiave non superiore a 128 caratteri con un valore che non superi i 256 caratteri.
 
@@ -514,24 +504,24 @@ In alternativa, è possibile utilizzare PUT.
 
 `partitionCount`: facoltativo. Il valore predefinito è 1. I valori validi includono 1, 2, 3, 4, 6 o 12. Valido solo quando `sku` è `standard`.
 
-###Response###
+###Response
 
 Se l'operazione ha esito positivo, viene restituito HTTP 200 (OK). È possibile utilizzare **Get Search Service API** per eseguire il polling dello stato del servizio di aggiornamento. È consigliabile utilizzare intervalli di polling da 30 secondi a un minuto.
 
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-### Contenuto risposta ###
+### Contenuto risposta 
 
 Il corpo della risposta contiene la definizione del servizio aggiornata. Per un esempio, vedere **Get Search Service API**.
 
 
 <a name="KeyOps"></a>
-## Operazioni chiave ##
+## Operazioni chiave
 
 L'autenticazione a un servizio di Ricerca di Azure richiede due informazioni: un URL del servizio di ricerca e una chiave API. Le chiavi API vengono generate al momento della creazione del servizio e possono essere rigenerate su richiesta dopo il provisioning del servizio. Sono disponibili due tipi di chiave API:
 
@@ -558,7 +548,7 @@ Le operazioni relative alle chiavi includono le API indicate di seguito:
 
 
 <a name="ListAdminKey"></a>
-## List Admin Keys ##
+## List Admin Keys 
 
 L’operazione **List Admin Keys** restituisce le chiavi di amministrazione primaria e secondaria per il servizio di ricerca specificato. Viene utilizzato il metodo POST in quanto questa azione restituisce chiavi di lettura-scrittura.
 
@@ -566,7 +556,7 @@ L’operazione **List Admin Keys** restituisce le chiavi di amministrazione prim
 
 Le chiavi di amministrazione vengono create con il servizio. Si tratta sempre di due chiavi, primaria e secondaria. È possibile rigenerare le chiavi, ma non eliminarle.
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -578,25 +568,25 @@ Le chiavi di amministrazione vengono create con il servizio. Si tratta sempre di
 
 `listAdminKeys`: richiesto. Questa azione consente di recuperare le di amministrazione primarie e secondarie per il servizio di ricerca.
 
-###Request Headers###
+###Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Se l'operazione ha esito positivo, viene restituito HTTP 200 (OK).
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
     {
       "primaryKey": "api key",
@@ -605,13 +595,13 @@ Se l'operazione ha esito positivo, viene restituito HTTP 200 (OK).
     
 
 <a name="RegenAdminKey"></a>
-## Regenerate Admin Keys ##
+## Regenerate Admin Keys 
 
 L’operazione **Regenerate Admin Keys** elimina e rigenera la chiave primaria o quella secondaria. È possibile rigenerare solo una chiave per volta. Quando si rigenerano le chiavi, considerare le modalità di gestione dell'accesso al servizio. Esiste una chiave secondaria in modo che sia disponibile una chiave quando si esegue il rollover della chiave primaria. Ogni servizio dispone sempre di entrambe le chiavi. È possibile rigenerare le chiavi, ma non è possibile eliminarle o eseguire un servizio senza di esse.
  
     POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2014-07-31-Preview
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -628,34 +618,34 @@ L’operazione **Regenerate Admin Keys** elimina e rigenera la chiave primaria o
 - `primary`
 - `secondary`
 
-###Request Headers###
+###Request Headers
 
 `Content-Type`: richiesto. Impostare questa intestazione su application/json.
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Se l'operazione ha esito positivo, viene restituito HTTP 200 (OK).
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
     {
       "primaryKey": "api key",
       "secondaryKey": "api key"
     }
     
-###Elementi del corpo della risposta###
+###Elementi del corpo della risposta
 
 `primaryKey`: la chiave di amministrazione primaria, se è stata rigenerata.
 
@@ -664,7 +654,7 @@ Se l'operazione ha esito positivo, viene restituito HTTP 200 (OK).
 
 
 <a name="CreateQueryKey"></a>
-## Create Query Key ##
+## Create Query Key
 
 L’operazione **Create Query Key** genera una nuova chiave di query per il servizio di ricerca. È possibile creare fino a 50 chiavi di query per servizio.
 
@@ -684,25 +674,25 @@ L’operazione **Create Query Key** genera una nuova chiave di query per il serv
 
 `name`: richiesto. Il nome della nuova chiave.
 
-###Request Headers###
+###Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 200 (OK).
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
     {
       "name": "name of key",
@@ -710,21 +700,21 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
     }
 
 
-###Elementi del corpo della risposta###
+###Elementi del corpo della risposta
 
 `name`: nome della chiave di query.
 
 `key`: valore della chiave di query.
 
 <a name="ListQueryKey"></a>
-## List Query Keys ##
+## List Query Keys 
 
 
 L’operazione **List Query Keys** restituisce le chiavi di query per il servizio di ricerca specificato. Le chiavi di query vengono utilizzate per inviare chiamate delle API di query (in sola lettura) a un servizio di ricerca. Possono essere presenti fino a 50 chiavi di query per servizio.
 
     GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2014-07-31-Preview
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -736,25 +726,25 @@ L’operazione **List Query Keys** restituisce le chiavi di query per il servizi
 	
 `listQueryKeys`: richiesto. Questa azione consente di recuperare le chiavi di query per il servizio di ricerca.
 
-###Request Headers###
+###Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 200 (OK).
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
     {
       "value": [
@@ -770,7 +760,7 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
     "nextLink": null
     }
 
-###Elementi del corpo della risposta###
+###Elementi del corpo della risposta
 
 `name`: nome della chiave di query.
 
@@ -778,7 +768,7 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 
 <a name="DeleteQueryKey"></a>
-## Delete Query Keys ##
+## Delete Query Keys 
 
 L’operazione **Delete Query Key** elimina la chiave di query specificata. Le chiavi di query sono facoltative e vengono utilizzate per le query di sola lettura.
 
@@ -786,7 +776,7 @@ L’operazione **Delete Query Key** elimina la chiave di query specificata. Le c
 
 A differenza delle chiavi di amministrazione, le chiavi di query non vengono rigenerate. Il processo di rigenerazione di una chiave di query consiste nell'eliminarla e quindi nel ricrearla.
 
-###Richiedere parametri URI###
+###Richiedere parametri URI
 
 `subscriptionId`: richiesto. L'ID sottoscrizione per l'utente di Azure. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
@@ -800,28 +790,29 @@ A differenza delle chiavi di amministrazione, le chiavi di query non vengono rig
 
 `key`: richiesto. La chiave da eliminare.
 
-###Request Headers###
+###Request Headers
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
-###Request Body###
+###Request Body
 
 Nessuno.
 
-###Response###
+###Response
 
 Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 200 (OK).
 
-### Intestazioni della risposta ###
+### Intestazioni della risposta 
 
 `Content-Type`: questa intestazione è sempre impostata su application/json.
 
 `x-ms-request-id`: identificatore univoco per l'operazione corrente generato dal servizio.
 
-###Contenuto risposta###
+###Contenuto risposta
 
 Nessuno.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

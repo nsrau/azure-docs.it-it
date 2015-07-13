@@ -24,7 +24,7 @@
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica \(iOS\)](notification-hubs-ios-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro \(iOS\)](notification-hubs-aspnet-backend-ios-secure-push.md). Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) di questa esercitazione.
+> [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) di questa esercitazione.
 
 
 
@@ -32,7 +32,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 ## Modificare l'app per iOS
 
-1. Aprire l'app di visualizzazione Pagina singola creata nell'esercitazione [Introduzione ad Hub di notifica \(iOS\)](notification-hubs-ios-get-started.md).
+1. Aprire l'app di visualizzazione Pagina singola creata nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md).
 
 	> [AZURE.NOTE]In questa sezione si presuppone che il progetto sia configurato con un nome di organizzazione vuoto. In caso contrario, sarà necessario anteporre il nome dell'organizzazione a tutti i nomi di classi.
 
@@ -49,7 +49,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 	+ **Nome utente del destinatario**: oggetto UITextField con testo segnaposto, *Recipient username tag*, immediatamente sotto l'etichetta GCM e limitato dai margini sinistro e destro.
 	
 
-	Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica \(iOS\)](notification-hubs-ios-get-started.md) esercitazione.
+	Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md) esercitazione.
 
 3. Trascinare tenendo premuto **CTRL** dai componenti nella visualizzazione a ViewController.h e aggiungere questi nuovi outlet.
 
@@ -69,7 +69,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. In ViewController.h aggiungere l'elemento `#define` seguente sotto le istruzioni di importazione. Sostituire il segnaposto *\<Enter Your Backend Endpoint\>* con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: *http://you_backend.azurewebsites.net*.
+4. In ViewController.h aggiungere l'elemento `#define` seguente sotto le istruzioni di importazione. Sostituire il segnaposto *<Enter Your Backend Endpoint>* con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: *http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -399,7 +399,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 		-(void)SendToEnabledPlatforms
 		{
-		    NSString* json = [NSString stringWithFormat:@"\"%@\"",self.notificationMessage.text];
+		    NSString* json = [NSString stringWithFormat:@""%@"",self.notificationMessage.text];
 		    
 			[self.sendResults setText:@""];
 
@@ -443,7 +443,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 ## Testare l'applicazione
 
-1. In XCode eseguire l'app su un dispositivo iOS fisico \(le notifiche push non funzioneranno nel simulatore\).
+1. In XCode eseguire l'app su un dispositivo iOS fisico (le notifiche push non funzioneranno nel simulatore).
 
 2. Nell'interfaccia utente dell'app per iOS immettere un nome utente e una password. Può trattarsi di qualsiasi stringa, ma devono avere entrambi lo stesso valore di stringa. Quindi fare clic su **Log In**.
 
@@ -454,7 +454,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 	![][3]
 
-4. Nel **campo di testo Recipient username tag\* immettere il tag del nome utente usato con la registrazione da un altro dispositivo.
+4. Nel **campo di testo Recipient username tag* immettere il tag del nome utente usato con la registrazione da un altro dispositivo.
 5. Immettere un messaggio di notifica e fare clic su **Send Notification**. Solo i dispositivi che hanno una registrazione con il tag del nome utente del destinatario riceveranno il messaggio di notifica. Viene inviato solo a tali utenti.
 
 	![][4]
@@ -466,4 +466,4 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

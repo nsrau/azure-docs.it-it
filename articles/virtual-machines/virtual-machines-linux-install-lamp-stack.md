@@ -123,5 +123,6 @@ Si supponga si voler automatizzare questi passaggi per distribuire applicazioni 
 Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

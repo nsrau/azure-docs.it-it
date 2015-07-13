@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Azure" 
-	description="Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione." 
+<properties
+	pageTitle="Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Azure"
+	description="Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione."
 	keywords="quickstart,r language,r programming language,r programming tutorial"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+	services="machine-learning"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/22/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/26/2015"
 	ms.author="larryfr"/>
 
 # Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
@@ -52,7 +52,7 @@ La procedura sarà formata da diversi passaggi che consentiranno di apprendere c
 
 * Con i dati preparati verrà eseguita un'analisi delle correlazioni tra più variabili nel set di dati.
 
-* Infine, verrà creato un modello di previsione in serie temporale \(stagionale\) per la produzione di latte.
+* Infine, verrà creato un modello di previsione in serie temporale (stagionale) per la produzione di latte.
 
 ##<a id="mlstudio"></a>Interagire con il linguaggio R in Machine Learning Studio
 
@@ -78,7 +78,7 @@ Facendo riferimento alla Figura 1, osservare alcune parti di chiave dell'ambient
 
 Il modulo [Execute R Script][execute-r-script] verrà trattato in dettaglio nelle parti successive di questo documento.
 
-Quando si usano funzioni R complesse, è preferibile effettuare le operazioni di modifica, test e debug in RStudio. Come con qualsiasi altro software di sviluppo, inoltre, è opportuno estendere il codice in modo incrementale, così da poterlo verificare in piccoli e semplici casi di test e, se funziona correttamente, tagliarlo e incollarlo nella finestra dello script R del modulo [Execute R Script][execute-r-script]. Questo approccio consente di sfruttare sia l'ambiente di sviluppo integrato \(IDE\) di RStudio che la potenza di Azure Machine Learning.
+Quando si usano funzioni R complesse, è preferibile effettuare le operazioni di modifica, test e debug in RStudio. Come con qualsiasi altro software di sviluppo, inoltre, è opportuno estendere il codice in modo incrementale, così da poterlo verificare in piccoli e semplici casi di test e, se funziona correttamente, tagliarlo e incollarlo nella finestra dello script R del modulo [Execute R Script][execute-r-script]. Questo approccio consente di sfruttare sia l'ambiente di sviluppo integrato (IDE) di RStudio che la potenza di Azure Machine Learning.
 
 ####Eseguire il codice R
 
@@ -99,7 +99,7 @@ L'output dell'esecuzione del codice R e della piattaforma di Azure Machine Learn
 
 Se si verifica un errore in Machine Learning Studio mentre si esegue il codice R, è necessario innanzitutto analizzare error.log. Questo file può contenere messaggi di errore utili a comprendere e correggere l'errore. Per visualizzare error.log, fare clic su **View error log** nel **riquadro delle proprietà** del modulo [Execute R Script][execute-r-script] che contiene l'errore.
 
-Ad esempio, si esegue il codice R riportato di seguito con una variabile y non definita in un modulo [Execute R Script][execute-r-script]\:
+Ad esempio, si esegue il codice R riportato di seguito con una variabile y non definita in un modulo [Execute R Script][execute-r-script]:
 
 	x <- 1.0
 	z <- x + y
@@ -140,7 +140,7 @@ Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a
 
 RStudio è un ambiente IDE molto usato per R. RStudio verrà usato per la modifica, i test e il debug di alcuni codici R usati in questa guida introduttiva. Dopo il test, quando il codice R è pronto, tagliarlo e incollarlo dall'editor di RStudio a un modulo [Execute R Script][execute-r-script] di Machine Learning Studio.
 
-Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirne ora l'installazione. Download gratuiti del linguaggio di programmazione R open source sono disponibili nel sistema CRAN \(Comprehensive R Archive Network\) all'indirizzo [http://www.r-project.org/](http://www.r-project.org/). Sono disponibili anche download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni di download. Il sistema CRAN contiene anche una serie di utili pacchetti di analisi e manipolazione di dati.
+Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirne ora l'installazione. Download gratuiti del linguaggio di programmazione R open source sono disponibili nel sistema CRAN (Comprehensive R Archive Network) all'indirizzo [http://www.r-project.org/](http://www.r-project.org/). Sono disponibili anche download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni di download. Il sistema CRAN contiene anche una serie di utili pacchetti di analisi e manipolazione di dati.
 
 Se non si ha familiarità con RStudio, è consigliabile scaricare e installare la versione desktop. I download di RStudio per Windows, Mac OS e Linux/UNIX sono disponibili anche all'indirizzo http://www.rstudio.com/products/RStudio/. Seguire le indicazioni fornite per installare RStudio sul proprio desktop.
 
@@ -164,23 +164,23 @@ Prima di tutto, caricare il file **csdairydata.csv** in Azure Machine Learning S
 
 - Fare clic su + nell'angolo in basso a sinistra dello schermo e selezionare **Dataset**.
 
-- Selezionare il file con **Browse**.
+- Selezionare **Da file locale**, e quindi **Sfoglia** per selezionare il file.
 
-- Verificare di aver selezionato **Generic CSV file with header \(.csv\)**.
+- Verificare di aver selezionato **Generic CSV file with header (.csv)** come tipo per il set di dati.
 
 - Fare clic sul segno di spunta.
 
-- Facendo clic sulla scheda **Datasets** viene visualizzato un nuovo set di dati.
+- Dopo aver caricato il set di dati, il nuovo set di dati viene visualizzato facendo clic sulla scheda **Set di dati**.
 
 ####Creare un esperimento
 
 Ora che sono presenti dei dati in Machine Learning Studio, è necessario creare un esperimento per eseguire l'analisi.
 
-- Fare clic su + nell'angolo in basso a sinistra dello schermo e selezionare **Experiment**.
+- Fare clic su + nell'angolo in basso a sinistra dello schermo e selezionare **Experiment**, quindi **Blank Experiment**.
 
-- Assegnare un titolo all'esperimento. Assegnare il nome **CA Dairy Analysis** all'esperimento.
+- È possibile denominare l'esperimento selezionandolo e modificando il titolo **Experiment created on...** nella parte superiore della pagina. Ad esempio, è possibile modificare il titolo in **CA Dairy Analysis**.
 
-- Cercare il set di dati appena caricato.
+- A sinistra della pagina dell’esperimento, espandere **Saved Datasets**, e quindi **My Datasets**. Verrà visualizzato il set di dati **cadairydata.csv** caricato in precedenza.
 
 - Trascinare **csdairydata.csv set di dati** nell'esperimento.
 
@@ -200,7 +200,7 @@ A questo punto, l'esperimento dovrebbe essere simile a quanto riportato nella Fi
 
 ####Controllo dei dati
 
-Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento fare doppio clic sull'output del **set di dati cadairydata.csv** e selezionare **visualize**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.
+Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento fare clic sull'output del **set di dati cadairydata.csv** e selezionare **visualize**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.
 
 ![Riepilogo del set di dati cadairydata.csv][4]
 
@@ -350,7 +350,7 @@ R è un linguaggio tipizzato dinamicamente, in cui i tipi di dati vengono assegn
 
 Quando i dati tabulari vengono letti in R da un'origine esterna, è sempre opportuno controllare nelle colonne i tipi risultanti. È possibile, ad esempio, che una colonna che sarebbe dovuta essere di tipo Char in realtà risulti di tipo fattore, o viceversa. In altri casi, una colonna che si pensa debba essere numerica viene rappresentata da dati di tipo carattere, ad esempio '1,23' anziché 1,23 come numero a virgola mobile.
 
-Fortunatamente, convertire un tipo in un altro tipo è piuttosto semplice, purché sia possibile il mapping. Ad esempio, non è possibile convertire "Nevada" in un valore numerico, ma è possibile convertirlo in un fattore \(variabile di categoria\). Un valore numerico 1, invece, può essere convertito sia nel carattere "1" sia in un fattore.
+Fortunatamente, convertire un tipo in un altro tipo è piuttosto semplice, purché sia possibile il mapping. Ad esempio, non è possibile convertire "Nevada" in un valore numerico, ma è possibile convertirlo in un fattore (variabile di categoria). Un valore numerico 1, invece, può essere convertito sia nel carattere "1" sia in un fattore.
 
 La sintassi di queste conversioni è semplice: `as.datatype()`. Queste funzioni di conversione del tipo includono quanto segue.
 
@@ -432,7 +432,7 @@ Per organizzare il codice, è necessario creare una prima funzione semplice, `nu
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-	
+
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -461,31 +461,31 @@ Nel codice seguente viene definita una nuova funzione `log.transform()`, che vie
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-	
+
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-	
+
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-	
+
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-	
-	
+
+
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-	
+
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -523,8 +523,7 @@ Il codice R completo per questa sezione è disponibile nel file zip scaricato in
 
 Come già accennato, le serie temporali sono costituite da una serie di valori di dati indicizzati per data e ora. Gli oggetti serie temporale vengono usati in R per creare e gestire l'indice temporale. Questi oggetti offrono infatti una serie di vantaggi. Gli oggetti della serie temporale consentono di liberarsi delle numerose attività di gestione dei valori di indice della serie temporale incapsulati nell'oggetto. Consentono inoltre di usare i vari metodi messi a disposizione dalle serie temporali per operazioni di tracciamento, stampa, modeling, ecc.
 
-In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. 
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Esempio di oggetto della serie temporale
 
@@ -554,11 +553,11 @@ I dati sono dei tipi e nel formato previsti. Osservare come la colonna "Month" s
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata) # Check the results
 
 Verifichiamo ora l'output della porta R Device. Dovrebbe essere simile a quello riportato nella Figura 15.
@@ -591,7 +590,7 @@ La funzione `ts.detrend()` mostrata di seguito esegue entrambe le operazioni. Le
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-	
+
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -602,33 +601,33 @@ La funzione `ts.detrend()` mostrata di seguito esegue entrambe le operazioni. Le
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-	
+
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-	
+
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-	
+
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-	
+
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-	
+
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-	
+
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-	
+
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-	
+
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -655,13 +654,13 @@ Il codice per calcolare le correlazioni come oggetti CCF di R è il seguente.
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-	
+
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-	
+
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-	
+
 	cadairycorrelations
 
 Eseguendo questo codice viene generato l'output mostrato nella Figura 18.
@@ -679,7 +678,7 @@ Abbiamo elaborato le correlazioni pairwise come elenco di oggetti R ccf. Questo 
 Il codice seguente estrae i valori di intervallo dall'elenco di oggetti CCF, che sono essi stessi degli elenchi.
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-	
+
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -687,14 +686,14 @@ Il codice seguente estrae i valori di intervallo dall'elenco di oggetti CCF, che
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-	
+
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-	
-	
+
+
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -702,7 +701,7 @@ Il codice seguente estrae i valori di intervallo dall'elenco di oggetti CCF, che
 
 La prima riga di codice è un po' complessa da comprendere, quindi viene spiegata qui di seguito. Dall'interno verso l'esterno incontriamo:
 
-1.  L'operatore '\*\*\[\[\*\*' con argomento '\*\*1\*\*' seleziona il vettore delle correlazioni nei vari intervalli dal primo elemento dell'elenco di oggetti CCF.
+1.  L'operatore '**[[**' con argomento '**1**' seleziona il vettore delle correlazioni nei vari intervalli dal primo elemento dell'elenco di oggetti CCF.
 
 2.  La funzione `do.call()` applica la funzione `rbind()` agli elementi dell'elenco restituito da `lapply()`.
 
@@ -736,11 +735,11 @@ Come per l'analisi di correlazione appena completata, dobbiamo aggiungere una co
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata)
 
 Eseguire il codice e osservare l'output della porta R Device. Il risultato dovrebbe essere simile alla Figura 21.
@@ -756,12 +755,12 @@ Con questo risultato siamo pronti per avviare l'analisi.
 Con il frame di dati costruito dobbiamo creare un set di dati di addestramento, che comprenderà tutte le osservazioni, ad eccezione delle ultime 12, relative al 2013, che corrispondono al nostro set di dati di test. Il codice seguente suddivide il frame di dati in sottoinsiemi e crea grafici della produzione casearia e delle variabili di prezzo. Creerò quindi dei grafici per le quattro variabili di produzione e di prezzo. Una funzione anonima viene usata per definire alcuni argomenti per il tracciato e quindi eseguire l'iterazione nell'elenco degli altri due argomenti con `Map()`. Se pensate che un ciclo For sarebbe stato appropriato, avete ragione. Tuttavia, poiché R è un linguaggio funzionale, adotterò un approccio funzionale.
 
 	cadairytrain <- cadairydata[1:216, ]
-	
+
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-	
+
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 L'esecuzione di questo codice produce la serie di grafici in serie temporale ottenuto dall'output R Device mostrato nella Figura 22. Notare che l'asse temporale è espresso in unità di date, uno dei vantaggi offerti dal metodo del grafico in serie temporale.
@@ -782,7 +781,7 @@ Dopo aver creato un oggetto serie temporale e aver esaminato i dati, iniziamo a 
 
 Considerata la scala ridotta dei dati, il modello per la tendenza verrà compilato in RStudio, quindi il modello risultante verrà tagliato e incollato in Azure Machine Learning. RStudio fornisce infatti un ambiente interattivo adatto a questo tipo di analisi interattiva.
 
-Come primo tentativo, eseguirò una regressione polinomiale con valori di potenza fino a 3. Esiste un pericolo reale di overfitting per questi tipi di modelli. È opportuno quindi evitare termini di ordine superiore. La funzione `I()` inibisce l'interpretazione dei contenuti \(interpreta i contenuti così come sono\) e consente di scrivere una funzione con interpretazione letterale in un'equazione di regressione.
+Come primo tentativo, eseguirò una regressione polinomiale con valori di potenza fino a 3. Esiste un pericolo reale di overfitting per questi tipi di modelli. È opportuno quindi evitare termini di ordine superiore. La funzione `I()` inibisce l'interpretazione dei contenuti (interpreta i contenuti così come sono) e consente di scrivere una funzione con interpretazione letterale in un'equazione di regressione.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cadairytrain)
 	summary(milk.lm)
@@ -811,7 +810,7 @@ Viene generato quanto segue.
 	## Multiple R-squared:  0.941,	Adjusted R-squared:  0.94
 	## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-Dai valori P \(Pr\(\>\|t\|\)\) presenti in questo output possiamo osservare come il termine al quadrato possa non essere significativo. Verrà usata la funzione `update()` per modificare il modello eliminando il termine al quadrato.
+Dai valori P (Pr(>|t|)) presenti in questo output possiamo osservare come il termine al quadrato possa non essere significativo. Verrà usata la funzione `update()` per modificare il modello eliminando il termine al quadrato.
 
 	milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
 	summary(milk.lm)
@@ -840,10 +839,10 @@ Viene generato quanto segue.
 
 L'aspetto è decisamente migliore adesso. Tutti i termini sono significativi. Il valore 2e-16, tuttavia, è un valore predefinito e non dovrebbe essere preso troppo sul serio
 
-Come test di integrità, effettueremo un grafico in serie temporale dei dati della produzione casearia in California con la curva di trend mostrata di seguito. È stato aggiunto il seguente codice al modulo [Execute R Script][execute-r-script] di Azure Machine Learning \(non RStudio\) per creare il modello ed eseguire un tracciato. Il risultato viene mostrato nella Figura 23.
+Come test di integrità, effettueremo un grafico in serie temporale dei dati della produzione casearia in California con la curva di trend mostrata di seguito. È stato aggiunto il seguente codice al modulo [Execute R Script][execute-r-script] di Azure Machine Learning (non RStudio) per creare il modello ed eseguire un tracciato. Il risultato viene mostrato nella Figura 23.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -901,7 +900,7 @@ Vediamo come nel modello non sia più presente un termine dell'intercetta ma sia
 Creiamo adesso un altro grafico in serie temporale dei dati di produzione casearia in California per verificare l'effettivo funzionamento del modello con stagionalità. Il codice seguente è stato aggiunto al modulo [Execute R Script][execute-r-script] di Azure Machine Learning per creare il modello ed eseguire un tracciato.
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -911,14 +910,14 @@ L'esecuzione di questo codice in Azure Machine Learning produce il tracciato mos
 
 *Figura 24. Produzione di latte in California con un modello che include gli effetti stagionali.*
 
-La corrispondenza con i dati mostrati nella Figura 24 è piuttosto incoraggiante. Sia il trend sia l'effetto stagionale \(variazione mensile\) sembrano ragionevoli.
+La corrispondenza con i dati mostrati nella Figura 24 è piuttosto incoraggiante. Sia il trend sia l'effetto stagionale (variazione mensile) sembrano ragionevoli.
 
 Come ulteriore verifica sul mostro modello, esaminiamo i valori residui. Il codice seguente calcola i valori previsti da due modelli, calcola i valori residui per il modello stagionale e infine esegue il traccia di tali valori per i dati di training.
 
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -956,26 +955,26 @@ In questi grafici sono presenti alcuni punti di alta influenza, ma niente di par
 
 È rimasta un'ultima cosa da fare per poter completare il nostro esempio: elaborare le previsioni e valutare il grado di errore rispetto ai dati effettivi. La nostra previsione riguarda i 12 mesi del 2013. È possibile calcolare una misura di errore per questa previsione nei dati effettivi non compresi nel set di dati di training. Possiamo inoltre confrontare le prestazioni dei 18 anni di dati di addestramento con i 12 mesi dei dati di test.
 
-Per misurare le prestazioni di modelli in serie temporale viene usata, in genere, una serie di parametri. In questo caso verrà usata la radice dell'errore quadratico medio \(RMS\). La funzione seguente calcola l'errore RMS tra due serie.
+Per misurare le prestazioni di modelli in serie temporale viene usata, in genere, una serie di parametri. In questo caso verrà usata la radice dell'errore quadratico medio (RMS). La funzione seguente calcola l'errore RMS tra due serie.
 
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-	
+
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-	
+
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-	
+
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-	
+
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -995,7 +994,7 @@ Per misurare le prestazioni di modelli in serie temporale viene usata, in genere
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1019,7 +1018,7 @@ Muniti di una funzione per calcolare la deviazione standard, creiamo ed eseguiam
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-	
+
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1117,6 +1116,5 @@ Alcune importanti risorse su Internet:
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

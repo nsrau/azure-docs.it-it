@@ -1,26 +1,28 @@
 
-<properties 
-    pageTitle="Modificare il tenant di Azure Active Directory in RemoteApp"
-    description="Informazioni su come modificare il tenant di Azure Active Directory associato RemoteApp" 
-    services="remoteapp" 
+<properties
+    pageTitle="Modificare il tenant di Azure Active Directory in RemoteApp di Azure"
+    description="Informazioni su come modificare il tenant di Azure Active Directory associato a RemoteApp di Azure"
+    services="remoteapp"
     solutions="" documentationCenter="" 
-    authors="lizap" 
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/19/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/24/2015"
     ms.author="elizapo" />
 
 
 
-# Modificare il tenant di Azure Active Directory in RemoteApp
+# Modificare il tenant di Azure Active Directory in RemoteApp di Azure
 
-RemoteApp usa Azure Active Directory (Azure AD) per consentire l'accesso utente. L'unico tenant di Azure AD che è possibile usare è quello associato alla sottoscrizione Azure. È possibile visualizzare la sottoscrizione associata nella pagina Impostazioni nel portale. Controllare la colonna Directory nella scheda Sottoscrizioni. 
+RemoteApp usa Azure Active Directory (Azure AD) per consentire l'accesso utente. L'unico tenant di Azure AD che è possibile usare è quello associato alla sottoscrizione Azure. È possibile visualizzare la sottoscrizione associata nella pagina Impostazioni nel portale. Controllare la colonna Directory nella scheda Sottoscrizioni.
+
+> [AZURE.NOTE]Affinché la modifica di Azure Active Directory abbia esito positivo, è innanzitutto necessario rimuovere tutti gli utenti dal tenant Azure Active Directory esistente da tutte le raccolte di RemoteApp di Azure. A tale scopo, accedere al portale di Azure, passare alla scheda RemoteApp di Azure e aprire ogni raccolta di RemoteApp di Azure. Andare alla scheda **Utenti** e rimuovere gli utenti che appartengono al tenant di Azure Active Directory corrente. Ripetere per tutte le raccolte di RemoteApp di Azure esistenti. Senza questa operazione, non sarà possibile creare raccolte o applicarvi patch.
 
 Se si desidera usare un tenant differente, completare i seguenti passaggi per modificare l'associazione alla propria sottoscrizione:
 
@@ -28,7 +30,7 @@ Se si desidera usare un tenant differente, completare i seguenti passaggi per mo
 
 
 2. Impostare un account Microsoft (in precedenza denominato Live ID) come amministratore del servizio. Esaminare **Impostazioni -> Amministratori**.
-	1. Fare clic sull'utente attualmente connesso nell'angolo superiore destro, quindi su **Visualizza fattura**.
+	1. Fare clic sull'utente connesso nell'angolo superiore destro, quindi su **Visualizza fattura**.
 	2. Selezionare la propria sottoscrizione, quindi fare clic su **Modifica i dettagli della sottoscrizione**.
 	3. Apportare le modifiche necessarie.
 
@@ -46,5 +48,4 @@ Se si desidera usare un tenant differente, completare i seguenti passaggi per mo
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in RemoteApp.
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

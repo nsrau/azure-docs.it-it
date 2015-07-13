@@ -31,7 +31,7 @@ Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluz
 
 ----------
 
-Per sviluppare un modello predittivo per il rischio del credito, verrà usato il set di dati "UCI Statlog \(German Credit Data\) Data Set" da UCI Machine Learning Repository, disponibile all'indirizzo seguente: <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+\(German+Credit+Data\)</a>
+Per sviluppare un modello predittivo per il rischio del credito, verrà usato il set di dati "UCI Statlog (German Credit Data) Data Set" da UCI Machine Learning Repository, disponibile all'indirizzo seguente: <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Verrà usato il file denominato **german.data**. Scaricare questo file nel disco rigido locale.
 
@@ -41,10 +41,10 @@ Il sito Web UCI fornisce una descrizione degli attributi del vettore delle funzi
 
 Questi dati verranno usati per creare un modello di analisi predittiva. Una volta completata questa operazione, il modello dovrebbe essere in grado di accettare informazioni per nuovi clienti e prevedere se sono a basso o ad alto rischio.
 
-Ma ecco un'interessante svolta. La descrizione del set di dati spiega che classificare erroneamente un cliente come a basso rischio mentre è ad alto rischio implica costi cinque volte più alti per l'istituto di credito rispetto a classificare erroneamente un cliente come ad alto rischio mentre è a basso rischio. Un modo semplice per tenere conto di questo aspetto nell'esperimento consiste nel duplicare \(5 volte\) le voci che rappresentano un cliente con rischio di credito elevato. In tal modo, se il modello classifica erroneamente come basso un rischio alto, la classificazione errata sarà ripetuta 5 volte, una per ogni duplicato, e il costo di questo errore aumenterà nei risultati.
+Ma ecco un'interessante svolta. La descrizione del set di dati spiega che classificare erroneamente un cliente come a basso rischio mentre è ad alto rischio implica costi cinque volte più alti per l'istituto di credito rispetto a classificare erroneamente un cliente come ad alto rischio mentre è a basso rischio. Un modo semplice per tenere conto di questo aspetto nell'esperimento consiste nel duplicare (5 volte) le voci che rappresentano un cliente con rischio di credito elevato. In tal modo, se il modello classifica erroneamente come basso un rischio alto, la classificazione errata sarà ripetuta 5 volte, una per ogni duplicato, e il costo di questo errore aumenterà nei risultati.
 
 ##Convertire il formato del set di dati
-Nel set di dati originale viene usato un formato con valori delimitati da spazi vuoti. Per il funzionamento ottimale di Machine Learning Studio è preferibile usare un file con valori delimitati da virgole \(CSV\), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.
+Nel set di dati originale viene usato un formato con valori delimitati da spazi vuoti. Per il funzionamento ottimale di Machine Learning Studio è preferibile usare un file con valori delimitati da virgole (CSV), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.
 
 È possibile eseguire questa operazione con il comando di Windows PowerShell seguente:
 
@@ -58,13 +58,13 @@ Nel set di dati originale viene usato un formato con valori delimitati da spazi 
 
 Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine Learning Studio.
 
-1.	Accedere a Machine Learning Studio \([https://studio.azureml.net](https://studio.azureml.net)\) con l'account Microsoft specificato come proprietario dell'area di lavoro e fare clic sulla scheda **Studio** in alto.
+1.	Accedere a Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)) con l'account Microsoft specificato come proprietario dell'area di lavoro e fare clic sulla scheda **Studio** in alto.
 2.	Fare clic su **+NEW** nella parte inferiore della finestra.
 3.	Selezionare **DATASET**.
 4.	Selezionare **FROM LOCAL FILE**.
 5.	Nell'area **Upload a new dataset dialog** fare clic su **Browse** e trovare il file **german.csv** creato.
 6.	Immettere un nome per il set di dati. Per questo esempio il nome sarà "UCI German Credit Card Data".
-7.	Come tipo di dati selezionare **Generic CSV File With no header \(.nh.csv\)**.
+7.	Come tipo di dati selezionare **Generic CSV File With no header (.nh.csv)**.
 8.	Aggiungere un'eventuale descrizione.
 9.	Fare clic su **OK**.  
 
@@ -80,4 +80,4 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->
