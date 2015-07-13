@@ -1,5 +1,5 @@
-﻿
-Le istruzioni e le schermate seguenti si applicano ai test di un client di Windows Store, ma è possibile testare questo su una delle altre piattaforme supportate da servizi mobili di Azure. 
+
+Le istruzioni e le schermate seguenti si applicano ai test di un client di Windows Store, ma è possibile testare questo su una delle altre piattaforme supportate da servizi mobili di Azure.
 
 1. In Visual Studio eseguire l'app client e tentare di eseguire l'autenticazione con l'account utente denominato Dave appena creato. 
 
@@ -17,7 +17,4 @@ Le istruzioni e le schermate seguenti si applicano ai test di un client di Windo
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-
-
-
-<!--HONumber=49-->
+<!---HONumber=62-->

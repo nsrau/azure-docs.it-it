@@ -53,7 +53,7 @@ In questo caso, non aggiunge l'[SDK JavaScript][client] alle pagine Web; si cons
 
 Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure. Questo account è diverso dall'account Visual Studio Online.
 
-Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione**** per inserirla nello stesso gruppo di risorse degli altri componenti.
+Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
 
 *Se non è disponibile alcuna opzione di Application Insights, per alcuni tipi di progetto è possibile usare Application Insights [aggiungendo l'SDK manualmente][windows].*
 
@@ -123,5 +123,6 @@ Ora che è in corso l'invio di dati dal lato server dell'app, verranno fornite a
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

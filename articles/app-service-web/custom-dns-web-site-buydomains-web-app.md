@@ -93,5 +93,6 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -107,7 +107,7 @@ Ottenere il tempo di risposta di tutte le richiesta > 5s. I tempi sono rappresen
 
 
 
-## <a name="search"></a>Eseguire ricerche di dati
+## Eseguire ricerche nei dati
 
 È possibile cercare i termini in uno dei valori delle proprietà. Ciò è particolarmente utile se sono stati scritti [eventi personalizzati][track] con i valori della proprietà.
 
@@ -180,8 +180,6 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
 
 
-
-
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -192,5 +190,6 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

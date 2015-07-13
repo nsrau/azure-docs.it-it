@@ -99,7 +99,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName
 - Aprire prima `DirectorySearcher.cs` e aggiungere un nuovo parametro al metodo `SearchByAlias(...)`. `IPlatformParameters` è il parametro contestuale che incapsula gli oggetti specifici delle piattaforme necessari ad ADAL per eseguire l'autenticazione.
 
 ```C#
-public static async Task<List<User> SearchByAlias(string alias, IPlatformParameters parent)
+public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
 {
 ```
 
@@ -195,8 +195,9 @@ ADAL consente di incorporare facilmente nell'applicazione funzionalità comuni r
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Ora è possibile passare ad altri scenari relativi alle identità. È possibile:
 
-[Proteggere un'API Web .NET con Azure AD >](active-directory-devquickstarts-webapi-dotnet.md)
+[Proteggere un'API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >](https://github.com/AzureAdSamples), [CloudIdentity.com >](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

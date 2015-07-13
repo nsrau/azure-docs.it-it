@@ -34,7 +34,7 @@ Fare clic su **Notifiche** dal menu **Gestione API** a sinistra per visualizzare
 
 L'elenco di eventi seguente può essere configurato per le notifiche.
 
--	**Richieste di sottoscrizione \(che richiedono approvazione\)** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle richieste di sottoscrizione per prodotti API che richiedono approvazione.
+-	**Richieste di sottoscrizione (che richiedono approvazione)** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle richieste di sottoscrizione per prodotti API che richiedono approvazione.
 -	**Nuove sottoscrizioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle nuove sottoscrizioni a prodotti API.
 -	**Richieste relative alla raccolta di applicazioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando nuove applicazioni vengono inviate alla raccolta di applicazioni.
 -	**BCC** - I destinatari e gli utenti di posta elettronica specificati riceveranno copie per conoscenza nascosta di tutti i messaggi di posta elettronica inviati agli sviluppatori.
@@ -114,4 +114,4 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

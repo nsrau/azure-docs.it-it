@@ -1,12 +1,10 @@
-﻿
+
 
 È infine necessario aggiornare lo script registrato nell'operazione di inserimento nella tabella TodoItem per l'invio di notifiche.
 
-1. Fare clic su **TodoItem**, quindi su **Script** e selezionare **Inserisci**. 
+1. Fare clic su **TodoItem**, quindi su **Script** e selezionare **Insert**. 
 
-   	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
-
-2. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
+2. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
 
 		function insert(item, user, request) {
 		// Define a payload for the Windows Store toast notification.
@@ -33,5 +31,4 @@
 
 	Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutte le app di Windows Store registrate dopo la corretta esecuzione dell'inserimento.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

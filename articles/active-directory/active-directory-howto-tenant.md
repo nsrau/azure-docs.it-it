@@ -18,7 +18,7 @@
 
 # Come ottenere un tenant di Azure Active Directory
 
-In Azure Active Directory \(Azure AD\), un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) rappresenta un'organizzazione. Si tratta di un'istanza dedicata del servizio Azure AD che l'organizzazione riceve al momento dell'iscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365 e che diventa di sua proprietà. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD.
+In Azure Active Directory (Azure AD), un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) rappresenta un'organizzazione. Si tratta di un'istanza dedicata del servizio Azure AD che l'organizzazione riceve al momento dell'iscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365 e che diventa di sua proprietà. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD.
 
 Un tenant ospita gli utenti di un'azienda e le informazioni su di essi, ad esempio password dati del profilo utente, autorizzazioni e così via. Contiene anche gruppi, applicazioni e altre informazioni relative all'azienda e alla sicurezza.
 
@@ -32,7 +32,7 @@ Come ottenere un tenant di Azure AD La procedura può variare nei casi in cui:
 - [Non si ha nessuna delle sottoscrizioni precedenti e si vuole iniziare da zero](#start-from-scratch)
 
 ## Usare una sottoscrizione di Office 365 esistente
-Se si è abbonati a Office 365 ma non si ha una sottoscrizione di Azure \(e quindi non è possibile accedere al [portale di gestione di Azure](https://manage.windowsazure.com)\), seguire [queste istruzioni](https://technet.microsoft.com/library/dn832618.aspx) per ottenere l'accesso al tenant di Azure AD.
+Se si è abbonati a Office 365 ma non si ha una sottoscrizione di Azure (e quindi non è possibile accedere al [portale di gestione di Azure](https://manage.windowsazure.com)), seguire [queste istruzioni](https://technet.microsoft.com/library/dn832618.aspx) per ottenere l'accesso al tenant di Azure AD.
 
 ## Usare una sottoscrizione di Azure associata a un account Microsoft
 Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account Microsoft personale, si ha già un tenant. Nel [portale di gestione di Azure](https://manage.windowsazure.com) dovrebbe essere presente un tenant denominato "Tenant predefinito" in "Tutti gli elementi" e in "Active Directory". È possibile usare questo tenant in base alle esigenze, ma potrebbe essere necessario dover creare un account amministratore aziendale.
@@ -40,7 +40,7 @@ Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio a
 A tale scopo, seguire questa procedura. In alternativa, è possibile creare un nuovo tenant e creare un amministratore in quel tenant seguendo una procedura simile.
 
 1.	Accedere al [portale di gestione di Azure](https://manage.windowsazure.com) con l'account personale
-2.	Passare alla sezione "Active Directory" del portale \(nella barra di spostamento sinistra\)
+2.	Passare alla sezione "Active Directory" del portale (nella barra di spostamento sinistra)
 3.	Selezionare la voce "Directory predefinita" nell'elenco delle directory disponibili
 4.	Fare clic sul collegamento Utenti nella parte superiore della pagina. Nell'elenco verrà visualizzato un singolo utente con il valore "account Microsoft" indicato nella colonna Originato da
 5.	Fare clic su "Aggiungi utente" nella parte inferiore della pagina
@@ -66,4 +66,4 @@ Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi. P
 Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito. Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

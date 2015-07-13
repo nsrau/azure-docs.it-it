@@ -34,12 +34,12 @@ Application Insights SDK e gli agenti integrati con l'applicazione inviano dati 
 
 #### Quanti dati è possibile acquisire? 
 
-**Al secondo**: fino a 500 punti dati al secondo per chiave di strumentazione \(ovvero, per ogni applicazione\). Per il [livello di prezzo][pricing] gratuito, il limite è 100 dp/s.
+**Al secondo**: fino a 500 punti dati al secondo per chiave di strumentazione (ovvero, per ogni applicazione). Per il [piano tariffario][pricing] gratuito, il limite è 100 dp/s.
 
-**Mensile**: tra 5 e 15 milioni di punti dati ogni mese di calendario, a seconda del [livello di prezzo](http://azure.microsoft.com/pricing/details/application-insights/). Fatta eccezione per il [livello di prezzo][pricing] gratuito, è possibile acquistare capacità aggiuntiva se si raggiunge il limite.
+**Al mese**: tra 5 e 15 milioni di punti dati ogni mese, a seconda del [piano tariffario](http://azure.microsoft.com/pricing/details/application-insights/). Fatta eccezione per il [piano tariffario][pricing] gratuito, è possibile acquistare capacità aggiuntiva se si raggiunge il limite.
 
 
-Un *punti dati* è un elemento di telemetria, ad esempio:
+Un *punto dati* è un elemento di telemetria, ad esempio:
 
 * Chiamate `Track...` dell'API, ad esempio `TrackEvent` o `trackPageView`.
 * Elementi di telemetria inviati da moduli SDK, ad esempio per segnalare una richiesta o un arresto anomalo.
@@ -55,7 +55,7 @@ Un *punti dati* è un elemento di telemetria, ad esempio:
 
 Dipende dal [piano tariffario](http://azure.microsoft.com/pricing/details/application-insights/).
 
-Punti di dati non elaborati \(cioè elementi di dati ispezionabili nella ricerca diagnostica\): tra 7 e 30 giorni.
+Punti dati non elaborati (cioè elementi di dati ispezionabili nella ricerca diagnostica): tra 7 e 30 giorni.
 
 I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
 
@@ -158,17 +158,17 @@ Gli SDK sono diversi per le piattaforme specifiche e sono disponibili vari compo
 
 #### Classi di dati inviati nei diversi scenari
 
-Azione | Classi di dati raccolte \(vedere la tabella seguente\)
+Azione | Classi di dati raccolte (vedere la tabella seguente)
 ---|---
-[Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>\*\*Exceptions\*\*<br/>Session<br/>users
+[Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Installare Monitoraggio dello stato su IIS][redfield]<br/>[Aggiungere l'estensione AI a una VM di Azure o a un'app Web][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Aggiungere Application Insights SDK a un'app Web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
 [Aggiungere SDK a un'app di Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Definire le proprietà predefinite][apiproperties]|**Properties** in tutti gli eventi standard e personalizzati
-[Chiamare TrackMetric][api]|Valori numerici<br/>\*\*Properties\*\*
-[Chiamare Track\*][api]|Nome evento<br/>\*\*Properties\*\*
-[Chiamare TrackException][api]|**Exceptions**<br/>Dump dello stack<br/>\*\*Properties\*\*
+[Chiamare TrackMetric][api]|Valori numerici<br/>**Properties**
+[Chiamare Track*][api]|Nome evento<br/>**Properties**
+[Chiamare TrackException][api]|**Exceptions**<br/>Dump dello stack<br/>**Properties**
 SDK non riesce a raccogliere dati. Ad esempio: <br/> - Non è possibile accedere ai contatori delle prestazioni<br/> - Eccezione nell'inizializzatore di telemetria | Diagnostica di SDK
  
 
@@ -178,7 +178,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 
 #### Classi dei dati raccolti
 
-Classe di dati raccolta | Include \(elenco non completo\) 
+Classe di dati raccolta | Include (elenco non completo) 
 ---|---
 **Proprietà**|**Qualsiasi dato, in base al codice**
 DeviceContext |ID, IP, Impostazioni locali, modello dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome ruolo, tipo di dispositivo.
@@ -191,7 +191,7 @@ Events | Nome e valore dell'evento.
 PageViews | URL e nome della pagina o della schermata.
 Client perf | URL/nome pagina, tempo di caricamento del browser.
 Richieste |URL, durata, codice di risposta.
-Dipendenze|Tipo \(SQL, HTTP, ...\), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL \(con Monitoraggio stato\)
+Dipendenze|Tipo (SQL, HTTP, ...), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL (con Monitoraggio stato)
 **Eccezioni** | Tipo, **messaggio**, stack di chiamate, file di origine e numero di riga, ID thread.
 Crashes | ID processo, ID processo padre, ID thread di arresto anomalo, patch applicazione, ID, compilazione, tipo di eccezione, indirizzo, motivo, simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU.
 Trace | **Messaggio** e livello di gravità.
@@ -236,4 +236,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

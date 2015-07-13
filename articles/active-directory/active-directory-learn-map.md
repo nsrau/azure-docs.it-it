@@ -38,4 +38,4 @@ Per comprendere le limitazioni di utilizzo e altri limiti di servizio per il ser
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

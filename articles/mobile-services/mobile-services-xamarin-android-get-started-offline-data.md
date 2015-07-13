@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="06/15/2015"
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
@@ -97,7 +97,7 @@ La sincronizzazione offline di Servizi mobili di Azure consente agli utenti fina
 
     Si noti che può verificarsi `MobileServicePushFailedException` per un'operazione sia push che pull. L'esercitazione successiva, [Gestione dei conflitti con il supporto offline per Servizi mobili], mostra come gestire queste eccezioni relative alla sincronizzazione.
 
-5. Nella classe `ToDoActivity` il metodo `SyncAsync()` viene chiamato dopo le operazioni che modificano i dati, `AddItem()` e `CheckItem()`. Viene inoltre chiamato da `OnRefreshItemsSelected()`, in modo che gli utenti ottengano i dati più recenti ogni volta che premono il pulsante per l'aggiornamento****. L'app esegue anche una sincronizzazione all'avvio, in quanto `ToDoActivity.OnCreate()` chiama `OnRefreshItemsSelected()`.
+5. Nella classe `ToDoActivity` il metodo `SyncAsync()` viene chiamato dopo le operazioni che modificano i dati, `AddItem()` e `CheckItem()`. Viene inoltre chiamato da `OnRefreshItemsSelected()`, in modo che gli utenti ottengano i dati più recenti ogni volta che premono il pulsante per l'aggiornamento. L'app esegue anche una sincronizzazione all'avvio, in quanto `ToDoActivity.OnCreate()` chiama `OnRefreshItemsSelected()`.
 
     Poiché ogni volta che vengono modificati i dati viene chiamato `SyncAsync()`, quest'app presuppone che l'utente sia online quando modifica i dati. Nella sezione successiva, l'app verrà aggiornata in modo che gli utenti possano apportare modifiche anche offline.
 
@@ -124,7 +124,7 @@ In questa sezione si procederà alla modifica dell'app in modo che non effettui 
 
 ## <a name="update-online-app"></a>Aggiornare l'app per la riconnessione al servizio mobile
 
-In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il servizio mobile. Quando si preme il pulsante di aggiornamento, i dati vengono sincronizzati con il servizio mobile****.
+In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il servizio mobile. Quando si preme il pulsante di aggiornamento, i dati vengono sincronizzati con il servizio mobile.
 
 1. Aprire `ToDoActivity.cs`. Rimuovere l'URL del servizio mobile non valido e aggiungere nuovamente l'URL e la chiave dell'app corretti.
 
@@ -170,5 +170,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [Xamarin Studio]: http://xamarin.com/download
 [estensione Xamarin]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

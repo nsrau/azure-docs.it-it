@@ -363,7 +363,7 @@ In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti
 	   alert("Error: " + err);
 	});
 
-In un'app di Windows Store i risultati di una query possono essere usati per creare un oggetto [WinJS.Binding.List], che può essere associato come origine dati per un oggetto [ListView]. Per ulteriori informazioni, vedere [Associazione dati (app di Windows Store con JavaScript e HTML)].
+In un'app di Windows Store, i risultati di una query possono essere utilizzati per creare un oggetto [WinJS.Binding.List], che può essere associato come origine dati per un oggetto [ListView]. Per ulteriori informazioni, vedere [Associazione dati (app di Windows Store con JavaScript e HTML)].
 
 ##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
 
@@ -387,7 +387,7 @@ Per esempi più realistici e una discussione completa sul metodo **invokeApi**, 
 
 ##<a name="caching"></a>Procedura: Autenticare gli utenti
 
-Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione].
+Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Introduzione all'autenticazione].
 
 >[AZURE.NOTE]Quando si usa l'autenticazione in un'app PhoneGap o Cordova, è anche necessario aggiungere al progetto i plug-in seguenti:
 >
@@ -410,7 +410,7 @@ Dopo aver effettuato la registrazione del provider di identità, è sufficiente 
 
 Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo `login` riportato in precedenza con uno dei seguenti: `microsoftaccount`, `facebook`, `twitter`, `google` o `windowsazureactivedirectory`.
 
-In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login], quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili rispettivamente nei campi **userId** e **authenticationToken**. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione].
+In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login], quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili rispettivamente nei campi **userId** e **authenticationToken**. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzare nella cache il token di autenticazione].
 
 > [AZURE.NOTE]**Windows Store app** Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è necessario anche registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per ulteriori informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app Windows Store per l'autenticazione Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione con Servizi mobili delle informazioni del pacchetto, per riutilizzare le credenziali è necessario chiamare il metodo [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") specificando il valore **true** per il parametro <em>useSingleSignOn</em> .
 
@@ -444,7 +444,7 @@ Se si utilizzano le API di Facebook o Google per l'autenticazione client, l'esem
 	     alert("Error: " + err);
 	});
 
-In questo esempio si presuppone che il token fornito dall'SDK del rispettivo provider sia archiviato nella variabile `token`. Non è al momento possibile utilizzare Twitter per l'autenticazione client.
+In questo esempio si presuppone che il token fornito dall'SDK del rispettivo provider sia archiviato nella variabile `token`. Non è al momento possibile utilizzare Twitter per l'autenticazione client. Non è al momento possibile utilizzare Microsoft Azure Active Directory con back-end JavaScript per l'autenticazione del client.
 
 ###Memorizzazione nella cache del token di autenticazione
 In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare [sessionStorage] o [localStorage] per memorizzare nella cache l'identità dell'utente corrente al primo accesso e a ogni controllo della presenza dell'identità dell'utente nella cache effettuato in seguito. Se la cache è vuota o le chiamate non vengono eseguite (in quanto la sessione di accesso corrente è scaduta), è comunque necessario ripetere la procedura di accesso.
@@ -606,5 +606,6 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [Chiamata di un'API personalizzata dal client]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

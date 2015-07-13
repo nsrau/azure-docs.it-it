@@ -111,4 +111,5 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [Introduzione all'autenticazione]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Introduzione alle notifiche push]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

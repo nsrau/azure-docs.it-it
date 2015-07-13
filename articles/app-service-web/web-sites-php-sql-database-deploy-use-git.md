@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un'app Web PHP-SQL e distribuirla nel servizio app di Azure tramite Git" 
-	description="Un'esercitazione che illustra come creare un'app Web PHP che archivia i dati nel database SQL di Azure e come usare la distribuzione Git nel servizio app di Azure." 
+	pageTitle="Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git" 
+	description="Un'esercitazione che illustra come creare un'app Web PHP che archivia i dati nel database SQL di Azure e come usare la distribuzione Git in Azure App Service." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -16,15 +16,15 @@
 	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-# Creare un'app Web PHP-SQL e distribuirla nel servizio app di Azure tramite Git
+# Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
 
-Questa esercitazione illustra come creare nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) un'app Web PHP che si connette al database SQL di Azure e come distribuirla tramite Git. In questa esercitazione si presuppone che nel computer siano installati [PHP][install-php], [SQL Server Express][install-SQLExpress], i [driver Microsoft per SQL Server per PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un server Web e [Git][install-git]. Dopo aver completato questa guida, si disporrà di un'app Web PHP-MySQL in esecuzione in Azure.
+Questa esercitazione illustra come creare in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) un'app Web PHP che si connette al database SQL di Azure e come distribuirla tramite Git. In questa esercitazione si presuppone che nel computer siano installati [PHP][install-php], [SQL Server Express][install-SQLExpress], i [driver Microsoft per SQL Server per PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un server Web e [Git][install-git]. Dopo aver completato questa guida, si disporrà di un'app Web PHP-MySQL in esecuzione in Azure.
 
 > [AZURE.NOTE]Per installare e configurare PHP, SQL Server Express, i driver Microsoft per SQL Server per PHP e Internet Information Services (IIS), è possibile usare l'[Installazione guidata piattaforma Web Microsoft](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Si apprenderà come:
 
-* Creare un'app Web di Azure e un database SQL usando il [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Poiché PHP è abilitato per impostazione predefinita in App Web del servizio app di Azure, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
+* Creare un'app Web di Azure e un database SQL usando il [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Poiché PHP è abilitato nelle app Web di Servizio app di Azure per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
 * Pubblicare e ripubblicare l'applicazione in Azure tramite Git.
  
 Seguendo questa esercitazione, verrà creata una semplice applicazione Web di registrazione in PHP, ospitata in un sito Web di Azure. Di seguito è riportata una schermata dell'applicazione completata:
@@ -33,7 +33,7 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Creare un'app Web di Azure e configurare la pubblicazione Git
 
@@ -85,9 +85,9 @@ Per connettersi all'istanza del database SQL collegata all'app Web, saranno nece
 
 	![Visualizzazione delle proprietà database](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
-3. Nella sezione **PHP** della finestra di dialogo risultante prendere nota dei valori per `Server`, `SQL Database` e `User Name`. Si useranno questi valori successivamente, al momento di pubblicare l'app Web PHP nel servizio app di Azure.
+3. Nella sezione **PHP** della finestra di dialogo risultante prendere nota dei valori per `Server`, `SQL Database` e `User Name`. Si useranno questi valori successivamente, al momento di pubblicare l'app Web PHP in Azure App Service.
 
-##Creare e testare l'applicazione in locale
+##Creazione e test dell'applicazione in locale
 
 L'applicazione di registrazione è una semplice applicazione PHP che consente di registrarsi per un evento specificando il proprio nome e l'indirizzo di posta elettronica. Le informazioni sui registranti precedenti vengono visualizzate in una tabella. Le informazioni sulle registrazioni vengono archiviate in un'istanza del database SQL. L'applicazione è costituita da due file (copiare e incollare il codice disponibile di seguito):
 
@@ -232,7 +232,7 @@ A questo punto è possibile passare a **http://localhost/registration/index.php*
 
 ##Pubblicare l'applicazione
 
-Dopo aver testato l'applicazione in locale, è possibile pubblicarla in App Web del servizio app di Azure tramite Git. È tuttavia necessario aggiornare innanzitutto le informazioni di connessione al database nell'applicazione. Usando le informazioni di connessione al database ottenute in precedenza (nella sezione **Ottenere le informazioni di connessione al database SQL**), aggiornare le seguenti informazioni in **entrambi** i file `createdatabase.php` e `index.php` con i valori appropriati:
+Dopo aver testato l'applicazione in locale, è possibile pubblicarla nelle app Web di Servizio app di Azure tramite Git. È tuttavia necessario aggiornare innanzitutto le informazioni di connessione al database nell'applicazione. Usando le informazioni di connessione al database ottenute in precedenza (nella sezione **Ottenere le informazioni di connessione al database SQL**), aggiornare le seguenti informazioni in **entrambi** i file `createdatabase.php` e `index.php` con i valori appropriati:
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -279,8 +279,8 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 3. Passare a **http://[web app name].azurewebsites.net/index.php** per visualizzare le modifiche.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al portale di anteprima, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il portale di anteprima, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

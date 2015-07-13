@@ -102,10 +102,11 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 2.	Ottenere i dettagli del database eliminato che si desidera ripristinare mediante l'operazione [Get Restorable Dropped Database](http://msdn.microsoft.com/library/azure/dn509574.aspx).
 
-3.	Iniziare il ripristino utilizzando l'operazione [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) 
+3.	Iniziare il ripristino utilizzando l'operazione [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx)
 	
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,5 +1,3 @@
-<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
-
 1. Se necessario, accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale appropriata.
@@ -8,7 +6,7 @@
 
 	![Accesso alla macchina virtuale](./media/virtual-machines-log-on-win-server/connectwindows.png)
 
-4. Fare clic su **Apri** per usare il file RDP \(Remote Desktop Protocol\) creato automaticamente per la macchina virtuale.
+4. Fare clic su **Apri** per usare il file RDP (Remote Desktop Protocol) creato automaticamente per la macchina virtuale.
 	
 5. Fare clic su **Connetti** per continuare.
 
@@ -16,7 +14,7 @@
 
 6. Digitare le credenziali dell'account amministrativo della macchina virtuale, quindi fare clic su **OK**.
 
- \>[AZURE.TIP]Nella maggior parte dei casi verranno usati nome utente e password specificati durante la creazione della macchina virtuale. Controllare il nome utente per essere certi che le informazioni del dominio siano corrette:
+ >[AZURE.TIP]Nella maggior parte dei casi verranno usati nome utente e password specificati durante la creazione della macchina virtuale. Controllare il nome utente per essere certi che le informazioni del dominio siano corrette:
 
 >- Se la macchina virtuale appartiene a un dominio nell'organizzazione, assicurarsi che il nome utente contenga il nome di tale dominio.
 - Se la macchina virtuale non appartiene a un dominio, rimuovere le informazioni del dominio inserendo all'inizio della riga il carattere " o usare il nome della macchina come nome di dominio. Ad esempio, `\MyUserName` o `MyTestVM\MyUserName`. 
@@ -28,4 +26,4 @@ Fare clic su **Yes** per verificare l'identità della macchina virtuale.
 
 È ora possibile usare la macchina virtuale in remoto.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

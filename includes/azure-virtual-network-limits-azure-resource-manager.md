@@ -1,52 +1,54 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Risorsa</th>
+   <th align="left" valign="middle">Limite predefinito</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Virtual networks</a><sup>1</sup> per subscription</p></td>
-   <td valign="middle"><p>50 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Reti virtuali</a><sup>1</sup> per sottoscrizione</p></td>
+   <td valign="middle"><p>50 per area<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>DNS Servers per virtual network</p></td>
+   <td valign="middle"><p>Server DNS per rete virtuale</p></td>
    <td valign="middle"><p>9<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Internal Load Balancers per Availability Set</p></td>
+   <td valign="middle"><p>Bilanciamento del carico interno per set di disponibilità</p></td>
    <td valign="middle"><p>1</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Internet Facing Load Balancers per Availability Set</p></td>
+   <td valign="middle"><p>Bilanciamento del carico con connessione Internet per set di disponibilità</p></td>
    <td valign="middle"><p>1</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Load Balancer (Internal and Internet facing) per subscription</p></td>
-   <td valign="middle"><p>100 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p>Bilanciamento del carico (interno e con connessione Internet) per sottoscrizione</p></td>
+   <td valign="middle"><p>100 per area<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Load Balancer (Internal Or Internet facing) rules per Load Balancer</p></td>
+   <td valign="middle"><p>Regole di bilanciamento del carico (interno o con connessione Internet) per bilanciamento del carico</p></td>
    <td valign="middle"><p>150</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Public IP Addresses (Dynamic) per subscription</p></td>
-   <td valign="middle"><p>60 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p>Indirizzi IP pubblici (dinamici) per sottoscrizione</p></td>
+   <td valign="middle"><p>60 per area<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Public IP Addresses (Static) per subscription</p></td>
-   <td valign="middle"><p>20 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p>Indirizzi IP pubblici (statici) per sottoscrizione</p></td>
+   <td valign="middle"><p>20 per area<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Network Security Groups per Subscription</p></td>
-   <td valign="middle"><p>100 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p>Gruppi di sicurezza di rete per sottoscrizione</p></td>
+   <td valign="middle"><p>100 per area<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Network Security Group Rules per Security Group</p></td>
+   <td valign="middle"><p>Regole di gruppi di sicurezza di rete per gruppo di sicurezza</p></td>
    <td valign="middle"><p>100<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Network Interfaces per Subscription</p></td>
-   <td valign="middle"><p>300 per Region<sup>1</sup></p></td>
+   <td valign="middle"><p>Interfacce di rete per sottoscrizione</p></td>
+   <td valign="middle"><p>300 per area<sup>1</sup></p></td>
 </tr>
 </table>
 
-<sup>1</sup>Limit can be increased by contacting support.
+<sup>1</sup>Il limite può essere aumentato contattando il supporto tecnico.
+
+<!---HONumber=62-->

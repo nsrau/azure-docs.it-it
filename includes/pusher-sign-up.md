@@ -1,10 +1,10 @@
-Il primo passaggio consiste nel creare un nuovo account da usare per l'esercitazione. Il piano sandbox gratuito è ideale per questa esercitazione.
+Il primo passaggio consiste nel creare un nuovo account da utilizzare per l'esercitazione. Il piano sandbox gratuito è ideale per questa esercitazione.
 
 ### Per iscriversi e ottenere un account Pusher
 
 1. Accedere al [portale di gestione di Azure][].
 
-2. Nel riquadro inferiore del portale di gestione fare clic su **Nuovo**.
+2. Nel riquadro inferiore del portale di gestione fare clic su **New**.
 
 	![command-bar-new][command-bar-new]
 
@@ -12,19 +12,19 @@ Il primo passaggio consiste nel creare un nuovo account da usare per l'esercitaz
 
 	![pusher-store][pusher-store]
 
-4. Nella finestra di dialogo **Scegliere un componente aggiuntivo** selezionare **Pusher** e fare clic sulla freccia destra.
+4. Nella finestra di dialogo **Choose an Add-on** selezionare **Pusher** e fare clic sulla freccia destra.
 
-5. Nella finestra di dialogo **Personalizza componente aggiuntivo** selezionare il piano **Pusher** a cui iscriversi.
+5. Nella finestra di dialogo **Personalize Add-on** selezionare il piano **Pusher** a cui si desidera iscriversi.
 
-6. Immettere un nome per identificare il servizio **Pusher** nelle impostazioni di Azure, oppure usare il valore predefinito di **Pusher**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
+6. Immettere un nome per identificare il servizio **Pusher** nelle impostazioni di Azure, oppure utilizzare il valore predefinito di **Pusher**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
 
 	![store-screen-1][store-screen-1]
 
-8. Scegliere un valore per l'area, ad esempio Stati Uniti occidentali. 
+8. Scegliere un valore per l'area, ad esempio Stati Uniti occidentali.
 
 9. Fare clic sulla freccia destra.
 
-10. Nella scheda **Rivedi acquisto** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, l'account Pusher inizierà il processo di provisioning. 
+10. Nella scheda **Review Purchase** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, l'account Pusher inizierà il processo di provisioning.
 
 	![store-screen-2][store-screen-2]
 
@@ -32,25 +32,25 @@ Il primo passaggio consiste nel creare un nuovo account da usare per l'esercitaz
 
 	![store-screen-3][store-screen-3]
 
-Il provisioning dell'account Pusher viene eseguito immediatamente e verrà visualizzato un **messaggio di completamento dell'acquisto dell'account Pusher aggiuntivo**. L'account è stato creato ed è ora possibile utilizzare il servizio Pusher.
+Il provisioning dell'account Pusher viene eseguito immediatamente e verrà visualizzato il messaggio **Successfully purchased Add-On Pusher**. L'account è stato creato ed è ora possibile utilizzare il servizio Pusher.
 
 Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto Pusher, fare clic sul nome del servizio Pusher per aprire il dashboard dei componenti aggiuntivi.
 
 ![pusher-add-on-dashboard][pusher-add-on-dashboard]
 	
-Quando si usa Pusher è necessario fornire le impostazioni di connessione dell'app Pusher in uso.
+Quando si utilizza Pusher è necessario fornire le impostazioni di connessione dell'app Pusher in uso.
 
 ### Per trovare le impostazioni di connessione Pusher ###
 
-1. Fare clic su **Informazioni di connessione**.
+1. Fare clic su **Connection Info**.
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. Nella finestra di dialogo  *Connection info* verranno visualizzati l'ID, la chiave e la chiave privata dell'app in uso. È consigliabile copiare tali valori poiché verranno utilizzati più avanti nell'esercitazione.
+2. Nella finestra di dialogo *Connection info* verranno visualizzati l'ID, la chiave e la chiave privata dell'app in uso. È consigliabile copiare tali valori poiché verranno utilizzati più avanti nell'esercitazione.
 
 	![pusher-connection-info][pusher-connection-info]
 
-Per altre informazioni su come iniziare con Pusher, vedere [Informazioni su Pusher][].
+Per ulteriori informazioni su come iniziare con Pusher, vedere [Informazioni su Pusher][].
 
 <!--images-->
 
@@ -68,5 +68,4 @@ Per altre informazioni su come iniziare con Pusher, vedere [Informazioni su Push
 [portale di gestione di Azure]: https://manage.windowsazure.com
 [Informazioni su Pusher]: http://pusher.com/docs
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

@@ -40,7 +40,7 @@ In questo passaggio è possibile usare il portale di anteprima di Azure per crea
 
 1.	Dopo l'accesso al [portale di anteprima di Azure][azure-preview-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e infine fare clic su **Data factory** nel pannello **Analisi dei dati**. 
 
-	![Nuovo-\>Data factory][image-data-factory-new-datafactory-menu]
+	![Nuovo->Data factory][image-data-factory-new-datafactory-menu]
 
 6. Nel pannello **Nuova data factory**:
 	1. Immettere **ADFTutorialDataFactory** come **nome**. 
@@ -56,7 +56,7 @@ In questo passaggio è possibile usare il portale di anteprima di Azure per crea
 7. Si noti che l'opzione **Aggiungi a Schermata iniziale** è selezionata nel pannello **Nuova data factory**.
 8. Fare clic su **Crea** nel pannello **Nuova data factory**.
 
-	È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore simile a **Nome "ADFTutorialDataFactory" per la data factory non disponibile**, cambiare il nome della data factory \(ad esempio, nomeutenteADFTutorialDataFactory\) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory][data-factory-naming-rules].
+	È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore simile a **Nome "ADFTutorialDataFactory" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialDataFactory) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory][data-factory-naming-rules].
 	 
 	![Nome di data factory non disponibile][image-data-factory-name-not-available]
 
@@ -145,15 +145,15 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
 	- L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella. Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.  
 	- L'oggetto **type** di format è impostato su **TextFormat**.
-	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola \(\*\*columnDelimiter\*\*\).	
-	- L'oggetto **availability** è impostato su **hourly** \(\*\*frequency\*\* è impostato su **hour** e **interval** è impostato su **1**\), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB \(\*\*adftutorial\*\*\) specificato. 
+	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).	
+	- L'oggetto **availability** è impostato su **hourly** (**frequency** è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (**adftutorial**) specificato. 
 	
 
-	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input \(\*\*folderPath\*\*\) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
-	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il formato seguente: Data.&lt;Guid&gt;.txt \(ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\).
+	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il formato seguente: Data.&lt;Guid&gt;.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-	Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart \(ora di inizio della sezione elaborata\), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
+	Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -203,10 +203,10 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
      Tenere presente quanto segue:
 	
 	* L'oggetto **type** di location è impostato su **AzureSQLTableLocation**.
-	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService** \(questo servizio collegato è stato creato nel passaggio 2\).
+	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService** (questo servizio collegato è stato creato nel passaggio 2).
 	* L'oggetto **tablename** è impostato su **emp**.
 	* Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
-	* L'oggetto **availability** è impostato su **hourly** \(l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**\). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
+	* L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **EmpSQLTable**.
@@ -215,7 +215,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 ## <a name="CreateAndRunAPipeline"></a>Passaggio 4: Creare ed eseguire una pipeline
 In questo passaggio è possibile creare una pipeline con un'**attività di copia** che usa **EmpTableFromBlob** come input e **EmpSQLTable** come output.
 
-1. Nell'**editor** della data factory fare clic sul pulsante **Nuova pipeline** sulla barra degli strumenti. Fare clic su **... \(puntini di sospensione\)** sulla barra degli strumenti se il pulsante non è visibile. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Pipeline** nella visualizzazione ad albero e fare clic su **Nuova pipeline**.
+1. Nell'**editor** della data factory fare clic sul pulsante **Nuova pipeline** sulla barra degli strumenti. Fare clic su **... (puntini di sospensione)** sulla barra degli strumenti se il pulsante non è visibile. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Pipeline** nella visualizzazione ad albero e fare clic su **Nuova pipeline**.
 
 	![Pulsante Nuova pipeline dell'editor][image-editor-newpipeline-button]
  
@@ -270,9 +270,9 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2015-02-03", che equivale a "2015-02-03T00:00:00Z".
 	
-	Per la data e ora di inizio e di fine è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
+	Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
 	
 	Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
 	
@@ -293,8 +293,8 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 
 	![Vista diagramma][image-data-factory-get-started-diagram-blade]
 
-	È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati. È possibile fare doppio clic su un oggetto \(tabella di input/output o pipeline\) per visualizzare le relative proprietà. 
-3. Fare clic con il pulsante destro del mouse su **ADFTutorialPipeline** nella vista diagramma e scegliere **Apri pipeline**. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività. In questa esercitazione la pipeline include solo un'attività \(attività di copia\) con EmpTableBlob come set di dati di input ed EmpSQLTable come set di dati di output.   
+	È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati. È possibile fare doppio clic su un oggetto (tabella di input/output o pipeline) per visualizzare le relative proprietà. 
+3. Fare clic con il pulsante destro del mouse su **ADFTutorialPipeline** nella vista diagramma e scegliere **Apri pipeline**. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività. In questa esercitazione la pipeline include solo un'attività (attività di copia) con EmpTableBlob come set di dati di input ed EmpSQLTable come set di dati di output.   
 
 	![Apri pipeline](./media/data-factory-get-started-using-editor/DiagramView-OpenPipeline.png)
 
@@ -304,7 +304,7 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 ## <a name="MonitorDataSetsAndPipeline"></a>Passaggio 5: Monitorare i set di dati e la pipeline
 In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per informazioni dettagliate sull'uso dei cmdlet per il monitoraggio, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
 
-1. Passare al [portale di Azure \(anteprima\)][azure-preview-portal] se non è già aperto. 
+1. Passare al [portale di Azure (anteprima)][azure-preview-portal] se non è già aperto. 
 2. Se il pannello per **ADFTutorialDataFactory** non è aperto, aprirlo facendo clic su **ADFTutorialDataFactory** nella **Schermata iniziale**. 
 3. Viene visualizzato il numero e i nomi delle tabelle e delle pipeline create nel pannello.
 
@@ -314,7 +314,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 5. Nel pannello **Set di dati** fare clic su **EmpTableFromBlob**. Questa è la tabella di input per **ADFTutorialPipeline**.
 
 	![Set di dati con tabella EmpTableFromBlob selezionata][image-data-factory-get-started-datasets-emptable-selected]   
-5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
+5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
 
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
     
@@ -322,9 +322,9 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
 	-  Lo stato della sezione cambia a causa di un'esecuzione, ad esempio un'esecuzione avviata, un'esecuzione terminata con errore, un'esecuzione terminata correttamente e così via.
  
-	Fare clic sul titolo degli elenchi oppure sui **... \(puntini di sospensione\)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
+	Fare clic sul titolo degli elenchi oppure sui **... (puntini di sospensione)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
 	
-	Per visualizzare invece le sezioni di dati ordinate in base alle ore di inizio/fine, fare clic sul riquadro **Sezioni dati \(in base all'ora della sezione\)**.
+	Per visualizzare invece le sezioni di dati ordinate in base alle ore di inizio/fine, fare clic sul riquadro **Sezioni dati (in base all'ora della sezione)**.
 
 	![Sezioni dati in base all'ora della sezione][DataSlicesBySliceTime]
 
@@ -340,7 +340,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	![Pannello Tabella][image-data-factory-get-started-table-blade]
  
 7. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Non sono visualizzate sezioni in **Sezioni con errori** nella parte inferiore della pagina.
-8. Fare clic su **… \(puntini di sospensione\)** per visualizzare tutte le sezioni.
+8. Fare clic su **… (puntini di sospensione)** per visualizzare tutte le sezioni.
 
 	![Pannello Sezioni dati][image-data-factory-get-started-dataslices-blade]
 
@@ -356,7 +356,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 	
 12. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialDataFactory**.
-14. \(Facoltativo\) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input \(\*\*Utilizzate\*\*\) o di output \(\*\*Prodotte\*\*\).
+14. (Facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (**Utilizzate**) o di output (**Prodotte**).
 15. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
 
 	![Risultati della query SQL][image-data-factory-get-started-sql-query-results]
@@ -366,7 +366,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato il portale di anteprima di Azure per creare la data factory, i servizi collegati, le tabelle e una pipeline. Ecco i passaggi di alto livello eseguiti in questa esercitazione:
 
 1.	Creare una **data factory** di Azure.
-2.	Creare **servizi collegati** che collegano gli archivi dati e i calcoli \(definiti come **servizi collegati**\) alla data factory.
+2.	Creare **servizi collegati** che collegano gli archivi dati e i calcoli (definiti come **servizi collegati**) alla data factory.
 3.	Creare **tabelle** che descrivono dati di input e dati di output per le pipeline.
 4.	Creare **pipeline**. Una pipeline è costituita da una o più attività ed elabora gli input producendo l'output. Impostare il periodo attivo per la pipeline specificando l'ora di **Inizio** e di **Fine** per la pipeline. Il periodo attivo definisce l'intervallo di tempo in cui verranno prodotte sezioni di dati. 
 
@@ -379,10 +379,10 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 
 Articolo | Descrizione
 ------ | ---------------
-[Copiare i dati con Data factory di Azure \(Attività di copia\)][copy-activity] | Questo articolo fornisce una descrizione dettagliata dell'**attività di copia** usata in questa esercitazione. 
+[Copiare i dati con Data factory di Azure (Attività di copia)][copy-activity] | Questo articolo fornisce una descrizione dettagliata dell'**attività di copia** usata in questa esercitazione. 
 [Consentire alle pipeline di usare dati locali][use-onpremises-datasources] | Questo articolo contiene una procedura dettagliata che mostra come copiare dati da un **database di SQL Server locale** a un BLOB di Azure. 
 [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial] | Questo articolo fornisce una **procedura dettagliata end-to-end** che mostra come implementare uno **scenario quasi reale** usando Data factory di Azure per trasformare i dati da file di log in informazioni accurate.
-[Risolvere i problemi di Data factory][troubleshoot] | Questo articolo descrive come **risolvere i problemi** relativi a Data factory di Azure. È possibile provare la procedura dettagliata di questo articolo in ADFTutorialDataFactory introducendo un errore \(eliminando la tabella nel database SQL di Azure\). 
+[Risolvere i problemi di Data factory][troubleshoot] | Questo articolo descrive come **risolvere i problemi** relativi a Data factory di Azure. È possibile provare la procedura dettagliata di questo articolo in ADFTutorialDataFactory introducendo un errore (eliminando la tabella nel database SQL di Azure). 
 [Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference] | La guida di riferimento per gli sviluppatori include informazioni di riferimento complete per cmdlet, script JSON, funzioni e così via. 
 
 
@@ -506,4 +506,4 @@ Articolo | Descrizione
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

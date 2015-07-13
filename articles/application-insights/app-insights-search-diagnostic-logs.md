@@ -263,9 +263,9 @@ Se si vogliono inviare eventi aggiuntivi, è possibile usare l'API TrackRequest(
 
 ### <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 
-Risulta che l'utente abbia installato il pacchetto Nuget dell'adattatore di registrazione senza aver installato Application Insights.
+Risulta che l'utente abbia installato il pacchetto NuGet dell'adattatore di registrazione senza aver installato Application Insights.
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa Application Insights o a riusarne una esistente. Il problema verrà in tal modo risolto.
+In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente. Il problema verrà in tal modo risolto.
 
 ### <a name="limits"></a>Quanti dati vengono conservati?
 

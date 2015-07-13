@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@ In questa sezione si creerà una nuova app di Windows universale connessa al bac
 
 2. Nella parte superiore del pannello fare clic su **Aggiungi client** ed espandere **Windows (C#)**.
 
-   ![Procedura di creazione rapida dell'app per dispositivi mobili](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![Procedura di creazione rapida dell'app per dispositivi mobili](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   Vengono visualizzati i tre semplici passaggi per creare un'app di Windows Store connessa al back-end dell'app per dispositivi mobili.
+    Vengono visualizzati i tre semplici passaggi per creare un'app di Windows Store connessa al back-end dell'app per dispositivi mobili.
 
 3. Se necessario, scaricare e installare <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> nel computer locale o nella macchina virtuale.
 
 4. In **Scarica ed esegui l'app e il servizio localmente** selezionare un linguaggio per l'app di Windows Store, quindi fare clic su **Scarica**.
 
-   Verrà scaricata una soluzione che contiene progetti sia per il back-end dell'app per dispositivi mobili, sia per l'applicazione _To do list_ di esempio connessa al back-end dell'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+    Verrà scaricata una soluzione che contiene progetti sia per il back-end dell'app per dispositivi mobili, sia per l'applicazione _To do list_ di esempio connessa al back-end dell'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 ## Testare l'app per dispositivi mobili
 
@@ -86,6 +86,6 @@ Una volta pubblicato il back-end dell'app per dispositivi mobili e aver connesso
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

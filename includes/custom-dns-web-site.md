@@ -2,7 +2,7 @@
 
 Quando si crea un sito Web, Microsoft Azure fornisce un sottodominio descrittivo nel dominio azurewebsites.net in modo che gli utenti possano accedere al sito Web tramite un URL come http://&lt;mysite> azurewebsites.net. Se tuttavia si configurano i siti Web per la modalità condivisa o standard, è possibile eseguire il mapping del sito Web al proprio nome di dominio personalizzato.
 
-Facoltativamente, è possibile usare Traffic Manager di Azure per bilanciare il carico del traffico in ingresso nel sito Web. Per altre informazioni sul funzionamento di Gestione traffico con i siti Web, vedere [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure][trafficmanager].
+Facoltativamente, è possibile usare Gestione traffico di Azure per bilanciare il carico del traffico in ingresso nel sito Web. Per altre informazioni sul funzionamento di Gestione traffico con i siti Web, vedere [Controllo del traffico dei siti Web di Azure con Gestione traffico di Azure][trafficmanager].
 
 > [AZURE.NOTE]Le procedure descritte in questa attività si applicano a Siti Web di Azure. Per i Servizi cloud, vedere <a href="/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato in Azure</a>.
 
@@ -32,8 +32,8 @@ Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.
 
 > [AZURE.NOTE]Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, non sarà possibile risolvere automaticamente le modifiche apportate all'indirizzo IP del sito Web. Quando si configurano le impostazioni di un nome di dominio personalizzato per il sito Web, viene fornito un indirizzo IP da usare con i record A. Questo valore può però cambiare se si elimina e si ricrea il sito Web o nel caso in cui lo si riporti in modalità gratuita.
 
-> [AZURE.NOTE].[WACOM.NOTE] Non è possibile usare i record A per il bilanciamento del carico con Gestione traffico. Per altre informazioni, vedere [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure][trafficmanager].
- 
+> [AZURE.NOTE].[WACOM.NOTE] Non è possibile usare i record A per il bilanciamento del carico con Gestione traffico. Per altre informazioni, vedere [Controllo del traffico dei siti Web di Azure con Gestione traffico di Azure][trafficmanager].
+
 <a name="bkmk_configsharedmode"></a><h2>Configurare i siti Web per la modalità condivisa o standard</h2>
 
 L'impostazione di un nome di dominio personalizzato in un sito Web è disponibile solo per le modalità condivisa e standard per Siti Web di Azure. Prima di impostare un sito Web dalla modalità gratuita alla modalità condivisa o standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per Siti Web. Per altre informazioni sui prezzi per le modalità condivisa e standard, vedere [Dettagli prezzi][PricingDetails].
@@ -47,7 +47,7 @@ L'impostazione di un nome di dominio personalizzato in un sito Web è disponibil
 
 	![][standardmode2]
 
-	
+
 4. Nella sezione **generale** impostare la modalità del sito Web facendo clic su **CONDIVISO**.
 
 	![][standardmode3]
@@ -57,19 +57,17 @@ L'impostazione di un nome di dominio personalizzato in un sito Web è disponibil
 5. Fare clic su **Save**.
 6. Quando viene proposto l'aumento di costo per la modalità condivisa, o standard se si sceglie quella standard, fare clic su **Yes** per confermare.
 
-	<!--![][standardmode4]-->
-
-	**Nota**<br /> Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per il sito Web 'nome sito Web' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni.
+	<!--![][standardmode4]-->**Nota**<br /> Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per il sito Web 'nome sito Web' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni.
 
 <a name="trafficmanager"></a><h2>(Facoltativo) Aggiungere i siti Web a Gestione traffico</h2>
 
-Se si desidera usare il sito Web con Traffic Manager, attenersi alla procedura seguente.
+Se si desidera usare il sito Web con Gestione traffico, attenersi alla procedura seguente.
 
 1. Se non si dispone già di un profilo di Gestione traffico, usare le informazioni riportate in [Creare un profilo di Gestione traffico mediante Creazione rapida][createprofile] per crearne uno. Prendere nota del nome di dominio **.trafficmgr.com** associato al proprio profilo di Gestione traffico. Questo nome verrà usato in un passaggio successivo.
 
 2. Usare le informazioni della sezione [Aggiungere o eliminare endpoint][addendpoint] per aggiungere il sito Web come endpoint nel profilo di Gestione traffico.
 
-	> [AZURE.NOTE]Se il sito Web non è elencato quando si aggiunge un endpoint, verificare che sia configurato per la modalità standard. Per usare Traffic Manager, è necessario che il sito Web sia impostato sulla modalità standard.
+	> [AZURE.NOTE]Se il sito Web non è elencato quando si aggiunge un endpoint, verificare che sia configurato per la modalità standard. Per usare Gestione traffico, è necessario che il sito Web sia impostato sulla modalità standard.
 
 3. Accedere al sito Web del registrar DNS e passare alla pagina di gestione dei DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**.
 
@@ -94,7 +92,7 @@ Il record CNAME seguente, ad esempio, inoltra tutto il traffico da **www.contoso
 
 A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale (contoso.azurewebsite.net), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
 
-> [AZURE.NOTE]Se si usa Gestione traffico con un sito Web, non è necessario eseguire i passaggi delle sezioni seguenti, ossia '**Aggiungere un record CNAME per il dominio personalizzato**' e '**Aggiungere un record A per il dominio personalizzato**'. Il record CNAME creato nei passaggi precedenti indirizzerà il traffico a Traffic Manager, che a sua volta lo indirizzerà agli endpoint del sito Web.
+> [AZURE.NOTE]Se si usa Gestione traffico con un sito Web, non è necessario eseguire i passaggi delle sezioni seguenti, ossia '**Aggiungere un record CNAME per il dominio personalizzato**' e '**Aggiungere un record A per il dominio personalizzato**'. Il record CNAME creato nei passaggi precedenti indirizzerà il traffico a Gestione traffico, che a sua volta lo indirizzerà agli endpoint del sito Web.
 
 <a name="bkmk_configurecname"></a><h2>Aggiungere un record CNAME per il dominio personalizzato</h2>
 
@@ -108,7 +106,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Installare e configurare l'[interfaccia della riga di comando multipiattaforma di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
+	* Installare e configurare l'[interfaccia della riga di comando di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
 
 			azure site domain list yoursitename
 
@@ -143,11 +141,11 @@ A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'
 
 ###Aggiungere il nome di dominio al sito Web
 
-Dopo il completamento della propagazione del record CNAME per il nome di dominio, è necessario associarlo al sito Web desiderato. È possibile aggiungere il nome di dominio personalizzato definito dal record CNAME al sito Web usando l'interfaccia della riga di comando multipiattaforma di Azure oppure il portale di gestione di Azure.
+Dopo il completamento della propagazione del record CNAME per il nome di dominio, è necessario associarlo al sito Web desiderato. È possibile aggiungere il nome di dominio personalizzato definito dal record CNAME al sito Web usando l'interfaccia della riga di comando (CLI Command-Line Interface) di Azure, oppure il portale di gestione di Azure.
 
 **Per aggiungere un nome di dominio con gli strumenti da riga di comando**
 
-Installare e configurare l'[interfaccia della riga di comando multipiattaforma di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
+Installare e configurare l'[interfaccia della riga di comando di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
 
 	azure site domain add customdomain yoursitename
 
@@ -179,7 +177,7 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 
 <a name="bkmk_configurearecord"></a><h2>Aggiunta di un record A per il dominio personalizzato</h2>
 
-Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del sito Web. Aggiungere quindi una voce nella tabella DNS del dominio personalizzato usando gli strumenti forniti dal registrar. Sebbene i registrar utilizzino metodi simili per specificare un record A, vi sono alcune differenze nel modo in cui ognuno consente di effettuare questa operazione. Il concetto di base è tuttavia identico per tutti. Oltre alla creazione di un record A, è necessario procedere alla creazione di un record CNAME che verrà usato da Azure per verificare il record A.
+Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del sito Web. Aggiungere quindi una voce nella tabella DNS del dominio personalizzato usando gli strumenti forniti dal registrar. Sebbene i registrar usino metodi simili per specificare un record A, vi sono alcune differenze nel modo in cui ognuno consente di effettuare questa operazione. Il concetto di base è tuttavia identico per tutti. Oltre alla creazione di un record A, è necessario procedere alla creazione di un record CNAME che verrà usato da Azure per verificare il record A.
 
 1. Accedere al [portale di gestione di Azure][portal] dal browser.
 
@@ -197,26 +195,24 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del si
 
 7. Procedere come descritto di seguito per creare il record A:
 
-	1. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+	1. Selezionare o immettere il dominio o sottodominio che userà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
-		Si desea crear un registro D para el dominio raíz, debe aparecer con un símbolo '**@**' en las herramientas DNS del registrador.
+		Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo '**@**' negli strumenti DNS del registrar.
 
 	2. Immettere l'indirizzo IP del servizio cloud nell'apposito campo. La voce del dominio usata nel record A verrà associata all'indirizzo IP della distribuzione del servizio cloud.
 
-		Por ejemplo, el siguiente registro D desvía todo el tráfico de **contoso.com** a **137.135.70.239**, la dirección IP de nuestra aplicación implementada:
+		Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a **137.135.70.239**, che è l'indirizzo IP dell'applicazione distribuita:
 
 		<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-		<td><strong>Host name/Subdomain</strong></td>
-		<td><strong>IP address</strong></td>
-		</tr>
-		<tr>
-		<td>@</td>
-		<td>137.135.70.239</td>
-		</tr>
-		</table>
-
-		En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '__*__' como subdominio.
+<tr>
+<td><strong>Nome host/Sottodominio</strong></td>
+<td><strong>Indirizzo IP</strong></td>
+</tr>
+<tr>
+<td>@</td>
+<td>137.135.70.239</td>
+</tr>
+</table>In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__' come sottodominio.
 
 7. Creare quindi un record CNAME con un alias di **awverify** e un dominio canonico di **awverify.mysite.azurewebsites.net** ottenuto in precedenza.
 
@@ -239,11 +235,11 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del si
 
 ###Aggiungere il nome di dominio al sito Web
 
-Dopo il completamento della propagazione del record CNAME **awverify**, è possibile associare il dominio personalizzato definito dal record A al sito Web desiderato. È possibile aggiungere il nome di dominio personalizzato definito dal record A al sito Web usando l'interfaccia della riga di comando multipiattaforma di Azure oppure il portale di gestione di Azure.
+Dopo il completamento della propagazione del record CNAME **awverify**, è possibile associare il dominio personalizzato definito dal record A al sito Web desiderato. È possibile aggiungere il nome di dominio personalizzato definito dal record A al sito Web usando l'interfaccia della riga di comando di Azure oppure il portale di gestione di Azure.
 
-**Per aggiungere un nome di dominio con gli strumenti da riga di comando**
+**Per aggiungere un nome di dominio mediante l'interfaccia della riga di comando di Azure (Azure CLI)**
 
-Installare e configurare l'[interfaccia della riga di comando multipiattaforma di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
+Installare e configurare l'[interfaccia della riga di comando di Azure](/manage/install-and-configure-cli/), quindi eseguire il comando seguente:
 
 	azure site domain add customdomain yoursitename
 
@@ -315,4 +311,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

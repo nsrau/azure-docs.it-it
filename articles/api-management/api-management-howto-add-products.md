@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Come creare e pubblicare un prodotto in Gestione API di Azure
 
-In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e le condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. L'argomento include una guida per la creazione di un prodotto, l'aggiunta di un'API e la pubblicazione per gli sviluppatori.
-
-Per altre informazioni sull'uso dei prodotti, vedere il video seguente.
-
-> [AZURE.VIDEO using-products]
+In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e alle condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. L'argomento include una guida per la creazione di un prodotto, l'aggiunta di un'API e la pubblicazione per gli sviluppatori.
 
 ## <a name="create-product"> </a>Creare un prodotto
 
@@ -68,7 +64,7 @@ La pagina **Prodotti** contiene quattro collegamenti per la configurazione: **Ri
 
 Prima di pubblicare il prodotto, è necessario aggiungere una o più API. A tale scopo, fare clic su **Aggiungi API al prodotto**.
 
-![Add APIs][api-management-add-apis-to-product]
+![Aggiunta di API][api-management-add-apis-to-product]
 
 Selezionare le API desiderate e fare clic su **Salva**.
 
@@ -76,7 +72,7 @@ Selezionare le API desiderate e fare clic su **Salva**.
 
 La scheda **Impostazioni** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili. Il contenuto è indirizzato agli sviluppatori che chiameranno l'API e può essere scritto come testo normale o commenti HTML.
 
-![Product settings][api-management-product-settings]
+![Impostazioni prodotto][api-management-product-settings]
 
 Selezionare **Richiedi sottoscrizione** per creare un prodotto protetto che richiede l'uso di una sottoscrizione oppure deselezionarla per creare un prodotto aperto che può essere chiamato senza sottoscrizione.
 
@@ -90,17 +86,17 @@ Immettere eventualmente nel campo **Condizioni per l'utilizzo** la descrizione d
 
 Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Nella scheda **Riepilogo** del prodotto fare clic su **Pubblica**, quindi su **Sì, pubblica** per confermare. Per impostare come privato un prodotto pubblicato in precedenza, fare clic **Annulla pubblicazione**.
 
-![Publish product][api-management-publish-product]
+![Pubblicazione prodotto][api-management-publish-product]
 
 ## <a name="make-visible"> </a>Rendere un prodotto visibile per gli sviluppatori
 
 La scheda **Visibilità** consente di scegliere i ruoli che possono visualizzare il prodotto nel portale per sviluppatori e sottoscrivere il prodotto.
 
-![Product visibility][api-management-product-visiblity]
+![Visibilità prodotto][api-management-product-visiblity]
 
 Per abilitare o disabilitare la visibilità di un prodotto per gli sviluppatori di un gruppo, selezionare o deselezionare la casella di controllo accanto al gruppo e quindi fare clic su **Salva**.
 
->Per altre informazioni, vedere [Come creare e usare i gruppi per gestire gli account per sviluppatore in Gestione API di Azure][].
+>Per altre informazioni, vedere [Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure][].
 
 ## <a name="view-subscribers"> </a>Visualizzare i sottoscrittori di un prodotto
 
@@ -112,6 +108,9 @@ Nella scheda **Sottoscrittori** sono elencati gli sviluppatori che hanno sottosc
 
 Una volta che le API desiderate sono state aggiunte e il prodotto pubblicato, gli sviluppatori possono sottoscrivere il prodotto e iniziare a chiamare le API. Per una dimostrazione di questi elementi e della configurazione avanzata del prodotto, vedere l'esercitazione [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure][].
 
+Per altre informazioni sull'uso dei prodotti, vedere il video seguente.
+
+> [AZURE.VIDEO using-products]
 
 [Create a product]: #create-product
 [Add APIs to a product]: #add-apis
@@ -146,7 +145,7 @@ Una volta che le API desiderate sono state aggiunte e il prodotto pubblicato, gl
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
-[Come creare e usare i gruppi per gestire gli account per sviluppatore in Gestione API di Azure]: api-management-howto-create-groups.md
+[Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure]: api-management-howto-create-groups.md
 [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure]: api-management-howto-product-with-rules.md
 
 <!---HONumber=62-->

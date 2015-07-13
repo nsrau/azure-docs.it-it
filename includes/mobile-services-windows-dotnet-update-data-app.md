@@ -69,4 +69,5 @@
 	In questo modo un aggiornamento dell'elemento verrà inviato al servizio mobile.
 
 Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -28,7 +28,7 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-start-monito
 * Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apportate al file ApplicationInsights.config. Se non si è certi che sia stato personalizzato, creare un nuovo progetto, aggiungervi Application Insights e confrontare il file.config con quello nel nuovo progetto. Prendere nota di eventuali differenze.
 * In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 * Impostare il filtro in modo da visualizzare i pacchetti installati. 
-* Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna** \(verranno aggiornati anche tutti i pacchetti dipendenti\).
+* Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna** (verranno aggiornati anche tutti i pacchetti dipendenti).
 * Confrontare ApplicationInsights.config con la copia precedente. La maggior parte delle modifiche visualizzate è dovuta al fatto che alcuni moduli sono stati rimossi e altri sono stati resi parametrizzabili. Ripristinare eventuali personalizzazioni apportate al file precedente.
 * Ricompilare la soluzione.
 
@@ -58,4 +58,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

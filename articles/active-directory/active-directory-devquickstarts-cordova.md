@@ -250,8 +250,9 @@ Usare `cordova run --help` per visualizzare altre opzioni di compilazione ed ese
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) qui. A questo punto è possibile passare a scenari più avanzati e più interessanti. È possibile:
 
-[Proteggere un'API Web Node.js con Azure AD >](active-directory-devquickstarts-webapi-nodejs.md)
+[Proteggere un'API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >](https://github.com/AzureAdSamples), [CloudIdentity.com >](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

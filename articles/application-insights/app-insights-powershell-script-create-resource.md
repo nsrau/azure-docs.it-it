@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Script di PowerShell per creare una risorsa Application Insights" 
-	description="Consente di automatizzare la creazione di risorse di Application Insights." 
+	pageTitle="Script di PowerShell per creare una risorsa di Application Insights" 
+	description="Automatizzare la creazione di risorse Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -15,17 +15,17 @@
 	ms.date="06/12/2015" 
 	ms.author="awills"/>
 
-#  Script di PowerShell per creare una risorsa Application Insights
+#  Script di PowerShell per creare una risorsa di Application Insights
 
 *Application Insights è disponibile in anteprima.*
 
-Se si vuole monitorare una nuova applicazione oppure una nuova versione di un'applicazione con [Application Insights per Visual Studio](https://azure.microsoft.com/services/application-insights/), è possibile configurare una nuova risorsa in Microsoft Azure. Questa risorsa verrà usata per analizzare e visualizzare i dati di telemetria provenienti dall'app.
+Se si vuole monitorare una nuova applicazione oppure una nuova versione di un'applicazione con [Application Insights di Visual Studio](https://azure.microsoft.com/services/application-insights/), è possibile configurare una nuova risorsa in Microsoft Azure. Questa risorsa verrà usata per analizzare e visualizzare i dati di telemetria provenienti dall'app.
 
 Per automatizzare la creazione di una nuova risorsa con PowerShell.
 
 Se, ad esempio, si intende sviluppare un'app per dispositivi mobili, è probabile che, in un dato momento, i clienti usino diverse versioni pubblicate dell'app. Se però si vuole evitare di combinare i risultati di telemetria delle diverse versioni, è possibile fare in modo che il processo di compilazione crei una nuova risorsa per ogni compilazione.
 
-## Script per creare una risorsa Application Insights
+## Script per creare una risorsa di Application Insights
 
 *Output*
 

@@ -1,23 +1,6 @@
-<properties 
-   pageTitle="Utilizzare PuTTY per connettersi alla console seriale del dispositivo"
-   description="Viene illustrato come utilizzare il software di emulazione di terminale PuTTY per connettersi al dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### Per connettersi tramite console seriale
 
-1. Collegare il cavo seriale al dispositivo \(direttamente o tramite un adattatore seriale USB\).
+1. Collegare il cavo seriale al dispositivo (direttamente o tramite un adattatore seriale USB).
 
 2. Aprire il **Pannello di controllo**, quindi aprire **Gestione dispositivi**.
 
@@ -45,4 +28,4 @@
 7. Fare clic su **Apri** per avviare una sessione seriale.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

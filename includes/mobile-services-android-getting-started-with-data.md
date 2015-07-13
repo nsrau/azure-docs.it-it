@@ -5,7 +5,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Ricompilare il progetto facendo clic su **Sync Project with Gradle Files**.
@@ -15,11 +15,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Aprire il file AndroidManifest.xml e aggiungere la riga seguente che consente all'app di accedere a Servizi mobili in Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. In Project Explorer aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle righe di codice seguenti:
+4. In Project Explorer aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle righe di codice seguenti:
 
 
 
@@ -165,4 +161,5 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

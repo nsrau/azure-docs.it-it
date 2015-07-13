@@ -145,4 +145,7 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

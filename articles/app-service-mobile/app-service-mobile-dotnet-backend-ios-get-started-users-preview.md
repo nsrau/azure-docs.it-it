@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in iOS" 
-	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="ios" 
-	authors="mattchenderson,krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in iOS"
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+	services="app-service\mobile"
+	documentationCenter="ios"
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="03/22/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="mahender"/>
 
 # Aggiungere l'autenticazione all'app iOS
@@ -26,15 +26,15 @@ Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anch
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare i servizi app
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
-<li><p>In Xcode aprire il progetto. Premere il pulsante <b>Esegui</b> per avviare l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione con codice di stato 401 (Non autorizzato).</p>
-   
+<li><p>In Xcode aprire il progetto. Premere il pulsante <b>Run</b> per avviare l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione con codice di stato 401 (Non autorizzato).</p>
+
    	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
 </ol>
 
@@ -54,4 +54,6 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [Creare un'app iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

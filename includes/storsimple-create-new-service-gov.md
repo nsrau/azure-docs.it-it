@@ -1,26 +1,8 @@
-<properties 
-   pageTitle="Creare un nuovo servizio StorSimple Manager"
-   description="In questo articolo viene descritto come creare una nuova istanza del servizio StorSimple Manager utilizzando il portale di Azure per enti pubblici."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
-
 #### Per creare un nuovo servizio
 
 1. Utilizzare le credenziali dell'account Microsoft per accedere al [portale di Microsoft Azure per enti pubblici](https://manage.windowsazure.us/).
 
-2. Nel portale, fare clic su **Nuovo** \> **Servizi dati** \> **StorSimple Manager** \> **Creazione rapida**.
+2. Nel portale, fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
 
 3. Nel modulo visualizzato, procedere come segue:
   1. Fornire un **Nome** univoco per il servizio. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
@@ -35,4 +17,4 @@
  
        ![creazione di un servizio](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

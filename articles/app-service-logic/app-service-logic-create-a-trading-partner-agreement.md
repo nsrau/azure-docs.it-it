@@ -76,5 +76,6 @@ Per creare accordi tra partner commerciali:
 [1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.jpg
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

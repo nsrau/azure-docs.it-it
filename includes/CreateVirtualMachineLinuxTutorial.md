@@ -159,8 +159,6 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 	Se il secondo comando restituisce un errore, verificare il file /etc/fstab per ottenere la sintassi corretta.
 
 
-	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
+	>[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni `nofail` e/o `nobootwait` fstab, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come creare e usare i gruppi per gestire gli account per sviluppatore in Gestione API di Azure" 
-	description="Informazioni su come gestire gli account per sviluppatore tramite i gruppi in Gestione API di Azure." 
+	pageTitle="Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure" 
+	description="Informazioni su come gestire gli account di sviluppatori tramite i gruppi in Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# Come creare e usare i gruppi per gestire gli account per sviluppatore in Gestione API di Azure
+# Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 
 In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti vengono innanzitutto resi visibili ai gruppi, quindi gli sviluppatori in quei gruppi possono visualizzare e sottoscriversi ai prodotti associati ai gruppi.
 

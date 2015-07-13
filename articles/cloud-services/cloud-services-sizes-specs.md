@@ -17,7 +17,7 @@
  
 # Dimensioni dei servizi cloud
 
-Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud \(ruoli Web e di lavoro\). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
+Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud (ruoli Web e di lavoro). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
 
 Le macchine virtuali e i servizi cloud di Azure sono due dei diversi tipi di risorse di calcolo offerte da Azure. Per informazioni, vedere [Opzioni di hosting di calcolo fornite da Azure](fundamentals-application-models.md).
 
@@ -31,13 +31,13 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
 * I ruoli Web e di lavoro richiedono più spazio su disco temporaneo rispetto alle macchine virtuali di Azure a causa dei requisiti di sistema. I file di sistema riservano 4 GB di spazio per il file di paging di Windows e 2 GB di spazio per il file dump di Windows.
 
-* Il disco del sistema operativo contiene il sistema operativo guest di Windows, la cartella Programmi \(incluse le installazioni eseguite mediante attività di avvio a meno che non si specifichi un altro disco\), le modifiche del Registro di sistema, la cartella System32 e .NET Framework.
+* Il disco del sistema operativo contiene il sistema operativo guest di Windows, la cartella Programmi (incluse le installazioni eseguite mediante attività di avvio a meno che non si specifichi un altro disco), le modifiche del Registro di sistema, la cartella System32 e .NET Framework.
 
 * Il disco di risorse locale contiene i file di configurazione e i log di Azure, Diagnostica Azure, inclusi i log di IIS, e tutte le risorse di archiviazione locali definite.
 
-* Il disco delle app \(applicazioni\) è il disco in cui viene estratto il file con estensione cspkg e che contiene il sito Web, i file binari, il processo host del ruolo, le attività di avvio, il file web.config e così via.
+* Il disco delle app (applicazioni) è il disco in cui viene estratto il file con estensione cspkg e che contiene il sito Web, i file binari, il processo host del ruolo, le attività di avvio, il file web.config e così via.
 
-* Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno la stessa capacità. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota \(RDMA\) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI \(Message Passing Interface\). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
+* Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno la stessa capacità. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota (RDMA) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI (Message Passing Interface). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
 
 |Dimensione|Core<br>CPU|Memoria|Dimensione disco|
 |---|---|---|---|
@@ -53,17 +53,17 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 |A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|Standard\_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 50 GB<br/>App = circa 1,5 GB|
-|Standard\_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard\_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard\_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard\_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard\_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard\_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard\_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 800 GB<br/>App = circa 1,5 GB|
+|Standard_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 50 GB<br/>App = circa 1,5 GB|
+|Standard_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
+|Standard_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
+|Standard_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
+|Standard_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
+|Standard_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
+|Standard_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
+|Standard_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 800 GB<br/>App = circa 1,5 GB|
 
 ## Passaggi successivi
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108) [Configurare le dimensioni dei servizi cloud](https://msdn.microsoft.com/library/ee814754)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

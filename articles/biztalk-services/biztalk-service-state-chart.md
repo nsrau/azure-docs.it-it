@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Servizi BizTalk: Tabella degli stati del servizio | Azure" 
-	description="Informazioni sulle azioni/operazioni consentite nei diversi stati di MABS: arresto,. avvio, riavvio, sospensione, ripresa, eliminazione, ridimensionamento, aggiornamento della configurazione e backup." 
+	pageTitle="Operazioni consentite in stati diversi in Servizi BizTalk | Azure" 
+	description="Informazioni sulle azioni/operazioni consentite nei diversi stati di MABS: arresto, avvio, riavvio, sospensione, ripresa, eliminazione, ridimensionamento, aggiornamento della configurazione e backup." 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,16 +23,16 @@ Le operazioni che è possibile eseguire nel servizio BizTalk variano a seconda d
 
 Se ad esempio si esegue il provisioning di un nuovo servizio BizTalk nel portale di gestione di Azure, al termine lo stato del servizio BizTalk risulta Active. Se lo stato è attivo, è possibile arrestare il servizio BizTalk. Se l'arresto viene eseguito, il servizio BizTalk passa allo stato Stopped. Se l'arresto non viene eseguito, il servizio BizTalk passa allo stato StopFailed. In questo stato è possibile riavviare il servizio BizTalk. Se si tenta di eseguire un'operazione non consentita, ad esempio riprendere il servizio BizTalk, viene restituito l'errore seguente:
 
-**Operation not allowed**
+**Operazione non consentita**
 
-Per eseguire il provisioning di un servizio BizTalk, vedere [Servizi BizTalk: provisioning tramite il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+Per eseguire il provisioning di un Servizio BizTalk, vedere [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
-Nelle tabelle seguenti sono elencate le operazioni consentite quando il servizio BizTalk si trova in uno stato specifico. Il segno di spunta indica che l'operazione può essere eseguita in quel determinato stato. Uno spazio vuoto indica che l'operazione non può essere eseguita in quel determinato stato.
+Nelle tabelle seguenti sono elencate le operazioni o le azioni consentite quando il Servizio BizTalk si trova in uno stato specifico. Il segno di spunta indica che l'operazione è consentita in quel determinato stato. Uno spazio vuoto indica che l'operazione non può essere eseguita in quel determinato stato.
 
-#### Operazioni di avvio, arresto, riavvio, sospensione, ripresa ed eliminazione
+## Operazioni di avvio, arresto, riavvio, sospensione, ripresa ed eliminazione
 <table border="1">
 <tr>
-        <th colspan="15">Operazione</th>
+        <th colspan="15">Operazione o azione</th>
 </tr>
 
 <tr>
@@ -45,7 +45,7 @@ Nelle tabelle seguenti sono elencate le operazioni consentite quando il servizio
         <th>Riavvio</th>
         <th>Sospensione</th>
         <th>Ripresa</th>
-        <th>Eliminazione</th>
+        <th>Elimina</th>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
@@ -162,10 +162,10 @@ RestoreFailed<br/></b></td>
 </table>
 <br/>
 
-####Operazioni di scala, aggiornamento della configurazione e backup
+## Operazioni di scala, aggiornamento della configurazione e backup
 <table border="1">
 <tr>
-        <th colspan="15">Operazione</th>
+        <th colspan="15">Operazione o azione</th>
 </tr>
 
 <tr>
@@ -173,7 +173,7 @@ RestoreFailed<br/></b></td>
 </tr>
 <tr bgcolor="FAF9F9">
         <th> </th>
-        <th>Scala</th>
+        <th>Scalabilità</th>
         <th>Aggiornamento della configurazione</th>
         <th>Backup</th>
 </tr>
@@ -256,17 +256,15 @@ RestoreFailed<br/></b></td>
 </table>
 
 ## Vedere anche
-- [Servizi BizTalk: provisioning tramite il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servizi BizTalk: schede Dashboard, Monitor e Scale](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Servizi BizTalk: tabella delle edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Servizi BizTalk: Backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

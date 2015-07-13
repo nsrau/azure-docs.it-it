@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
-# Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
+# Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 
 ## Panoramica
 
@@ -49,25 +49,25 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 1. Se non è già stato effettuato l'accesso ad Azure in Visual Studio, fare clic sul pulsante **Connetti ad Azure** in **Esplora server**.
 
-	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Gestisci sottoscrizioni di Azure** fare clic sulla scheda **Certificati** e quindi su **Importa**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
+	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Manage Subscriptions** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione (denominato anche file *.publishsettings* per l'account Azure.
 
 	> [AZURE.NOTE]Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
 
 	Per ulteriori informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
-2. In **Esplora server** espandere **Azure** e quindi espandere **App Web**.
+2. In **Esplora server**, espandere **Azure**, quindi espandere **App Web**.
 
 3. Fare clic con il pulsante destro del mouse sul nodo del sito Web creato in [Introduzione ad Azure e ASP.NET][GetStarted], quindi scegliere **Visualizza impostazioni**.
 
 	![Visualizza impostazioni in Esplora server](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-	Verrà visualizzata la scheda **App Web di Azure** in cui è possibile visualizzare le attività di gestione e configurazione di app Web disponibili in Visual Studio.
+	Verrà visualizzata la scheda **App Web di Azur**e in cui è possibile visualizzare le attività di gestione e configurazione di app Web disponibili in Visual Studio.
 
 	![Finestra di Azure Web App](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
 	In questa esercitazione verranno utilizzati gli elenchi a discesa relativi a registrazione e traccia. Verrà inoltre utilizzato il debug remoto, che tuttavia verrà abilitato con un metodo diverso.
    
-	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere l'argomento relativo a [impostazioni dell'applicazione e stringhe di connessione di App Web di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere [applicazioni Web di Azure: come stringhe di applicazione e di lavoro di stringhe di connessione](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
 	Se si desidera eseguire un'attività di gestione app Web che non può essere completata in questa finestra, è possibile fare clic su **Full Web App Settings** per aprire una finestra del browser nel portale di gestione. Per altre informazioni, vedere [Come configurare app Web](/it-it/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
@@ -87,7 +87,7 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Questo richiede una modifica nel file Web.config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
+Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Che richiede una modifica nel file Web. config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
 
 1. In **Esplora server** espandere **Azure** e **App Service**, quindi espandere il gruppo di risorse in cui si trova l'app Web e infine espandere il nodo relativo all'app Web.
 
@@ -269,7 +269,7 @@ Se la funzione [ha scritto dei log](websites-dotnet-webjobs-sdk-storage-queues-h
 
 * Quando si abilita la funzionalità di debug remoto, sul server viene avviato un timer. Dopo 48 ore la funzionalità viene automaticamente disattivata. Questo limite di 48 ore viene impostato per motivi di sicurezza e prestazioni. È possibile riattivare facilmente la funzionalità tutte le volte che si desidera. È invece consigliabile lasciarla disabilitata quando non si esegue attivamente il debug.
 
-* È possibile collegare manualmente il debugger a qualsiasi processo, non solo al processo dell'app Web (w3wp.exe). Per ulteriori informazioni su come utilizzare la modalità debug in Visual Studio, vedere [Debug in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* È possibile collegare manualmente il debugger a qualsiasi processo, non solo al processo dell'app Web (w3wp.exe). Per ulteriori informazioni su come utilizzare la modalità debug in Visual Studio, vedere [Debug in Visual Studio](http://msdn.microsoft.com/it-it/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Panoramica dei log di diagnostica
 
@@ -477,7 +477,7 @@ Per impostazione predefinita, quando vengono abilitati per la prima volta tramit
 
 Se si utilizza il portale di gestione per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
 
-## <a name="detailederrorlogs"></a>Visualizzare i log dei messaggi di errore dettagliati
+## Visualizzazione dei log dei messaggi di errore dettagliati
 
 I log dei messaggi di errore dettagliati forniscono informazioni aggiuntive sulle richieste HTTP che generano codici di risposta di errore (400 o superiore). Per visualizzarli nella finestra **Output**, è necessario abilitarli per l'app Web e indicare a Visual Studio che si desidera monitorarli.
 
@@ -523,7 +523,7 @@ Tutti i log che è possibile monitorare nella finestra **Output** possono anche 
 
 	La cartella *deployments* contiene i file creati dalla pubblicazione del controllo del codice sorgente e non include contenuto correlato alla pubblicazione di Visual Studio. La cartella *Git* contiene le tracce correlate alla pubblicazione del controllo del codice sorgente e al servizio di streaming di file di log.
 
-## <a name="storagelogs"></a>Visualizzare i log di archiviazione
+## <a name="storagelogs"></a>Visualizzazione dei log di archiviazione
 
 I log di traccia dell'applicazione possono anche essere inviati a un account di archiviazione di Azure ed è possibile visualizzarli in Visual Studio. A questo scopo, creare un account di archiviazione, abilitare i log di archiviazione nel portale di gestione e visualizzarli nella scheda **Log** della finestra **App Web di Azure**.
 
@@ -559,7 +559,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/#replication-options).
 
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**.
 
 	![Nuovo account di archiviazione](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)
 
@@ -682,7 +682,7 @@ In questo articolo è stato illustrato come visualizzare in Visual Studio i log 
 
 ### Risoluzione dei problemi relativi alle app Web di Azure
 
-Per altre informazioni sulla risoluzione dei problemi di App Web nel servizio app di Azure, vedere le risorse seguenti:
+Per altre informazioni sulla risoluzione dei problemi di app Web in Servizio app di Azure, vedere le risorse seguenti:
 
 * [Come monitorare le app Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Analisi delle perdite di memoria in App Web di Azure con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
@@ -702,9 +702,9 @@ Per ulteriori informazioni su come utilizzare la modalità debug in Visual Studi
 
 Per altre informazioni sul debug remoto per app Web di Azure e per i processi Web, vedere le risorse seguenti:
 
-* [Introduzione al debug remoto di App Web del servizio app di Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introduzione al debug remoto di App Web del servizio app di Azure parte 2 - Informazioni di approfondimento](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introduzione al debug remoto di App Web del servizio app di Azure parte 3 - Ambiente con più istanze e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduzione al debug remoto sul servizio app per app Web di Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introduzione al debug remoto sul servizio app per app Web di Azure parte 2 - Informazioni di approfondimento](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduzione al debug remoto sul servizio app per app Web di Azure parte 3 - Ambiente con più istanze e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Debug di processi Web (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se per l'app Web viene usato un back-end di API Web di Azure o di Servizi mobili che è necessario sottoporre a debug, vedere [Debug di back-end .NET in Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
@@ -751,13 +751,13 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 
 ### Debug di Servizi cloud
 
-Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'app Web, vedere [Debug di servizi cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
+Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'app Web, vedere [Debug di servizi cloud](http://msdn.microsoft.com/it-it/library/windowsazure/ee405479.aspx).
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md

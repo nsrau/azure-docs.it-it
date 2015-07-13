@@ -178,5 +178,6 @@ Le seguenti risorse aggiuntive illustrano come usare Azure AD per l'aggiunta di 
 
 + [Esempi di codice di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Scenari di autenticazione per Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

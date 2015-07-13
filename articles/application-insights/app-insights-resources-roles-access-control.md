@@ -109,4 +109,6 @@ Se l'utente desiderato non è nella directory, è possibile invitare chiunque di
 [portal]: http://portal.azure.com/
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

@@ -46,7 +46,7 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 
 - Correzione di un problema per cui gli eventi personalizzati non sono correlati con utenti/sessioni a causa di errori di analisi dei cookie.  
 - Migliorata la logica per risolvere il percorso del file di configurazione ApplicationInsights.xml.
-- Rimosso il rilevamento di sessioni e utenti \(che verrà eseguito soltanto dagli SDK lato client\).
+- Rimosso il rilevamento di sessioni e utenti (che verrà eseguito soltanto dagli SDK lato client).
 
 ## Versione 0.9.4
 
@@ -55,4 +55,4 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -95,5 +95,6 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Creare e gestire un pool di database elastico di database SQL (anteprima)"
-	description="Creare un singolo pool di risorse da condividere tra un gruppo di database SQL di Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+<properties 
+	pageTitle="Creare e gestire un pool di database elastico di database SQL (anteprima)" 
+	description="Creare un singolo pool di risorse da condividere tra un gruppo di database SQL di Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015"
-	ms.author="sstein"
+	ms.date="06/24/2015" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
-	ms.topic="get-started-article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creare e gestire un pool elastico di database SQL \(anteprima\)
+# Creare e gestire un pool elastico di database SQL (anteprima)
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
@@ -26,11 +26,11 @@
 In questo articolo viene illustrato come creare un pool elastico con il [portale di Azure](https://portal.azure.com).
 
 I pool elastici semplificano il processo di creazione, manutenzione e gestione delle prestazioni e dei costi per un numero elevato di database.
-
+ 
 
 > [AZURE.NOTE]I pool elastici sono attualmente in anteprima e sono disponibili unicamente con i server di database SQL V12.
 
-
+ 
 
 
 ## Prerequisiti
@@ -63,7 +63,7 @@ Configurare il pool impostando il livello di prezzo, aggiungendo i database e co
 
 ### Pricing tier
 
-Il livello di prezzo di un pool elastico è per alcuni versi analogo al livello di servizio di un database SQL. Il livello di prezzo determina le funzionalità disponibili per i database elastici nel pool e il numero massimo di DTU \(MAX DTU\) e la memoria \(GB\) disponibili per ciascun database.
+Il livello di prezzo di un pool elastico è per alcuni versi analogo al livello di servizio di un database SQL. Il livello di prezzo determina le funzionalità disponibili per i database elastici nel pool e il numero massimo di DTU (MAX DTU) e la memoria (GB) disponibili per ciascun database.
 
 > [AZURE.NOTE]L'anteprima è attualmente limitata al livello di prezzo **Standard**.
 
@@ -73,14 +73,14 @@ Il livello di prezzo di un pool elastico è per alcuni versi analogo al livello 
 
 ### Aggiungere database
 
-In qualsiasi momento, è possibile selezionare i database specifici che si desidera includere nel pool. Quando si crea un nuovo pool, Azure consiglia i database che beneficeranno della presenza in un pool e li contrassegna per l'inclusione. Azure valuta la cronologia di utilizzo dei database e consiglia un pool elastico quando è più conveniente rispetto all'uso di livelli di prestazioni per singoli database. Se un pool elastico è consigliato, Azure offre la quantità consigliata di DTU del pool, le impostazioni di DTU minime e massime per ogni database nel pool e un elenco di database consigliati. Perché il database sia considerato come candidato per un pool elastico deve esistere da almeno 14 giorni e non deve essere nel livello di prezzo Premium \(l'anteprima pubblica è limitata solo ai database Standard, dunque i database Premium non vengono considerati validi\). È possibile aggiungere tutti i database disponibili nel server oppure è possibile selezionare o deselezionare i database dall'elenco iniziale come desiderato.
+In qualsiasi momento, è possibile selezionare i database specifici che si desidera includere nel pool. Quando si crea un nuovo pool, Azure consiglia i database che beneficeranno della presenza in un pool e li contrassegna per l'inclusione. È possibile aggiungere tutti i database disponibili nel server oppure è possibile selezionare o deselezionare i database dall'elenco iniziale come desiderato.
 
    ![Aggiungere database][5]
 
 Quando si seleziona un database da aggiungere a un pool, è necessario soddisfare le condizioni seguenti:
 
-- Il pool deve disporre di spazio sufficiente per il database \(non può già contenere il numero massimo di database\). In particolare, il pool deve disporre di un numero di DTU sufficiente a coprire la garanzia DTU per ogni database \(ad esempio, se la garanzia di DTU per il gruppo è 400, e la garanzia di DTU per ciascun database è 10, il numero massimo di database consentiti nel pool è 40 \(400 DTU/10 DTU garantite per database = massimo 40 database\).
-- Le funzionalità correnti utilizzate dal database devono essere disponibili nel pool.
+- Il pool deve disporre di spazio sufficiente per il database (non può già contenere il numero massimo di database). In particolare, il pool deve disporre di un numero di DTU sufficiente a coprire la garanzia DTU per ogni database (ad esempio, se la garanzia di DTU per il gruppo è 400, e la garanzia di DTU per ciascun database è 10, il numero massimo di database consentiti nel pool è 40 (400 DTU/10 DTU garantite per database = massimo 40 database).
+- Le funzionalità correnti utilizzate dal database devono essere disponibili nel pool. 
 
 
 ### Configurare le prestazioni
@@ -93,9 +93,9 @@ Quando si seleziona un database da aggiungere a un pool, è necessario soddisfar
 
 | Parametro di prestazioni | Descrizione |
 | :--- | :--- |
-| **POOL DTU/GB** - Garanzia DTU per il pool | La garanzia DTU per il pool è il numero garantito di DTU disponibili e condivise da tutti i database nel pool. <br> Attualmente, questo parametro può essere impostato su 200, 400, 800 o 1200. <br> È necessario eseguire il provisioning della dimensione della garanzia DTU specificata per un gruppo considerando l'utilizzo di DTU cronologico del gruppo. In alternativa, è possibile impostare questa dimensione mediante la garanzia DTU desiderata per database e l'utilizzo dei database attivi contemporaneamente. La garanzia DTU per il pool, inoltre, è correlata alla quantità di spazio di archiviazione disponibile per il pool, per ogni DTU allocata al pool si ottiene 1 GB di spazio di archiviazione del database \(1 DTU = 1 GB di spazio di archiviazione\). <br> **Su quale valore deve essere impostata la garanzia DTU del pool?** <br>Come minimo, è necessario impostare la garanzia DTU del pool su \(\[numero dei database\] x \[utilizzo medio DTU per database\]\) |
-| **MIN DTU** - Garanzia DTU per ciascun database | La garanzia DTU per database è il numero di DTU garantito a un singolo database del pool. Attualmente, è possibile impostare questa garanzia su 0, 10, 20 o 50 DTU oppure è possibile scegliere di non fornire una garanzia ai database nel gruppo \(MIN DTU = 0\). <br> **Su quale valore deve essere impostata la garanzia DTU per database?** <br> Come minimo, è necessario impostare la garanzia DTU del pool \(MIN DTU\) su \(\[utilizzo medio per database\]\). La garanzia DTU per database è un'impostazione globale che consente di impostare la garanzia DTU per tutti i database nel pool. |
-| **MAX DTU** - Limite di utilizzo delle DTU per database | Il valore MAX DTU per database è il numero massimo di DTU che un singolo database del pool può utilizzare. Impostare il limite di utilizzo DTU per database su un valore sufficientemente elevato per gestire burst massimi o picchi che potrebbero verificarsi nei database. È possibile impostare questo limite di utilizzo sul limite di sistema, che dipende dal livello di prezzo del pool di \(100 DTU per il livello Standard\). La dimensione specifica di questo limite di utilizzo deve essere in grado di contenere i modelli di utilizzo dei database all'interno del gruppo. È previsto un certo grado di overcommitt del gruppo, poiché il pool in genere presuppone schemi di utilizzo a freddo e a caldo per i database, in cui tutti i database non raggiungono il picco contemporaneamente.<br> **Su quale valore deve essere impostato il limite di utilizzo delle DTU?** <br> Impostare il valore MAX DTU o il limite di utilizzo delle DTU per database su \(\[picco di utilizzo del database\]\). Si supponga, ad esempio, che il picco di utilizzo per database sia 50 DTU e che solo il 20% dei 100 database nel gruppo raggiunga il picco contemporaneamente. Se il limite di utilizzo delle DTU per database è impostato su 50 DTU, è ragionevole eseguire l’overcommit del gruppo moltiplicando per 5 e impostare la garanzia DTU per il gruppo su 1.000 DTU. Vale inoltre la pena notare che il limite di utilizzo delle DTU non è una garanzia di risorse per un database, bensì un limite massimo di DTU che è possibile raggiungere, se disponibile. |
+| **POOL DTU/GB** - Garanzia DTU per il pool | La garanzia DTU per il pool è il numero garantito di DTU disponibili e condivise da tutti i database nel pool. <br> Attualmente, questo parametro può essere impostato su 100, 200, 400, 800 o 1200. <br> È necessario eseguire il provisioning della dimensione della garanzia DTU specificata per un gruppo considerando l'utilizzo di DTU cronologico del gruppo. In alternativa, è possibile impostare questa dimensione mediante la garanzia DTU desiderata per database e l'utilizzo dei database attivi contemporaneamente. La garanzia DTU per il pool, inoltre, è correlata alla quantità di spazio di archiviazione disponibile per il pool, per ogni DTU allocata al pool si ottiene 1 GB di spazio di archiviazione del database (1 DTU = 1 GB di spazio di archiviazione). <br> **Su quale valore deve essere impostata la garanzia DTU del pool?** <br>Come minimo, è necessario impostare la garanzia DTU del pool su ([numero dei database] x [utilizzo medio DTU per database]) |
+| **MIN DTU** - Garanzia DTU per ciascun database | La garanzia DTU per database è il numero di DTU garantito a un singolo database del pool. Attualmente, è possibile impostare questa garanzia su 0, 10, 20 o 50 DTU oppure è possibile scegliere di non fornire una garanzia ai database nel gruppo (MIN DTU = 0). <br> **Su quale valore deve essere impostata la garanzia DTU per database?** <br> Come minimo, è necessario impostare la garanzia DTU del pool (MIN DTU) su ([utilizzo medio per database]). La garanzia DTU per database è un'impostazione globale che consente di impostare la garanzia DTU per tutti i database nel pool. |
+| **MAX DTU** - Limite di utilizzo delle DTU per database | Il valore MAX DTU per database è il numero massimo di DTU che un singolo database del pool può utilizzare. Impostare il limite di utilizzo DTU per database su un valore sufficientemente elevato per gestire burst massimi o picchi che potrebbero verificarsi nei database. È possibile impostare questo limite di utilizzo sul limite di sistema, che dipende dal livello di prezzo del pool di (100 DTU per il livello Standard). La dimensione specifica di questo limite di utilizzo deve essere in grado di contenere i modelli di utilizzo dei database all'interno del gruppo. È previsto un certo grado di overcommitt del gruppo, poiché il pool in genere presuppone schemi di utilizzo a freddo e a caldo per i database, in cui tutti i database non raggiungono il picco contemporaneamente.<br> **Su quale valore deve essere impostato il limite di utilizzo delle DTU?** <br> Impostare il valore MAX DTU o il limite di utilizzo delle DTU per database su ([picco di utilizzo del database]). Si supponga, ad esempio, che il picco di utilizzo per database sia 50 DTU e che solo il 20% dei 100 database nel gruppo raggiunga il picco contemporaneamente. Se il limite di utilizzo delle DTU per database è impostato su 50 DTU, è ragionevole eseguire l’overcommit del gruppo moltiplicando per 5 e impostare la garanzia DTU per il gruppo su 1.000 DTU. Vale inoltre la pena notare che il limite di utilizzo delle DTU non è una garanzia di risorse per un database, bensì un limite massimo di DTU che è possibile raggiungere, se disponibile. |
 
 
 ## Aggiunta di database a un pool elastico
@@ -161,6 +161,5 @@ Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

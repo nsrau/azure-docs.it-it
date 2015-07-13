@@ -38,7 +38,7 @@ In alcuni casi, è necessario creare più record DNS con un determinato nome e t
 	www.contoso.com.		3600	IN	A	134.170.185.46
 	www.contoso.com.		3600	IN	A	134.170.188.221
 
-Questo è un esempio di un set di record. Un set di record è la raccolta di record DNS con lo stesso nome e tipo in una zona. La maggior parte dei set di record contiene un singolo record, ma non sono rari esempi come quello precedente, in cui un set di record contiene più di un record \(i set di record di tipo SOA e CNAME sono un'eccezione: gli standard DNS non consentono più record con lo stesso nome per questi tipi\).
+Questo è un esempio di un set di record. Un set di record è la raccolta di record DNS con lo stesso nome e tipo in una zona. La maggior parte dei set di record contiene un singolo record, ma non sono rari esempi come quello precedente, in cui un set di record contiene più di un record (i set di record di tipo SOA e CNAME sono un'eccezione: gli standard DNS non consentono più record con lo stesso nome per questi tipi).
 
 La durata Time-to-Live o TTL specifica per quanto tempo ogni record viene memorizzato nella cache da parte dei client prima che venga eseguita nuovamente la query. Nell'esempio precedente, il valore TTL è 3600 secondi o 1 ora. Il valore TTL viene specificato per il set di record, non per ogni record, quindi lo stesso valore viene usato per tutti i record all'interno di tale set di record.
 
@@ -59,7 +59,7 @@ Creare un set di record e assegnarlo a una variabile $rs:
 
 Il set di record ha il nome relativo "www" nella zona DNS "contoso.com" in modo che il nome completo dei record sarà "www.contoso.com". Il tipo di record è "A" e il valore TTL è 60 secondi.
 
->[AZURE.NOTE]Per creare un set di record nell'apice della zona \(in questo caso "contoso.com"\), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
+>[AZURE.NOTE]Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
 
 Il set di record è vuoto ed è necessario aggiungere record per poter usare il set di record "www" appena creato.<BR>
 
@@ -119,4 +119,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

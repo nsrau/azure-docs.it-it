@@ -37,7 +37,7 @@ I connettori possono essere usati nelle app per la logica per operazioni di recu
 Per usare HDInsight Connector è necessario creare un'istanza dell'app per le API HDInsight Connector. A questo scopo, procedere come segue:
 
 1. Aprire Azure Marketplace con l'opzione '+ NUOVO' nella parte sinistra del portale di Azure e selezionare 'Marketplace'.
-2. Passare a 'App per le API', cercare "HDInsight Connector", selezionare l'app e quindi fare clic su 'Crea'.
+2. Passare ad 'App per le API', cercare "HDInsight Connector", selezionare l'app e quindi fare clic su 'Crea'.
 3. Nel primo pannello specificare i dettagli generali, ad esempio nome, piano di servizio app e così via.
 4. Nelle impostazioni del pacchetto specificare il nome utente e la password del cluster HDInsight e fare clic su OK.
 5. Fare clic su 'Crea'.
@@ -53,7 +53,7 @@ Passare all'app per le API HDInsight Connector appena creata. Nel componente 'Si
 
 ![][2]
 
-Per caricare il certificato di gestione ndell'app per le API, è necessario eseguire le operazioni seguenti. 1. Fare clic sul componente Sicurezza 2. Nel pannello 'Sicurezza' fare clic su 'CARICA CERTIFICATO'. 3. Individuare e selezionare il file del certificato nel pannello successivo. 4. Dopo aver selezionato il certificato, fare clic su OK.
+Per caricare il certificato di gestione nell'app per le API, è necessario eseguire le operazioni seguenti. 1. Fare clic sul componente Sicurezza 2. Nel pannello 'Sicurezza' fare clic su 'CARICA CERTIFICATO'. 3. Individuare e selezionare il file del certificato nel pannello successivo. 4. Dopo aver selezionato il certificato, fare clic su OK.
 
 Una volta che il certificato è stato caricato, vengono visualizzati i relativi dettagli.
 
@@ -106,7 +106,7 @@ HDInsight Connector può essere usato solo come azione in un'app per la logica. 
 
 ![][11]
 
-- Salvare l'app per la logica usando il comando salva nella parte superiore dell'area di progettazione.
+- Salvare l'app per la logica usando il comando di salvataggio nella parte superiore dell'area di progettazione.
 
 È possibile fare clic su 'Esegui adesso' per avviare l'app per la logica manualmente allo scopo di testare lo scenario.
 

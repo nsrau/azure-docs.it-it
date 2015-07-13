@@ -27,7 +27,7 @@ Sono necessari gli elementi seguenti:
 * Android Studio
 * Android SDK Versione 9 o successive.
 
-## Creare una risorsa Application Insights
+## Creare una risorsa di Application Insights
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'opzione Android.
 
@@ -58,9 +58,9 @@ Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo re
 
     ![Creare un componente](./media/app-insights-android/07-create-component.png)
 
-    Usare la chiave di strumentazione ricevuta dalla risorsa Application Insights.
+    Usare la chiave di strumentazione ricevuta dalla risorsa di Application Insights.
 
-4.  Sincronizzare gradle per scaricare il SDK e eseguire l'integrazione con il progetto
+4.  Sincronizzare gradle per scaricare l'SDK ed eseguire l'integrazione con il progetto
 
     ![Sincronizzare i file gradle per scaricare l'SDK](./media/app-insights-android/08-successful-integration.png)
     
@@ -95,8 +95,8 @@ A questo punto il riferimento seguente è stato aggiunto al build.gradle dei mod
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -108,18 +108,18 @@ Aggiungere l'importazione seguente all'attività radice dell'app
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 E aggiungere quanto segue al callback `onCreate` dell'attività.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-Dopo avere chiamato `AppInsights.start()`, l'SDK inizierà a tenere traccia dell'attività del ciclo di vita Android e di qualsiasi eccezione non gestita.
+Dopo avere chiamato `ApplicationInsights.start()`, l'SDK inizierà a tenere traccia dell'attività del ciclo di vita Android e di qualsiasi eccezione non gestita.
 
 > [AZURE.NOTE]Gli eventi del ciclo di vita dell'applicazione vengono raccolti solo in Android SDK versione 15 e successive (Ice Cream Sandwich+).
 
@@ -139,9 +139,9 @@ Un esempio di inizializzazione e di una raccolta di dati di telemetria manuale s
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
@@ -161,7 +161,7 @@ Eseguire l'applicazione (MAIUSC+F10 in Windows, CTRL+R in OS X) per generare dat
 
 ## Visualizzare i dati in Application Insights
 
-Tornare a http://portal.azure.com e passare alla risorsa Application Insights.
+Tornare a http://portal.azure.com e passare alla risorsa di Application Insights.
 
 Fare clic su Cerca per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su Aggiorna.
 
@@ -197,4 +197,6 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

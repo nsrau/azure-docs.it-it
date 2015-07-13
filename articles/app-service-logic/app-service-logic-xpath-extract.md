@@ -26,7 +26,7 @@ Il connettore BizTalk XPath Extract permette all'app di cercare ed estrarre i da
 	>[AZURE.NOTE]
 2. [Creare una nuova app per la logica]. Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
 3. Nel riquadro destro della finestra di progettazione sono elencate le app per le API disponibili con cui creare il flusso. Individuare "BizTalk XPath Extractor". Selezionando questa app, Xpath Extractor verrà aggiunto al flusso e ne verrà eseguito il provisioning di un'istanza.
-2. Una volta eseguito il provisioning, nella finestra di progettazione viene visualizzata l'azione associata all'app per le API BizTalk XPath Extractor.
+2. Dopo il provisioning, nella finestra di progettazione viene visualizzata l'azione associata all'app per le API BizTalk XPath Extractor.
 
 ![Azione di selezione di BizTalk XPath Extractor][1]
 
@@ -63,4 +63,4 @@ L'azione restituisce l'output sotto forma di stringa - Risultato. Il risultato c
 <!-- Links -->
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -66,5 +66,6 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 - I modelli di progetti di app per le API sono disponibili solo in C#.
 - L'utilizzo di app per le API tramite il menu di scelta rapida "Aggiungi client di app per le API di Azure" è supportato solo in C#.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

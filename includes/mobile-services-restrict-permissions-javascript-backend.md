@@ -1,7 +1,10 @@
 
+Per proteggere gli endpoint, è necessario limitare l'accesso ai soli client autenticati.
 
-1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella _TodoItem_.
+1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) passare al servizio mobile, quindi fare clic su **Dati** > nome della tabella personalizzata (**TodoItem**) > **Autorizzazioni**. 
 
-2. Fare clic sulla scheda **Autorizzazioni**, impostare tutte le autorizzazioni su **Solo gli utenti autenticati** e quindi fare clic su **Salva**. In questo modo, tutte le operazioni eseguite sulla tabella _TodoItem_ richiederanno un utente autenticato.
+2. Impostare tutte le autorizzazioni per le operazioni sulle tabelle su **Solo gli utenti autenticati**.
 
-<!--HONumber=54-->
+	 In questo modo, tutte le operazioni eseguite sulla tabella richiedono un utente autenticato, necessario per questa esercitazione. È possibile impostare autorizzazioni diverse su ogni operazione per supportare uno scenario specifico.
+
+<!---HONumber=62-->

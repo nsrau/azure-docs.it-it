@@ -51,7 +51,7 @@ Se in precedenza è stata creata un'app per la logica all'interno del portale di
 
 Infine, dopo aver configurato l'app è possibile distribuire direttamente da Visual Studio in pochi passaggi.
 
-1. Fare clic con il pulsante destro sulla distribuzione in Esplora soluzioni e passare a  **Distribuisci** > **Nuova distribuzione...** ![New deployment](./media/app-service-logic-deploy-from-vs/newdeployment.png)
+1. Fare clic con il pulsante destro sulla distribuzione in Esplora soluzioni e passare a **Distribuisci** > **Nuova distribuzione...** ![New deployment](./media/app-service-logic-deploy-from-vs/newdeployment.png)
 
 2. Verrà richiesto di accedere alla sottoscrizione di Azure.
 
@@ -64,4 +64,5 @@ Infine, dopo aver configurato l'app è possibile distribuire direttamente da Vis
 In futuro sarà possibile modificare l'app per la logica nel controllo del codice sorgente e usare Visual Studio per distribuire nuove versioni. Si noti che se si modifica la definizione direttamente nel portale di Azure, alla successiva distribuzione da Visual Studio tali modifiche saranno sottoposte a override.
 
 Se non si vuole usare Visual Studio, ma si desidera comunque avere gli strumenti necessari per distribuire l'app per la logica dal controllo di origine è sempre possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

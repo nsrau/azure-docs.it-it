@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Eseguire il backup di un'app Web nel servizio app di Azure" 
-	description="Informazioni sulla creazione dei backup delle app Web nel servizio app di Azure." 
+	description="Informazioni sulla creazione dei backup delle app Web in Azure App Service." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -19,7 +19,7 @@
 # Eseguire il backup di un'app Web nel servizio app di Azure
 
 
-La funzionalità di backup e ripristino in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente di creare facilmente backup di app Web in modo manuale o automatico. È possibile ripristinare lo stato precedente dell'app Web oppure creare una nuova app Web basata su uno dei backup dell'app originale.
+La funzionalità di backup e ripristino nel [servizio app per app Web di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente di creare facilmente backup di app Web in modo manuale o automatico. È possibile ripristinare lo stato precedente dell'app Web oppure creare una nuova app Web basata su uno dei backup dell'app originale.
 
 Per informazioni sul ripristino di un'app Web dal backup, vedere [Ripristino di un'app Web](web-sites-restore.md).
 
@@ -38,7 +38,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 <a name="requirements"></a>
 ## Requisiti e restrizioni
 
-* La funzionalità di backup e ripristino richiede che il sito sia in modalità Standard. Per ulteriori informazioni sul ridimensionamento delle app Web per utilizzare la modalità Standard, vedere [Scalare un'app Web nel servizio app di Azure](web-sites-scale.md). Considerare che la modalità Premium consente l'esecuzione di un numero maggiore di backup quotidiani rispetto alla modalità Standard.
+* La funzionalità di backup e ripristino richiede che il sito sia in modalità Standard. Per ulteriori informazioni sul ridimensionamento delle app Web per utilizzare la modalità Standard, vedere [Scalare un'app Web in Azure App Service](web-sites-scale.md). Considerare che la modalità Premium consente l'esecuzione di un numero maggiore di backup quotidiani rispetto alla modalità Standard.
 
 * Per usufruire della funzionalità di backup e ripristino è necessario un account di archiviazione di Azure che appartenga alla stessa sottoscrizione dell'app Web da sottoporre a backup. Se ancora non si dispone di un account di archiviazione, è possibile crearne uno facendo clic su **Account di archiviazione** nel pannello **Backup** del [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), quindi scegliere l'**Account di archiviazione** e il **Contenitore** dal pannello **Destinazione**. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) al termine di questo articolo.
 
@@ -104,7 +104,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 * Assicurarsi di configurare correttamente le stringhe di connessione di ogni database nel pannello **Impostazioni app Web** in **Impostazioni** dell'app Web in modo che la funzionalità di backup e ripristino possa includere i database.
 * Sebbene sia possibile eseguire il backup di più app Web nello stesso account di archiviazione, per facilitare la manutenzione è consigliabile creare un account di archiviazione separato per ogni sito.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <a name="partialbackups"></a>
 ## Eseguire il backup solo di una parte del sito
@@ -127,8 +127,7 @@ Si supponga di avere un sito che contiene file di log e immagini statiche degli 
 
 e di disporre già di un backup completo del sito che include le vecchie immagini. Si desidera ora eseguire il backup del sito ogni giorno, senza però dover pagare per l'archiviazione dei file di log o per i file di immagini statiche che non vengono mai modificati.
 
-![Cartella dei log][LogsFolder]
-![Cartella delle immagini][ImagesFolder]
+![Cartella dei log][LogsFolder] ![Cartella delle immagini][ImagesFolder]
 	
 I passaggi seguenti illustrano come escludere tali file dal backup.
 
@@ -188,7 +187,7 @@ Il file XML archiviato con il file ZIP indica il nome del file di database in *b
 
 Il file di backup del database stesso è archiviato nella radice del file .ZIP. Per un database SQL può essere un file BACPAC (nessuna estensione di file) e può essere importato. Per creare un nuovo database SQL basato sull'esportazione BACPAC attenersi alla procedura riportata nell'articolo [Importare un file BACPAC per creare un nuovo database utente](http://technet.microsoft.com/library/hh710052.aspx).
 
-Per informazioni sul ripristino di un'app Web (tra cui i database) utilizzando il portale di Azure, vedere [Ripristino di un'app Web nel servizio app di Azure](web-sites-restore.md).
+Per informazioni sul ripristino di un'app Web (tra cui i database) utilizzando il portale di Azure, vedere [Ripristino di un'app Web in Azure App Service](web-sites-restore.md).
 
 > [AZURE.NOTE]La modifica di qualsiasi file nel contenitore **websitebackups** può danneggiare il backup rendendolo non valido e dunque non ripristinabile.
 
@@ -232,7 +231,7 @@ Purtroppo è andata così, ma [qualsiasi utente](http://blog.codinghorror.com/in
 
 <a name="nextsteps"></a>
 ## Passaggi successivi
-Per informazioni sul ripristino di un'app Web dal backup, vedere [Ripristinare un'app Web nel servizio app di Azure](web-sites-restore.md).
+Per informazioni sul ripristino di un'app Web dal backup, vedere [Ripristino di un'app Web in Azure App Service](web-sites-restore.md).
 
 Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure](/pricing/free-trial/).
 
@@ -249,8 +248,8 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [Informazioni sulla fatturazione di archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
@@ -268,4 +267,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

@@ -57,5 +57,6 @@ Perché non provarlo? È possibile renderlo operativo in pochi secondi.
 Per l'impostazione del servizio app di Azure è sufficiente selezionare un linguaggio.
 
 [Creare una nuova app Web](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

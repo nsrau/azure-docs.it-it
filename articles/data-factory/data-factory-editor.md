@@ -145,7 +145,7 @@ Per aggiungere una definizione di attività al file JSON di una pipeline, fare c
 
 ![Opzioni di Aggiungi attività][add-activity-options]
 
-Per copiare dati da un database SQL di Azure all'archiviazione BLOB di Azure ed elaborare i dati nell'archiviazione BLOB usando lo script Pig in un cluster HDInsight, aggiungere prima un'**attività di copia** e quindi un'**attività Pig** alla pipeline. Questo crea due sezioni nella sezione activities[] del file JSON della pipeline. L'attività Pig non è altro che l'attività di HDInsight con la trasformazione Pig.
+Per copiare dati da un database SQL di Azure all'archiviazione BLOB di Azure ed elaborare i dati nell'archiviazione BLOB usando lo script Pig in un cluster HDInsight, aggiungere prima un'**attività di copia** e quindi un'**attività Pig** alla pipeline. Questo crea due sezioni nella sezione activities del file JSON della pipeline. L'attività Pig non è altro che l'attività di HDInsight con la trasformazione Pig.
 
 	"activities": [
     	{
@@ -221,4 +221,4 @@ Per istruzioni dettagliate per creare una data factory di Azure usando l'editor 
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

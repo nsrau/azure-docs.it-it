@@ -28,8 +28,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 
 > [AZURE.NOTE]Prima di passare un'app Web dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione per Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> 
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Passaggio alla modalità Condivisa o Base
 <!-- ===================================== -->
 
@@ -49,8 +48,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 	
 	Dopo il completamento dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Passaggio alla modalità Standard o Premium
 <!-- ================================= -->
 
@@ -197,5 +195,6 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

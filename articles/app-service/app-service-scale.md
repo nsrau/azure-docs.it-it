@@ -73,8 +73,8 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 
 ### Supporto del debugger ###
 
-- Il supporto del debugger è disponibile per le modalità **Gratuito**, **Condiviso** e **Base** a una connessione simultanea per piano App Service.
-- Il supporto del debugger è disponibile per le modalità **Standard** e **Premium** a 5 connessioni simultanee per piano del servizio app.
+- Il supporto del debugger è disponibile per le modalità **Gratuita**, **Condivisa** e **Base** a una connessione simultanea per piano App Service.
+- Il supporto del debugger è disponibile per le modalità **Standard** e **Premium** a 5 connessioni simultanee per piano App Service.
 
 <a name="OtherFeatures"></a>
 ## Altre funzionalità
@@ -91,13 +91,13 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 	
 	[Dettagli prezzi dei trasferimenti di dati](/pricing/details/data-transfers/)
 	
-	[Piani di supporto per Microsoft Azure](/support/plans/)
+	[Piani di supporto per Azure](/support/plans/)
 	
 	[Contratti di servizio](/support/legal/sla/)
 	
-	[Dettagli prezzi per database SQL](/pricing/details/sql-database/)
+	[Dettagli prezzi - Database SQL](/pricing/details/sql-database/)
 	
-	[Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure][vmsizes]
+	[Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]
 	
 	[Dettagli prezzi del servizio app](/pricing/details/app-service/)
 	
@@ -109,7 +109,7 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 	
 	- [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	- [Scalabilità automatica per i siti Web di Azure, pianificata o in base alla CPU - con Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
-	- [Che cosa accade durante la scalabilità dei siti Web di Azure - con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
+	- [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -125,5 +125,6 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

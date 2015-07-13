@@ -24,7 +24,7 @@ Questa procedura dettagliata fornisce istruzioni dettagliate per l'utilizzo di u
 
 ### Prerequisiti
 1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
-2. Creare il file **hivequery.hql** in una sottocartella denominata **Hive** in **C:\\ADFGetStarted** con il contenuto seguente.
+2. Creare il file **hivequery.hql** in una sottocartella denominata **Hive** in **C:\ADFGetStarted** con il contenuto seguente.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -39,7 +39,7 @@ Questa procedura dettagliata fornisce istruzioni dettagliate per l'utilizzo di u
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Utilizzare il motore **Tez** per eseguire query Hive nel file HQL, aggiungere "\*\*set hive.execution.engine=tez\*\*;" all'inizio del file.
+	> [AZURE.NOTE]Utilizzare il motore **Tez** per eseguire query Hive nel file HQL, aggiungere "**set hive.execution.engine=tez**;" all'inizio del file.
 		
 3.  Caricare **hivequery.hql** nel contenitore **adftutorial** dell'archivio BLOB
 
@@ -112,7 +112,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 
 ### Creazione e pianificazione della pipeline
    
-1. Fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... \(puntini di sospensione\)** per visualizzarlo. 
+1. Fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo. 
 2. Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente. Per usare il proprio cluster dopo aver seguito i passaggi per creare il servizio collegato **HDInsightLinkedService**, sostituire **HDInsightOnDemandLinkedService** con **HDInsightLinkedService** nel codice JSON seguente. 
 
 
@@ -140,7 +140,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -167,7 +167,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
 4. Vedere la sezione [Monitorare i set di dati e della pipeline][adfgetstartedmonitoring] nell'articolo [Introduzione a Data factory di Azure][adfgetstarted]. 
 
-	> [AZURE.NOTE]Nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ** per una sezione di una tabella di output \(selezionare la tabella di output -\> una sezione -\> un'esecuzione attività nel portale\), verranno visualizzati i collegamenti ai log creati dal cluster HDInsight. È possibile esaminarli nel portale stesso o scaricarli nel computer.
+	> [AZURE.NOTE]Nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ** per una sezione di una tabella di output (selezionare la tabella di output -> una sezione -> un'esecuzione attività nel portale), verranno visualizzati i collegamenti ai log creati dal cluster HDInsight. È possibile esaminarli nel portale stesso o scaricarli nel computer.
   
 
 ## Esempio JSON con Pig
@@ -258,7 +258,7 @@ Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che f
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -277,7 +277,7 @@ Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che f
 	}
 
 
-> [AZURE.NOTE]Per usare il motore **Tez** per eseguire una query Hive, eseguire "\*\*set hive.execution.engine=tez\*\*;" prima di eseguire la query Hive.
+> [AZURE.NOTE]Per usare il motore **Tez** per eseguire una query Hive, eseguire "**set hive.execution.engine=tez**;" prima di eseguire la query Hive.
 > 
 > Vedere la [Guida di riferimento per gli sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per informazioni dettagliate su cmdlet, schemi JSON e proprietà nello schema.
 
@@ -287,7 +287,7 @@ Le attività Pig e Hive di Data factory consentono di specificare i valori dei p
 Vedere il seguente esempio per specificare i parametri per uno script Hive mediante **extendedProperties**. Per usare gli script con parametri Hive, eseguire le operazioni seguenti:
 
 1.	Definire i parametri in **extendedProperties**.
-2.	Nello script Hive inline \(o\) nel file di script Hive archiviato nell'archivio BLOB, fare riferimento al parametro mediante **${hiveconf:parameterName}**.
+2.	Nello script Hive inline (o) nel file di script Hive archiviato nell'archivio BLOB, fare riferimento al parametro mediante **${hiveconf:parameterName}**.
 
    
     		
@@ -353,4 +353,4 @@ Articolo | Descrizione
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

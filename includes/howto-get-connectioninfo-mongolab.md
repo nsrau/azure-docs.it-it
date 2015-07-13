@@ -4,15 +4,10 @@ Quando si esegue il provisioning di un database MongoLab, MongoLab trasmette un 
 
 Per recuperare l'URI nel portale di Azure, attenersi alla procedura seguente:
 
-1. Selezionare **Add-ons**.  
-![AddonsButton][button-addons]
-1. Individuare il servizio MongoLab nell'elenco dei componenti aggiuntivi.  
-![MongolabEntry][entry-mongolabaddon]
-1. Fare clic sul nome del componente aggiuntivo per passare alla relativa pagina.  
-1. Fare clic su **Connection Info**.  
-![ConnectionInfoButton][button-connectioninfo]  
-Verrà visualizzato l'URI MongoLab:  
-![ConnectionInfoScreen][screen-connectioninfo]  
+1. Selezionare **Add-ons**. ![AddonsButton][button-addons]
+1. Individuare il servizio MongoLab nell'elenco dei componenti aggiuntivi. ![MongolabEntry][entry-mongolabaddon]
+1. Fare clic sul nome del componente aggiuntivo per passare alla relativa pagina.
+1. Fare clic su **Connection Info**. ![ConnectionInfoButton][button-connectioninfo] Verrà visualizzato l'URI MongoLab: ![ConnectionInfoScreen][screen-connectioninfo]  
 1.  Fare clic sul pulsante con il simbolo degli Appunti a destra del valore MONGOLAB_URI per copiare il valore completo negli Appunti.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
@@ -20,4 +15,4 @@ Verrà visualizzato l'URI MongoLab:
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
 
-<!-----HONumber=62-->
+<!---HONumber=62-->

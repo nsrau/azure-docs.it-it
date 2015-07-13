@@ -136,8 +136,9 @@ Infine pulire, compilare ed eseguire ogni progetto. Se non si è ancora creato u
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Ora è possibile passare ad altri scenari relativi alle identità. È possibile:
 
-[Compilare un client nativo .NET con Azure AD >](../active-directory-devquickstarts-native-dotnet.md)
+[Compilare un client nativo .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >](https://github.com/AzureAdSamples), [CloudIdentity.com >](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -245,7 +245,7 @@ In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto
 	}
 
 ## Aggiunta di un controller ##
-In *Esplora soluzioni* aprire il file **Controllers\\HomeController.cs** e sostituirne il contenuto con quello riportato di seguito:
+In *Esplora soluzioni* aprire il file **Controllers\HomeController.cs** e sostituirne il contenuto con quello riportato di seguito:
 
 	using System;
 	using System.Collections.Generic;
@@ -326,11 +326,11 @@ In *Esplora soluzioni* aprire il file **Controllers\\HomeController.cs** e sosti
 	}
 
 ## Impostare gli stili ##
-Per modificare il titolo nella parte superiore della pagina, in *Esplora soluzioni* aprire il file **Views\\Shared\_Layout.cshtml** e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
+Per modificare il titolo nella parte superiore della pagina, in *Esplora soluzioni* aprire il file **Views\Shared_Layout.cshtml** e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Per impostare il menu Elenco attività, aprire il file *\\Views\\Home\\Index.cshtml* e sostituire il codice esistente con il seguente codice:
+Per impostare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml* e sostituire il codice esistente con il seguente codice:
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -367,7 +367,7 @@ Per impostare il menu Elenco attività, aprire il file *\\Views\\Home\\Index.csh
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Per aggiungere la possibilità di creare una nuova attività, fare clic con il pulsante destro del mouse sulla cartella *Views\\Home*, quindi scegliere **Aggiungi**, **Visualizzazione** per aggiungere una nuova visualizzazione. Assegnare alla visualizzazione il nome *Crea*. Sostituire il codice con il codice seguente:
+Per aggiungere la possibilità di creare una nuova attività, fare clic con il pulsante destro del mouse sulla cartella *Views\Home*, quindi scegliere **Aggiungi**, **Visualizzazione** per aggiungere una nuova visualizzazione. Assegnare alla visualizzazione il nome *Crea*. Sostituire il codice con il codice seguente:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -497,5 +497,6 @@ Per ulteriori informazioni sull'utilizzo di MongoDB per lo sviluppo di applicazi
 [Create and run the My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

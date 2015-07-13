@@ -29,12 +29,12 @@ Ogni risorsa di Application Insights viene addebitata come un servizio separato 
 
 È possibile aprire il pannello Quota + Prezzi dalle Impostazioni della risorsa dell'applicazione.
 
-![Scegliere le impostazioni, la quota e i prezzi](./media/app-insights-pricing/01-pricing.png)
+![Scegliere le impostazioni, la quota e i prezzi.](./media/app-insights-pricing/01-pricing.png)
 
 ## Come funziona la quota?
 
 * In ogni mese di calendario, l'applicazione può inviare fino a una quantità specificata di telemetria ad Application Insights. Per i numeri effetti, vedere lo [schema dei prezzi][pricing]. 
-* La quota dipende dal piano tariffario che si è scelto.
+* La quota dipende dal piano tariffario scelto.
 * La quota viene conteggiata da mezzanotte UTC il primo giorno di ogni mese.
 * Il grafico Punti dati mostra la quantità di quota che è stata usata questo mese.
 * La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. Ogni riga visibile nella ricerca di diagnostica è un punto dati. Ogni misurazione di una metrica, ad esempio un contatore delle prestazioni, è un punto dati. 
@@ -68,7 +68,7 @@ Fare clic sul grafico per altri dettagli o trascinare gli elementi per visualizz
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).
 
-![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)
+![Scegliere Fatturazione dal menu laterale.](./media/app-insights-pricing/02-billing.png)
 
 
 

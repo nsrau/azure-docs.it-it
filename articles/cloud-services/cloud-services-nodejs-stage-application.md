@@ -78,15 +78,16 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
 - [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]
 - [Panoramica della gestione delle distribuzioni in Azure]
 
-[Passaggio 1: Gestire un'applicazione in modo temporaneo]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[Passaggio 2: Distribuire un'applicazione in produzione tramite lo scambio di indirizzi VIP]: #step2
-[portale di gestione di Azure]: http://manage.windowsazure.com
+  [Passaggio 1: Gestire un'applicazione in modo temporaneo]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Passaggio 2: Distribuire un'applicazione in produzione tramite lo scambio di indirizzi VIP]: #step2
+  [portale di gestione di Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

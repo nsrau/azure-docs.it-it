@@ -56,5 +56,6 @@ Per una panoramica del servizio processo elastico, vedere [Panoramica dei proces
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Creare un criterio di backup personalizzato per StorSimple"
-   description="In questo articolo viene descritto come utilizzare il servizio StorSimple Manager per creare un criterio di backup personalizzato."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
-
 #### Per creare un criterio di backup personalizzato
 
 1. Nella pagina **Dispositivi**, fare clic su **Criteri di backup**, quindi selezionare **Aggiungi**.
@@ -29,7 +12,7 @@
 
      Al termine della creazione del criterio, si riceve una notifica. Inoltre, la pagina relativa ai criteri di backup verrà aggiornata in modo che includa il criterio appena creato.
 
-4. Fare clic sul nome di un criterio \(prima colonna\) per visualizzare dettagli approfonditi sul nuovo criterio.
+4. Fare clic sul nome di un criterio (prima colonna) per visualizzare dettagli approfonditi sul nuovo criterio.
 
 5. Fare clic su **gestisci pianificazioni**.
 
@@ -55,4 +38,4 @@
 
     ![Criterio di backup personalizzato](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

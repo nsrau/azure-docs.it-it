@@ -32,7 +32,7 @@ Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando segu
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
-Per effettuare l'installazione da **Strumenti** >  **Gestione pacchetti NuGet** > **Gestisci pacchetti NugGet per la soluzione**, cercare `RedisSessionStateProvider`.
+Per effettuare l'installazione da **Strumenti** > **Gestione pacchetti NuGet** > **Gestisci pacchetti NugGet per la soluzione**, cercare `RedisSessionStateProvider`.
 
 Per altre informazioni, vedere la pagina relativa a [RedisSessionStateProvider di NuGet](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) e la pagina [Configurare il client cache](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
@@ -45,13 +45,13 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
 
 
   <pre class="prettyprint">  
-    &lt;system.web&gt;
-    &lt;customErrors mode="Off" /&gt;
-    &lt;authentication mode="None" /&gt;
-    &lt;compilation debug="true" targetFramework="4.5" /&gt;
-    &lt;httpRuntime targetFramework="4.5" /&gt;
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
-      &lt;providers&gt;  
+    &lt;system.web>
+    &lt;customErrors mode="Off" />
+    &lt;authentication mode="None" />
+    &lt;compilation debug="true" targetFramework="4.5" />
+    &lt;httpRuntime targetFramework="4.5" />
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider">
+      &lt;providers>  
           &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
@@ -61,17 +61,17 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          /&gt;--&gt;
+          />-->
          &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> /&gt;
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
-      &lt;/providers&gt;
-    &lt;/sessionState&gt;
-  &lt;/system.web&gt;</pre>
+              ssl="true"</mark> />
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
+      &lt;/providers>
+    &lt;/sessionState>
+  &lt;/system.web></pre>
 
 
 <h2><a id="usesessionobject"></a>Utilizzo dell'oggetto Session nel codice</h2>
@@ -96,16 +96,17 @@ Il codice seguente recupera questo valore dallo stato sessione.
 
   *Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
-[Cenni preliminari sullo stato della sessione ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
+  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
+  [Cenni preliminari sullo stato della sessione ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
-[NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
-[NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
-[CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
-[NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
-[OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
-[CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
-[EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+  [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
+  [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
+  [CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
+  [NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
+  [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
+  [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
+  [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
+  [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

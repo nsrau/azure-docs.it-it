@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Data factory - Note sulla versione | Azure" 
-	description="Note sulla versione di dati Factory" 
+	description="Note sulla versione di Data factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -18,65 +18,65 @@
 
 # Note sulla versione di Data factory di Azure
 
-## Note sulla versione 10/04/2015 della Factory di dati
-Verrà visualizzato il **aggiornato di recente sezioni** e **Impossibile recentemente sezioni** sono elencate nella **tabella** ora blade. Questi elenchi vengono ordinati i tempi di aggiornamento della sezione. I tempi di aggiornamento di una sezione viene modificato nelle situazioni seguenti.
+## Note sulla versione di Data factory - 10/04/2015
+Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ora visualizzati nel pannello **TABELLA**. Questi elenchi sono ordinati in base all'ora di aggiornamento della sezione. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
 
--  È aggiornare lo stato della sezione manualmente, ad esempio, utilizzando il **Set AzureDataFactorySliceStatus** (o) facendo clic su **eseguire** sul **sezione** blade della sezione.
--  La sezione Cambia stato a causa di un'esecuzione (ad esempio, una sequenza di avvio, un'esecuzione terminata e non è riuscita, un'esecuzione terminata e ha avuto esito positivo, ecc).
+-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
+-  Lo stato della sezione cambia a causa di un'esecuzione, ad esempio un'esecuzione avviata, un'esecuzione terminata con errore, un'esecuzione terminata correttamente e così via.
 
-Fare clic sul titolo degli elenchi o **... (puntini di sospensione)** Per visualizzare l'elenco di intervalli di dimensioni maggiore. Fare clic su **filtro** sulla barra degli strumenti per filtrare le sezioni.
+Fare clic sul titolo degli elenchi oppure sui **... (puntini di sospensione)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
  
-È comunque possibile visualizzare intervalli ordinati i tempi di sezioni facendo clic su **sezioni di dati (per ora slice)** riquadro. Le sezioni in tali raccolte sono ordinate per intervallo tempo. Ad esempio, se si tratta di una pianificazione oraria, le sezioni sarebbe: 4/4/2015 - 5 pm In corso - 4 di 4/4/2015 pm Succeeded - 3 di 4/4/2015 pm non riuscita
+È comunque possibile visualizzare le sezioni ordinate in base all'ora della sezione facendo clic sul riquadro **Sezioni dati (in base all'ora della sezione)**. Le sezioni in tali raccolte sono ordinate in base all'ora della sezione. Ad esempio, se si tratta di una pianificazione oraria, le sezioni saranno le seguenti: - 4/4/2015 17.00 In corso - 4/4/2015 16.00 Completata - 4/4/2015 15.00 Non riuscita
 
-Tuttavia, se una sezione precedente viene rieseguita, esso potrebbe non visualizzato all'inizio di questo elenco, anche se è probabilmente l'utente è più interessato.
+Se tuttavia viene rieseguita una sezione precedente, non verrà visualizzata all'inizio dell'elenco, anche se probabilmente l'utente sarà maggiormente interessato a tale sezione.
 
-## Note sulla versione 31/3/2015 della Factory di dati
-- Aggiornato **Gateway di gestione dati** pacchetto di installazione è stata registrata per [Microsoft Download Center][adf-gateway-download].
-- Copia da **locale del file system al blob di Azure** è attualmente supportato. Vedere gli argomenti seguenti per ulteriori informazioni.
-	-  [File System collegato servizio on-premise](https://msdn.microsoft.com/library/dn930836.aspx)
+## Note sulla versione di Data factory - 31/03/2015
+- Il pacchetto di installazione aggiornato per **Gateway di gestione dati** è stato inserito nell'[Area download Microsoft][adf-gateway-download].
+- La copia dal **file system locale al BLOB di Azure** è ora supportata. Per altre informazioni, vedere gli argomenti seguenti.
+	-  [Servizio collegato di tipo file system locale](https://msdn.microsoft.com/library/dn930836.aspx)
 	-  [Proprietà OnPremisesFileSystemLocation in una tabella JSON](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
-	-  [Supportate origini e sink](https://msdn.microsoft.com/library/dn894007.aspx). Visualizzare la matrice copia aggiornata e **FileSystemSource** proprietà. 
--  Copia da **database Oracle in locale per il blob di Azure** è attualmente supportato. Vedere gli argomenti seguenti per ulteriori informazioni. 
-	-  [Oracle locale collegato servizio](https://msdn.microsoft.com/library/dn948537.aspx)
+	-  [Origini e sink supportati](https://msdn.microsoft.com/library/dn894007.aspx). Visualizzare la matrice di copia aggiornata e le proprietà **FileSystemSource**. 
+-  La copia dal **database Oracle locale al BLOB di Azure** è ora supportata. Per altre informazioni, vedere gli argomenti seguenti. 
+	-  [Servizio collegato Oracle locale](https://msdn.microsoft.com/library/dn948537.aspx)
 	-  [Proprietà OnPremisesOracleTableLocation in una tabella JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
-	-  [Supportate origini e sink](https://msdn.microsoft.com/library/dn894007.aspx). Visualizzare la matrice copia aggiornata e **OracleSource** proprietà.
--  È possibile specificare la codifica per i file di testo in un Blob di Azure. Vedere il nuovo [encodingName proprietà](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- È possibile richiamare una stored procedure con parametri aggiuntivi durante la copia nel Sink SQL. Vedere [richiama stored procedure per SQL Sink][adf-copy-advanced] per informazioni dettagliate.   
+	-  [Origini e sink supportati](https://msdn.microsoft.com/library/dn894007.aspx). Visualizzare la matrice di copia aggiornata e le proprietà **OracleSource**.
+-  È possibile specificare la codifica per i file di testo in un BLOB di Azure. Vedere la nuova [proprietà encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
+- È possibile richiamare una stored procedure con parametri aggiuntivi quando si esegue la copia in SQL Sink. Per informazioni dettagliate, vedere [Richiamare stored procedure per SQL Sink][adf-copy-advanced].   
 
-Vedere il post del blob: [Azure dati Factory aggiornamento - nuovi archivi dati](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) per ulteriori informazioni ed esempi.
+Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data factory di Azure - Nuovi archivi dati](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/).
 
-## Note sulla versione 2/27/2015 della Factory di dati
+## Note sulla versione di Data factory - 27/02/2015
 
 ### Nuovi miglioramenti
-- **Azure dati Factory Editor**. L'Editor di Factory dei dati, che fa parte del portale di anteprima di Azure, consente di creare, modificare e distribuire file JSON che definiscono servizi collegati, set di dati e pipeline. L'obiettivo principale dell'editor è fornire una veloce e leggero-interfaccia utente (UI) per creare elementi di Factory di dati di Azure senza la necessità di installare Azure PowerShell e sfumatura di utilizzo dei cmdlet PowerShell. Vedere il [Azure dati Factory Editor - Editor di Web A Light Weight][adf-editor-blog] post di blog per una rapida panoramica e un video su dati Factory Editor. Per una panoramica dettagliata dell'editor, vedere il [dati Factory Editor][adf-editor] articolo.          
+- **Editor di Data factory di Azure**. L'editor di Data factory, incluso nel portale di anteprima di Azure, permette di creare, modificare e distribuire file JSON che definiscono servizi collegati, set di dati e pipeline. L'obiettivo principale dell'editor consiste nell'offrire un'interfaccia utente veloce e leggera per creare elementi di Data factory di Azure senza richiedere l'installazione di Azure PowerShell e l'uso intenso dei cmdlet di PowerShell. Per una breve panoramica e un video sull'editor di Data factory, vedere il post di blog [Editor di Data factory di Azure - Editor Web leggero][adf-editor-blog]. Per una panoramica dettagliata dell'editor, vedere l'articolo [Editor di Data factory][adf-editor].          
 
 ### Modifiche
 
-## Note sulla versione di 26/1/2015 della Factory di dati ##
+## Note sulla versione di Data factory - 26/01/2015 ##
 
 ### Modifiche
-- Aggiornato **Gateway di gestione dati** pacchetto di installazione è stata registrata per [Microsoft Download Center][adf-gateway-download]. A partire da questa versione, è possibile trovare il Gateway di gestione dati più recenti da utilizzare con Azure dati Factory in questo percorso di download. Questo pacchetto di installazione viene utilizzato Azure dati Factory e Power BI per servizi di Office 365. Se si utilizza sia i servizi, tenere presente che deve essere installato in computer diversi e configurato in modo diverso in base alle linee guida dalla documentazione del produttore di dati o Power BI gateway per la Factory di dati e Power BI.
-- Il **attività Copia** ora supporta la copia di dati tra database di SQL Server locale e un database SQL Azure. Vedere [attività Copia][adf-copy-activity] per informazioni dettagliate e [GitHub][adf-github-samples] per gli esempi JSON.
-- **SqlSink** supporta una nuova proprietà: **WriteBatchTimeout**. Questa proprietà fornisce la flessibilità necessaria per configurare il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout dell'operazione. Per una copia di ibrido (operazione di copia che prevede un'origine dati locale e un'origine dati cloud), è necessario che il gateway della versione 1.4 o versione successiva per utilizzare questa proprietà. 
-- **SQL Server collegato servizio** supporta ora **l'autenticazione di Windows**. 
-	- Quando la creazione di SQL Server collegato tramite il portale del servizio, è ora possibile utilizzare l'autenticazione di Windows e impostare le credenziali appropriate. Questo richiede il gateway della versione 1.4 o versione successiva. 
-	- Quando la creazione di SQL Server collegato servizio utilizzando Azure PowerShell, è possibile specificare le informazioni di connessione in testo normale o crittografare le informazioni di connessione utilizzando aggiornato [cmdlet New-AzureDataFactoryEncryptValue][adf-encrypt-value-cmdlet] e quindi utilizzare la stringa crittografata per la proprietà di stringa di connessione nel payload JSON servizi collegati. Vedere [servizi collegati][adf-msdn-linked-services] per informazioni dettagliate sulla definizione di un servizio collegato in JSON. La funzionalità di crittografia non è ancora supportata dal cmdlet New-AzureDataFactoryEncryptValue. 
+- Il pacchetto di installazione aggiornato per **Gateway di gestione dati** è stato inserito nell'[Area download Microsoft][adf-gateway-download]. A partire da questa versione, è possibile trovare il Gateway di gestione dati più recente da utilizzare con Data factory di Azure in questo percorso di download. Il pacchetto di installazione viene usato sia per il servizio Data factory di Azure che per il servizio Power BI per Office 365. Se si usano entrambi i servizi, si noti che è necessario installare i gateway per Data factory e Power BI in computer diversi e configurarli in modo diverso, come indicato nella documentazione relativa a Data factory o Power BI.
+- L'**attività di copia** supporta ora la copia di dati tra il database SQL Server locale e un database SQL di Azure. Vedere [Attività di copia][adf-copy-activity] per informazioni dettagliate e [GitHub][adf-github-samples] per esempi JSON.
+- **SqlSink** supporta una nuova proprietà, **WriteBatchTimeout**. Questa proprietà offre la flessibilità necessaria per configurare il tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout dell'operazione. Per una copia ibrida, ovvero un'operazione di copia che coinvolge un'origine dati locale e un'origine dati cloud, è necessario disporre del gateway versione 1.4 o superiore per usare questa proprietà. 
+- Il **servizio collegato SQL Server** supporta ora l'**Autenticazione di Windows**. 
+	- Quando si crea un servizio collegato SQL Server usando il portale, è ora possibile scegliere di usare l'Autenticazione di Windows e impostare credenziali appropriate. Ciò richiede la disponibilità del gateway versione 1.4 o superiore. 
+	- Quando si crea un servizio collegato SQL Server mediante Azure PowerShell, è possibile specificare le informazioni di connessione in testo normale oppure crittografarle usando il [cmdlet New-AzureDataFactoryEncryptValue][adf-encrypt-value-cmdlet] aggiornato, quindi usare la stringa crittografata per la proprietà della stringa di connessione nel payload JSON del servizio collegato. Per informazioni dettagliate sulla definizione di un servizio collegato in JSON, vedere [Servizi collegati][adf-msdn-linked-services]. La funzionalità di crittografia non è ancora supportata dal cmdlet New-AzureDataFactoryEncryptValue. 
 
-## Note sulla versione 11/12/2014 della Factory di dati ##
+## Note sulla versione di Data factory - 11/12/2014 ##
 
 ### Nuovi miglioramenti
 
 - Integrazione con Azure Machine Learning
-	- Questa versione del servizio Factory di dati di Azure consente di integrare la Factory di dati di Azure con Azure Machine Learning (ML) utilizzando **AzureMLLinkedService** e **AzureMLBatchScoringActivity**. Vedere [creare pipeline predittive utilizzando dati Factory e Azure Machine Learning][adf-azure-ml] per informazioni dettagliate. 
+	- Questa versione del servizio Data factory di Azure consente di integrare Data factory di Azure con Azure Machine Learning (ML) mediante **AzureMLLinkedService** e **AzureMLBatchScoringActivity**. Per informazioni dettagliate, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning][adf-azure-ml]. 
 - Viene fornito lo stato della versione del gateway
 	- Se è disponibile una versione più recente del gateway rispetto a quella attualmente installata, verrà visualizzato lo stato "NewVersionAvailable" nel portale di anteprima di Azure e nell'output del cmdlet Get-AzureDataFactoryGateway. È quindi possibile seguire il percorso nel portale per scaricare il nuovo file di installazione (.msi) ed eseguirlo per installare il gateway più recente. Non è necessaria alcuna configurazione aggiuntiva.
 
 ### Modifiche
 
 - Viene rimossa la proprietà JobsContainer in HdInsightOnDemandLinkedService
-	- Nella definizione di JSON per un HDInsightOnDemandLinkedService, non è necessario specificare **jobsContainer** più proprietà. Se è specificata per un servizio collegato su richiesta, la proprietà viene ignorata. È possibile rimuovere la proprietà dalla definizione JSON per il servizio collegato e aggiornare la definizione del servizio collegato tramite il cmdlet New-AzureDataFactoryLinkedService.
+	- Nella definizione JSON per un HDInsightOnDemandLinkedService non è più necessario specificare la proprietà **jobsContainer**. Se è specificata per un servizio collegato su richiesta, la proprietà viene ignorata. È possibile rimuovere la proprietà dalla definizione JSON per il servizio collegato e aggiornare la definizione del servizio collegato tramite il cmdlet New-AzureDataFactoryLinkedService.
 - Parametri di configurazione facoltativi per HDInsightOnDemandLinkedService
-	- Questa versione introduce il supporto per alcuni parametri di configurazione facoltativi per HDInsightOnDemandLinked (cluster di HDInsight su richiesta). Vedere [ClusterCreateParameters proprietà][on-demand-hdi-parameters] per informazioni dettagliate.
+	- Questa versione introduce il supporto per alcuni parametri di configurazione facoltativi per HDInsightOnDemandLinked (cluster di HDInsight su richiesta). Per informazioni dettagliate, vedere la pagina relativa alle [proprietà ClusterCreateParameters][on-demand-hdi-parameters].
 - Viene rimosso il percorso del gateway
 	- Quando si crea un gateway di Data factory di Azure tramite il portale o tramite PowerShell (New-AzureDataFactoryGateway), non è più necessario specificare il percorso per il gateway. Verrà ereditata l'area di Data factory. Analogamente, per configurare un collegato servizio di SQL Server mediante JSON, la proprietà "gatewayLocation" non è più necessaria. .NET SDK di Data factory è stato aggiornato in base a queste modifiche.
 	- Se si usa una versione precedente dell'SDK e di Azure PowerShell, è necessario fornire l'impostazione del percorso.
@@ -86,13 +86,13 @@ Vedere il post del blob: [Azure dati Factory aggiornamento - nuovi archivi dati]
 #### Modifiche di rilievo
 	
 - Da CustomActivity a DotNetActivity
-	- **ICustomActivity** interfaccia viene rinominato in **IDotNetActivity**. Sarà necessario aggiornare i pacchetti NuGet di Data factory e cambiare ICustomActivity in IDotNetActivity nel codice sorgente per l'attività personalizzata.  
-	- Il tipo di attività personalizzata nella definizione JSON per attività personalizzata deve essere modificato da **CustomActivity** a **DotNetActivity**. 
-	- Il **CustomActivity** e **CustomActivityProperties** classi sono state rinominate in **DotNetActivity** e **DotNetActivityProperties** con lo stesso set di proprietà.
+	- L'interfaccia **ICustomActivity** è stata rinominata in **IDotNetActivity**. Sarà necessario aggiornare i pacchetti NuGet di Data factory e cambiare ICustomActivity in IDotNetActivity nel codice sorgente per l'attività personalizzata.  
+	- Il tipo di attività personalizzata nella definizione JSON per l'attività personalizzata deve essere cambiato da **CustomActivity** a **DotNetActivity**. 
+	- Le classi **CustomActivity** e **CustomActivityProperties** sono state rinominate in **DotNetActivity** e **DotNetActivityProperties** con lo stesso set di proprietà.
 
 		Se si usa una versione precedente dell'SDK e di Azure PowerShell, è possibile continuare a usare CustomActivity anziché DotNetActivity.
     
-  		Vedere [utilizzare attività personalizzate in una pipeline di Azure dati Factory][adf-custom-activities] per una procedura dettagliata su come creare un'attività personalizzata e utilizzare in una pipeline di Factory di dati di Azure.
+  		Per una procedura dettagliata su come creare un'attività personalizzata e usarla in una pipeline di Data factory di Azure, vedere [Usare attività personalizzate in una pipeline di Data factory di Azure][adf-custom-activities].
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
@@ -108,4 +108,8 @@ Vedere il post del blob: [Azure dati Factory aggiornamento - nuovi archivi dati]
 [adf-msdn-linked-services]: https://msdn.microsoft.com/library/dn834986.aspx
 [adf-encrypt-value-cmdlet]: https://msdn.microsoft.com/library/dn834940.aspx
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

@@ -1,8 +1,8 @@
 
 
-Per creare una nuova app per dispositivi mobili, attenersi alla procedura seguente.
+Per creare una nuova app mobile, attenersi alla procedura seguente.
 
-1. Accedere al [Portale di Azure]. Nella parte inferiore sinistra della finestra fare clic su **+NUOVO**. Scorrere fino all'elemento **App per dispositivi mobili**.
+1. Accedere al [portale di Azure]. Nella parte inferiore sinistra della finestra fare clic su **+NUOVO**. Scorrere fino all'elemento **App per dispositivi mobili**.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
 
@@ -16,15 +16,15 @@ Per creare una nuova app per dispositivi mobili, attenersi alla procedura seguen
 
 3. Selezionare la propria sottoscrizione.
 
-4. Creare un nuovo gruppo di risorse con lo stesso nome dell'app per dispositivi mobili.
+4. Creare un nuovo gruppo di risorse con lo stesso nome dell'app mobile.
 
 5. In **Impostazioni pacchetto** selezionare **USERDATABASE**, quindi scegliere un database esistente o crearne uno nuovo. Per creare un nuovo database, digitare il nome del nuovo **database**, creare un nuovo **server**, digitare il nome del server, quindi scegliere un **nome di accesso**, ovvero il nome di accesso dell'amministratore per il nuovo server di database SQL, digitare e confermare la password e infine fare clic sul pulsante OK per completare la procedura. Se si seleziona un database esistente, è necessario specificare una **password di amministratore del server**.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-6. Creare un nuovo piano di hosting Web con lo stesso nome dell'app per dispositivi mobili.
+6. Creare un nuovo piano di webhosting con lo stesso nome dell'app per dispositivi mobili.
 
-    > [AZURE.NOTE]Digitare il nome del piano di hosting Web anziché copiarlo e incollarlo. Questo è il campo di convalida del nome, se il nome non viene digitato non viene convalidato. Non è necessario che corrisponda esattamente al nome del sito Web (ma deve seguire le stesse regole).
+    > [AZURE.NOTE]Digitare, non copiare e incollare, il nome del piano di webhosting. Questo è il campo di convalida del nome, se il nome non viene digitato non viene convalidato. Non è necessario che corrisponda esattamente al nome del sito Web (ma deve seguire le stesse regole).
 
 8. Selezionare un piano tariffario. In questa esercitazione si userà il piano **Standard 1**.
 
@@ -34,11 +34,11 @@ Per creare una nuova app per dispositivi mobili, attenersi alla procedura seguen
 
 9. Fare clic sul pulsante **Crea** nella parte inferiore del pannello. Nella finestra di notifica verrà visualizzato l'avvio della distribuzione.
 
-A questo punto è stato creato un nuovo back-end di app per dispositivi mobili che può essere usato dalle app per dispositivi mobili.
+A questo punto è stato creato un nuovo backend che può essere usato dalle app per dispositivi mobili.
 
-> [AZURE.NOTE]Una volta creata l'app per dispositivi mobili, nel portale passare al server SQL appena creato (accertarsi di selezionare il sever e non il database SQL di Azure). Da qui, fare clic sulla parte delle impostazioni, espandere la parte del firewall e cambiare "Consenti accesso ai servizi Azure". In caso contrario, l'applicazione non funziona.
+> [AZURE.NOTE]Una volta creata l'app per dispositivi mobili, spostarsi nel portale sul server sql creato (accertarsi di selezionare il server e non il db sql azure). Da qui, fare clic sulla parte delle impostazioni, espandere la parte del firewall e cambiare "Consenti accesso ai servizi Azure". Se non si esegue questa operazione, l'applicazione non funziona.
 
 <!-- URLs. -->
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
 <!---HONumber=62-->

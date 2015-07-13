@@ -3,26 +3,26 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 > [AZURE.IMPORTANT]Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start**.
-2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://\*.mongodb.org* all'elenco dei siti attendibili.3. Passare alla pagina dei [download di MongoDB][MongoDownloads].
-4. Individuare la versione più recente nella sezione **Production Release \(Recommended\)** e fare clic sul collegamento ***2008+** nella colonna relativa a Windows a 64 bit. Fare clic su **Salva con nome** e salvare il file con estensione zip sul desktop.
+2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://*.mongodb.org* all'elenco dei siti attendibili.3. Passare alla pagina dei [download di MongoDB][MongoDownloads].
+4. Individuare la versione più recente nella sezione **Production Release (Recommended)** e fare clic sul collegamento ***2008+** nella colonna relativa a Windows a 64 bit. Fare clic su **Salva con nome** e salvare il file con estensione zip sul desktop.
 5. Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto** Specificare "C:" e fare clic su **Estrai**. Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo, come ad esempio "MongoDB".
-6. Creare le directory dei dati e dei log nel disco dati \(unità **F:**, ad esempio\) creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi. Digitare:
+6. Creare le directory dei dati e dei log nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi. Digitare:
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+		C:> F:
+		F:> mkdir \MongoData
+		F:> mkdir \MongoLogs
 
 7. Per eseguire il database:
 
-		F:\> C:
-		C:\> cd \MongoDB\bin
+		F:> C:
+		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tutti i messaggi di log verranno indirizzati al file *F:\\MongoLogs\\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
+	Tutti i messaggi di log verranno indirizzati al file *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
 
 8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le informazioni seguenti:
 
-		C:\> cd \my_mongo_dir\bin  
+		C:> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  
@@ -36,7 +36,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 		> help  
 
 	Il database viene creato dall'istruzione insert.
-9. \(Facoltativo\) In mongod.exe è disponibile il supporto per l'installazione e l'esecuzione come servizio di Windows. Per installare mongod.exe come servizio, dal prompt dei comandi eseguire i comandi seguenti:
+9. (Facoltativo) In mongod.exe è disponibile il supporto per l'installazione e l'esecuzione come servizio di Windows. Per installare mongod.exe come servizio, dal prompt dei comandi eseguire i comandi seguenti:
 
 		C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
@@ -51,7 +51,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 	
 	![Windows Firewall][Image2]
 
-	Selezionare **TCP** e quindi **Porte locali specifiche**. Specificare la porta "27017" \(ovvero la porta su cui MongoDB rimane in ascolto\) e fare clic su **Avanti**.
+	Selezionare **TCP** e quindi **Porte locali specifiche**. Specificare la porta "27017" (ovvero la porta su cui MongoDB rimane in ascolto) e fare clic su **Avanti**.
 
 	![Windows Firewall][Image3]
 
@@ -93,4 +93,4 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

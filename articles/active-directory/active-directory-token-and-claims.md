@@ -18,7 +18,7 @@
 
 # Token e tipi di attestazioni supportati
 
-Questo argomento è progettato per facilitare la comprensione e la valutazione delle attestazioni nei token SAML 2.0 e JSON Web Token \(JWT\) emessi da Azure Active Directory \(Azure AD\).
+Questo argomento è progettato per facilitare la comprensione e la valutazione delle attestazioni nei token SAML 2.0 e JSON Web Token (JWT) emessi da Azure Active Directory (Azure AD).
 
 L'argomento inizia con una descrizione di ogni attestazione token e mostra un esempio di attestazione in un token SAML e un token JWT, come appropriato. Le attestazioni che sono in stato di anteprima vengono elencate separatamente. Termina con i token di esempio per visualizzare le attestazioni nel contesto.
 
@@ -55,14 +55,14 @@ In un token JWT il gruppo di destinatari viene visualizzato in un'attestazione a
 
 L'attestazione Riferimento alla classe contesto di autenticazione applicazione indica la modalità di autenticazione del client. Per un client pubblico, il valore è 0. Se vengono usati l'ID client e il segreto client, il valore è 1.
 
-In un token JWT il valore di riferimento alla classe contesto di autenticazione viene visualizzata in un'attestazione appidacr \(valore ACR specifico dell'applicazione\).
+In un token JWT il valore di riferimento alla classe contesto di autenticazione viene visualizzata in un'attestazione appidacr (valore ACR specifico dell'applicazione).
 
     "appidacr": "0"
 
 ### Riferimento alla classe contesto di autenticazione
 L'attestazione Riferimento alla classe contesto di autenticazione indica la modalità di autenticazione del soggetto, invece del client nell'attestazione di riferimento alla classe contesto di autenticazione dell'applicazione. Il valore "0" indica che l'autenticazione dell'utente finale non soddisfa i requisiti ISO/IEC 29115.
 
-- In un token JWT l'attestazione di riferimento alla classe contesto di autenticazione viene visualizzata nell'attestazione acr \(valore ACR specifico dell'utente\).
+- In un token JWT l'attestazione di riferimento alla classe contesto di autenticazione viene visualizzata nell'attestazione acr (valore ACR specifico dell'utente).
 
     "acr": "0"
 
@@ -70,7 +70,7 @@ L'attestazione Riferimento alla classe contesto di autenticazione indica la moda
 
 L'attestazione Istante di autenticazione registra la data e ora in cui si è verificata l'autenticazione.
 
-In un token SAML l'istante di autenticazione viene visualizzato nell'attributo AuthnInstant dell'elemento AuthnStatement. Rappresenta un valore datetime in ora UTC \(Z\).
+In un token SAML l'istante di autenticazione viene visualizzato nell'attributo AuthnInstant dell'elemento AuthnStatement. Rappresenta un valore datetime in ora UTC (Z).
 
     <AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">
 
@@ -92,18 +92,18 @@ In un token JWT viene visualizzato il valore del metodo di autenticazione all'in
 
 L'attestazione Nome o del "nome specificato" fornisce il nome o il nome "specificato" dell'utente, come impostato nell'oggetto utente di Azure AD.
 
-In un token SAML viene visualizzato il nome \(o "nome specificato"\) in un'attestazione nell'elemento SAML Attribute givenname.
+In un token SAML viene visualizzato il nome (o "nome specificato") in un'attestazione nell'elemento SAML Attribute givenname.
 
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-In un token JWT il nome viene visualizzato nell'attestazione given\_name.
+In un token JWT il nome viene visualizzato nell'attestazione given_name.
 
     "given_name": "Frank"
 
 ### Gruppi
 
-L'attestazione Gruppi fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci \(vedere ID oggetto\) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nella relativa attestazione sono configurati in base all'applicazione, tramite la proprietà "groupMembershipClaims" del manifesto dell'applicazione. Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. In qualsiasi configurazione, l'attestazione groups rappresenta le appartenenze ai gruppi transitivi del soggetto.
+L'attestazione Gruppi fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nella relativa attestazione sono configurati in base all'applicazione, tramite la proprietà "groupMembershipClaims" del manifesto dell'applicazione. Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. In qualsiasi configurazione, l'attestazione groups rappresenta le appartenenze ai gruppi transitivi del soggetto.
 
 In un token SAML l'attestazione dei gruppi viene visualizzata nell'attributo groups.
 
@@ -133,13 +133,13 @@ L'attestazione IssuedAt archivia l'ora in cui è stato rilasciato il token. Vien
 
     <Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
 
-In un token JWT il valore IssuedAt viene visualizzato nell'asserzione iat. Il valore viene espresso nel numero di secondi trascorsi dal 010-01-1970:0:0Z in Coordinated Universal Time \(UTC\).
+In un token JWT il valore IssuedAt viene visualizzato nell'asserzione iat. Il valore viene espresso nel numero di secondi trascorsi dal 010-01-1970:0:0Z in Coordinated Universal Time (UTC).
 
     "iat": 1390234181
 
 ### Autorità di certificazione
 
-L'attestazione Autorità di certificazione identifica il servizio token di sicurezza \(STS\) che costruisce e restituisce il token e il tenant di directory di Azure AD. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory.
+L'attestazione Autorità di certificazione identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di directory di Azure AD. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory.
 
 In un token SAML l'attestazione Autorità di certificazione viene visualizzata in un elemento Issuer.
 
@@ -156,7 +156,7 @@ L'attestazione Cognome fornisce il cognome dell'utente, come definito nell'ogget
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-In un token JWT il cognome viene visualizzato nell'attestazione family\_name.
+In un token JWT il cognome viene visualizzato nell'attestazione family_name.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ Fornisce un valore leggibile che identifica il soggetto del token. Questo valore
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-In un'attestazione JWT il nome viene visualizzato nell'attestazione unique\_name.
+In un'attestazione JWT il nome viene visualizzato nell'attestazione unique_name.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ In un token JWT l'attestazione roles viene visualizzata nell'attestazione roles.
 
 ### Scope
 
-L'ambito del token indica le autorizzazioni di rappresentazione concesse all'applicazione client. L'autorizzazione predefinita è user\_impersonation. Il proprietario della risorsa protetta può registrare valori aggiuntivi in Azure AD.
+L'ambito del token indica le autorizzazioni di rappresentazione concesse all'applicazione client. L'autorizzazione predefinita è user_impersonation. Il proprietario della risorsa protetta può registrare valori aggiuntivi in Azure AD.
 
 In un token JWT l'ambito del token viene specificato in un'attestazione scp.
 
@@ -231,7 +231,7 @@ In un token JWT l'ID tenant viene visualizzato in un'attestazione tid.
     "tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"
 
 ### Durata del token
-L'attestazione Durata del token definisce l'intervallo di tempo entro il quale un token è valido. Il servizio che convalida il token deve verificare che la data corrente sia compresa nella durata del token. In caso contrario, deve rifiutare il token. La tolleranza del servizio è fino a cinque minuti oltre l'intervallo della durata del token per tener conto di eventuali differenze di orario \("mancata sincronizzazione dell'ora"\) tra Azure AD e il servizio.
+L'attestazione Durata del token definisce l'intervallo di tempo entro il quale un token è valido. Il servizio che convalida il token deve verificare che la data corrente sia compresa nella durata del token. In caso contrario, deve rifiutare il token. La tolleranza del servizio è fino a cinque minuti oltre l'intervallo della durata del token per tener conto di eventuali differenze di orario ("mancata sincronizzazione dell'ora") tra Azure AD e il servizio.
 
 In un token SAML l'attestazione Durata del token è definita nell'elemento Conditions usando gli attributi NotBefore e NotOnOrAfter.
 
@@ -240,7 +240,7 @@ In un token SAML l'attestazione Durata del token è definita nell'elemento Condi
     NotOnOrAfter="2013-03-18T22:32:51.261Z"
     >
 
-In un token JWT la durata del token è definita da attestazioni nbf \(non prima\) e exp \(scadenza\). Il valore di queste attestazioni viene espresso nel numero di secondi trascorsi dal 010-01-1970:0:0Z in Coordinated Universal Time \(UTC\). Per altre informazioni, vedere RFC 3339.
+In un token JWT la durata del token è definita da attestazioni nbf (non prima) e exp (scadenza). Il valore di queste attestazioni viene espresso nel numero di secondi trascorsi dal 010-01-1970:0:0Z in Coordinated Universal Time (UTC). Per altre informazioni, vedere RFC 3339.
 
     "nbf":1363289634,
     "exp":1363293234
@@ -365,7 +365,7 @@ Questo è un esempio di un tipico token SAML.
 
 ### Token JWT: rappresentazione dell'utente
 
-Questo è un esempio di un tipico token Web JSON \(JWT\) usato in un flusso Web di rappresentazione utente. Oltre alle attestazioni, il token include un numero di versione **ver** e **appidacr**, il riferimento alla classe contesto di autenticazione, che indica la modalità di autenticazione client. Per un client pubblico, il valore è 0. Se vengono usati l'ID client o il segreto client, il valore è 1.
+Questo è un esempio di un tipico token Web JSON (JWT) usato in un flusso Web di rappresentazione utente. Oltre alle attestazioni, il token include un numero di versione **ver** e **appidacr**, il riferimento alla classe contesto di autenticazione, che indica la modalità di autenticazione client. Per un client pubblico, il valore è 0. Se vengono usati l'ID client o il segreto client, il valore è 1.
 
     {
      typ: "JWT",
@@ -413,4 +413,4 @@ Questo è un esempio di un tipico token Web JSON \(JWT\) usato in un flusso Web 
 [Protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -20,7 +20,7 @@
 
 ## <a name="overview"> </a>Panoramica
 
-Questa guida illustra le procedure per iniziare subito a usare Gestione API ed effettuare la prima chiamata API.
+Questa guida illustra le procedure per iniziare subito a usare Gestione API ed eseguire la prima chiamata API.
 
 ## <a name="concepts"> </a>Cos'è Gestione API di Azure?
 
@@ -29,7 +29,7 @@ Gestione API di Azure consente di avviare un programma API completo basato su qu
 Gli scenari comuni includono:
 
 * La **protezione dell'infrastruttura mobile** con la delega dell'accesso con le chiavi API, la prevenzione degli attacchi DOS con la limitazione oppure l'uso di criteri di sicurezza avanzata come la convalida dei token JWT
-* L'**abilitazione degli ecosistemi del partner ISV**, offrendo al partner un rapido caricamento attraverso il portale degli sviluppatori e compilando un'interfaccia API per la separazione dalle implementazioni interne non pronte per l'utilizzo da parte del partner
+* L'**abilitazione degli ecosistemi del partner ISV**, offrendo al partner un rapido caricamento attraverso il portale degli sviluppatori e compilando un'interfaccia API per la separazione dalle implementazioni interne non pronte per l'uso da parte del partner
 * L'**esecuzione di un programma API interno**, offrendo all'organizzazione una posizione centralizzata per la comunicazione della disponibilità e delle ultime modifiche apportate alle API e delegando l'accesso in base agli account aziendali, tutti basati su un canale protetto tra il gateway dell'API e il back-end
 
 
@@ -48,7 +48,7 @@ Il sistema è costituito dai componenti seguenti:
 	* creare pacchetti di API nei prodotti
 	* configurare criteri come quote o trasformazioni sulle API
 	* ottenere informazioni dall'analisi
-	* gestione utenti
+	* gestire gli utenti
 
 * Il **portale per sviluppatori** funge da principale presenza Web per gli sviluppatori, che potranno:
 	* leggere la documentazione relativa alle API
@@ -67,7 +67,7 @@ Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizi
 
 Per **URL** specificare un nome univoco di sottodominio da usare per l'URL del servizio.
 
-Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante Avanti.
+Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza del servizio. Una volta eseguite le selezioni, fare clic sul pulsante Avanti.
 
 ![New API Management service][api-management-create-instance-step1]
 
@@ -77,9 +77,9 @@ Immettere **Contoso Ltd.** in **Nome organizzazione** e specificare l'indirizzo 
 
 ![New API Management service][api-management-create-instance-step2]
 
-Le istanze del servizio Gestione API sono disponibili in tre livelli: Developer, Standard e Premium Per impostazione predefinita, le nuove istanze del servizio Gestione API vengono create nel livello Developer. Per selezionare il livello Standard o Premium, selezionare la casella di controllo **Impostazioni avanzate** e scegliere il livello desiderato nella schermata seguente.
+Le istanze del servizio Gestione API sono disponibili in tre livelli: Developer, Standard e Premium. Per impostazione predefinita, le nuove istanze del servizio Gestione API vengono create nel livello Developer. Per selezionare il livello Standard o Premium, selezionare la casella di controllo **Impostazioni avanzate** e scegliere il livello desiderato nella schermata seguente.
 
->Microsoft Azure offre tre livelli in cui è possibile eseguire il servizio Gestione API: Developer, Standard e Premium Il livello Developer è dedicato allo sviluppo, al test alla distribuzione pilota di programmi API in cui l'elevata disponibilità non è un fattore rilevante. Nei livelli Standard e Premium è possibile aumentare il numero di unità riservate per gestire un maggior volume di traffico. I livelli Standard e Premium forniscono al servizio Gestione API anche una potenza di elaborazione e prestazioni maggiori. Per questa esercitazione è possibile scegliere qualsiasi livello. Per altre informazioni sui livelli di Gestione API, vedere [Gestione API - Prezzi][].
+>Microsoft Azure offre tre livelli in cui è possibile eseguire il servizio Gestione API: Developer, Standard e Premium. Il livello Developer è dedicato allo sviluppo, al test alla distribuzione pilota di programmi API in cui l'elevata disponibilità non è un fattore rilevante. Nei livelli Standard e Premium è possibile aumentare il numero di unità riservate per gestire un maggior volume di traffico. I livelli Standard e Premium forniscono al servizio Gestione API anche una potenza di elaborazione e prestazioni maggiori. Per questa esercitazione è possibile scegliere qualsiasi livello. Per altre informazioni sui livelli di Gestione API, vedere [Gestione API - Prezzi][].
 
 Selezionare la casella di controllo per creare l'istanza del servizio.
 
@@ -91,7 +91,7 @@ Dopo aver creato l'istanza del servizio, l'operazione successiva consiste nel cr
 
 Un'API rappresenta un set di operazioni che possono essere richiamate da un'applicazione client. Le operazioni API vengono trasmesse tramite proxy ai servizi Web esistenti.
 
-È possibile creare le API e aggiungere manualmente o importare le operazioni. In questa esercitazione, verrà importata una API per un servizio Web calcolatrice di esempio fornito da Microsoft e ospitato in Azure.
+È possibile creare le API e aggiungere manualmente o importare le operazioni. In questa esercitazione verrà importata un'API per un servizio Web calcolatrice di esempio fornito da Microsoft e ospitato in Azure.
 
 >Per informazioni aggiuntive sulla creazione di un'API e l'aggiunta manuale delle operazioni, vedere [Come creare le API](api-management-howto-create-apis.md) e [Come aggiungere operazioni a un'API](api-management-howto-add-operations.md).
 
@@ -103,9 +103,9 @@ Per importare l'API di calcolatrice, fare clic su **API** dal menu **Gestione AP
 
 ![Pulsante Importa API][api-management-import-api]
 
-![Add new API][api-management-import-new-api]
+![Aggiunta nuova API][api-management-import-new-api]
 
-Per configurare l'API di calcolatrice, eseguire la procedura seguente:
+Per configurare l'API di calcolatrice, eseguire la procedura seguente.
 
 1. Fare clic su **Da URL**, immettere **http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e quindi fare clic sul pulsante opzione **Swagger**.2. Digitare **calc** nella casella di testo **Suffisso URL API Web**.
 3. Fare clic sulla casella **Prodotti (facoltativo)** e scegliere **Starter**.
@@ -115,16 +115,16 @@ Una volta importata l'API, la pagina di riepilogo dell'API viene visualizzata ne
 
 ![API summary][api-management-imported-api-summary]
 
-La sezione API comprende diverse schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. È possibile usare la scheda [Impostazioni](api-management-howto-create-apis.md#configure-api-settings) per visualizzare e modificare la configurazione di un'API. La scheda [Operazioni](api-management-howto-add-operations.md) consente di gestire le operazioni dell'API. La scheda **Sicurezza** consente di configurare l'autenticazione del proxy per il server back-end usando l'autenticazione Basic oppure l'[autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e per configurare l'[autorizzazione utente con OAuth 2.0](api-management-howto-oauth2.md). La scheda **Problemi** consente di visualizzare i problemi segnalati dagli sviluppatori che usano le API e la scheda **Prodotti** consente di configurare i prodotti che contengono questa API.
+La sezione API comprende diverse schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. È possibile usare la scheda [Impostazioni](api-management-howto-create-apis.md#configure-api-settings) per visualizzare e modificare la configurazione di un'API. La scheda [Operazioni](api-management-howto-add-operations.md) consente di gestire le operazioni dell'API. La scheda **Sicurezza** consente di configurare l'autenticazione del proxy per il server back-end usando l'autenticazione Basic oppure l'[autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e di configurare l'[autorizzazione utente con OAuth 2.0](api-management-howto-oauth2.md). La scheda **Problemi** consente di visualizzare i problemi segnalati dagli sviluppatori che usano le API e la scheda **Prodotti** consente di configurare i prodotti che contengono questa API.
 
 Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio:
 
 -	**Starter**
 -	**Illimitato**
 
-In questa esercitazione, è stata aggiunta l'API Calcolatrice di base al prodotto Starter quando l'API è stata importata.
+In questa esercitazione è stata aggiunta l'API Calcolatrice di base al prodotto Starter quando l'API è stata importata.
 
-Per effettuare chiamate a un'API, gli sviluppatori devono prima sottoscrivere un prodotto che offre l'accesso all'API. La sottoscrizione dei prodotti può essere effettuata direttamente dagli sviluppatori nel portale per sviluppatori; in alternativa, gli amministratori possono sottoscrivere i prodotti per conto degli sviluppatori nel portale di pubblicazione. Dal momento che nei passaggi precedenti di questa esercitazione è stata creata un'istanza di Gestione API, l'utente corrente ha già effettuato la sottoscrizione a ogni prodotto per impostazione predefinita.
+Per eseguire chiamate a un'API, gli sviluppatori devono prima sottoscrivere un prodotto che offre l'accesso all'API. La sottoscrizione dei prodotti può essere eseguita direttamente dagli sviluppatori nel portale per sviluppatori. In alternativa, gli amministratori possono sottoscrivere i prodotti per conto degli sviluppatori nel portale di pubblicazione. Dal momento che nei passaggi precedenti di questa esercitazione è stata creata un'istanza di Gestione API, l'utente corrente ha già eseguito la sottoscrizione a ogni prodotto per impostazione predefinita.
 
 ## <a name="call-operation"></a>Chiamare un'operazione dal portale per sviluppatori
 
@@ -146,7 +146,7 @@ Per chiamare l'operazione **Aggiungere due integer**, fare clic su **Prova**.
 
 ![GET HTTP][api-management-invoke-get]
 
-Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati lo **Stato della risposta**, le **Intestazioni della risposta** ed eventualmente il **contenuto della risposta**.
+Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** ed eventualmente il **contenuto della risposta**.
 
 ![Response][api-management-invoke-get-response]
 
@@ -162,7 +162,7 @@ La visualizzazione predefinita del portale di pubblicazione è il **dashboard**,
 
 Passare il puntatore del mouse sul grafico della **Calcolatrice di base** per visualizzare le metriche specifiche relative all'utilizzo dell'API in un dato periodo di tempo.
 
->Se il grafico non contiene linee, tornare al portale per sviluppatori ed effettuare alcune chiamate all'API, attendere qualche secondo e quindi tornare al dashboard.
+>Se il grafico non contiene linee, tornare al portale per sviluppatori ed eseguire alcune chiamate all'API, attendere qualche secondo e quindi tornare al dashboard.
 
 ![Analytics][api-management-mouse-over]
 

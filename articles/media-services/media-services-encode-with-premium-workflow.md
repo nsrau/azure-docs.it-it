@@ -13,49 +13,48 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
-# Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale (anteprima pubblica)
+#Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale (anteprima pubblica)
 
-**Nota** Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina. 
+**Nota** Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
 
-## Informazioni generali
+##Panoramica
 
-Servizi multimediali di Microsoft Azure offre l'anteprima pubblica del processore di contenuti multimediali **Flusso di lavoro Premium del codificatore multimediale**. Questo processore offre funzionalità di codifica avanzata per i flussi di lavoro Premium su richiesta. 
+Servizi multimediali di Microsoft Azure offre l'anteprima pubblica del processore di contenuti multimediali **Flusso di lavoro Premium del codificatore multimediale**. Questo processore offre funzionalità di codifica avanzata per i flussi di lavoro Premium su richiesta.
 
-Nei seguenti argomenti sono incluse informazioni dettagliate sul **flusso di lavoro Premium del codificatore multimediale**: 
+Nei seguenti argomenti sono incluse informazioni dettagliate su **Flusso di lavoro Premium del codificatore multimediale**:
 
-- [Formati supportati dal flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md) : illustra i formati di file e i codec supportati dal **flusso di lavoro Premium del codificatore multimediale**.
+- [Formati supportati da Flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md): vengono illustrati formati file e codec supportati da **Flusso di lavoro Premium del codificatore multimediale**.
 
-- Nella sezione dedicata al [confronto tra i codificatori](media-services-encode-asset.md#compare_encoders) vengono confrontate le funzionalità di codifica del **flusso di lavoro Premium del codificatore multimediale** e di **Azure Media Encoder**.
+- Nella sezione relativa al [confronto tra codificatori](media-services-encode-asset.md#compare_encoders) vengono confrontate le funzionalità di codifica di **Flusso di lavoro Premium del codificatore multimediale** e di **Azure Media Encoder**.
 
-Questo argomento illustra come codificare con il **flusso di lavoro Premium del codificatore multimediale** mediante .NET.
+Questo argomento illustra come codificare con **Flusso di lavoro Premium del codificatore multimediale** mediante .NET.
 
-## Codifica
+##Codificare
 
-Le attività di codifica per il **flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
+Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
 
-Il file del flusso di lavoro predefiniti sono disponibili anche [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
+I file del flusso di lavoro predefiniti sono disponibili anche [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
 
 I file del flusso di lavoro devono essere caricati come asset nel proprio account di Servizi multimediali e questo asset deve essere passato all'attività di codifica.
 
-Il seguente esempio dimostra come codificare con il **flusso di lavoro Premium del codificatore multimediale**. 
+Il seguente esempio dimostra come codificare con **Flusso di lavoro Premium del codificatore multimediale**.
 
-Vengono eseguiti questi passaggi: 
+Vengono eseguiti questi passaggi:
  
 1. Creare un asset e caricare un file del flusso di lavoro. 
 2. Creare un asset e caricare un file multimediale di origine.
-3. Ottenere il processore di contenuti multimediali "Flusso di lavoro Premium del codificatore multimediale".
+3. Ottenere il processore di contenuti multimediali “Flusso di lavoro Premium del codificatore multimediale”.
 4. Creare un processo e un'attività.
 5. Aggiungere due asset di input all'attività.
 	
-	a. L'asset del flusso di lavoro.
+	a. In primo luogo, l'asset del flusso di lavoro.
 
-	b. L'asset video.
+	b. In secondo luogo, l'asset video.
 	
-	**Nota**: l'asset del flusso di lavoro deve essere aggiunto all'attività prima dell'asset di file multimediale. 
-La stringa di configurazione per questa attività deve essere vuota. 
+	**Nota**: l'asset del flusso di lavoro deve essere aggiunto all'attività prima dell'asset di file multimediale. La stringa di configurazione per questa attività deve essere vuota.
 
 6. Inviare il processo di codifica.
 
@@ -262,9 +261,8 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 	}
 
 
-## Problemi noti
+##Problemi noti
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

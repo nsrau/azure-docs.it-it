@@ -45,4 +45,4 @@ Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario 
 - [Visualizzazione dello stato di un processo di runbook in Automazione di Azure](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso del connettore Oracle nel Servizio app di Azure di Microsoft Azure" 
+   pageTitle="Uso del connettore Oracle nel servizio app di Microsoft Azure" 
    description="Come usare Oracle Database Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,25 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
 # Oracle Database Connector
 
-Connettersi a un server di Oracle Database in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
+Connettersi a un server di database Oracle in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
 - Esporre una sezione dei dati presenti nel database Oracle usando un'applicazione Web o per dispositivi mobili.
-- Aggiungere dati alla tabella del database Oracle per l'archiviazione. Ad esempio, è possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
-- Ottenere dati da Oracle per usarli in un processo aziendale. Ad esempio, è possibile ottenere i record cliente e inserirli in SalesForce. 
+- Inserire dati nella tabella del database Oracle per l'archiviazione. È ad esempio possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
+- Ottenere dati da Oracle per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce. 
 
 
 ## Trigger e azioni
-I *trigger* sono eventi che si verificano, ad esempio, quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger; ad esempio, quando si aggiorna un ordine, inviare un avviso al venditore oppure, quando si aggiunge un nuovo cliente, inviargli/le un messaggio di benvenuto.
+I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
 Oracle Database Connector può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'[app per le API Transform](app-service-logic-transform-xml-documents.md) per convertire i dati in un altro formato dati XML.
 
-Oracle Database Connector ha a disposizione i seguenti trigger e azioni:
+Oracle Database Connector ha a disposizione i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
@@ -40,23 +40,23 @@ Poll Data | <ul><li>Inserimento nella tabella</li><li>Aggiornamento della tabell
 
 ## Creare un Oracle Database Connector
 
-È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore usando Azure Marketplace:
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1. Nella schermata iniziale di Azure selezionare **Marketplace**.
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Oracle Database Connector".
-3. Immettere il Nome, il Piano di servizio app e altre proprietà.
+3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Origine dati | Sì | Un nome di origine dati (servizio di rete) specificato nel file tnsnames.ora sul computer in cui è installato il client Oracle. Per informazioni sui nomi delle origini dati e sul file tnsnames.ora, vedere l'articolo relativo alla [configurazione del client Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
+Data Source | Sì | Un nome di origine dati (servizio di rete) specificato nel file tnsnames.ora sul computer in cui è installato il client Oracle. Per informazioni sui nomi delle origini dati e sul file tnsnames.ora, vedere l'articolo relativo alla [configurazione del client Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Sì | Immettere un nome utente valido per la connessione al server Oracle.
 Password | Sì | Immettere il nome utente e la password.
 Service Bus Connection String | Sì | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
-Tables | No | Immettere le tabelle del database che possono essere modificate dal connettore, ad esempio *OrdersTable, tabella EmployeeTable*.
+Tables | No | Immettere le tabelle del database che possono essere modificate dal connettore, ad esempio *OrdersTable,EmployeeTable*.
 Stored procedure | No | Immettere le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
 Functions | No | Immettere le funzioni presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
-Package Entities | No | Immettere i pacchetti presenti nel database che possono essere chiamati dal connettore, ad esempio *PackageOrderProcessing.CompleteOrder o PackageOrderProcessing.GenerateBill*
+Package Entities | No | Immettere i pacchetti presenti nel database che possono essere chiamati dal connettore, ad esempio *PackageOrderProcessing.CompleteOrder o PackageOrderProcessing.GenerateBill*.
 Data Available Statement | No | Immettere l'istruzione per determinare se sono disponibili dati per il polling, ad esempio *SELECT * from table_name*.
 Poll Type | No | Immettere il tipo di polling. I valori consentiti sono "Select", "Procedure", "Function" e "Package".
 Poll Statement | No | Immettere l'istruzione per il polling del database del server Oracle, ad esempio *SELECT * from table_name*.
@@ -80,7 +80,7 @@ Usando una semplice app per la logica che esegue il polling dei dati da una tabe
 
 Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o le stored procedure immesse durante la creazione del connettore Oracle:
 
-1. Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ossia *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
+1. Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
 2. Immettere i valori di input del record da inserire e fare clic su ✓: <br/> ![][9]
 
@@ -96,12 +96,12 @@ Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o 
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa Oracle in locale, è richiesta la Gestione connessione ibrida.
 
-Vedere [Uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
+Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
 ## Più vantaggi con il connettore
-Dopo aver creato il connettore è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md).
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e il connettore](../app-service-api/app-service-api-manage-in-portal.md).
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -111,6 +111,7 @@ Dopo aver creato il connettore è possibile aggiungerlo a un flusso aziendale us
 [7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
 [8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
 [9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 

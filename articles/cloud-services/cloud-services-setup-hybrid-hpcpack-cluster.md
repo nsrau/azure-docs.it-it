@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="06/24/2015"
 	ms.author="danlep"/>
 
 
@@ -26,7 +26,7 @@ L'approccio descritto in questa esercitazione, denominato anche "potenziamento n
 
 Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure per la distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per configurare un cluster HPC Pack interamente in Azure, vedere [Microsoft HPC Pack nelle macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?linkid=330375).
 
->[AZURE.NOTE]Azure offre una [gamma di dimensioni](http://go.microsoft.com/fwlink/p/?LinkId=389844) per le risorse di calcolo, adatta a diversi carichi di lavoro. Le istanze A8 e A9, ad esempio, combinano prestazioni elevate e accesso a una rete di applicazioni a bassa latenza e velocità effettiva elevata necessaria per determinate applicazioni HPC. Per informazioni, vedere l'articolo relativo alle [informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](http://go.microsoft.com/fwlink/p/?Linkid=328042).
+>[AZURE.NOTE]Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md) per le risorse di calcolo, adatta a diversi carichi di lavoro. Le istanze A8 e A9, ad esempio, combinano prestazioni elevate e accesso a una rete di applicazioni a bassa latenza e velocità effettiva elevata necessaria per determinate applicazioni HPC. Vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Prerequisiti
 
@@ -44,7 +44,7 @@ Per completare l'esercitazione, è necessario anche quanto segue.
 
 	* Verificare che siano installati gli aggiornamenti importanti.
 
-* I file di installazione per HPC Pack 2012 R2, disponibile gratuitamente. L'ultima versione è HPC Pack 2012 R2 Update 1. [Scaricare](http://go.microsoft.com/fwlink/p/?linkid=328024) il pacchetto di installazione completo e copiare i file nel computer nodo head o in un percorso di rete. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
+* I file di installazione per HPC Pack 2012 R2, disponibile gratuitamente. [Scaricare](http://go.microsoft.com/fwlink/p/?linkid=328024) la versione più recente e copiare i file nel computer nodo head o in un percorso di rete. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
 
 * Un account di dominio con autorizzazioni di amministratore locale sul nodo head.
 
@@ -106,7 +106,7 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 
 	![Impostazioni certificato][upload_cert1]
 
-4. Individuare il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer nel nodo head. Fare quindi clic sul pulsante ****con il segno di spunta.
+4. Individuare il file C:\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di spunta.
 
 	![Caricamento del certificato][install_hpc10]
 
@@ -307,8 +307,7 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 * [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Potenziamento in Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack nelle macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure Big Compute: HPC e Batch](http://azure.microsoft.com/solutions/big-compute/)
-* [Azure Big Compute: Documentazione tecnica su HPC e Batch](http://msdn.microsoft.com/library/azure/dn482128.aspx)
+* [Big Compute in Azure: Risorse tecniche per Batch e HPC (High Performance Computing)](big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +347,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

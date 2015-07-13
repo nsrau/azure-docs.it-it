@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -152,5 +152,6 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 > [AZURE.NOTE]Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle delle metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Come monitorare i servizi cloud</a>.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

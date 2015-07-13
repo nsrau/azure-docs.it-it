@@ -27,7 +27,7 @@ In questa esercitazione viene illustrato come usare il servizio tabelle fornito 
 
 Si acquisiranno le nozioni seguenti:
 
-* Utilizzare npm \(Node Package Manager\) per installare i moduli di Node
+* Utilizzare npm (Node Package Manager) per installare i moduli di Node
 
 * Usare il servizio tabelle di Azure
 
@@ -59,13 +59,13 @@ Creare un account di archiviazione di Azure L'app utilizzerà questo account per
 
 1.  Accedere al [Portale di Azure](https://portal.azure.com).
 
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** \> **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
   	![Pulsante Nuovo](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
 
 	Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
 
-5. Nel pannello dell'account di archiviazione fare clic su **Impostazioni** \> **Chiavi**. Copiare la chiave di accesso primaria negli Appunti.
+5. Nel pannello dell'account di archiviazione fare clic su **Impostazioni** > **Chiavi**. Copiare la chiave di accesso primaria negli Appunti.
 
     ![Chiave di accesso][portal-storage-access-keys]
 
@@ -145,7 +145,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
     [...]
 
 
-Successivamente, immettere il comando riportato di seguito per installare i moduli [azure], [node-uuid], [nconf] e [async]\:
+Successivamente, immettere il comando riportato di seguito per installare i moduli [azure], [node-uuid], [nconf] e [async]:
 
 	npm install azure-storage node-uuid async nconf --save
 
@@ -175,9 +175,9 @@ Un *modello* è un oggetto che rappresenta i dati nell'applicazione. Per l'appli
 
 - PartitionKey
 - RowKey
-- name \(string\)
-- category \(string\)
-- completed \(Boolean\)
+- name (string)
+- category (string)
+- completed (Boolean)
 
 Il servizio tabelle usa **PartitionKey** e **RowKey** come chiavi delle tabelle. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -427,7 +427,7 @@ Dalla cartella **views** aprire **layout.jade** e sostituire l'intero contenuto 
 
 ### Creare un file config
 
-Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json\* *con il seguente contenuto:
+Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* *con il seguente contenuto:
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -485,7 +485,7 @@ Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
-Per iniziare, installare l'\[interfaccia della riga di comando di Azure\] immettendo il comando seguente nella riga di comando:
+Per iniziare, installare l'[interfaccia della riga di comando di Azure] immettendo il comando seguente nella riga di comando:
 
 	npm install azure-cli -g
 
@@ -499,8 +499,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 
@@ -553,9 +552,9 @@ Sostituire **<storage account name>** con il nome dell'account di archiviazione 
 
 In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com):
 
-1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** \> **App Web ** \> nome app Web.
+1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web ** > nome app Web.
 
-1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** \> **Impostazioni dell'applicazione**.
+1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** > **Impostazioni dell'applicazione**.
 
   	<!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
 
@@ -597,7 +596,7 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 ## Risorse aggiuntive
 
-\[Interfaccia della riga di comando di Azure\]
+[Interfaccia della riga di comando di Azure]
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -643,4 +642,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

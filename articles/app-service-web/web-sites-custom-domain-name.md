@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare un nome di dominio personalizzato nel servizio app di Azure"
+	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure"
 	description="Ulteriori informazioni su come usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure."
 	services="app-service\web"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
-# Configurare un nome di dominio personalizzato nel servizio app di Azure
+# Configurazione di un nome di dominio personalizzato nel servizio app di Azure
 
 <div class="dev-center-tutorial-selector sublanding">
   <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Acquistare un dominio per app Web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">App Web con domini esterni</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">App Web con Gestione traffico</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
@@ -61,7 +61,7 @@ Se l'indirizzo IP cambia, una voce CNAME resta valida, mentre un record A deve e
 > [AZURE.NOTE]L'indirizzo IP può cambiare se si elimina e si crea nuovamente l'app Web oppure se la sua modalità viene reimpostata su gratuita.
 
 
-## Trovare l'indirizzo IP virtuale
+## Individuazione dell'indirizzo IP virtuale
 
 Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un record A, è necessario disporre dell'indirizzo IP virtuale dell'app Web. Per ottenere l'indirizzo IP:
 
@@ -72,7 +72,7 @@ Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un reco
 5.	Nella pagina **Elementi essenziali**, fare clic su **Tutte le impostazioni**.
 6.	Fare clic su **Domini e SSL personalizzati**. L'indirizzo IP si trova nella parte inferiore della pagina (proprio al di sopra della sezione **Binding SSL**).
 
-## Creare i record DNS
+## Creazione dei record DNS
 
 Accedere al registrar di dominio e usare i relativi strumenti per aggiungere un record A o CNAME. L'app Web di ogni registrar è leggermente differente. Di seguito, sono riportate le linee guida comuni.
 
@@ -120,20 +120,20 @@ Se si crea un record A, l'app web richiede anche uno speciale record CNAME usato
 
 I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awverify, usato soltanto da Azure per la verifica del dominio.
 
-## Abilitare il nome del dominio nell'app Web
+## Abilitazione del nome del dominio nell'app Web
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere: [Introduzione a DNS di Azure](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) e [Delegare un dominio a DNS di Azure](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
+Per altre informazioni, vedere: [Introduzione a DNS di Azure](http://azure.microsoft.com/it-it/documentation/articles/dns-getstarted-create-dnszone) e [Delegare un dominio a DNS di Azure](http://azure.microsoft.com/it-it/documentation/articles/dns-domain-delegation)
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview

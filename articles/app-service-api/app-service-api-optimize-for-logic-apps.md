@@ -173,7 +173,7 @@ Per le app per le API che usano metadati dinamici, è possibile usare attributi 
              ...
         }
 
-	Quando si compila l'app per le API precedente, genererà i metadati dell'API seguenti:
+	Quando si crea l'app per le API sovrastante, questa genera i seguenti metadati dell'API:
 
 
 			...

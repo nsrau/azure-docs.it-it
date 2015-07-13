@@ -294,5 +294,6 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app"
-	description="Informazioni su come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app." 
-	authors="mattchenderson,ggailey777" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+	description="Informazioni su come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app."
+	authors="mattchenderson" 
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso Microsoft
@@ -22,7 +22,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 
 ## <a name="register"> </a>Registrare l'applicazione con l'account Microsoft
 
-1. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft. 
+1. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft.
 
 2. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
 
@@ -64,4 +64,6 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di gestione di Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

@@ -1,5 +1,3 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Come creare una macchina virtuale che esegue Windows Server" description="Viene descritto come creare una macchina virtuale di Windows, aggiungere un disco dati e accedere in remoto" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
-
 # Creazione di una macchina virtuale che esegue Windows Server #
 
 Questa esercitazione illustra come creare una macchina virtuale di Azure che esegue Windows Server usando la Raccolta immagini presente nel portale di gestione di Windows Azure. Nella Raccolta immagini è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, sistemi operativi basati su Linux e di applicazioni.
@@ -127,6 +125,4 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

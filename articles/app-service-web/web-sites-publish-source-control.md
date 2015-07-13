@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Distribuzione continua tramite GIT in Azure App Service" 
-	description="Informazioni su come utilizzare Git per pubblicare un'app Web di Azure e quindi abilitare la distribuzione continua da Bitbucket, CodePlex, Dropbox, GitHub o Mercurial." 
+	description="Informazioni su come usare Git per pubblicare un'app Web di Azure e quindi abilitare la distribuzione continua da Bitbucket, CodePlex, Dropbox, GitHub o Mercurial." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -19,5 +19,6 @@
 
 
 [AZURE.INCLUDE [publishing-with-git](../../includes/publishing-with-git.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

@@ -68,7 +68,7 @@ Per modificare invece le risorse di destinazione in fase di esecuzione, usare:
 
 È possibile procedere in due modi:
 
-* Creare due risorse di Application Insights \(con diverse chiavi di strumentazione\) per il client e il server, ma nello stesso gruppo di risorse di Azure. Ciò permetterà di passare da una risorsa all'altra con maggiore facilità.
+* Creare due risorse di Application Insights (con diverse chiavi di strumentazione) per il client e il server, ma nello stesso gruppo di risorse di Azure. Ciò permetterà di passare da una risorsa all'altra con maggiore facilità.
 * Usare una risorsa di Application Insights e inserire la rispettiva chiave di strumentazione nei progetti client e server. Sarà quindi possibile correlare le metriche e gli eventi dalle due origini.
 
 Per semplificare la correlazione degli eventi nel client e nel server, generare un ID operazione per ogni richiesta. Trasmetterlo tra client e server e aggiungerlo alla telemetria a entrambe le estremità:
@@ -82,7 +82,7 @@ Per semplificare la correlazione degli eventi nel client e nel server, generare 
 
 No, la mappa visualizza lo stato di integrità dei server Azure nelle varie parti del mondo.
 
-*Dalla schermata iniziale \(home\) di Azure, in che modo è possibile trovare i dati relativi all'app?*
+*Dalla schermata iniziale (home) di Azure, in che modo è possibile trovare i dati relativi all'app?*
 
 Supponendo che [l'app sia già stata impostata per Application Insights][windows], fare clic su Sfoglia, selezionare Application Insights, quindi selezionare la risorsa creata per l'app specifica. Per raggiungere questa area più velocemente in futuro, è possibile aggiungere la risorsa alla schermata iniziale.
 
@@ -120,4 +120,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

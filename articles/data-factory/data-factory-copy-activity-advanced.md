@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Scenari avanzati per l'utilizzo dell'attività di copia in Data factory di Azure 
@@ -236,7 +236,6 @@ I tipi di dati specificati nella sezione Structure della definizione Table vengo
 		<ul>
 			<li> <b>TextFormat:</b> tutti i tipi di colonna vengono considerati come stringa e tutti i nomi di colonna sono impostati come "Prop_&lt;0-N>"</li> 
 			<li><b>AvroFormat:</b> usare i tipi di colonna predefiniti e i nomi nel file Avro.</li> 
-			<li><b>JsonFormat:</b> tutti i tipi di colonna vengono considerati come stringa e usano i nomi di colonna predefiniti nel file Json.</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@ Quando si copiano dati nel database SQL Azure o SQL Server, una stored procedure
 La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella][table-valued-parameters].
 
 ## Specificare la codifica per i file di testo
-Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) per i nomi di codifica validi.
+Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding.aspx) per i nomi di codifica validi.
 
 ## Vedere anche
 
@@ -341,10 +340,11 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/it-it/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

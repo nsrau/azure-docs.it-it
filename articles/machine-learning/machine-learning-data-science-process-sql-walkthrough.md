@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Processo di analisi scientifica dei dati Azure in esecuzione: utilizzo di SQL Sever | Azure" 
-	description="Processo di analisi scientifica dei dati di Azure in esecuzione" 
-	metaKeywords="" 
+	pageTitle="Advanced Analytics Process and Technology in azione: uso di SQL Server | Microsoft Azure" 
+	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -15,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="mohabib;fashah"/> 
+	ms.date="05/29/2015" 
+	ms.author="mohabib;fashah;bradsev"/>
 
                 
-# Processo di analisi scientifica dei dati di Azure in esecuzione: utilizzo di SQL Sever
+# Advanced Analytics Process and Technology in azione: uso di SQL Server
 
-In questa esercitazione, si seguirà la mappa completa del processo di analisi scientifica dei dati di Azure per creare e distribuire un modello tramite un set di dati disponibile pubblicamente, vale a dire il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/). 
+In questa esercitazione, si seguirà la guida di Azure Advanced Analytics Process and Technology (ADAPT) end-to-end per creare e distribuire un modello tramite un set di dati disponibile pubblicamente, vale a dire il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/).
 
 
 ## <a name="dataset"></a>Descrizione del set di dati Corse dei taxi di NYC
@@ -37,7 +36,7 @@ I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto 
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. Il file 'trip_fare' CSV contiene i dettagli della tariffa pagata per ciascuna corsa, ad esempio tipo di pagamento, importo, soprattassa e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
+2. Il file CSV 'trip_fare' contiene i dettagli della tariffa pagata per ciascuna corsa, ad esempio tipo di pagamento, importo, soprattassa e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -48,11 +47,11 @@ I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto 
 
 La chiave univoca che consente di unire trip_data e trip_fare è composta dai campi: medallion, hack_licence e pickup_datetime.
 
-## <a name="mltasks"></a>Esempi di attività predittive
+## <a name="mltasks"></a>Esempi di attività di stima
 
-Verranno formulati tre problemi di stima, basati rispettivamente *tip_amount* su:
+Verranno formulati tre problemi di stima, basati su *tip_amount*, vale a dire:
 
-1. Classificazione binaria: consente di stabilire se sia stata lasciata o meno una mancia per la corsa, vale a dire che un valore *tip_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore pari a *tip_amount* $ 0 rappresenta un esempio negativo.
+1. Classificazione binaria: consente di stabilire se sia stata lasciata o meno una mancia per la corsa, vale a dire che un *tip_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip_amount* pari a $ 0 rappresenta un esempio negativo.
 
 2. Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip_amount* viene suddiviso in cinque contenitori o classi:
 	
@@ -62,17 +61,17 @@ Verranno formulati tre problemi di stima, basati rispettivamente *tip_amount* su
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
+3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.
 
 
-## <a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure
+## <a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure per l’analitica avanzata
 
-Come è possibile vedere nella guida [di pianificazione dell'ambiente](machine-learning-data-science-plan-your-environment.md), sono disponibili diverse opzioni per utilizzare il set di dati Corse dei taxi di NYC in Azure:
+Come è possibile vedere nella guida di [pianificazione dell'ambiente](machine-learning-data-science-plan-your-environment.md), sono disponibili diverse opzioni per utilizzare il set di dati Corse dei taxi di NYC in Azure:
 
 - Utilizzare i dati nei BLOB di Azure, quindi creare un modello in Azure Machine Learning
 - Caricare i dati in un database SQL Server, quindi creare un modello in Azure Machine Learning
 
-In questa esercitazione verrà illustrato come eseguire l'importazione in blocco in parallelo dei dati in SQL Server, l'esplorazione dei dati, la progettazione delle funzionalità e il sottocampionamento tramite SQL Server Management Studio e mediante IPython Notebook. [Gli script](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) e [i blocchi di appunti IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) di esempio vengono condivisi in GitHub. È inoltre disponibile nello stesso percorso un blocco di appunti IPython di esempio per gestire i dati nei blob.
+In questa esercitazione verrà illustrato come eseguire l'importazione in blocco in parallelo dei dati in SQL Server, l'esplorazione dei dati, la progettazione delle funzionalità e il sottocampionamento tramite SQL Server Management Studio e mediante IPython Notebook. Gli [script di esempio](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) e i [blocchi di appunti IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) di esempio vengono condivisi in GitHub. È inoltre disponibile nello stesso percorso un blocco di appunti IPython di esempio per gestire i dati nei blob.
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
@@ -82,13 +81,10 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
 3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che servirà come SQL Server e server IPython Notebook.
 
-	> [AZURE.NOTE] Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM:  
-	> - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts`  
-	> - Blocchi di appunti di esempio IPython: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-	> dove `<user_name>` è il nome di accesso Windows della VM. Le cartelle di esempio saranno denominate **Script di esempio** e **Blocchi di appunti IPython di esempio**.
+	> [AZURE.NOTE]Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM: - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts` - Blocchi di appunti di IPython di esempio: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` dove `<user_name>` è il nome di accesso Windows della VM. Le cartelle di esempio saranno denominate **Script di esempio** e **Blocchi di appunti IPython di esempio**.
 
 
-In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario \n.5: set di dati di grandi dimensioni in file locali, con ambiente di destinazione SQL Server nella VM Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario n.5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server nella macchina virtuale di Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
 
@@ -104,9 +100,9 @@ Per copiare i dati usando AzCopy:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	Una volta completata l'operazione in AzCopy, nella cartella dei dati dovrebbero essere presenti in totale 24 CSV compressi (12 per trip_data e 12 per trip_fare).
+	Al termine dell'esecuzione di AzCopy, nella cartella dovrebbero essere presenti 24 file CSV compressi (12 per trip_data e 12 per trip_fare)
 
-4. Decomprimere i file scaricati. Prendere nota della cartella in cui si trovano i dati non compressi. Il riferimento di questa cartella sarà <path_to_data_files>.
+4. Decomprimere i file scaricati. Prendere nota della cartella in cui si trovano i dati non compressi. Il riferimento di questa cartella sarà <percorso_a_file_dati>.
 
 ## <a name="dbload"></a>Importazione in blocco dei dati nel database SQL Server
 
@@ -116,23 +112,23 @@ Per copiare i dati usando AzCopy:
 
 2. Effettuare la connessione mediante Autenticazione di Windows.
 
-	![SSMS Connect][12]
+	![Connessione a SSMS][12]
 
 3. Se non è stata ancora modificata la modalità di autenticazione di SQL Server e non è stato creato un nuovo utente di accesso SQL, aprire il file di script denominato **change_auth.sql** nella cartella **Script di esempio**. Modificare il nome utente e la password predefiniti. Fare clic su **!Esegui** nella barra degli strumenti per eseguire lo script.
 
-	![Execute Script][13]
+	![Esecuzione dello script][13]
 
 4. Verificare e/o modificare le cartelle di database e log predefinite di SQL Server per essere certi che i database appena creati saranno archiviati nel disco dati. L'immagine della VM SQL Server che viene ottimizzata per i carichi data warehouse viene preconfigurata con i dischi dati e di registro. Se nella VM in uso non è incluso un disco dati e durante il processo di configurazione della VM sono stati aggiunti dei nuovi dischi virtuali, modificare le cartelle predefinite nel modo indicato di seguito:
 
 	- Fare clic con il pulsante destro del mouse sul nome dell'SQL Server nel pannello a sinistra e scegliere **Proprietà**.
 
-		![SQL Server Properties][14]
+		![Proprietà di SQL Server][14]
 
 	- Selezionare **Impostazioni database** dall'elenco **Seleziona pagina** sulla sinistra.
 
 	- Verificare e/o modificare **Percorsi predefiniti database** nei percorsi **Disco dati** di preferenza. È questa la posizione in cui si trovano i nuovi database se vengono creati con le impostazioni di percorso predefinite.
 	
-		![SQL Database Defaults][15]  
+		![Impostazioni predefinite del database SQL][15]
 
 5. Per creare un nuovo database e un set di filegroup in cui conservare le tabelle partizionate, aprire lo script di esempio **create_db_default.sql**. Mediante questo script verranno creati un nuovo database denominato **TaxiNYC** e 12 filegroup nel percorso dei dati predefinito. In ogni gruppo sarà presente un mese di dati trip_data e trip_fare. Se lo si desidera, modificare il nome del database. Fare clic su **!Esegui** per eseguire lo script.
 
@@ -149,9 +145,9 @@ Per copiare i dati usando AzCopy:
 	- **bcp_parallel_generic.ps1** è uno script generico per l'importazione in blocco in parallelo dei dati in una tabella. Modificare lo script per impostare le variabili di input e di destinazione come indicato nelle righe di commento dello script.
 	- **bcp_parallel_nyctaxi.ps1** è una versione preconfigurata dello script generico e può essere utilizzata per caricare entrambe le tabelle per i dati Corse dei taxi di NYC.  
 
-8. Fare clic con il pulsante destro del mouse sul nome dello script **bcp_parallel_nyctaxi.ps1** e fare clic su **Modifica** per aprirlo in PowerShell. Esaminare le variabili preimpostate e modificarle in base al nome di database selezionato, alla cartella dei dati di input, alla cartella del log di destinazione e ai percorsi dei file di formato di esempio **nyctaxi_trip.xml** e **nyctaxi_fare.xml** (forniti nella cartella **Script di esempio**). 
+8. Fare clic con il pulsante destro del mouse sul nome dello script **bcp_parallel_nyctaxi.ps1** e fare clic su **Modifica** per aprirlo in PowerShell. Esaminare le variabili preimpostate e modificarle in base al nome di database selezionato, alla cartella dei dati di input, alla cartella del log di destinazione e ai percorsi dei file di formato di esempio **nyctaxi_trip.xml** e **nyctaxi_fare.xml** (forniti nella cartella **Script di esempio**).
 
-	![Bulk Import Data][16]
+	![Importazione in blocco dei dati][16]
 
 	È inoltre possibile selezionare la modalità di autenticazione. La modalità predefinita è Autenticazione di Windows. Fare clic sulla freccia verde nella barra degli strumenti per eseguire. Mediante lo script verranno avviate 24 operazioni in blocco in parallelo, 12 per ogni tabella partizionata. È possibile controllare lo stato dell'importazione dei dati aprendo la cartella dei dati predefinita di SQL Server come impostato in precedenza.
 
@@ -165,7 +161,7 @@ Per copiare i dati usando AzCopy:
 
 ## <a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in SQL Server
 
-In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query SQL direttamente in **SQL Server Management Studio** tramite un database SQL Server creato in precedenza. Nella cartella **Script di esempio** viene fornito uno script di esempio denominato **sample_queries.sql**. Modificare lo script per cambiare il nome del database, se è diverso da quello predefinito: **TaxiNYC**.
+In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query SQL direttamente in **SQL Server Management Studio** tramite un database SQL Server creato in precedenza. Uno cript di esempio denominato **sample_queries.sql** viene fornito nella cartella **Script di esempio**. Modificare lo script per cambiare il nome del database, se è diverso da quello predefinito: **TaxiNYC**.
 
 In questo esercizio, verranno effettuate le seguenti operazioni:
 
@@ -176,20 +172,20 @@ In questo esercizio, verranno effettuate le seguenti operazioni:
 - Generazione di funzionalità calcolo/confronto delle distanze delle corse.
 - Unione di due tabelle ed estrazione di un campione casuale che verrà utilizzato per la creazione di modelli.
 
-Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
+Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo Lettore in Azure Machine Learning 
-2. Salvare in modo definitivo i dati campionati e compilati che si pianifica di utilizzare per la creazione di modelli in una nuova tabella di database e utilizzare la nuova tabella nel modulo Lettore in Azure Machine Learning.
+1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Lettore][reader] in Azure Machine Learning 
+2. Salvare in modo definitivo i dati campionati e compilati che si pianifica di utilizzare per la creazione di modelli in una nuova tabella di database e utilizzare la nuova tabella nel modulo [Lettore][reader] in Azure Machine Learning.
 
 In questa sezione verrà salvata la query finale per estrarre e campionare i dati. Il secondo metodo viene illustrato nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb).
 
 Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate in precedenza tramite l'importazione in blocco in parallelo,
 
-	-- Segnalare il numero di righe nella tabella nyctaxi_trip senza l'analisi della tabella
-	SELEZIONARE SOMMA(righe) DA sys.partitions DOVE object_id = OBJECT_ID('nyctaxi_trip')
+	-- Report number of rows in table nyctaxi_trip without table scan
+	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
-	-- Segnalare il numero di colonne nella tabella nyctaxi_trip
-	SELEZIONARE CONTEGGIO(*) DA information_schema.columns DOVE table_name = 'nyctaxi_trip' 
+	-- Report number of columns in table nyctaxi_trip
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
 
 #### Esplorazione: distribuzione delle corse per licenza
 
@@ -209,7 +205,7 @@ In questo esempio viene identificata la licenza (numero del taxi) che ha eseguit
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
 
-#### Valutazione della qualità dei dati: Verifica dei record con longitudine o latitudine errate
+#### Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
 
 In questo esempio viene esaminato se uno dei campi relativi alla longitudine o alla latitudine contiene un valore non valido (i gradi radianti devono essere compresi tra -90 e 90) o presenta le coordinate (0, 0).
 
@@ -269,7 +265,7 @@ Le query di esplorazione per la generazione delle etichette e la conversione geo
 
 #### Preparazione dei dati per la creazione di modelli
 
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi_trip** e **nyctaxi_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo Lettore di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza di database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi_trip** e **nyctaxi_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Lettore](https://studio.azureml.net) di [Azure Machine Learning Studio][reader] per l'inserimento diretto dei dati dall'istanza di database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -289,8 +285,7 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi_trip** e 
 
 ## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
 
-In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità
-tramite query Python e SQL al database SQL Server creato in precedenza. Nella cartella **Blocchi di appunti di esempio IPython** viene fornito un blocco di appunti IPython di esempio denominato **machine-Learning-data-science-process-sql-story.ipynb**. Tale blocco di appunti è disponibile anche in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query Pyton e SQL tramite un database SQL Server creato in precedenza. Un blocco di appunti IPython di esempio denominato **machine-Learning-data-science-process-sql-story.ipynb** viene fornito nella cartella **Blocchi di appunti di esempio IPython**. Tale blocco di appunti è disponibile anche in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 La sequenza consigliata quando si utilizzano i Big Data è la seguente:
 
@@ -300,10 +295,10 @@ La sequenza consigliata quando si utilizzano i Big Data è la seguente:
 - Per operazioni più estese di esplorazione dei dati, manipolazione dei dati e progettazione di funzionalità, utilizzare Python per inviare query SQL direttamente al database SQL Server nella VM Azure.
 - Decidere la dimensione del campione da utilizzare per la creazione di modelli Azure Machine Learning.
 
-Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
+Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL query finale per estrarre e ottenere un campione dei dati e copiare e incollare direttamente la query in un modello Lettore in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel).    
-2. Salvare in modo definitivo i dati campionati e compilati che si pianifica di utilizzare per la creazione di modelli in una nuova tabella di database, quindi utilizzare la nuova tabella nel modulo Lettore.
+1. Salvare la query SQL finale per estrarre e ottenere un campione dei dati e copiare e incollare direttamente la query in un modello [Lettore][reader] in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel).    
+2. Salvare in modo definitivo i dati campionati e compilati che si pianifica di utilizzare per la creazione di modelli in una nuova tabella di database, quindi utilizzare la nuova tabella nel modulo [Lettore][reader].
 
 Di seguito vengono forniti alcuni esempi di esplorazione dei dati, visualizzazione dei dati e progettazione di funzionalità. Per ulteriori esempi, vedere il blocco di appunti di esempio SQL IPython nella cartella **Blocchi di appunti IPython di esempio**.
 
@@ -362,13 +357,11 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
     
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Il tempo per la lettura della tabella di esempio è di 6,492000 secondi  
-Numero di righe e di colonne recuperate = (8.4952, 21)
+Il tempo per la lettura della tabella di esempio è di 6,492000 secondi, Numero di righe e di colonne recuperate = (8.4952, 21)
     
 #### Statistiche descrittive
 
-Ora è possibile esplorare i dati campionati. Si inizierà con uno sguardo
-alle statistiche descrittive per i campi **trip_distance** (o qualsiasi altro):
+Ora è possibile esplorare i dati campionati. Si inizia dalle statistiche descrittive per i campi **trip_distance** (o qualsiasi altro):
 
     df1['trip_distance'].describe()
 
@@ -378,7 +371,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Plot #1][1]
+![Grafico n. 1][1]
 
 #### Visualizzazione: esempio di tracciato di distribuzione
 
@@ -388,7 +381,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Plot #2][2]
+![Grafico n. 2][2]
 
 #### Visualizzazione: tracciati a barre e linee
 
@@ -403,30 +396,29 @@ La distribuzione precedente può essere rappresentata in un tracciato a barre o 
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Plot #3][3]
+![Grafico n. 3][3]
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Plot #4][4]
+![Grafico n. 4][4]
 
 #### Visualizzazione: esempio di grafico a dispersione
 
-Viene eseguito un grafico a dispersione tra **trip_time_in_secs** e **trip_distance** per verificare se
-esiste una correlazione
+Viene eseguito un grafico a dispersione tra **trip_time_in_secs** e **trip_distance** per verificare se esiste una correlazione
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Plot #6][6]
+![Grafico n. 6][6]
 
 Allo stesso modo, è possibile verificare la relazione tra **rate_code** e **trip_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Plot #8][8]
+![Grafico n. 8][8]
 
 ### Sottocampionamento dei dati in SQL
 
-Quando si preparano i dati per la creazione dei modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la query **SQL da utilizzare direttamente nel modulo Lettore** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella, che è possibile utilizzare nel modulo Lettore con un semplice **SELECT * FROM <your_new_table_name>**.
+Quando si preparano i dati per la creazione dei modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da utilizzare direttamente nel modulo Lettore** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella, che è possibile utilizzare nel modulo [Lettore][reader] con un semplice **SELECT * FROM <your_new_table_name>**.
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore).
 
@@ -574,7 +566,7 @@ In questo esempio, un campo numerico continuo viene trasformato in intervalli di
 
 #### Progettazione di funzionalità: funzionalità di estrazione della posizione dalla longitudine/latitudine decimale
 
-In questo esempio, la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese, città, paese, quartiere e così via. Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx). 
+In questo esempio, la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese, città, paese, quartiere e così via. Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent 
@@ -608,16 +600,16 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 
 1. Classificazione binaria: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
 
-2. Classificazione multiclasse: consente di eseguire una stima dell'intervallo di mance pagato, in base alle classi definite in precedenza.
+2. Classificazione multiclasse: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
 
-3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
+3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.
 
 
-## <a name="mlmodel"></a>Creazione di modelli in Azure Machine Learning
+## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
 
-Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è stata ancora creata un'area di lavoro per Machine Learning, vedere [Creazione di un'area di lavoro Azure ML](machine-learning-create-workspace.md).
+Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md).
 
-1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
+1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
 2. Effettuare l'accesso ad [Azure Machine Learning Studio](https://studio.azureml.net).
 
@@ -638,9 +630,9 @@ Un tipico esperimento training consiste nelle seguenti operazioni:
 
 In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure ML. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
 
-1. Inserimento dei dati in Azure ML tramite il modulo **Lettore**, disponibile nella sezione **Input e output dei dati**. Per ulteriori informazioni, vedere la pagina di riferimento sul modulo [Lettore](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004).
+1. Inserimento dei dati in Azure ML tramite il modulo [Lettore][reader], disponibile nella sezione **Input e output dei dati**. Per ulteriori informazioni, vedere la pagina di riferimento sul modulo [Lettore][reader].
 
-	![Azure ML Reader][17]
+	![Lettore Azure ML][17]
 
 2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
 
@@ -656,11 +648,11 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 
 Nella figura seguente viene fornito un esempio di un esperimento di classificazione binaria in cui si esegue la lettura dei dati direttamente dal database SQL Server. È possibile creare esperimenti dello stesso tipo per i problemi di classificazione multiclasse e di regressione.
 
-![Azure ML Train][10]
+![Formazione su Azure ML][10]
 
-> [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip_class**, **tip_amount** e **total_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
+> [AZURE.IMPORTANT]Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip_class**, **tip_amount** e **total_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile utilizzare il modulo **Colonne progetto o l'** **Editor metadati**. Per ulteriori informazioni, vedere le pagine di riferimento [Colonne progetto](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223) ed [Editor metadati](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66).
+> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile utilizzare il modulo [Colonne progetto][project-columns] o l'[Editor metadati][metadata-editor]. Per ulteriori informazioni, vedere le pagine di riferimento [Colonne progetto][project-columns] ed [Editor metadati][metadata-editor].
 
 ## <a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
 
@@ -673,7 +665,7 @@ Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti oper
 
 Per creare un esperimento di assegnazione di punteggio da un esperimento di training **Completato**, fare clic su **CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGIO** nella barra delle azioni inferiore.
 
-![Azure Scoring][18]
+![Valutazione di Azure][18]
 
 Azure Machine Learning tenterà di creare un esperimento di assegnazione di punteggio basato sui componenti dell'esperimento di training. In particolare, verranno effettuate le seguenti operazioni:
 
@@ -681,11 +673,11 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo **Colonne progetto**.
+Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo [Colonne progetto][project-columns].
 
 Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la pubblicazione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
-![Azure ML Publish][11]
+![Pubblicazione di Azure ML][11]
 
 Ricapitolando, in questa esercitazione dettagliata è stato creato un ambiente di analisi scientifica dei dati Azure, è stato utilizzato un set di dati pubblico di grandi dimensioni dall'acquisizione dei dati al training del modello e alla pubblicazione di un servizio Web Azure Machine Learning.
 
@@ -695,9 +687,7 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 ### Riferimenti
 
-*	[Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
-*	[Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-*	[Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) • [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -719,4 +709,11 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
 [18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=62-->

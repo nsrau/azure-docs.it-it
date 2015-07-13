@@ -16,7 +16,7 @@ I passaggi seguenti mostrano come creare un nuovo back-end WebAPI ASP.NET:
 > [AZURE.NOTE]Assicurarsi che sia installato Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) per la distribuzione del sito Web.
 
 1. Avviare Visual Studio o Visual Studio Express.
-2. In Visual Studio fare clic su **File**, su **Nuovo** e quindi su **Progetto**, espandere **Modelli**, **Visual C\#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**. 
+2. In Visual Studio fare clic su **File**, su **Nuovo** e quindi su **Progetto**, espandere **Modelli**, **Visual C#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**. 
 	
 	![][B1]
 
@@ -50,7 +50,7 @@ In questa sezione si creerà una nuova classe del gestore di messaggi denominata
 
 	Questo gestore gestirà tutte le richieste che includono un'intestazione dell'*autorizzazione*. Se la richiesta usa l'autenticazione di *base* e la stringa del nome utente corrisponde alla stringa della password, sarà autorizzata dal back-end. In caso contrario, la richiesta verrà rifiutata. Non si tratta di un vero approccio di autenticazione e autorizzazione. È un esempio molto semplice per questa esercitazione.
 
-	Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente di autenticazione di base verrà associato alla richiesta corrente in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Le informazioni utente in HttpContext verranno usate da un altro controller \(RegisterController\) per aggiungere un [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) per la richiesta di registrazione della notifica.
+	Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente di autenticazione di base verrà associato alla richiesta corrente in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Le informazioni utente in HttpContext verranno usate da un altro controller (RegisterController) per aggiungere un [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) per la richiesta di registrazione della notifica.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -101,7 +101,7 @@ In questa sezione si creerà una nuova classe del gestore di messaggi denominata
 
 	> [AZURE.NOTE]**Nota sulla sicurezza**: la classe `AuthenticationTestHandler` non fornisce un'effettiva autenticazione. Viene usata solo per imitare l'autenticazione di base e non è sicura. È necessario implementare un meccanismo di autenticazione sicuro nelle applicazioni e nei servizi di produzione.
 
-4. Aggiungere il codice seguente alla fine del metodo `Register` nella classe **App\_Start/WebApiConfig.cs** per registrare il gestore di messaggi:
+4. Aggiungere il codice seguente alla fine del metodo `Register` nella classe **App_Start/WebApiConfig.cs** per registrare il gestore di messaggi:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -130,7 +130,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
 
         using Microsoft.ServiceBus.Notifications;
 
-6. Sostituire la definizione di classe `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione \(con accesso completo\) per l'hub di notifica e con il nome dell'hub \(disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)\):
+6. Sostituire la definizione di classe `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -282,7 +282,7 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 
 3. Aggiungere il codice seguente alla classe **NotificationsController**.
 
-	Questo codice invia un tipo di notifica basato sul parametro `pns` \(Platform Notification Service\). Il valore `to_tag` viene usato per impostare il tag *username* nel messaggio. Questo tag deve corrispondere a un tag username di una registrazione dell'hub di notifica attiva. Il messaggio di notifica viene estratto dal corpo della richiesta POST.
+	Questo codice invia un tipo di notifica basato sul parametro `pns` (Platform Notification Service). Il valore `to_tag` viene usato per impostare il tag *username* nel messaggio. Questo tag deve corrispondere a un tag username di una registrazione dell'hub di notifica attiva. Il messaggio di notifica viene estratto dal corpo della richiesta POST.
 
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -304,12 +304,12 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
                     break;
                 case "apns":
                     // iOS
-                    var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
+                    var alert = "{"aps":{"alert":"" + "From " + user + ": " + message + ""}}";
                     outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                     break;
                 case "gcm":
                     // Android
-                    var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
+                    var notif = "{ "data" : {"message":"" + "From " + user + ": " + message + ""}}";
                     outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
                     break;
             }
@@ -359,4 +359,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Creare un contenitore di volumi"
-   description="Viene descritto come creare un contenitore di volumi in un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### Per creare un contenitore di volumi
 
 1. Nella pagina **Avvio rapido** del dispositivo fare clic su **Aggiungere un contenitore di volumi**. Verrà visualizzata la finestra di dialogo **Crea contenitore di volumi**.
@@ -31,4 +14,4 @@
 
   Il contenitore di volumi appena creato verrà elencato nella pagina **Contenitori di volumi**.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

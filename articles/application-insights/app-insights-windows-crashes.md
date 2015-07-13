@@ -95,5 +95,6 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

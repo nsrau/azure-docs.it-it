@@ -44,7 +44,7 @@ Se non si dispone di un'app Web esistente, è possibile crearne una dal [portale
 
 ## Pubblicazione Git
 
-Configurare la pubblicazione Git per l'app Web appena creata seguendo le istruzioni in [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md). Questa esercitazione usa Git per creare, gestire e pubblicare l'app Web Python nel servizio app di Azure.
+Configurare la pubblicazione Git per l'applicazione web appena creato seguendo le istruzioni in [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md). Questa esercitazione usa Git per creare, gestire e pubblicare l'app Web Python nel servizio app di Azure.
 
 Dopo aver configurato la pubblicazione Git, verrà creato un repository che verrà associato all'app Web. L'URL del repository verrà visualizzato e potrà pertanto essere usato per effettuare il push dei dati dall'ambiente di sviluppo locale al cloud. Per pubblicare applicazioni tramite Git, assicurarsi che sia stato installato anche il client Git e attenersi alle istruzioni fornite per eseguire il push dei contenuti dell'app Web nel servizio app di Azure.
 
@@ -371,11 +371,11 @@ Contenuto di `ptvs_virtualenv_proxy.py`:
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

@@ -29,13 +29,7 @@ Per usare il connettore Slack, è prima necessario creare un'istanza dell'app pe
 2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "Slack Connector".
 3.	Configurare il connettore Slack nel modo seguente:
  
-	![][1] 
-	- **Nome** - assegnare un nome al connettore Slack
-	- **Piano di servizio app** - selezionare o creare un piano di servizio app
-	- **Piano tariffario** - scegliere un piano tariffario per il connettore
-	- **Gruppo di risorse** - selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
-	- **Sottoscrizione** - scegliere la sottoscrizione in cui deve essere creato il connettore
-	- **Località** - scegliere la località geografica in cui si vuole distribuire il connettore
+	![][1] - **Nome** - assegnare un nome al connettore Slack - **Piano di servizio app** - selezionare o creare un piano di servizio app - **Piano tariffario** - scegliere un piano tariffario per il connettore - **Gruppo di risorse** - selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Sottoscrizione** - scegliere la sottoscrizione in cui deve essere creato il connettore - **Località** - scegliere la località geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Crea. Verrà creato un nuovo connettore Slack
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore Slack.
@@ -52,10 +46,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Slack come a
 	![][2]
 4.	È possibile trascinare l'app per le API connettore Slack nell'editor facendo clic su "Slack Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Seguire la procedura per accedere all'account Slack. Verso la fine, verrà richiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Fare clic su "Authorizify".
  
-	![][3]
-	![][4]
-	![][5]
-	![][6]
+	![][3] ![][4] ![][5] ![][6]
 	
 5.	È ora possibile usare il connettore Slack nel flusso. Attualmente nel connettore Slack non sono disponibili trigger. Le azioni disponibili sono: Pubblica messaggio
  
@@ -70,10 +61,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Slack come a
  - **Testo**: specificare il testo del messaggio da pubblicare
  - **Nome canale**: specificare il canale Slack in cui deve essere caricato il messaggio. Se non viene specificato, il messaggio verrà pubblicato nel canale #general
 
- 	**Proprietà avanzate**
- 	- **Nome utente bot**: nome del bot da usare per questo messaggio. Il messaggio verrà pubblicato come "Bot" se non si specifica questo valore.
- 	-  **URL icona**: URL relativo all'immagine da usare come icona per il messaggio
- 	- **Emoji icona**: emoji da usare come icona per il messaggio. Esegue l'override dell'URL icona
+ 	**Proprietà avanzate** - **Nome utente bot**: nome del bot da usare per questo messaggio. Il messaggio verrà pubblicato come "Bot" se non si specifica questo valore. - **URL icona**: URL relativo all'immagine da usare come icona per il messaggio - **Emoji icona**: emoji da usare come icona per il messaggio. Esegue l'override dell'URL icona
  
 
 7. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Sfoglia->App per le API->Slack Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
@@ -96,5 +84,5 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Slack come a
 <!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione delle API di Slack]: https://msdn.microsoft.com/it-it/library/dn708020.aspx
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

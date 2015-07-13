@@ -19,7 +19,7 @@
 
 # Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix
 
-Questa esercitazione illustra come utilizzare WebMatrix per sviluppare un Node nodejs.org e come distribuirla in App Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)  WebMatrix è uno strumento di sviluppo Web gratuito di Microsoft che include tutto quanto necessario per lo sviluppo di siti Web o app Web. In WebMatrix sono incluse numerose funzionalità che semplificano l'utilizzo di Node.js, ad esempio completamento del codice, modelli precompilati e supporto dell'editor per Jade, LESS e CoffeScript. Ulteriori informazioni su [WebMatrix per Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+Questa esercitazione illustra come utilizzare WebMatrix per sviluppare un Node nodejs.org e come distribuirla in App Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) WebMatrix è uno strumento di sviluppo Web gratuito di Microsoft che include tutto quanto necessario per lo sviluppo di siti Web o app Web. In WebMatrix sono incluse numerose funzionalità che semplificano l'utilizzo di Node.js, ad esempio completamento del codice, modelli precompilati e supporto dell'editor per Jade, LESS e CoffeScript. Ulteriori informazioni su [WebMatrix per Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
 Dopo avere completato questa guida, si disporrà di un sito Web Node.js in esecuzione in Azure.
  
@@ -124,5 +124,6 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -41,7 +41,7 @@ Di seguito è riportata una breve descrizione di ogni connettore per protocolli:
 <th> Nome</th>
 <th> Descrizione</th>
 <th> Trigger</th>
-<th> Actions</th>
+<th> Azioni</th>
 
 <tr>
 <td>SFTP
@@ -130,13 +130,13 @@ Il servizio app di Microsoft Azure espone diversi tipi di applicazione che posso
 
 Per usare i connettori nell'app per l'app per la *logica*, è sufficiente selezionare un connettore preconfigurato nell'elenco, aggiungerlo al flusso di lavoro di progettazione e apportare le modifiche necessarie alla configurazione.
 
-Per seguire questa procedura, è necessaria un'app Web, un'app per dispositivi mobili o un'app per la logica. Una volta che l'applicazione è disponibile, aggiungere i connettori. Ecco come:
+Per seguire questa procedura, è necessaria un'app Web, un'app mobile o un'app per la logica. Una volta che l'applicazione è disponibile, aggiungere i connettori. Ecco come:
 
 Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 
 1. Nella schermata iniziale del portale di Azure (la home page) passare a **Marketplace** e cercare la propria app per la logica, per dispositivi mobili o Web. 
 
-	Se si sta creando una nuova app, cercare un'app per la logica, un'app per dispositivi mobili o un'app Web. Selezionare l'app e nel nuovo pannello selezionare **Crea**. La procedura è descritta in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
+	Se si sta creando una nuova app, cercare un'app per la logica, un'app mobile o un'app Web. Selezionare l'app e nel nuovo pannello selezionare **Crea**. La procedura è descritta in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
 
 2. Aprire l'app e selezionare **Trigger e azioni**.
 3. Nella **Raccolta** selezionare il connettore. Verrà aggiunto all'app.
@@ -149,7 +149,7 @@ Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 I connettori usano OAuth oppure nomi utente e password.
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web nel servizio app di Azure](../app-service-web/app-service-web-overview.md) |
 
 
 ## Altri connettori

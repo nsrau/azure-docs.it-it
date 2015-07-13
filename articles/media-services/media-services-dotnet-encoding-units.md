@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,9 +21,9 @@
 
 #Come scalare la codifica con .NET SDK
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
   
-##Informazioni generali
+##Panoramica
 
 Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità di elaborazione dei processi di codifica. È possibile scegliere uno dei seguenti tipi di unità riservata: Basic, Standard o Premium. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata Standard rispetto a quando si usa il tipo Basic. Per altre informazioni, vedere il blog sui tipi di unità riservata di codifica scritto da [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
@@ -43,22 +43,31 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 
 ##Apertura di un ticket di supporto
 
-Per impostazione predefinita, per ogni account di Servizi multimediali è possibile aumentare fino a 25 le unità riservate di codifica e fino a 5 le unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
+Per impostazione predefinita, ogni account di Media Services può includere fino a 25 unità di codifica riservate e cinque unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
 
-Per aprire un ticket di supporto, seguire questa procedura: 
+###Aprire un ticket di supporto
 
-1. Accedere all'account Azure nel [portale di gestione](http://manage.windowsazure.com).
-2. Passare a [Supporto](http://www.windowsazure.com/support/contact/).
-3. Fare clic su "Ottieni supporto".
-4. Selezionare la propria sottoscrizione.
-5. Per il tipo di supporto, selezionare "Tecnico".
-6. Fare clic su "Crea ticket".
-7. Selezionare "Servizi multimediali di Azure" dall'elenco dei prodotti visualizzato nella pagina successiva.
-8. Selezionare "Elaborazione multimediale" come tipo di problema, quindi selezionare "Unità riservate" come categoria.
-9. Fare clic su Continua.
-10. Seguire le istruzioni nella pagina successiva, quindi immettere i dettagli sul numero di unità riservate di codifica o di streaming on demand necessarie.
-11. Fare clic su Invia per aprire il ticket.
+Per aprire un ticket di supporto, seguire questa procedura:
 
+1. Fare clic su [Ottieni supporto](https://manage.windowsazure.com/?getsupport=true). Se non si è ancora connessi, verrà richiesto di immettere le credenziali.
 
+1. Selezionare la propria sottoscrizione.
+ 
+1. Come tipo di supporto, selezionare "Tecnico".
+ 
+1. Fare clic su "Crea ticket".
+ 
+1. Selezionare "Servizi multimediali di Azure" dall'elenco dei prodotti visualizzato nella pagina successiva.
+ 
+1. Selezionare un tipo di problema appropriato per la situazione specifica.
+ 
+1. Fare clic su Continua.
+ 
+1. Seguire le istruzioni nella pagina successiva e quindi immettere i dettagli relativi al problema.
+ 
+1. Fare clic su Invia per aprire il ticket.
+ 
 
-<!--HONumber=52--> 
+ 
+
+<!---HONumber=62-->

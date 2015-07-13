@@ -145,8 +145,9 @@ Adal.js consente di incorporare facilmente nell'applicazione tutte queste funzio
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip). Ora è possibile passare ad altri scenari. È possibile:
 
-[Chiamare un'API Web CORS da un'applicazione a singola pagina >](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
+[Chiamare un'API Web CORS da un'applicazione a singola pagina >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >](https://github.com/AzureAdSamples), [CloudIdentity.com >](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un'app Web .NET MVC nel servizio app di Azure con l'autenticazione ADFS" 
-	description="Informazioni su come creare un'applicazione line-of-business ASP.NET MVC in App Web del servizio app di Azure che esegue l'autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato ADFS come destinazione del servizio token di sicurezza locale." 
+	pageTitle="Creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione ADFS" 
+	description="Informazioni su come creare un'applicazione line-of-business ASP.NET MVC nelle app Web di Servizio app di Azure che esegue l'autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato ADFS come destinazione del servizio token di sicurezza locale." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -16,27 +16,27 @@
 	ms.date="04/09/2015" 
 	ms.author="cephalin"/>
 
-# Creare un'app Web .NET MVC nel servizio app di Azure con l'autenticazione ADFS
+# Creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione ADFS
 
-In questo articolo si apprenderà come creare un'applicazione line-of-business ASP.NET MVC in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando una distribuzione locale di [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) come provider di identità. Questo scenario è applicabile nei casi in cui si desidera creare applicazioni line-of-business in App Web del servizio app di Azure mentre l'organizzazione richiede che tutti i dati vengano archiviati localmente.
+In questo articolo si apprenderà come creare un'applicazione line-of-business ASP.NET MVC in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando una distribuzione locale di [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) come provider di identità. Questo scenario è applicabile nei casi in cui si desidera creare applicazioni line-of-business in app Web di Servizio app di Azure mentre l'organizzazione richiede che tutti i dati vengano archiviati localmente.
 
 >[AZURE.NOTE]Per informazioni generali sulle diverse opzioni di autenticazione e autorizzazione aziendali per App Web del servizio app di Azure, vedere la pagina relativa all'[uso di Active Directory per l'autenticazione nel servizio app di Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Obiettivo di compilazione ##
 
-Si creerà un'applicazione ASP.NET di base in App Web del servizio app di Azure con le funzionalità seguenti:
+Si creerà un'applicazione ASP.NET di base nelle app Web di Servizio app di Azure con le seguenti funzionalità:
 
 - Autenticazione degli utenti in ADFS
 - Uso di `[Authorize]` per autorizzare gli utenti per diverse azioni
-- Configurazione statica per il debug in Visual Studio e pubblicazione in App Web del servizio app di Azure (creazione della configurazione una sola volta, esecuzione del debug e pubblicazione in qualsiasi momento)  
+- Configurazione statica per il debug in Visual Studio e pubblicazione nelle app Web di Servizio app di Azure (creazione della configurazione una sola volta, esecuzione del debug e pubblicazione in qualsiasi momento)  
 
 <a name="bkmk_need"></a>
 ## Prerequisiti ##
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per completare questa esercitazione sarà necessario quanto segue:
 
@@ -111,9 +111,9 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 È tutto. Ora l'applicazione di esempio è pronta per l'uso con ADFS. Più avanti, sarà anche necessario configurare un'attendibilità della relying party con l'applicazione in ADFS.
 
 <a name="bkmk_deploy"></a>
-## Distribuire l'applicazione di esempio in App Web del servizio app di Azure
+## Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
 
-In questo scenario si pubblicherà l'applicazione in un'app Web in App Web del servizio app di Azure mantenendo l'ambiente di debug. Si noti che si pubblicherà l'applicazione prima che questa disponga di un'attendibilità della relying party con ADFS, pertanto l'autenticazione non sarà ancora funzionante. Se tuttavia si procede con questa operazione adesso, si otterrà l'URL dell'app Web da usare anche per la successiva configurazione dell'attendibilità della relying party.
+In questo scenario si pubblicherà l'applicazione in un'app Web nelle app Web di Servizio app di Azure mantenendo l'ambiente di debug. Si noti che si pubblicherà l'applicazione prima che questa disponga di un'attendibilità della relying party con ADFS, pertanto l'autenticazione non sarà ancora funzionante. Se tuttavia si procede con questa operazione adesso, si otterrà l'URL dell'app Web da usare anche per la successiva configurazione dell'attendibilità della relying party.
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -126,7 +126,7 @@ In questo scenario si pubblicherà l'applicazione in un'app Web in App Web del s
 
 	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 
-6. Fare clic su **Crea**. Dopo la creazione dell'app Web, verrà aperta la finestra di dialogo Pubblica sito Web.
+6. Fare clic su **Create**. Dopo la creazione dell'app Web, verrà aperta la finestra di dialogo Pubblica sito Web.
 7. In **URL di destinazione** sostituire **http** con **https**. Copiare l'intero URL in un editor di testo. Verrà usato successivamente. Fare quindi clic su **Pubblica**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
@@ -163,7 +163,7 @@ Se si desidera collegare l'app Web pubblicata di Azure al debugger (ad esempio s
 
 	> [AZURE.NOTE]Poiché dovrebbe essere già in uso HTTPS, i token crittografati sono facoltativi. Se si vogliono comunque crittografare i token di ADFS in questa pagina, è anche necessario aggiungere della logica di decrittografia di token nel codice. Per altre informazioni, vedere il post sulla [configurazione manuale di middleware WS-Federation OWIN e sull'accettazione di token crittografati](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
-5.	Prima di passare al prossimo passaggio, è necessario ottenere delle informazioni dal progetto di Visual Studio. Nelle proprietà del progetto, prendere nota dell'**URL SSL** dell'applicazione.
+5.	Prima di passare al prossimo passaggio, è necessario ottenere delle informazioni dal progetto di Visual Studio. Nelle proprietà del progetto prendere nota dell'**URL SSL** dell'applicazione.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
@@ -249,7 +249,7 @@ Finora, sono stati raggiunti gli obiettivi seguenti:
 - ADFS ha correttamente autenticato un utente AD e ha reindirizzato l'utente alla home page dell'applicazione
 - ADFS ha correttamente inviato l'attestazione basata su nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) all'applicazione, come indicato dal fatto che il nome utente viene visualizzato in alto a destra. 
 
-In caso di assenza dell'attestazione basata su nome, verrebbe visualizzato solo **Hello, !**. Se si esamina il file Views\Shared\_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
+In caso di assenza dell'attestazione basata su nome, verrebbe visualizzato solo **Hello, !**. Se si esamina il file Views\Shared_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -318,7 +318,7 @@ public ActionResult Contact()
 
 	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
-7. Pubblicare nuovamente l'applicazione in App Web del servizio app di Azure, quindi testare il comportamento dell'applicazione attiva.
+7. Pubblicare nuovamente l'applicazione nelle app Web di Servizio app di Azure, quindi testare il comportamento dell'applicazione attiva.
 
 <a name="bkmk_data"></a>
 ## Connettersi ai dati locali

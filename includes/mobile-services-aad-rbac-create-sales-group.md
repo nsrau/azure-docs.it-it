@@ -36,4 +36,5 @@ In questa sezione, vengono aggiunti alla directory due nuovi utenti, oltre al nu
 4. Tornare alla pagina di configurazione del servizio mobile e aggiungere l'ID oggetto come impostazione di app denominata **AAD_SALES_GROUP_ID**. Questa esercitazione usa l'ID oggetto del gruppo come impostazione dell'app anziché cercare l'ID in base al nome del gruppo. Questo perché il nome del gruppo può cambiare mentre l'ID resta invariato.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
-<!--HONumber=54-->
+
+<!---HONumber=62-->

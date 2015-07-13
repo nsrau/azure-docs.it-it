@@ -28,5 +28,4 @@ Per impostazione predefinita, tutte le richieste alle risorse dell'app mobile de
 
 6. Ripubblicare il progetto dell'app mobile.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -1,4 +1,4 @@
-﻿
+
 1. Aprire il file del progetto mainpage.xaml.cs e aggiungere l'istruzione using seguente:
 
         using Windows.UI.Popups;
@@ -29,7 +29,7 @@
             }
         }
 
-    Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il valore del provider.
+    Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il nome del provider.
 
 3. Sostituire l'override del metodo **OnNavigatedTo** esistente con il seguente metodo che chiama il nuovo metodo **Authenticate**:
 
@@ -39,9 +39,8 @@
             RefreshTodoItems();
         }
 		
-4. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
+4. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato.
 
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

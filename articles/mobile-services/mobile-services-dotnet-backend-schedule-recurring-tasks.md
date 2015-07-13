@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Pianificare i processi ricorrenti in Servizi mobili 
@@ -29,16 +28,9 @@ Questo argomento illustra come usare la funzionalità di pianificazione processi
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
 + Elaborazione o ridimensionamento delle immagini archiviate.
 
-Questa esercitazione descrive le procedure per usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
+Questa esercitazione descrive come usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
 
-1. [Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]
-2. [Scaricare e installare la libreria LINQ to Twitter]
-3. [Creare la nuova tabella Updates]
-4. [Creare un nuovo processo pianificato]
-5. [Testare a livello locale il processo pianificato]
-6. [Pubblicare il servizio e registrare il processo]
-
->[AZURE.NOTE]Questa esercitazione usa la libreria LINQ to Twitter di terze parti per semplificare l'accesso OAuth 2.0 alle API di Twitter 1.1 . Per completare questa esercitazione è necessario scaricare e installare il pacchetto NuGet della libreria LINQ to Twitter. Per altre informazioni vedere il [progetto CodePlex di LINQ to Twitter].
+>[AZURE.NOTE]In questa esercitazione viene usata la libreria LINQ to Twitter di terze parti per semplificare l'accesso OAuth 2.0 alle API di Twitter v1.1 . Per completare questa esercitazione è necessario scaricare e installare il pacchetto NuGet della libreria LINQ to Twitter. Per altre informazioni vedere il [progetto CodePlex di LINQ to Twitter].
 
 ##<a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter 1.1 e l'archiviazione delle credenziali
 
@@ -258,7 +250,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 
 2. Fare clic sulla scheda **Utilità di pianificazione** e quindi su **+Crea**.
 
-    >[AZURE.NOTE]Quando si esegue il servizio mobile nella modalità <em>Gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
+    >[AZURE.NOTE]Quando si esegue il servizio mobile nella modalità <em>gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
 
 3. Nella finestra di dialogo dell'utilità di pianificazione immettere _Sample_ per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta.
    
@@ -283,12 +275,12 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 In questa esercitazione è stato creato un nuovo processo pianificato nel servizio mobile. Il processo verrà eseguito come pianificato fino a quando non verrà disabilitato o modificato.
 
 <!-- Anchors. -->
-[Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]: #get-oauth-credentials
-[Scaricare e installare la libreria LINQ to Twitter]: #install-linq2twitter
-[Creare la nuova tabella Updates]: #create-table
-[Creare un nuovo processo pianificato]: #add-job
-[Testare a livello locale il processo pianificato]: #run-job-locally
-[Pubblicare il servizio e registrare il processo]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

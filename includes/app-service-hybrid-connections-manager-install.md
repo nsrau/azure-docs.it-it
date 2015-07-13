@@ -1,11 +1,11 @@
 
 1. Nel pannello **Connessioni ibride** scegliere la connessione ibrida appena creata, quindi fare clic su **Installazione listener**.
 	
-	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+	![Fare clic su Installazione listener](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. Verrà visualizzato il pannello **Proprietà connessioni ibride**. In **Gestione connessione ibrida locale** scegliere **scarica e configura manualmente**, salvare il pacchetto HybridConnectionManager.msi e quindi copiare la stringa di connessione del gateway.
+4. Viene visualizzato il pannello **Proprietà connessioni ibride**. In **Gestione connessione ibrida locale** scegliere **scarica e configura manualmente**, salvare il pacchetto HybridConnectionManager.msi e quindi copiare la stringa di connessione del gateway.
 	
-	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+	![Fare clic qui per eseguire l'installazione](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
 5. Da un prompt dei comandi di amministratore, digitare il comando seguente per avviare il programma di installazione:
 
@@ -19,10 +19,10 @@
 	
 8. Al termine dell'installazione fare clic su **Chiudi**.
 	
-	![Clic su Chiudi](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+	![Fare clic su Chiudi](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
 	
 	Nel pannello **Connessioni ibride** la colonna **Stato** ora visualizza **Connesso**.
 	
-	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+	![Stato connesso](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
 <!---HONumber=62-->

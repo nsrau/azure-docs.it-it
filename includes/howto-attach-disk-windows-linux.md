@@ -21,7 +21,7 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 
 	- In **Nome file** accettare il nome predefinito o digitarne un altro per il file con estensione vhd, che viene usato per il disco. Il disco dati usa un nome generato automaticamente, anche se si digita un altro nome per il file con estensione vhd.
 
-	- Digitare in **Dimensioni \(GB\)** le dimensioni del disco dati.
+	- Digitare in **Dimensioni (GB)** le dimensioni del disco dati.
 
 	- Fare clic sul segno di spunta per terminare.
 
@@ -57,4 +57,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 
 > [AZURE.NOTE]Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

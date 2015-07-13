@@ -207,7 +207,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -332,7 +332,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
 
 ### Passaggio 3: Distribuire l'applicazione
 1.	Fare clic con il pulsante destro del mouse sul progetto **WadExampleVM** in **Esplora soluzioni** e scegliere **Apri cartella in Esplora file**.
-2.	Passare alla cartella *bin\\Debug* e copiare tutti i file (WadExampleVM.*).
+2.	Passare alla cartella *bin\Debug* e copiare tutti i file (WadExampleVM.*).
 3.	In **Esplora server** fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Connessione tramite desktop remoto**.
 4.	Una volta connessi alla macchina virtuale, creare una cartella denominata WadExampleVM e incollare i file dell'applicazione nella cartella.
 5.	Avviare l'applicazione WadExampleVM.exe. Verrà visualizzata una finestra della console vuota.
@@ -351,7 +351,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@ Il file di configurazione di Diagnostica definisce i valori usati per inizializz
 ### Mancato avvio di Diagnostica Azure
 La diagnostica è costituita da due componenti: un plug-in agente guest e l'agente di monitoraggio. I file di log del plug-in dell'agente guest si trovano nel file seguente:
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\CommandExecution.log
 
 Il plug-in restituisce i seguenti codici di errore:
 
@@ -535,7 +535,7 @@ Di seguito sono riportate alcune domande frequenti e le relative risposte:
 
 **D.** Se l'estensione Diagnostica 1.1 è già installata nel ruolo o nella macchina virtuale, come si esegue l'aggiornamento a Diagnostica 1.2 o 1.3?
 
-**R.** Se si è specificato "–Version "1.*"" al momento dell'installazione di Diagnostica 1.1, la prossima volta che il ruolo o la macchina virtuale verrà riavviata, sarà aggiornata automaticamente alla versione più recente corrispondente all'espressione regolare  "1.*". Se si è specificato "–Version "1.1"" al momento dell'installazione di Diagnostics 1.1, è possibile aggiornare una versione più recente rieseguendo il cmdlet Set- e specificando la versione da installare.
+**R.** Se si è specificato "–Version "1.*"" al momento dell'installazione di Diagnostica 1.1, la prossima volta che il ruolo o la macchina virtuale verrà riavviata, sarà aggiornata automaticamente alla versione più recente corrispondente all'espressione regolare "1.*". Se si è specificato "–Version "1.1"" al momento dell'installazione di Diagnostics 1.1, è possibile aggiornare una versione più recente rieseguendo il cmdlet Set- e specificando la versione da installare.
 
 **D.** Come vengono denominate le tabelle?
 
@@ -764,6 +764,7 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 [Confronto tra le versioni di Diagnostica di Azure]: #comparing
 [Additional Resources]: #additional
 [classe EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+  
 [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [Debug di un'applicazione Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
 [Raccogliere dati di registrazione usando Diagnostica di Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
@@ -774,5 +775,6 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

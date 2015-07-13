@@ -18,7 +18,7 @@
 
 # Creazione e gestione di processi elastici di database
 
-I **pool elastici di database** offrono un modello prevedibile per la distribuzione di un elevato numero di database. È possibile impostare unità di velocità effettiva \(DTU, Database Throughput Unit\) per ciascun database a un costo prefissato. In questi database la gestione di oggetti comuni può essere eseguita in modo più semplice usando **processi elastici di database**. Il servizio consente di eseguire script T-SQL su tutti i database del pool in una singola operazione. Ad esempio, è possibile impostare criteri su ogni database in modo da consentire l'accesso ai dati sensibili a una sola persona in possesso delle credenziali corrette.
+I **pool elastici di database** offrono un modello prevedibile per la distribuzione di un elevato numero di database. È possibile impostare unità di velocità effettiva (DTU, Database Throughput Unit) per ciascun database a un costo prefissato. In questi database la gestione di oggetti comuni può essere eseguita in modo più semplice usando **processi elastici di database**. Il servizio consente di eseguire script T-SQL su tutti i database del pool in una singola operazione. Ad esempio, è possibile impostare criteri su ogni database in modo da consentire l'accesso ai dati sensibili a una sola persona in possesso delle credenziali corrette.
 
 ## Prerequisiti
 
@@ -29,7 +29,7 @@ I **pool elastici di database** offrono un modello prevedibile per la distribuzi
 ## Creazione di processi
 
 1. Nel pannello del pool di processi elastici di database fare clic su **Crea processo**.
-2. Digitare il nome utente e la password dell'amministratore del database \(creati in fase di installazione\) per il database di controllo dei processi \(archivio dei metadati relativi ai processi\).
+2. Digitare il nome utente e la password dell'amministratore del database (creati in fase di installazione) per il database di controllo dei processi (archivio dei metadati relativi ai processi).
 
 	![Denominare il processo, digitare o incollare il nome nel codice e fare clic su Esegui][1]
 2. Nel pannello **Crea processo** digitare il nome del processo.
@@ -41,7 +41,7 @@ I **pool elastici di database** offrono un modello prevedibile per la distribuzi
 
 ## Eseguire processi idempotenti
 
-Quando si esegue uno script su un insieme di database, è necessario assicurarsi che tale script sia idempotente. In altri termini, è necessario che lo script possa essere eseguito più volte anche se in precedenza aveva avuto esito negativo e non era stato completato. Se ad esempio uno script non riesce, il processo verrà ripetuto automaticamente fino a quando non avrà esito positivo \(all'interno di limiti stabiliti, poiché la logica di ripetizione potrà eventualmente interrompere l'esecuzione di nuovi tentativi\). Il metodo per eseguire questa operazione consiste nell'uso della clausola "IF EXISTS" e nell'eliminazione di qualsiasi istanza trovata prima della creazione di un nuovo oggetto. Di seguito è riportato un esempio:
+Quando si esegue uno script su un insieme di database, è necessario assicurarsi che tale script sia idempotente. In altri termini, è necessario che lo script possa essere eseguito più volte anche se in precedenza aveva avuto esito negativo e non era stato completato. Se ad esempio uno script non riesce, il processo verrà ripetuto automaticamente fino a quando non avrà esito positivo (all'interno di limiti stabiliti, poiché la logica di ripetizione potrà eventualmente interrompere l'esecuzione di nuovi tentativi). Il metodo per eseguire questa operazione consiste nell'uso della clausola "IF EXISTS" e nell'eliminazione di qualsiasi istanza trovata prima della creazione di un nuovo oggetto. Di seguito è riportato un esempio:
 
 	IF EXISTS (SELECT name FROM sys.indexes
             WHERE name = N'IX_ProductVendor_VendorID')
@@ -87,7 +87,7 @@ Dopo aver iniziato un processo, è possibile controllarne lo stato di avanzament
 
 	![Fare clic su "Gestione processi"][2]
 
-2. Fare clic sul nome \(a\) di un processo. Lo **STATO** può essere "Completato" o "Non riuscito". I dettagli del processo vengono visualizzati \(b\) insieme alla data e all'ora di creazione ed esecuzione. L'elenco \(c\) sottostante mostra lo stato di avanzamento dello script su ogni database del pool, fornendo dettagli relativi alla data e all'ora.
+2. Fare clic sul nome (a) di un processo. Lo **STATO** può essere "Completato" o "Non riuscito". I dettagli del processo vengono visualizzati (b) insieme alla data e all'ora di creazione ed esecuzione. L'elenco (c) sottostante mostra lo stato di avanzamento dello script su ogni database del pool, fornendo dettagli relativi alla data e all'ora.
 
 	![Controllo di un processo completato][3]
 
@@ -110,4 +110,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

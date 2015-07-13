@@ -28,14 +28,14 @@ Per informazioni generali e scenari per Azure Batch, vedere [Panoramica tecnica 
 
 ##<a name="tutorial1"></a>Esercitazione 1: Libreria di Azure Batch per .NET
 
-Questa esercitazione illustrerà come creare un'applicazione console che consente di impostare il calcolo distribuito in un pool di macchine virtuali usando il servizio Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C\# e usano la libreria di Azure Batch per .NET.
+Questa esercitazione illustrerà come creare un'applicazione console che consente di impostare il calcolo distribuito in un pool di macchine virtuali usando il servizio Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C# e usano la libreria di Azure Batch per .NET.
 
 
 >[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 >
 >È necessario usare NuGet per ottenere l'assembly **Microsoft.Azure.Batch.dll**. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **Azure.Batch** e fare clic su Installa per installare il pacchetto Azure Batch e le relative dipendenze.
 >
->Assicurarsi che la versione di Gestione pacchetti NuGet sia 2.8 o successiva. È possibile trovare il numero di versione in Visual Studio -\> "?" -\> finestra di dialogo "Informazioni su Microsoft Visual Studio". Se si dispone di una versione precedente di Gestione pacchetti NuGet, è necessario aggiornare Visual Studio, altrimenti potrebbero verificarsi problemi con il download della versione corretta delle dipendenze di NuGet.
+>Assicurarsi che la versione di Gestione pacchetti NuGet sia 2.8 o successiva. È possibile trovare il numero di versione in Visual Studio -> "?" -> finestra di dialogo "Informazioni su Microsoft Visual Studio". Se si dispone di una versione precedente di Gestione pacchetti NuGet, è necessario aggiornare Visual Studio, altrimenti potrebbero verificarsi problemi con il download della versione corretta delle dipendenze di NuGet.
 >
 >Inoltre, è possibile fare riferimento all'esempio [Hello World di Azure Batch](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) su MSDN per un esempio simile al codice esaminato in questo articolo.
 
@@ -63,7 +63,7 @@ Un pool di macchine virtuali di attività è il primo set di risorse che è nece
 
 1.	Aprire Microsoft Visual Studio 2013, scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 
-2.	Da **Windows**, in **Visual C\#**, fare clic su **Applicazione console**, assegnare al progetto il nome **GettingStarted**, assegnare alla soluzione il nome **AzureBatch**, quindi fare clic su **OK**.
+2.	Da **Windows**, in **Visual C#**, fare clic su **Applicazione console**, assegnare al progetto il nome **GettingStarted**, assegnare alla soluzione il nome **AzureBatch**, quindi fare clic su **OK**.
 
 3.	Aggiungere le seguenti dichiarazioni di spazi dei nomi all'inizio del file Program.cs:
 
@@ -80,7 +80,7 @@ Un pool di macchine virtuali di attività è il primo set di risorse che è nece
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	Sostituire i valori seguenti: - **\[name-of-pool\]**: nome da usare per il pool. - **\[name-of-batch-account\]**: nome dell'account Batch. - **\[key-of-batch-account\]**: chiave fornita all'utente per l'account Batch.
+	Sostituire i valori seguenti: - **[name-of-pool]**: nome da usare per il pool. - **[name-of-batch-account]**: nome dell'account Batch. - **[key-of-batch-account]**: chiave fornita all'utente per l'account Batch.
 5.	Aggiungere al Main il codice seguente che definisce le credenziali da usare:
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -178,7 +178,7 @@ Se non si conosce il nome di un pool elemento di lavoro esistente, è possibile 
 
 		private static readonly string WorkItemName = Environment.GetEnvironmentVariable("USERNAME") + DateTime.Now.ToString("yyyyMMdd-HHmmss");
 
-2.	Quando si crea un elemento di lavoro, viene creato anche un processo. È possibile assegnare un nome all'elemento di lavoro, ma al processo viene sempre assegnato il nome **job-0000000001**. Aggiungere a Main il codice seguente \(prima del codice degli elementi di lavoro dell'elenco\) che aggiunge l'elemento di lavoro:
+2.	Quando si crea un elemento di lavoro, viene creato anche un processo. È possibile assegnare un nome all'elemento di lavoro, ma al processo viene sempre assegnato il nome **job-0000000001**. Aggiungere a Main il codice seguente (prima del codice degli elementi di lavoro dell'elenco) che aggiunge l'elemento di lavoro:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
@@ -305,7 +305,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 
 2. Caricare "ProcessTaskData.exe" nel contenitore.
 
-3. Creare tre file di testo \(taskdata1, taskdata2, taskdata3.txt\) ciascuno dei quali contenente uno dei paragrafi seguenti e caricarli nel contenitore:
+3. Creare tre file di testo (taskdata1, taskdata2, taskdata3.txt) ciascuno dei quali contenente uno dei paragrafi seguenti e caricarli nel contenitore:
 
 		You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs. From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server. Or, you can capture and use your own images to create customized virtual machines.
 
@@ -326,7 +326,7 @@ Per completare il resto di questa esercitazione è necessario un account di arch
 1.	Aggiungere le seguenti variabili alla classe Program:
 
 		private const string BlobPath = "[storage-path]";
-	Sostituire i valori seguenti: - **\[storage-path\]**: il percorso per accedere al BLOB nella risorsa di archiviazione. Ad esempio: http://yiding.blob.core.windows.net/gettingstarted/
+	Sostituire i valori seguenti: - **[storage-path]**: il percorso per accedere al BLOB nella risorsa di archiviazione. Ad esempio: http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Aggiornare il codice di invio di attività come indicato di seguito.
 
@@ -532,7 +532,7 @@ Il frammento seguente illustra come chiamare un programma denominato application
 
 La classe ExternalProcess nell'SDK cloud fornisce la logia di helper per eseguire gli eseguibili dell'applicazione. ExternalProcess può gestire l'annullamento, la conversione dei codici di uscita in eccezioni, l'acquisizione di standard e la configurazione delle variabili di ambiente. Se lo si preferisce, è anche possibile usare direttamente la classe Process .NET per eseguire i programmi.
 
-Il metodo RunExternalTaskProcess restituisce un TaskProcessResult, che include un elenco di file di output. È necessario includere almeno tutti i file necessari per l'unione; facoltativamente, è anche possibile restituire i file di log, i file di anteprima e i file intermedi \(ad esempio, per scopi diagnostici in caso di errore dell'attività\). Si noti che il metodo restituisce i percorsi, non il contenuto dei file.
+Il metodo RunExternalTaskProcess restituisce un TaskProcessResult, che include un elenco di file di output. È necessario includere almeno tutti i file necessari per l'unione; facoltativamente, è anche possibile restituire i file di log, i file di anteprima e i file intermedi (ad esempio, per scopi diagnostici in caso di errore dell'attività). Si noti che il metodo restituisce i percorsi, non il contenuto dei file.
 
 Ciascun file deve essere identificato con il tipo di output in esso contenuto: output, ovvero parte dell'output del processo finale, preview, log o intermediate. Questi valori provengono dall'enumerazione TaskOutputFileKind. Il frammento seguente non restituisce anteprime o log, ma solo l'output di una singola attività. Il metodo TaskProcessResult.FromExternalProcessResult semplifica lo scenario comune di acquisizione del codice di uscita, l'output del processore e i file di output da un programma della riga di comando:
 
@@ -602,4 +602,4 @@ Un processo descrive un carico di lavoro da eseguire e deve includere tutte le i
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -29,7 +29,7 @@ Prima di eseguire i passaggi di questa guida, è necessario avere un'istanza del
 
 ## <a name="configure-caching"> </a>Configurare un'operazione per la memorizzazione nella cache
 
-In questo passaggio viene vengono riviste le impostazioni di memorizzazione nella cache dell'operazione **GET su risorsa \(memorizzata nella cache\)** dell'API Echo di esempio.
+In questo passaggio viene vengono riviste le impostazioni di memorizzazione nella cache dell'operazione **GET su risorsa (memorizzata nella cache)** dell'API Echo di esempio.
 
 >[AZURE.NOTE]Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
 
@@ -41,7 +41,7 @@ Fare clic su **API** nel menu **Gestione API** sulla sinistra, quindi scegliere 
 
 ![API Echo][api-management-echo-api]
 
-Selezionare la scheda **Operazioni**, quindi fare clic sull'operazione **GET su risorsa \(memorizzata nella cache\)** nell'elenco **Operazioni**.
+Selezionare la scheda **Operazioni**, quindi fare clic sull'operazione **GET su risorsa (memorizzata nella cache)** nell'elenco **Operazioni**.
 
 ![Operazioni dell'API Echo][api-management-echo-api-operations]
 
@@ -55,15 +55,15 @@ La risposta di ogni operazione è associata a una chiave in base ai valori dei c
 
 La **durata** specifica l'intervallo di scadenza delle risposte memorizzate nella cache. In questo esempio l'intervallo è di **3600** secondi, equivalente a un'ora.
 
-Nella configurazione di esempio della memorizzazione nella cache, la prima richiesta all'operazione **GET su risorsa \(memorizzata nella cache\)** restituisce una risposta dal servizio back-end. Questa risposta viene memorizzata nella cache, associata a una chiave mediante le intestazioni e i parametri delle stringhe di query specificati. Le chiamate successive all'operazione, con i parametri corrispondenti, riceveranno la risposta memorizzata nella cache finché non scade l'intervallo di durata della cache.
+Nella configurazione di esempio della memorizzazione nella cache, la prima richiesta all'operazione **GET su risorsa (memorizzata nella cache)** restituisce una risposta dal servizio back-end. Questa risposta viene memorizzata nella cache, associata a una chiave mediante le intestazioni e i parametri delle stringhe di query specificati. Le chiamate successive all'operazione, con i parametri corrispondenti, riceveranno la risposta memorizzata nella cache finché non scade l'intervallo di durata della cache.
 
 ## <a name="caching-policies"> </a>Rivedere i criteri di memorizzazione nella cache
 
-In questo passaggio viene vengono riviste le impostazioni di memorizzazione nella cache dell'operazione **GET su risorsa** \(memorizzata nella cache\) dell'API Echo di esempio.
+In questo passaggio viene vengono riviste le impostazioni di memorizzazione nella cache dell'operazione **GET su risorsa** (memorizzata nella cache) dell'API Echo di esempio.
 
 Quando le impostazioni di memorizzazione nella cache vengono configurate per un'operazione nella scheda **Memorizzazione nella cache**, vengono aggiunti i criteri di memorizzazione nella cache per l'operazione. Questi criteri possono essere visualizzati e modificati nell'editor dei criteri.
 
-Fare clic su **Criteri** nel menu **Gestione API** sulla sinistra e selezionare **API Echo/GET su risorsa \(memorizzata nella cache\)** dall'elenco a discesa **Operazione**.
+Fare clic su **Criteri** nel menu **Gestione API** sulla sinistra e selezionare **API Echo/GET su risorsa (memorizzata nella cache)** dall'elenco a discesa **Operazione**.
 
 ![Operazione nell'ambito dei criteri][api-management-operation-dropdown]
 
@@ -102,7 +102,7 @@ Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
 >Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
-Selezionare l'operazione **GET su risorsa \(memorizzata nella cache\)** e fare clic su **Apri console**.
+Selezionare l'operazione **GET su risorsa (memorizzata nella cache)** e fare clic su **Apri console**.
 
 ![Open console][api-management-open-console]
 
@@ -161,4 +161,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

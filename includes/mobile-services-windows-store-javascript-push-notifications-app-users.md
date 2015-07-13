@@ -1,11 +1,9 @@
-﻿
+
 È quindi necessario modificare la modalità di registrazione delle notifiche push, per assicurarsi che l'utente sia autenticato prima del tentativo di registrazione. Gli aggiornamenti dell'app client dipendono dalla modalità di implementazione delle notifiche push.
 
 ###Uso della procedura guidata Aggiungi notifica push in Visual Studio 2013 Update 2 o versione successiva
 
 Con questo metodo la procedura guidata genera nuovi file push.register.js e service.js nel progetto.
-
->[AZURE.NOTE]La procedura guidata Aggiungi notifica push è attualmente supportata solo per un servizio mobile back-end .NET.
 
 1. In Esplora soluzioni di Visual Studio aprire il file di progetto push.register.js e impostare come commento o eliminare la chiamata a **addEventListener**. 
 
@@ -80,4 +78,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 		    });
 		}  
 
-<!--HONumber=42-->
+<!---HONumber=62-->

@@ -27,7 +27,7 @@
 
 Questa esercitazione mostra come creare un progetto API Web ASP.NET usando un modello di Visual Studio 2013 che configura il progetto per la distribuzione nel cloud come [app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Per informazioni su come configurare un progetto API Web per la distribuzione come un'app per le API, vedere [Configurare un progetto API Web come un'app per le API](app-service-dotnet-create-api-app-visual-studio.md).
 
-Le esercitazionI successive della serie illustrano come [distribuire](app-service-dotnet-deploy-api-app.md) ed [eseguire il debug](../app-service-dotnet-remotely-debug-api-app.md) del progetto app per le API creato in questa esercitazione.
+Le esercitazione successive della serie illustrano come [distribuire](app-service-dotnet-deploy-api-app.md) ed [eseguire il debug](../app-service-dotnet-remotely-debug-api-app.md) del progetto app per le API creato in questa esercitazione.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 

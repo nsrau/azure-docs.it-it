@@ -122,4 +122,6 @@ Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conser
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

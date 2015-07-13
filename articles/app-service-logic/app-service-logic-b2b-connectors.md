@@ -198,9 +198,10 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)<br/> [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-app-azure-portal.md)
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)<br/> [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md)
 
 
 ## Altri connettori
 [Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md)<br/> [Connettori Enterprise](app-service-logic-enterprise-connectors.md)<br/> [Connettori per social network](app-service-logic-social-connectors.md)<br/> [Connettori per protocolli](app-service-logic-protocol-connectors.md)<br/> [Connettori per i servizi app e dati](app-service-logic-data-connectors.md)<br/> [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Informazioni sui connettori e sulle app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

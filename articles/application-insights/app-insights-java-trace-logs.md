@@ -147,5 +147,6 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

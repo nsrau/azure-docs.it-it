@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso dell'analisi con Application Insights" 
-	description="Panoramica dell'analisi dell'uso con Application Insights" 
-	services="application-insights" 
+<properties
+	pageTitle="Uso dell'analisi con Application Insights"
+	description="Panoramica dell'analisi dell'uso con Application Insights"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="kamrani"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/03/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/03/2015"
 	ms.author="awills"/>
- 
+
 # Uso dell'analisi con Application Insights
 
 La conoscenza della modalità d'uso dell'applicazione consente di concentrare l'attenzione sugli scenari più importanti e ottenere informazioni sugli obiettivi più facili o più difficili da raggiungere per gli utenti.
@@ -22,11 +22,11 @@ La conoscenza della modalità d'uso dell'applicazione consente di concentrare l'
 Application Insights può offrire una visione chiara dell'uso dell'applicazione, consentendo di migliorare l'esperienza degli utenti e soddisfare gli obiettivi aziendali.
 
 ## Analisi predefinita
- 
+
 Aggiungere [Application Insights][start] al progetto e senza altri sforzi vengono generati grafici che mostrano il numero di utenti disponibili e altro ancora.
 
 ![In Azure scegliere Sfoglia > Application Insights > il nome del progetto e scorrere verso il basso](./media/app-insights-overview-usage/01-overview.png)
- 
+
 Passare il mouse nella parte vuota su un grafico per visualizzare i conteggi in un momento specifico. In caso contrario, i numeri indicano il valore aggregato, ad esempio una media, un totale o un numero di utenti definito durante il periodo.
 
 Nelle applicazioni Web gli utenti vengono conteggiati usando i cookie. Una persona che usa diversi browser, cancella i cookie o usa la funzionalità di privacy verrà conteggiata più volte.
@@ -36,7 +36,7 @@ Una sessione Web viene conteggiata dopo 30 minuti di inattività. Una sessione s
 Fare clic su qualsiasi grafico per visualizzare altri dettagli. ad esempio:
 
 ![Nel pannello Panoramica fare clic sul grafico Sessioni](./media/app-insights-overview-usage/02-sessions.png)
- 
+
 Questo esempio è tratto da un sito Web, ma i grafici sono simili per le app in esecuzione sui dispositivi.
 
 Confrontare con la settimana precedente per verificare se vi sono cambiamenti:
@@ -51,14 +51,14 @@ Raggruppare (segmentare) i dati in base a una proprietà come browser, sistema o
 
 ![Selezionare un grafico che mostra una sola metrica, passare su Raggruppamento e scegliere una proprietà](./media/app-insights-overview-usage/03-browsers.png)
 
- 
+
 ## Uso delle pagine
 
 Fare clic sul grafico di visualizzazioni pagina per ottenere una versione con dimensioni ingrandite insieme a una suddivisione delle pagine più diffuse:
 
 
 ![Nel pannello Panoramica fare clic sul grafico delle visualizzazioni Pagina](./media/app-insights-overview-usage/05-games.png)
- 
+
 L'esempio precedente è tratto da un sito Web di giochi. Da quest'ultimo è immediatamente evidente quanto segue:
 
 * L'uso non è stato migliorato nell'ultima settimana. Forse è opportuno definire l'ottimizzazione del motore di ricerca.
@@ -83,7 +83,7 @@ Tuttavia, si vuole comunque che Application Insights registri il numero di volte
 
 (C#)
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
+    var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("GameEnd");
 
 (VB)
@@ -112,29 +112,29 @@ Gli eventi personalizzati ricevuti dall'app sono elencati per nome nel pannello 
 
 
 ![Nel pannello Panoramica fare clic su uno dei tipi di evento personalizzato.](./media/app-insights-overview-usage/07-clickEvent.png)
- 
+
 Fare clic nell'evento di interesse e quindi selezionare un'occorrenza specifica recente:
 
 
 ![Nell'elenco sotto il grafico di riepilogo, fare clic su un evento](./media/app-insights-overview-usage/08-searchEvents.png)
- 
+
 Verranno ora esaminati i dati di telemetria relativi alla sessione in cui si è verificato l'evento NoGame specifico.
 
 
 ![Fare clic su 'tutti i dati di telemetria per sessione'](./media/app-insights-overview-usage/09-relatedTelemetry.png)
- 
+
 Non si sono verificate eccezioni, per cui non sono stati eventuali errori a impedire all'utente di giocare.
- 
+
 È possibile filtrare tutti i tipi di dati di telemetria, ad eccezione delle visualizzazioni pagina per la sessione corrente:
 
 
 ![](./media/app-insights-overview-usage/10-filter.png)
- 
+
 A questo punto è possibile vedere che questo utente esegue l'accesso semplicemente per controllare i punteggi più recenti. Forse si deve valutare l'opportunità di sviluppare la storia di un utente per facilitare la comprensione. Si deve implementare un evento personalizzato per segnalare quando si verifica questa storia specifica.
 
 ## Filtrare, cercare e segmentare i dati con le proprietà
 È possibile allegare tag arbitrari e valori numerici agli eventi.
- 
+
 
 JavaScript nel client
 
@@ -148,7 +148,7 @@ JavaScript nel client
 C# nel server
 
     // Set up some properties:
-    var properties = new Dictionary <string, string> 
+    var properties = new Dictionary <string, string>
         {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
     var measurements = new Dictionary <string, double>
         {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
@@ -174,15 +174,15 @@ Allegare le proprietà alle visualizzazioni pagine nello stesso modo:
 
 JavaScript nel client
 
-    appInsights.trackPageView("Win", 
-        {Game: currentGame.Name}, 
+    appInsights.trackPageView("Win",
+        {Game: currentGame.Name},
         {Score: currentGame.Score});
 
 Nella Ricerca diagnostica è possibile visualizzare le proprietà facendo clic su una singola occorrenza di un evento.
 
 
 ![Nell'elenco di eventi aprire un evento e quindi fare clic su '...' per visualizzare ulteriori proprietà](./media/app-insights-overview-usage/11-details.png)
- 
+
 Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore della proprietà particolare.
 
 
@@ -243,18 +243,20 @@ Nell'inizializzatore di app, ad esempio Global.asax.cs, procedere come segue:
 Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, non solo un'attività da prendere in considerazione per la risoluzione dei problemi. Di seguito sono riportati alcuni suggerimenti:
 
 * Determinare la metrica chiave dell'applicazione. Si vogliono prendere in considerazione tutti gli utenti possibili o è preferibile un piccolo gruppo di utenti molto soddisfatti? Si vogliono ottimizzare le visite o le vendite?
-* Pianificare la misurazione di ogni storia. Quando si rappresenta una nuova storia o funzionalità utente oppure si pianifica di aggiornarne una esistente, pensare sempre a come si misurerà la riuscita della modifica. Prima di avviare il codice, chiedersi quale effetto avrà sulle metriche, se funziona e se si dovrà tenere traccia dei nuovi eventi. Naturalmente, quando la funzionalità è disponibile, assicurarsi di esaminare l'analisi e agire sui risultati. 
+* Pianificare la misurazione di ogni storia. Quando si rappresenta una nuova storia o funzionalità utente oppure si pianifica di aggiornarne una esistente, pensare sempre a come si misurerà la riuscita della modifica. Prima di avviare il codice, chiedersi quale effetto avrà sulle metriche, se funziona e se si dovrà tenere traccia dei nuovi eventi. Naturalmente, quando la funzionalità è disponibile, assicurarsi di esaminare l'analisi e agire sui risultati.
 * Correlare altre metriche alla metrica chiave. Ad esempio, se si aggiunge una funzionalità 'Preferiti', si vuole sapere con quale frequenza gli utenti aggiungono i preferiti. Tuttavia, forse è più interessante sapere con quale frequenza tornano a consultare i preferiti. E, ancora più importante, i clienti, che usano i preferiti, in definitiva fanno più acquisti relativi al prodotto?
 * Test Canary. Impostare uno switch di funzionalità che consenta di visualizzare una nuova funzionalità solo ad alcuni utenti. Usare Application Insights per verificare se la nuova funzionalità viene usata nel modo previsto. Apportare modifiche, quindi rilasciarla per un pubblico più ampio.
 * Comunicare con gli utenti L'analisi non è sufficiente da sola, ma è complementare per mantenere una buona relazione con i clienti.
 
 
+## Video
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
 
 [start]: app-insights-get-started.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

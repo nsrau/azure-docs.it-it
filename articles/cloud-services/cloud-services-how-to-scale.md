@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -32,11 +32,11 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
 - La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo o le macchine virtuali più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità usate per scalare un'applicazione devono avere le stesse dimensioni. Per altre informazioni sull'utilizzo di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
-- È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come utilizzare il servizio di archiviazione di accodamento](http://www.windowsazure.com/develop/net/how-to-guides/queue-service).
+- È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come utilizzare il servizio di archiviazione di accodamento](../storage-dotnet-how-to-use-queues.md).
 
-- È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](http://www.windowsazure.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
+- È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo o macchine virtuali. Per altre informazioni, vedere [Contratti di servizio](https://www.windowsazure.com/support/legal/sla/).
+- Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo o macchine virtuali. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
 
 
 ## Scalare manualmente un'applicazione che esegue ruoli Web o ruoli di lavoro
@@ -47,22 +47,21 @@ Nella pagina Scale è possibile aumentare o diminuire manualmente il numero dell
 
 2. Fare clic su **Scale**. La scalabilità automatica è disattivata per impostazione predefinita per tutti i ruoli, ovvero è possibile modificare manualmente il numero di istanze usate dall'applicazione.
 
-  ![Pagina Scale][manual_scale]
+    ![Pagina Scale][manual_scale]
 
 3. In ogni ruolo nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze da usare. Per aggiungere un'istanza del ruolo, trascinare la barra verso destra. Per rimuovere un'istanza, trascinare la barra verso sinistra.
-
-  ![Scalabilità del ruolo][slider_role]
-
-
-  È possibile aumentare il numero di istanze usate solo se è disponibile il numero di core appropriato per supportare le istanze. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
-
-  - Il blu rappresenta i core usati dal ruolo selezionato
-
-  - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione
-
-  - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità
-
-  - Il rosa rappresenta una modifica apportata che non è stata salvata
+    
+    ![Scalabilità del ruolo][slider_role]
+    
+    È possibile aumentare il numero di istanze usate solo se è disponibile il numero di core appropriato per supportare le istanze. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    
+    - Il blu rappresenta i core usati dal ruolo selezionato
+    
+    - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione
+    
+    - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità
+    
+    - Il rosa rappresenta una modifica apportata che non è stata salvata
 
 4. Fare clic su **Save**. Verranno aggiunte o rimosse istanze del ruolo in base alle selezioni effettuate.
 
@@ -81,47 +80,47 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 3. Scorrere fino alla sezione relativa al ruolo o al set di disponibilità, quindi fare clic su **CPU**. In questo modo viene abilitata la scalabilità automatica dell'applicazione in base alla percentuale media di utilizzo delle risorse di CPU.
 
-  ![Scalabilità automatica attivata][autoscale_on]
+    ![Scalabilità automatica attivata][autoscale_on]
 
 4. Per ogni ruolo o set di disponibilità è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere usate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
-
-  **Nota**: il valore **Istanza** nella pagina Ridimensiona rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
-
-  ![Intervallo istanza][instance_range]
-
-  Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
-
-  - Il blu rappresenta il numero massimo di core che il ruolo può usare.
-
-  - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro.
-
-  - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità.
-
-  - Il rosa rappresenta una modifica apportata che non è stata salvata.
+    
+    **Nota**: il valore **Istanza** nella pagina Ridimensiona rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
+    
+    ![Intervallo istanza][instance_range]
+    
+    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    
+    - Il blu rappresenta il numero massimo di core che il ruolo può usare.
+    
+    - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro.
+    
+    - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità.
+    
+    - Il rosa rappresenta una modifica apportata che non è stata salvata.
 
 5. Tramite un dispositivo di scorrimento è possibile specificare l'intervallo della percentuale media di utilizzo della CPU. Quando la percentuale media di utilizzo della CPU supera l'impostazione massima, vengono create più istanze del ruolo o vengono attivate più macchine virtuali. Quando la percentuale media di utilizzo della CPU scende al di sotto dell'impostazione minima, vengono eliminate istanze del ruolo o vengono disattivate macchine virtuali. Per impostare il valore massimo di percentuale media di utilizzo della CPU, trascinare verso destra la barra di destra. Per impostare il valore minimo di percentuale media di utilizzo della CPU, trascinare verso sinistra la barra di sinistra.
 
-  ![CPU di destinazione][target_cpu]
+    ![CPU di destinazione][target_cpu]
 
 6. È possibile specificare il numero di istanze da aggiungere o attivare ogni volta che viene aumentato il numero di istanze dell'applicazione. Per aumentare il numero di istanze create o attivate quando viene aumentato il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
-  ![Aumento del numero di istanze basato su CPU][scale_cpuup]
+    ![Aumento del numero di istanze basato su CPU][scale_cpuup]
 
 7. Impostare il numero di minuti di attesa tra l'ultima azione di ridimensionamento e la successiva azione di aumento del numero di istanze. L'ultima azione di ridimensionamento può essere un aumento o una riduzione del numero di istanze.
 
-  ![Tempo di attività][scale_uptime]
+    ![Tempo di attività][scale_uptime]
 
-  Nel calcolo della percentuale media di utilizzo della CPU vengono incluse tutte le istanze e la media si basa sull'uso nell'ora precedente. A seconda del numero di istanze usate dall'applicazione, l'azione di ridimensionamento può richiedere più tempo rispetto al tempo di attesa specificato, se quest'ultimo è impostato su un valore molto basso. Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
+    Nel calcolo della percentuale media di utilizzo della CPU vengono incluse tutte le istanze e la media si basa sull'uso nell'ora precedente. A seconda del numero di istanze usate dall'applicazione, l'azione di ridimensionamento può richiedere più tempo rispetto al tempo di attesa specificato, se quest'ultimo è impostato su un valore molto basso. Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
 
 8. È inoltre possibile specificare il numero di istanze da eliminare o disattivare ogni volta che viene ridotto il numero di istanze dell'applicazione. Per aumentare il numero di istanze eliminate o disattivate quando viene ridotto il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
-	![Riduzione del numero di istanze basato su CPU][scale_cpudown]
-
-	Se l'applicazione può presentare improvvisi incrementi di utilizzo della CPU, assicurarsi di disporre di un numero minimo di istanze sufficiente per gestirli.
+    ![Riduzione del numero di istanze basato su CPU][scale_cpudown]
+    
+    Se l'applicazione può presentare improvvisi incrementi di utilizzo della CPU, assicurarsi di disporre di un numero minimo di istanze sufficiente per gestirli.
 
 9. Impostare il numero di minuti di attesa tra l'ultima azione di ridimensionamento e la successiva azione di riduzione del numero di istanze. L'ultima azione di ridimensionamento può essere un aumento o una riduzione del numero di istanze.
 
-	![Tempo di inattività][scale_downtime]
+    ![Tempo di inattività][scale_downtime]
 
 10. Fare clic su **Save**. Per completare l'azione di ridimensionamento possono essere necessari fino a cinque minuti.
 
@@ -131,45 +130,45 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 2. Fare clic su **Scale**.
 3. Scorrere fino alla sezione relativa al ruolo o al set di disponibilità, quindi fare clic su **Queue**. In questo modo viene abilitata la scalabilità automatica dell'applicazione in base a un determinato numero di messaggi in coda.
 
-	![Scalabilità coda][scale_queue]
+    ![Scalabilità coda][scale_queue]
 
 4. Per ogni ruolo o set di disponibilità nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere usate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
 
-	![Intervallo coda][queue_range]
-
-	**Nota**: il valore **Istanza** nella pagina Ridimensiona rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
-	
-	Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione.  I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione: - Il blu rappresenta il numero massimo di core che il ruolo può usare. - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro. - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità. - Il rosa rappresenta una modifica apportata che non è stata salvata.
+    ![Intervallo coda][queue_range]
+    
+    **Nota**: il valore **Istanza** nella pagina Ridimensiona rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
+    
+    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione: - Il blu rappresenta il numero massimo di core che il ruolo può usare. - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro. - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità. - Il rosa rappresenta una modifica apportata che non è stata salvata.
 
 5. Selezionare l'account di archiviazione associato alla coda che si desidera usare.
 
-	![Nome della risorsa di archiviazione][storage_name]
+    ![Nome della risorsa di archiviazione][storage_name]
 
 6. Selezionare la coda.
 
-	![Nome della coda][queue_name]
+    ![Nome della coda][queue_name]
 
 7. Specificare il numero di messaggi che si prevede che ogni istanza supporterà. Le istanze verranno scalate in base al numero totale di messaggi diviso per il numero di messaggi definito per ogni macchina.
 
-	![Numero di messaggi][message_number]
+    ![Numero di messaggi][message_number]
 
 8. È possibile specificare il numero di istanze da aggiungere o attivare ogni volta che viene aumentato il numero di istanze dell'applicazione. Per aumentare il numero di istanze aggiunte o attivate quando viene aumentato il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
-	![Aumento del numero di istanze basato su CPU][scale_cpuup]
+    ![Aumento del numero di istanze basato su CPU][scale_cpuup]
 
 9. Impostare il numero di minuti di attesa tra l'ultima azione di ridimensionamento e la successiva azione di aumento del numero di istanze. L'ultima azione di ridimensionamento può essere un aumento o una riduzione del numero di istanze.
 
-	![Tempo di attività][scale_uptime]
-
-	Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
+    ![Tempo di attività][scale_uptime]
+    
+    Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
 
 10. È inoltre possibile specificare il numero di istanze da eliminare o non usare ogni volta che viene ridotto il numero di istanze dell'applicazione. Per specificare l'incremento di scalabilità viene usato un dispositivo di scorrimento. Per aumentare il numero di istanze eliminate o inutilizzate quando viene ridotto il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
-	![Riduzione del numero di istanze basato su CPU][scale_cpudown]
+    ![Riduzione del numero di istanze basato su CPU][scale_cpudown]
 
 11.	Impostare il numero di minuti di attesa tra l'ultima azione di ridimensionamento e la successiva azione di riduzione del numero di istanze. L'ultima azione di ridimensionamento può essere un aumento o una riduzione del numero di istanze.
 
-	![Tempo di inattività][scale_downtime]
+    ![Tempo di inattività][scale_downtime]
 
 12. Fare clic su **Save**. Per completare l'azione di ridimensionamento possono essere necessari fino a cinque minuti.
 
@@ -181,7 +180,7 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 2. Fare clic su **Scale**.
 3. Nella sezione Linked Resources selezionare l'edizione da usare per il database.
 
-	![Linked Resources][linked_resources]
+    ![Linked Resources][linked_resources]
 
 4. Selezionare le dimensioni del database.
 5. Fare clic su **Save** per aggiornare le risorse collegate.
@@ -200,7 +199,7 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 2. Fare clic su **Scale**.
 3. Nella pagina Scale fare clic su **set up schedule times**.
 
-	![Pianificazione della scalabilità][scale_schedule]
+    ![Pianificazione della scalabilità][scale_schedule]
 
 4. Selezionare il tipo di pianificazione della scalabilità che si desidera impostare.
 
@@ -226,5 +225,6 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [message_number]: ./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

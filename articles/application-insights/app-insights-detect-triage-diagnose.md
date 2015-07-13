@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Rilevare, valutare e diagnosticare" 
-	description="Analizzare gli arresti anomali per rilevare e diagnosticare problemi di prestazioni nelle applicazioni" 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="Rilevare, valutare e diagnosticare"
+	description="Analizzare gli arresti anomali per rilevare e diagnosticare problemi di prestazioni nelle applicazioni"
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
 # Rilevare, valutare e diagnosticare con Application Insights
@@ -45,12 +45,12 @@ Application Insights funziona per le app di dispositivi e le applicazioni Web. I
 
 
 
-## Rilevare scarsa disponibilità 
+## Rilevare scarsa disponibilità
 
 
 Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]:
 
-* Un test con singolo URL per la pagina di destinazione principale per l'app http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio Benvenuto nella pagina senza comunicarlo. 
+* Un test con singolo URL per la pagina di destinazione principale per l'app http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio Benvenuto nella pagina senza comunicarlo.
 
 
 * Un test più approfondito in più passaggi, che registra e ottiene un elenco di account corrente, che verifica alcuni dettagli chiave in ogni pagina. Questo test verifica che il collegamento al database degli account sia funzionante. Usa un id cliente fittizio: alcuni vengono mantenuti a scopo di test.
@@ -67,7 +67,7 @@ Gli errori vengono visualizzati come punti rossi nel grafico della panoramica di
 Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima di quasi tutti i clienti.
 
 
-## Monitorare le metriche delle prestazioni 
+## Monitorare le metriche delle prestazioni
 
 
 Nella stessa pagina della panoramica del grafico di disponibilità, è presente un grafico che mostra una serie di [metriche chiave][perf].
@@ -107,13 +107,13 @@ Le eccezioni vengono segnalate in Application Insights chiamando [TrackException
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ In effetti, la strategia usata è persino più ampia: vengono inviati i dati di 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica][diag
 
 ![In Ricerca diagnostica usare i filtri per visualizzare determinati tipi di dati](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoraggio degli eventi con esito positivo 
+## Monitoraggio degli eventi con esito positivo
 
 
 Il team di sviluppo Fabrikam terrà traccia degli eventi di esito positivo nonché di quelli con esito negativo. In parte perché è opportuno sapere quanti eventi positivi sono in corso e dove e, in secondo luogo, perché è una situazione negativa quando eventi positivi improvvisamente non si verificano più.
@@ -171,7 +171,7 @@ Marcela non resta ferma in attesa di avvisi. Subito dopo ogni ridistribuzione, e
 Marcela riesce a valutare l'impatto sulle prestazioni di ogni distribuzione, in genere confrontando ogni settimana con l'ultima. Se si verifica un improvviso peggioramento, lo segnala agli sviluppatori rilevanti.
 
 
-## Valutazione 
+## Valutazione
 
 
 Valutazione: consente di valutare la gravità e l'estensione di un problema. È il primo passaggio dopo il rilevamento. Si dovrebbe chiamare il team a mezzanotte oppure è possibile soprassedere fino al successivo divario utile nel backlog? Esistono alcune domande fondamentali nella valutazione.
@@ -197,7 +197,7 @@ Nel caso di una risposta lenta, confrontare la tabella delle richieste che rispo
 Quanto è importante lo scenario bloccato? Se si tratta di un problema funzionale che blocca una storia utente specifica, chiedersi quanto è importante. Se i clienti non possono pagare le fatture, si tratta di un problema grave. Se non è possibile modificare le preferenze di colore dello schermo, è un problema non urgente. I dettagli dell'evento o dell'eccezione o l'identità della pagina lenta consentono di individuare dove i clienti riscontrano problemi.
 
 
-## Diagnosi 
+## Diagnosi
 
 
 La diagnosi non è proprio uguale al debug. Prima di iniziare l'analisi del codice, si deve avere un'idea approssimativa del motivo, del luogo e del momento in cui si verifica il problema.
@@ -223,7 +223,7 @@ Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fa
 Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace() in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
 
 
-## Gestire il problema 
+## Gestire il problema
 
 
 Una volta che è stato diagnosticato il problema, è possibile creare un piano per risolverlo. Potrebbe essere necessario eseguire il rollback di una modifica recente o forse è sufficiente andare avanti per risolvere il problema. Dopo aver eseguito la correzione, Application Insights indicherà se ha avuto esito positivo.
@@ -231,7 +231,7 @@ Una volta che è stato diagnosticato il problema, è possibile creare un piano p
 
 Il team di sviluppo della banca Fabrikam adotta un approccio più strutturato per la misurazione delle prestazioni rispetto a quello usato prima di Application Insights.
 
-* Gli obiettivi delle prestazioni erano impostati in termini di misure specifiche nella pagina di panoramica di Application Insights. 
+* Gli obiettivi delle prestazioni erano impostati in termini di misure specifiche nella pagina di panoramica di Application Insights.
 
 * Progettano le misurazioni di prestazioni nell'applicazione fin dall'inizio, ad esempio le metriche che misurano l'avanzamento utente tramite 'grafici'.
 
@@ -248,7 +248,7 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 
 ## Video
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,6 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

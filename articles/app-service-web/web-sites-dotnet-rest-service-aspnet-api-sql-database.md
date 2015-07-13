@@ -17,7 +17,7 @@
 	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
-# Creazione di un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure
+# Creare un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure
 
 In questa esercitazione viene illustrato come distribuire un'app Web ASP.NET in un [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web.
 
@@ -75,10 +75,10 @@ Se si dispone di un server di database, usarlo per creare un nuovo database. I s
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** espandere la cartella *Views\\Shared* e aprire il file *_Layout.cshtml*. 
+1. In **Esplora soluzioni** espandere la cartella *Views\Shared* e aprire il file *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Sostituire il contenuto del file *Views\\Shared_Layout.cshtml* con il codice seguente.
+1. Sostituire il contenuto del file *Views\Shared_Layout.cshtml* con il codice seguente.
 
 
 		<!DOCTYPE html>
@@ -235,7 +235,7 @@ L'attività successiva consiste nell'abilitare la caratteristica [Migrazioni Cod
 
 	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
 
-3. Aprire il file *Migrations\\Configuration.cs*.
+3. Aprire il file *Migrations\Configuration.cs*.
 
 4. Aggiungere gli spazi dei nomi seguenti.
 
@@ -318,7 +318,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 <h2><a name="bkmk_addview"></a>Modifica della visualizzazione</h2>
 
-1. Aprire il file *Views\\Home\\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
+1. Aprire il file *Views\Home\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
 
 
 2. Sostituire il contenuto del file con il codice seguente.
@@ -475,7 +475,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 	Questo foglio di stile verrà utilizzato per il layout, i colori e gli stili nell'app Contact Manager.
 
-6. Aprire il file *App_Start\\BundleConfig.cs*.
+6. Aprire il file *App_Start\BundleConfig.cs*.
 
 
 7. Aggiungere il codice seguente per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
@@ -548,7 +548,7 @@ La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro 
 
 Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
 
-Per ulteriori informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ContactManager**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 
@@ -630,7 +630,7 @@ Per ulteriori informazioni, vedere il sito Web relativo all'[Open Web Applicatio
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Aggiornare la sezione *Scripts* del file *Views\\Home\\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
+1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,5 +809,6 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

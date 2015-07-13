@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-In questa esercitazione viene illustrato come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin Android con il servizio App per dispositivi mobili di Azure. In questa esercitazione verranno creati un nuovo servizio .NET e una semplice app _To do list_ che archivia i dati dell'app nel back-end .NET.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin Android con il servizio app per dispositivi mobili di Azure. In questa esercitazione verranno creati un nuovo servizio .NET e una semplice app _To do list_ che archivia i dati dell'app nel back-end .NET.
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -33,7 +33,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un account Azure attivo. Se non si dispone di un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE]Se si vuole iniziare a usare il servizio app di Azure prima di creare un account Azure, passare alla pagina di [prova del servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), dove è possibile creare un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili
 

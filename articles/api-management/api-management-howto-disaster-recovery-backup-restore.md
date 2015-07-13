@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -38,7 +38,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Gestione riso
 
 Il primo passaggio consiste nel creare un'applicazione Azure Active Directory. Accedere al [portale di gestione](http://manage.windowsazure.com/) usando la sottoscrizione che include l'istanza del servizio Gestione API e passare alla scheda **Applicazioni** per la directory predefinita di Azure Active Directory.
 
->[AZURE.NOTE]Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come individuare la directory predefinita, vedere [individuare la directory predefinita nel portale di Azure](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come individuare la directory predefinita, vedere [individuare la directory predefinita nel portale di Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Creare un'applicazione Azure Active Directory][api-management-add-aad-application]
 
@@ -52,7 +52,7 @@ Selezionare **API** **di gestione del servizio Microsoft Azure** e selezionare l
 
 ![Aggiungere autorizzazioni][api-management-aad-permissions]
 
-Fare clic su **Autorizzazioni delegate** accanto all'applicazione di **API** **di gestione del servizio Microsoft Azure** appena aggiunta, selezionare la casella per **Accesso a Gestione del servizio Azure \(anteprima\)**, e fare clic su **Salva**.
+Fare clic su **Autorizzazioni delegate** accanto all'applicazione di **API** **di gestione del servizio Microsoft Azure** appena aggiunta, selezionare la casella per **Accesso a Gestione del servizio Azure (anteprima)**, e fare clic su **Salva**.
 
 ![Aggiungere autorizzazioni][api-management-aad-delegated-permissions]
 
@@ -133,7 +133,7 @@ Il backup è un'operazione a lunga esecuzione che potrebbe richiedere diversi mi
 * Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione. 
 * I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][] per recuperare periodicamente i report analitici e custodirli al sicuro.
 * La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
-* Le **modifiche** apportate alla configurazione del servizio \(ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori\) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
+* Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
 
 ## <a name="step2"> </a>Ripristino di un servizio di Gestione API
 Per ripristinare un servizio di Gestione API da un backup creato in precedenza, creare la seguente richiesta HTTP:
@@ -156,13 +156,13 @@ Nel corpo della richiesta, specificare la posizione del file di backup, ad esemp
 	    backupName : {backup blob name}  
 	}'
 
-Impostare il valore dell'intestazione della richiesta `Content-Type` su `application\json`.
+Impostare il valore dell'intestazione della richiesta `Content-Type` su `application/json`.
 
 Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 minuti o più per essere completata. Se la richiesta viene eseguita correttamente e il processo di ripristino viene avviato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`. Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del ripristino si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di ripristino.
 
 >[AZURE.IMPORTANT]Lo **SKU** del servizio in cui si effettua il ripristino **deve corrispondere** allo SKU del servizio sottoposto a backup da ripristinare.
 >
->Le **modifiche** apportate alla configurazione del servizio \(ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori\) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
+>Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
 
 ## Passaggi successivi
 Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del processo di backup e ripristino.
@@ -189,4 +189,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

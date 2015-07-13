@@ -39,7 +39,7 @@ Eseguire la procedura seguente per creare un nuovo progetto di servizio cloud de
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Passare alla directory **c:\\node** e immettere i comandi seguenti per creare una nuova soluzione denominata **expressapp** e un ruolo Web denominato **WebRole1**:
+2. Passare alla directory **c:\node** e immettere i comandi seguenti per creare una nuova soluzione denominata **expressapp** e un ruolo Web denominato **WebRole1**:
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -129,9 +129,10 @@ Al termine dell'operazione di distribuzione, verrà aperto il browser e verrà v
 ![A web browser displaying the Express page. L'URL indica che la pagina ora è ospitata su Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
-[http://jade-lang.com]: http://jade-lang.com
+  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Express]: http://expressjs.com/
+  [http://jade-lang.com]: http://jade-lang.com
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

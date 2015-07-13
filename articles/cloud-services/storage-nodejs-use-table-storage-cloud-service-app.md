@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/25/2015" 
 	ms.author="mwasson"/>
 
 
@@ -23,11 +23,13 @@
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
 
-In questa esercitazione si estenderà l'applicazione creata nell'esercitazione [Creazione di un'applicazione Node.js con Express] usando le librerie client di Azure per Node.js per l'uso con i servizi di gestione dati. L'applicazione verrà estesa in modo da creare un'applicazione elenco di attività basata sul Web che sarà possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
+## Panoramica
 
-Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure include diverse strutture di dati in cui è possibile archiviare i dati e accedervi ed è possibile usare i servizi di archiviazione dalle API incluse in Azure SDK per Node.js o tramite le API REST. Per altre informazioni, vedere [Archiviazione e accesso ai dati in Azure].
+In questa esercitazione, si estenderà l'applicazione creata nell'esercitazione [Creazione di un'applicazione Node.js con Express] utilizzando le librerie client di Azure per Node.js per lavorare con i servizi di gestione dati. L'applicazione verrà estesa in modo da creare un'applicazione elenco di attività basata sul Web che sarà possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
 
-In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
+Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure include diverse strutture di dati in cui è possibile archiviare i dati e accedervi ed è possibile utilizzare i servizi di archiviazione dalle API incluse in Azure SDK per Node.js o tramite le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure].
+
+In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Node.js Web Application using Express].
 
 Si apprenderà come:
 
@@ -36,20 +38,19 @@ Si apprenderà come:
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![The completed web page in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Pagina Web completata in Internet Explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## Impostazione delle credenziali di archiviazione in Web.Config
 
-Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. A questo scopo, si utilizzano le impostazioni dell'applicazione web.config.
-Tali impostazioni verranno passate a Node come variabili di ambiente, che verranno quindi lette da Azure SDK.
+Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. A questo scopo, si utilizzano le impostazioni dell'applicazione web.config. Tali impostazioni verranno passate a Node come variabili di ambiente, che verranno quindi lette da Azure SDK.
 
-> [AZURE.NOTE] Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
+> [AZURE.NOTE]Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
 
 Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione e aggiungerle alle impostazioni di web.config:
 
 1.  Se non è già aperta, avviare Azure PowerShell dal menu **Start** espandendo **Tutti i programmi, Azure**, fare clic con il pulsante destro del mouse su **Azure PowerShell** e quindi scegliere **Esegui come amministratore**.
 
-2.  Sostituire le directory con la cartella contenente l'applicazione. Ad esempio, C:\\node\\tasklist\\WebRole1.
+2.  Sostituire le directory con la cartella contenente l'applicazione. Ad esempio, C:\node\tasklist\WebRole1.
 
 3.  Nella finestra Azure Powershell immettere il cmdlet seguente per recuperare le informazioni account di archiviazione:
 
@@ -57,7 +58,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
 	Verrà recuperato l'elenco di account di archiviazione e di chiavi dell'account associati al servizio ospitato.
 
-	> [AZURE.NOTE] Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
+	> [AZURE.NOTE]Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
 
 4.  Aprire il file **ServiceDefinition.csdef** contenente le impostazioni dell'ambiente usate quando l'applicazione viene distribuita in Azure:
 
@@ -68,15 +69,15 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-	![The web.cloud.config file contents](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+	![Contenuto file web.cloud.config](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
 6.  Salvare il file e chiudere Blocco note.
 
-###Installare moduli aggiuntivi
+### Installare moduli aggiuntivi
 
 2. Usare quindi il comando seguente per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file **package.json**:
 
-	    PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
 	L'output di questo comando dovrebbe apparire simile al seguente:
 
@@ -99,7 +100,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
 ##Uso del servizio tabelle in un'applicazione Node
 
-In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js**esistente e si creerà un nuovo file **tasklist.js** che usi il modello.
+In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js** esistente e si creerà un nuovo file **tasklist.js** che utilizzi il modello.
 
 ### Creare il modello
 
@@ -107,7 +108,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 2. Nella directory **models** creare un nuovo file denominato **task.js**. Questo file conterrà il modello per le attività create dall'applicazione.
 
-3. All'inizio del file **task.js** aggiungere il codice seguente per fare riferimento alle librerie necessarie:
+3. All'inizio del file **task.js**, aggiungere il codice seguente per fare riferimento alle librerie necessarie:
 
         var azure = require('azure-storage');
   		var uuid = require('node-uuid');
@@ -182,11 +183,11 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 6. Salvare e chiudere il file **task.js**.
 
-###Creare il controller
+### Creare il controller
 
 1. Nella directory **WebRole1/routes** creare un nuovo file denominato **tasklist.js** e aprirlo in un editor di testo.
 
-2. Aggiungere il codice seguente al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, usati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
+2. Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, utilizzati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
 
 		var azure = require('azure-storage');
 		var async = require('async');
@@ -271,7 +272,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 	
 4. Salvare il file **app.js**.
 
-###Modificare la visualizzazione dell'indice
+### Modificare la visualizzazione dell'indice
 
 1. Passare alla directory **views** e aprire il file **index.jade** in un editor di testo.
 
@@ -316,11 +317,11 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 3. Salvare e chiudere il file **index.jade**.
 
-###Modificare il layout globale
+### Modificare il layout globale
 
-Il file **layout.jade**della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap](https://github.com/twbs/bootstrap), un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap](https://github.com/twbs/bootstrap), un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
-1. Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
+1. Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\dist\css** alla directory **public\stylesheets** dell'applicazione tasklist.
 
 2. Dalla cartella **views** aprire **layout.jade** nell'editor di testo e sostituire il contenuto con quello seguente:
 
@@ -346,7 +347,7 @@ Usare il comando seguente per avviare l'applicazione nell'emulatore.
 
 Si aprirà il browser e verrà visualizzata la pagina seguente:
 
-![A web paged titled My Task List with a table containing tasks and fields to add a new task.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
 Usare il modulo per aggiungere elementi o rimuovere elementi esistenti contrassegnandoli come completati.
 
@@ -362,7 +363,7 @@ Sostituire **myuniquename** con un nome univoco per questa applicazione. Sostitu
 Al termine della distribuzione, verrà visualizzata una risposta analoga alla seguente:
 
 	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-	WARNING: Publishing tasklist to Windows Azure. This may take several minutes...
+	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
 	WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
 	WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
 	WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
@@ -376,24 +377,23 @@ Al termine della distribuzione, verrà visualizzata una risposta analoga alla se
 
 Come in precedenza, poiché è stata specificata l'opzione **-launch**, il browser si apre e visualizza l'applicazione in esecuzione in Azure al termine della pubblicazione.
 
-![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Finestra del browser in cui è visualizzata la pagina My Task List. L'URL indica che la pagina è ora ospitata su Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## Arrestare ed eliminare l'applicazione
+## Arresto ed eliminazione dell'applicazione
 
 Dopo aver distribuito l'applicazione, se necessario è possibile disabilitarla per evitare costi o creare e distribuire altre applicazioni entro il termine del periodo di valutazione gratuita.
 
-Azure addebita le istanze del ruolo Web al consumo, in base all'uso di tempo del server su base oraria.
-Un'applicazione distribuita usa tempo del server anche se le istanze non sono in esecuzione e sono in stato arrestato.
+Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di tempo del server su base oraria. Un'applicazione distribuita utilizza tempo del server anche se le istanze non sono in esecuzione e sono in stato arrestato.
 
 Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicazione.
 
-1.  Nella finestra di Windows PowerShell arrestare la distribuzione del servizio creato nella sezione precedente con il cmdlet seguente:
+1.  Nella finestra di Windows PowerShell arrestare la distribuzione del servizio creata nella sezione precedente con il seguente cmdlet:
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
 	L'arresto del servizio può richiedere diversi minuti. Dopo l'arresto del servizio, viene visualizzato un messaggio di conferma dell'arresto.
 
-2.  Per eliminare il servizio, chiamare il cmdlet seguente:
+3.  Per eliminare il servizio, chiamare il cmdlet seguente:
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
@@ -401,10 +401,11 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
 	L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
   [Creazione di un'applicazione Node.js con Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-  [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
+ 
  
 
-<!--HONumber=42-->
- 
+<!---HONumber=62-->

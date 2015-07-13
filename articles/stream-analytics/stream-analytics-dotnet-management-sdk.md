@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Usare l'SDK per .NET per la gestione di Analisi di flusso di Azure | Azure" 
-	description="Informazioni su come usare l'SDK per .NET per la gestione di Analisi di flusso di Azure" 
+	pageTitle="Informazioni su come usare .NET SDK per la gestione di Analisi di flusso | Microsoft Azure" 
+	description="Introduzione a .NET SDK per la gestione di Analisi di flusso. Informazioni su come configurare ed eseguire i processi di analisi: creare un progetto, gli input, gli output e le trasformazioni." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,17 +14,17 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="06/17/2015" 
+	ms.author="jeffstok"/>
 
 
-# Usare l'SDK per .NET per la gestione di Analisi di flusso di Azure
+# Impostare ed eseguire processi di analisi tramite .NET SDK per la gestione di analisi di flusso di Azure
 
-[La presente documentazione non è definitiva ed è soggetta a modifiche nelle versioni future.] 
+Informazioni su come impostare ed eseguire processi di analisi tramite .NET SDK per la gestione di analisi di flusso Impostare un progetto, creare origini di input e output, trasformazioni e avviare e arrestare i processi. Per i processi di analisi, è possibile trasmettere i dati di flusso dall'archiviazione BLOB o da un hub eventi.
 
-Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Nella versione di anteprima, Analisi di flusso consente ai clienti di configurare processi di streaming per analizzare i flussi di dati nonché di condurre operazioni di analisi quasi in tempo reale.  
+Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Analisi di flusso consente ai clienti di configurare processi di flusso per analizzare i flussi di dati e di condurre operazioni di analisi pressoché in tempo reale.
 
-Questo articolo descrive come usare l'SDK per .NET di Analisi di flusso di Azure.
+Per informazioni di riferimento sulle API REST per .NET, vedere [. NET SDK di gestione di analisi di flusso](https://msdn.microsoft.com/library/azure/dn889315.aspx)
 
 
 ## Prerequisiti
@@ -31,10 +32,10 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - Installare Visual Studio 2012 o 2013.
 - Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/). 
-- Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per informazioni su Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../install-configurazione-powershell.md).  
+- Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).  
 
 
-		# Configurare la sessione Azure PowerShell per accedere a Gestione risorse di Azure
+		# Configure the Azure PowerShell session to access Azure Resource Manager
 		Switch-AzureMode AzureResourceManager
 
 		# Log in to your Azure account
@@ -47,13 +48,15 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
 
--	Configurare un'origine di input e una destinazione di output da usare. Vedere [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-get-started.md) per configurare input e/o un output di esempio da usare in base alle informazioni fornite in questo articolo.
+-	Configurare un'origine di input e una destinazione di output da usare. Vedere [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-get-started.md) per configurare un input e/o un output di esempio da usare in base alle informazioni fornite in questo articolo.
 
 
 ## Configurare un progetto
 
+Per creare un processo di analisi, per prima cosa occorre impostare il progetto.
+
 1. Creare un'applicazione console .NET di Visual Studio C#.
-2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è l'SDK per .NET di Analisi di flusso di Azure. Il secondo è il client Azure Active Directory che verrà usato per l'autenticazione.
+2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è .NET SDK di gestione di Analisi di flusso di Azure. Il secondo è il client Azure Active Directory che verrà usato per l'autenticazione.
 
 		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -72,11 +75,11 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 		</appSettings>
 
 
-	Sostituire i valori di **SubscriptionId** e **ActiveDirectoryTenantId** con l'ID sottoscrizione e l'ID tenant di Azure. È possibile ottenere questi valori eseguendo il cmdlet Azure PowerShell seguente:
+	Sostituire i valori per **SubscriptionId** e **ActiveDirectoryTenantId** con gli ID della sottoscrizione Azure e del tenant. È possibile ottenere questi valori eseguendo il cmdlet Azure PowerShell seguente:
 
 		Get-AzureAccount
 
-5. Aggiungere le istruzioni **using** seguenti al file di origine (Program.cs) nel progetto:
+5. Aggiungere le istruzioni **using** seguenti al file di origine (Program.cs) nel progetto.
 
 		using System;
 		using System.Configuration;
@@ -127,9 +130,9 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 ## Creare un client di gestione di Analisi di flusso.
 
-Un oggetto **StreamAnalyticsManagementClient** consente di gestire il processo e i componenti di processo, ad esempio l'input, l'output e la trasformazione. 
+Un oggetto **StreamAnalyticsManagementClient** consente di gestire il processo e i componenti di processo, ad esempio l'input, l'output e la trasformazione.
 
-Aggiungere il codice seguente all'inizio del metodo **Main**. 
+Aggiungere il codice seguente all'inizio del metodo **Main**.
 
 	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
 	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -177,7 +180,7 @@ Il codice seguente crea un processo di Analisi di flusso nel gruppo di risorse c
 
 ## Creare un'origine di input di Analisi di flusso.
 
-Il codice seguente crea un'origine di input di Analisi di flusso con il tipo di origine di input BLOB e la serializzazione CSV. Per creare un'origine di input di hub-eventi, usare **EventHubStreamInputDataSource** invece di **BlobStreamInputDataSource**. Analogamente, è possibile personalizzare il tipo di serializzazione dell'origine di input.
+Il codice seguente crea un'origine di input di Analisi di flusso con il tipo di origine di input BLOB e la serializzazione CSV. Per creare un'origine di input di hub eventi, usare **EventHubStreamInputDataSource** invece di **BlobStreamInputDataSource**. Analogamente, è possibile personalizzare il tipo di serializzazione dell'origine di input.
 
 	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -218,7 +221,7 @@ Il codice seguente crea un'origine di input di Analisi di flusso con il tipo di 
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Le origini di input sono collegate a un processo specifico. Per usare la stessa origine di input per processi diversi, è necessario chiamare nuovamente il metodo e specificare un nome diverso.
+Le origini di input, dall'archiviazione BLOB o un hub eventi, sono legate a un processo specifico. Per usare la stessa origine di input per processi diversi, è necessario chiamare nuovamente il metodo e specificare un nome diverso.
 
 
 ## Testare un'origine di input di Analisi di flusso
@@ -263,7 +266,7 @@ Il codice seguente crea una destinazione di output (database SQL di Azure). È p
 
 ## Testare una destinazione di output di Analisi di flusso
 
-Una destinazione di output di Analisi di flusso dispone inoltre di un metodo **TestConnection** metodo per il test delle connessioni.
+Una destinazione di output di Analisi di flusso dispone inoltre del metodo **TestConnection** per il test delle connessioni.
 
 	// Test output target connection
 	DataSourceTestConnectionResponse outputTestResponse = 
@@ -293,8 +296,8 @@ Il codice seguente crea una trasformazione di Analisi di flusso con la query "se
 
 Analogamente all'input e all'output, una trasformazione è inoltre collegata a un processo di Analisi di flusso specifico in cui è stato creata.
 
-## Avvio di un processo di Analisi dei flussi
-Dopo aver creato un processo di Analisi di flusso nonché gli input, gli output e la trasformazione, è possibile avviare il processo chiamando il metodo **Start**. 
+## Avvio di un processo di Analisi di flusso
+Dopo aver creato un processo di Analisi di flusso nonché gli input, gli output e la trasformazione, è possibile avviare il processo chiamando il metodo **Start**.
 
 Il codice di esempio seguente avvia un processo di Analisi di flusso con un'ora di inizio dell'output personalizzato impostata sulle 12:12:12 UTC del 12 dicembre 2012:
 
@@ -309,28 +312,33 @@ Il codice di esempio seguente avvia un processo di Analisi di flusso con un'ora 
 
 
 
-## Arresto di un processo di Analisi dei flussi
+## Arresto di un processo di Analisi di flusso
 È possibile arrestare un processo di Analisi di flusso in esecuzione chiamando il metodo **Stop**.
 
 	// Stop a Stream Analytics job
 	LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
-## Eliminazione di un processo di Analisi dei flussi
+## Eliminazione di un processo di Analisi di flusso
 Il metodo **Delete** consente di eliminare il processo, nonché le risorse secondarie sottostanti, inclusi gli input, gli output e la trasformazione del processo.
 
 	// Delete a Stream Analytics job
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 
+## Supporto
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
+
+
 ## Passaggi successivi
 
-- [Introduzione ad Analisi di flusso di Azure][stream.analytics.introduction]
-- [Introduzione all'uso di Analisi di flusso di Azure][stream.analytics.get.started]
-- [Ridimensionare i processi di Analisi di flusso di Azure][stream.analytics.scale.jobs]
-- [Limitazioni e problemi noti di Analisi di flusso di Azure][stream.analytics.limitations]
-- [Informazioni di riferimento sul linguaggio di Query di Analisi di flusso di Azure][stream.analytics.query.language.reference]
-- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure][stream.analytics.rest.api.reference] 
+Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed eseguire i processi di analisi. Per altre informazioni, vedere gli argomenti seguenti:
 
+- [Introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md)
+- [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+- [Ridimensionare i processi di Analisi di flusso di Azure](stream-analytics-scale-jobs.md)
+- [.NET SDK per la gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+- [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->
@@ -353,9 +361,8 @@ Il metodo **Delete** consente di eliminare il processo, nonché le risorse secon
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

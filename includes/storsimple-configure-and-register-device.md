@@ -1,22 +1,5 @@
-<properties 
-   pageTitle="Configurare e registrare il dispositivo"
-   description="Viene illustrato come utilizzare Windows PowerShell per StorSimple per configurare e registrare il dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-
-### Per configurare e registrare il dispositivo
+#### Per configurare e registrare il dispositivo
 
 1. Accedere all'interfaccia di Windows PowerShell sulla console seriale del dispositivo StorSimple. Per istruzioni, vedere [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](#use-putty-to-connect-to-the-device-serial-console). **Assicurarsi di seguire la procedura esattamente o non si sarà in grado di accedere alla console.**
 
@@ -32,9 +15,11 @@
   
      Completare i passaggi da 5 a 12 per configurare le impostazioni di rete minime richieste per il dispositivo. **È necessario eseguire questa procedura sul controller attivo del dispositivo.** Nel messaggio dell’intestazione del menu della console seriale è indicato lo stato del controller. Se non si è connessi al controller attivo, disconnettersi e quindi connettersi al controller attivo.
 
-5. Al prompt dei comandi, digitare la password. La password predefinita è *Password1*.
+5. Al prompt dei comandi, digitare la password. La password predefinita è **Password1**.
 
-6. Digitare il comando seguente: **Invoke HcsSetupWizard**
+6. Digitare il seguente comando:
+
+     `Invoke-HcsSetupWizard`
 
 7. Verrà visualizzata una procedura guidata per configurare le impostazioni di rete per il dispositivo. Fornire le informazioni seguenti:
    - Indirizzo IP per l'interfaccia di rete DATA 0
@@ -43,10 +28,13 @@
    - Indirizzo IP per il server DNS primario
    - Indirizzo IP per il server NTP primario
    
-    > [AZURE.NOTE]Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore di dispositivo non pronto, controllare la connessione di rete fisica nell'interfaccia di rete DATA 0 del controller attivo.
+      >[AZURE.NOTE]Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore di dispositivo non pronto, controllare la connessione di rete fisica nell'interfaccia di rete DATA 0 del controller attivo.
 
 8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
+
+      >[AZURE.NOTE]È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Qualsiasi impostazione applicata prima di emettere questo comando verrà conservata.
+
 9. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla per le sessioni successive. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere una combinazione di caratteri minuscoli, caratteri maiuscoli, numeri e caratteri speciali.
 
 10. Anche la password di Gestione snapshot StorSimple viene impostata qui. È possibile utilizzare questa password quando si autentica un dispositivo con l'host Windows che esegue Gestione snapshot StorSimple. Quando richiesto, fornire una password con un numero di caratteri compreso tra 14 e 15. La password deve contenere una combinazione di tre dei seguenti tipi di caratteri: minuscole, maiuscole, numeri e caratteri speciali.
@@ -56,8 +44,6 @@
     È possibile reimpostare la password di Gestione Snapshot StorSimple dall'interfaccia del servizio StorSimple Manager.
 
 11. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto nel passaggio 2. Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
-
-    > [AZURE.NOTE]È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Qualsiasi impostazione applicata prima di emettere questo comando verrà conservata.
 
 12. Dopo la registrazione del dispositivo, verrà visualizzato un codice di crittografia dei dati di servizio. Copiare questo codice e salvarlo in un luogo sicuro. **Il codice verrà richiesto con il codice di registrazione del servizio allo scopo di registrare altri dispositivi con il servizio StorSimple Manager.** Per ulteriori informazioni sul codice, consultare [Sicurezza di StorSimple](../articles/storsimple/storsimple-security.md).
 
@@ -74,7 +60,6 @@
    
     ![Pagina Dispositivi StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
- >[AZURE.NOTE]Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea.
+      >[AZURE.NOTE]Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

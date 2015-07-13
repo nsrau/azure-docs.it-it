@@ -22,14 +22,14 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 OneDrive Connector consente di caricare, scaricare ed eliminare file dall'account OneDrive.
 
-## Creazione di un connettore OneDrive per l'app per la logica ##
+## Creare OneDrive Connector per l'app per la logica ##
 Per usare OneDrive Connector, è necessario innanzitutto creare un'istanza dell'app per le API OneDrive Connector. È possibile eseguire questa operazione direttamente dall'area di progettazione dell'app per la logica oppure dall'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
 
 1.	Aprire Azure Marketplace dalla home page del portale di Azure.
 2.	In "Tutto" cercare "OneDrive Connector".
 3.	Configurare OneDrive Connector nel modo seguente:
 
-	![][1] - **Nome**: assegnare un nome al connettore OneDrive - **Piano di servizio app**: selezionare o creare un piano di servizio app - **Piano tariffario**: scegliere un piano tariffario per il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
+	![][1] - **Nome**: assegnare un nome al connettore - **Piano di servizio app**: selezionare o creare un piano di servizio app - **Piano tariffario**: scegliere un piano tariffario per il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Crea. Verrà creato un nuovo OneDrive Connector.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare OneDrive Connector.
@@ -44,7 +44,7 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 3.	OneDrive Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
 
 	![][2]
-4.	È possibile trascinare l'app per le API OneDrive Connector nell'editor facendo clic su “OneDrive Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
+4.	È possibile trascinare l'app per le API OneDrive Connector nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
 	![][3] ![][4]
 
@@ -60,12 +60,12 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 
  - **File Path**: specificare il percorso del file da caricare.
  - **Content**: specificare il contenuto del file da caricare.
- - **Content Transfer Encoding**: specificare Nessuna o Base64.
+ - **Content Transfer Encoding**: specificare none o base64.
  - **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già. Si tratta di una proprietà avanzata.
 
 7. Una volta fornite le informazioni richieste, l'azione "Upload File" è configurata e può essere usata nel flusso. È possibile configurare anche altre azioni nello stesso modo.
 
-8. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Sfoglia->App per le API->OneDrive Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
+8. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->OneDrive Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
 
 	![][7]
 

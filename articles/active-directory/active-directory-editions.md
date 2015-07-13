@@ -23,7 +23,7 @@ Azure Active Directory è un servizio che offre funzionalità complete di gestio
 Le edizioni Premium e Basic di Azure Active Directory, realizzate a partire da un'ampia gamma di funzionalità gratuite di Microsoft Azure Active Directory, forniscono un set di funzionalità più avanzate alle aziende con esigenze particolarmente complesse di gestione delle identità e degli accessi. Per le opzioni relative ai prezzi per queste edizioni, vedere [Prezzi di Azure Active Directory](http://azure.microsoft.com/pricing/details/active-directory/). Quando si effettua la sottoscrizione ad Azure, è possibile scegliere tra le seguenti edizioni gratuite e a pagamento di Azure Active Directory:
 
 - **Gratuito**: l'edizione gratuita di Azure Active Directory fa parte di ogni sottoscrizione Azure. Non è necessaria una licenza, né componenti da installare. Con questa edizione è possibile gestire gli account utente, sincronizzare le directory locali, ottenere l'accesso Single Sign-On per Azure, Office 365 e migliaia di popolari applicazioni SaaS, ad esempio Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox e altro ancora.
-- **Basic**: l'edizione Basic di Azure Active Directory fornisce l'accesso alle applicazioni e i requisiti di gestione delle identità self-service per chi si occupa delle attività e ha esigenze basate prima di tutto sul cloud. L'edizione Basic di Azure Active Directory offre tutte le funzionalità di Azure Active Directory Free, oltre a gestione degli accessi basata sui gruppi, reimpostazione delle password self-service per le applicazioni cloud, proxy di applicazione di Azure Active Directory \(per pubblicare applicazioni Web locali usando Azure Active Directory\), ambiente personalizzabile per il lancio di applicazioni cloud aziendali e consumer e un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%. Un amministratore con una licenza per l'edizione Basic di Azure Active Directory può anche attivare una versione di prova di Azure Active Directory Premium.
+- **Basic**: l'edizione Basic di Azure Active Directory fornisce l'accesso alle applicazioni e i requisiti di gestione delle identità self-service per chi si occupa delle attività e ha esigenze basate prima di tutto sul cloud. L'edizione Basic di Azure Active Directory offre tutte le funzionalità di Azure Active Directory Free, oltre a gestione degli accessi basata sui gruppi, reimpostazione delle password self-service per le applicazioni cloud, proxy di applicazione di Azure Active Directory (per pubblicare applicazioni Web locali usando Azure Active Directory), ambiente personalizzabile per il lancio di applicazioni cloud aziendali e consumer e un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%. Un amministratore con una licenza per l'edizione Basic di Azure Active Directory può anche attivare una versione di prova di Azure Active Directory Premium.
 - **Premium**: l'edizione Premium di Azure Active Directory offre tutte le funzionalità disponibili nelle edizioni Gratuito e Basic di Azure Active Directory, oltre ad altre funzionalità avanzate di gestione delle identità a livello aziendale, illustrate più avanti.
 
 Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
@@ -52,11 +52,11 @@ L'edizione Premium di Active Directory è un'offerta a pagamento di Azure Active
 
     Per altre informazioni, vedere [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-- **Multi-Factor Authentication**: Multi-Factor Authentication ora è incluso nell'edizione Premium e consente di proteggere l'accesso alle applicazioni locali \(VPN, RADIUS, ecc.\), ad Azure, a Microsoft Online Services, ad esempio Office 365 e Dynamics CRM Online, e a migliaia di servizi cloud non MS pre-integrati in Azure Active Directory. È sufficiente abilitare Multi-Factor Authentication per le identità di Azure Active Directory e agli utenti verrà chiesto di configurare un'ulteriore verifica al successivo accesso.
+- **Multi-Factor Authentication**: Multi-Factor Authentication ora è incluso nell'edizione Premium e consente di proteggere l'accesso alle applicazioni locali (VPN, RADIUS, ecc.), ad Azure, a Microsoft Online Services, ad esempio Office 365 e Dynamics CRM Online, e a migliaia di servizi cloud non MS pre-integrati in Azure Active Directory. È sufficiente abilitare Multi-Factor Authentication per le identità di Azure Active Directory e agli utenti verrà chiesto di configurare un'ulteriore verifica al successivo accesso.
 
     Per altre informazioni, vedere [Aggiunta di Multi-Factor Authentication ad Azure Active Directory](https://msdn.microsoft.com/library/azure/dn249466.aspx).
 
-- **Microsoft Identity Manager \(MIM\)**: l'edizione Premium consente di concedere i diritti per usare un server MIM \(e le licenze CAL\) nella rete locale per supportare qualsiasi combinazione di soluzioni di identità ibride. Si tratta di un'ottima opzione se è presente una variazione nelle directory e nei database locali che si vuole sincronizzare direttamente ad Azure Active Directory. Non sono previsti limiti per il numero di server FIM che è possibile usare, ma le licenze CAL MIM vengono concesse in base all'allocazione di una licenza utente di Azure Active Directory Premium.
+- **Microsoft Identity Manager (MIM)**: l'edizione Premium consente di concedere i diritti per usare un server MIM (e le licenze CAL) nella rete locale per supportare qualsiasi combinazione di soluzioni di identità ibride. Si tratta di un'ottima opzione se è presente una variazione nelle directory e nei database locali che si vuole sincronizzare direttamente ad Azure Active Directory. Non sono previsti limiti per il numero di server FIM che è possibile usare, ma le licenze CAL MIM vengono concesse in base all'allocazione di una licenza utente di Azure Active Directory Premium.
 
     Per altre informazioni, vedere [Distribuire MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
 
@@ -74,7 +74,7 @@ L'edizione Premium di Active Directory è un'offerta a pagamento di Azure Active
 - Directory come servizio. Per l'edizione Free, esiste un limite di 500.000 oggetti. Il limite di 500.000 oggetti non si applica però a Office 365, Microsoft Intune o qualsiasi altro servizio online Microsoft basato su Azure Active Directory per i servizi directory. Per le edizioni Basic e Premium non esiste alcun limite per gli oggetti.
 - Gestione di utenti e gruppi con l'interfaccia utente o i cmdlet di Windows PowerShell
 - Registrazione del dispositivo
-- Portale del Pannello di accesso per l'accesso utente basato su SSO \(Single-Sign-On\) ad applicazioni SaaS e personalizzate. Con Azure Active Directory Free e Azure Active Directory Basic, gli utenti finali, a cui è stato assegnato l'accesso a ogni app SaaS, possono visualizzare fino a 10 app nel Pannello di accesso e ottenere l'accesso Single-Sign-On a queste app \(presumendo che prima siano state configurate con SSO dall'amministratore\). Con l'edizione Gratuito gli amministratori possono configurare SSO e assegnare l'accesso utente a tutte le app SaaS desiderate, ma gli utenti finali vedranno solo 10 app alla volta nel Pannello di accesso. Per Azure Active Directory Premium non è previsto alcun limite per le applicazioni.
+- Portale del Pannello di accesso per l'accesso utente basato su SSO (Single-Sign-On) ad applicazioni SaaS e personalizzate. Con Azure Active Directory Free e Azure Active Directory Basic, gli utenti finali, a cui è stato assegnato l'accesso a ogni app SaaS, possono visualizzare fino a 10 app nel Pannello di accesso e ottenere l'accesso Single-Sign-On a queste app (presumendo che prima siano state configurate con SSO dall'amministratore). Con l'edizione Gratuito gli amministratori possono configurare SSO e assegnare l'accesso utente a tutte le app SaaS desiderate, ma gli utenti finali vedranno solo 10 app alla volta nel Pannello di accesso. Per Azure Active Directory Premium non è previsto alcun limite per le applicazioni.
 - Gestione e provisioning degli accessi alle applicazioni basati sugli utenti
 - Modifica delle password self-service per gli utenti cloud
 - Strumento di sincronizzazione directory: per la sincronizzazione tra Active Directory locale e Azure Active Directory
@@ -82,7 +82,7 @@ L'edizione Premium di Active Directory è un'offerta a pagamento di Azure Active
 
 ## Confronto tra le edizioni: funzionalità Premium e Basic
 
-- Tempo di attività previsto dal contratto di servizio con disponibilità elevata \(99,9%\)
+- Tempo di attività previsto dal contratto di servizio con disponibilità elevata (99,9%)
 - Gestione e provisioning degli accessi alle applicazioni basati sui gruppi
 - Personalizzazione del logo e dei colori aziendali per le pagine Accedi e Pannello di accesso
 - Reimpostazione delle password self-service per gli utenti cloud
@@ -92,8 +92,8 @@ L'edizione Premium di Active Directory è un'offerta a pagamento di Azure Active
 
 - Gestione di gruppi self-service per gli utenti cloud
 - Reimpostazione delle password self-service con writeback locale
-- Licenze server Microsoft Identity Manager \(MIM\): per la sincronizzazione tra database e/o directory locali e Azure Active Directory
-- Report avanzati sulla sicurezza dalle anomalie \(basati su Machine Learning\)
+- Licenze server Microsoft Identity Manager (MIM): per la sincronizzazione tra database e/o directory locali e Azure Active Directory
+- Report avanzati sulla sicurezza dalle anomalie (basati su Machine Learning)
 - [Cloud app discovery](http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery)
 - Creazione di report avanzati sull'utilizzo di applicazioni
 - Servizio Multi-Factor Authentication per gli utenti cloud
@@ -122,4 +122,4 @@ Le funzionalità seguenti sono attualmente disponibili in anteprima pubblica e v
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

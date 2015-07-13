@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creare un'app Web per le app per le API in Azure App Service" 
-   description="Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET ospitata in Azure App Service." 
+   pageTitle="Connettere un'app Web a un'app per le API nel servizio app di Azure" 
+   description="Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET ospitata nel servizio app di Azure." 
    services="app-service\web" 
    documentationCenter=".net" 
    authors="syntaxc4" 
@@ -16,19 +16,19 @@
    ms.date="03/24/2015"
    ms.author="cfowler"/>
 
-# Creare un'app Web per le app per le API in Azure App Service
+# Connettere un'app Web a un'app per le API nel servizio app di Azure
 
 Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET ospitata nel [servizio app](../app-service.md).
 
 ## Prerequisiti
 
-Questa esercitazione si basa sulla serie di esercitazioni per app API:
+Questa esercitazione si basa sulla serie di esercitazioni relative alle app per le API:
 
 1. [Creare un'app per le API di Azure](../app-service-dotnet-create-api-app)
 3. [Distribuire un'app per le API di Azure](../app-service-dotnet-deploy-api-app)
 4. [Eseguire il debug di un'app per le API di Azure](../app-service-dotnet-remotely-debug-api-app)
 
-## Rendere l'app API pubblicamente accessibile
+## Rendere l'app per le API pubblicamente accessibile
 
 Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) selezionare l'app per le API. Fare clic sul pulsante **Impostazioni** nella barra dei comandi. Nel pannello **Impostazioni applicazione** modificare **Livello di accesso** su **Pubblico (anonimo)**.
 
@@ -52,7 +52,7 @@ Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=52971
 
 	![Selezionare un'app per le API esistente](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE]Il codice client per la connessione all'app API verrà generato automaticamente da un endpoint API Swagger.
+	>[AZURE.NOTE]Il codice client per la connessione all'app per le API verrà generato automaticamente da un endpoint API Swagger.
 
 1. Per usare il codice API generato, aprire il file HomeController.cs e sostituire l'azione `Contact` con il codice seguente:
 
@@ -69,20 +69,29 @@ Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=52971
 
 	![Aggiornamenti codice HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
-1. Aggiornare la visualizzazione `Contact` in modo da riflettere l'elenco dinamico dei contatti con il codice seguente: <pre>/ / Add to the very top of the view file @model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following &lt;h3&gt;Public Contacts&lt;/h3&gt; &lt;ul&gt; @foreach (var contact in Model) { &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt; } &lt;/ul&gt; </pre>
+1. Aggiornare la visualizzazione `Contact` in modo che rifletta l'elenco dinamico di contatti con il codice seguente:
+	<pre>// Add to the very top of the view file
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Aggiornamenti codice Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// Replace the default email addresses with the following
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Aggiornamenti codice Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Distribuire l'applicazione Web nelle app Web del servizio app
 
 Seguire le istruzioni fornite in [Come distribuire un'app Web di Azure](web-sites-deploy.md).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

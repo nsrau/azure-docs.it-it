@@ -1,10 +1,4 @@
-<properties 
-    pageTitle="Application Insights per app C++"
-    description="Analizzare l'utilizzo e le prestazioni dell'app C++ con Application Insights." 
-    services="application-insights"
-    documentationCenter="cpp"
-    authors="crystk"
-    manager="jakubo"/>
+<properties pageTitle="Application Insights for C++ apps" description="Analyze usage and performance of your C++ app with Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -15,7 +9,7 @@
 	ms.date="06/03/2015" 
     ms.author="crystk"/>
 
-# Application Insights per app C++
+# Application Insights per le app C++
 
 Visual Studio Application Insights consente di monitorare un'applicazione per dispositivi mobili per verificarne l'utilizzo, gli eventi e gli arresti anomali.
 
@@ -28,7 +22,7 @@ Sono necessari gli elementi seguenti:
 
 ## Creare una risorsa Application Insights
 
-Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Selezionare l'opzione Windows Phone o Windows Store.
+Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'opzione Windows Phone o Windows Store.
 
 ![Fare clic su Nuovo, Servizi per gli sviluppatori, Application Insights](./media/app-insights-windows-cpp/01-universal.png)
 
@@ -38,9 +32,9 @@ Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo re
 
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
-![Fare clic su Proprietà, selezionare il tasto e premere Ctrl+C](./media/app-insights-windows-cpp/02-props-asp.png)
+![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-windows-cpp/02-props-asp.png)
 
-## <a name="sdk"></a> Installare l'SDK nell'applicazione
+## <a name="sdk"></a> Installare l’SDK nell'applicazione
 
 
 1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop.
@@ -49,7 +43,7 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 2. Installare Application Insights SDK per app C++.
 
-    ![Selezionare **Online**, **Includi versione preliminare** e cercare "Application Insights"](./media/app-insights-windows-cpp/04-ai-nuget.png)
+    ![Selezionare **Includi versione preliminare** e cercare "Application Insights"](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. Nelle impostazioni del progetto per release e debug:
   - Aggiungere $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc alle proprietà del progetto -> VC++ Directories -> Include Directories
@@ -57,6 +51,14 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 4. Aggiungere ApplicationInsights.winmd come riferimento al progetto da $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DI PIATTAFORMA>\release\ApplicationInsights
 5. Aggiungere il file AppInsights_Win10-UAP.dll da $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DI PIATTAFORMA>\release\AppInsights_Win10-UAP. Passare alle proprietà e impostare il contenuto su YES per copiare la DLL nella directory di compilazione.
+
+
+#### Per aggiornare l’SDK per le versioni future
+
+Quando un nuovo [SDK viene rilasciato](app-insights-release-notes-windows-cpp.md):
+
+* In Gestione pacchetti NuGet, selezionare l’SDK installato e scegliere Azione: aggiornamento.
+* Ripetere i passaggi di installazione usando il nuovo numero di versione.
 
 ## Usare l'SDK
 
@@ -71,14 +73,14 @@ Inizializzare l'SDK e iniziare a tenere traccia dei dati di telemetria.
 	
      `// this will do automatic session tracking and automatic page view collection` `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
-  - Dopo aver creato l'elemento Frame radice (in genere alla fine di App::OnLaunched), inizializzare m_session:
+  - Dopo aver creato il frame principale (in genere alla fine di App::OnLaunched), inizializzare m_session:
 	
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
     m_session->Initialize(this, rootFrame, iKey);
 	```
 
-3. Per usare il rilevamento in altri punti dell'applicazione, è possibile dichiarare un'istanza del client di telemetria.
+3. Per usare la traccia altrove nell'applicazione, è possibile dichiarare un'istanza del client di telemetria.
 
 
 ```
@@ -93,7 +95,7 @@ Inizializzare l'SDK e iniziare a tenere traccia dei dati di telemetria.
 
 ## <a name="run"></a> Eseguire il progetto
 
-Eseguire l'applicazione per generare i dati di telemetria. È possibile eseguirla in modalità di debug nel computer di sviluppo oppure pubblicarla e lasciare che venga eseguita dagli utenti.
+Eseguire l'applicazione per generare dati di telemetria. È possibile eseguire l’applicazione in modalità di debug nel computer di sviluppo o pubblicarla e consentire agli utenti di eseguirla.
 
 ## Visualizzare i dati in Application Insights
 

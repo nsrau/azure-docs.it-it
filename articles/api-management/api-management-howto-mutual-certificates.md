@@ -40,13 +40,13 @@ Fare clic su **Sicurezza** dal menu **Gestione API** sulla sinistra, quindi sceg
 
 Per caricare un nuovo certificato, fare clic su **Carica certificato**.
 
-![Caricare il certificato][api-management-upload-certificate]
+![Caricamento del certificato][api-management-upload-certificate]
 
 Passare al certificato e immettere la relativa password.
 
 >Il certificato deve essere nel formato **.pfx**. Sono consentiti i certificati autofirmati.
 
-![Caricare il certificato][api-management-upload-certificate-form]
+![Caricamento del certificato][api-management-upload-certificate-form]
 
 Fare clic su **Carica** per caricare il certificato.
 
@@ -96,7 +96,7 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il video seguente:
+Per altre informazioni, vedere il video seguente.
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -141,4 +141,4 @@ Per altre informazioni, vedere il video seguente:
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

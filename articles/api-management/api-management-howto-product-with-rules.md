@@ -13,18 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="06/18/2015"
 	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
 
 Questa guida illustra quanto sia semplice aggiungere la protezione all'API back-end configurando il limite di frequenza e i criteri di quota con Gestione API di Azure.
 
-Per altre informazioni e una dimostrazione dell'impostazione dei limiti di frequenza e delle quote, vedere il video seguente.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
-
-In questa esercitazione verrà creato un prodotto API 'Free Trial' che consente agli sviluppatori di effettuare fino a 10 chiamate al minuto per un massimo di 200 chiamate alla settimana all'API. Verrà quindi pubblicata l'API e verranno testati i criteri del limite di frequenza.
+In questa esercitazione verrà creato un prodotto API 'Free Trial' che consente agli sviluppatori di eseguire fino a 10 chiamate al minuto per un massimo di 200 chiamate alla settimana all'API. Verrà quindi pubblicata l'API e verranno testati i criteri del limite di frequenza.
 
 >[AZURE.NOTE]Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][] e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto **Free Trial**.
 
@@ -209,11 +205,11 @@ Dopo aver fatto clic su **Sottoscrivi**, il prodotto verrà visualizzato nell'el
 
 A questo punto, dopo aver configurato e pubblicato il prodotto Free Trial, è possibile chiamare alcune operazioni e testare i criteri relativi ai limiti di frequenza. Passare al portale per sviluppatori facendo clic su **Portale per sviluppatori** nel menu in alto a destra.
 
-![Portale per sviluppatori][api-management-developer-portal-menu]
+![Developer portal][api-management-developer-portal-menu]
 
 Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
-![Portale per sviluppatori][api-management-developer-portal-api-menu]
+![Developer portal][api-management-developer-portal-api-menu]
 
 Selezionare l'operazione **GET su risorsa** e fare clic su **Apri console**.
 
@@ -240,6 +236,9 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamati al minut
 ## <a name="next-steps"> </a>Passaggi successivi
 
 -	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
+-	Per una dimostrazione dell'impostazione dei limiti di frequenza e delle quote, vedere il video seguente.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png

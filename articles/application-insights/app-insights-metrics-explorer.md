@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -158,7 +158,28 @@ Per ricevere tramite posta elettronica una notifica dei valori insoliti di una m
 
 ![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Altre informazioni][alerts]
+[Altre informazioni sugli avvisi][alerts].
+
+## Eseguire l'esportazione in Excel
+
+È possibile esportare in un file di Excel i dati delle metriche visualizzati in Esplora metriche. I dati esportati includono i dati di tutti i grafici e le tabelle visualizzati nel portale.
+
+
+![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/app-insights-metrics-explorer/31-export.png)
+
+I dati di ogni grafico o tabella vengono esportati in un foglio separato nel file di Excel.
+
+Gli elementi visualizzati sono quelli che vengono esportati. È pertanto necessario modificare l'intervallo di tempo o i filtri se si vuole modificare l'intervallo di dati esportato. Per le tabelle, se è visibile il comando **Carica altro**, sarà possibile fare clic su di esso prima di fare clic su Esporta per esportare una quantità maggiore di dati.
+
+*Esporta attualmente funziona solo per Internet Explorer e Chrome. In futuro verrà aggiunto il supporto per altri browser.*
+
+Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare esternamente, considerare la possibilità di usare l'[esportazione continua](app-insights-export-telemetry.md).
+
+
+## Passaggi successivi
+
+* [Monitoraggio dell'utilizzo con Application Insights](app-insights-overview-usage.md)
+* [Uso di Ricerca diagnostica](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,6 @@ Per ricevere tramite posta elettronica una notifica dei valori insoliti di una m
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

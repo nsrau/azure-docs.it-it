@@ -1,4 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
 
 #Come creare una macchina virtuale personalizzata
 
@@ -53,7 +52,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 17. Fare clic sulla freccia per creare la macchina virtuale.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![Creazione della macchina virtuale personalizzata completata](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##Passaggi successivi##
 Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal portale risulta che lo stato è in esecuzione, è possibile eseguire l'accesso alla macchina virtuale. Per istruzioni, vedere gli articoli seguenti:
@@ -61,6 +60,4 @@ Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal
 - [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

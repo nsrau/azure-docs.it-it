@@ -25,4 +25,4 @@ A questo punto è stato creato un nuovo servizio mobile che può essere utilizza
 <!-- URLs. -->
 [portale di gestione]: https://manage.windowsazure.com/
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

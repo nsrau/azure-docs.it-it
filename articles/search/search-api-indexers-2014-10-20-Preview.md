@@ -111,7 +111,7 @@ La richiesta può contenere le proprietà seguenti:
 
 <a name="DataChangeDetectionPolicies"></a> **Criteri di rilevamento delle modifiche dei dati**
 
-Scopo dei criteri di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. I criteri supportati variano in base al tipo di origine dati. Le sezioni seguenti descrivono ognuno di questi criteri.
+Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. I criteri supportati variano in base al tipo di origine dati. Le sezioni seguenti descrivono ognuno di questi criteri.
 
 ***Criteri di rilevamento delle modifiche con limite massimo***
 
@@ -135,7 +135,7 @@ Questi criteri possono essere specificati come indicato di seguito:
 
 ***Criteri di rilevamento delle modifiche integrati di SQL***
 
-Se il database SQL supporta i [criteri di rilevamento delle modifiche integrati di SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), è consigliabile usarli. Questi criteri favoriscono il rilevamento delle modifiche più efficiente e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
+Se il database SQL supporta i [criteri di rilevamento delle modifiche integrati di SQL] http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), è consigliabile usarli. Questi criteri favoriscono il rilevamento delle modifiche più efficiente e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
 
 I criteri di rilevamento delle modifiche integrati di SQL sono supportati a partire dalle versioni del database SQL seguenti: - SQL Server 2008 R2, se si usano macchine virtuali di IaaS per SQL - Versione 12 del database SQL di Azure, se si usa SQL Azure.
 
@@ -320,7 +320,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -656,4 +656,5 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 <td>Non supportati. Ricerca di Azure attualmente supporta solo tipi primitivi e raccolte di stringhe</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

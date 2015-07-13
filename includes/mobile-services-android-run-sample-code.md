@@ -1,4 +1,4 @@
-1. In Project Explorer espandere **app** => **java** => **com.example.GetStartedWithData**, **src** e **.com.example.GetStartedWithData** e quindi aprire il file *ToDoActivity.java*.
+1. In Project Explorer espandere **app** => **src** => **main** => **java** => **com.example.GetStartedWithData** e quindi aprire il file *ToDoActivity.java*.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Si noti che il testo salvato è archiviato in una raccolta in memoria e visualizzato nell'elenco seguente.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

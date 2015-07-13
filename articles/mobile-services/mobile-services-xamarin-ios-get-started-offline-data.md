@@ -47,7 +47,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
 
-La sincronizzazione offline di Servizi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, inizializzare  `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. Questa sezione illustra il codice correlato alla sincronizzazione offline in `QSTodoService.cs`.
+La sincronizzazione offline di Servizi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, inizializzare `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. Questa sezione illustra il codice correlato alla sincronizzazione offline in `QSTodoService.cs`.
 
 1. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili]. Aprire il file `QSTodoService.cs`.
 
@@ -181,5 +181,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 [Xamarin Studio]: http://xamarin.com/download
 [estensione Xamarin]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

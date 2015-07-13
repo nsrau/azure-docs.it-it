@@ -38,15 +38,15 @@ Di seguito è riportato un esempio di un'applicazione line-of-business in esecuz
 
 È possibile trasferire nelle app Web di Servizio app di Azure gli asset Web esistenti creati con una vasta gamma di linguaggi e framework.
 
-Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. Le app Web supportano la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] \(locale, GitHub, BitBucket, DropBox, Mercurial e così via\).
+Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. Le app Web supportano la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
 ## Proteggere gli asset
 
 È possibile proteggere gli asset mediante crittografia, autenticare gli utenti aziendali locali o remoti e autorizzarli all'uso degli asset.
 
-Proteggere gli asset interni da utenti non autorizzati tramite [HTTPS]. Il nome di dominio **\*.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL nelle app Web del servizio app. A ogni certificato SSL è associata una tariffa mensile \(ripartita su base oraria\). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Servizio app di Azure].
+Proteggere gli asset interni da utenti non autorizzati tramite [HTTPS]. Il nome di dominio ***.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL nelle app Web del servizio app. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Servizio app di Azure].
 
-[Autenticare gli utenti] nella directory aziendale. Le app Web di Servizio app di Azure sono in grado di autenticare gli utenti con i provider di identità locali, ad esempio Active Directory Federation Services \(ADFS\) o con un tenant di Azure Active Directory sincronizzato con la distribuzione di Active Directory aziendale. Gli utenti possono accedere alle proprietà Web nella app Web tramite Single Sign-On quando sono in sede e quando sono fuori sede. I servizi esistenti, come Office 365 o Microsoft Intune, usano già Azure Active Directory. Tramite [Easy Auth] è molto semplice attivare l'autenticazione con lo stesso tenant di Azure Active Directory per la propria app Web.
+[Autenticare gli utenti] nella directory aziendale. Le app Web di Servizio app di Azure sono in grado di autenticare gli utenti con i provider di identità locali, ad esempio Active Directory Federation Services (ADFS) o con un tenant di Azure Active Directory sincronizzato con la distribuzione di Active Directory aziendale. Gli utenti possono accedere alle proprietà Web nella app Web tramite Single Sign-On quando sono in sede e quando sono fuori sede. I servizi esistenti, come Office 365 o Microsoft Intune, usano già Azure Active Directory. Tramite [Easy Auth] è molto semplice attivare l'autenticazione con lo stesso tenant di Azure Active Directory per la propria app Web.
 
 [Autorizzare gli utenti] per l'uso delle proprietà Web. Con un'aggiunta minima di codice, è possibile trasferire nelle app Web del servizio app di Azure lo stesso modello di codifica ASP.NET locale usando, ad esempio, la decoration `[Authorize]` È possibile controllare l'accesso in modo specifico con la stessa flessibilità con cui si gestiscono le applicazioni in locale.
 
@@ -66,7 +66,7 @@ L'implementazione della [scalabilità verticale e orizzontale] offerta dalle app
 
 È possibile aumentare la velocità di risposta dell'app Web con [Cache Redis di Azure]. Usare questa funzionalità per memorizzare nella cache i dati dei database back-end e altri elementi come lo [stato della sessione ASP.NET] e la [cache di output].
 
-È possibile mantenere un'elevata disponibilità dell'app Web mediante \[Gestione traffico di Azure\]. Tramite il metodo **Failover**, Gestione traffico instrada automaticamente il traffico a un sito secondario se si verifica un problema nel sito primario.
+È possibile mantenere un'elevata disponibilità dell'app Web mediante [Gestione traffico di Azure]. Tramite il metodo **Failover**, Gestione traffico instrada automaticamente il traffico a un sito secondario se si verifica un problema nel sito primario.
 
 ## Eseguire il monitoraggio e l'analisi
 
@@ -124,4 +124,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

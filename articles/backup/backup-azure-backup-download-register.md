@@ -1,53 +1,52 @@
 <properties
-	pageTitle="Scaricare, installare e registrare Azure Backup agent"
-	description="Informazioni su come e dove per scaricare l'agente Azure Backup, passaggi di installazione e come registrare l'agente Azure Backup utilizzando le credenziali dell'insieme di credenziali"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Scaricare, installare e registrare l'agente Backup di Azure"
+   description="Informazioni su come e dove scaricare l'agente Backup di Azure, sulla procedura di installazione e su come registrare l'agente Backup di Azure usando le credenziali di insieme"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/08/2015"
+   ms.author="prvijay"/>
 
-# Scaricare, installare e registrare l'agente Azure Backup
+# Scaricare, installare e registrare l'agente Backup di Azure
 
-Dopo aver creato l'archivio di Backup di Azure, deve essere installato un agente in ogni server locale (Windows Server, Windows client o server di System Center Data Protection Manager) che consente di eseguire il backup dei dati e l'applicazione in Azure. In questo articolo vengono illustrati i passaggi necessari per configurare l'agente Azure Backup su un Server di Windows o un computer client Windows.
+Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario installare un agente in ogni server locale (Windows Server, client Windows o server System Center Data Protection Manager) per eseguire il backup dei dati e dell'applicazione in Azure. Questo articolo illustra i passaggi necessari per configurare l'agente Backup di Azure in un computer che esegue Windows Server o un client Windows.
 
-1. Accedi al [portale di gestione](https://manage.windowsazure.com/)
+1. Accedere al [portale di gestione](https://manage.windowsazure.com/).
 
-2. Fare clic su **Servizi di ripristino**, quindi selezionare l'insieme di credenziali per il backup che si desidera registrare con un server. Verrà visualizzata la pagina avvio rapido per tale archivio di backup. <br/> ![Avvio rapido][1]
+2. Fare clic su **Servizi di ripristino**, quindi selezionare l'insieme di credenziali per il backup da registrare con un server. Verrà visualizzata la pagina Avvio rapido per quell'insieme di credenziali per il backup. <br/> ![Avvio rapido][1]
 
-3. Nella pagina Quick Start fare clic su **per Windows Server o client di System Center Data Protection Manager o Windows** in **Scarica agente** opzione. Fare clic su Salva per copiarlo nel computer locale. <br/> ![Salvare agente][2]
+3. Nella pagina Avvio rapido fare clic su **Per Windows Server, System Center Data Protection Manager o client Windows** in **Scarica agente**. Fare clic su Salva per copiarlo nel computer locale. <br/> ![Salva agente][2]
 
-4. Una volta installato l'agente, fare doppio clic su MARSAgentInstaller.exe per avviare l'installazione dell'agente di Backup di Azure. Scegliere la cartella di installazione e la cartella file temporaneo necessari per l'agente. Il percorso della cache specificato deve disporre di spazio libero almeno il 5% dei dati di backup.
+4. Dopo aver installato l'agente, fare doppio clic su MARSAgentInstaller.exe per avviare l'installazione dell'agente Backup di Azure. Scegliere la cartella di installazione e la cartella Scratch necessarie per l'agente. Il percorso della cache specificato deve disporre di uno spazio libero pari almeno al 5% dei dati di backup.
 
-5.	Se si utilizza un server proxy per connettersi a internet, nel **configurazione Proxy** immettere i dettagli del server proxy. Se si utilizza un proxy autenticato, immettere i dettagli di nome e la password dell'utente in questa schermata.
+5.	Se si usa un server proxy per connettersi a Internet, nella schermata **Configurazione proxy** immettere i dettagli del server proxy. Se si usa un proxy autenticato, immettere il nome utente e la password in questa schermata.
 
-6.	L'agente Azure Backup installazione di .NET Framework 4.5 e Windows PowerShell (se non è già disponibile) per completare l'installazione.
+6.	Per completare l'installazione, l'agente Backup di Azure installerà .NET Framework 4.5 e Windows PowerShell (se non è già disponibile).
 
-7.	Una volta installato l'agente, fare clic sui **procedere alla registrazione** per continuare con il flusso di lavoro. <br/> ![Registra][3]
+7.	Dopo aver installato l'agente, fare clic sul pulsante **Procedi alla registrazione** per continuare con il flusso di lavoro. <br/> ![Registra][3]
 
-8. Nella schermata credenziali insieme di credenziali, individuare e selezionare il file delle credenziali che è stato scaricato in precedenza. <br/> ![Credenziali dell'insieme di credenziali][4] <br/> <br/>
-> [AZURE.NOTE]Il file delle credenziali è valido solo per 48 ore (dopo che è stato scaricato dal portale). Se si verifica un errore in questo account di accesso (ad esempio "file delle credenziali fornito è scaduto"), schermata al portale di Azure e scarica nuovamente il file delle credenziali.
+8. Nella schermata relativa alle credenziali di insieme individuare e selezionare il file delle credenziali di insieme scaricato in precedenza. <br/> ![Credenziali di insieme][4] <br/> <br/>
+> [AZURE.NOTE]Il file delle credenziali di insieme è valido solo per 48 ore dopo che è stato scaricato dal portale. Se si verifica un errore in questa schermata, ad esempio "Il file delle credenziali di insieme fornito è scaduto", accedere al portale di Azure e scaricare nuovamente il file delle credenziali di insieme.
 >
-> Assicurarsi che il file delle credenziali è disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori correlati di accesso, copiare il file delle credenziali in un percorso temporaneo nel computer e ripetere l'operazione.
+> Verificare che il file delle credenziali di insieme sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
 >
-> Se si verifica un errore di credenziali dell'insieme di credenziali non valido (ad esempio "fornite le credenziali insieme di credenziali non valido". Il file è danneggiato o non sono quelle più recenti associato il servizio di ripristino", ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale. Questo errore si verifica in genere se l'utente fa clic sull'opzione Download archivio credenziali nel portale di Azure, in rapida successione. In questo caso, solo il secondo file di credenziali di insieme di credenziali è valido.
+> Se si verifica un errore relativo alle credenziali di insieme non valide, ad esempio "Le credenziali di insieme fornite non sono valide". Il file è danneggiato o non dispone delle credenziali più recenti associate al servizio di ripristino", ripetere l'operazione dopo avere scaricato un nuovo file delle credenziali di insieme dal portale. Questo errore in genere si verifica se l'utente fa clic sull'opzione Scarica credenziali di insieme nel portale di Azure in rapida successione. In questo caso è valido solo il secondo file delle credenziali di insieme.
 
-9. Nel **impostazione crittografia** dello schermo, è possibile a generare una passphrase o fornire una passphrase (almeno 16 caratteri) e ricordare di salvare la passphrase in un luogo sicuro. <br/> ![Crittografia][5] <br/> <br/>
-> [AZURE.WARNING]Se la passphrase viene persa o dimenticata; Microsoft non consente di recuperare i dati di backup. L'utente finale possiede la passphrase di crittografia e Microsoft non dispone di qualsiasi visibilità la passphrase utilizzata dall'utente finale. Salvare il file in un luogo sicuro come sarebbe necessario durante un'operazione di ripristino.
+9. Nella schermata **Impostazioni crittografia** è possibile a generare o fornire una passphrase di almeno 16 caratteri, che dovrà essere salvata in un luogo sicuro. <br/> ![Crittografia][5] <br/> <br/>
+> [AZURE.WARNING]Se la passphrase viene persa o dimenticata, Microsoft non potrà fornire assistenza per il recupero dei dati di backup. L'utente finale possiede la passphrase di crittografia, che non è visibile a Microsoft. Salvare il file in un luogo sicuro, in quanto potrebbe essere necessario durante un'operazione di ripristino.
 
-10. Dopo aver selezionato il **Fine** pulsante, il computer è registrato correttamente nell'insieme di credenziali ed è ora pronta per l'avvio del backup in Microsoft Azure. È possibile modificare le impostazioni specificate durante il flusso di lavoro di registrazione facendo clic sui **modificare le proprietà** opzione in Azure Backup mmc snap in <br/> ![Modifica delle proprietà][6]
+10. Dopo aver selezionato il pulsante **Fine**, il computer sarà registrato nell'insieme di credenziali e sarà possibile avviare il backup in Microsoft Azure. È possibile modificare le impostazioni specificate durante la registrazione del flusso di lavoro facendo clic sull'opzione **Modifica proprietà** nello snap-in di MMC di Backup di Azure. <br/> ![Modifica proprietà][6]
 
 ## Passaggi successivi
-+ Fare riferimento a installazione e configurazione di Azure Backup [domande frequenti su](backup-azure-backup-faq.md) per domande sul flusso di lavoro.
++ Per domande sul flusso di lavoro, fare riferimento alle [domande frequenti](backup-azure-backup-faq.md) relative all'installazione e alla configurazione di Backup di Azure.
 
 
 <!--Image references-->
@@ -57,5 +56,6 @@ Dopo aver creato l'archivio di Backup di Azure, deve essere installato un agente
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

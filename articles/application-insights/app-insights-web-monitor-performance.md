@@ -52,7 +52,7 @@ Fare clic su un grafico per scegliere quali metriche visualizzare oppure aggiung
 
 ## <a name="metrics"></a>Interpretazione dei dati Riquadri e report sulle prestazioni
 
-È disponibile una vasta gamma di metriche sulle prestazioni. Iniziamo da quelle che vengono visualizzate per impostazione predefinita nella falda dell'applicazione.
+È disponibile una vasta gamma di metriche sulle prestazioni. Vengono analizzate innanzitutto quelle visualizzate per impostazione predefinita nel pannello dell'applicazione.
 
 
 ### Richieste
@@ -69,7 +69,7 @@ Misura il tempo intercorso tra la ricezione di una richiesta Web da parte dell'a
 
 I punti mostrano una media mobile. Se le richieste sono numerose, alcune di queste potrebbero deviare dalla media senza mostrare un picco o un calo evidente nel grafico.
 
-Cercare picchi inconsueti. In genere, il tempo di risposta aumenta con l'aumento delle richieste. Se l'aumento è sproporzionato, l'app potrebbe aver raggiunto un limite di risorsa, ad esempio dovuto alla CPU o alla capacità di un servizio che usa.
+Cercare picchi inconsueti. In genere, il tempo di risposta aumenta con l'aumento delle richieste. Se l'aumento è sproporzionato, l'app potrebbe aver raggiunto un limite di risorsa, ad esempio dovuto alla CPU o alla capacità di un servizio che utilizza.
 
 Fare clic sul riquadro per visualizzare i tempi per URL specifici.
 

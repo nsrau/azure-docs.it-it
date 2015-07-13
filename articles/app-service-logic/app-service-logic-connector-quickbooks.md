@@ -19,65 +19,14 @@
 
 #Uso di QuickBooks Connector nell'app per la logica#
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. QuickBooks Connector consente di creare e modificare diverse entità QuickBooks. Di seguito è riportato un elenco di entità QuickBooks supportate da QuickBooks Connector.
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. QuickBooks Connector consente di creare e modificare diverse entità QuickBooks. Di seguito è riportato un elenco di entità QuickBooks supportate da QuickBooks Connector.
 
 <Table>
-<TR><TD><B>Entità</TD><TD><B>Descrizione</TR>
-<TR>	<TD>	Account	</TD>	<TD>	Si tratta di un componente di un piano dei conti ed è parte di una contabilità generale. Viene usato per registrare un importo monetario totale a fronte di un utilizzo specifico.	</TD>	</TR>
-<TR>	<TD>	CreditMemo	</TD>	<TD>	Si tratta di una transazione finanziaria che rappresenta un rimborso o un credito di pagamento per merci o servizi acquistati.	</TD>	</TR>
-<TR>	<TD>	Customer	</TD>	<TD>	È il consumatore del servizio o del prodotto offerto dall'azienda.	</TD>	</TR>
-<TR>	<TD>	Estimate	</TD>	<TD>	Rappresenta una proposta di transazione finanziaria tra un'azienda e un cliente riguardo alla vendita di merci o servizi, inclusa l'indicazione dei prezzi.	</TD>	</TR>
-<TR>	<TD>	Invoice	</TD>	<TD>	È un documento di vendita a fronte del quale il cliente paga un prodotto o un servizio. Altre informazioni sull'uso del modello di dati Invoice sono disponibili qui.	</TD>	</TR>
-<TR>	<TD>	Item	</TD>	<TD>	Un elemento che l'azienda acquista, vende o rivende, ad esempio prodotti, spese di spedizione e movimentazione, sconti e IVA (se applicabile).  Su una fattura o su un altro documento di vendita un elemento viene visualizzato come riga.	</TD>	</TR>
-<TR>	<TD>	SalesReceipt	</TD>	<TD>	Questa entità rappresenta la ricevuta di vendita fornita al cliente.	</TD>	</TR>
-</Table>
+<TR><TD><B>Entità</TD><TD><B>Descrizione</TR> <TR> <TD> Account </TD> <TD>Si tratta di un componente di un piano dei conti ed è parte di una contabilità generale. Viene usato per registrare un importo monetario totale a fronte di un uso specifico.</TD> </TR> <TR> <TD> CreditMemo </TD> <TD> Si tratta di una transazione finanziaria che rappresenta un rimborso o un credito di pagamento per merci o servizi venduti. </TD> </TR> <TR> <TD> Customer </TD> <TD> È il consumatore del servizio o del prodotto offerto dall'azienda. </TD> </TR> <TR> <TD> Estimate </TD> <TD> Rappresenta una proposta di transazione finanziaria tra un'azienda e un cliente riguardo alla vendita di merci o servizi, inclusa l'indicazione dei prezzi. </TD> </TR> <TR> <TD> Invoice </TD> <TD> È un documento di vendita a fronte del quale il cliente paga un prodotto o un servizio. Altre informazioni sull'uso del modello di dati Invoice sono disponibili qui. </TD> </TR> <TR> <TD> Item </TD> <TD> Un articolo che l'azienda acquista, vende o rivende, ad esempio prodotti, spese di spedizione e movimentazione, sconti e IVA (se applicabile). Su una fattura o su un altro documento di vendita un articolo viene visualizzato come riga. </TD> </TR> <TR> <TD> SalesReceipt </TD> <TD>Questa entità rappresenta la ricevuta di vendita fornita al cliente. </TD> </TR> </Table>
 
 
 ##Azioni QuickBooks ##
-Di seguito sono indicate le diverse azioni disponibili in QuickBooks Connector.
-	<table>
-	<tbody>
-		<tr><td>
-		<strong>Azione</strong>
-		</td>
-		<td>
-		<strong>Descrizione</strong>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Read Entity
-		</td>
-		<td>
-		Legge l'oggetto entità.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Create Or Update Entity
-		</td>
-		<td>
-		Crea o aggiorna un oggetto entità. Se l'oggetto esiste già, viene aggiornato. In caso contrario, viene creato un nuovo oggetto.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Delete
-		</td>
-		<td>
-		Questa azione elimina l'oggetto specificato dall'entità selezionata.
-		</td>
-		</tr>
-		<tr>	
-		<td>
-		Query
-		</td>
-		<td>
-		L'operazione di query è il metodo per la creazione di una query guidata su un'entità.
-		</td>
-		</tr>
-	</tbody>
-	</table>
+Di seguito sono indicate le diverse azioni disponibili in QuickBooks Connector. <table> <tbody> <tr><td> <strong>Azione</strong> </td> <td> <strong>Descrizione</strong> </td> </tr> <tr> <td> Read Entity </td> <td> Oggetto lettura entità. </td> </tr> <tr> <td> Create Or Update Entity </td> <td> Oggetto creazione o aggiornamento entità. Se l'oggetto esiste già, viene aggiornato. In caso contrario, viene creato un nuovo oggetto. </td> </tr> <tr> <td> Delete </td> <td> Questa azione elimina dall'entità selezionata l'oggetto specificato. </td> </tr> <tr> <td> Query </td> <td> L'operazione di query è il metodo per la creazione di una query guidata su un'entità.</td> </tr> </tbody> </table>
 
 ##Creare un'app per le API QuickBooks Connector##
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
@@ -85,7 +34,7 @@ Di seguito sono indicate le diverse azioni disponibili in QuickBooks Connector.
 3.	Configurare QuickBooks Connector specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API.
 
 	![][13]
-4. Configurare le entità QuickBooks che si desidera leggere/scrivere in 'Package Settings'.
+4. Configurare le entità QuickBooks che si desidera leggere/scrivere in Package Settings.
 
 A questo punto è possibile creare un'app per le API QuickBooks Connector.
 
@@ -93,22 +42,22 @@ A questo punto è possibile creare un'app per le API QuickBooks Connector.
 ##Creare un'app per la logica##
 In questa sezione viene descritta la creazione di una semplice app per la logica che crea un account in QuickBooks e aggiorna il valore di 'Category Type' dello stesso account.
 
-1.	Accedere al portale di Azure e fare clic su 'Nuovo -> Web e dispositivi mobili -> App per la logica'
+1.	Accedere al portale di Azure e fare clic su "Nuovo -> Web e dispositivi mobili -> App per la logica"
 
 	![][1]
 
-2.	Nella pagina 'Create logic app' immettere le informazioni richieste, ad esempio nome, piano di servizio app e area.
+2.	Nella pagina "Crea app per la logica" immettere le informazioni richieste, ad esempio nome, piano di servizio app e area.
 
 	![][2]
 
-3.	Fare clic su 'Triggers and Actions' per aprire la schermata dell'editor dell'app per la logica.
+3.	Fare clic su "Trigger e azioni" per aprire la schermata dell'editor dell'app per la logica.
 
 	![][3]
 
-4.	Selezionare 'Run this logic manually' per fare in modo che questa app per la logica possa essere richiamata solo manualmente.
+4.	Selezionare "Esegui app per la logica manualmente" per fare in modo che questa app per la logica possa essere richiamata solo manualmente.
 
 
-5.	Espandere 'API Apps in this resource group' nella raccolta per visualizzare tutte le app per le API disponibili. Selezionare 'QuickBooks Connector' dalla raccolta. 'QuickBooks Connector' viene aggiunto al flusso.
+5.	Espandere la sezione relativa alle app per le API nel gruppo di risorse nella raccolta per visualizzare tutte le app per le API disponibili. Selezionare 'QuickBooks Connector' dalla raccolta. 'QuickBooks Connector' viene aggiunto al flusso.
 
 
 6.	Se QuickBooks è online, per eseguire operazioni per conto dell'utente è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su Authorize in QuickBooks Connector.
@@ -127,11 +76,11 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][7]
 
-10.	Selezionare l'azione 'Create Or Update Account'. vengono visualizzati i parametri di input.
+10.	Selezionare l'azione 'Create Or Update Account'. Vengono visualizzati i parametri di input.
 
 	![][8]
 
-11.	Specificare un valore per 'Name' e 'Account Type', quindi fare clic su ✓. 
+11.	Specificare un valore per 'Name' e 'Account Type', quindi fare clic su ✓.
 
 	![][9]
 
@@ -141,7 +90,7 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][10]
 
-14.	Fare clic su '+' accanto a 'ID' per selezionare il valore dell'ID nell'output dell'azione "Create Account". 
+14.	Fare clic su '+' accanto a 'ID' per selezionare il valore dell'ID nell'output dell'azione "Create Account".
 
 	![][11]
 
@@ -149,9 +98,9 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][12]
 
-16. Fare clic su OK nella schermata dell'editor dell'app per la logica, quindi fare clic su 'Create'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
+16. Fare clic su OK nella schermata dell'editor dell'app per la logica, quindi fare clic su 'Crea'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
 
-17. Andare all'app per la logica appena creata e fare clic su 'Run' per avviare l'esecuzione.
+17. Passare all'app per la logica appena creata e fare clic su 'Esegui' per avviare l'esecuzione.
 
 18. È possibile controllare che nell'account QuickBooks venga creato un nuovo account con nome 'Contoso'.
 
@@ -171,6 +120,6 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

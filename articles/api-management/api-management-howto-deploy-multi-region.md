@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
@@ -75,5 +75,4 @@ Dopo aver rimosso le aree desiderate, fare clic su **Salva**.
 [unità]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

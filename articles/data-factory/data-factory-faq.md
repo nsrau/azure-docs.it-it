@@ -22,7 +22,7 @@
 
 ### D: Che cos'è Data factory di Azure?
 
-Data factory è un servizio completamente gestito per gli sviluppatori per comporre i servizi di archiviazione, trasferimento ed elaborazione dei dati in pipeline di dati a disponibilità elevata e a tolleranza di errore. Data factory funziona tramite archiviazione dei dati locale e nel cloud. Una pipeline è un set di input di dati, le attività di elaborazione e output di dati e viene definita con semplici script JSON e attivata tramite comandi di PowerShell. Una volta attivato, Data factory organizza e pianifica l'esecuzione delle pipeline in HDInsight \(Hadoop\) con opzioni per la gestione automatica dei cluster per conto dell'utente. Data factory consente anche la gestione visiva e il monitoraggio attraverso il portale di anteprima di Azure, per monitorare tutte le pipeline con informazioni complete su operatività e integrità del servizio in un unico dashboard.
+Data factory è un servizio completamente gestito per gli sviluppatori per comporre i servizi di archiviazione, trasferimento ed elaborazione dei dati in pipeline di dati a disponibilità elevata e a tolleranza di errore. Data factory funziona tramite archiviazione dei dati locale e nel cloud. Una pipeline è un set di input di dati, le attività di elaborazione e output di dati e viene definita con semplici script JSON e attivata tramite comandi di PowerShell. Una volta attivato, Data factory organizza e pianifica l'esecuzione delle pipeline in HDInsight (Hadoop) con opzioni per la gestione automatica dei cluster per conto dell'utente. Data factory consente anche la gestione visiva e il monitoraggio attraverso il portale di anteprima di Azure, per monitorare tutte le pipeline con informazioni complete su operatività e integrità del servizio in un unico dashboard.
  
 ### D: Quali esigenze del cliente soddisfa Data factory?
 
@@ -83,7 +83,7 @@ No. Come per le altre risorse di Azure, non è possibile modificare il nome di u
 ### D: Quali sono le origini dati e le attività supportate?
 
 - **Origini dati supportate:** 
-	- Archiviazione di Azure \(BLOB e tabelle\)
+	- Archiviazione di Azure (BLOB e tabelle)
 	- SQL di Azure
 	- Azure DocumentDB
 	- Server SQL locale
@@ -95,8 +95,8 @@ No. Come per le altre risorse di Azure, non è possibile modificare il nome di u
 	- Sybase locale
 	- PostgreSQL locale.  
 - **Attività supportate:**: 
-	- Attività di copia \(da locale a cloud e da cloud a locale\)
-	- Attività HDInsight \(trasformazioni Pig, Hive, MapReduce, Hadoop Streaming\)
+	- Attività di copia (da locale a cloud e da cloud a locale)
+	- Attività HDInsight (trasformazioni Pig, Hive, MapReduce, Hadoop Streaming)
 	- Attività di assegnazione dei punteggi di batch di Azure Machine Learning
 	- Attività di stored procedure SQL di Azure
 	- Attività .NET personalizzate.
@@ -141,7 +141,7 @@ Il cluster HDInsight su richiesta viene creato nella stessa area geografica in c
 
 ### D: In che modo è possibile associare account di archiviazione aggiuntivi al cluster HDInsight?
 
-Se si usa un cluster HDInsight personalizzato \(BYOC - Bring Your Own Cluster\), vedere gli argomenti seguenti:
+Se si usa un cluster HDInsight personalizzato (BYOC - Bring Your Own Cluster), vedere gli argomenti seguenti:
 
 - [Uso di un cluster HDInsight con account di archiviazione e metastore alternativi][hdinsight-alternate-storage]
 - [Usare account di archiviazione aggiuntivi con HDInsight Hive][hdinsight-alternate-storage-2]
@@ -217,4 +217,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

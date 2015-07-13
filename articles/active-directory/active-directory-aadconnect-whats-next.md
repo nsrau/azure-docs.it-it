@@ -34,13 +34,13 @@ Dopo avere sincronizzato gli utenti nel cloud, occorre assegnare loro una licenz
 <li>Accesso al portale di Azure come amministratore.</li>
 <li>A sinistra selezionare **Active Directory**.</li>
 <li>Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.</li>
-<li>Nella parte superiore della pagina della directory selezionare **Licenses**.</li>
+<li>Nella parte superiore della pagina della directory selezionare **Licenze**.</li>
 <li>Nella pagina Licenze selezionare Active Directory Premium o Enterprise Mobility Suite, quindi fare clic su **Assegna**.</li>
 <li>Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.</li>
 
 
-## Verificare l'attività di sincronizzazione pianificata
-Per controllare lo stato di una sincronizzazione, è possibile accedere al portale di Azure.
+## Verifica dell'attività di sincronizzazione pianificata
+Se si desidera controllare lo stato di una sincronizzazione, verificare nel portale di Azure.
 
 ### Per verificare l'attività di sincronizzazione pianificata
 --------------------------------------------------------------------------------
@@ -70,8 +70,8 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 Attività aggiuntive | Descrizione 
 ------------- | ------------- |
-Visualizza lo scenario selezionato |Consente di visualizzare la soluzione di Connect di Azure AD corrente. Include impostazioni generali, directory sincronizzate, impostazioni di sincronizzazione e così via.
-Personalizzazione delle opzioni di sincronizzazione | Consente di modificare la configurazione corrente, inclusa l'aggiunta di altre foreste di Active Directory per la configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password.
+Visualizzare lo scenario selezionato |Consente di visualizzare la soluzione di Connect di Azure AD corrente. Ciò include le impostazioni generali, le directory sincronizzate, le impostazioni di sincronizzazione e così via.
+Personalizzare le opzioni di sincronizzazione | Consente di modificare la configurazione corrente, inclusa l'aggiunta di altre foreste di Active Directory per la configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password.
 Abilitazione modalità di gestione temporanea | Consente di inserire in un'area di gestione temporanea le informazioni che saranno sincronizzate in un secondo momento, senza che avvenga l'esportazione in Azure AD o Active Directory. Consente di visualizzare in anteprima le sincronizzazioni prima che si verifichino.
 
 
@@ -94,4 +94,4 @@ Parte della documentazione creata per Azure AD Sync è comunque pertinente e si 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -21,13 +21,13 @@
 
 # Creazione di app Web con Flask in Azure
 
-Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Le app Web di Azure offrono hosting gratuito limitato e capacità di distribuzione rapida, oltre alla possibilità di utilizzare Python! Se la crescita dell'applicazione lo richiede, è possibile passare all'hosting a pagamento e avvalersi dell'integrazione con tutti gli altri servizi di Azure.
+Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python in [App Web di Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). App Web offre hosting gratuito limitato e capacità di distribuzione rapida, oltre alla possibilità di utilizzare Python! Se la crescita dell'applicazione lo richiede, è possibile passare all'hosting a pagamento e avvalersi dell'integrazione con tutti gli altri servizi di Azure.
 
 Verrà creata un'applicazione usando il framework Web di Flask (vedere le versioni alternative di questa esercitazione per [Django](web-sites-python-create-deploy-django-app.md) e [Bottle](web-sites-python-create-deploy-bottle-app.md)). Verrà creato il sito Web dalla raccolta di Azure, sarà configurata la distribuzione Git e si procederà alla clonazione locale del repository. Quindi verrà eseguita l'applicazione localmente, si apporteranno le modifiche, e queste verranno successivamente sottoposte al commit e al push in Azure. Nell'esercitazione viene illustrato come eseguire queste operazioni da Windows o Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -61,7 +61,7 @@ Il primo passaggio per la creazione di un'app consiste nella creazione dell'app 
 3. Nella casella di ricerca digitare "python".
 4. Nei risultati della ricerca selezionare **Flask** e quindi fare clic su **Crea**.
 5. Configurare la nuova app Flask, ad esempio creando un nuovo piano di servizio app e un nuovo gruppo di risorse correlato. Fare quindi clic su **Crea**.
-6. Configurare la pubblicazione Git per l'applicazione web appena creato seguendo le istruzioni in [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+6. Configurare la pubblicazione Git per l'applicazione web appena creato seguendo le istruzioni in [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
 
 ## Informazioni generali sull'applicazione
@@ -131,11 +131,11 @@ Nelle tre sezioni successive viene descritto come procedere con lo sviluppo dei 
 - Mac/Linux, con la riga di comando
 
 
-## Sviluppo di app Web - Windows - Python Tools per Visual Studio
+## Sviluppo di siti Web - Windows - Python Tools per Visual Studio
 
 ### Clonare il repository
 
-Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
 Aprire il file della soluzione (.sln) incluso nella radice del repository.
 
@@ -147,13 +147,13 @@ A questo punto verrà creato un ambiente virtuale per lo sviluppo locale. Fare c
 
 - Assicurarsi che il nome dell'ambiente sia `env`.
 
-- Selezionare l'interprete di base. Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello **Impostazioni applicazione** dell'app Web nel portale di Azure).
+- Selezionare l'interprete di base. Assicurarsi di utilizzare la stessa versione di Python è selezionata per l'applicazione web (in runtime.txt o **le impostazioni dell'applicazione** blade dell'applicazione web nel portale di Azure).
 
 - Assicurarsi che l'opzione per scaricare e installare i pacchetti sia selezionata.
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-add-virtual-env-27.png)
 
-Fare clic su **Crea**. In tal modo verrà creato l'ambiente virtuale e verranno installate le dipendenze elencate in requirements.txt.
+Fare clic su **Create**. In tal modo verrà creato l'ambiente virtuale e verranno installate le dipendenze elencate in requirements.txt.
 
 ### Eseguire mediante il server di sviluppo
 
@@ -198,11 +198,11 @@ In Visual Studio non viene visualizzato l'avanzamento della distribuzione. Se si
 Passare all'URL di Azure per visualizzare le modifiche.
 
 
-## Sviluppo di app Web - Windows - Riga di comando
+## Sviluppo di siti Web - Windows - Riga di comando
 
 ### Clonare il repository
 
-Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -212,7 +212,7 @@ Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azu
 
 Verrà creato un nuovo ambiente virtuale per lo sviluppo (non aggiungerlo al repository). Non è possibile cambiare la posizione degli ambienti virtuali in Python, pertanto, ciascuno sviluppatore che lavora all'applicazione ne creerà una locale.
 
-Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello **Impostazioni applicazione** dell'app Web nel portale di Azure).
+Assicurarsi di utilizzare la stessa versione di Python è selezionata per l'applicazione web (in runtime.txt o **le impostazioni dell'applicazione** blade dell'applicazione web nel portale di Azure).
 
 Per Python 2.7:
 
@@ -281,7 +281,7 @@ Passare all'URL di Azure per visualizzare le modifiche.
 
 ### Clonare il repository
 
-Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -291,7 +291,7 @@ Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azu
 
 Verrà creato un nuovo ambiente virtuale per lo sviluppo (non aggiungerlo al repository). Non è possibile cambiare la posizione degli ambienti virtuali in Python, pertanto, ciascuno sviluppatore che lavora all'applicazione ne creerà una locale.
 
-Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello **Impostazioni applicazione** dell'app Web nel portale di Azure).
+Assicurarsi di utilizzare la stessa versione di Python è selezionata per l'applicazione web (in runtime.txt o **le impostazioni dell'applicazione** blade dell'applicazione web nel portale di Azure).
 
 Per Python 2.7:
 
@@ -373,14 +373,14 @@ Visitare i seguenti collegamenti per altre informazioni su Flask e Python Tools 
 - [Documentazione di Flask]
 - [Documentazione di Python Tools per Visual Studio]
 
-Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
+Per informazioni sull'uso dell’archiviazione tabelle di Azure e MongoDB:
 
 - [Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio]
 - [Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

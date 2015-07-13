@@ -1,11 +1,11 @@
-﻿
-1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**. 
+
+1. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**. 
  
-2. In **todoitem** fare clic sulla scheda **Script** e selezionare **Inserisci**.
+2. In **todoitem** fare clic sulla scheda **Script**, quindi selezionare **Insert**.
    
    	Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **TodoItem**.
 
-3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
+3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
 
 		function insert(item, user, request) {
 		// Define a simple payload for a GCM notification.
@@ -35,7 +35,6 @@
 		  });
 		}
 
-   	Verrà registrato un nuovo script insert, che usa l'[oggetto gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) per inviare una notifica push a tutti i dispositivi registrati dopo la corretta esecuzione dell'inserimento. 
+   	Verrà registrato un nuovo script insert, che usa l'[oggetto gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) per inviare una notifica push a tutti i dispositivi registrati dopo la corretta esecuzione dell'inserimento.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

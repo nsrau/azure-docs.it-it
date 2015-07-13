@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 #  Monitorare l'uso nelle app Windows Store e Windows Phone con Application Insights
@@ -87,6 +87,35 @@ Fare clic per visualizzare tutte le occorrenze per visualizzare le proprietà de
 
 Per altre informazioni sugli eventi personalizzati, vedere [Riferimento API][api].
 
+## Sessioni
+
+Sessione è un concetto fondamentale in Application Insights, che consiste nell’associare tutti gli eventi di telemetria, quali arresti anomali o eventi personalizzati codificati manualmente con una specifica sessione utente.
+
+Vengono raccolte informazioni di contesto complete su ciascuna sessione, ad esempio caratteristiche del dispositivo, posizione geografica, sistema operativo e così via.
+
+Durante la [diagnosi dei problemi][diagnostic], è possibile individuare tutti i dati di telemetria relativi alla sessione in cui si verificato un problema, incluse tutte le richieste ed eventuali eventi, eccezioni o tracce registrati.
+
+Le sessioni forniscono un misura adeguata della popolarità dei contesti, ad esempio dispositivo, sistema operativo o percorso. Visualizzando il numero di sessioni raggruppate per dispositivo, ad esempio, si ottiene un conteggio più preciso della frequenza con cui un dispositivo viene usato con l’app che contando le visualizzazioni di pagina. Tale input potrebbe essere utile per la valutazione di eventuali problemi specifici di un dispositivo.
+
+
+#### Che cos'è una sessione?
+
+Una sessione rappresenta un singolo incontro tra l'utente e l'applicazione. Nella sua forma più semplice, la sessione inizia quando un utente avvia l'app e termina quando l'utente esce dall'app. Per le app per dispositivi mobili, la sessione viene terminata quando l'app viene sospesa (spostata in background) per più di 20 secondi. Se l'app viene ripresa, viene avviata una nuova sessione. Naturalmente, un utente può avere più sessioni in un giorno o anche in una singola ora.
+
+**Durata della sessione** è una metrica che rappresenta l'intervallo di tempo tra il primo e l’ultimo elemento di telemetria della sessione. (Non include il periodo di timeout).
+
+
+**Conteggio sessioni** in un determinato intervallo viene definito come il numero di sessioni univoche con alcune attività durante questo intervallo. Quando si esamina un lungo intervallo di tempo, ad esempio il conteggio sessioni giornaliere della settimana precedente, in genere questo valore è equivalente al numero totale di sessioni.
+
+Tuttavia, quando si analizzano intervalli di tempo più brevi, ad esempio il livello di dettaglio orario, una sessione lunga che si estende in più ore viene conteggiata per ciascuna ora in cui la sessione è stata attiva.
+
+## Utenti e conteggi utenti
+
+Ogni sessione utente è associata a un id utente univoco, generato durante l'uso dell'app e mantenuto nella memoria locale del dispositivo. Un utente che usa più dispositivi viene conteggiato più di una volta.
+
+La metrica **conteggio utenti** in un determinato intervallo viene definita come il numero di utenti univoci con attività registrate durante questo intervallo. Di conseguenza, quando si imposta un intervallo di tempo, gli utenti con sessioni lunghe potrebbero essere conteggiati più volte e il livello di dettaglio essere inferiore a un'ora o circa.
+
+**Nuovi utenti**: conteggia gli utenti le cui prime sessioni con l’app si sono verificate durante questo intervallo.
 
 
 ## <a name="debug"></a>Confronto tra la modalità Debug e Release
@@ -114,10 +143,14 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
+[diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [windows]: app-insights-windows-get-started.md
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

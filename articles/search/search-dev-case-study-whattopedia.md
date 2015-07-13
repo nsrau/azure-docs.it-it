@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Case study per gli sviluppatori di Ricerca di Azure</h1>
+# Case study per gli sviluppatori di Ricerca di Azure
 
-<font size="5">In che modo [WhatToPedia.com](http://whattopedia.com/) ha creato un portale di informazioni multimediale in Microsoft Azure</font>
+## In che modo [WhatToPedia.com](http://whattopedia.com/) ha creato un portale di informazioni multimediale in Microsoft Azure
 
  ![][6] &nbsp;&nbsp;&nbsp; <font size="9">Un’idea geniale</font>
 
@@ -419,5 +419,6 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

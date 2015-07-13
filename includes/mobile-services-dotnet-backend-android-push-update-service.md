@@ -31,4 +31,5 @@
     Questo codice invierà una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
 
 3. Ripubblicare il progetto di servizio mobile in Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

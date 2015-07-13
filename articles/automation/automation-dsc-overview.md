@@ -220,4 +220,6 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 
 - Quando si carica una macchina virtuale di Azure per la gestione nella piattaforma DSC di Automazione di Azure tramite `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` o l'estensione VM di tale piattaforma nel portale di anteprima di Azure, se la registrazione non riesce e viene visualizzato un messaggio che indica che il nome computer non è stato specificato e la directory di configurazione non dispone di file di configurazione, tenere presente che si tratta di un falso allarme e che la registrazione della macchina virtuale ha effettivamente avuto esito positivo. È possibile verificare se la registrazione è riuscita eseguendo il cmdlet `Get-AzureAutomationDscNode`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

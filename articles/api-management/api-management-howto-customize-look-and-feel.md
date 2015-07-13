@@ -36,7 +36,7 @@ Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad es
 
 > Se si ha familiarità con [Bootstrap](http://getbootstrap.com/), queste regole sono in effetti [variabili LESS](http://getbootstrap.com/css/) all'interno del tema bootstrap usato dal portale per sviluppatori.
 
-A questo punto, verrà modificato il colore del testo dell'intestazione. Selezionare la voce nel campo **@headings-color** e digitare \#000000. Questo è il codice esadecimale per il colore nero. Durante l'operazione, verrà visualizzato un indicatore di colore quadrato all'estremità della casella di testo. Se si fa clic su questo indicatore, verrà visualizzato uno strumento di selezione dei colori che consente di scegliere un colore.
+A questo punto, verrà modificato il colore del testo dell'intestazione. Selezionare la voce nel campo **@headings-color** e digitare #000000. Questo è il codice esadecimale per il colore nero. Durante l'operazione, verrà visualizzato un indicatore di colore quadrato all'estremità della casella di testo. Se si fa clic su questo indicatore, verrà visualizzato uno strumento di selezione dei colori che consente di scegliere un colore.
 
 ![Selezione colori][api-management-customization-toolbar-color-picker]
 
@@ -55,4 +55,4 @@ Dopo avere apportato le modifiche desiderate agli stili dell'elemento selezionat
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

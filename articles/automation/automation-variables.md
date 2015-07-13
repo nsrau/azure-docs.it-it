@@ -186,5 +186,6 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 ## Articoli correlati
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

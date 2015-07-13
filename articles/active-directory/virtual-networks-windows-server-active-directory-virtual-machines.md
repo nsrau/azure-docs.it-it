@@ -1,0 +1,51 @@
+<properties 
+	pageTitle="Windows Server Active Directory in macchine virtuali di Azure " 
+	description="È possibile eseguire Servizi di dominio Active Directory o Active Directory Federation Services (ADFS) di Windows Server in macchine virtuali di Azure." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor="LisaToft"
+	tags="azure-classic-portal"/>
+
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="hero-article" 
+	ms.date="04/27/2015" 
+	ms.author="justinha"/>
+
+
+# Windows Server Active Directory in macchine virtuali di Azure
+
+
+Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla distribuzione di Servizi di dominio Active Directory o Active Directory Federation Services (ADFS) di Windows Server in macchine virtuali (VM) di Azure.
+
+## Linee guida sui concetti
+
+- [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+
+## Video
+
+- [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
+
+## Articoli sulle procedure
+
+- [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md)
+- [Installare un controller di dominio Active Directory di replica nelle reti virtuali di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+
+
+## Risorse aggiuntive
+
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
+
+
+
+
+ 
+
+<!---HONumber=62-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Creazione di app Web con Django" 
-	description="Un'esercitazione introduttiva è in esecuzione un'applicazione web di Python in Azure applicazione servizio Web App." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Creazione di app Web con Django"
+	description="Un'esercitazione introduttiva è in esecuzione un'applicazione web di Python in Azure applicazione servizio Web App."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -57,7 +57,7 @@ Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utiliz
 
 Il primo passaggio per la creazione di un'app consiste nella creazione dell'app Web tramite il [portale di Azure](https://portal.azure.com).
 
-1. Accedere al portale di Azure e scegliere il **nuovo** pulsante nell'angolo inferiore sinistro. 
+1. Accedere al portale di Azure e scegliere il **nuovo** pulsante nell'angolo inferiore sinistro.
 2. Fare clic su **Web + Mobile** > **Azure Marketplace** > **App Web**.
 3. Nella casella di ricerca digitare "python".
 4. Nei risultati della ricerca, selezionare **Django**, quindi fare clic su **Crea**.
@@ -111,7 +111,7 @@ Proxy IIS per ambienti virtuali e supporto del debug remoto PTVS.
     \requirements.txt
 
 Pacchetti esterni necessari da parte di questa applicazione. Lo script di distribuzione eseguirà l'installazione di pip dei pacchetti elencati in questo file.
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -229,7 +229,7 @@ Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azu
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Creare l'ambiente virtuale
 
@@ -318,7 +318,7 @@ Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azu
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Creare l'ambiente virtuale
 
@@ -423,7 +423,7 @@ La raccolta dei file statici viene eseguita automaticamente come parte dello scr
 
 Per ignorare la raccolta dei file statici per l'applicazione Django:
 
-    .skipDjango 
+    .skipDjango
 
 Sarà quindi necessario eseguire manualmente la raccolta nel computer locale:
 
@@ -453,7 +453,7 @@ o per abilitare qualsiasi host:
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 In pratica, è possibile decidere di svolgere operazioni più complesse per gestire il cambio tra la modalità di debug e di rilascio e l'acquisizione del nome host.
 
 È possibile impostare variabili di ambiente la pagina **CONFIGURA** del portale di Azure, nella sezione delle **impostazioni delle app**. Ciò può essere utile per impostare i valori che è possibile non si desideri visualizzare nelle origini (stringhe di connessione, password e così via), o che si desidera impostare in modo diverso tra Azure e il computer locale. In `settings.py`, è possibile eseguire una query delle variabili di ambiente tramite `os.getenv`.
@@ -480,7 +480,7 @@ Una volta abilitato, sincronizzare il database, eseguire l'applicazione e naviga
 ## Passaggi successivi
 
 Per ulteriori informazioni su Django e Python Tools per Visual Studio, seguire i collegamenti forniti di seguito:
- 
+
 - [Documentazione di Django]
 - [Documentazione di Python Tools per Visual Studio]
 
@@ -513,6 +513,6 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [documentazione PTVS]: http://pytools.codeplex.com/documentation
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentazione di Django]: https://www.djangoproject.com/
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

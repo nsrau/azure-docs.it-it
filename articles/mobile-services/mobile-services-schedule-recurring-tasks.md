@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Pianificare i processi ricorrenti in Servizi mobili 
@@ -28,11 +28,7 @@ Questo argomento illustra come usare la funzionalità di pianificazione processi
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
 + Elaborazione o ridimensionamento delle immagini archiviate.
 
-Questa esercitazione descrive le procedure per usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
-
-+ [Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]
-+ [Creare la nuova tabella Updates]
-+ [Creare un nuovo processo pianificato]
+Questa esercitazione descrive come usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates.
 
 ##<a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter 1.1 e l'archiviazione delle credenziali
 
@@ -136,7 +132,7 @@ Ora è possibile creare l'attività pianificata che accede a Twitter e archivia 
 
    	Lo script chiama l'API di query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
-    >[AZURE.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile eseguire gli inserimenti in batch. Per altre informazioni, vedere la procedura relativa all'<a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">esecuzione degli inserimenti bulk</a>.
+    >[AZURE.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile eseguire gli inserimenti in batch. Per altre informazioni, vedere [Procedura: Eseguire inserimenti bulk](mobile-services-how-to-use-server-scripts.md#bulk-inserts).
 
 6. Fare clic su **Esegui una volta** per testare lo script.
 
@@ -150,29 +146,17 @@ Ora è possibile creare l'attività pianificata che accede a Twitter e archivia 
 
 In questa esercitazione è stato creato un nuovo processo pianificato nel servizio mobile. Il processo verrà eseguito come pianificato fino a quando non verrà disabilitato o modificato.
 
-## <a name="nextsteps"> </a>Passaggi successivi
+## <a name="nextsteps"> </a>Vedere anche
 
 * [Informazioni di riferimento sugli script del server di Servizi mobili] <br/>Altre informazioni sulla registrazione e l'uso degli script del server.
 
 <!-- Anchors. -->
-[Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]: #get-oauth-credentials
-[Creare la nuova tabella Updates]: #create-table
-[Creare un nuovo processo pianificato]: #add-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -181,5 +165,6 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,7 +1,7 @@
-﻿## Progetto API Web
+## Progetto WebAPI
 
 1. In Visual Studio aprire il progetto **AppBackend** creato nell'esercitazione sulla **creazione di notifiche per gli utenti**.
-2. In Notifications.cs sostituire l'intera classe **Notifications** con il seguente codice. Assicurarsi di sostituire i segnaposto con la stringa di connessione con accesso completo per l'hub di notifica e il nome dell'hub. È possibile ottenere questi valori nel [portale di gestione di Azure](http://manage.windowsazure.com). Questo modulo rappresenta ora le diverse notifiche sicure che verranno inviate. In un'implementazione completa le notifiche verranno archiviate in un database; per semplicità, in questo caso, verranno archiviate in memoria.
+2. In Notifications.cs sostituire l'intera classe **Notifications** con il codice seguente. Assicurarsi di sostituire i segnaposto con la stringa di connessione con accesso completo per l'hub di notifica e il nome dell'hub. È possibile ottenere questi valori nel [portale di gestione di Azure](http://manage.windowsazure.com). Questo modulo rappresenta ora le diverse notifiche sicure che verranno inviate. In un'implementazione completa le notifiche verranno archiviate in un database; per semplicità, in questo caso, verranno archiviate in memoria.
 
 		public class Notification
 	    {
@@ -42,7 +42,7 @@
 	        }
 	    }
 
-20. In NotificationsController.cs sostituire il codice all'interno della definizione della classe **NotificationsController** con il seguente codice. Questo componente implementa un modo per il recupero della notifica da parte del dispositivo. Inoltre, ai fini di questa esercitazione, fornisce all'utente un modo per attivare un push sicuro ai propri dispositivi. Notare che a Hub di notifica verrà inviata una notifica non elaborata, che contiene l'ID della notifica senza alcun messaggio:
+20. In NotificationsController.cs sostituire il codice all'interno della definizione della classe **NotificationsController** con il codice seguente. Questo componente implementa un modo per il recupero della notifica da parte del dispositivo. Inoltre, ai fini di questa esercitazione, fornisce all'utente un modo per attivare un push sicuro ai propri dispositivi. Notare che a Hub di notifica verrà inviata una notifica non elaborata, che contiene l'ID della notifica senza alcun messaggio:
 
 		public NotificationsController()
         {
@@ -82,6 +82,6 @@ Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma 
 
 21. L'app verrà ora nuovamente distribuita in un sito Web di Azure in modo da renderla accessibile da tutti i dispositivi. Fare clic con il pulsante destro del mouse sul progetto **AppBackend** e scegliere **Pubblica**.
 
-24. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a questo URL come *backend endpoint* più avanti in questa esercitazione. Fare clic su **Pubblica**.
+24. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a quest'URL come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.
 
-<!--HONumber=49-->
+<!---HONumber=62-->

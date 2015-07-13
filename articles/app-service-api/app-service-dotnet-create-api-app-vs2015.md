@@ -25,7 +25,7 @@
 
 ## Panoramica
 
-Questa esercitazione mostra come creare un progetto API Web ASP.NET 2 usando [Visual Studio 2015 RC](https://www.visualstudio.com/it-it/downloads/visual-studio-2015-downloads-vs.aspx) e come configurarlo per la distribuzione nel cloud come [app per le API](app-service-api-apps-why-best-platform.md) in [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Viene anche distribuito il progetto in Azure. Al termine dell'esercitazione sarà disponibile un'app per le API in esecuzione sul cloud di Azure.
+Questa esercitazione mostra come creare un progetto API Web ASP.NET 2 usando [Visual Studio 2015 RC](https://www.visualstudio.com/it-it/downloads/visual-studio-2015-downloads-vs.aspx) e come configurarlo per la distribuzione nel cloud come [app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Viene anche distribuito il progetto in Azure. Al termine dell'esercitazione sarà disponibile un'app per le API in esecuzione sul cloud di Azure.
 
 L'esercitazione presuppone competenze nell'uso di file e cartelle in **Esplora soluzioni** di Visual Studio.
 
@@ -41,7 +41,7 @@ Visual Studio 2015 RC non include ancora un modello di progetto di app per le AP
 
 1. Aprire Visual Studio 2015 RC.
 
-2. Fare clic su **File \> Nuovo progetto**.
+2. Fare clic su **File > Nuovo progetto**.
 
 3. In **Modelli** fare clic su **Web** e quindi selezionare il modello **Applicazione Web ASP.NET**.
 
@@ -67,9 +67,9 @@ Visual Studio 2015 RC non include ancora un modello di progetto di app per le AP
 
 Il runtime del servizio app per le app per le API fornito dal [pacchetto NuGet Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) e la generazione dinamica di metadati dell'API [Swagger](http://swagger.io/ "Informazioni ufficiali su Swagger") viene fornito dal pacchetto NuGet [Swashbuckle](http://www.nuget.org/packages/Swashbuckle/).
 
-> **Nota:** quando si installa un pacchetto Swashbuckle, per impostazione predefinita viene abilitata anche una pagina di test dell'API. Se pubblica l'app per le API e si imposta livello di accesso su **Pubblico \(anonimo\)**, chiunque trovi l'URL della pagina di test potrà usarlo per chiamare l'API. La pagina di test verrà usata più avanti in questa esercitazione.
+> **Nota:** quando si installa un pacchetto Swashbuckle, per impostazione predefinita viene abilitata anche una pagina di test dell'API. Se si pubblica l'app per le API e si imposta il livello di accesso su **Pubblico (anonimo)**, chiunque trovi l'URL della pagina di test potrà usarlo per chiamare l'API. La pagina di test verrà usata più avanti in questa esercitazione.
 
-1. Fare clic su **Strumenti \> Gestione pacchetto Nuget \> Console di gestione pacchetti**.
+1. Fare clic su **Strumenti > Gestione pacchetto NuGet > Console di gestione pacchetti**.
 
 2. Immettere i comandi seguenti in **Console di Gestione pacchetti**.
 
@@ -124,7 +124,7 @@ Nei passaggi seguenti verrà aggiunto codice per un semplice metodo HTTP Get che
 
 2. Nella cartella *Models* aggiungere un file di classe denominato *Contact.cs* e sostituire il contenuto del file con il codice seguente. namespace ContactsList.Models { public class Contact { public int Id { get; set; } public string Name { get; set; } public string EmailAddress { get; set; } } }
 
-5. Fare clic con il pulsante destro del mouse sulla cartella **Controller** e quindi scegliere **Aggiungi \> Controller**.
+5. Fare clic con il pulsante destro del mouse sulla cartella **Controller** e quindi scegliere **Aggiungi > Controller**.
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/05-new-controller-v3.png)
 
@@ -167,11 +167,11 @@ Nei passaggi seguenti verrà aggiunto codice per un semplice metodo HTTP Get che
 
 Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
-1. Eseguire l'app in locale \(CTRL + F5\) e aggiungere `/swagger` alla fine dell'URL nella barra degli indirizzi del browser. 
+1. Eseguire l'app in locale (CTRL+F5) e aggiungere `/swagger` alla fine dell'URL nella barra degli indirizzi del browser. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/14-swagger-ui.png)
 
-2. Fare clic su **Contatti \> Recupera \> Provalo**. Come si può vedere, l'API funziona e restituisce il risultato previsto.
+2. Fare clic su **Contatti > Recupera > Provalo**. Come si può vedere, l'API funziona e restituisce il risultato previsto.
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/15-swagger-ui-post-test.png)
 
@@ -179,7 +179,7 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 1. Creare un'app per le API nel [portale di anteprima di Azure](https://portal.azure.com). 
 
-	* Fare clic su **Nuovo \> Web e dispositivi mobili \> App per le API**.
+	* Fare clic su **Nuovo > Web e dispositivi mobili > App per le API**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp1.png)
 
@@ -189,7 +189,7 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 		Per altre informazioni sui piani di servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-	* Fare clic su **Piano tariffario \> Visualizza tutto \> Gratuito \> Seleziona** per selezionare il piano tariffario gratuito.
+	* Fare clic su **Piano tariffario > Visualizza tutto > Gratuito > Seleziona** per selezionare il piano tariffario gratuito.
 
 		È possibile usare un piano tariffario a pagamento, ma non è necessario per questa esercitazione.
 
@@ -205,15 +205,15 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp2.png)
 
-2. Quando Azure completa la creazione dell'app per le API, impostare il livello di accesso dell'app per le API su **Pubblico \(anonimo\)**.
+2. Quando Azure completa la creazione dell'app per le API, impostare il livello di accesso dell'app per le API su **Pubblico (anonimo)**.
 
-	* Fare clic su **Sfoglia \> Gruppi di risorse \> \[il gruppo di risorse creato\] \> \[l'app per le API creata\]**.
+	* Fare clic su **Sfoglia > Gruppi di risorse > [il gruppo di risorse creato] > [l'app per le API creata]**.
 
-	* Fare clic su **Impostazioni \> Impostazioni applicazione**.
+	* Fare clic su **Impostazioni > Impostazioni applicazione**.
 
-	* Impostare il **Livello di accesso** su **Pubblico \(anonimo\)**.
+	* Impostare **Livello di accesso** su **Pubblico (anonimo)**.
 	 
-	* Fare clic su **Save**.
+	* Fare clic su **Salva**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/setpublicanon.png)
 	
@@ -251,7 +251,7 @@ Le app per le API sono essenzialmente app Web per cui Azure fornisce funzionalit
 
 	Verrà visualizzata la stessa interfaccia utente di Swagger mostrata in precedenza durante l'esecuzione in locale, ma ora viene eseguita sul cloud.
 
-2. Fare clic su **Contatti \> Recupera \> Provalo**. Come si può vedere, l'API funziona e restituisce il risultato previsto.
+2. Fare clic su **Contatti > Recupera > Provalo**. Come si può vedere, l'API funziona e restituisce il risultato previsto.
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/runninginazure.png)
 
@@ -259,7 +259,7 @@ Le app per le API sono essenzialmente app Web per cui Azure fornisce funzionalit
 
 In questa sezione, si passerà al portale per visualizzare la definizione di API per l'app per le API appena creata.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com), passare al pannello **App per le API** per l'app per le API creata, fare clic su **Sfoglia \> Gruppi di risorse \> \[il gruppo di risorse creato\] \> \[l'app per le API creata\]**.
+1. Nel [portale di anteprima di Azure](https://portal.azure.com) passare al pannello **App per le API** per l'app creata, fare clic su **Sfoglia > Gruppi di risorse > [il gruppo di risorse creato] > [l'app per le API creata]**.
 
 4. Fare clic su **Definizione API**.
 
@@ -294,7 +294,7 @@ In questa sezione, si passerà al portale per visualizzare la definizione di API
 
 ## Passaggi successivi
 
-È stata creata e distribuita un'app per le API tramite Visual Studio 2015 RC. Per documentazione aggiuntiva sulle app per le API, vedere le voci del riquadro di spostamento visualizzato sul lato sinistro della pagina \(per finestre del browser di grandi dimensioni\) o nella parte superiore della pagina \(per finestre del browser ridotte\). La maggior parte della documentazione sulle app per le API è attualmente relativa a Visual Studio 2013, ma molte informazioni sono applicabili a VS 2015, poiché l'interfaccia utente è simile, il codice scritto è uguale e l'interfaccia utente del portale è la stessa.
+È stata creata e distribuita un'app per le API tramite Visual Studio 2015 RC. Per documentazione aggiuntiva sulle app per le API, vedere le voci del riquadro di spostamento visualizzato sul lato sinistro della pagina (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte). La maggior parte della documentazione sulle app per le API è attualmente relativa a Visual Studio 2013, ma molte informazioni sono applicabili a VS 2015, poiché l'interfaccia utente è simile, il codice scritto è uguale e l'interfaccia utente del portale è la stessa.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

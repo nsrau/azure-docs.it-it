@@ -1,87 +1,74 @@
 <properties 
-	pageTitle="Come usare la diagnostica" 
+	pageTitle="Abilitare il monitoraggio e la diagnostica" 
 	description="Informazioni su come configurare la diagnostica per le risorse in Azure." 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# Configurazione della diagnostica
+# Abilitare il monitoraggio e la diagnostica
 
-Nel portale di anteprima di Azure è ora possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle macchine virtuali Windows e agli account di archiviazione in uso.
+Nel [portale di Azure](http://portal.azure.com), è possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle risorse. È possibile usare anche l'[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per configurare la diagnostica a livello di codice.
 
-## Raccolta di rich data dalle macchine virtuali
-1. Nell'[anteprima del portale di Azure](https://portal.azure.com/)fare clic su **Sfoglia**, quindi su **Macchine virtuali**. Selezionare la macchina virtuale che si desidera monitorare.
-2. La sezione **Monitoraggio** contiene alcune metriche predefinite, ad esempio **Percentuale CPU**, **Lettura e scrittura disco** e **In ingresso e in uscita dalla rete**. Facendo clic su uno qualsiasi di questi elementi viene visualizzato il pannello **Metrica**.  
-    ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
-3. Il pannello **Metrica** visualizza i dettagli di metrica selezionati. La parte superiore del pannello riporta un grafico, sotto il quale viene visualizzata una tabella contenente le aggregazioni delle metriche come media, minimo e massimo. Sotto la tabella viene visualizzato un elenco degli avvisi definiti dall'utente, filtrati in base alle metriche riportate nel pannello.  
-    ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
-4. Per abilitare la diagnostica avanzata, fare clic sul pulsante **Impostazioni** per visualizzare il pannello **Diagnostica**. Scegliere **ATTIVA**:  
-    ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
-    - **Basic metrics**: metriche sull'integrità relative alla macchina virtuale in uso, ad esempio il processore e la memoria 
-    - **Per disk metrics**: metriche relative a tutti i dischi collegati alla macchina virtuale
-    - **.NET metrics**: metriche relative alle applicazioni .NET e ASP.NET in esecuzione sulla macchina virtuale in uso
-    - **Network metrics**: metriche relative alle connessioni di rete e ai servizi Web
-    - **Windows event application logs**: eventi Windows inviati al canale delle applicazioni
-    - **Windows event system logs**: eventi Windows inviati al canale di sistema, inclusi tutti gli eventi [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
-    - **Windows event security logs**: eventi Windows inviati al canale di sicurezza
-    - **Diagnostics infrastructure logs**: registrazioni relative all'infrastruttura per la raccolta della diagnostica
-    - **IIS logs**: log relativi al server IIS in uso
-    Tutte le metriche e i log verranno registrati a intervalli di un minuto per far sì che l'utente disponga sempre delle informazioni più aggiornate sulla macchina in uso.
+I dati di diagnostica, di monitoraggio e delle metriche di Azure vengono salvati nell'account di archiviazione preferito. Questo consente di usare qualsiasi strumento per leggere i dati, ad esempio uno strumento di esplorazione di archiviazione, Power BI o uno strumento di terze parti.
 
-Una volta abilitate le informazioni di diagnostica per un account di archiviazione, a tale account verranno addebitati i normali costi di archiviazione, transazione e uscita. Tuttavia queste funzioni non creano un grande volume di dati, tranne probabilmente i log IIS. Per ridurre al minimo i costi di uscita, l'utente deve selezionare un account di archiviazione nella stessa area della macchina virtuale.
+## Quando si crea una risorsa
 
-Pochi minuti dopo aver fatto clic su **OK** i dati inizieranno a essere visualizzati nell'account di archiviazione. Non è possibile abilitare la diagnostica per le macchine virtuali in cui è in esecuzione Linux. Inoltre, per abilitare la diagnostica è necessario avere installato l'agente guest.
+La maggior parte dei servizi consente di abilitare la diagnostica quando li si crea nel [portale di Azure](http://portal.azure.com).
 
-## Raccolta di rich data dagli account di archiviazione
+1. Andare a **Nuovo** e scegliere la risorsa a cui si è interessati. 
 
-La raccolta di alcuni dati dagli account di archiviazione è sempre stata possibile; tuttavia nell'anteprima del portale di Azure ora è possibile raccogliere dati con granularità pari al minuto per comprendere veramente che cosa accade all'interno degli account di archiviazione. I passaggi per abilitare le metriche al minuto sono analoghi a quelli usati per le macchine virtuali:
+2. Selezionare **Configurazione facoltativa**. ![Pannello Diagnostica](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
 
-1. Passare al pannello **Metrica** facendo clic su qualsiasi grafico nel pannello **Account di archiviazione**.
-2. Fare clic sul pulsante **Diagnostica** nella barra dei comandi.
-3. Selezionare i dati che si desidera raccogliere dall'account di archiviazione:  
-    ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
-4. Fare clic su **OK**. Potrebbero trascorrere alcuni minuti prima che i dati vengano visualizzati per la prima volta.
+3. Selezionare **Diagnostica** e fare clic sull'opzione di attivazione. Occorre scegliere l'account di archiviazione in cui salvare la diagnostica. Per l'invio della diagnostica a un account di archiviazione, verranno addebitate le normali tariffe dati per l'archiviazione e le transazioni.
 
-## Visualizzazione dei dati di diagnostica 
+4. Fare clic su **OK** e creare la risorsa.
 
-Una volta abilitata la diagnostica, per visualizzare l'elenco completo delle metriche disponibili è sufficiente fare clic con il pulsante destro del mouse su qualsiasi grafico e passare quindi a **Modifica query**:
+## Modificare le impostazioni per una risorsa esistente
 
-![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
+Se si è già creata una risorsa e si vuole modificare le impostazioni di diagnostica (per modificare il livello di raccolta dati, ad esempio), è possibile farlo direttamente nel portale di Azure.
 
-È possibile tracciare queste metriche e fare zoom avanti per visualizzare il valore di **Ora precedente**, fare zoom indietro per visualizzare il valore di **Settimana precedente** o perfino scegliere un intervallo di tempo **Personalizzato**:
+1. Andare alla risorsa e fare clic sul comando **Impostazioni**.
+
+2. Selezionare **Diagnostica**.
+
+3. Il pannello **Diagnostica** contiene tutte le possibili diagnostiche e i dati delle raccolte di monitoraggio della risorsa. Per alcune risorse è inoltre possibile scegliere un criterio **Conservazione** per i dati, per eliminarli dall'account di archiviazione. ![Diagnostica dell'archiviazione](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
+
+4. Dopo aver scelto le impostazioni, fare clic sul comando **Salva**. La visualizzazione dei dati di monitoraggio potrebbe richiedere un po' di tempo se li si sta abilitando per la prima volta.
+
+### Categorie di raccolta dati per le macchine virtuali
+Per le macchine virtuali, tutte le metriche e i log verranno registrati a intervalli di un minuto per far sì che l'utente disponga sempre delle informazioni più aggiornate sulla macchina in uso.
+
+- **Metriche di base**: metriche sull'integrità relative alla macchina virtuale in uso, ad esempio il processore e la memoria 
+- **Metriche Web e di rete**: metriche relative alle connessioni di rete e ai servizi Web
+- **Metriche di .NET**: metriche relative alle applicazioni .NET e ASP.NET in esecuzione sulla macchina virtuale in uso
+- **Metriche di SQL**: metriche delle prestazioni, se si esegue il servizio Microsoft SQL
+- **Log eventi dell'applicazione di Windows**: eventi Windows inviati al canale delle applicazioni
+- **Log eventi del sistema di Windows**: eventi Windows inviati al canale del sistema, inclusi tutti gli eventi [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409) 
+- **Log eventi di sicurezza di Windows**: eventi Windows inviati al canale di sicurezza
+- **Log dell'infrastruttura di diagnostica**: registrazioni relative all'infrastruttura per la raccolta della diagnostica
+- **Log di IIS**: log relativi al server IIS in uso
+
+Tenere presente che in questo momento non sono supportate alcune distribuzioni di Linux e l'agente guest deve essere installato nella macchina virtuale.
+
+## Passaggi successivi
+
+* [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
+* [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
+* [Scalare automaticamente il numero di istanze](insights-how-to-scale.md) per assicurarsi che il servizio venga scalato in base alla domanda.
+* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
+* [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio. 
  
-![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
 
-Notare che queste metriche sono di gran lunga più granulari rispetto ai dati che erano disponibili prima, mentre il tempo di ritardo è minimo.
-
-Al momento non vi è modo di tracciare le metriche con più istanze, quali le metriche per processo o per disco. Per altre informazioni sulla personalizzazione dei grafici di monitoraggio, vedere [Come personalizzare il monitoraggio](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409).
-
-## Invio di avvisi sui dati di diagnostica
-
-Oltre a visualizzare le metriche, nell'anteprima del portale è possibile inviare avvisi su qualsiasi metrica. Innanzitutto, scorrere verso il basso fino alla sezione **Regole di avviso** del pannello della macchina virtuale o dell'archiviazione, quindi fare clic su **Aggiungi avviso**:
-
-![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
-
-Selezionare quindi una qualsiasi delle metriche che sono state abilitate per la diagnostica:
-
-![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
-
-Nel grafico viene mostrata un'anteprima della soglia di avviso raffrontata alla metrica del giorno precedente. Pochi minuti dopo aver fatto clic su **Salva**, all'utente verrà comunicato se la metrica prescelta supera la soglia. 
-
-Si noti che le metriche visualizzate solo nel portale di anteprima non possono essere oggetto di avvisi nel portale completo. Di conseguenza, alcune regole relative agli avvisi del portale di anteprima non sono visibili nel portale completo.
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

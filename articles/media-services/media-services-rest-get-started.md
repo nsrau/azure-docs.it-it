@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Distribuzione di contenuti Video on Demand mediante le API REST di Servizi multimediali" 
+	pageTitle="Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST" 
 	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,17 +16,16 @@
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
 
-# Guida introduttiva: Distribuzione di contenuti Video on Demand mediante le API REST di Servizi multimediali 
+#Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure. 
+Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
 
-L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.  
+L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.
 
 ## Prerequisiti
 Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono previsti i seguenti prerequisiti.
@@ -48,28 +47,28 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 
 ## <a id="create_ams"></a>Creare un account di Servizi multimediali usando il portale
 
-1. Nel [portale di gestione][] fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
+1. Nel [portale di gestione][] fare clic su **New**, quindi su **Media Service** e infine su **Quick Create**.
    
-	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
+	![Creazione rapida di Servizi multimediali](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
-2. In **NOME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri. 
+2. In **NAME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
-3. In **AREA** selezionare l'area geografica che verrà usata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
+3. In **REGION** selezionare l'area geografica che verrà utilizzata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
 
-4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account per l'archiviazione BLOB dei contenuti multimediali dall'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
+4. In **STORAGE ACCOUNT** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica.
 
-5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
+5. Se è stato creato un nuovo account di archiviazione, in **NEW STORAGE ACCOUNT NAME** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
-6. Nella parte inferiore del modulo fare clic su **Creazione rapida**.
+6. Nella parte inferiore del modulo fare clic su **Quick Create**.
 
 	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
 
-	Dopo aver creato l'account, lo stato passa su Attivo. 
+	Dopo aver creato l'account, lo stato passa su Attivo.
 	
-	Nella parte inferiore della pagina viene visualizzato il pulsante **GESTISCI CHIAVI**. Quando si fa clic su questo pulsante, viene visualizzata una finestra di dialogo con il nome dell'account di Servizi multimediali e le chiavi primaria e secondaria. Per accedere a livello di codice all'account di Servizi multimediali è richiesto il nome dell'account e la chiave primaria. 
+	Nella parte inferiore della pagina viene visualizzato il pulsante **GESTISCI CHIAVI**. Quando si fa clic su questo pulsante, viene visualizzata una finestra di dialogo con il nome dell'account di Servizi multimediali e le chiavi primaria e secondaria. Per accedere a livello di codice all'account di Servizi multimediali è richiesto il nome dell'account e la chiave primaria.
 
 	
-	![Media Services Page](./media/media-services-rest-get-started/wams-mediaservices-page.png)
+	![Pagina Servizi multimediali](./media/media-services-rest-get-started/wams-mediaservices-page.png)
 
 	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Avvio rapido. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENUTO.
 
@@ -83,10 +82,9 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 1. Recupero di un token di accesso. 
 2. Connessione all'URI di Servizi multimediali. 
 	
-	>[AZURE.NOTE]
-	Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
+	>[AZURE.NOTE]Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 	> 
-	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
+	> 
 3. Invio delle successive chiamate API al nuovo URL. 
 	
 	Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
@@ -96,7 +94,7 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 
 	Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-### Recupero di un token di accesso
+###Recupero di un token di accesso
 
 Per accedere a Servizi multimediali direttamente dall'API REST, recuperare un token di accesso da Servizi di controllo di accesso e usarlo per ogni richiesta HTTP effettuata nel servizio. Questo token è simile ad altri token forniti da Servizi di controllo di accesso in base alle attestazioni di accesso riportate nell'intestazione di una richiesta HTTP che usano il protocollo OAuth versione 2. Non sono previsti altri prerequisiti per connettersi direttamente a Servizi multimediali.
 
@@ -115,14 +113,14 @@ Il seguente esempio illustra l'intestazione e il corpo della richiesta HTTP usat
 	
 **Corpo**:
 
-È necessario verificare i valori client_id e client_secret nel corpo di questa richiesta. client_id e client_secret corrispondono rispettivamente ai valori AccountName e AccountKey. Questi valori vengono forniti da Servizi multimediali quando si configura l'account. 
+È necessario verificare i valori client_id e client_secret nel corpo di questa richiesta. client_id e client_secret corrispondono rispettivamente ai valori AccountName e AccountKey. Questi valori vengono forniti da Servizi multimediali quando si configura l'account.
 
 Si noti che il valore AccountKey per l'account di Servizi multimediali deve essere codificato nell'URL quando viene usato come valore client_secret nella richiesta del token di accesso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Ad esempio: 
+Ad esempio:
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -148,18 +146,17 @@ Il seguente esempio illustra la risposta HTTP contenente il token di accesso nel
 	}
 	
 
->[AZURE.NOTE]
-È consigliabile memorizzare nella cache i valori "access_token" e "expires_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
+>[AZURE.NOTE]È consigliabile memorizzare nella cache i valori "access_token" e "expires_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
 
 Assicurarsi di monitorare il valore "expires_in" del token di accesso e di aggiornare le chiamate all'API REST con i nuovi token a seconda delle esigenze.
 
-### Connessione all'URI di Servizi multimediali
+###Connessione all'URI di Servizi multimediali
 
 L'URI radice per Servizi multimediali è https://media.windows.net/. Connettersi inizialmente a questo URI. Se si ottiene un reindirizzamento 301 come risposta, effettuare le chiamate successive al nuovo URI. Inoltre, evitare di usare la logica di reindirizzamento automatico/collegamento nelle richieste. I corpi delle richieste e i verbi HTTP non verranno inoltrati al nuovo URI.
 
 Tenere presente che l'URI radice per il caricamento e il download di file di Asset è https://yourstorageaccount.blob.core.windows.net/, dove il nome dell'account di archiviazione corrisponde a quello usato durante la configurazione dell'account di Servizi multimediali.
 
-Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multimediali (https://media.windows.net/). La richiesta ottiene un reindirizzamento 301 come risposta. La richiesta successiva usa il nuovo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
+Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multimediali (https://media.windows.net/). La richiesta ottiene un reindirizzamento 301 come risposta. La richiesta successiva usa il nuovo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
 
 **Richiesta HTTP**:
 	
@@ -215,21 +212,19 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 	 
 
 
->[AZURE.NOTE] D'ora in poi, in questa esercitazione verrà usato il nuovo URI.
+>[AZURE.NOTE]D'ora in poi, in questa esercitazione verrà usato il nuovo URI.
 
 ## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
 Quando si crea un asset è necessario specificare le opzioni correlate. La proprietà **Options** è un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione:
 
  
-- **None** = **0**: non viene applicata alcuna crittografia. Quando si usa questa opzione, i contenuti non sono protetti durante il transito, né nell'archiviazione locale.
-
-	Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
-- **StorageEncrypted** = **1**: applica la crittografia AES a 256 bit ai contenuti non crittografati localmente, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
-- **CommonEncryption** = **2**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
-- **EnvelopeEncrypted** = **4**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
+- **None** = **0**: non viene applicata alcuna crittografia. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+- **StorageEncrypted** = **1**: applica la crittografia AES a 256 bit al contenuto non crittografato localmente, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+- **CommonEncryptionProtected** = **2**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
+- **EnvelopeEncryptionProtected** = **4**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
 ### Creare un asset
 
@@ -290,7 +285,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
-Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'entità AssetFile con le informazioni relative al file multimediale, come illustrato più avanti nell'argomento. 
+Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'entità AssetFile con le informazioni relative al file multimediale, come illustrato più avanti nell'argomento.
 
 **Richiesta HTTP**
 
@@ -470,9 +465,9 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 ### Caricare un file in un contenitore di archiviazione BLOB
 	
-Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi. 
+Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi.
 
->[AZURE.NOTE] È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
@@ -502,8 +497,7 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
 
 **Risposta HTTP**
 
-Se l'esito è positivo, viene restituita la seguente risposta:
-	HTTP/1.1 204 No Content
+Se l'esito è positivo, viene restituita la seguente risposta: HTTP/1.1 204 - Nessun contenuto
 
 ## Eliminare le entità Locator e AccessPolicy 
 
@@ -548,19 +542,18 @@ Se l'esito è positivo, viene restituita la seguente risposta:
  
 ## <a id="configure_streaming_units"></a>Configurare le unità di streaming con l'API REST
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
-Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming. 
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming.
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
-- Ottenere almeno un'unità di streaming per **l'endpoint di streaming** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione).
-- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
+- Ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione). - Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
 
-Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 
->[AZURE.NOTE] Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 	
@@ -667,22 +660,22 @@ L'allocazione di nuove unità richiede circa 20 minuti. Per controllare lo stato
 
 ## <a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 
-Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate Processi e ogni [processo](http://msdn.microsoft.com/library/azure/hh974289.aspx) è formato da attività atomiche che svolgono le procedure effettive nel file di asset. 
+Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate Processi e ogni [processo](http://msdn.microsoft.com/library/azure/hh974289.aspx) è formato da attività atomiche che svolgono le procedure effettive nel file di asset.
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
 - Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,  
 - Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. 
 
-La seguente sezione mostra come creare un processo contenente una singola attività di codifica, che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Mostra inoltre come monitorare lo stato di avanzamento dell'elaborazione del processo. Una volta completato il processo, sarà possibile creare i localizzatori necessari per ottenere l'accesso agli asset. 
+La seguente sezione mostra come creare un processo contenente una singola attività di codifica, che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Mostra inoltre come monitorare lo stato di avanzamento dell'elaborazione del processo. Una volta completato il processo, sarà possibile creare i localizzatori necessari per ottenere l'accesso agli asset.
 
 ### Ottenere un processore di contenuti multimediali.
 
 In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Per l'attività di codifica illustrata in questa esercitazione verrà usato Azure Media Encoder.
 
-Il seguente codice include la richiesta dell'ID del codificatore. 
+Il seguente codice include la richiesta dell'ID del codificatore.
 
 **Richiesta HTTP**
 
@@ -727,9 +720,9 @@ Il seguente codice include la richiesta dell'ID del codificatore.
 
 ### Creare un processo
 
-Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job oppure mediante l'elaborazione batch OData. L'SDK di Servizi multimediali usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo argomento le attività sono state definite inline. Per informazioni, vedere l'articolo relativo all'[elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Tramite l'API REST è possibile creare processi e le attività correlate in due modi: le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. L'SDK di Servizi multimediali usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo argomento le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all'[elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La seguente sezione di documentazione contiene l'elenco di tutti i [set di impostazioni di attivitàhttp://msdn.microsoft.com/library/azure/dn619392.aspx) supportati dal processore di contenuti multimediali di Azure.  
+Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La seguente sezione di documentazione contiene l'elenco di tutti i [set di impostazioni di attività](http://msdn.microsoft.com/library/azure/dn619392.aspx) supportati dal processore di contenuti multimediali di Azure.
 
 **Richiesta HTTP**
 	
@@ -834,12 +827,12 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 - Le attività non devono formare un ciclo.
 - Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job. 
 
->[AZURE.NOTE] Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri". 
+>[AZURE.NOTE]Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
 
 - La proprietà InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
 - Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob". 
 
-	The following example shows how to set the assetName attribute:
+	Il seguente esempio mostra impostare l'attributo assetName:
 	
 		"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"
 
@@ -853,7 +846,7 @@ Per altre informazioni, vedere [Creazione di un processo di codifica con l'API R
 
 ### Monitorare lo stato di avanzamento dell'elaborazione
 
-È possibile recuperare lo stato di un processo usando la proprietà State, come illustrato nel seguente esempio. 
+È possibile recuperare lo stato di un processo usando la proprietà State, come illustrato nel seguente esempio.
 
 **Richiesta HTTP**
 
@@ -909,12 +902,12 @@ Il seguente esempio mostra come chiamare la funzione CancelJob.
 
 Se l'esito è positivo, viene restituito un codice di risposta 204 senza il corpo di un messaggio.
 
->[AZURE.NOTE] È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
+>[AZURE.NOTE]È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
 
 
 ### Ottenere l'asset di output 
 
-Nella seguente sezione si configureranno i criteri di distribuzione per l'asset di output del processo (l'asset codificato). Il seguente codice mostra come richiedere l'ID dell'asset di output. 
+Nella seguente sezione si configureranno i criteri di distribuzione per l'asset di output del processo (l'asset codificato). Il seguente codice mostra come richiedere l'ID dell'asset di output.
 
 
 **Richiesta HTTP**
@@ -930,7 +923,7 @@ Nella seguente sezione si configureranno i criteri di distribuzione per l'asset 
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
-**HTTP Response**
+**Risposta HTTP**
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -965,9 +958,9 @@ Nella seguente sezione si configureranno i criteri di distribuzione per l'asset 
 
 ## <a id="configure_delivery_method"></a>Configurare i criteri di distribuzione per l'asset codificato
 
-Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset. La configurazione dei criteri di distribuzione degli asset include: i protocolli da usare per distribuire l'asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), se crittografare dinamicamente l'asset e le eventuali modalità di crittografia (crittografia envelope o common). 
+Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset. La configurazione dei criteri di distribuzione degli asset include: i protocolli da usare per distribuire l'asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), se crittografare dinamicamente l'asset e le eventuali modalità di crittografia (crittografia envelope o common).
 
-La seguente richiesta HTTP **AssetDeliveryPolicies** specifica di non applicare la crittografia dinamica (AssetDeliveryPolicyType può corrispondere a uno dei seguenti valori: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) e di distribuire il flusso con uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. AssetDeliveryProtocol può essere una combinazione dei seguenti valori: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
+La richiesta HTTP **AssetDeliveryPolicies** seguente specifica di non applicare la crittografia dinamica (AssetDeliveryPolicyType potrebbe essere uno dei valori seguenti: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) e di distribuire il flusso con uno dei seguenti protocolli: MPEG DASH, HLS e Smooth Streaming. (AssetDeliveryProtocol può essere una combinazione dei seguenti valori: None = 0, SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535).
 
 
 ### Creare AssetDeliveryPolicies
@@ -1019,7 +1012,7 @@ La seguente richiesta HTTP **AssetDeliveryPolicies** specifica di non applicare 
 
 ### Collegare i criteri di distribuzione a un asset
 
-La seguente richiesta HTTP associa i criteri di distribuzione specificati all'asset specificato.  
+La seguente richiesta HTTP associa i criteri di distribuzione specificati all'asset specificato.
 
 **Richiesta HTTP**
 
@@ -1045,9 +1038,9 @@ La seguente richiesta HTTP associa i criteri di distribuzione specificati all'as
 
 ## <a id="publish_get_urls"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST
 
-Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: Localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
+Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
-Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. 
+Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file.
 
 
 Un URL di streaming per Smooth Streaming ha il seguente formato:
@@ -1067,13 +1060,13 @@ Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente f
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-Questa sezione illustra come eseguire le seguenti attività per "pubblicare" gli asset.  
+Questa sezione illustra come eseguire le seguenti attività per "pubblicare" gli asset.
 
 - Creazione dell'entità AccessPolicy con autorizzazioni di lettura 
 - Creazione di un URL di firma di accesso condiviso per il download di contenuti 
 - Creazione di un URL di origine per la trasmissione di contenuti in streaming 
 
-### Creazione dell'entità AccessPolicy con autorizzazioni di lettura
+###Creazione dell'entità AccessPolicy con autorizzazioni di lettura
 
 Prima di scaricare o trasmettere contenuti multimediali in streaming, definire un'entità AccessPolicy con autorizzazioni di lettura e creare l'entità Locator appropriata che specifichi il tipo di meccanismo di distribuzione che si desidera abilitare per i client. Per altre informazioni sulle proprietà disponibili, vedere [Proprietà dell'entità AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
@@ -1094,11 +1087,10 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
 
 Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID di AccessPolicy insieme all'ID dell'asset in cui è contenuto il file che si desidera distribuire (ad esempio un asset di output) per creare l'entità Locator.
 
->[AZURE.NOTE]
-Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: YYYY-MM-DDTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
+>[AZURE.NOTE]Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
 
 
-### Creazione di un URL di firma di accesso condiviso per il download di contenuti 
+###Creazione di un URL di firma di accesso condiviso per il download di contenuti 
 
 Il seguente codice mostra come ottenere un URL da usare per il download di un file multimediale creato e caricato in precedenza. Per l'entità AccessPolicy sono impostate autorizzazioni di lettura e il percorso del localizzatore fa riferimento a un URL di download di firma di accesso condiviso.
 
@@ -1161,18 +1153,17 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 La proprietà **Path** restituita contiene l'URL di firma di accesso condiviso.
 
->[AZURE.NOTE]
-Se si scaricano contenuti a cui è stata applicata la crittografia di archiviazione, sarà necessario decrittografarli manualmente prima di eseguirne il rendering oppure usare il processore di contenuti multimediali Storage Decryption in un'attività di elaborazione per generare file elaborati non crittografati in un'entità OutputAsset e quindi eseguire il download da tale asset. Per altre informazioni sull'elaborazione, vedere Creazione di un processo di codifica con l'API REST di Servizi multimediali. Inoltre, i localizzatori URL di firma di accesso condiviso non possono essere aggiornati dopo la creazione. Ad esempio, non è possibile usare nuovamente lo stesso localizzatore con un valore StartTime aggiornato. Questo è dovuto al modo in cui vengono creati gli URL di firma di accesso condiviso. Se si desidera accedere a un asset per il download dopo la scadenza di un localizzatore, sarà necessario crearne uno nuovo con un nuovo valore StartTime.
+>[AZURE.NOTE]Se si scaricano contenuti a cui è stata applicata la crittografia di archiviazione, sarà necessario decrittografarli manualmente prima di eseguirne il rendering oppure usare il processore di contenuti multimediali Storage Decryption in un'attività di elaborazione per generare file elaborati non crittografati in un'entità OutputAsset e quindi eseguire il download da tale asset. Per altre informazioni sull'elaborazione, vedere Creazione di un processo di codifica con l'API REST di Servizi multimediali. Inoltre, i localizzatori URL di firma di accesso condiviso non possono essere aggiornati dopo la creazione. Ad esempio, non è possibile usare nuovamente lo stesso localizzatore con un valore StartTime aggiornato. Questo è dovuto al modo in cui vengono creati gli URL di firma di accesso condiviso. Se si desidera accedere a un asset per il download dopo la scadenza di un localizzatore, sarà necessario crearne uno nuovo con un nuovo valore StartTime.
 
-### Download dei file
+###Download dei file
 
-Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i file mediante le API REST di Archiviazione di Azure.  
+Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i file mediante le API REST di Archiviazione di Azure.
 
->[AZURE.NOTE] È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:    
+Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:
 	
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 	
@@ -1191,7 +1182,7 @@ Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a 
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-### Creazione di un URL di streaming per la trasmissione di contenuti in streaming
+###Creazione di un URL di streaming per la trasmissione di contenuti in streaming
 
 
 Il seguente codice mostra come creare un localizzatore URL di streaming:
@@ -1266,19 +1257,16 @@ Per trasmettere in streaming contenuti MPEG DASH, aggiungere (format=mpd-time-cs
 
 ## <a id="play"></a>Riprodurre i contenuti  
 
-Una volta ottenuti gli URL di firma di accesso condiviso, è possibile eseguire il download progressivo di file MP4 incollando un URL in un browser (ad esempio, IE, Chrome, Safari).
+Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Per testare URL per streaming adattivo, usare i seguenti lettori:
+Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
-Per testare Smooth Streaming, usare [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) o [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+##Passaggio successivo
 
-Per testare MPEG DASH, usare [http://dashif.org](http://dashif.org/reference/players/javascript/).
-
-Per testare HLS, usare dispositivi iOS o Safari oppure [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compilare applicazioni VoD](media-services-video-on-demand-workflow.md)
 
 
-
-## Risorse aggiuntive
+##Risorse aggiuntive
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servizi multimediali di Azure 102 - Creazione dinamica dei pacchetti e dispositivi mobili</a>
 
@@ -1287,10 +1275,10 @@ Per testare HLS, usare dispositivi iOS o Safari oppure [3ivx-hls-player](http://
 
 
 <!-- URLs. -->
-  [Installazione guidata piattaforma Web]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portale di gestione]: http://manage.windowsazure.com/
+  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
+  [portale di gestione]: http://manage.windowsazure.com/
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

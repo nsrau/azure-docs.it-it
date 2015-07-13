@@ -1,74 +1,73 @@
 <properties
-	pageTitle="Utilizzare Backup di Azure per sostituire l'infrastruttura nastro"
-	description="Scopri come Backup di Azure fornisce semantica simile a nastro che consente di eseguire il backup e ripristino dei dati in Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Usare Backup di Azure per sostituire l'infrastruttura basata su nastro"
+   description="Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
-# Utilizzare Backup di Azure per sostituire l'infrastruttura nastro
+# Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 
-I clienti di Azure Backup e System Center Data Protection Manager è possibile:
+I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
 
-+ Dati di backup nelle pianificazioni che più adatto alle proprie esigenze dell'organizzazione
++ Eseguire il backup dei dati secondo le pianificazioni più adatte alle esigenze dell'organizzazione
 
 + Mantenere i dati di backup per periodi più lunghi
 
-+ Assicurarsi di Azure che necessita di una parte del loro memorizzazione a lungo termine (invece di nastri).
++ Includere Azure nelle strategie di conservazione dei dati a lungo termine (in alternativa al backup su nastro)
 
-In questo articolo viene illustrato come abilitare i criteri di backup e memorizzazione dei clienti. I clienti che utilizzano i nastri per risolvere i relativi lungo-termine-memorizzazione ora abbiamo bisogno un'alternativa efficace e affidabile con la disponibilità di questa funzionalità. In questa versione di Azure Backup è abilitata la funzionalità (disponibile [qui](http://aka.ms/azurebackup_agent)). I clienti SCDPM sarebbe necessario spostarsi UR5 prima di utilizzare questa funzionalità.
+Questo articolo illustra come abilitare i criteri di backup e di conservazione. I clienti che usano i nastri per soddisfare le esigenze di conservazione a lungo termine dispongono ora di un'alternativa efficace e affidabile. Questa funzionalità è abilitata nella versione più recente di Backup di Azure, disponibile [in questa pagina](http://aka.ms/azurebackup_agent). Prima di usare questa funzionalità, i clienti SCDPM dovranno passare a UR5.
 
-## Che cos'è la pianificazione di Backup?
-Pianificazione del backup indica la frequenza (o con quale frequenza) dell'operazione di backup, ad esempio le impostazioni nella schermata riportata di seguito indica che backup ogni giorno alle ore 18.00 e a mezzanotte. <br/>
+## Che cos'è la pianificazione di backup?
+La pianificazione di backup indica la frequenza dell'operazione di backup, ad esempio le impostazioni nella schermata riportata di seguito indicano che i backup verranno eseguiti ogni giorno alle 18.00 e a mezzanotte. <br/>
 
 ![Pianificazione giornaliera][1]
 
-I clienti possono inoltre pianificare un backup settimanale, ad esempio, le impostazioni nella schermata riportata di seguito indica che backup ogni domenica alternativo & mercoledì 9:30 am e 01: 00. <br/>
+I clienti possono inoltre pianificare un backup settimanale, ad esempio le impostazioni nella schermata riportata di seguito indicano che i backup verranno eseguiti la domenica e il mercoledì a settimane alterne alle 9.30 e all'1.00. <br/>
 
 ![Pianificazione settimanale][2]
 
-## Che cos'è il criterio di conservazione?
-Criteri di conservazione specificano la durata per cui deve essere archiviato il backup. Invece di specificare solo un criterio"flat" per tutti i punti di backup, i clienti possono specificare criteri di conservazione diversi in base a quando viene eseguito il backup. Per il punto di backup eseguito alla fine di ogni trimestre, ad esempio, potrebbe essere necessario deve essere mantenuto per molto tempo per scopi di controllo, mentre il punto di backup eseguito ogni giorno (che viene utilizzata come un ripristino operativo punto) deve essere conservato per 90 giorni. <br/>
+## Che cosa sono i criteri di conservazione?
+I criteri di conservazione specificano il periodo di tempo per cui il backup deve essere archiviato. Anziché specificare solo un "criterio semplice" per tutti i punti di backup, i clienti possono specificare criteri di conservazione diversi in base al momento in cui viene eseguito il backup. Potrebbe ad esempio essere necessario, a scopo di controllo, conservare il punto di backup eseguito alla fine di ogni trimestre per un periodo di tempo più lungo, mentre il punto di backup eseguito quotidianamente, usato come punto di ripristino operativo, deve essere conservato per 90 giorni. <br/>
 
 ![Criteri di conservazione][3]
 
-Il numero totale di "punti di memorizzazione" specificato in questo criterio è 90 (punti giornalieri) + 40 (uno per ogni trimestre per 10 anni) = 130.
+Il numero totale di "punti di conservazione" specificati in questi criteri è pari a 90 (punti giornalieri) + 40 (uno per ogni trimestre per 10 anni) = 130.
 
-## Esempio: realizzazione di entrambi
+## Esempio: Uso di entrambi i metodi
 <br/> ![Schermata di esempio][4]
 
-1. **Criteri di conservazione giornaliera**: vengono archiviati i backup eseguiti ogni giorno per 7 giorni.
-2. **Criteri di conservazione settimanale**: i backup eseguiti ogni a mezzanotte e 6 pm sabato verranno mantenuti per 4 settimane
-3. **Criteri di conservazione mensile**: i backup eseguiti a mezzanotte e 6 pm dell'ultimo sabato di ogni mese verranno mantenuti per 12months
-4. **Criteri di conservazione annuale**: i backup eseguiti a mezzanotte dell'ultimo sabato di ogni mese di marzo verranno mantenuti da 10 anni
+1. **Criteri di mantenimento giornaliero**: i backup eseguiti quotidianamente vengono archiviati per 7 giorni.
+2. **Criteri di mantenimento settimanale**: i backup eseguiti ogni sabato a mezzanotte e alle 18.00 verranno conservati per 4 settimane.
+3. **Criteri di mantenimento mensile**: i backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato di ogni mese verranno conservati per 12 mesi.
+4. **Criteri di mantenimento annuale**: i backup eseguiti a mezzanotte dell'ultimo sabato di ogni mese di marzo verranno conservati per 10 anni.
 
-Il numero totale di "punti di memorizzazione" (punti da cui un cliente può ripristinare i dati) nel diagramma sopra viene calcolato come segue:
+Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripristinare i dati) riportati nel diagramma precedente viene calcolato nel modo seguente:
 
-+ 2 punti al giorno per 7 giorni = 14 ripristino punta
++ 2 punti al giorno per 7 giorni = 14 punti di ripristino
 
-+ 2 punti per ogni settimana per 4 settimane = 8 punti di ripristino
++ 2 punti a settimana per 4 settimane = 8 punti di ripristino
 
 + 2 punti al mese per 12 mesi = 24 punti di ripristino
 
-+ 1 punto all'anno per il ripristino di 10 anni = 10 punti
++ 1 punto all'anno per 10 anni = 10 punti di ripristino
 
-Il numero totale di punti di ripristino è 56.
+Il numero totale dei punti di ripristino è 56.
 
 ## Configurazione avanzata
 
-Facendo clic su **Modifica** nella schermata precedente, i clienti hanno un'ulteriore flessibilità nella definizione di pianificazioni di conservazione. <br/>
+Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di un'ulteriore flessibilità nella definizione delle pianificazioni di conservazione. <br/>
 
-![Modificare][5]
+![Modifica][5]
 
 
 <!--Image references-->
@@ -77,5 +76,6 @@ Facendo clic su **Modifica** nella schermata precedente, i clienti hanno un'ulte
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -1,7 +1,7 @@
 
 1. Premere F5 per ricompilare il progetto e avviare l'app di Windows Store.
 
-2. Nell'app digitare un testo significativo, ad esempio  *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.
+2. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
@@ -13,4 +13,4 @@
 	
 	Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

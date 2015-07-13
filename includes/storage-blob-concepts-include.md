@@ -14,7 +14,7 @@ Quelli di seguito sono gli impieghi più comuni dell'archiviazione BLOB:
 
 Il servizio BLOB è composto dai componenti seguenti:
 
-![BLOB1][Blob1]
+![Blob1][Blob1]
 
 -   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
@@ -30,5 +30,4 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

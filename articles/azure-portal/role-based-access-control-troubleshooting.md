@@ -82,4 +82,5 @@ Le risorse correlate delle macchine virtuali sono: * Nomi di dominio * Reti virt
     * Regole di avviso
     
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

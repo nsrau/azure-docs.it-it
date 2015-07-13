@@ -16,7 +16,7 @@
 	ms.date="06/11/2015"
 	ms.author="jgao"/>
 
-#Usare Sqoop con Hadoop in HDInsight \(Windows\)
+#Usare Sqoop con Hadoop in HDInsight (Windows)
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -24,13 +24,13 @@ Questo articolo fornisce informazioni su come usare Azure PowerShell e .NET SDK 
 
 > [AZURE.NOTE]La procedura illustrata in questo articolo può essere usata con un cluster HDInsight basato su Windows o su Linux, ma funziona solo se eseguita da un client Windows.
 >
-> Se si usa un client Linux, OS X o Unix e un server HDInsight basato su Linux, vedere [Usare Sqoop con Hadoop in HDInsight \(SSH\)](hdinsight-use-sqoop-mac-linux.md).
+> Se si usa un client Linux, OS X o Unix e un server HDInsight basato su Linux, vedere [Usare Sqoop con Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md).
 
 ##Informazioni su Sqoop
 
 Benché Hadoop rappresenti una scelta ottimale per l'elaborazione di dati non strutturati e semistrutturati, ad esempio log e file, potrebbe essere necessario elaborare anche dati strutturati archiviati in database relazionali.
 
-[Sqoop][sqoop-user-guide-1.4.4] è uno strumento progettato per il trasferimento di dati tra cluster Hadoop e database relazionali. Può essere usato per importare dati in HDFS \(Hadoop Distributed File System\) da un sistema di gestione di database relazionali \(RDBMS\), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS. In questa esercitazione si userà un database SQL Server per il database relazionale.
+[Sqoop][sqoop-user-guide-1.4.4] è uno strumento progettato per il trasferimento di dati tra cluster Hadoop e database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS. In questa esercitazione si userà un database SQL Server per il database relazionale.
 
 Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
 
@@ -38,7 +38,7 @@ Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, veder
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire gli script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire gli script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
 
 - **Cluster HDInsight di Azure**: per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
@@ -131,7 +131,7 @@ Per istruzioni sull'aggiunta di altri account di archiviazione, vedere [Effettua
 
 > [AZURE.NOTE]Il percorso *wasb://* è un percorso virtuale. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
-È possibile accedere da HDInsight a un file archiviato nel contenitore BLOB del file system predefinito usando uno degli URI seguenti \(in questo esempio si userà sample.log\):
+È possibile accedere da HDInsight a un file archiviato nel contenitore BLOB del file system predefinito usando uno degli URI seguenti (in questo esempio si userà sample.log):
 
 	wasb://mycontainer@mystorageaccount.blob.core.windows.net/example/data/sample.log
 	wasb:///example/data/sample.log
@@ -150,7 +150,7 @@ Verranno create due tabelle nel database SQL di Azure o in SQL Server, usate per
 
 **Per un database SQL di Azure**.
 
-1. Aprire Windows PowerShell ISE \(nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start]\).
+1. Aprire Windows PowerShell ISE (nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start]).
 
 2. Copiare lo script seguente nel riquadro di script e impostare le prime quattro variabili:
 
@@ -262,7 +262,7 @@ Verranno create due tabelle nel database SQL di Azure o in SQL Server, usate per
 
 ###Generare i dati
 
-In questa esercitazione, verranno esportati nel database SQL di Azure un file di log log4j \(un file con valori delimitati\) e una tabella di Hive. Il file con valori delimitati è denominato */example/data/sample.log*. Alcuni esempi di file di log log4j sono stati visualizzati in precedenza in questa esercitazione. Nel file di log sono presenti alcune righe vuote e righe simili alle seguenti:
+In questa esercitazione, verranno esportati nel database SQL di Azure un file di log log4j (un file con valori delimitati) e una tabella di Hive. Il file con valori delimitati è denominato */example/data/sample.log*. Alcuni esempi di file di log log4j sono stati visualizzati in precedenza in questa esercitazione. Nel file di log sono presenti alcune righe vuote e righe simili alle seguenti:
 
 	java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
 		at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
@@ -391,7 +391,7 @@ In questa sezione si userà Azure PowerShell per eseguire un comando di esportaz
 
 	Per altre descrizioni di queste variabili, vedere la sezione [Prerequisiti](#prerequisites) di questa esercitazione.
 
-	Si noti che per $exportDir\_log4j non è stato specificato il nome file per il file sample.log. Sqoop esporterà i dati da tutti i file in quella cartella.
+	Si noti che per $exportDir_log4j non è stato specificato il nome file per il file sample.log. Sqoop esporterà i dati da tutti i file in quella cartella.
 
 4. Aggiungere lo script seguente nel riquadro di script:
 
@@ -405,7 +405,7 @@ In questa sezione si userà Azure PowerShell per eseguire un comando di esportaz
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Il delimitatore di campo è **\\0x20**, che corrisponde a uno spazio. Il delimitatore è definito nello script di Azure PowerShell del file sample.log. Per avere informazioni su **-m 1**, vedere la [Guida dell'utente di Sqoop][sqoop-user-guide-1.4.4].
+	Il delimitatore di campo è **\0x20**, che corrisponde a uno spazio. Il delimitatore è definito nello script di Azure PowerShell del file sample.log. Per avere informazioni su **-m 1**, vedere la [Guida dell'utente di Sqoop][sqoop-user-guide-1.4.4].
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
 6. Usare [il portale di Azure][azure-management-portal] per esaminare i dati esportati.
@@ -465,7 +465,7 @@ In questa sezione si userà Azure PowerShell per eseguire un comando di esportaz
 
 ##Usare .NET SDK per HDInsight per eseguire l'esportazione con Sqoop
 
-Il seguente è un esempio in C\# che usa .NET SDK per HDInsight per eseguire l'esportazione con Sqoop. Per informazioni generali sull'uso di .NET SDK per HDInsight, vedere [Invio di processi Hadoop a livello di codice][hdinsight-submit-jobs].
+Il seguente è un esempio in C# che usa .NET SDK per HDInsight per eseguire l'esportazione con Sqoop. Per informazioni generali sull'uso di .NET SDK per HDInsight, vedere [Invio di processi Hadoop a livello di codice][hdinsight-submit-jobs].
 
 
 	using System;
@@ -562,7 +562,7 @@ Il file di script deve essere caricato nell'archiviazione BLOB di Azure.
 
 ##Usare Azure PowerShell per eseguire l'importazione con Sqoop
 
-In questa sezione si importeranno nuovamente in HDInsight i file di log log4j \(esportati nel database SQL di Azure\)
+In questa sezione si importeranno nuovamente in HDInsight i file di log log4j (esportati nel database SQL di Azure)
 
 1. Aprire Windows PowerShell ISE.
 2. Nel riquadro inferiore eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
@@ -617,9 +617,9 @@ In questa sezione si importeranno nuovamente in HDInsight i file di log log4j \(
 
 In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazioni, vedere:
 
-- [Usare Oozie con HDInsight][hdinsight-use-oozie]\: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
-- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]\: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
-- [Caricare i dati in HDInsight][hdinsight-upload-data]\: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
+- [Usare Oozie con HDInsight][hdinsight-use-oozie]: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
+- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
+- [Caricare i dati in HDInsight][hdinsight-upload-data]: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 
 
 
@@ -645,4 +645,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

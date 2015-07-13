@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Configurazione di PHP nelle app Web di Servizio app di Azure
@@ -23,7 +23,7 @@
 In questa guida verrà descritto come configurare il runtime PHP incorporato in App Web per [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714), fornire un PHP personalizzato runtime e abilitare le estensioni. Per usare Servizio app di Azure, effettuare l'iscrizione per ricevere la versione di [valutazione gratuita]. Per ottenere il massimo da questa guida, è necessario innanzitutto creare un'app Web PHP in Servizio app.
 
 ## Procedura: modificare la versione PHP incorporata
-Per impostazione predefinita, PHP 5.4 è installato e immediatamente disponibile per l'uso quando si crea un'app Web Web di Azure. Il modo migliore per visualizzare la revisione della versione disponibile, la sua configurazione predefinita e le estensioni abilitate consiste nel distribuire uno script che chiama la funzione [phpinfo ()].
+Per impostazione predefinita, PHP 5.4 è installato e immediatamente disponibile per l'uso quando si crea un'app Web di Azure. Il modo migliore per visualizzare la revisione della versione disponibile, la sua configurazione predefinita e le estensioni abilitate consiste nel distribuire uno script che chiama la funzione [phpinfo ()].
 
 Sono inoltre disponibili PHP 5.5 e PHP 5.6, che però non sono abilitate per impostazione predefinita. Per aggiornare la versione di PHP, seguire uno dei metodi seguenti:
 
@@ -40,30 +40,30 @@ Sono inoltre disponibili PHP 5.5 e PHP 5.6, che però non sono abilitate per imp
 3. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni app Web**.
 
 	![Salvare le impostazioni di configurazione][save-button]
-	
+
 ### Azure PowerShell (solo Windows).
 
 1. Aprire Windows PowerShell ISE.
 2. Digitare `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`e premere INVIO.
 3. La versione di PHP è ora impostata.
-	
+
 	![Impostazione della versione PHP con Azure PowerShell][SETPHPVERPS]
 4. È possibile confermare le impostazioni digitando `Get-AzureWebiste -Name <site-name>` e premere INVIO.
-	
+
 	![Verifica della versione PHP con Azure PowerShell][GETPHPVERPS]
 
 ### Interfaccia della riga di comando di Azure (Linux, Mac, Windows)
 
->[Azure.Note]L'interfaccia della riga di comando di Azure richiede **Node. js** sia installato nel computer per l'utilizzo.
+Per usare l'interfaccia della riga di comando di Azure, è necessario che **Node.js** sia installato nel computer.
 
 1. Aprire il terminale.
 2. Digitare `azure site set --php-version [5.4 | 5.5] [site-name]`e premere INVIO.
 3. La versione di PHP è ora impostata.
-	
-	![Impostazione della versione PHP con interfaccia della riga di comando di Azure][SETPHPVERXPLAT]
+
+	![Impostazione della versione PHP con interfaccia della riga di comando di Azure][SETPHPVERCLI]
 4. È possibile confermare le impostazioni digitando `azure site show [site-name]` e premere INVIO.
-	
-	![Verifica della versione PHP con interfaccia della riga di comando di Azure][GETPHPVERXPLAT]
+
+	![Verifica della versione PHP con interfaccia della riga di comando di Azure][GETPHPVERCLI]
 
 ## Modificare la configurazione PHP incorporata
 
@@ -151,10 +151,10 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 
 	![Salvare le impostazioni di configurazione][save-button]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
@@ -170,9 +170,10 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

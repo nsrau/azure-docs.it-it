@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Aggiungere notifiche push all'app di Windows Store
@@ -190,4 +190,5 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

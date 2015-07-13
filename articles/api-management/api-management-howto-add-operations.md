@@ -79,22 +79,22 @@ Le chiavi della cache vengono usate per differenziare le risposte in modo che og
 Per aggiungere un parametro di query, fare clic su **Aggiungi parametro di query** e immettere le informazioni seguenti:
 
 -	**Nome**: nome del parametro.
--	**Descrizione**: breve descrizione del parametro \(facoltativa\).
+-	**Descrizione**: breve descrizione del parametro (facoltativa).
 -	**Tipo**: tipo del parametro, selezionato nell'elenco a discesa.
--	**Valori**: valori che possono essere assegnati al parametro. Uno dei valori può essere contrassegnato come predefinito \(facoltativo\).
+-	**Valori**: valori che possono essere assegnati al parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo).
 -	**Obbligatorio**: selezionare questa casella di controllo per rendere il parametro obbligatorio. 
 
 ![Parametri della richiesta][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Corpo della richiesta
 
-Se l'operazione consente \(ad esempio, PUT, POST\) e richiede un corpo, è possibile fornirne un esempio in tutti i formati di rappresentazione supportati, ad esempio JSON e XML.
+Se l'operazione consente (ad esempio, PUT, POST) e richiede un corpo, è possibile fornirne un esempio in tutti i formati di rappresentazione supportati, ad esempio JSON e XML.
 
 >Il corpo della richiesta è usato solo ai fini della documentazione e non viene convalidato.
 
 Per immettere un corpo della richiesta, passare alla scheda **Corpo**.
 
-Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato \(ad esempio, applicazione/json\), selezionarlo nell'elenco a discesa e incollare nella casella di testo l'esempio di corpo della richiesta nel formato selezionato.
+Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato (ad esempio, applicazione/json), selezionarlo nell'elenco a discesa e incollare nella casella di testo l'esempio di corpo della richiesta nel formato selezionato.
 
 ![Corpo della richiesta][api-management-request-body]
 
@@ -108,7 +108,7 @@ Per aggiungere una risposta, fare clic su **Aggiungi** e iniziare a digitare il 
 
 ![Codice della risposta][api-management-response-code]
 
-Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato \(ad esempio, applicazione/json\) e selezionarlo nell'elenco a discesa.
+Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato (ad esempio, applicazione/json) e selezionarlo nell'elenco a discesa.
 
 ![Tipo di contenuto del corpo][api-management-response-body-content-type]
 
@@ -164,4 +164,4 @@ Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà
 [Come creare e pubblicare un prodotto]: api-management-howto-add-products.md
 [Come memorizzare nella cache i risultati dell'operazione in Gestione API di Azure]: api-management-howto-cache.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

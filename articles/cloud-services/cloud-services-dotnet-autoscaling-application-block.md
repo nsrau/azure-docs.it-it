@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -111,7 +111,7 @@ Utilizzare il metodo **IServiceLocator.GetInstance** per creare un'istanza del b
 
 ## <a id="DefineServiceModel"> </a>Procedura: Definire il modello del servizio
 
-Il modello del servizio viene in genere archiviato il un file XML contenente una descrizione dell'ambiente Azure con informazioni sulle sottoscrizioni, i servizi ospitati, i ruoli e gli account di archiviazione. Una copia dello schema per questo file XML è disponibile nel file **AutoscalingServiceModel.xsd** del progetto. In Visual Studio, questo schema offre funzionalità Intellisense e di convalida quando si modifica il file XML del modello del servizio.
+Il modello del servizio viene in genere archiviato in un file XML contenente una descrizione dell'ambiente Azure con informazioni sulle sottoscrizioni, i servizi ospitati, i ruoli e gli account di archiviazione. Una copia dello schema per questo file XML è disponibile nel file **AutoscalingServiceModel.xsd** del progetto. In Visual Studio, questo schema offre funzionalità Intellisense e di convalida quando si modifica il file XML del modello del servizio.
 
 Creare un nuovo file XML denominato **services.xml** nel progetto.
 
@@ -139,9 +139,9 @@ Sostituire i valori tra parentesi quadre con quelli specifici del proprio ambien
 
 Accedere al portale di gestione.
 
--   **[subscriptionname]:**scegliere un nome descrittivo per la sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
+-   **[subscriptionname]:**: scegliere un nome descrittivo per la sottoscrizione di Azure contenente l'applicazione in cui usare il ridimensionamento automatico.
 
--   **[subscriptionid]:** ID univoco della sottoscrizione di Azure contenente l'applicazione in cui usare la scalabilità automatica.
+-   **[subscriptionid]:** ID univoco della sottoscrizione di Azure contenente l'applicazione in cui usare il ridimensionamento automatico.
 
     1.  Nel portale di gestione di Azure fare clic su **Cloud Services**.
 
@@ -178,7 +178,7 @@ Accedere al portale di gestione.
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]:** l'**identificazione personale** del certificato di gestione che il blocco userà per proteggere le richieste di scalabilità all'applicazione di destinazione.
+	-   **[managementcertificatethumbprint]:**L'**identificazione personale** del certificato di gestione che il blocco userà per proteggere le richieste di ridimensionamento all'applicazione di destinazione.
 
     1.  Nel portale di gestione di Azure fare clic su **Settings**.
 
@@ -236,7 +236,7 @@ Nel codice seguente è illustrato un set di regole di esempio in un file **rules
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -353,30 +353,31 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
 -   [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica][]
 -   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure][]
 
-[Microsoft Enterprise Library 5.0 Integration Pack per Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-[Passaggi successivi]: #NextSteps
-[Informazioni sul blocco applicazione per la scalabilità automatica]: #WhatIs
-[Concetti]: #Concepts
-[Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione]: #PerfCounter
-[Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica]: #CreateHost
-[Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla]: #Instantiate
-[Procedura: Definire il modello del servizio]: #DefineServiceModel
-[Procedura: Definire le regole di scalabilità automatica]: #DefineAutoscalingRules
-[Procedura: Configurare il blocco applicazione per la scalabilità automatica]: #Configure
-[Uso dei contatori delle prestazioni in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
-[NuGet]: http://nuget.org/
-[portale di gestione di Azure]: http://manage.windowsazure.com
-[Archiviazione delle informazioni del servizio]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
-[Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
-[Implementazione del comportamento di limitazione]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
-[Informazioni sulle classificazioni delle regole e sulla riconciliazione]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
-[Estensione e modifica del blocco applicazione per la scalabilità automatica]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
-[Uso dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
-[Uso delle notifiche e della scalabilità manuale]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
-[Definizione di gruppi di ridimensionamento]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
-[Uso dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
-[Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
-[Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
-[Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+  [Microsoft Enterprise Library 5.0 Integration Pack per Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [Passaggi successivi]: #NextSteps
+  [Informazioni sul blocco applicazione per la scalabilità automatica]: #WhatIs
+  [Concetti]: #Concepts
+  [Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione]: #PerfCounter
+  [Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica]: #CreateHost
+  [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla]: #Instantiate
+  [Procedura: Definire il modello del servizio]: #DefineServiceModel
+  [Procedura: Definire le regole di scalabilità automatica]: #DefineAutoscalingRules
+  [Procedura: Configurare il blocco applicazione per la scalabilità automatica]: #Configure
+  [Uso dei contatori delle prestazioni in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [NuGet]: http://nuget.org/
+  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [Archiviazione delle informazioni del servizio]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
+  [Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implementazione del comportamento di limitazione]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Informazioni sulle classificazioni delle regole e sulla riconciliazione]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Estensione e modifica del blocco applicazione per la scalabilità automatica]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Uso dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Uso delle notifiche e della scalabilità manuale]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Definizione di gruppi di ridimensionamento]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Uso dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

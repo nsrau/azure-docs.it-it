@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Connettere un'app mobile a una soluzione aziendale SaaS | Mobile Dev Center" 
-	description="Informazioni su come effettuare chiamate a risorse aziendali come SharePoint Online" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="na" 
+<properties
+	pageTitle="Connettere un'app mobile a una soluzione aziendale SaaS | Mobile Dev Center"
+	description="Informazioni su come effettuare chiamate a risorse aziendali come SharePoint Online"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
+	editor="na"
 	services="app-service\mobile"/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="get-started-article" 
+	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Connettere un'app mobile ad API SaaS
@@ -37,7 +37,7 @@ Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni
 
 A questo punto si è configurato AAD per il rilascio di un token di accesso di SharePoint al servizio app.
 
-## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app per dispositivi mobili 
+## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app per dispositivi mobili
 
 Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece impostati come impostazioni applicazione del codice dell'app mobile.
 
@@ -90,7 +90,7 @@ Per poter accedere a SharePoint, è necessario uno speciale token di accesso la 
             AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
-            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
+            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web";
             clientId = settings.AzureActiveDirectoryClientId;
             clientSecret = settings["SP_ClientSecret"];
             sharepointURL = settings["SP_SharePointURL"];
@@ -158,11 +158,11 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-            
+
             SharePointUploadContext context = await SharePointUploadContext.createContext((ServiceUser)this.User, Services.Settings);
             byte[] document = CreateWordDocument(item);
             bool uploadResult = await context.UploadDocument(item.Id, document);
-            
+
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
@@ -185,5 +185,6 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [SharePoint Online]: http://office.microsoft.com/it-it/sharepoint/
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

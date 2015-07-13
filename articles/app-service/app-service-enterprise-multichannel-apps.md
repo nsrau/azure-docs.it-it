@@ -97,4 +97,5 @@ Per altre informazioni, vedere l'articolo relativo ai [servizi delle applicazion
 [SharepointList]: ./media/app-service-enterprise-multichannel-apps/04aSharepointList.png
 [SharepointDocumentLibrary]: ./media/app-service-enterprise-multichannel-apps/05aSharepointDocumentLibrary.png
 [SalesforceIntegration]: ./media/app-service-enterprise-multichannel-apps/06aSalesforceIntegration.png
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

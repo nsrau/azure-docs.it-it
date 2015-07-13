@@ -255,5 +255,6 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app HT
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

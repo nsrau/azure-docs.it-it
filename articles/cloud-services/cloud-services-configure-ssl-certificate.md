@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,14 +149,15 @@ Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anzic
 
 * [Come configurare un certificato SSL su un endpoint HTTPS][]
 
-[Come creare un certificato per un ruolo]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Come associare un certificato a un servizio]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[portale di gestione di Azure]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[Come configurare un certificato SSL su un endpoint HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [Come creare un certificato per un ruolo]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [Come associare un certificato a un servizio]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [Come configurare un certificato SSL su un endpoint HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

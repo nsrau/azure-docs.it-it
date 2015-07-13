@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. È possibile usarlo con una vasta gamma di tipi di applicazioni. Può essere usato per app ospitate nei server IIS locali dell'utente o in VM di Azure oppure per app Web di Azure, [oltre che per app per dispositivi e server Java][start].
+Visual Studio Application Insights consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. È possibile usarlo con una vasta gamma di tipi di applicazioni. Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure, [oltre che per app per dispositivi e server Java][start].
 
 ![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-start-monitoring-app-health-usage/10-perf.png)
 
@@ -36,7 +36,7 @@ Per molti tipi di applicazioni [Visual Studio può aggiungere Application Insigh
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 * Visual Studio 2013 o versione successiva.
 
-## <a name="add"></a> 1. Creare una risorsa Application Insights
+## <a name="add"></a> 1. Creare una risorsa di Application Insights
 
 Accedere al [portale di Azure][portal] e creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
@@ -50,7 +50,7 @@ La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli
 
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
-![Fare clic su Proprietà, selezionare il tasto e premere Ctrl+C](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
+![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
 
 
 
@@ -59,14 +59,14 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop.
 
-    ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti Nuget](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
+    ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
 2. Installare Application Insights SDK per app Web.
 
     ![Cercare "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
 
-3. Modificare ApplicationInsights.config \(che è stato aggiunto dall'installazione di NuGet\). Inserire questo comando immediatamente prima del tag di chiusura:
+3. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
     `<InstrumentationKey>` *chiave di strumentazione copiata* `</InstrumentationKey>`
 
@@ -76,7 +76,7 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
 
-Se tutte le personalizzazioni apportate al file ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento e, successivamente, unire le modifiche nella nuova versione.
+Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento e, successivamente, unire le modifiche nella nuova versione.
 
 
 ## <a name="run"></a> 3. Eseguire il progetto
@@ -89,7 +89,7 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati in
 
 ## <a name="monitor"></a> 4. Visualizzare i dati di telemetria
 
-Tornare al [portale di Azure][portal] e passare alla risorsa Application Insights.
+Tornare al [portale di Azure][portal] e passare alla risorsa di Application Insights.
 
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
@@ -196,4 +196,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -42,11 +42,11 @@ Dopo la configurazione, gli utenti possono fare clic su *->* e scegliere un'azio
 
 ![Elenco di azioni di BizTalk XML Validator][4]
 
-####Convalida XML
+####Validate Xml
 
-L'azione Convalida XML convalida un input XML specificato in base agli schemi preconfigurati.
+L'azione Validate XML convalida un input XML specificato in base agli schemi preconfigurati.
 
-![Convalida XML di BizTalk XML Validator][5]
+![XML Validate di BizTalk XML Validator][5]
 
 <table>
 	<tr>

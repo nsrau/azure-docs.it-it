@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="02/22/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Aggiungere notifiche push all'app Xamarin iOS
@@ -43,7 +43,7 @@ Il servizio APNS usa i certificati per autenticare l'app mobile. Seguire le istr
 
     ![][5]
 
-3. Immettere l'**Indirizzo e-mail utente**, digitare un valore per **Nome comune**, assicurarsi che l'opzione **Salvata su disco** sia selezionata, quindi fare clic su **Continua**.
+3. Immettere un valore in **Indirizzo e-mail utente**, digitare un valore in **Nome comune**, assicurarsi che l'opzione **Salvata su disco** sia selezionata, quindi fare clic su **Continua**.
 
     ![][6]
 
@@ -63,7 +63,7 @@ Per poter inviare notifiche push a un dispositivo iOS dall'app mobile, è necess
     
     ![][102]
 
-2. Digitare un nome per l'app in **Description**, immettere un valore univoco per **Bundle Identifier** e ricordarlo, selezionare l'opzione "Push Notifications" nella sezione "App Services" e quindi fare clic su **Continua**. In questo esempio viene usato l'ID **MobileServices.Quickstart**, tuttavia non è possibile riutilizzare lo stesso ID, in quanto gli ID app devono essere univoci per tutti gli utenti. È pertanto consigliabile aggiungere il proprio nome completo o le proprie iniziali dopo il nome dell'app.
+2. Digitare un nome per l'app in **Description**, immettere un valore univoco per **Bundle Identifier** e ricordarlo, selezionare l'opzione "Push Notifications" nella sezione "App Services" e quindi fare clic su **Continue**. In questo esempio viene usato l'ID **MobileServices.Quickstart**, tuttavia non è possibile riutilizzare lo stesso ID, in quanto gli ID app devono essere univoci per tutti gli utenti. È pertanto consigliabile aggiungere il proprio nome completo o le proprie iniziali dopo il nome dell'app.
 
     ![][103]
    
@@ -79,7 +79,7 @@ Per poter inviare notifiche push a un dispositivo iOS dall'app mobile, è necess
 
     ![][106]
    
-    Facendo clic sull'ID dell'app verranno visualizzati i dettagli relativi all'app e all'ID dell'app. Fare clic sul pulsante **Impostazioni**.
+    Facendo clic sull'ID dell'app verranno visualizzati i dettagli relativi all'app e all'ID dell'app. Fare clic sul pulsante **Settings**.
    
     ![][107]
    
@@ -89,7 +89,7 @@ Per poter inviare notifiche push a un dispositivo iOS dall'app mobile, è necess
 
     Verrà visualizzato l'assistente "Add iOS Certificate".
    
-    Nota: in questa esercitazione si usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato nell'app mobile.
+    Nota: in questa esercitazione viene usato un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato nell'app mobile.
 
 5. Fare clic su **Choose File**, passare al percorso in cui è stato salvato il file CSR in precedenza, quindi fare clic su **Generate**.
 
@@ -103,7 +103,7 @@ Per poter inviare notifiche push a un dispositivo iOS dall'app mobile, è necess
 
     ![][9]
 
-    Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
+    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
 
 7. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
 
@@ -117,7 +117,7 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
 ## <a name="profile"></a>Creare un profilo di provisioning per l'app
  
-1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**
+1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**.
 
     ![][112]
 
@@ -127,7 +127,7 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
     ![][113]
 
-4. Nella schermata **Select certificates** selezionare il certificato creato in precedenza e fare clic su **Continue**
+4. Nella schermata **Select certificates** selezionare il certificato creato in precedenza e fare clic su **Continue**.
 
     ![][114]
 
@@ -185,11 +185,11 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
     ![][121]
 
-2. Scorrere verso il basso fino a **Background Modes** e selezionare la casella **Enable Background Modes** e la casella **Remote notifications**.
+2. Scorrere verso il basso fino a **Background Modes** e selezionare le caselle **Enable Background Modes** e **Remote notifications**.
 
     ![][122]
 
-3. Fare doppio clic sul progetto nel riquadro delle soluzioni per aprire **Project Options** progetto.
+3. Fare doppio clic sul progetto nel riquadro delle soluzioni per aprire **Project Options**.
 
 4.  Scegliere **iOS Bundle Signing** in **Build** e selezionare i valori corrispondenti per **Identity** e **Provisioning profile** appena configurati per questo progetto.
 
@@ -334,5 +334,6 @@ L'esercitazione è stata completata.
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

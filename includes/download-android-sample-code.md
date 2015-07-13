@@ -1,7 +1,7 @@
 Questa esercitazione è basata su **GetStartedWithData**, che è un'app per Android. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili per Android, ma in questo caso gli elementi aggiunti all'elenco vengono archiviati nella memoria locale. Si procederà quindi all'aggiunta del codice necessario per rendere i dati persistenti nell'archiviazione.
 
 
-1. Scaricare il progetto dell'app da gitHub facendo clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio" target="blank">qui</a> e quindi su **Download ZIP**.
+1. Scaricare il repository degli esempi da gitHub facendo clic <a href="https://github.com/Azure/mobile-services-samples" target="blank">qui</a>, quindi scegliere **Download ZIP**.
 
 2. Decomprimere il file scaricato e prendere nota del relativo percorso oppure spostarlo nella directory dei progetti di Android Studio.
 
@@ -14,8 +14,5 @@ Questa esercitazione è basata su **GetStartedWithData**, che è un'app per Andr
 
 	È ora possibile usare il progetto.
  
->[AZURE.NOTE]Per ottenere il file di esempio usato nella versione precedente di Mobile Services Android SDK, fare clic [qui][GitHub].
 
-<!-- URLs. -->
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+<!---HONumber=62-->

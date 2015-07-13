@@ -44,4 +44,7 @@ Account aziendale o dell'istituto di istruzione | Un account utente assegnato da
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrizioni e limiti del servizio Azure AD](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

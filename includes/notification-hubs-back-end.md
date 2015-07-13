@@ -5,7 +5,7 @@ Il seguente codice consente di inviare notifiche a Windows Store, Windows Phone 
 
 Se è stata creata un'app console quando è stata completata l'esercitazione [Introduzione agli Hub di notifica][get-started], ignorare i passaggi da 1 a 3.
 
-1. In Visual Studio creare una nuova applicazione console in Visual C\#: 
+1. In Visual Studio creare una nuova applicazione console in Visual C#: 
 
    	![][13]
 
@@ -37,15 +37,15 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                 try
                 {
                     // Define a Windows Store toast.
-                    var wnsToast = "<toast><visual><binding template=\"ToastText01\">" 
-                        + "<text id=\"1\">Breaking " + category + " News!" 
+                    var wnsToast = "<toast><visual><binding template="ToastText01">" 
+                        + "<text id="1">Breaking " + category + " News!" 
                         + "</text></binding></visual></toast>";         
                     await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
 
                     // Define a Windows Phone toast.
                     var mpnsToast =
-                        "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                        "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                        "<?xml version="1.0" encoding="utf-8"?>" +
+                        "<wp:Notification xmlns:wp="WPNotification">" +
                             "<wp:Toast>" +
                                 "<wp:Text1>Breaking " + category + " News!</wp:Text1>" +
                             "</wp:Toast> " +
@@ -53,11 +53,11 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
                     await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
 
                     // Define an iOS alert.
-                    var alert = "{\"aps\":{\"alert\":\"Breaking " + category + " News!\"}}";
+                    var alert = "{"aps":{"alert":"Breaking " + category + " News!"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
 
 					// Define an Android notification.
-                    var notification = "{\"data\":{\"msg\":\"Breaking " + category + " News!\"}}";
+                    var notification = "{"data":{"msg":"Breaking " + category + " News!"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
                 catch (ArgumentException)
@@ -100,4 +100,4 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

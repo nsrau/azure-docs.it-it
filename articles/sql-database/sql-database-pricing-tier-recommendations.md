@@ -87,4 +87,7 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 [4]: ./media/sql-database-pricing-tier-recommendations/choose-pricing-tier.png
 [5]: ./media/sql-database-pricing-tier-recommendations/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

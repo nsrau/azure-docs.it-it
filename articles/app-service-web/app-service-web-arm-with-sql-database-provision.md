@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Eseguire il provisioning di un'app Web che usa un database SQL" 
-	description="Utilizzare un modello di gestione risorse di Azure per distribuire un'app Web che include un database SQL." 
+	description="Usare un modello di Gestione risorse di Azure per distribuire un'app Web che include un database SQL." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app Web con un database SQL
 
-In questo argomento si apprenderà come creare un modello di gestione risorse di Azure che consente di distribuire un'app Web e un database SQL. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+In questo argomento si apprenderà come creare un modello di Gestione risorse di Azure che consente di distribuire un'app Web e un database SQL. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per il modello completo, vedere [Modello di app Web con database SQL](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+Per altre informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
+
+Per il modello completo, vedere [Modello di app Web con database SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
 
 ## Elementi distribuiti
 
@@ -57,7 +59,7 @@ Il percorso del server di database. Per prestazioni ottimali, questo percorso de
 
 ### administratorLogin
 
-Il nome dell'account da utilizzare per l'amministratore del server di database.
+Il nome dell'account da usare per l'amministratore del server di database.
 
     "administratorLogin": {
       "type": "string"
@@ -65,7 +67,7 @@ Il nome dell'account da utilizzare per l'amministratore del server di database.
 
 ### administratorLoginPassword
 
-La password da utilizzare per l'amministratore del server di database.
+La password da usare per l'amministratore del server di database.
 
     "administratorLoginPassword": {
       "type": "securestring"
@@ -81,7 +83,7 @@ Il nome del nuovo database da creare.
 
 ### collation
 
-Le regole di confronto del database da utilizzare per controllare l'utilizzo corretto di caratteri.
+Le regole di confronto del database da usare per controllare l'uso corretto dei caratteri.
 
     "collation": {
       "type": "string",
@@ -176,7 +178,7 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

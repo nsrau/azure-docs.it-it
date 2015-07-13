@@ -31,14 +31,14 @@ Per creare un nuovo connettore di Archiviazione di Azure, attenersi alla procedu
 ![Creare il connettore BLOB Archiviazione di Azure][3]
 
 - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
-- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
+- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 - **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
 - **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 - **Piano tariffario**: scegliere un piano tariffario per il connettore
 - **Nome**: assegnare un nome al connettore BLOB di Archiviazione
 - **Impostazioni pacchetto** 
-	- **URI di firma di accesso condiviso/contenitore**: specificare l'URI del contenitore BLOB. L'URI può includere anche il token di firma di accesso condiviso. Ad esempio http://storageaccountname.blob.core.windows.net/containername o http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
-	- **Chiave di accesso**: specificare una chiave di accesso valida dell'account di archiviazione primario/secondario. Lasciare vuoto questo campo se si sta usando un token di firma di accesso condiviso per l'autenticazione.
+	- **URI SAS/contenitore**: specificare l'URI del contenitore BLOB. L'URI può includere anche il token SAS. Ad esempio http://storageaccountname.blob.core.windows.net/containername o http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
+	- **Chiave di accesso**: specificare una chiave di accesso valida dell'account di archiviazione primario/secondario. Lasciare vuoto questo campo se si sta usando un token SAS per l'autenticazione.
 - Fare clic su Crea. Verrà creato un nuovo connettore BLOB di Archiviazione di Azure.
 
 ##Usare il connettore BLOB di Archiviazione di Azure in un'app per la logica
@@ -54,29 +54,29 @@ Fare clic su *Trigger e azioni*. Si apre la finestra di progettazione del flusso
 
 Il connettore BLOB di Archiviazione di Azure può essere usato come azione.
 
-###Actions
+###Azioni
 Fare clic su Azure Storage Blob Connector nel riquadro destro. Il connettore elenca le azioni supportate.
 
 ![Elenco di azioni del BLOB di Archiviazione di Azure][10]
 
 Il connettore BLOB di Archiviazione di Azure supporta sei azioni, ovvero
 
-- **Ottieni BLOB**: ottiene un BLOB specifico dal contenitore.
-- **Carica BLOB**: carica un nuovo BLOB o aggiorna un BLOB esistente.
-- **Elimina BLOB**: elimina un BLOB specifico da un contenitore.
-- **Elenca BLOB**: elenca tutti i BLOB in una directory.
-- **Snapshot BLOB**: crea uno snapshot di sola lettura di un BLOB specifico.
-- **Copia BLOB**: crea un nuovo BLOB copiandolo da un altro BLOB. Il BLOB di origine può essere nello stesso account o in un altro account.
+- **Get Blob**: ottiene un BLOB specifico dal contenitore.
+- **Upload Blob**: carica un nuovo BLOB o aggiorna un BLOB esistente.
+- **Delete Blob**: elimina un BLOB specifico da un contenitore.
+- **List Blobs**: elenca tutti i BLOB in una directory.
+- **Snapshot Blob**: crea una snapshot di sola lettura di un BLOB specifico.
+- **Copy Blob**: crea un nuovo BLOB copiandolo da un altro BLOB. Il BLOB di origine può essere nello stesso account o in un altro account.
 
-Si consideri come esempio l'azione Carica BLOB. Fare clic su Carica BLOB
+Si consideri come esempio l'azione Upload Blob. Fare clic su Upload Blob
 
 ![Input dell'azione Carica BLOB][11]
 
 
-- **Percorso BLOB**: specifica il percorso del BLOB da caricare. Il percorso viene interpretato come relativo al percorso del contenitore configurato.
-- **Contenuto in scrittura BLOB**: specifica il contenuto e le proprietà del BLOB da caricare.
-- **Codifica trasferimento contenuto**: specifica Nessuna o Base64.
-- **Sovrascrivi**: se impostato su true, il BLOB esistente verrà sovrascritto. In caso contrario, restituirà un errore se esiste già un BLOB nello stesso percorso.
+- **Blob Path**: specifica il percorso del BLOB da caricare. Il percorso viene interpretato come relativo al percorso del contenitore configurato.
+- **Blob Write Content**: specificare il contenuto e le proprietà del BLOB da caricare.
+- **Content Transfer Encoding**: specificare none o base64.
+- **Overwrite**: se impostato su true, il BLOB esistente verrà sovrascritto. In caso contrario, restituirà un errore se esiste già un BLOB nello stesso percorso.
 
 Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input.
 

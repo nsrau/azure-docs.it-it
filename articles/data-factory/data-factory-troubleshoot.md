@@ -47,7 +47,7 @@ Quando si configura o si aggiorna un servizio collegato di SQL Server con il por
 Verificare che SQL Server sia raggiungibile dal computer in cui è installato il gateway. Nel computer in cui è installato il gateway, è possibile
 
 1. Eseguire il ping del computer in cui è installato SQL Server. Oppure
-2. Provare a connettersi all'istanza di SQL Server con le credenziali specificate nel portale di Azure usando SQL Server Management Studio \(SSMS\).
+2. Provare a connettersi all'istanza di SQL Server con le credenziali specificate nel portale di Azure usando SQL Server Management Studio (SSMS).
 
 
 ## Problema: le sezioni di input sono sempre nello stato PendingExecution o PendingValidation
@@ -110,7 +110,7 @@ Questo errore indica generalmente che il percorso dell'account di archiviazione 
 
 
 ## Problema: l'attività personalizzata non riesce
-Quando si usa un'attività personalizzata in Data factory di Azure \(tipo di attività pipeline CustomActivity\), l'applicazione personalizzata viene eseguita nel servizio collegato specificato in HDInsight come processo MapReduce di streaming solo di mapping.
+Quando si usa un'attività personalizzata in Data factory di Azure (tipo di attività pipeline CustomActivity), l'applicazione personalizzata viene eseguita nel servizio collegato specificato in HDInsight come processo MapReduce di streaming solo di mapping.
 
 Quando viene eseguita l'attività personalizzata, Data factory di Azure potrà acquisire l'output dal cluster HDInsight e salvarlo nel contenitore di archiviazione *adfjobs* nell'account di archiviazione BLOB di Azure. In caso di errore, è possibile leggere il testo dal file di testo di output **stderr** dopo che si è verificato un errore. I file sono accessibili e leggibili dal portale di Azure stesso nel Web browser o con gli strumenti di esplorazione delle risorse di archiviazione per accedere ai file conservati direttamente nel contenitore di archiviazione nell'archivio BLOB di Azure.
 
@@ -131,11 +131,11 @@ Per enumerare e leggere i log per una particolare attività personalizzata, è p
 
 Un **errore comune** di un'attività personalizzata è l'esecuzione del pacchetto non riuscita con codice di uscita "1". Per altri dettagli, vedere "wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr".
 
-Per visualizzare ulteriori dettagli relativi a questo tipo di errore, aprire il file **stderr**. Un errore comune che è possibile osservare è una condizione di timeout come la seguente: INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
+Per visualizzare ulteriori dettagli relativi a questo tipo di errore, aprire il file **stderr**. Un errore comune che è possibile osservare è una condizione di timeout come la seguente: INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
 
 Lo stesso errore può essere visualizzato più volte se, ad esempio, il processo viene ritentato per tre volte nell'arco di almeno 30 minuti.
 
-Questo errore di timeout indica che si è verificato un timeout di 600 secondi \(10 minuti\). In genere, ciò significa che l'applicazione .NET personalizzata non ha rilasciato alcun aggiornamento di stato per 10 minuti. Se l'applicazione è sospesa o bloccata in attesa per troppo tempo, il timeout di 10 minuti è un meccanismo di sicurezza che impedisce di attendere all'infinito e ritardare la pipeline di Data factory di Azure.
+Questo errore di timeout indica che si è verificato un timeout di 600 secondi (10 minuti). In genere, ciò significa che l'applicazione .NET personalizzata non ha rilasciato alcun aggiornamento di stato per 10 minuti. Se l'applicazione è sospesa o bloccata in attesa per troppo tempo, il timeout di 10 minuti è un meccanismo di sicurezza che impedisce di attendere all'infinito e ritardare la pipeline di Data factory di Azure.
 
 Questo timeout ha origine nella configurazione del cluster HDInsight collegato all'attività personalizzata. L'impostazione è **mapred.task.timeout**, con valore predefinito di 600000 millisecondi, come documentato nelle impostazioni predefinite di Apache: http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
 
@@ -175,7 +175,7 @@ In questa procedura dettagliata si introdurrà un errore nell'esercitazione dell
 ### Prerequisiti
 1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
 2. Verificare che **ADFTutorialDataFactory** produca dati nella tabella **emp** del database SQL di Azure.  
-3. Eliminare quindi la tabella **emp** \(\*\*\*drop table emp\*\*\*\) dal database SQL di Azure. Ciò introdurrà un errore.
+3. Eliminare quindi la tabella **emp** (***drop table emp***) dal database SQL di Azure. Ciò introdurrà un errore.
 4. Eseguire il comando seguente in **Azure PowerShell** per aggiornare il periodo attivo della pipeline in modo che cerchi di scrivere i dati nella tabella **emp** che non esiste più.
 
          
@@ -200,7 +200,7 @@ In questa procedura dettagliata si introdurrà un errore nell'esercitazione dell
 
 	![Pannello Tabella con sezioni con errori][image-data-factory-troubleshoot-table-blade-with-problem-slices]
 
-	Se si fa clic su **Sezioni con errori** \(non su un problema specifico\) verrà visualizzato il pannello **SEZIONI DI DATI**, quindi fare clic su una **sezione con errori specifica** per vedere la diapositiva **SEZIONE DI DATI** corrispondente alla sezione di dati specificata.
+	Se si fa clic su **Sezioni con errori** (non su un problema specifico) verrà visualizzato il pannello **SEZIONI DI DATI**, quindi fare clic su una **sezione con errori specifica** per vedere la diapositiva **SEZIONE DI DATI** corrispondente alla sezione di dati specificata.
 
 6. Nel pannello **SEZIONE DI DATI** per **EmpSQLTable** verranno visualizzate tutte le **esecuzioni di attività** per la sezione nell'elenco in basso. Fare clic su un'**esecuzione attività** non riuscita dall'elenco.
 
@@ -238,13 +238,13 @@ Per risolvere il problema, creare la tabella **emp** usando lo script SQL nell'a
 		LatencyStatus     		:
 		LongRetryCount    		: 0
 
-	Notare l'ora in **Inizio** nella sezione con errori \(quella con **Stato** impostato su **Operazione non riuscita**\) nell'output. 
+	Notare l'ora in **Inizio** nella sezione con errori (quella con **Stato** impostato su **Operazione non riuscita**) nell'output. 
 4. Eseguire ora il cmdlet **Get-AzureDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
          
 		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	Il valore di **StartDateTime** è l'orario di inizio per la sezione con errori/problemi di cui si è preso nota nel passaggio precedente. La data e ora dovrebbe essere racchiusa tra virgolette doppie.
-5. Si otterrà l'output con informazioni dettagliate sull'errore \(simile al seguente\):
+5. Si otterrà l'output con informazioni dettagliate sull'errore (simile al seguente):
 
 		Id                  	: 2b19475a-c546-473f-8da1-95a9df2357bc
 		ResourceGroupName   	: ADFTutorialResourceGroup
@@ -321,13 +321,13 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 		LongRetryCount    : 0
 
 
-	Notare l'ora in **Inizio** nella sezione con errori \(quella con **Stato** impostato su **Operazione non riuscita**\) nell'output. 
+	Notare l'ora in **Inizio** nella sezione con errori (quella con **Stato** impostato su **Operazione non riuscita**) nell'output. 
 4. Eseguire ora il cmdlet **Get-AzureDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
          
 		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	Il valore di **StartDateTime** è l'orario di inizio per la sezione con errori/problemi di cui si è preso nota nel passaggio precedente. La data e ora dovrebbe essere racchiusa tra virgolette doppie.
-5. Si otterrà l'output con informazioni dettagliate sull'errore \(simile al seguente\):
+5. Si otterrà l'output con informazioni dettagliate sull'errore (simile al seguente):
 
 		Id                  : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
 		ResourceGroupName   : ADF
@@ -386,4 +386,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
-> [AZURE.NOTE] Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib \(versione 5.0.2 e successive\) disponibili tramite NuGet e non tramite WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici utilizzati dalla libreria client di archiviazione sono [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) e [Spatial](http://nuget.org/packages/System.Spatial/5.0.2).
+> [AZURE.NOTE]Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2 e successive) disponibili tramite NuGet e non tramite WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici utilizzati dalla libreria client di archiviazione sono [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) e [Spatial](http://nuget.org/packages/System.Spatial/5.0.2).
 > 
 > Sebbene queste librerie vengono utilizzate dalle classi di archiviazione tabelle di Azure, sono dipendenze necessarie per la programmazione con la libreria client di archiviazione.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

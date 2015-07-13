@@ -1,10 +1,10 @@
-﻿In questa sezione il modello del database verrà modificato con l'aggiunta di un nuovo campo timestamp denominato **CompleteDate**. In questo campo verrà registrata l'ultima volta in cui l'elemento Todo è stato completato. Entity Framework aggiornerà il database in base alla modifica del modello usando una classe predefinita dell'inizializzatore del database derivata da [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621). 
+In questa sezione il modello del database verrà modificato con l'aggiunta di un nuovo campo timestamp denominato **CompleteDate**. In questo campo verrà registrata l'ultima volta in cui l'elemento Todo è stato completato. Entity Framework aggiornerà il database in base alla modifica del modello utilizzando una classe predefinita dell'inizializzatore del database derivata da [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621).
 
 1. In Esplora soluzioni di Visual Studio espandere la cartella **App_Start** nel progetto di servizio todolist. Aprire il file WebApiConfig.cs.
 
-2. Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe  `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che i dati di seeding siano i seguenti e salvare il file WebApiConfig.cs.
+2. Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che i dati di seeding siano i seguenti e salvare il file WebApiConfig.cs.
 
-    >[AZURE.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+    >[AZURE.NOTE]Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. Per altre informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
         List<TodoItem> todoItems = new List<TodoItem>
         {
@@ -36,9 +36,8 @@
         }
 
 
-5. Ricompilare il progetto di servizio back-end .NET todolist e verificare che non siano presenti errori di compilazione. 
+5. Ricompilare il progetto di servizio back-end .NET todolist e verificare che non siano presenti errori di compilazione.
 
 A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

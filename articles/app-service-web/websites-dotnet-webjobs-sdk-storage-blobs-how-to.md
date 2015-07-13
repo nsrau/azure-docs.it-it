@@ -20,11 +20,11 @@
 
 ## Panoramica
 
-In questa guida vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
+In questa guida vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Negli esempi di codice usare [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1. x.
 
-Per gli esempi di codice che illustrano come creare BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Per gli esempi di codice che illustrano come creare BLOB, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
-La guida presuppone che si sappia come [creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
+Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> Come attivare una funzione quando viene creato o aggiornato un BLOB
 
@@ -193,7 +193,7 @@ L'SDK deserializza automaticamente il messaggio JSON. Questa è la classe `Poiso
 
 WebJobs SDK analizza tutti i contenitori specificati da attributi `BlobTrigger` all'avvio dell'applicazione. In un account di archiviazione di grandi dimensioni l'analisi può richiedere tempo, pertanto l'individuazione di nuovi BLOB e l'esecuzione delle funzioni `BlobTrigger` potrebbero non essere immediate.
 
-Per rilevare BLOB nuovi o modificati dopo l'avvio dell'applicazione, l'SDK legge periodicamente i log di archiviazione dei BLOB. Tali log vengono inseriti nel buffer e vengono scritti fisicamente solo ogni 10 minuti circa, pertanto si può riscontrare un ritardo significativo tra la creazione o l'aggiornamento di un BLOB e l'esecuzione della funzione `BlobTrigger` corrispondente.
+Per rilevare BLOB nuovi o modificati dopo l'avvio dell'applicazione, l'SDK legge periodicamente i log di archiviazione BLOB. Tali log vengono inseriti nel buffer e vengono scritti fisicamente solo ogni 10 minuti circa, pertanto si può riscontrare un ritardo significativo tra la creazione o l'aggiornamento di un BLOB e l'esecuzione della funzione `BlobTrigger` corrispondente.
 
 Si verifica un'eccezione per i BLOB creati tramite l'attributo `Blob`. Quando WebJobs SDK crea un nuovo BLOB, lo passa immediatamente a tutte le funzioni `BlobTrigger` corrispondenti. Se pertanto si dispone di una catena di input e output di BLOB, l'SDK può elaborarli in modo efficiente. Se invece si desidera una bassa latenza per l'esecuzione delle funzioni di elaborazione dei BLOB creati o aggiornati in altri modi, è consigliabile usare `QueueTrigger` anziché `BlobTrigger`.
 
@@ -213,7 +213,7 @@ Se si desidera forzare la rielaborazione di un BLOB, è possibile eliminare manu
 
 ## <a id="queues"></a>Argomenti correlati trattati dall'articolo sulle code
 
-Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di BLOB, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 

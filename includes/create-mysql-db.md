@@ -1,21 +1,15 @@
-#Come creare un database MySQL in Azure
-
 In questa guida viene illustrato come usare [ClearDB] per creare un database MySQL da [Azure Store] e come creare un database MySQL come risorsa collegata quando si crea un [sito Web di Azure][waws]. [ClearDB] è un fornitore a tolleranza di errore di database come servizio, che consente di eseguire e gestire database MySQL in data center di Azure e di connettersi a tali database da qualsiasi applicazione.
-
-##Sommario
-* [Procedura: Creare un database MySQL da Azure Store](#CreateFromStore)
-* [Procedura: Creare un database MySQL come risorsa collegata per un sito Web di Azure](#CreateForWebSite)
 
 > [AZURE.NOTE]Quando si crea un database MySQL come parte del processo di creazione del sito Web, è possibile creare solo un database gratuito. La creazione di un database MySQL da Azure Store consente di creare un database gratuito oppure di scegliere tra le opzioni a pagamento disponibili.
 
-<h2><a id="CreateFromStore"></a>Procedura: Creare un database MySQL da Azure Store</h2>
+## Procedura: Creare un database MySQL da Azure Store
 
-Per creare un database MySQL da [Azure Store], eseguire la procedura seguente:
+Per creare un database MySQL da [Azure Store], eseguire le operazioni seguenti:
 
 1. Accedere al [portale di gestione di Azure][portal].
 2. Fare clic su **+NUOVO** nella parte inferiore della pagina, quindi selezionare **MARKETPLACE**.
 
-	![Selezione del componente aggiuntivo nel negozio](./media/create-mysql-db/select-store.png)
+	![Selezionare il componente aggiuntivo nel negozio](./media/create-mysql-db/select-store.png)
 
 3. Selezionare **ClearDB MySQL Database**, quindi fare clic sulla freccia nella parte inferiore della pagina.
 
@@ -38,7 +32,7 @@ Per creare un database MySQL da [Azure Store], eseguire la procedura seguente:
 	![Informazioni di connessione per MySQL](./media/create-mysql-db/mysql-conn-info.png)
 
 
-<h2><a id="CreateForWebSite"></a>Procedura: Creare un database MySQL come risorsa collegata per un sito Web di Azure</h2>
+## Procedura: Creare un database MySQL come risorsa collegata per un sito Web di Azure
 
 Per creare un database MySQL come risorsa collegata durante la creazione di un [sito Web di Azure][waws], eseguire la procedura seguente:
 
@@ -79,4 +73,4 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!--HONumber=52-->
+<!---HONumber=62-->

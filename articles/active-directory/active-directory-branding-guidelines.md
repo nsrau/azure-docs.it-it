@@ -94,4 +94,6 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che indirizza gli ute
 
 Se l'app supporta entrambi gli account Azure AD e Microsoft, è necessario includere nell'app due pulsanti di accesso separati. Microsoft è attivamente impegnata nella realizzazione di un aggiornamento che consentirà di eseguire l'integrazione una sola volta e di supportare gli account Microsoft personale e aziendale. Quando l'aggiornamento sarà disponibile, si potrà mostrare nell'app un singolo pulsante di "accesso a Microsoft".
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

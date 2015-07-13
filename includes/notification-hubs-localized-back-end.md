@@ -35,7 +35,7 @@ Si noti che questa semplice chiamata distribuirà la notizia localizzata corrett
 
 ### Servizi mobili
 
-Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con il seguente codice:
+Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con il codice seguente:
 
 	var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
@@ -52,4 +52,4 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
 	
 Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
-<!--HONumber=49-->
+<!---HONumber=62-->

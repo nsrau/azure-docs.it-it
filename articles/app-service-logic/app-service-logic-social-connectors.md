@@ -102,7 +102,17 @@ I connettori possono essere creati usando il portale di Azure
 
 1. Nel portale di Azure selezionare **NUOVO** > **Web e dispositivi mobili** > **Azure Marketplace**.
 2. **Cercare** il connettore o selezionarlo nell'elenco. Una volta selezionato, si apre un nuovo pannello o finestra. Selezionare **Crea**. 
-3. Immettere le seguenti proprietà per il connettore: <table> <tr><th>Proprietà</th> <th>Descrizione</th> </tr> <tr><td>Nome</td> <td>Immettere un nome per l'app per le API. È possibile ad esempio denominarlo RulesDiscountTaxCode o APIAppValidateXML</td> </tr> <tr><td>Piano di servizio app</td> <td>Elenca il piano di pagamento. È possibile modificarlo se sono necessarie più o meno risorse</th> </td> <tr><td>Piano tariffario</td> <td>Proprietà di sola lettura che elenca la categoria di prezzo nella sottoscrizione di Azure.</td> </tr> <tr><td>Gruppo di risorse</td> <td>Creare un nuovo gruppo di risorse o usare un gruppo esistente. Questa proprietà è illustrata nell'articolo Uso dei gruppi di risorse.</td> </tr> <tr><td>Sottoscrizione</td> <td>Proprietà di sola lettura che elenca la sottoscrizione corrente</td> </tr> <tr><td>Percorso</td> <td>La località geografica che ospita il servizio di Azure </td></tr> <tr><td>Aggiungi a schermata iniziale</td> <td>Selezionare questa opzione per aggiungere l'app per le API alla schermata iniziale (home page)</td></tr> </table> 
+3. Immettere le seguenti proprietà per il connettore: 
+	<table>
+    <tr><th>Proprietà</th> <th>Descrizione</th> </tr>
+    <tr><td>Nome</td> <td>Immettere un nome per l'app per le API, ad esempio RulesDiscountTaxCode o APIAppValidateXML.</td> </tr>
+    <tr><td>Piano di servizio app</td> <td>Elenca il piano di pagamento. È possibile modificarlo se sono necessarie più o meno risorse.</th> </td>
+    <tr><td>Piano tariffario</td> <td>Proprietà di sola lettura che elenca la categoria di prezzo nella sottoscrizione di Azure.</td> </tr>
+    <tr><td>Gruppo di risorse</td> <td>Creare un nuovo gruppo di risorse o usare un gruppo esistente. L'articolo Uso dei gruppi di risorse illustra questa proprietà.</td> </tr>
+    <tr><td>Sottoscrizione</td> <td>Proprietà di sola lettura che elenca la sottoscrizione corrente.</td> </tr>
+    <tr><td>Location</td> <td>La località geografica che ospita il servizio di Azure. </td></tr>
+    <tr><td>Aggiungi a schermata iniziale</td> <td>Selezionare questa opzione per aggiungere l'app per le API alla schermata iniziale (home page).</td></tr>
+</table>
 4. Selezionare **Crea**. Il connettore verrà creato. Il completamento dell'operazione può richiedere tempo. Durante la creazione del connettore verrà visualizzata la schermata iniziale. Usare la voce di menu Notifiche sulla sinistra per monitorare lo stato del connettore.
 
 Dopo aver creato il primo connettore, è possibile usarlo per compilare un'app per la logica, mobile o Web.
@@ -137,11 +147,12 @@ Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 I connettori usano OAuth oppure nomi utente e password.
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-app-azure-portal.md) |
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Altri connettori
 
 [Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md) | [Connettori Enterprise](app-service-logic-enterprise-connectors.md) | [Connettori Business-to-Business](app-service-logic-b2b-connectors.md)￼ | [Connettori per protocolli](app-service-logic-protocol-connectors.md)￼ | [Connettori per i servizi app e dati](app-service-logic-data-connectors.md)￼ | [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

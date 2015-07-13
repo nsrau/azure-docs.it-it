@@ -60,4 +60,5 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

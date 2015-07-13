@@ -63,5 +63,6 @@ Per informazioni su come configurare Gestione traffico di Azure, anche per l'uso
 Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Per altre informazioni sull'uso di Gestione traffico con Siti Web di Azure, vedere i post di blog relativi all'[uso di Gestione traffico di Azure con Siti Web di Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [all'integrazione di Gestione traffico di Azure con Siti Web di Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

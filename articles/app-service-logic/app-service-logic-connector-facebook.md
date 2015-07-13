@@ -83,5 +83,6 @@ Una volta creata l'app per le API, è possibile usare il connettore Facebook com
 [9]: ./media/app-service-logic-connector-facebook/img9.png
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

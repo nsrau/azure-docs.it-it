@@ -19,14 +19,14 @@
 
 # Eseguire il backup di macchine virtuali di Azure
 
-In questo articolo rappresenta la guida essenziale per eseguire il backup di macchine virtuali di Azure. Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-vms-introduction.md#prerequisites) siano stati soddisfatti.
+Questo articolo rappresenta la guida essenziale per eseguire il backup di macchine virtuali di Azure. Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-vms-introduction.md#prerequisites) siano stati soddisfatti.
 
 L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi principali:
 
 ![Three steps to backup an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
 
 ## Individuare le macchine virtuali di Azure
-Le query di processo di individuazione Azure per l'elenco di macchine virtuali nella sottoscrizione, insieme ad altre informazioni quali il nome del servizio Cloud e l'area.
+Il processo di individuazione esegue una query su Azure per ottenere l'elenco di macchine virtuali nella sottoscrizione, insieme ad altre informazioni quali il nome del servizio cloud e l'area.
 
 > [AZURE.NOTE]Il processo di individuazione deve sempre essere eseguito come primo passaggio. Ciò consente di verificare che eventuali nuove macchine virtuali aggiunte alla sottoscrizione vengano identificate.
 
@@ -36,7 +36,7 @@ Per attivare il processo di individuazione, eseguire la procedura seguente:
 
 2. Scegliere il tipo di carico di lavoro nel menu a discesa come **Macchina virtuale di Azure** e fare clic sul pulsante **Seleziona**. ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Fare clic sui **DISCOVER** pulsante nella parte inferiore della pagina. ![discover button](./media/backup-azure-vms/discover-button.png)
+3. Fare clic sul pulsante **INDIVIDUA** nella parte inferiore della pagina. ![discover button](./media/backup-azure-vms/discover-button.png)
 
 4. Il processo di individuazione può durare alcuni pochi minuti, mentre le macchine virtuali vengono elencate in formato tabulare. Durante l'esecuzione del processo di individuazione, viene visualizzata una notifica di tipo avviso popup nella parte inferiore della schermata. ![discover vms](./media/backup-azure-vms/discovering-vms.png)
 
@@ -44,27 +44,27 @@ Per attivare il processo di individuazione, eseguire la procedura seguente:
 
 
 ## Registrare le macchine virtuali di Azure
-Prima di una macchina virtuale può essere protetto deve essere registrato con il servizio di Backup di Azure. Il processo di registrazione ha due obiettivi principali:
+Per poter essere protetta, una macchina virtuale deve essere registrata nel servizio Backup di Azure. Il processo di registrazione ha due obiettivi principali:
 
 1. Inserire l'estensione di backup nell'agente VM della macchina virtuale.
 
-2. Per associare la macchina virtuale con il servizio di Backup di Azure
+2. Per associare la macchina virtuale al servizio Backup di Azure
 
 La registrazione è in genere un'attività da eseguire una sola volta. Il servizio Backup di Azure gestisce senza problemi l'aggiornamento e l'applicazione di patch dell'estensione per il backup senza richiedere all'utente alcun intervento complesso. Questo riduce il carico di lavoro di gestione dell'agente che è in genere associato ai prodotti di backup.
 
 ### Per registrare le macchine virtuali
 
-1. Passare all'archivio di backup, che può trovarsi in **servizi di ripristino** nel portale di Azure e fare clic sui **elementi registrati** scheda
+1. Passare all'insieme di credenziali per il backup, che può trovarsi in **Servizi di ripristino** nel portale di Azure, e fare clic sulla scheda **Elementi registrati**.
 
-2. Scegliere il tipo di carico di lavoro nel menu a discesa come **macchina virtuale di Azure** e fare clic sul pulsante Seleziona. ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
+2. Scegliere **Macchina virtuale di Azure** nel menu a discesa come tipo di carico di lavoro e fare clic sul pulsante Seleziona. ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Fare clic sui **registrare** pulsante nella parte inferiore della pagina. ![register button](./media/backup-azure-vms/register-button.png)
+3. Fare clic sul pulsante **REGISTRA** nella parte inferiore della pagina. ![register button](./media/backup-azure-vms/register-button.png)
 
-4. Nella finestra popup **Registra elementi** selezionare le macchine virtuali che si vuole registrare. Se sono presenti due o più macchine virtuali con lo stesso nome utilizzare il servizio cloud per distinguere tra le macchine virtuali.
+4. Nella finestra popup **Registra elementi** selezionare le macchine virtuali che si vuole registrare. Se sono presenti due o più macchine virtuali con lo stesso nome, usare il servizio cloud per distinguere tra le macchine virtuali.
 
     L'operazione **Registra** può essere effettuata su vasta scala, il che significa che è possibile selezionare contemporaneamente più macchine virtuali da registrare. Questo riduce notevolmente il tempo dedicato alla preparazione della macchina virtuale per il backup.
 
-    >[AZURE.NOTE]Solo le macchine virtuali non sono registrate e presenti nella stessa area credenziali per il backup, verranno visualizzati.
+    >[AZURE.NOTE]Verranno visualizzate solo le macchine virtuali che non sono registrate e che si trovano nella stessa area dell'insieme di credenziali per il backup.
 
 5. Viene creato un processo per ogni macchina virtuale da registrare. La notifica di tipo avviso popup visualizza lo stato di questa attività. Fare clic su **Visualizza processo** per passare alla pagina **Processi**. ![register job](./media/backup-azure-vms/register-create-job.png)
 
@@ -78,9 +78,9 @@ Questo passaggio implica l'impostazione di un criterio di backup e conservazione
 1. Passare all'insieme di credenziali per il backup, che può trovarsi in **Servizi di ripristino** nel portale di Azure e fare clic sulla scheda **Elementi registrati**.
 2. Scegliere il tipo di carico di lavoro nel menu a discesa come **Macchina virtuale di Azure** e fare clic sul pulsante **Seleziona**. ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. Fare clic sui **PROTECT** pulsante nella parte inferiore della pagina.
+3. Fare clic sul pulsante **PROTEGGI** nella parte inferiore della pagina.
 
-4. In questo modo verrà visualizzata la procedura guidata **Proteggi elementi** in cui è possibile selezionare le macchine virtuali da proteggere. Se sono presenti due o più macchine virtuali con lo stesso nome utilizzare il servizio cloud per distinguere tra le macchine virtuali.
+4. In questo modo verrà visualizzata la procedura guidata **Proteggi elementi** in cui è possibile selezionare le macchine virtuali da proteggere. Se sono presenti due o più macchine virtuali con lo stesso nome, usare il servizio cloud per distinguere tra le macchine virtuali.
 
     L'operazione **Proteggi** può essere effettuata su vasta scala, il che significa che è possibile selezionare contemporaneamente più macchine virtuali da registrare. Questo riduce notevolmente il tempo di preparazione della macchina virtuale per il backup.
 
@@ -103,69 +103,68 @@ Questo passaggio implica l'impostazione di un criterio di backup e conservazione
 
 9. Al termine, lo stato di protezione della macchina virtuale nella scheda **Elementi protetti** verrà visualizzato come *Protetto*. ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
-## Visualizzazione dettagli e lo stato del backup
+## Visualizzazione dello stato di backup e dei relativi dettagli
 Dopo la protezione, il numero di macchine virtuali aumenta anche nella pagina di riepilogo **Dashboard**. Inoltre, nella pagina Dashboard viene mostrato il numero di processi che hanno avuto esito positivo e che non sono riusciti nelle ultime 24 ore, nonché quelli ancora in corso. Facendo clic su qualsiasi categoria verrà eseguito il drill-down in quella categoria nella pagina **Processi**. ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Risoluzione dei problemi
-È possibile risolvere errori rilevati durante tramite Azure Backup con le informazioni elencate nella tabella seguente.
+È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
 | Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
 | Individuazione | Non è stato possibile individuare nuovi elementi. Si è verificato un errore interno del backup di Microsoft Azure. Attendere alcuni minuti e ripetere l'operazione. | Ripetere il processo di individuazione dopo 15 minuti.
 | Individuazione | Non è stato possibile individuare nuovi elementi. Un'altra operazione di individuazione è già in corso. Attendere fino al completamento dell'operazione di individuazione corrente. | Nessuno |
 | Registra | Lo stato del ruolo VM di Azure non consente di installare l'estensione. Verificare che la VM si trovi nello stato di esecuzione. L'estensione dei servizi di ripristino di Azure richiede che VM sia in esecuzione. | Avviare la macchina virtuale e quando è nello stato di esecuzione, ripetere l'operazione di registrazione.|
-| Registra | Numero di dischi dati collegati alla macchina virtuale ha superato il limite supportato:, scollegare alcuni dischi dati in questa macchina virtuale e riprovare. Backup di Azure supporta fino a 5 dischi dati collegati a una macchina virtuale di Azure per il backup | Nessuno |
-| Registra | Microsoft Azure Backup ha rilevato un errore interno - attendere qualche minuto e riprovare l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | È possibile ottenere questo errore a causa di una delle seguenti configurazioni non supportate: <ol><li>LRS Premium <li>Multi NIC <li>bilanciamento del carico </ol> |
-| Registra | Macchina virtuale Guest agente certificato non trovato | Seguire queste istruzioni per risolvere l'errore: <ol><li>scaricare la versione più recente dell'agente di macchine Virtuali da [qui](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Assicurarsi che la versione dell'agente scaricato sia 2.6.1198.718 o versione successiva. <li>Installare l'agente VM nella macchina virtuale.</ol> [Informazioni](#validating-vm-agent-installation) come controllare la versione dell'agente di macchine Virtuali. |
-| Registra | Registrazione non riuscita con timeout operazione dell'agente di installazione | Controllare se la versione del sistema operativo della macchina virtuale è supportata. |
-| Registra | Esecuzione comando non riuscito - un'altra operazione è in corso di questo elemento. Attendere il completamento dell'operazione precedente | Nessuno |
-| Backup | Copia di dischi rigidi virtuali dall'archivio di backup timeout - riprovare tra qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft. | Ciò si verifica quando sono presenti troppi dati da copiare. Controllare se si dispone di almeno 6 dischi dati. |
-| Backup | Timeout dell'attività di snapshot VM sub - riprovare tra qualche minuto. Se il problema persiste, contattare il supporto Microsoft | Questo errore viene generato se si è verificato un problema con l'agente VM o di accesso all'infrastruttura di Azure sono bloccati in qualche modo. <ul><li>Ulteriori informazioni, vedere [il debug dei problemi dell'agente di macchine Virtuali](#Troubleshooting-vm-agent-related-issues) <li>ulteriori informazioni, vedere [il debug dei problemi di rete](#troubleshooting-networking-issues) </ul> |
-| Backup | Backup non riuscito con errore interno - riprovare tra qualche minuto. Se il problema persiste, contattare il supporto Microsoft | Questo errore può verificarsi per due motivi: <ol><li> troppi dati da copiare. Controllare se si dispone di meno di sei dischi. <li>La macchina virtuale originale è stata eliminata e pertanto non può essere eseguito il backup. Per mantenere i dati di backup per una macchina virtuale eliminata ma arrestare gli errori di backup, rimuovere la protezione della macchina virtuale e scegliere l'opzione per mantenere i dati. Verrà interrotta la pianificazione del backup, nonché i messaggi di errore ricorrente. |
-| Backup | Estensione dell'elemento selezionato - agente di macchine Virtuali non è riuscito a installare i servizi di ripristino di Azure è un prerequisito per l'estensione di servizi di ripristino di Azure. Installare l'agente VM di Azure e riavviare l'operazione di registrazione | <ol> <li>Controllare se l'agente VM è stato installato correttamente. <li>Assicurarsi che il flag nel file di configurazione macchina virtuale sia impostato correttamente.</ol> [Ulteriori](#validating-vm-agent-installation) sull'installazione dell'agente di macchine Virtuali e come convalidare l'installazione dell'agente VM. |
-| Backup | Esecuzione comando non riuscito - un'altra operazione è attualmente in corso di questo elemento. Attendere il completamento dell'operazione precedente e riprovare | Esegue un backup esistente o un processo di ripristino per la macchina virtuale e non può essere avviato un nuovo processo mentre è in esecuzione il processo esistente. <br><br>Se si desidera la possibilità di annullare un processo in corso, aggiungere il voto per la [area Azure Feedback](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+| Registra | Il numero di dischi dati collegati alla macchina virtuale ha superato il limite supportato. Scollegare alcuni dischi dati in questa macchina virtuale e ripetere l'operazione. Il backup di Azure supporta un massimo di 5 dischi dati collegati a una macchina virtuale di Azure per il backup. | Nessuno |
+| Registra | Microsoft Azure Backup ha rilevato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | È possibile che questo errore sia provocato da una delle configurazioni non supportate seguenti: <ol><li>Archiviazione con ridondanza locale Premium <li>Scheda di interfaccia di rete multipla <li>Bilanciamento del carico </ol> |
+| Registra | Il certificato dell'agente guest di macchine virtuali non è stato trovato. | Seguire queste istruzioni per risolvere l'errore: <ol><li>Scaricare la versione più recente dell'agente di VM da [qui](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Assicurarsi che la versione dell'agente scaricato sia 2.6.1198.718 o superiore. <li>Installare l'agente di VM nella macchina virtuale.</ol> [Informazioni](#validating-vm-agent-installation) su come verificare la versione dell'agente di VM. |
+| Registra | Registrazione non riuscita con timeout dell'operazione dell'agente di installazione | Controllare se la versione del sistema operativo della macchina virtuale è supportata. |
+| Registra | L'esecuzione del comando non è riuscita. In questo elemento è già in corso un'altra operazione. Attendere il completamento dell'operazione precedente. | Nessuno |
+| Backup | Si è verificato il timeout della copia dei dischi rigidi virtuali dall'insieme di credenziali per il backup. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore si verifica quando la quantità di dati da copiare è eccessiva. Controllare se sono disponibili almeno 6 dischi dati. |
+| Backup | Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. <ul><li>Altre informazioni sui [problemi di debug dell'agente di VM](#Troubleshooting-vm-agent-related-issues) <li>Altre informazioni sul [debug dei problemi di rete](#troubleshooting-networking-issues) </ul> |
+| Backup | Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore si può verificare per due motivi: <ol><li> La quantità di dati da copiare è eccessiva. Controllare se sono disponibili almeno 6 dischi. <li>La VM originale è stata eliminata e non è quindi possibile eseguire il backup. Per mantenere i dati di backup per una VM eliminata ma evitare gli errori di backup, annullare la protezione della VM e scegliere l'opzione relativa alla conservazione dei dati. La pianificazione del backup verrà interrotta e non verranno più visualizzati i messaggi di errore ricorrenti. |
+| Backup | Non è stato possibile installare l'estensione Servizi di ripristino di Azure nell'elemento selezionato. L'agente di VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente di VM di Azure e riavviare l'operazione di registrazione. | <ol> <li>Controllare se l'agente di VM è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della VM sia impostato correttamente.</ol> [Altre informazioni](#validating-vm-agent-installation) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
+| Backup | L'esecuzione del comando non è riuscita. In questo elemento è attualmente in corso un'altra operazione. Attendere il completamento dell'operazione precedente, quindi riprovare. | È in esecuzione un processo di backup o ripristino esistente per la VM e non è possibile avviare un nuovo processo mentre è in esecuzione il processo esistente. <br><br>Se si vuole rendere possibile l'annullamento di un processo in corso, aggiungere il proprio voto al [forum di feedback su Microsoft Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
 
-### Agente di macchine Virtuali di risoluzione dei problemi correlati
+### Risoluzione dei problemi correlati all'agente di VM
 
-#### Configurare l'agente VM
-In genere, l'agente VM è già presente nelle macchine virtuali vengono create dalla raccolta di Azure. Tuttavia, le macchine virtuali vengono migrate da Data Center locale non avrà l'agente VM installato. Per tali macchine virtuali, l'agente VM deve essere installato in modo esplicito. Ulteriori informazioni su [l'installazione dell'agente VM in una macchina virtuale esistente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+#### Configurazione dell'agente di VM
+L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azure. Nelle macchine virtuali di cui viene eseguita la migrazione da data center locali non è installato l'agente di VM. Per queste VM è necessario installare esplicitamente l'agente di VM. Altre informazioni sull'[installazione dell'agente di VM in una VM esistente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
-Per le macchine virtuali di Windows:
+Per VM di Windows:
 
-- Scaricare e installare il [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). È necessario privilegi di amministratore per completare l'installazione.
-- [Aggiornare la proprietà della macchina virtuale](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è installato.
-
-
-#### Aggiornare l'agente VM
-Aggiornare l'agente VM è semplice come reinstallare il [file binari agente VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tuttavia, è necessario assicurarsi che nessuna operazione di backup è in esecuzione mentre l'agente VM viene aggiornata.
+- Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.
+- [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
 
-#### Convalida installazione dell'agente di macchine Virtuali
-Come verificare la versione dell'agente di macchine Virtuali in macchine virtuali di Windows:
+#### Aggiornamento dell'agente di VM
+L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). È tuttavia necessario assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM.
 
-- Account di accesso alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*.
-- È necessario trovare il file di WaAppAgent.exe presente.
-- Pulsante destro del mouse sul file, andare a **proprietà**, quindi selezionare il **Dettagli** scheda.
-- Il campo di versione del prodotto deve essere 2.6.1198.718 o versione successiva
 
-### Risoluzione dei problemi di rete
-Come tutte le estensioni, estensione Backup richiedono l'accesso a internet per lavoro. Impossibilità di accedere a internet pubblico può manifestarsi in diversi modi:
+#### Convalida dell'installazione dell'agente di VM
+Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
-- L'installazione dell'estensione può avere esito negativo
-- Le operazioni di backup (ad esempio snapshot disco) possono avere esito negativo
-- Visualizzazione dello stato dell'operazione di backup può avere esito negativo
+- Accedere alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*,
+- che dovrebbe includere il file WaAppAgent.exe.
+- Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà**, quindi scegliere la scheda **Dettagli**.
+- Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
 
-La necessità di risoluzione degli indirizzi internet pubblico è stata articolata [qui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Occorre controllare le configurazioni di DNS per la rete virtuale e assicurarsi che gli URI Azure possano essere risolti.
+### Risoluzione del problemi di rete
+Analogamente a tutte le estensioni, per il funzionamento delle estensioni di Backup è necessario l'accesso a Internet pubblico. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
 
-Dopo la risoluzione dei nomi è stata eseguita correttamente, l'accesso per gli indirizzi IP di Azure deve inoltre essere fornito. Per sbloccare l'accesso all'infrastruttura di Azure, attenersi alla seguente procedura:
+- Possono verificarsi errori di installazione dell'estensione.
+- Possono verificarsi errori delle operazioni di backup, ad esempio lo snapshot del disco.
+- Possono verificarsi errori di visualizzazione dello stato dell'operazione di backup.
 
-1. Ottenere l'elenco di [Data Center di Azure IP](https://msdn.microsoft.com/
-2. / library/azure/dn175718.aspx) da inserire nell'elenco.
-2. Sblocco di indirizzi IP mediante il [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Eseguire questo cmdlet all'interno della macchina virtuale di Azure in una finestra di PowerShell con privilegi elevata (eseguita come amministratore).
+La necessità di risolvere gli indirizzi Internet pubblici è stata illustrata [qui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Sarà necessario controllare le configurazioni DNS per la rete virtuale e assicurarsi che sia possibile risolvere gli URI di Azure.
+
+Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso agli IP di Azure. Per sbloccare l'accesso all'infrastruttura di Azure, eseguire la procedura seguente:
+
+1. Ottenere l'elenco di [IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) da aggiungere all'elenco di IP consentiti.
+2. Sbloccare gli IP mediante il cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Eseguire questo cmdlet entro la VM di VM, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
 
 
 ## Coerenza dei punti di ripristino
-Quando si utilizzano dati di backup, i clienti preoccuparsi il comportamento della macchina virtuale dopo avere ripristinato. Le domande tipiche che i clienti pongono sono:
+Quando si tratta di gestione dei dati di backup, i clienti si preoccupano per il comportamento delle VM dopo il ripristino. Le domande tipiche che i clienti pongono sono:
 
 - La macchina virtuale si riavvierà?
 - I dati saranno disponibili sul disco (o) è presente perdita di dati?
@@ -185,5 +184,6 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms)
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="02/27/2015"
+   ms.date="06/16/2015"
    ms.author="adegeo"/>
 
 
@@ -22,7 +22,7 @@
 
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.
 
-**2 settembre 2014**. La famiglia di sistemi operativi guest 1.x di Azure, basata su Windows Server 2008, è stata ufficialmente ritirata. Qualsiasi tentativo di distribuire nuovi servizi o aggiornamenti di servizi esistenti mediante la famiglia 1 avrà esito negativo e restituirà un messaggio di errore simile al seguente: "La famiglia di sistemi operativi guest 1 è stata ritirata." 
+**2 settembre 2014**. La famiglia di sistemi operativi guest 1.x di Azure, basata su Windows Server 2008, è stata ufficialmente ritirata. Qualsiasi tentativo di distribuire nuovi servizi o aggiornamenti di servizi esistenti mediante la famiglia 1 avrà esito negativo e restituirà un messaggio di errore simile al seguente: "La famiglia di sistemi operativi guest 1 è stata ritirata."
 
 **3 novembre 2014**. Il supporto esteso per la famiglia di sistemi operativi guest 1 è terminato ed è stato completamente ritirato. Saranno interessati tutti i servizi ancora attivi nella famiglia 1. Questi servizi potranno essere interrotti in qualsiasi momento. Non è garantito che i servizi continuino a essere operativi, a meno che l'utente non esegua manualmente l'aggiornamento.
 
@@ -39,7 +39,7 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
 3. Il valore della famiglia di sistemi operativi guest indicato nel portale di gestione di Azure è "Windows Server 2008". Vedere [questo argomento](https://msdn.microsoft.com/library/azure/gg456325.aspx) per individuare tale valore.
 
-Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../install-configure-powershell.md) . Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -51,7 +51,7 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-I servizi cloud saranno interessati dal ritiro della famiglia di sistemi operativi 1 se la colonna osFamily dell'output dello script è vuota o contiene il valore "1". 
+I servizi cloud saranno interessati dal ritiro della famiglia di sistemi operativi 1 se la colonna osFamily dell'output dello script è vuota o contiene il valore "1".
 
 ## Indicazioni se i servizi cloud sono interessati
 
@@ -76,7 +76,6 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 
 
 ## Supporto esteso per la famiglia di sistemi operativi guest 1 terminato il 3 novembre 2014
-I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio. 
+I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

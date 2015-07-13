@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Funzionalità del sistema operativo in App Web del servizio app di Azure" 
-	description="Informazioni sulle funzionalità del sistema operativo disponibili per le applicazioni Web nel servizio app di Azure" 
+	pageTitle="Funzionalità del sistema operativo nelle app Web di Servizio app di Azure" 
+	description="Informazioni sulle funzionalità del sistema operativo disponibili per le applicazioni Web in Servizio app di Azure" 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -16,12 +16,12 @@
 	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
-# Funzionalità del sistema operativo in App Web del servizio app di Azure #
+# Funzionalità del sistema operativo nelle app Web di Servizio app di Azure #
 
 Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le applicazioni in esecuzione su App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica.
 
 <a id="tiers"></a>
-## Livelli del piano del servizio app di Azure
+## Livelli del piano di Servizio app di Azure
 Le app Web eseguono app di clienti in un ambiente host multi-tenant. Le app Web distribuite nei livelli **Gratuito** e **Condiviso** vengono eseguite in processi di lavoro su macchine virtuali condivise, mentre le app Web distribuite nei livelli **Standard** e **Premium** vengono eseguite su macchine virtuali dedicate in modo specifico per le app Web associate a un singolo cliente.
 
 Poiché le app Web supportano una perfetta scalabilità tra i diversi livelli, la configurazione della sicurezza applicata per le app Web è la stessa. Questo garantisce un comportamento sempre costante delle applicazioni Web, senza eventi imprevisti, nel passaggio da un livello a un altro.
@@ -73,7 +73,7 @@ La home directory include il contenuto di un'app e le applicazioni Web possono s
 
 <a id="NetworkAccess"></a>
 ## Accesso alla rete
-Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le applicazioni possono usare gli stessi protocolli per eseguire la connessione ai servizi di Azure&#151; ad esempio stabilendo connessioni HTTPS a SQL Azure.
+Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le applicazioni possono usare gli stessi protocolli per eseguire la connessione ai servizi di Azure, ad esempio stabilendo connessioni HTTPS a SQL Azure.
 
 È inoltre presente una capacità limitata per le applicazioni di stabilire una connessione loopback locale e di disporre di un'applicazione in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le applicazioni che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Tenere presente che l'applicazione di ogni cliente visualizza una connessione di loopback "privata"; l'applicazione "A" non può essere in ascolto su un socket di loopback locale stabilito dall'applicazione "B".
 
@@ -105,7 +105,7 @@ Le applicazioni dispongono di accesso in sola lettura alla maggior parte del reg
 
 L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista delle applicazioni, l'accesso in scrittura al registro in un ambiente cloud non deve mai essere considerato affidabile poiché le applicazioni sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'applicazione Web è la struttura della directory dei contenuti per app Web archiviata nelle condivisioni UNC delle app Web.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  

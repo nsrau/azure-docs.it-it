@@ -181,4 +181,4 @@ In genere, i dati di qualsiasi tipo sono molto importanti. Azure include quindi 
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

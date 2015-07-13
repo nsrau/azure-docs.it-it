@@ -37,7 +37,7 @@ Quando si usa il servizio Batch, è possibile sfruttare le risorse seguenti:
 
 - [Account](#account)
 
-- [Macchina virtuale](#taskvm)
+- [Macchina virtuale delle attività](#taskvm)
 
 - [Pool](#pool)
 
@@ -45,24 +45,24 @@ Quando si usa il servizio Batch, è possibile sfruttare le risorse seguenti:
 
 - [Processo](#job)
 
-- [Task](#task)
+- [Attività](#task)
 
 	- [Attività di avvio](#starttask)
 	
-	- [Processo ManagerTask](#jobmanagertask)
+	- [Attività di gestione dei processi](#jobmanagertask)
 
 ### <a name="account"></a>Account
 
-Un account di Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione avvengono tramite un account di Batch. Quando si eseguono operazioni con il servizio Batch, è necessario il nome dell'account e la chiave per l'account. Per creare un account di batch, fare riferimento alla sezione account Batch di [Panoramica Azure Batch][].
+Un account di Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione avvengono tramite un account di Batch. Quando si eseguono operazioni con il servizio Batch, è necessario il nome dell'account e la chiave per l'account. Per creare un account Batch, fare riferimento alla sezione account Batch di [Panoramica di Azure Batch][].
 
 
-### <a name="taskvm"></a>Macchina virtuale
+### <a name="taskvm"></a>Macchina virtuale delle attività
 
-Una macchina virtuale delle attività (TVM) è una macchina virtuale di Azure dedicata a un carico di lavoro specifico per l'applicazione. La dimensione di una TVM determina il numero di core CPU, la capacità di memoria e la dimensione del file system locale allocati alla TVM. Una TVM può essere una macchina virtuale di piccole dimensioni, grande o molto grande, come descritto in [macchine virtuali e Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/dn197896.aspx).
+Una macchina virtuale delle attività (TVM) è una macchina virtuale di Azure dedicata a un carico di lavoro specifico per l'applicazione. La dimensione di una TVM determina il numero di core CPU, la capacità di memoria e la dimensione del file system locale allocati alla TVM. Una TVM può essere una macchina virtuale di piccole dimensioni, grandi o grandissime dimensioni, come descritto in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 I tipi di programmi che una TVM può eseguire includono file eseguibili (.exe), file di comando (.cmd), file batch (.bat) e file script. Una TVM presenta inoltre gli attributi seguenti:
 
-- Cartelle del file system che sono specifici dell'attività e condivise. In ciascun pool di macchine Virtuali vengono create le variabili di ambiente e la struttura di cartelle. La struttura di cartelle seguente viene creata con una cartella "condivisa" per le applicazioni e dati condivisi tra attività, oltre a una cartella per ogni attività.
+- Cartelle del file system che sono allo stesso tempo specifiche delle attività e condivise. In ogni VM del pool vengono create una struttura di cartelle e variabili di ambiente. La struttura di cartelle seguente viene creata con una cartella "shared" per applicazioni e dati condivisi tra attività e una cartella per ogni attività.
 
 ![][1]
 
@@ -74,14 +74,14 @@ I tipi di programmi che una TVM può eseguire includono file eseguibili (.exe), 
 
 >Accesso alla VM
 >
->Se l'accesso a una macchina virtuale è obbligatorio per il debug, ad esempio, è possibile ottenere il file RDP che può essere utilizzato per accedere alla macchina virtuale tramite desktop remoto.
+>Se l'accesso a una VM è obbligatorio, ad esempio per il debug, è possibile ottenere il file RDP, che può essere quindi usato per accedere alla VM tramite Desktop remoto.
 
 
 ### <a name="pool"></a>Pool
 
 Un pool è una raccolta di TVMs in cui viene eseguita l'applicazione. Il pool può essere creato dall'utente o viene creato automaticamente dal servizio Batch quando si specifica il lavoro da eseguire. È possibile creare e gestire un pool che soddisfi le esigenze dell'applicazione. Un pool può essere usato solo dall'account Batch in cui è stato creato. Un account Batch può avere più pool.
 
-Azure pool Batch basate sulla piattaforma di calcolo di Azure di base; Pool di batch forniscono allocazione su larga scala, applicazione & installazione dei dati, lo spostamento dei dati, il monitoraggio dello stato e scalabilità flessibile della macchina virtuale.
+I pool di Azure Batch sono basati sulla piattaforma di calcolo di Azure e offrono allocazione su larga scala, installazione di applicazioni e dati, spostamento di dati, monitoraggio dell'integrità e scalabilità flessibile delle VM.
 
 A ogni TVM aggiunta a un pool viene assegnato un nome univoco e un indirizzo IP associato. Quando una TVM viene rimossa da un pool, perde le modifiche apportate al sistema operativo, tutti i relativi file locali, il nome e il relativo indirizzo IP. Quando una TVM esce da un pool, la sua durata è terminata.
 
@@ -89,28 +89,28 @@ A ogni TVM aggiunta a un pool viene assegnato un nome univoco e un indirizzo IP 
 
 Quando si crea un pool, è possibile specificare gli attributi seguenti:
 
-- Il **dimensioni delle macchine virtuali** nel pool.
-	- La dimensione di macchina virtuale appropriata deve essere scelto, a seconda delle caratteristiche e i requisiti dell'applicazione o le applicazioni che sta per essere utilizzato nella macchina virtuale. In genere le dimensioni della macchina virtuale verranno prelevata presupponendo un'attività deve essere eseguita contemporaneamente su macchina virtuale; ad esempio, se l'applicazione è multi-thread e quanto richiede memoria determina la dimensione di macchina virtuale più adatta ed economica. È possibile disporre di più attività assegnate e più istanze dell'applicazione in esecuzione in parallelo, nel qual caso una VM più grande in genere verrà scelto, vedere di seguito in "numero massimo di attività per ogni macchina virtuale". 
-	- Tutte le della macchina virtuale in un pool debba essere le stesse dimensioni. Se diverse applicazioni devono essere eseguiti con requisiti di sistema diversi e/o con carico diversi, è necessario creare il pool diversi.
-	- Tutte le dimensioni di macchina virtuale del servizio cloud possono essere configurate per un pool, ad eccezione di A0.
+- Le **dimensioni delle VM** nel pool.
+	- È necessario scegliere dimensioni appropriate per le VM, in base alle caratteristiche e ai requisiti delle applicazioni da usare sulle VM. In genere, le dimensioni delle VM vengono selezionate presupponendo che sulla VM verrà eseguita un'attività alla volta. Ad esempio, la scelta delle dimensioni più adatte e convenienti per le VM dipende dal fatto che l'applicazione sia multi-thread e dalla quantità di memoria richiesta. È possibile che vengano assegnate più attività e che più istanze di applicazione vengano eseguite in parallelo. In questo caso, verrà in genere scelta una VM di dimensioni maggiori. Vedere più avanti nella sezione relativa al numero massimo di attività per ogni VM. 
+	- Tutte le VM di un pool devono avere le stesse dimensioni. Se è necessario eseguire applicazioni diverse con requisiti di sistema diversi e/o con carichi diversi, è consigliabile creare pool separati.
+	- È possibile configurare per un pool tutte le dimensioni di VM del servizio cloud, ad eccezione di A0.
 
-- La famiglia di sistemi operativi e la versione che viene eseguito nelle macchine virtuali.
-	- Come con ruoli di lavoro, la famiglia di sistemi operativi e la versione del sistema operativo possono essere configurati.
-	- Famiglia del sistema operativo determina inoltre quali versioni di .NET vengono installate con il sistema operativo.
-	- Come con i ruoli di lavoro per la versione del sistema operativo è consigliabile che "*" utilizzato in modo sono della macchina virtuale aggiornato automaticamente e non vi è alcun lavoro necessario per rispondere alle nuove versioni. Il caso di utilizzo principali per scegliere una versione specifica del sistema operativo consiste nell'assicurare che venga mantenuta la compatibilità delle applicazioni, consentendo la compatibilità di test da eseguire prima di consentire la versione da aggiornare. Una volta convalidato, la versione del sistema operativo per il pool può essere aggiornata e la nuova immagine del sistema operativo installato: qualsiasi attività in esecuzione verrà interrotta e nuovamente in coda.
+- La famiglia e la versione del sistema operativo in esecuzione nelle VM.
+	- Analogamente ai ruoli di lavoro, è possibile configurare la famiglia e la versione del sistema operativo.
+	- La famiglia del sistema operativo determina anche le versioni di .NET installate con il sistema operativo.
+	- Analogamente ai ruoli di lavoro, per la versione del sistema operativo è consigliabile usare "*", in modo che le VM vengano aggiornate automaticamente e non sia necessaria alcuna modifica per le nuove versioni. Il motivo principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, permettendo l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione verranno interrotte e accodate di nuovo.
 
-- Numero di macchine virtuali che devono essere disponibili per il pool di destinazione.
+- Il numero di macchine virtuali di destinazione che devono essere disponibili per il pool.
 
-- I criteri di scalabilità per il pool. Oltre a numero di macchine virtuali, è inoltre possibile specificare una formula per ogni pool di scalabilità automatica. Servizio batch eseguirà la formula per regolare il numero di macchine Virtuali in base alle statistiche del pool ed elemento di lavoro.
+- I criteri di scalabilità per il pool. Oltre al numero di VM, è possibile specificare una formula di scalabilità automatica per ogni pool. Il servizio Batch eseguirà la formula per adattare il numero di VM in base al pool e alle statistiche relative agli elementi di lavoro.
 
-- Configurazione di pianificazione
-	- La configurazione predefinita è per un'attività da eseguire in qualsiasi momento in un pool di macchine Virtuali, ma esistono scenari in cui è opportuno avere più di un'attività di essere in grado di eseguire contemporaneamente in una macchina virtuale. Esempio, è possibile aumentare l'utilizzo di macchina virtuale se dispone di un'applicazione per l'attesa dei / o; con più di un'applicazione in esecuzione aumenta l'utilizzo della CPU. Un altro esempio è quello di ridurre il numero di macchine Virtuali in pool. Questo potrebbe ridurre la quantità di copie di dati necessari per i set di dati di grandi dimensioni di riferimento. Se un A1 sarebbe la dimensione corretta per l'applicazione, un A4 può essere scelta e la configurazione impostata per l'esecuzione fino a 8 attività alla volta, ogni utilizzo di un core.
-	- La configurazione "max attività per ogni macchina virtuale" determina il numero massimo di attività che possono essere eseguiti in parallelo.
-	- Un "criterio"riempimento inoltre è possibile specificare che determina se il Batch riempie prima della macchina virtuale o se attività sono distribuite su tutte le VM.
+- Configurazione della pianificazione
+	- La configurazione predefinita prevede l'esecuzione di un'attività alla volta in una VM del pool, ma in alcuni scenari risulta utile eseguire più di un'attività contemporaneamente in una VM, ad esempio per incrementare l'utilizzo della VM se un'applicazione deve rimanere in attesa di I/O. L'esecuzione di più applicazioni incrementerà l'utilizzo della CPU. È anche possibile, ad esempio, ridurre il numero di VM nel pool, in modo da ridurre la quantità di copie di dati necessarie per set di dati di riferimento di grandi dimensioni. Se una dimensione A1 può risultare idonea per l'applicazione, sarà possibile scegliere A4 e impostare la configurazione per l'esecuzione di 8 attività contemporaneamente, ognuna delle quali utilizza un core.
+	- La configurazione di tipo "numero massimo di attività per ogni VM" determina il numero massimo di attività che è possibile eseguire in parallelo.
+	- È anche possibile specificare un "criterio di riempimento", che determina se Batch riempie ogni VM a partire dalla prima o se le attività vengono distribuite in tutte le VM.
  
-- Lo stato delle comunicazioni delle macchine virtuali nel pool.
- 	- In gran parte degli scenari attività funzionano in modo indipendente e non è necessario comunicare con altre attività, ma esistono alcune applicazioni in cui attività comunicherà (ad esempio, le applicazioni utilizzando MPI).
-	- Esiste una configurazione che controlla se la macchina virtuale sarà in grado di comunicare, che consente di configurare la posizione di infrastruttura e gli impatti rete sottostante della macchina virtuale.
+- Lo stato delle comunicazioni delle VM nel pool.
+ 	- In gran parte degli scenari le attività funzionano in modo indipendente e non devono comunicare con altre attività, ma in alcune applicazioni le attività comunicano, ad esempio nelle applicazioni che usano MPI.
+	- È possibile usare una configurazione che controlla se le VM saranno in grado di comunicare e che permette di definire l'infrastruttura della rete sottostante e influisce sul posizionamento delle VM.
 
 - L'attività di avvio per le TVM nel pool.
 
@@ -120,13 +120,13 @@ Quando si crea un pool, è possibile specificare l'account di archiviazione con 
 
 Un elemento di lavoro specifica la modalità di esecuzione di calcoli sulle TVM in un pool.
 
-- Un elemento di lavoro può avere uno o più processi associati. Una pianificazione facoltativa può essere specificata per un elemento di lavoro in questo caso viene creato un processo per ogni occorrenza della pianificazione. Se viene specificata alcuna pianificazione, per il lavoro su richiesta, viene creato un processo immediatamente.
-- L'elemento di lavoro specifica il pool in cui verrà eseguito il lavoro. Il pool può essere un oggetto esistente già creati pool viene utilizzato da molti elementi di lavoro, ma in alternativa possibile creare un pool per ogni processo associato all'elemento di lavoro o per tutti i processi associati all'elemento di lavoro.
-- È possibile specificare facoltativamente una priorità. Quando un elemento di lavoro viene inviato con una priorità più elevata rispetto agli altri elementi di lavoro in corso, l'attività di elemento di lavoro di priorità più elevata ottenere inserita nella coda prima l'attività di elemento di lavoro di priorità inferiore. Attività di priorità inferiore che sono già in esecuzione non è rimovibile.
-- È possibile specificare i vincoli che verranno applicate al processo associato o processi.
-	- Per i processi, è possibile impostare un tempo massimo wallclock. Se i processi in esecuzione per più di tempo massimo wallclock specificato, verrà terminata processo e delle attività associato.
-	- Batch di Azure è in grado di rilevare attività che ha esito negativo e ripetere le attività. Numero massimo di tentativi di attività può essere specificato come un vincolo predefinito specificando che è sempre di un'attività ripetuta o mai ripetuta. Nuovo tentativo in corso un'attività significa che l'attività è nuovamente in coda e verrà eseguita di nuovo.
-- È possibile specificare le attività da eseguire per il processo di elemento di lavoro dal client nello stesso modo che l'elemento di lavoro è stato creato, ma in alternativa è possibile specificare un'attività di Gestione processi. Un'attività di gestione del processo utilizza l'API di Batch e contiene il codice per creare le attività richieste per un processo con l'attività in esecuzione su una macchina virtuale pool. Le attività di gestione del processo viene gestito in modo specifico dal Batch, viene messa in coda, non appena il processo viene creato e viene riavviato in caso di esito negativo per qualsiasi motivo. Un gestore di processi è necessario per gli elementi di lavoro con una pianificazione associata come è l'unico modo per definire le attività prima che viene creata un'istanza del processo.
+- Un elemento di lavoro può avere uno o più processi associati. È possibile specificare una pianificazione facoltativa per un elemento di lavoro. In questo caso viene creato un processo per ogni occorrenza nella pianificazione. Se non viene specificata alcuna pianificazione, per un lavoro su richiesta viene creato immediatamente un processo.
+- L'elemento di lavoro specifica il pool in cui verrà eseguito il lavoro. Il pool può essere un pool esistente, già creato, usato da molti elementi di lavoro, ma è anche possibile creare un pool per ogni processo associato all'elemento di lavoro o per tutti i processi associati all'elemento di lavoro.
+- È possibile specificare una priorità facoltativa. Quando viene inviato un elemento di lavoro con priorità superiore rispetto agli altri elementi di lavoro ancora in corso, l'elemento di lavoro con priorità più elevata verrà inserito nella coda davanti alle attività degli elementi di lavoro con priorità minore. Le attività con priorità minore già in esecuzione non verranno messe in attesa.
+- È possibile specificare vincoli da applicare al processo o ai processi associati.
+	- È possibile impostare un tempo reale massimo per i processi. Se l'esecuzione dei processi supera il tempo reale specificato, il processo e tutte le attività associate verranno terminati.
+	- Azure Batch può rilevare attività con esito negativo e provare a eseguirle di nuovo. Il numero massimo predefinito di nuovi tentativi per l'attività può essere specificato sotto forma di vincolo ed è anche possibile specificare che è necessario effettuare sempre nuovi tentativi per un'attività o non effettuarli mai. Per nuovo tentativo si intende che l'attività viene riaccodata e verrà eseguita di nuovo.
+- Le attività da eseguire per il processo dell'elemento di lavoro possono essere specificate dal client in modo analogo alla creazione dell'elemento di lavoro, ma è anche possibile specificare un'attività di tipo Gestore di processi. Un'attività di tipo Gestore di processi usa l'API Batch e contiene la coda per la creazione delle attività necessarie per un processo con l'attività in esecuzione in una delle VM del pool. L'attività di tipo Gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena viene creato il processo e viene riavviata in caso di esito negativo per qualsiasi motivo. Un Gestore di processi è necessario per gli elementi di lavoro con pianificazione associata, poiché costituisce l'unico modo per definire le attività prima di creare le istanze di un processo.
 
 ### <a name="job"></a>Processo
 
@@ -134,7 +134,7 @@ Un processo è un'istanza in esecuzione di un elemento di lavoro ed è costituit
 
 ### <a name="task"></a>Attività
 
-Un'attività è un'unità di calcolo che viene associata a un processo e viene eseguito su una TVM. Attività assegnate a una macchina virtuale per l'esecuzione o in coda fino a quando non diventa disponibile una macchina virtuale. Un'attività usa le risorse seguenti:
+Un'attività è un'unità di calcolo che viene associata a un processo e viene eseguito su una TVM. Le attività vengono assegnate a una VM per l'esecuzione o vengono accodate fino a quando non diventa disponibile una VM. Un'attività usa le risorse seguenti:
 
 - Il programma specificato nell'elemento di lavoro.
 
@@ -148,21 +148,21 @@ Oltre alle attività che è possibile definire per eseguire il calcolo su una TV
 
 - [Attività di avvio](#starttask)
 
-- [Attività di gestione del processo](#jobmanagertask)
+- [Attività di gestione dei processi](#jobmanagertask)
 
 #### <a name="starttask"></a>Attività di avvio
 
-È possibile configurare il sistema operativo delle macchine virtuali in un pool di associare un'attività di avvio con il pool. L'installazione del software e l'avvio dei processi in background sono alcune delle azioni che un'attività di avvio può eseguire. L'inizio dell'operazione viene eseguita ogni volta che una macchina virtuale viene avviato per finché rimane nel pool.
+È possibile configurare il sistema operativo delle VM in un pool associando un'attività di avvio con il pool. L'installazione del software e l'avvio dei processi in background sono alcune delle azioni che un'attività di avvio può eseguire. L'attività di avvio viene eseguita a ogni avvio di una VM per tutto il tempo in cui quest'ultima rimane nel pool.
 
-Come con qualsiasi attività Batch un elenco di file nell'archiviazione di Azure può essere specificato oltre a una riga di comando che viene eseguita in Batch. Azure Batch verrà innanzitutto copiare i file dall'archiviazione di Azure e quindi eseguire la riga di comando. Per un'attività di avvio del pool, l'elenco dei file contiene in genere il file delle applicazioni o il pacchetto, ma può inoltre includere dati di riferimento che verranno utilizzati da tutte le attività in esecuzione nella macchina virtuale pool. La riga di comando è possibile eseguire qualsiasi script di PowerShell o robocopy, ad esempio, per copiare i file dell'applicazione nella cartella "condiviso". inoltre possibile eseguire un file MSI.
+Analogamente a qualsiasi attività Batch, è possibile specificare un elenco di file in Archiviazione di Azure oltre a una riga di comando eseguita da Batch. Azure Batch copierà prima di tutto i file da Archiviazione di Azure e quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere i file delle applicazioni o un pacchetto, ma può anche includere dati di riferimento, che verranno usati da tutte le attività in esecuzione nelle VM del pool. La riga di comando può eseguire qualsiasi script di PowerShell o eseguire robocopy, ad esempio, per copiare i file dell'applicazione nella cartella "condivisa". Può anche eseguire un file MSI.
 
-In genere è utile per Batch di attesa per l'attività di avvio completare e quindi prendere in considerazione la macchina virtuale pronta per l'assegnazione attività, ma questo è configurabile.
+In genere è consigliabile che Batch attenda il completamento dell'attività di avvio e quindi consideri la VM pronta per l'assegnazione di attività, ma è possibile configurare questo comportamento.
 
-Se un'attività di avvio non riesce per un pool di macchine Virtuali, lo stato della macchina virtuale viene aggiornato per riflettere l'errore e la macchina virtuale non sarà disponibile per le attività da assegnare. Un'attività di avvio potrebbe non riuscire se si verifica un problema di copia di file specificati per l'attività di avvio o il processo di avvio attività restituisce diverso da zero.
+Se un'attività di avvio ha esito negativo per una VM del pool, lo stato della VM verrà aggiornato per riflettere l'errore e la VM non sarà disponibile per l'assegnazione di attività. Un'attività di avvio può avere esito negativo in caso di problemi durante la copia dei file specificati per l'attività di avvio o se il processo dell'attività di avvio restituisce un valore diverso da zero.
 
-Il fatto che tutte le informazioni necessarie per configurare la macchina virtuale e installare le applicazioni viene dichiarate significa che l'aumento del numero di macchine Virtuali in un pool è semplice come specificare il nuovo numero richiesto; Batch contiene tutte le informazioni necessarie per configurare la macchina virtuale e renderle pronto ad accettare l'attività.
+Il fatto che tutte le informazioni necessarie per configurare le VM e installare le applicazioni siano dichiarate significa che l'aumento del numero di VM in un pool è semplice quanto specificare il nuovo numero necessario. Batch ha tutte le informazioni necessarie per configurare le VM e prepararle all'accettazione di attività.
 
-Un'attività di avvio viene definita mediante l'aggiunta di una sezione JSON per il corpo della richiesta per l'operazione Aggiungi Pool. Nell'esempio seguente viene illustrata una definizione di base di un'attività di avvio:
+Un'attività di avvio viene definita mediante l'aggiunta di una sezione JSON al corpo della richiesta per l'operazione Aggiungi pool. L'esempio seguente illustra una definizione di base di un'attività di avvio:
 
 	{
 		“commandLine”:”mypoolsetup.exe”,
@@ -180,7 +180,7 @@ Un'attività di avvio viene definita mediante l'aggiunta di una sezione JSON per
 		“maxTaskRetryCount”:0
 	}
 
-Un'interfaccia c# è simile al seguente:
+Un'interfaccia C# ha un aspetto analogo al seguente:
 
 	ICloudPool pool = pm.CreatePool(poolName, targetDedicated: 3, vmSize: "small", osFamily: "3");
 	pool.StartTask = new StartTask();
@@ -190,7 +190,7 @@ Un'interfaccia c# è simile al seguente:
 	pool.Commit();
 
 
-#### <a name="jobmanagertask"></a>Attività di gestione del processo
+#### <a name="jobmanagertask"></a>Attività di gestione dei processi
 
 Un'attività di gestione dei processi viene avviata prima di tutte le altre attività e offre i vantaggi seguenti:
 
@@ -238,65 +238,65 @@ Un'attività di gestione dei processi in un processo non ha priorità sulle atti
 
 Per usare il servizio Batch è necessario un account di Batch e per pianificare il calcolo si usano più risorse del servizio. Quando si crea un scenario di calcolo distribuito con il servizio Batch, usare il seguente flusso di lavoro di base:
 
-1. caricare i file che si desidera utilizzare nello scenario di calcolo distribuito a un account di archiviazione di Azure. I file devono trovarsi nell'account di archiviazione in modo che il servizio Batch possa accedervi. Il servizio Batch li carica in una TVM quando viene eseguita l'attività.
+1. Caricare i file da usare nello scenario di calcolo distribuito in un account di archiviazione di Azure. I file devono trovarsi nell'account di archiviazione in modo che il servizio Batch possa accedervi. Il servizio Batch li carica in una TVM quando viene eseguita l'attività.
 
-2. caricare i file binari dipendenti nell'account di archiviazione. I file binari includono il programma che viene eseguito dall'attività e gli assembly dipendenti. Questi file devono inoltre essere accessibili dalla risorsa di archiviazione ed essere caricati nella TVM.
+2. Caricare i file binari dipendenti nell'account di archiviazione. I file binari includono il programma che viene eseguito dall'attività e gli assembly dipendenti. Questi file devono inoltre essere accessibili dalla risorsa di archiviazione ed essere caricati nella TVM.
 
-3. creare un pool di TVMs. È possibile assegnare la dimensione della macchina virtuale delle attività da usare durante la creazione del pool. Quando viene eseguita un'attività, le viene assegnata una TVM da questo pool.
+3. Creare un pool di TVM. È possibile assegnare la dimensione della macchina virtuale delle attività da usare durante la creazione del pool. Quando viene eseguita un'attività, le viene assegnata una TVM da questo pool.
 
-4. creare un elemento di lavoro. Un processo viene automaticamente creato quando si crea un elemento di lavoro. Un elemento di lavoro consente di gestire un processo di attività.
+4. Creare un elemento di lavoro. Un processo viene automaticamente creato quando si crea un elemento di lavoro. Un elemento di lavoro consente di gestire un processo di attività.
 
-5. aggiungere attività all'elemento di lavoro. Ogni attività usa il programma caricato per elaborare le informazioni da un file caricato.
+5. Aggiungere le attività all'elemento di lavoro. Ogni attività usa il programma caricato per elaborare le informazioni da un file caricato.
 
-6. monitorare i risultati dell'output.
+6. Monitorare i risultati dell'output.
 
 ## <a name="files"></a>File e directory
 
 Ogni attività dispone di una directory di lavoro in cui può creare directory e file per archiviare il programma eseguito da un'attività, i dati elaborati da un'attività e l'output dell'elaborazione eseguita da un'attività. Tali directory e file sono quindi disponibili per l'uso da altre attività durante l'esecuzione di un processo. Tutte le attività e le directory nonché tutti i file di una TVM sono di proprietà di un singolo account utente.
 
-Il servizio Batch espone una parte del file system a una TVM come directory radice. La directory radice del TVM è disponibile per un'attività tramite la variabile di ambiente WATASK_TVM_ROOT_DIR. Per altre informazioni sull'uso delle variabili di ambiente, vedere Impostazioni di ambiente per le attività.
+Il servizio Batch espone una parte del file system a una TVM come directory radice. La directory radice della TVM è disponibile per un'attività tramite la variabile di ambiente WATASK_TVM_ROOT_DIR. Per altre informazioni sull'uso delle variabili di ambiente, vedere Impostazioni di ambiente per le attività.
 
 La directory radice contiene le sottodirectory seguenti:
 
-- **Attività** – questo percorso è tutti i file di archiviazione che appartengono alle attività eseguite nel TVM. Per ogni attività, il servizio di Batch crea una directory di lavoro con il percorso nel formato % WATASK_TVM_ROOT_DIR%/tasks/workitemName/jobName/taskName/ univoco. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory viene mantenuta in base al vincolo RetentionTime specificato per l'attività.
+- **Attività**: il percorso in cui vengono archiviati tutti i file che appartengono alle attività eseguite sulla TVM. Per ogni attività, il servizio Batch crea una directory di lavoro con il percorso univoco nel formato %WATASK_TVM_ROOT_DIR%/tasks/workitemName/jobName/taskName/. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory viene mantenuta in base al vincolo RetentionTime specificato per l'attività.
 
-- **Shared** – questo percorso è una directory condivisa per tutte le attività con l'account. In TVM, la directory condivisa è % WATASK_TVM_ROOT_DIR%/shared. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory.
+- **Condiviso**: questo percorso è una directory condivisa per tutte le attività dell'account. Nella TVM la directory condivisa è % %WATASK_TVM_ROOT_DIR%/shared. Questa directory fornisce accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory.
 
-- **Avviare** – questo percorso viene utilizzato da un'attività di avvio come cartella di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Su TVM, la directory di avvio è % WATASK_TVM_ROOT_DIR%/start. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory può essere usata dalle attività di avvio per configurare il sistema operativo.
+- **Start**: questo percorso viene usato da un'attività di avvio come directory di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Nella TVM la directory di avvio è %WATASK_TVM_ROOT_DIR%/start. L'attività può creare, leggere, aggiornare ed eliminare i file in tale directory e questa directory può essere usata dalle attività di avvio per configurare il sistema operativo.
 
 Quando una TVM viene rimossa dal pool, vengono rimossi tutti i file archiviati nella TVM.
 
-## <a name="lifetime"></a>Pool e la durata di macchina virtuale
+## <a name="lifetime"></a>Durata del pool e della macchina virtuale
 
-Una decisione di progettazione fondamentale è quando vengono creati pool e la durata della macchina virtuale viene mantenuta disponibile.
+Una decisione di progettazione fondamentale è rappresentata dal momento di creazione dei pool e dal tempo per cui le VM vengono mantenute disponibili.
 
-A un'estremità è possibile creare un pool per ogni processo durante il processo viene inviato e la macchina virtuale rimosso come attività di fine dell'esecuzione. Ciò consentirà di ottimizzare l'utilizzo come la macchina virtuale viene allocata solo quando strettamente necessario e arresto del sistema, non appena diventano inattivi. Questo significa che il processo necessario attendere della macchina virtuale da allocare, anche se è importante notare che attività verrà programmato per della macchina virtuale, non appena sono disponibili singolarmente, allocato e l'inizio dell'operazione è stata completata; ad esempio Batch non attende finché tutte le macchine Virtuali in un pool sono disponibili come che potrebbe causare l'utilizzo non appropriato.
+È ad esempio possibile creare un pool per ogni processo quando il processo viene inviato e rimuovere le VM al termine dell'esecuzione delle attività. Ciò consente di massimizzare l'utilizzo, poiché le VM vengono allocate solo quando assolutamente necessario e vengono arrestate non appena risultano inattive. Ciò significa che il processo deve attendere l'allocazione delle VM, anche se è importante notare che le attività verranno pianificate e allocate nelle VM non appena risultano individualmente disponibili e dopo il completamento dell'attività di avvio. Ad esempio, Batch NON attende che tutte le VM di un pool siano disponibili, poiché ciò comporterebbe un utilizzo non ottimale.
 
-Se con i processi di avvio immediato dell'esecuzione è la priorità, è necessario creare un pool e VM disponibile della prima che venga inviato il processo. Le attività possono avviare immediatamente, ma potrebbe essere inattiva in attesa per le attività di processo, a seconda del carico della macchina virtuale.
+Se l'avvio immediato dell'esecuzione dei processi è una priorità, è consigliabile creare un pool e rendere disponibili le VM prima dell'invio di un processo. Le attività possono essere avviate immediatamente, ma è possibile che le VM siano inattive in attesa di attività dei processi, a seconda del carico.
 
-In genere di schema quando esiste una quantità di carico in corso variabile consiste nel disporre di un pool in cui vengono inviati più processi, ma la scalabilità verso l'alto o verso il basso il numero di macchine Virtuali in base a carico; è possibile utilizzare obbligatoriamente o Pro-attivamente se carico può essere previsto.
+Un modello comune per situazioni di quantità variabili di carico in corso consiste nel creare un pool a cui vengono inviati più processi, ma aumentare o ridurre il numero di VM in base al carico in modo reattivo o proattivo, se è possibile prevedere il carico.
 
 ## <a name="scaling"></a>Scalabilità delle applicazioni
 
 Il numero di istanze di un'applicazione può essere facilmente aumentato o ridotto in modo automatico per consentire il calcolo necessario. È possibile regolare automaticamente il numero di TVM in un pool in base alle statistiche correnti del carico di lavoro e di utilizzo delle risorse. È inoltre possibile ottimizzare il costo complessivo dell'esecuzione dell'applicazione configurandone la scalabilità automatica. Quando si crea un pool è possibile specificarne le impostazioni di scalabilità e aggiornare la configurazione in qualsiasi momento.
 
-Per una riduzione del numero di macchine Virtuali, potrebbe essere in esecuzione della macchina virtuale che devono essere considerati attività. Un criterio di deallocazione viene specificato che determina se l'attività in esecuzione vengono arrestate per rimuovere la macchina virtuale immediatamente o se sono consentite operazioni per il completamento prima che la macchina virtuale viene rimosse. Impostazione del numero di destinazione della macchina virtuale a zero alla fine di un processo, ma consentendo l'esecuzione di attività da completare, consentirà di ottimizzare l'utilizzo.
+Per una riduzione nel numero di VM, è possibile che nelle VM siano in esecuzione attività che devono essere prese in considerazione. Viene specificato un criterio di deallocazione, che determina se le attività in esecuzione vengono arrestate per rimuovere immediatamente la VM o se si consentirà il completamento delle attività prima della rimozione delle VM. Per massimizzare l'utilizzo, impostare il numero di VM su zero alla fine di un processo, ma consentire il completamento delle attività in esecuzione.
 
 È possibile specificare la scalabilità automatica di un'applicazione mediante un set di formule di scalabilità, che possono essere usate per determinare il numero di TVM presenti nel pool per il successivo intervallo di scalabilità. Ad esempio, per inviare un numero elevato di attività da eseguire in un pool, è possibile assegnare al pool una formula di scalabilità che specifichi la dimensione del pool in base al numero corrente di attività in sospeso e alla percentuale di completamento delle attività. Il servizio Batch valuta periodicamente la formula e ridimensiona il pool in base al carico di lavoro.
 
 Una formula può essere basata sulle seguenti metriche:
 
-- **Metriche temporali** – in base alle statistiche raccolte ogni cinque minuti nel numero specificato di ore.
+- **Metriche temporali**: basate sulle statistiche raccolte ogni cinque minuti nel numero di ore specificato.
 
-- **Metriche delle risorse** – in base all'utilizzo della CPU, l'utilizzo della larghezza di banda, l'utilizzo della memoria e numero di TVMs.
+- **Metriche delle risorse**: basate su utilizzo di CPU, larghezza di banda, memoria e numero di TVM.
 
-- **Attività metriche** : in base allo stato delle attività, ad esempio attivo, in sospeso e completato.
+- **Metriche delle attività**: basate sullo stato delle attività, ad esempio Attiva, In sospeso e Completata.
 
 Per altre informazioni sulla scalabilità di un'applicazione, vedere la sezione relativa alla configurazione della scalabilità automatica delle macchine virtuali delle attività.
 
->Eliminazione della macchina virtuale
+>Eliminare le macchine virtuali
 >
->Non è spesso necessaria, ma è possibile specificare singoli della macchina virtuale da rimuovere da un pool. Se è presente una macchina virtuale che si sospetta sia minore affidabili potrebbe essere rimosso, ad esempio.
+>Non è sempre necessario, ma è possibile specificare singole VM da rimuovere da un pool. Se si sospetta che una VM sia meno affidabile, è possibile rimuoverla, ad esempio.
 
 ## <a name="cert"></a>Certificati per le applicazioni
 
@@ -312,7 +312,7 @@ All'interno dello stesso account i processi con priorità più alta hanno preced
 
 Le pianificazioni dei processi eseguite su pool diversi sono indipendenti. In pool diversi non è garantito che un processo con priorità più elevato venga pianificato per primo se il relativo pool associato non dispone di un numero sufficiente di TVM inattive. Nello stesso pool i processi con lo stesso livello di priorità hanno la stessa probabilità di pianificazione.
 
-## <a name="environment"></a>Impostazioni di ambiente per attività
+## <a name="environment"></a>Impostazioni di ambiente per le attività
 
 È possibile specificare le impostazioni di ambiente che possono essere usate nel contesto di un'attività. Le impostazioni di ambiente per un'attività di avvio e le attività in esecuzione in un processo vengono definite mediante l'aggiunta di una sezione XML al corpo della richiesta delle operazioni di aggiunta di attività o di aggiornamento di attività.
 
@@ -395,39 +395,39 @@ Non è possibile sovrascrivere queste variabili definite dal sistema.
 
 ## <a name="errorhandling"></a>Gestione degli errori
 
-###Gestione degli errori di attività
-Gli errori di attività rientrano nelle categorie seguenti:
+###Gestione degli errori delle attività
+Gli errori delle attività rientrano nelle categorie seguenti:
 
-- Gli errori di programmazione:
-	- Se i file vengono specificati per l'attività, la copia di uno o più file potrebbe non riuscire. È possibile che i file sono stati spostati, l'account di archiviazione non è più disponibile e così via.
-	- "Errore pianificazione" è impostato per l'attività in questo caso.
-- Errori di applicazione:
-	- Il processo di attività specificato da riga di comando può non riuscire. Il processo viene considerato riuscito quando viene restituito un codice di uscita diverso da zero.
-	- Per gli errori delle applicazioni è possibile configurare Batch per ripetere automaticamente l'attività di un numero di volte specificato. 
+- Errori di pianificazione:
+	- Se vengono specificati file per l'attività, è possibile che la copia di uno o più file non riesca, ad esempio perché i file sono stati spostati, l'account di archiviazione non è più disponibile e così via.
+	- In questo caso viene impostato un "errore di pianificazione" per l'attività.
+- Errori delle applicazioni:
+	- Anche il processo dell'attività specificato dalla riga di comando può avere esito negativo. Il processo viene considerato non riuscito quando viene restituito un codice di uscita diverso da zero.
+	- Per gli errori delle applicazioni è possibile configurare Batch in modo che riprovi automaticamente a eseguire l'attività per un numero di volte specificato. 
 - Errori relativi ai vincoli:
-	- Un vincolo può essere specificato per la quantità massima di tempo per che possono essere eseguite da un processo o un'attività. Il può essere utile per terminare un'attività che si è bloccato.
-	- Quando viene superata la quantità massima di tempo, quindi l'attività viene contrassegnata come completata ma uscita codice verrà contrassegnato come `0xC000013A` e schedulingError campo sarà contrassegnato come `{ category:“ServerError”, code=“TaskEnded”}`.
+	- È possibile specificare un vincolo per la quantità massima di tempo di esecuzione per un processo o un'attività. Ciò può risultare utile per terminare un'attività bloccata.
+	- Quando viene superata la quantità massima di tempo, l'attività viene contrassegnata come completata ma il codice di uscita sarà contrassegnato come `0xC000013A` e il campo schedulingError sarà contrassegnato come `{ category:“ServerError”, code=“TaskEnded”}`.
 
 ###Debug degli errori delle applicazioni
 
-Un'applicazione può produrre diagnostica che può essere utilizzato per risolvere i problemi. Spesso le applicazioni scrive informazioni di stdout e stderr file o un output di file personalizzati. In questi casi viene fornita un'API per ottenere i file, specificando l'attività o una macchina virtuale.
+Un'applicazione può produrre dati di diagnostica che possono essere usati per la risoluzione dei problemi. Le applicazioni scrivono spesso informazioni nei file stdout e stderr o forniscono output a fine personalizzati. In questi casi viene fornita un'API per ottenere i file, specificando l'attività o la VM.
 
-È inoltre possibile eseguire l'accesso al pool macchina virtuale. Un'API restituisce il file RDP per una macchina virtuale, che può quindi essere utilizzata per l'accesso alla macchina virtuale.
+È anche possibile accedere alle VM del pool. Un'API restituisce il file RDP per una VM, che può essere quindi usato per l'accesso alla VM.
 
-###Per gli errori di attività e problemi di cucina
+###Gestione di errori e problemi delle attività
 
-Attività può avere esito negativo o essere interrotta per diversi motivi. L'applicazione dell'attività stessa potrebbe non riuscire, ottiene riavviare la macchina virtuale in cui è in esecuzione l'attività o la macchina virtuale viene rimosso da un ridimensionamento pool con i criteri di deallocazione impostati per rimuovere immediatamente la macchina virtuale senza attendere il completamento dell'attività. In tutti i casi l'attività può essere automaticamente nuovamente in coda dal Batch ed eseguire in un'altra macchina virtuale.
+Le attività possono avere esito negativo o possono essere interrotte per alcuni motivi. È possibile che si verifichi un errore dell'applicazione dell'attività stessa, che la VM in cui è in esecuzione l'attività venga riavviata o che la VM venga rimossa da un ridimensionamento del pool con criterio di deallocazione impostato sulla rimozione immediata della VM senza attendere il completamento dell'attività. In tutti questi casi, Batch può riaccodare automaticamente l'attività ed eseguirla in un'altra VM.
 
-È inoltre possibile per un problema intermittente per fare in modo di blocco o richiedono troppo tempo per eseguire un'attività. Tempo massimo di esecuzione può essere impostato per un'attività e se superata la soglia Batch verrà interrotto l'applicazione di attività. Attualmente, l'accodamento nuovamente automatica non è possibile in questo caso, ma il caso può essere rilevato dal client che possono inviare una nuova attività.
+È anche possibile che un problema intermittente provochi il blocco di un'attività o ne renda troppo lunga l'esecuzione. È possibile impostare un tempo di esecuzione massimo per un'attività. In caso di superamento di questo valore, Batch interromperà l'applicazione dell'attività. Il riaccodamento automatico non è attualmente possibile per questa situazione, ma il client può rilevare questa situazione e inviare una nuova attività.
 
-###Cucina per "Bad" VM
+###Gestione di VM "non valide"
 
-Ogni macchina virtuale in un pool viene assegnato un nome univoco e la macchina virtuale in cui viene eseguita un'attività inclusa nei metadati di attività. Nel caso in cui è presente una macchina virtuale che per qualche motivo causa attività esito negativo, quindi può essere stabilita dal client e sospetto che macchina virtuale eliminata dal pool. Se un'attività è in esecuzione nella macchina virtuale che è stata eliminata, quindi verrà automaticamente nuovamente in coda ed eseguito in un'altra macchina virtuale.
+A ogni VM di un pool viene assegnato un nome univoco e la VM in cui viene eseguita un'attività è inclusa nei metadati dell'attività. Se è presente una VM che per qualche motivo provoca un errore delle attività, il client potrà rilevare il problema ed eliminare la VM sospetta dal pool. Se un'attività era in esecuzione nella VM eliminata, verrà riaccodata automaticamente ed eseguita in un'altra VM.
 
 
 <!--Image references-->
 [1]: ./media/batch-api-basics/batch-api-basics-01.png
 
-[Panoramica Azure Batch]: batch-technical-overview.md
+[Panoramica di Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=62-->

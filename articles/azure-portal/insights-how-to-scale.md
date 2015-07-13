@@ -1,91 +1,140 @@
 <properties 
-	pageTitle="Come scalare un sito Web" 
-	description="Informazioni su come ridimensionare il piano di hosting in Azure." 
+	pageTitle="Scalare il conteggio delle istanze manualmente o automaticamente" 
+	description="Informazioni su come scalare i servizi di Azure." 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# Come scalare un sito Web
+# Scalare il conteggio delle istanze manualmente o automaticamente
 
-Nell'anteprima del portale di Azure è possibile impostare manualmente il conteggio delle istanze del piano di hosting Web oppure impostare i parametri per la scalabilità automatica. Prima di configurare il ridimensionamento del piano di hosting Web, è necessario tenere presente che la scalabilità è influenzata dalle dimensioni delle istanze. Istanze di dimensioni superiori sono dotate di più core e memoria quindi consentiranno di ottenere prestazioni migliori per lo stesso numero di istanze.
+Nel [portale di Azure](https://portal.azure.com/) è possibile impostare manualmente il conteggio delle istanze del servizio oppure impostare i parametri per la scalabilità automatica in base alla domanda. Questa impostazione è definita in genere *scalabilità orizzontale* o *riduzione*.
 
-La scala influisce sul piano di hosting Web nel suo complesso. Quando si crea un sito Web è possibile creare un piano di hosting Web nuovo o usarne uno esistente. Quando si dispone di un piano di hosting Web, tutti i siti condivideranno le stesse istanze, quindi si ridimensioneranno insieme.
+Prima di scalare in base al conteggio delle istanze, occorre tenere presente che la scalabilità è influenzata dal **piano tariffario** oltre che dal conteggio delle istanze. A seconda del piano tariffario possono variare il numero di memorie centrali e la memoria e quindi si avranno prestazioni migliori per lo stesso numero di istanze (ovvero *aumento* o *riduzione*). Questo articolo descrive in particolare la *riduzione* e la *scalabilità orizzontale*.
 
-## Ridimensionamento di un piano di hosting Web
+È possibile ridurre il portale e anche usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per regolare la scalabilità manualmente o automaticamente.
 
-1. Nell'[anteprima del portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, quindi su **Siti Web** e infine fare clic sul nome del sito Web per aprire il pannello.
-2. La parte **Scala** della sezione **Operazioni** nel pannello del sito Web riporterà lo stato del piano di hosting Web: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Prestazioni** se viene effettuato in base a una o più metriche delle prestazioni e **Pianificazione** se sono stati abilitati più profili di scalabilità automatica.  
-    ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
-3. Facendo clic sulla parte verrà visualizzato il pannello **Scala**. Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il piano di hosting Web.  
+## Scalabilità manuale
 
-    ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-4. Il dispositivo di scorrimento **Istanza** consente di regolare manualmente il numero di macchine virtuali che eseguono il piano di hosting Web.
-5. Se si desidera regolare automaticamente il numero di istanze in base al carico, selezionare **Prestazioni** in **Modalità scalabilità automatica**. Al momento, non è possibile selezionare **Pianificazione**nell'anteprima del portale di Azure.  
-    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-6. Dopo aver selezionato Performance, si notano due modifiche:
-    - **Instance Range** consente ora di scegliere un conteggio massimo e minimo di istanze. La scalabilità automatica manterrà i valori sempre entro questo intervallo, a prescindere dal carico.
-    - Nella sezione **Metriche di destinazione** è possibile definire le metriche delle prestazioni.
-7. La sezione **Percentuale CPU** consente di impostare un limite per l'utilizzo medio della CPU in tutte le istanze del piano di hosting Web. Quando l'utilizzo medio della CPU supererà il valore massimo definito, si verificherà un aumento.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, quindi passare alla risorsa da scalare, ad esempio un **piano di servizio App**.
 
-Con la scalabilità automatica abilitata, nella parte del pannello del sito Web verrà visualizzato **Prestazioni** e nel grafico sarà possibile visualizzare la cronologia della scalabilità:
+2. Il riquadro **Scalabilità** in **Operazioni** indicherà lo stato della scalabilità: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Attivato** nel caso in cui il ridimensionamento venga effettuato in base a una o più metriche delle prestazioni. ![Riquadro Scalabilità](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScalePartBladeOn.png) 
+3. Facendo clic sul riquadro, verrà visualizzato il pannello **Scalabilità**. Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il servizio. ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+    
+>[AZURE.NOTE]In questo grafico verranno visualizzate solo le azioni eseguite con la scalabilità automatica. Se si regola manualmente il conteggio delle istanze, la modifica non verrà applicata nel grafico.
 
-Si noti che nel portale di anteprima di Azure non è possibile modificare il numero di istanze di un piano di hosting Web condiviso.
+4. È possibile regolare manualmente il numero di **Istanze** con il dispositivo di scorrimento.
+5. Fare clic sul comando **Salva** e si passerà quasi immediatamente a quel numero di istanze. 
 
-## Ridimensionamento avanzato
+## Scalabilità basata su una metrica preimpostata
 
-Nel portale di anteprima di Azure è ora possibile effettuare ridimensionamenti in base a metriche diverse dalla percentuale CPU e persino avere un set di regole di ridimensionamento complesse.
+Per regolare automaticamente il numero di istanze in base a una metrica, selezionare la metrica desiderata nell'elenco a discesa **Ridimensiona di**. Ad esempio, per un **piano di servizio App** è possibile scalare in base alla **percentuale CPU**.
 
-### Ridimensionamento basato su altre metriche delle prestazioni
-Oltre alla CPU, è possibile effettuare ridimensionamenti basati su:
+1. Quando si seleziona una metrica appare un dispositivo di scorrimento e/o alcune caselle di testo in cui immettere il numero di istanze tra cui applicare la scalabilità:
 
-- Utilizzo medio della memoria - Se la percentuale media di memoria usata nelle istanze sale o scende oltre una soglia specificata, vengono aggiunte o rimosse istanze.
-- Profondità coda HTTP o Profondità coda del disco - Se il numero di messaggi nella coda di richieste HTTP o nella coda del disco sale o scende oltre una soglia specificata, vengono aggiunte o rimosse istanze.
+    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
+    
+    Con la scalabilità automatica il servizio non sarà mai al di sotto o al di sopra dei limiti impostati, indipendentemente dal carico.
 
-È possibile effettuare il ridimensionamento in base a un'altra metrica in due modi diversi. Se si intende scalare in base a una sola metrica, selezionare il simbolo > accanto al dispositivo di scorrimento **CPU Percentage**. Verrà visualizzato il pannello Dettagli metrica:
+2. Quindi si scegliere l'intervallo di destinazione per la metrica. Ad esempio, se si sceglie **Percentuale CPU**, è possibile impostare un limite per l'utilizzo medio della CPU in tutte le istanze del servizio. Quando l'utilizzo medio della CPU supererà il valore massimo definito, si verificherà una scalabilità orizzontale. Allo stesso modo, quando l'utilizzo medio della CPU scende sotto il valore minimo, si verificherà una riduzione.
 
-![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
+3. Fare clic sul comando **Salva**. Scalabilità automatica eseguirà un controllo ogni pochi minuti per assicurarsi che vengano rispettati l'intervallo di istanze e il limite per la metrica. Quando il servizio riceve altro traffico, il numero di istanze aumenterà automaticamente.
 
-Per scalare in base a più di una metrica alla volta, è possibile fare clic su **Aggiungi metrica** nella barra dei comandi:
+## Scalabilità in base ad altre metriche
 
-![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
+È possibile scalare in base a metriche diverse da quelle preimpostate che appaiono nell'elenco a discesa **Ridimensiona di** elenco a discesa e persino avere un set di regole di ridimensionamento complesse.
 
-Il pannello Dettagli metrica contiene tutti i controlli necessari per configurare il profilo di scalabilità ottimale. Nella parte superiore scegliere la nuova metrica in base alla quale effettuare il ridimensionamento.
+### Aggiunta o modifica di una regola
+
+1. Scegliere **regole per la pianificazione e le prestazioni** nell'elenco a discesa **Ridimensiona di**: ![Regole delle prestazioni](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+
+2. Se prima era attiva la scalabilità automatica, si vedranno esattamente le regole impostate.
+
+3. Per scalare in base a un'altra metrica, fare clic sulla riga **Aggiungi regola**. È anche possibile fare clic su una delle righe esistenti per passare dalla metrica impostata in precedenza alla metrica in base alla quale si vuole scalare. ![Aggiungi regola](./media/insights-how-to-scale/Insights_AddRule.png)
+
+4. Ora è necessario selezionare la metrica in base a cui si desidera scalare. Quando si sceglie una metrica, esistono un paio di aspetti da considerare:
+    * La *risorsa* da cui proviene la metrica. In genere, sarà la stessa della risorsa da scalare. Tuttavia, se si desidera scalare in base alla profondità di una coda di archiviazione, la risorsa è la coda in base a cui si desidera scalare.
+    * Il *nome della metrica* stesso. 
+    * L'*aggregazione temporale* della metrica, ovvero il modo in cui i dati vengono combinati per la *durata*.
+    
+5. Dopo aver scelto la metrica, si scelgono la soglia per la metrica e l'operatore. Ad esempio, è possibile specificare **Maggiore di** **80%**.
+
+6. Scegliere quindi l'azione che si desidera eseguire. Esistono diversi tipi di azioni:
+    * Aumentare o ridurre di: il numero di istanze (**Valore**) definito verrà aggiunto o rimosso
+    * Aumentare o ridurre la percentuale: il conteggio delle istanze verrà modificato in base a una percentuale. Ad esempio, è possibile inserire 25 nel campo **Valore** e, se si dispone attualmente di 8 istanze, ne verrebbero aggiunte 2.
+    * Aumentare o diminuire fino a: il conteggio delle istanze verrà impostato sul **Valore** definito.
+
+7. Infine è possibile scegliere Disattiva regole dopo: intervallo di attesa applicato alla regola dopo l'azione di scalabilità precedente, prima di una nuova azione di scalabilità.
+    
+8. Dopo avere configurato la regola, fare clic su **OK**.
+
+9. Una volta configurate tutte le regole desiderate, assicurarsi di fare clic sul comando **Salva**.
 
 ### Ridimensionamento in più passaggi
 
-Sotto il grafico relativo alla metrica sono visualizzate due sezioni: **Scale up rules** e **Scale down rules**. Se **una qualsiasi** delle regole relative all'aumento viene rispettata, il servizio procederà all'aumento. Al contrario, se **tutte** le regole relative alla riduzione vengono rispettate, il servizio procederà alla riduzione.
-
-Per ogni regola è possibile scegliere:
-
-- Condition - Maggiore di o Minore di
-- Threshold - Numero che la metrica deve superare per attivare l'azione
-- Over Past - Numero di minuti su cui viene calcolata la media per la metrica
-- Scale up or down by - Dimensioni dell'azione di scalabilità
-- Cool down - Intervallo di attesa applicato alla regola dopo l'azione di scalabilità precedente, prima di una nuova azione di scalabilità
-
-![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
-
-Le regole multiple di scalabilità consentono di agire con maggiore decisione nei confronti di aumenti (o riduzioni) basati su modifiche delle prestazioni. Ad esempio, è possibile definire due regole di scalabilità:
+Gli esempi precedenti sono piuttosto semplici. Se però si vuole agire con maggiore decisione nei confronti di aumenti (o riduzioni), si possono persino aggiungere più regole di scalabilità per la stessa metrica. Ad esempio, è possibile definire due regole di scalabilità per la percentuale CPU:
 
 1. Aumentare di 1 istanza se la percentuale CPU supera il 60%
 2. Aumentare di 3 istanze se la percentuale CPU supera l'85%
 
-Con questa regola aggiuntiva, se il carico supera l'85% prima che si verifichi un ridimensionamento, si otterranno non una ma due istanze aggiuntive. 
+![Regole multiple di scalabilità](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
-<!--HONumber=46--> 
+Con questa regola aggiuntiva, se il carico supera l'85% prima che si verifichi un ridimensionamento, si otterranno non una ma due istanze aggiuntive.
 
-<!--HONumber=46--> 
+## Scalare in base a una pianificazione
+
+
+Per impostazione predefinita, una regola di scalabilità, una volta creata, viene applicata sempre. È possibile verificarlo quando si fa clic sull'intestazione del profilo:
+
+![Profilo](./media/insights-how-to-scale/Insights_Profile.png)
+
+Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabilità durante il giorno, o durante la settimana, che nel fine settimana. Si può persino arrestare completamente il servizio nelle ore non lavorative.
+
+1. A tale scopo, nel profilo selezionare **ricorrenza** anziché **sempre** e scegliere gli orari in cui si desidera applicare il profilo.
+
+2. Ad esempio, per applicare un profilo durante la settimana, nell'elenco a discesa **Giorni** deselezionare **Sabato** e **Domenica**.
+
+3. Per applicare un profilo durante il giorno, impostare **Ora di inizio** sull'ora del giorno in cui si desidera iniziare. ![Ricorrenza predefinita](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+
+4. Fare clic su **OK**.
+
+5. Successivamente, sarà necessario aggiungere il profilo da applicare in altri orari. Fare clic sulla riga **Aggiungi profilo**. ![Non al lavoro](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+
+6. Assegnare un nome al secondo nuovo profilo, ad esempio **Non al lavoro**.
+
+7. Selezionare quindi nuovamente **ricorrenza** e scegliere l'intervallo di conteggio delle istanze desiderato per questo periodo.
+
+8. Come con il profilo predefinito, in **Giorni** scegliere il numero di giorni da applicare a questo profilo e in **Ora di inizio** un'ora del giorno.
+
+>[AZURE.NOTE]Scalabilità automatica userà le regole dell'ora legale per qualsiasi **fuso orario** selezionato. Tuttavia, con l'ora legale l'offeset UTC visualizzerà l'offset del fuso orario di base, non l'offset UTC dell'ora legale.
+
+9. Fare clic su **OK**.
+
+10. A questo punto, sarà necessario aggiungere le regole da applicare con il secondo profilo. Fare clic su **Aggiungi regola** per costruire la stessa regola applicata con il profilo predefinito. ![Aggiungi regola a Non al lavoro](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+
+11. Assicurarsi di creare una regola sia per la scalabilità orizzontale che per la riduzione, altrimenti durante il profilo il conteggio delle istanze aumenterà (o diminuirà) soltanto.
+
+12. Infine, fare clic su **Salva**.
+
+## Passaggi successivi
+
+* [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
+* [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
+* [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
+* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
+* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
+
+<!---HONumber=62-->

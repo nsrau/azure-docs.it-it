@@ -1,5 +1,5 @@
-﻿
-1. Fare clic con il pulsante destro del mouse sul progetto di Windows Store, selezionare **Imposta come progetto di avvio** e premere F5 per eseguire l'app di Windows Store.
+
+1. Fare clic con il pulsante destro del mouse sul progetto di Windows Store, selezionare **Imposta come progetto di avvio** e premere il tasto F5 per eseguire l'app di Windows Store.
 	
 	All'avvio dell'app, il dispositivo viene registrato per le notifiche push.
 
@@ -7,7 +7,7 @@
 
 	A questo punto, entrambi i dispositivi sono stati registrati per la ricezione delle notifiche push.
 
-3. Eseguire nuovamente l'app di Windows Store, digitare del testo in **Immettere un TodoItem** e fare clic su **Salva**.
+3. Eseguire nuovamente l'app di Windows Store, digitare del testo in **Inserisci TodoItem** e fare clic su **Salva**.
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
@@ -19,5 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-<!--HONumber=49-->
+<!---HONumber=62-->

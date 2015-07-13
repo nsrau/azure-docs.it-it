@@ -150,4 +150,9 @@ PHP | [App di esempio PHP per l'API Graph di Azure AD](http://code.msdn.microsof
 
 [Sviluppo di applicazioni moderne con OAuth e Active Directory Federation Services](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=62-->

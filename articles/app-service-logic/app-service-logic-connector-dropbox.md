@@ -29,7 +29,7 @@ Per usare Dropbox Connector, è necessario innanzitutto creare un'istanza dell'a
 2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "Dropbox Connector".
 3.	Configurare Dropbox Connector nel modo seguente:
  
-	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore- **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di servizio app**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore Dropbox.
+	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di servizio app**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore.
 4. Fare clic su Crea. Verrà creato un nuovo Dropbox Connector.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Dropbox Connector.
 
@@ -39,13 +39,13 @@ Dopo aver creato l'app per le API, è possibile usare Dropbox Connector come azi
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Dropbox Connector.
  	
 	![][2]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  	
 	![][3]
 3.	Dropbox Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
  
 	![][4]
-4.	È possibile trascinare l'app per le API Dropbox Connector nell'editor facendo clic su “Dropbox Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali Dropbox. Fare clic su “Allow”.
+4.	È possibile trascinare l'app per le API Dropbox Connector nell'editor facendo clic su "Dropbox Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali Dropbox. Fare clic su "Consenti".
  
 	![][5] ![][6] ![][7]
 6.	È ora possibile usare Dropbox Connector nel flusso. È possibile usare l'azione Dropbox "Upload File" per caricare un file nel proprio account Dropbox.
@@ -56,7 +56,7 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 
 - **File Path**: specificare il percorso del file Dropbox di destinazione da caricare. Esempio: Photos/image.png
 - **Content**: specificare il contenuto del file da caricare. Spesso, questo dipenderà da un passaggio precedente nell'app per la logica.
-- **Content Transfer Encoding**: specificare None o Base64.
+- **Content Transfer Encoding**: specificare none o base64.
 - **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già.
 
 

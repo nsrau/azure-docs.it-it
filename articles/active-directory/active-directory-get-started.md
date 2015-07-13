@@ -45,4 +45,4 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Eseguire la migrazione da Drupal al servizio app di Azure" 
-	description="Eseguire la migrazione di un sito PHP Drupal nel servizio app di Azure." 
+	pageTitle="Migrazione da Drupal a Servizio app di Azure" 
+	description="Eseguire la migrazione di un sito PHP Drupal in Servizio app di Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -17,15 +17,15 @@
 	ms.author="tomfitz"/>
 
 
-# Eseguire la migrazione da Drupal al servizio app di Azure
+# Migrazione da Drupal a Servizio app di Azure
 
-Poiché il servizio app di Azure supporta sia PHP sia MySQL, la migrazione di un sito di Drupal in App Web del servizio app di Azure è relativamente semplice. Poiché inoltre è possibile eseguire Drupal e PHP in qualsiasi piattaforma, il processo di spostamento di Drupal in App Web del servizio app di Azure dovrebbe funzionare correttamente indipendentemente dalla piattaforma. Le installazioni di Drupal, tuttavia, possono presentare notevoli differenze ed è pertanto possibile che siano necessari passaggi specifici per la migrazione non illustrati nel materiale seguente. Si noti che lo strumento Drush non viene usato perché non è supportato nel servizio app di Azure.
+Poiché Servizio app di Azure supporta sia PHP sia MySQL, la migrazione di un sito di Drupal nelle app Web di Servizio app di Azure è relativamente semplice. Poiché inoltre è possibile eseguire Drupal e PHP in qualsiasi piattaforma, il processo di spostamento di Drupal nelle app Web di Servizio app di Azure dovrebbe funzionare correttamente indipendentemente dalla piattaforma. Le installazioni di Drupal, tuttavia, possono presentare notevoli differenze ed è pertanto possibile che siano necessari passaggi specifici per la migrazione non illustrati nel materiale seguente. Si noti che lo strumento Drush non viene usato perché non è supportato in Servizio app di Azure.
 
 Per spostare un'applicazione Drupal complessa e di grandi dimensioni, è anche possibile provare a usare Servizi cloud di Azure. Per altre informazioni sulle differenze tra il servizio app e i servizi cloud, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Confronto tra servizio app di Azure, servizi cloud e macchine virtuali</a>. Per informazioni sullo spostamento di Drupal nei servizi cloud, vedere <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrazione di un sito di Drupal da LAMP ad Azure</a>.
  
 ## Creare un'app Web e un database MySQL
 
-Per prima cosa, seguire l'esercitazione dettagliata per imparare a creare una nuova app Web con MySQL: [Creare un'app Web PHP-MySQL nel servizio app di Azure e distribuirla tramite Git][]. Se si desidera usare Git per pubblicare il sito di Drupal, eseguire la procedura disponibile nell'esercitazione che illustra come configurare un repository Git. Assicurarsi di seguire le istruzioni disponibili nella sezione **Recupero di informazioni sulla connessione remota a MySQL**, poiché tali informazioni saranno necessarie più avanti. Ai fini della distribuzione del sito di Drupal è possibile ignorare la parte restante dell'esercitazione, ma se non si è esperti del servizio app di Azure e di Git, è possibile che la lettura di tali informazioni risulti utile.
+Per prima cosa, seguire l'esercitazione dettagliata per imparare a creare una nuova app Web con MySQL: [Creare un'app Web PHP-MySQL nel servizio app di Azure e distribuirla tramite Git][]. Se si desidera usare Git per pubblicare il sito di Drupal, eseguire la procedura disponibile nell'esercitazione che illustra come configurare un repository Git. Assicurarsi di seguire le istruzioni disponibili nella sezione **Recupero di informazioni sulla connessione remota a MySQL**, poiché tali informazioni saranno necessarie più avanti. Ai fini della distribuzione del sito di Drupal è possibile ignorare la parte restante dell'esercitazione, ma se non si è esperti di Servizio app di Azure e di Git, è possibile che la lettura di tali informazioni risulti utile.
 
 Dopo la configurazione di una nuova app Web con un database MySQL, saranno disponibili le informazioni sulla connessione al database e un repository Git (facoltativo). Il passaggio successivo consiste nel copiare il proprio database nel database MySQL dell'app Web.
 
@@ -87,11 +87,11 @@ Per altre informazioni, vedere i post e gli argomenti seguenti:
 - [Modulo di integrazione di Azure](https://drupal.org/project/azure_auth)
 - [Modulo di archiviazione BLOB di Azure](https://drupal.org/project/azure_blob)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al portale di anteprima, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il portale di anteprima, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   [Creare un'app Web PHP-MySQL nel servizio app di Azure e distribuirla tramite Git]: /develop/php/tutorials/website-w-mysql-and-git/
   

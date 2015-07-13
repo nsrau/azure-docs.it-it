@@ -22,15 +22,13 @@
 
 È prima di tutto necessario configurare una rete virtuale (VNET) in Azure e quindi aggiungere alla VNET un controller di dominio di Active Directory ospitato in una macchina virtuale di Azure. I ruoli del servizio cloud esistenti verranno successivamente aggiunti alla VNET appena creata e verranno connessi al controller di dominio.
 
-Prima di iniziare è necessario notare quanto segue:
-1.	Questa esercitazione usa Powershell ed è quindi necessario assicurarsi che Azure Powershell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure Powershell, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
-2.	Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNET.
+Prima di iniziare è necessario notare quanto segue: 1. Questa esercitazione usa Powershell ed è quindi necessario assicurarsi che Azure Powershell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure Powershell, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). 2. Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNET.
 
 Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fine dell'articolo. I commenti verranno letti e verrà fornita assistenza.
 
 ## Creare una rete virtuale
 
-È possibile creare una rete virtuale in Azure usando il portale di Azure o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](../create-virtual-network.md).
+È possibile creare una rete virtuale in Azure usando il portale di Azure o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](../create-virtual-network.md)
 
     #Create Virtual Network
 
@@ -67,11 +65,11 @@ A questo scopo, creare una macchina virtuale tramite Powershell usando i comandi
 
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
-    $vmsvc1 = '<your-hosted-service>'
-    $vm1 = '<your-vm-name>'
-    $username = '<your-username>'
-    $password = '<your-password>'
-    $ affgrp = '<your- affgrp>'
+    $vmsvc1 = ‘<your-hosted-service>’
+    $vm1 = ‘<your-vm-name>’
+    $username = ‘<your-username>’
+    $password = ‘<your-password>’
+    $ affgrp = ‘<your- affgrp>’
 
     #Create a VM and add it to the Virtual Network
 
@@ -119,7 +117,7 @@ Sarà quindi necessario aggiungere la distribuzione del servizio cloud alla VNET
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-Compilare quindi il progetto dei servizi cloud e distribuirlo in Azure. Per ottenere informazioni sulla distribuzione del pacchetto di servizi cloud in Azure, vedere [Come creare e distribuire un servizio Cloud](cloud-services-how-to-create-deploy.md#deploy)
+Compilare quindi il progetto dei servizi cloud e distribuirlo in Azure. Per ottenere informazioni sulla distribuzione del pacchetto di servizi cloud in Azure, vedere [Come creare e distribuire un servizio cloud](cloud-services-how-to-create-deploy.md#deploy)
 
 ## Connettere i ruoli Web/di lavoro al dominio personalizzato usando l'estensione di dominio di AD
 
@@ -127,8 +125,8 @@ Dopo la distribuzione del progetto di servizi cloud in Azure, connettere le ista
 
     #Initialize domain variables
 
-    $domain = '<your-domain-name>';
-    $dmuser = '$domain<your-username>';
+    $domain = ‘<your-domain-name>’;
+    $dmuser = ‘$domain<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
@@ -147,6 +145,6 @@ I servizi cloud dovrebbero essere stati aggiunti al controller di dominio person
 È anche possibile inserire commenti sulla possibile utilità di un'estensione che permette di alzare una macchina virtuale al livello di un controller di dominio. Fornire eventuali informazioni nella sezione relativa ai commenti.
 
 Ci auguriamo che questa guida sia risultata utile.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

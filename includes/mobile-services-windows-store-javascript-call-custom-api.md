@@ -1,13 +1,13 @@
 
-## <a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
+##<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
-1. In Visual Studio aprire il file default.html nel progetto di guida introduttiva, individuare l'elemento **button** denominato  `buttonRefresh` e subito dopo aggiungere il seguente nuovo elemento: 
+1. In Visual Studio aprire il file default.html nel progetto di guida introduttiva, individuare l'elemento **button** denominato `buttonRefresh` e subito dopo aggiungere il seguente nuovo elemento: 
 
 		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-	Verrà aggiunto un nuovo pulsante nella pagina. 
+	Verrà aggiunto un nuovo pulsante nella pagina.
 
-2. Aprire il file di codice default.js nella cartella di progetto  `js`, individuare la funzione **refreshTodoItems** e assicurarsi che contenga il seguente codice:
+2. Aprire il file di codice default.js nella cartella di progetto `js`, individuare la funzione **refreshTodoItems** e assicurarsi che contenga il codice seguente:
 
 	    todoTable.where({ complete: false })
 	       .read()
@@ -18,7 +18,7 @@
 
 	Gli elementi verranno filtrati in modo che quelli completati non vengano restituiti dalla query.
 
-3. Dopo la funzione **refreshTodoItems** aggiungere il seguente codice:
+3. Dopo la funzione **RefreshTodoItems** aggiungere il codice seguente:
 
 		var completeAllTodoItems = function () {
 		    var okCommand = new Windows.UI.Popups.UICommand("OK");
@@ -62,5 +62,4 @@
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

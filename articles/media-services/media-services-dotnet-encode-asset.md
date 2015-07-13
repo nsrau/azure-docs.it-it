@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Azure Media Encoder per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 #Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md). 
+Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
-##Informazioni generali
+##Panoramica
 
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
-I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere Set di impostazioni di attività per Servizi multimediali di Azure. Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/library/azure/dn750842.aspx).
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Set di impostazioni di attività per Servizi multimediali di Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/library/azure/jj889436.aspx).
+È consigliabile codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/library/azure/jj889436.aspx). Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
 
-Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere l'articolo relativo alla [configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ##Creare un processo con una singola attività di codifica 
 
-Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
+Quando si esegue la codifica con Codificatore multimediale di Azure, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 
-###Usare l'SDK di Servizi multimediali per .NET  
+###Usare Media Services SDK per .NET  
 
-Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codifica e aggiunge una singola attività di codifica al processo. Nell'attività viene usato "Azure Media Encoder" per la codifica in "H264 Adaptive Bitrate MP4 Set 720p". 
+Il metodo **EncodeToAdaptiveBitrateMP4Set** seguente crea un processo di codifica e aggiunge una singola attività di codifica al processo. Nell'attività viene usato "Azure Media Encoder" per la codifica in "H264 Adaptive Bitrate MP4 Set 720p".
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
     {
@@ -142,9 +142,9 @@ Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codific
 
 In molti scenari di applicazione, gli sviluppatori desiderano creare una serie di attività di elaborazione. In Servizi multimediali è possibile creare una serie di attività concatenate. Ogni attività esegue diversi passaggi di elaborazione e può usare processori di contenuti multimediali differenti. Le attività concatenate possono trasferire un asset da un'attività a un'altra e consentono quindi l'esecuzione delle attività dell'asset in sequenza lineare. Tuttavia, non è necessario che le attività eseguite in un processo siano in sequenza. Quando si crea un'attività concatenata, gli oggetti **ITask** concatenati vengono creati in un singolo oggetto **IJob**.
 
->[AZURE.NOTE] Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
+>[AZURE.NOTE]Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
 
-Il seguente metodo **CreateChainedTaskEncodingJob** crea un processo contenente due attività concatenate e restituisce come risultato un processo contenente due asset di output.
+Il metodo **CreateChainedTaskEncodingJob** seguente crea un processo contenente due attività concatenate e restituisce come risultato un processo contenente due asset di output.
 
 	
     public static IJob CreateChainedTaskEncodingJob(IAsset asset)
@@ -210,12 +210,12 @@ Il seguente metodo **CreateChainedTaskEncodingJob** crea un processo contenente 
 ##Passaggi successivi
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Impostazioni per il codificatore]: http://msdn.microsoft.com/library/dn619392.aspx
-[Procedura: Ottenere un'istanza del processore di contenuti multimediali]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Procedura: Caricare un asset crittografato]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Procedura: Distribuire un asset mediante download]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
+[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
+[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
+[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
+[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
+[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

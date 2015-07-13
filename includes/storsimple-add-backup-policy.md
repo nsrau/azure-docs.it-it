@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Aggiungere i criteri di backup per StorSimple"
-   description="In questo argomento viene descritto come utilizzare il servizio StorSimple Manager per creare un criterio di backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 #### Per aggiungere un criterio di backup per StorSimple
 
 1. Nella pagina **Guida introduttiva** del dispositivo, fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup**.
@@ -30,4 +13,4 @@
 Il criterio appena aggiunto verrà visualizzato nella visualizzazione tabulare nella pagina **Criteri di backup**.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

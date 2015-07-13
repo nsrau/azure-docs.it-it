@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -116,7 +116,7 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
         }*/
 
 
-5. Aggiungere il codice per usare SendGrid invece della posta sul Web per l'invio di messaggi di posta elettronica. Aggiungere il seguente codice al posto del codice eliminato nel passaggio precedente.
+5. Aggiungere il codice per usare SendGrid invece della posta sul Web per l'invio di messaggi di posta elettronica. Aggiungere il seguente codice al posto del codice eliminato nel passaggio precedente. Assicurarsi di aggiungere il nome utente e la password SendGrid quando si crea NetworkCredential.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -248,5 +248,6 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

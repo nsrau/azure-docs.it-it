@@ -590,8 +590,8 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
 ## Documentazione di riferimento
 
-* [Informazioni di riferimento per ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Informazioni di riferimento per Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Riferimento Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
 ## Domande
 

@@ -55,13 +55,13 @@ Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sot
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per \<\*account\_name\*\> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
+Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account_name*> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
-> [AZURE.NOTE]Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri \(sono ammessi solo numeri e lettere minuscole\).
+> [AZURE.NOTE]Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri (sono ammessi solo numeri e lettere minuscole).
 
 ### Ottenere le chiavi di accesso all'account
 **Get AzureBatchAccountKeys** mostra le chiavi di accesso associate a un account Batch di Azure. Ad esempio, eseguire le operazioni seguenti per ottenere le chiavi primarie e secondarie dell'account creato.
@@ -164,4 +164,4 @@ Per rimuovere il limite superiore, impostare **MaxCount** su 0 o un valore infer
 * [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Query di elenco efficienti](batch-efficient-list-queries.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

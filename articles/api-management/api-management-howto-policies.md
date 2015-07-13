@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,22 +25,20 @@ Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, 
 
 I criteri vengono applicati nel proxy che si trova tra il consumer di API e l'API gestita. Il proxy riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, a meno che i criteri non specifichino diversamente. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][] e guardare il video seguente.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, a meno che i criteri non specifichino diversamente. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
 
 ## <a name="scopes"> </a>Come configurare criteri
 I criteri possono essere configurati a livello globale o nell'ambito di un [prodotto][], un'[API][] o un'[operazione][]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
 
-![Policies menu][policies-menu]
+![Manu Criteri][policies-menu]
 
 L'editor dei criteri comprende tre sezioni principali: l'ambito criteri (in alto), la definizione criteri in cui i criteri vengono modificati (a sinistra) e l'elenco di istruzioni (a destra).
 
-![Policies editor][policies-editor]
+![Editor criteri][policies-editor]
 
 Per iniziare a configurare i criteri, prima è necessario selezionare l'ambito in cui applicare i criteri. Nella schermata seguente è selezionato il prodotto Starter. Il quadratino accanto al nome del criterio indica che un criterio è già applicato a questo livello.
 
-![Scope][policies-scope]
+![Ambito][policies-scope]
 
 Poiché è già stato applicato un criterio, la configurazione viene mostrata nella visualizzazione definizione.
 
@@ -48,7 +46,7 @@ Poiché è già stato applicato un criterio, la configurazione viene mostrata ne
 
 Il criterio viene dapprima visualizzato come di sola lettura. Per modificare la definizione, fare clic sull'azione di **configurazione dei criteri**.
 
-![Modifica][policies-edit]
+![Modificare][policies-edit]
 
 La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate, come ad esempio l'istruzione Limita frequenza chiamate nella schermata precedente.
 
@@ -58,7 +56,7 @@ Un elenco completo di istruzioni dei criteri e le relative impostazioni sono dis
 
 Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arrivo agli indirizzi IP specificati, posizionare il cursore nel contenuto dell'elemento XML "inbound" e fare clic sull'istruzione Limita IP chiamanti.
 
-![Restriction policies][policies-restrict]
+![Criteri di restrizione][policies-restrict]
 
 Verrà aggiunto un frammento XML all'elemento "inbound" che fornisce informazioni aggiuntive sulla configurazione dell'istruzione.
 
@@ -105,6 +103,12 @@ Ad esempio, se ci sono un criterio a livello globale e un criterio configurato p
 Nella definizione del criterio dell'esempio precedente, l'istruzione cross-domain verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio find-and-replace.
 
 Nota: con i criteri globali non sono disponibili criteri padre e l'uso dell'elemento `<base>` in tali criteri non produce alcun effetto.
+
+## Passaggi successivi
+
+Vedere il video seguente sulle espressioni di criteri.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Informazioni di riferimento per i criteri]: api-management-policy-reference.md
 [prodotto]: api-management-howto-add-products.md

@@ -24,13 +24,13 @@
 Questo articolo illustra come personalizzare Swashbuckle per gestire scenari comuni in cui è possibile modificare il comportamento predefinito:
 
 * Swashbuckle genera identificatori di operazione duplicati per gli overload dei metodi del controller
-* Swashbuckle presuppone che l'unica risposta valida restituita da un metodo sia HTTP 200 \(OK\) 
+* Swashbuckle presuppone che l'unica risposta valida restituita da un metodo sia HTTP 200 (OK) 
  
 ## Personalizzare la generazione di identificatori di operazione
 
 Swashbuckle genera identificatori di operazione Swagger concatenando il nome del controller e il nome del metodo. Questo modello provoca problemi quando sono presenti più overload di un metodo: Swashbuckle genera ID operazione duplicati, ovvero JSON Swagger non valido.
 
-Ad esempio, il codice seguente del controller provoca la generazione di tre ID operazione Contact\_Get da parte di Swashbuckle.
+Ad esempio, il codice seguente del controller provoca la generazione di tre ID operazione Contact_Get da parte di Swashbuckle.
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsincode.png)
 
@@ -74,7 +74,7 @@ I passaggi seguenti illustrano come personalizzare Swashbuckle usando il file *S
 		    }
 		}
 
-2. Nel file *App\_Start\\SwaggerConfig.cs* chiamare il metodo `OperationFilter` in modo che Swashbuckle usi la nuova implementazione di `IOperationFilter`.
+2. Nel file *App_Start\SwaggerConfig.cs* chiamare il metodo `OperationFilter` in modo che Swashbuckle usi la nuova implementazione di `IOperationFilter`.
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -90,7 +90,7 @@ I passaggi seguenti illustrano come personalizzare Swashbuckle usando il file *S
 	
 ## Consentire codici di risposta diversi da 200
 
-Per impostazione predefinita, Swashbuckle presuppone che l'*unica* risposta valida restituita da un metodo API Web sia la risposta HTTP 200 \(OK\). In alcuni casi, potrebbe essere necessario che vengano restituiti altri codici di risposta senza che il client generi un'eccezione. Ad esempio, il codice di API Web seguente illustra uno scenario in cui il client deve accettare come risposte valide sia il codice 200 che 404.
+Per impostazione predefinita, Swashbuckle presuppone che l'*unica* risposta valida restituita da un metodo API Web sia la risposta HTTP 200 (OK). In alcuni casi, potrebbe essere necessario che vengano restituiti altri codici di risposta senza che il client generi un'eccezione. Ad esempio, il codice di API Web seguente illustra uno scenario in cui il client deve accettare come risposte valide sia il codice 200 che 404.
 
 	[ResponseType(typeof(Contact))]
     public HttpResponseMessage Get(int id)
@@ -113,7 +113,7 @@ In questo scenario, il file Swagger generato da Swashbuckle per impostazione pre
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
 
-Poiché Visual Studio usa la definizione dell'API Swagger per generare il codice per il client, viene creato un codice client che genera un'eccezione per tutte le risposte diverse da HTTP 200. Il codice seguente viene restituito da un client C\# generato per questo metodo API Web di esempio.
+Poiché Visual Studio usa la definizione dell'API Swagger per generare il codice per il client, viene creato un codice client che genera un'eccezione per tutte le risposte diverse da HTTP 200. Il codice seguente viene restituito da un client C# generato per questo metodo API Web di esempio.
 
 	if (statusCode != HttpStatusCode.OK)
     {
@@ -186,7 +186,7 @@ Dopo avere eseguito questi passaggi, il file JSON Swagger generato da Swashbuckl
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/swagger-multiple-responses.png)
 
-Quando si usa Visual Studio per rigenerare il codice client per l'API REST, il codice C\# accetterà i codici di stato HTTP OK e Non trovato senza generare un'eccezione, consentendo al codice usato di decidere come gestire la restituzione di un record di contatto Null.
+Quando si usa Visual Studio per rigenerare il codice client per l'API REST, il codice C# accetterà i codici di stato HTTP OK e Non trovato senza generare un'eccezione, consentendo al codice usato di decidere come gestire la restituzione di un record di contatto Null.
 
 		if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
 		{
@@ -250,4 +250,4 @@ Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](ht
 Questo articolo ha illustrato come personalizzare il modo in cui Swashbuckle genera gli ID operazione e i codici di risposta validi. Per altre informazioni, vedere [Swashbuckle su GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

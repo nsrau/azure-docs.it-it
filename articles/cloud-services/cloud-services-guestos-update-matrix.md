@@ -3,8 +3,8 @@
    description="Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="05/20/2015"
+   ms.author="yuemlu"/>
 
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato.
@@ -28,6 +28,14 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 
 
 ## Novità e aggiornamenti
+
+###### **15 giugno 2015**
+L’implementazione del sistema operativo guest di giugno è iniziata oggi 15 giugno 2015 e dovrebbe essere rilasciata il 9 luglio 2015.
+
+Le versioni del sistema operativo guest 4.20, 3.27, 2.39 sono state rilasciate il 12 giugno 2015.
+
+###### **20 maggio 2015**
+L’implementazione del sistema operativo guest di maggio è iniziata oggi 20 maggio 2015 e dovrebbe essere rilasciata il 12 giugno 2015.
 
 ###### **17 aprile 2015**
 Le versioni del sistema operativo guest 4.19, 3.26, 2.38 sono state rilasciate in data odierna.
@@ -64,16 +72,6 @@ Come [annunciato in precedenza][ssl3 announcement], l'aggiornamento della sicure
 ###### **16 dicembre 2014. Aggiornato il 7 gennaio 2015**
 Il rilascio di dicembre del sistema operativo guest è previsto per il 9 gennaio 2015 o data successiva.
 
-
-###### **11 novembre 2014**
-
-La versione di novembre (4.14, 3.21 e 2.33) è stata distribuita l'11 novembre. Questo aggiornamento è stato distribuito tramite push in anticipo perché include l'aggiornamento [MSRC Bollettino Microsoft sulla sicurezza MS14-066 - Critico][MS14-066]. È consigliabile riavviare nei prossimi giorni i ruoli Web e di lavoro inclusi nell'aggiornamento automatico per ricevere la correzione.
-
-###### **10 novembre 2014**
-La data di disabilitazione della versione di ottobre (4.13, 3.20 e 2.32) è stata aggiornata in base ai commenti e suggerimenti dei clienti. La versione verrà sempre disabilitata una volta trascorsi almeno due mesi dalla data di rilascio.
-
-###### **4 novembre 2014**
-La versione di ottobre (4.13, 3.20 e 2.32) è stata distribuita il 4 novembre 2014. Include la patch MSRC che causava problemi nelle versioni di agosto e settembre. Per risolvere questo problema, la versione di ottobre include .NET 3.5 e 3.5.1 che sono preinstallati, ma non abilitati. Gli script che tentano di installare .NET 3.5 o 3.5.1 la abiliteranno e restituiranno un messaggio di operazione completata per l'installazione di .NET; inoltre, eviteranno il riprodursi del problema di installazione completa causato dalla patch MSRC.
 
 
 
@@ -113,8 +111,10 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4.21 | WA-GUEST-OS-4.21_201506-01 | Prevista il 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 4.23 | Da definire |
+| 4.20 | WA-GUEST-OS-4.20_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 4.22 | Da definire |
 | 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 4.21 | Da definire |
-| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 4.20 | Da definire |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
 | 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
 | 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
 | 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
@@ -134,8 +134,10 @@ Supporta .NET 4.0, 4.5
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3.28 | WA-GUEST-OS-3.28_201506-01 | Prevista il 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 3.30 | Da definire |
+| 3.27 | WA-GUEST-OS-3.27_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 3.29 | Da definire |
 | 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 3.28 | Da definire |
-| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 3.27 | Da definire |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
 | 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
 | 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
 | 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
@@ -156,8 +158,10 @@ Supporta .NET 3.5, 4.0
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2.40 | WA-GUEST-OS-2.40_201506-01 | Prevista il 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 2.42 | Da definire |
+| 2.39 | WA-GUEST-OS-2.39_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 2.41 | Da definire |
 | 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 2.40 | Da definire |
-| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 aprile 2015 | Verrà aggiornata al momento del rilascio della versione 2.39 | Da definire |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
 | 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
 | 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
 | 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
@@ -181,7 +185,7 @@ Le versioni di agosto e settembre 2014 sono state distribuite parzialmente a cau
 #### Nota 2
 Alla data del 19 settembre 2014, .NET 4.5.2 non è stato specificamente testato nel sistema operativo guest Azure, ma il sistema operativo guest è essenzialmente equivalente a Windows Server. Le stesse regole di compatibilità che si applicano al prodotto Windows Server si applicano quindi anche alle famiglie di sistemi operativi guest equivalenti. Se si verifica un'eccezione a questi criteri, contattare il [supporto di Azure][azuresupport]. Microsoft si impegnerà a risolvere il problema. [Pacchetto di installazione manuale per .NET 4.5.2][net install pkg].
 
-### Aggiornamenti di MSRC inclusi nel sistema operativo guest
+## Aggiornamenti di MSRC inclusi nel sistema operativo guest
 L'elenco di patch incluse con il rilascio del sistema operativo di ogni mese è disponibile [qui][patches].
 
 ## Supporto SDK
@@ -214,6 +218,16 @@ Se si aggiorna manualmente il sistema operativo guest, leggere le informazioni i
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
  
 ## Archivio notizie
+
+###### **11 novembre 2014**
+
+La versione di novembre (4.14, 3.21 e 2.33) è stata distribuita l'11 novembre. Questo aggiornamento è stato distribuito tramite push in anticipo perché include l'aggiornamento [MSRC Bollettino Microsoft sulla sicurezza MS14-066 - Critico][MS14-066]. È consigliabile riavviare nei prossimi giorni i ruoli Web e di lavoro inclusi nell'aggiornamento automatico per ricevere la correzione.
+
+###### **10 novembre 2014**
+La data di disabilitazione della versione di ottobre (4.13, 3.20 e 2.32) è stata aggiornata in base ai commenti e suggerimenti dei clienti. La versione verrà sempre disabilitata una volta trascorsi almeno due mesi dalla data di rilascio.
+
+###### **4 novembre 2014**
+La versione di ottobre (4.13, 3.20 e 2.32) è stata distribuita il 4 novembre 2014. Include la patch MSRC che causava problemi nelle versioni di agosto e settembre. Per risolvere questo problema, la versione di ottobre include .NET 3.5 e 3.5.1 che sono preinstallati, ma non abilitati. Gli script che tentano di installare .NET 3.5 o 3.5.1 la abiliteranno e restituiranno un messaggio di operazione completata per l'installazione di .NET; inoltre, eviteranno il riprodursi del problema di installazione completa causato dalla patch MSRC.
 
 **20 ottobre 2014. Aggiornata il 4 novembre 2014.** La versione di settembre (4.12, 3.19, 2.31 e 1.39) è stata distribuita parzialmente a causa di problemi relativi alla stessa [patch MSRC MS14-046][MS14-046] che genera errori durante il tentativo di installare .NET 3.5 o 3.5.1 nella famiglia di sistemi operativi guest 3 o 4. .NET 3.5.x NON è ufficialmente supportato in entrambe le famiglie, ma Microsoft sta tentando di risolvere il problema relativo a questa modifica del comportamento, perché influisce su alcune installazioni dei clienti e non era stata annunciata. Le date di disabilitazione dei sistemi operativi guest precedenti (giugno e luglio) verranno posticipate in modo da rendere disponibili almeno due versioni complete di sistemi operativi guest e garantirne il supporto. Una soluzione al problema di installazione di .NET è presente nella versione di ottobre 2014.
 
@@ -283,6 +297,8 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 | 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
 | 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
+
+
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -301,5 +317,6 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

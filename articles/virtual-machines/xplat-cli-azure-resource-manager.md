@@ -46,7 +46,7 @@ Poiché la modalità Gestione risorse non è abilitata per impostazione predefin
 
 ## Ricerca delle località
 
-La maggior parte dei comandi **arm** necessita di una località (location) valida da cui creare o trovare una risorsa. È possibile trovare tutte le località disponibili usando il comando seguente:
+La maggior parte dei comandi **arm** necessita di una località (location) valida da cui creare o trovare una risorsa. È possibile trovare tutte le località disponibili usando il comando
 
 	azure location list
 
@@ -54,7 +54,7 @@ Verranno elencate località specifiche di aree come "West US", "East US" e così
 
 ## Creazione di un gruppo di risorse
 
-Un gruppo di risorse è un raggruppamento logico di risorse di rete, di archiviazione e di altro tipo. Quasi tutti i comandi in modalità **arm** richiedono un gruppo di risorse. È possibile creare un gruppo di risorse denominato _testrg_, ad esempio, usando il comando seguente:
+Un gruppo di risorse è un raggruppamento logico di risorse di rete, di archiviazione e di altro tipo. Quasi tutti i comandi in modalità **arm** richiedono un gruppo di risorse. È possibile creare un gruppo di risorse denominato _testrg_, ad esempio, usando il comando
 
 	azure group create -n "testrg" -l "West US"
 
@@ -77,7 +77,7 @@ Questo è l'approccio di base per configurare e creare una macchina virtuale in 
 >
 > `azure provider register Microsoft.Storage`
 >
-> È possibile ottenere l'elenco dei provider registrati per la sottoscrizione eseguendo il comando seguente:
+> È possibile ottenere l'elenco dei provider registrati per la sottoscrizione eseguendo il comando
 >
 > `azure provider list`
 
@@ -90,7 +90,7 @@ Sarà necessario creare un indirizzo IP pubblico per connettersi tramite SSH all
 
 #### Creazione di una risorsa scheda di interfaccia di rete
 
-La scheda di interfaccia di rete (NIC) richiede che vengano prima create una subnet e una rete virtuale. Creare una rete virtuale in una particolare località e in un determinato gruppo di risorse usando **network vnet create**:
+La scheda di interfaccia di rete (NIC) richiede che vengano prima create una subnet e una rete virtuale. Creare una rete virtuale in una particolare località e in un determinato gruppo di risorse usando **network vnet create**.
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
@@ -98,7 +98,7 @@ La scheda di interfaccia di rete (NIC) richiede che vengano prima create una sub
 
 	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
-Dovrebbe essere possibile creare una scheda di interfaccia di rete usando queste risorse con **network nic create**:
+Dovrebbe essere possibile creare una scheda di interfaccia di rete usando queste risorse con **network nic create**.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
@@ -127,7 +127,7 @@ Scegliere infine dall'elenco un'immagine del sistema operativo simile alla segue
 	data:    CoreOS     CoreOS       Alpha        475.1.0          westus    CoreOS:CoreOS:Alpha:475.1.0
 	data:    CoreOS     CoreOS       Alpha        490.0.0          westus    CoreOS:CoreOS:Alpha:490.0.0
 
-Prendere nota dell'URN dell'immagine che si intende caricare nella macchina virtuale.
+Prendere nota dell'URN dell'immagine che si desidera caricare nella macchina virtuale.
 
 #### Creazione di una macchina virtuale
 
@@ -146,7 +146,7 @@ Si è ora pronti per creare una macchina virtuale eseguendo **vm create** e pass
 	+ Creating VM "testvm"
 	info:    vm create command OK
 
-Dovrebbe essere possibile avviare la macchina virtuale eseguendo:
+Dovrebbe essere possibile avviare la macchina virtuale eseguendo
 
 	azure vm start "testrg" "testvm"
 
@@ -154,11 +154,11 @@ e connettersi a essa tramite SSH usando il comando **ssh username@ipaddress**. P
 
 	azure network public-ip show "testrg" "testip"
 
-È facile gestire la macchina virtuale con i comandi **vm**. Per altre informazioni. vedere l'articolo relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
+È facile gestire la macchina virtuale con i comandi **vm**. Per altre informazioni, vedere l'articolo relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
 
 ### Comando semplificato **vm quick-create**
 
-Il nuovo comando semplificato **vm quick-create** consente di evitare la maggior parte dei passaggi del metodo imperativo per la creazione di macchine virtuali. Questo è utile quando si vuole provare a creare macchine virtuali semplici o non sono importanti le configurazioni di rete. Si tratta di un comando interattivo e, prima di eseguirlo, è necessario solo determinare l'URN dell'immagine del sistema operativo.
+Il nuovo comando semplificato **vm quick-create** consente di evitare la maggior parte dei passaggi del metodo imperativo per la creazione di macchine virtuali. Questo è utile quando si vuole provare a creare macchine virtuali semplici o le configurazioni di rete non sono importanti. Si tratta di un comando interattivo e, prima di eseguirlo, è necessario solo determinare l'URN dell'immagine del sistema operativo.
 
 	azure-cli@0.8.0:/# azure vm quick-create
 	info:  Executing command vm quick-create
@@ -177,7 +177,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 
 #### Individuazione e la configurazione di un modello di gruppo di risorse
 
-1. Quando si lavora con i modelli, è possibile crearne uno personalizzato oppure usarne uno dalla raccolta modelli o i modelli disponibili in [github](https://github.com/azurermtemplates/azurermtemplates). Per iniziare, viene usato un modello denominato **CoreOS.CoreOSStable.0.2.40-preview** proveniente dalla raccolta modelli. Per ottenere un elenco dei modelli disponibili nella raccolta, usare il comando seguente. Poiché sono presenti migliaia di modelli, è possibile scorrere le diverse pagine di risultati oppure usare **grep** o **findstr** (in Windows) oppure il comando di ricerca stringhe preferito per individuare i modelli interessanti. In alternativa, è possibile usare l'opzione **--json** e scaricare l'intero elenco in formato JSON per una ricerca più semplice.
+1. Quando si lavora con i modelli, è possibile crearne uno personalizzato oppure usarne uno dalla raccolta modelli o i modelli disponibili in [github](https://github.com/azurermtemplates/azurermtemplates). Per iniziare, viene usato un modello denominato **CoreOS.CoreOSStable.0.2.40-preview** proveniente dalla raccolta modelli. Per ottenere un elenco dei modelli disponibili nella raccolta, usare il comando seguente. Poiché sono presenti migliaia di modelli, è possibile scorrere le diverse pagine di risultati oppure usare **grep** o **findstr** (in Windows) oppure il comando di ricerca stringhe preferito per individuare i modelli di interesse. In alternativa, è possibile usare l'opzione **--json** e scaricare l'intero elenco in formato JSON per una ricerca più semplice.
 
 		azure group template list
 
@@ -240,7 +240,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 		  }
 	    }
 
-5. Dopo avere salvato il file **params.json**, utilizzare il comando seguente per creare un nuovo gruppo di risorse in base al modello. Il parametro `-e` specifica il file **params.json** creato nel passaggio precedente. Sostituire **testRG** con il nome del gruppo che si vuole usare e **testDeploy** con il nome della distribuzione. La località dovrebbe corrispondere a quella specificata nel file dei parametri del modello **params.json**.
+5. Dopo avere salvato il file **params.json**, utilizzare il comando seguente per creare un nuovo gruppo di risorse in base al modello. Il parametro `-e` specifica il file **params.json** creato nel passaggio precedente. Sostituire **testRG** con il nome del gruppo che si desidera usare e **testDeploy** con il nome della distribuzione. La località dovrebbe corrispondere a quella specificata nel file dei parametri del modello **params.json**.
 
 		azure group create "testRG" "West US" -f CoreOS.CoreOSStable.0.2.40-preview.json -d "testDeploy" -e params.json
 
@@ -285,7 +285,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 
 	Questo comando restituisce informazioni relative alle risorse nel gruppo. Se sono presenti più gruppi, è possibile usare il comando `azure group list` per recuperare un elenco di nomi di gruppi e quindi usare il comando `azure group show` per visualizzare i dettagli di un gruppo specifico.
 
-7. È anche possibile usare i modelli più recenti direttamente da github invece di effettuare il download dalla raccolta modelli. A tale scopo, aprire [Github.com](http://www.github.com) e cercare AzureRmTemplates. Selezionare il repository AzureRmTemplates e cercare i modelli che possono risultare interessanti, ad esempio _101-simple-vm-from-image_. Se si fa clic sul modello, si noterà che contiene **azuredeploy.json** tra gli altri file. Questo è il modello che si intende usare nel comando con un'opzione **--template-url**. Aprirlo in modalità _raw_ e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile usare direttamente tale URL per creare una distribuzione, invece di effettuare il download da una raccolta modelli, eseguendo un comando simile al seguente:
+7. È anche possibile usare i modelli più recenti direttamente da github invece di eseguire il download dalla raccolta modelli. A tale scopo, aprire [Github.com](http://www.github.com) e cercare AzureRmTemplates. Selezionare il repository AzureRmTemplates e cercare i modelli che possono risultare interessanti, ad esempio _101-simple-vm-from-image_. Se si fa clic sul modello, si noterà che contiene **azuredeploy.json** tra gli altri file. Questo è il modello che si intende usare nel comando con un'opzione **--template-url**. Aprirlo in modalità _raw_ e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile usare direttamente tale URL per creare una distribuzione, invece di eseguire il download da una raccolta modelli, eseguendo un comando simile al seguente:
 
 		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 

@@ -23,7 +23,7 @@
 ###Altri articoli su questo argomento
 [Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
-Azure Active Directory \(Azure AD\) è un servizio che offre semplici e pratiche funzionalità di gestione delle identità e degli accessi, sia nel cloud sia in locale. Gli utenti possono usare un account professionale o scolastico per eseguire l'accesso Single Sign-On a qualsiasi applicazione Web sul cloud o locale, usando il dispositivo preferito, tra cui i dispositivi iOS, Mac OS X, Android e Windows. L'organizzazione può proteggere le applicazioni e dati sensibili sia in locale sia nel cloud con la Multi-Factor Authentication integrata, garantendo l'accesso locale e remoto sicuro. Altrimenti, può estendere le directory locali in modo che gli Information Worker possano usare un singolo account aziendale per accedere in modo sicuro e coerente alle risorse aziendali. Azure AD offre anche report completi, funzionalità di analisi e self-service per ridurre i costi e migliorare la sicurezza. Infine, con la scala aziendale e il contratto di servizio di Azure AD, l'azienda sarà sempre in attività in ogni momento.
+Azure Active Directory (Azure AD) è un servizio che offre semplici e pratiche funzionalità di gestione delle identità e degli accessi, sia nel cloud sia in locale. Gli utenti possono usare un account professionale o scolastico per eseguire l'accesso Single Sign-On a qualsiasi applicazione Web sul cloud o locale, usando il dispositivo preferito, tra cui i dispositivi iOS, Mac OS X, Android e Windows. L'organizzazione può proteggere le applicazioni e dati sensibili sia in locale sia nel cloud con la Multi-Factor Authentication integrata, garantendo l'accesso locale e remoto sicuro. Altrimenti, può estendere le directory locali in modo che gli Information Worker possano usare un singolo account aziendale per accedere in modo sicuro e coerente alle risorse aziendali. Azure AD offre anche report completi, funzionalità di analisi e self-service per ridurre i costi e migliorare la sicurezza. Infine, con la scala aziendale e il contratto di servizio di Azure AD, l'azienda sarà sempre in attività in ogni momento.
 
 ![][1]
 
@@ -52,4 +52,4 @@ Per altre informazioni sulle funzionalità di Azure Active Directory seguire i c
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -24,7 +24,7 @@
 
 Questi passaggi mostrano come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Linux mediante un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Linux ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
-Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili \(le righe che iniziano con "$"\) con i propri valori.
+Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
 Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Windows, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
@@ -55,7 +55,7 @@ Di seguito sono riportati alcuni esempi di valori ImageFamily per i computer bas
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-Aprire una nuova istanza dell'editor di testo preferito oppure l'istanza preferita dell'ambiente PowerShell Integrated Scripting Environment \(ISE\). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
+Aprire una nuova istanza dell'editor di testo preferito oppure l'istanza preferita dell'ambiente PowerShell Integrated Scripting Environment (ISE). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -64,7 +64,7 @@ Aprire una nuova istanza dell'editor di testo preferito oppure l'istanza preferi
 
 Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in PowerShell ISE, quindi compilando i valori delle variabili e rimuovendo i caratteri < and >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
-Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi \(obbligatorio\).
+Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
 
 Opzione 1: specificare un nome di macchina virtuale e una dimensione.
 
@@ -81,7 +81,7 @@ Opzione 2: specificare un nome, la dimensione e il nome del set di disponibilit�
 
 Per i valori InstanceSize per le macchine virtuali di serie D-, DS- o G-, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Specificare il nome utente e la password Linux iniziali \(obbligatorio\). Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Specificare il nome utente e la password Linux iniziali (obbligatorio). Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -130,7 +130,7 @@ Facoltativamente, aggiungere la macchina virtuale a un set con carico bilanciato
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Infine, avviare il processo di creazione della macchina virtuale scegliendo uno di questi blocchi di comando \(obbligatorio\).
+Infine, avviare il processo di creazione della macchina virtuale scegliendo uno di questi blocchi di comando (obbligatorio).
 
 Opzione 1: creare la macchina virtuale in un servizio cloud esistente.
 
@@ -148,7 +148,7 @@ Opzione 2: creare la macchina virtuale in un servizio cloud e in una rete virtua
 
 Rivedere il set di comandi di Azure PowerShell compilato nell'editor di testo o in PowerShell ISE costituito da più blocchi di comandi del passaggio 4. Assicurarsi di aver specificato tutte le variabili necessarie e che siano presenti i valori corretti. Assicurarsi inoltre che siano stati rimossi tutti i caratteri < and >.
 
-Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Azure PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il comando set in PowerShell ISE.
+Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Azure PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il set di comandi in PowerShell ISE.
 
 Se si crea la macchina virtuale nella sottoscrizione, nell'account di archiviazione, nel servizio cloud, nel set di disponibilità, nella rete virtuale o nella subnet errati, eliminare la macchina virtuale, correggere la sintassi del blocco di comandi, quindi eseguire il set di comandi corretto.
 
@@ -156,7 +156,7 @@ Dopo aver creato la macchina virtuale, vedere [Come accedere a una macchina virt
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
-- Salvare questo set di comandi come file di script di PowerShell \(\*.ps1\)
+- Salvare questo set di comandi come file di script di PowerShell (*.ps1)
 - Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure 
 
 ## <a id="examples"></a>Esempi:
@@ -261,4 +261,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

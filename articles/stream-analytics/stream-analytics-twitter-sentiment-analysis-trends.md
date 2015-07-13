@@ -1,33 +1,36 @@
 <properties
-   pageTitle="Analizzare le tendenze e i sentimenti su Twitter in tempo reale | Microsoft Azure"
-   description="Informazioni su come utilizzare l’analisi dei flussi per analizzare sentimenti e tendenze su Twitter in tempo reale. Questa esercitazione include i seguenti passaggi: dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-   services="stream-analytics"
-   documentationCenter=""
-   authors="jeffstokes72"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Analisi dei sentimenti di Twitter in tempo reale con Analisi di flusso | Microsoft Azure"
+	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="stream-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/28/2015"
-   ms.author="jeffstok"/>
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="jeffstok"/>
 
 
-# Analisi dei social media: analisi dei sentimenti Twitter in tempo reale
+# Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
 
-In questa esercitazione si apprenderà come creare una soluzione riportado gli eventi di Twitter nell’Hub eventi, creando query di analisi dei flussi per analizzare i dati, quindi archiviando i risultati o utilizzando un dashboard per fornire informazioni in tempo reale.
+In questa esercitazione si apprenderà come creare una soluzione di analisi dei sentimenti portando gli eventi di Twitter in tempo reale nell’hub eventi, creando query di Analisi di flusso per analizzare i dati, quindi archiviando i risultati o utilizzando un dashboard per fornire le informazioni in tempo reale.
+
+Gli strumenti di analisi di social media consentono alle organizzazioni di comprendere gli argomenti di tendenza, i soggetti significativi e le attitudini con un elevato numero di post nei social media. L’analisi del sentimento, denominata anche "opinion mining", utilizza gli strumenti di analisi dei social media per determinare le attitudini rispetto a un prodotto, un’idea e così via.
 
 ## Scenario
 
-Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Utilizzano informazioni di social networking su argomenti rilevanti per i lettori eseguendo analisi in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti di tendenza, necessitano di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti.
+Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Viene utilizzata l’analisi dei social media su argomenti rilevanti per i lettori eseguendo l’analisi del sentimento in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti che sono di tendenza in tempo reale su Twitter, si necessita di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti.
 
 ## Prerequisiti
 1.	Per questa esercitazione è necessario un account Twitter.  
-2.	Questa procedura dettagliata si avvale di un generatore di eventi che si trova su GitHub. Scaricarlo [qui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e attenersi alla procedura seguente per configurare la soluzione.
+2.	In questa procedura dettagliata si utilizza un generatore di eventi che si trova su GitHub. Scaricarlo da [qui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e attenersi alla procedura seguente per configurare la soluzione.
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
@@ -38,11 +41,10 @@ Attenersi alla procedura seguente per creare un hub eventi.
 1.	Nel portale di Azure fare clic **Nuovo** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e fornire un nome, uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
 2.	Come procedura consigliata, ogni processo di analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer riportata di seguito e ulteriori informazioni. Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **GRUPPI DI CONSUMER**, fare clic su **CREA** nella parte inferiore della pagina, quindi fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **CONFIGURA** dell'Hub eventi.
-4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di  **gestione** delle autorizzazioni.
+4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di **gestione** delle autorizzazioni.
 
 
-
-  ![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Fare clic su **SAVE** nella parte inferiore della pagina.
 6.	Per eseguire questa operazione, fare clic su **DASHBOARD**, quindi su **INFORMAZIONI DI CONNESSIONE** nella parte inferiore della pagina e infine salvare la stringa di connessione. Utilizzare l'icona di copia visualizzata sotto l'icona di ricerca.
@@ -58,19 +60,19 @@ Attenersi alla seguente procedura per configurare l'applicazione:
 
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Si noti che è necessario eseguire un'applicazione vuota per generare un token.
+	Si noti che è necessario eseguire un'applicazione vuota per generare un token.  
 3.	Sostituire i valori EventHubConnectionString ed EventHubName in App. config con la stringa di connessione hub eventi e il nome.
 4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter_keywords in App. config, se necessario.
 5.	Compilare la soluzione
 6.	Avviare l’applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
 
-	![Valori SentimentScore inviati a un hub eventi.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![Analisi dei sentimenti: valori SentimentScore inviati a un hub eventi.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
-## Creare un processo di analisi dei flussi
+## Creare un processo di Analisi di flusso
 
-Ora che si dispone di un flusso di eventi Tweet, è possibile impostare un processo di analisi dei flussi per analizzare questi eventi in tempo reale.
+Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possibile impostare un processo di Analisi di flusso per analizzare questi eventi in tempo reale.
 
-### Eseguire il provisioning di un processo di Analisi dei flussi
+### Eseguire il provisioning di un processo di Analisi di flusso
 
 1.	Nel [portale di Microsoft Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DEI FLUSSI** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
@@ -79,9 +81,9 @@ Ora che si dispone di un flusso di eventi Tweet, è possibile impostare un proce
 	* **AREA**: scegliere l'area in cui si desidera eseguire il processo. È consigliabile inserire il processo e l'hub eventi nella stessa area per garantire prestazioni migliori ed evitare addebiti connessi al trasferimento di dati tra aree diverse.
 	* **ACCOUNT DI ARCHIVIAZIONE**: scegliere l'account di archiviazione da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
 
-3.	Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi. ![Icona di servizio di analisi dei flussi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi. ![Icona di servizio Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
-4.	Il nuovo processo verrà visualizzato nell'elenco con uno stato **CREATO**. Si noti che il pulsante  **AVVIA** nella parte inferiore della pagina è disabilitato. Prima di poter avviare il processo, è necessario configurare l'input, l'output, la query per l'esecuzione.
+4.	Il nuovo processo verrà visualizzato nell'elenco con uno stato **CREATO**. Si noti che il pulsante **AVVIA** nella parte inferiore della pagina è disabilitato. Prima di poter avviare il processo, è necessario configurare l'input, l'output, la query per l'esecuzione.
 
 
 ### Specificare l'input del processo
@@ -90,11 +92,11 @@ Ora che si dispone di un flusso di eventi Tweet, è possibile impostare un proce
 3.	Selezionare **HUB EVENTI**, quindi fare clic sul pulsante a destra.
 4.	Digitare o selezionare i valori seguenti nella terza pagina:
 
-	* **ALIAS di INPUT**: immettere un nome descrittivo per il processo di input, ad esempio TwitterStream. Si noti che il nome verrà usato nella query in un secondo momento. **HUB EVENTI**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi dei flussi, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+	* **ALIAS di INPUT**: immettere un nome descrittivo per il processo di input, ad esempio TwitterStream. Si noti che il nome verrà usato nella query in un secondo momento. **HUB EVENTI**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 
-		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
+		Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **SPAZIO DEI NOMI DEL BUS DI SERVIZIO**, **NOME HUB EVENTI**, **NOME CRITERIO HUB EVENTI**, **CHIAVE CRITERIO HUB EVENTI** e **CONTEGGIO PARTIZIONI HUB EVENTI**.
 
-	* **NOME EVENTO HUB**:  selezionare il nome dell'hub eventi
+	* **NOME HUB EVENTI**: selezionare il nome dell'hub eventi
 	* **NOME DEL CRITERIO HUB EVENTI**: selezionare il criterio dell'hub eventi creato precedentemente in questa esercitazione.
 	* **GRUPPO DI CONSUMER DI HUB EVENTI**: digitarne il nome nel gruppo di consumer creato in precedenza in questa esercitazione.
 5.	Fare clic sul pulsante a destra.
@@ -139,9 +141,9 @@ Per confrontare il numero di riferimenti tra gli argomenti, è possibile sfrutta
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*)
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY TUMBLINGWINDOW(s, 5), Topic
+		SELECT System.Timestamp as Time, Topic, COUNT(*)
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
 	Si noti che in questa query viene utilizzata la parola chiave **TIMESTAMP BY** per specificare un campo timestamp nel payload da utilizzare nel calcolo temporale. Se il campo non è stato specificato, verrà eseguita l'operazione di windowing utilizzando l’orario in cui ogni evento è arrivato all’hub eventi. Ulteriori informazioni sono disponibili nel relativo argomento delle [informazioni sulla query dell’analisi del flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -155,10 +157,10 @@ Per identificare argomenti di tendenza si cercheranno argomenti che superano un 
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY SLIDINGWINDOW(s, 5), topic
-			HAVING COUNT(*) > 20
+		SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY SLIDINGWINDOW(s, 5), topic
+		HAVING COUNT(*) > 20
 
 2.	Fare clic su **RIESEGUI** con l'editor di query per visualizzare i risultati della query.
 
@@ -170,10 +172,10 @@ Nella query finale testata viene utilizzata una finestra a cascata per ottenere 
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
-	    	Max(SentimentScore), STDEV(SentimentScore)
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY TUMBLINGWINDOW(s, 5), Topic
+		SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
+    	Max(SentimentScore), STDEV(SentimentScore)
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
 2.	Fare clic su **RIESEGUI** con l'editor di query per visualizzare i risultati della query.
 3.	Questa è la query che verrà utilizzata per il nostro dashboard. Fare clic su **SAVE** nella parte inferiore della pagina.
@@ -215,14 +217,14 @@ Poiché sono stati specificati un processo di input, la query e l'output, a ques
 2.	Nella finestra di dialogo visualizzata, selezionare **ORA DI INIZIO DEL PROCESSO**, quindi fare clic sul pulsante del segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
 
 
-## Visualizzare l’output
+## Visualizzare l'output per l'analisi dei sentimenti
 
-Utilizzare uno strumento come [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare l'output del processo in tempo reale. A questo punto, è possibile estendere l'applicazione in modo da includere un dashboard personalizzato dell'output, come quello illustrato di seguito utilizzando [Power BI](https://powerbi.com/).
+Una volta che il processo è in esecuzione ed elabora il flusso di Twitter in tempo reale, è necessario scegliere come si desidera visualizzare l'output per l'analisi dei sentimenti. Utilizzare uno strumento come [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare l'output del processo in tempo reale. A questo punto, è possibile estendere l'applicazione in modo da includere un dashboard personalizzato dell'output, come quello illustrato di seguito utilizzando [Power BI](https://powerbi.com/).
 
-![Output dell’analisi dei flussi in un dashboard di Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![Analisi di social media: output dell’analisi dei sentimenti (opinion mining) di Analisi di flusso in un dashboard di Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -231,7 +233,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
+- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
+
+<!---HONumber=62-->

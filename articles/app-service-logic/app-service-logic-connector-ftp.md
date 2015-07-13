@@ -23,7 +23,7 @@ Il connettore FTP consente di spostare dati da/a un server FTP. Le principali fu
 
 - Pull di file dal server FTP su richiesta
 - Esecuzione di poll in base a una pianificazione configurabile
-- Polling del server FTP e attivazione del flusso logico in base ai nuovi documenti sul server FTP
+- Poll del server FTP e attivazione del flusso logico in base ai nuovi documenti sul server FTP
 - Specifica del server FTP come indirizzo IP, porta, password e nome host
 - Possibilità di eseguire invii su richiesta
 - Possibilità di eliminare file sul server FTP su richiesta
@@ -44,7 +44,7 @@ Per creare un nuovo connettore FTP, attenersi alla procedura riportata di seguit
 	![Creare il connettore FTP][3]
 
 - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
-- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
+- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 - **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
 - **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 - **Piano tariffario**: scegliere un piano tariffario per il connettore
@@ -77,7 +77,7 @@ Nella finestra di progettazione del flusso vuota fare clic su FTP Connector nel 
 
 ![Scegliere un trigger FTP][6]
 
-Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Questo trigger
+Il connettore include un trigger - 'File Available (Read then Delete)'. Questo trigger
 
 - Esegue il polling della cartella percorso per i nuovi file
 - Crea un'istanza del flusso logico in qualsiasi momento per ogni nuovo file
@@ -110,19 +110,19 @@ L'output del connettore FTP può essere usato come input di alcune altre azioni 
 
 	@triggers('ftpconnector').outputs.body.Content
 
-###Actions
+###Azioni
 Fare clic su FTP Connector nel riquadro destro. Il connettore FTP elenca le azioni supportate.
 
 ![Elenco di azioni FTP][10]
 
 Il connettore FTP supporta quattro azioni, ovvero
 
-- **Recupera file**: recupera i contenuti di un file specifico
-- **Carica file**: carica un file nel percorso cartella FTP
-- **Elimina file**: elimina un file dal percorso cartella FTP
+- **Get File**: recupera i contenuti di un file specifico
+- **Upload File**: carica un file nel percorso cartella FTP
+- **Delete File**: elimina un file dal percorso cartella FTP
 - **List Files**: elenca tutti i file nel percorso cartella FTP
 
-Si consideri come esempio l'azione Carica file. Fare clic su Carica file
+Si consideri come esempio l'azione Upload File. Fare clic su Upload File
 
 Vengono visualizzati prima gli input di base.
 
@@ -130,16 +130,16 @@ Vengono visualizzati prima gli input di base.
 
 
 - **Content**: specificare il contenuto del file da caricare.
-- **Codifica trasferimento contenuto**: specifica Nessuna o Base64.
-- **Percorso file**: specifica il percorso del file da caricare.
+- **Content Transfer Encoding**: specificare none o base64.
+- **File Path**: specificare il percorso del file da caricare.
 
 Fare clic su ... per gli input avanzati.
 
 ![Input di base dell'azione Carica file][12]
 
 
-- **Append If Exists**: può essere True o False. Se questa opzione è abilitata, i dati vengono aggiunti al file, se esiste. Se è disabilitata, il file viene sovrascritto, se esiste
-- **Cartella temporanea**: facoltativo. Se specificato, l'adattatore caricherà il file in Temporary Folder Path. Al termine del caricamento, il file verrà spostato in Folder Path. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
+- **Append If Exists**: può essere True o False. Se abilitato, i dati vengono aggiunti al file, se esiste. Se disabilitato, il file viene sovrascritto, se esiste
+- **Temporary Folder**: facoltativo. Se specificato, l'adattatore caricherà il file in Temporary Folder Path. Al termine del caricamento, il file verrà spostato in Folder Path. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
 Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input.
 

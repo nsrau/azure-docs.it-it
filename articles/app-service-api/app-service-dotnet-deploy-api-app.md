@@ -28,9 +28,9 @@ Sono disponibili molti altri modi per distribuire le app per le API. Un'app per 
 
 Poiché le app per le API sono basate sulle app Web, sarà anche possibile distribuire alle app per le API codice scritto per piattaforme diverse da ASP.NET. Per un esempio che usa Git per distribuire codice Node.js a un'app per le API, vedere [Creare un'app per le API Node.js nel servizio app di Azure](app-service-api-nodejs-api-app.md).
  
-## Distribuire l'app per le API 
+## <a id="provision"></a>Creare un'app per le API in Azure 
 
-In questa sezione verranno illustrati i passaggi necessari per distribuire un'app per le API in una sottoscrizione di Azure.
+In questa sezione si usa la procedura guidata **Pubblica sul Web** di Visual Studio per creare una nuova app per le API in Azure.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto (non sulla soluzione), quindi scegliere **Pubblica**. 
 
@@ -63,7 +63,11 @@ In questa sezione verranno illustrati i passaggi necessari per distribuire un'ap
 
 	![Notifica sullo stato tramite la finestra Attività del servizio app di Azure](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. Dopo avere effettuato il provisioning dell'app per le API, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** per aprire nuovamente la finestra di dialogo di pubblicazione. Il profilo di pubblicazione creato nel passaggio precedente deve essere già selezionato. Fare clic su **Pubblica** per avviare il processo di distribuzione.
+## <a id="deploy"></a>Distribuire il codice nella nuova app per le API
+
+In questa sezione si usa la stessa procedura guidata **Pubblica sul Web** per distribuire il codice.
+
+7. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** per aprire nuovamente la finestra di dialogo di pubblicazione. Il profilo di pubblicazione creato nel passaggio precedente deve essere già selezionato. Fare clic su **Pubblica** per avviare il processo di distribuzione. 
 
 	![Distribuzione dell'app per le API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 

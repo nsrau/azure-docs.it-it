@@ -35,7 +35,7 @@ Per iniziare, [scaricare la struttura dell'app](https://github.com/AzureADQuickS
 
 ## *1. Determinare quale sarà l'URI di reindirizzamento per iOS*
 
-Per avviare in modo sicuro le applicazioni in determinati scenari SSO è necessario creare un **URI di reindirizzamento** in un formato particolare. Un URI di reindirizzamento viene usato per assicurarsi che i token vengano restituiti all'applicazione corretta che li aveva richiesti.
+Per avviare in modo sicuro le applicazioni in determinati scenari SSO, è necessario creare un **URI di reindirizzamento** in un formato particolare. Un URI di reindirizzamento viene usato per assicurarsi che i token vengano restituiti all'applicazione corretta che li aveva richiesti.
 
 Il formato iOS per un URI di reindirizzamento è:
 
@@ -43,7 +43,7 @@ Il formato iOS per un URI di reindirizzamento è:
 <app-scheme>://<bundle-id>
 ```
 
-- 	**aap-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -\> URL types -\> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
+- 	**aap-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -> URL types -> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
 - 	**bundle-id**: è il Bundle Identifier presente in "identity" nelle impostazioni del progetto in XCode.
 	
 Un esempio di questo codice QuickStart sarebbe: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
@@ -134,7 +134,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- A questo punto è necessario usare questo token per cercare gli utenti nel grafico. Trovare il commento `// TODO: implement SearchUsersList`Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access\_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
+- A questo punto è necessario usare questo token per cercare gli utenti nel grafico. Trovare il commento `// TODO: implement SearchUsersList`Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -217,14 +217,14 @@ Congratulazioni. È stata compilata un'applicazione iOS funzionante che può aut
 
 ADAL consente di incorporare facilmente nell'applicazione tutte queste funzionalità comuni relative alle identità. Esegue automaticamente le attività più complesse: gestione della cache, supporto del protocollo OAuth, presentazione all'utente di un'interfaccia utente di accesso, aggiornamento dei token scaduti e altro. Tutto ciò che occorre conoscere è una sola chiamata all'API, `getToken`.
 
-Come riferimento, viene fornito l'esempio completato \(senza i valori di configurazione\) [qui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Ora è possibile passare ad altri scenari. È possibile:
+Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Ora è possibile passare ad altri scenari. È possibile:
 
-[Proteggere un'API Web Node.js con Azure AD \>\>](../active-directory-devquickstarts-webapi-nodejst.md)
+[Proteggere un'API Web Node.js con Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
 ##Per altre risorse, vedere:
-- [AzureADSamples su GitHub \>\>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com \>\>](https://cloudidentity.com)
-- Documentazione di Azure AD su [Azure.com \>\>](http://azure.microsoft.com/documentation/services/active-directory/)
+- [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples)
+- [CloudIdentity.com >>](https://cloudidentity.com)
+- Documentazione di Azure AD su [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

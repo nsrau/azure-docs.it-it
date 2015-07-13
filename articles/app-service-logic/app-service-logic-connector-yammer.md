@@ -49,7 +49,7 @@ Dopo aver creato l'app per le API, è possibile usare Yammer Connector come trig
  
 ![][2]
  
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  
 ![][3]
  
@@ -57,7 +57,7 @@ Dopo aver creato l'app per le API, è possibile usare Yammer Connector come trig
  
 ![][4]
  
-4. È possibile trascinare l'app per le API Yammer Connector nell'editor facendo clic su “Yammer Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali di Yammer. Fare clic su “Allow”.
+4. È possibile trascinare l'app per le API Yammer Connector nell'editor facendo clic su "Yammer Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali di Yammer. Fare clic su "Consenti".
 
 ![][5]
  
@@ -77,11 +77,11 @@ Dopo aver creato l'app per le API, è possibile usare Yammer Connector come trig
  
 	![][9]
 
-## Usare il connettore Yammer per postare un messaggio
+## Usare il connettore Yammer per inviare un messaggio
 
-6.	È anche possibile usare il connettore Yammer come azione nelle app per la logica. In primo luogo, specificare un trigger per l'app per la logica oppure selezionare 'Esegui la logica manualmente', come illustrato sotto. Aggiungere il connettore Yammer, concedere le autorizzazioni appropriate e scegliere l'azione "Post Message". Configurare le proprietà di input per l'azione "Post Message" nel modo indicato di seguito:
+6.	È anche possibile usare il connettore Yammer come azione nelle app per la logica. In primo luogo, specificare un trigger per l'app per la logica oppure selezionare l'opzione per eseguire la logica manualmente, come illustrato sotto. Aggiungere il connettore Yammer, concedere le autorizzazioni appropriate e scegliere l'azione "Post Message". Configurare le proprietà di input per l'azione "Post Message" nel modo indicato di seguito:
 
-	- **Message Text**: contenuto di testo del messaggio da inviare
+	- **Message Text**: contenuto di testo del messaggio da inviare.
 	- **Group ID**: specificare l'ID del gruppo a cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato a tutti i feed dell'organizzazione. L'ID del gruppo può essere recuperato dall'URL del gruppo in Yammer. Esempio: l'ID del gruppo nell'URL seguente è "5453203" https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 	- 	**Tag Users**: matrice di nomi utente a cui deve essere associato un tag nel messaggio. 
 

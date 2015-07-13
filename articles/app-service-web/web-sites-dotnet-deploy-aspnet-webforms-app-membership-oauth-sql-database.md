@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL nel servizio app di Azure" 
-	description="Questa esercitazione illustra come compilare un'app Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure." 
+	pageTitle="Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in Azure App Service" 
+	description="Questa esercitazione illustra come compilare un'app Web Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Erikre" 
@@ -17,12 +17,12 @@
 	ms.author="erikre"/>
 
 
-# Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL nel servizio app di Azure
+# Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in Azure App Service
 
 ##Panoramica
-Questa esercitazione illustra come compilare un'app Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure.
+Questa esercitazione illustra come compilare un'app Web Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure.
 
->[AZURE.NOTE]Per una versione MVC di questa esercitazione, vedere [Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla nel servizio app di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>[AZURE.NOTE]Per una versione MVC di questa esercitazione, vedere [Creazione di un'app ASP.NET MVC con autenticazione e database SQL e alla distribuzione in Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 È possibile aprire gratuitamente un account Azure e, se non si dispone già di Visual Studio 2013, con l'SDK verrà installato automaticamente Visual Studio Express 2013 per il Web. È possibile iniziare a sviluppare per Azure gratuitamente.
 
@@ -70,10 +70,10 @@ In questa esercitazione il sito Web di Azure verrà eseguito in un ambiente di h
 
 Database SQL di Azure è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Gli strumenti e le applicazioni utilizzabili con SQL Server sono utilizzabili anche con database SQL.
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) fare clic su **App Web** nella scheda di sinistra, quindi su **Nuovo**. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
-2. Fare clic su **Sito Web**, quindi su **Creazione personalizzata**. ![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **Nuova app Web - Creazione personalizzata**.  
+1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+2. Fare clic su **Web Site**, quindi su **Custom Create**. ![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **New Web App - Custom Create**.  
 
-3. Nel passaggio **Crea sito Web** della procedura guidata immettere nella casella **URL** una stringa da usare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. L'illustrazione mostra un URL che è probabilmente già occupato, quindi **sarà necessario scegliere un URL diverso**. ![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
+3. Nel passaggio **Create Web Site** della procedura guidata immettere nella casella **URL** una stringa da utilizzare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. L'illustrazione mostra un URL che è probabilmente già occupato, quindi **sarà necessario scegliere un URL diverso**. ![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
 4. Nell'elenco a discesa Piano di hosting Web scegliere l'area geografica più vicina alla propria località. Questa impostazione consente di specificare il data center in cui verrà eseguita la macchina virtuale.
 5. Nell'elenco a discesa **Database** scegliere **Create a free 20 MB SQL database**.
 6. Nella casella **DB Connection String Name** non modificare il valore predefinito *DefaultConnection*.
@@ -112,10 +112,10 @@ In Web Form ASP.NET le pagine master consentono di creare un layout uniforme per
 &lt;head runat="server">
     &lt;meta charset="utf-8" />
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - <mark>Contact Manager</mark>&lt;/title>
+    Page.Title %> - <mark>Contact Manager</mark>&lt;/title>
 
     &lt;asp:PlaceHolder runat="server">
-        &lt;%: Scripts.Render("~/bundles/modernizr") %>
+        @Scripts.Render("~/bundles/modernizr")
     &lt;/asp:PlaceHolder>
     &lt;webopt:bundlereference runat="server" path="~/Content/css" />
     &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -169,7 +169,7 @@ In Web Form ASP.NET le pagine master consentono di creare un layout uniforme per
                         &lt;/AnonymousTemplate>
                         &lt;LoggedInTemplate>
                             &lt;ul class="nav navbar-nav navbar-right">
-                                &lt;li>&lt;a runat="server" href="~/Account/Manage" title="Manage your account">Hello, &lt;%: Context.User.Identity.GetUserName()  %> !&lt;/a>&lt;/li>
+                                &lt; li >&lt; runat = "server" href = "~/Account/Manage" title = "Gestisci account" > salve, &lt; %: % Context.User.Identity.GetUserName() >! &lt;/a >&lt; / li >
                                 &lt;li>
                                     &lt;asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 &lt;/li>
@@ -264,12 +264,12 @@ L'utilità di scaffolding per Web Form aggiunge una nuova cartella contenente le
 ###Configurare l'applicazione per l'utilizzo del modello di dati 
 L'attività successiva consiste nell'abilitare la funzionalità Migrazioni Code First, in modo da creare il database basato sul modello di dati creato. Verranno anche aggiunti dati di esempio e un inizializzatore di dati.
 
-1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di Gestione pacchetti**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
-2. Nella finestra Console di Gestione pacchetti immettere il comando seguente:  
+1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di gestione pacchetti**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
+2. Nella finestra Console di gestione pacchetti immettere il comando seguente:  
 	<pre class="prettyprint">
 enable-migrations
 </pre>Il comando enable-migrations crea una cartella *Migrations* e inserisce nella cartella un file *Configuration.cs*, che può essere modificato per effettuare il seeding del database e configurare le migrazioni dei dati.  
-3. Nella finestra **Console di Gestione pacchetti** immettere il comando seguente:  
+3. Nella finestra **Console di gestione pacchetti** immettere il comando seguente:  
 	<pre class="prettyprint">
 add-migration Initial
 </pre>Il comando `add-migration Initial` consente di generare un file denominato <date_stamp>Initial nella cartella *Migrations* che crea il database. Il primo parametro (Initial ) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe `Initial` il metodo `Up` consente di creare la tabella `Contact` e il metodo `Down`, che viene usato per tornare allo stato precedente, consente di rimuoverla.  
@@ -337,7 +337,7 @@ protected override void Seed(ContactManager.Models.ApplicationDbContext context)
 }
 </pre>
 Questo codice consente di inizializzare (effettuare il seeding) il database con le informazioni sui contatti. Per ulteriori informazioni sul seeding del database, vedere la pagina relativa al [seeding e al debug di database di Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
-7. In **Console di Gestione pacchetti** immettere il comando seguente:  
+7. In **Console di gestione pacchetti** immettere il comando seguente:  
 	<pre class="prettyprint">
 update-database
 </pre>
@@ -391,7 +391,7 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 5. Nella scheda sinistra, fare clic su **APIs & auth** e quindi su **Credentials**.
 6. Fare clic su **Create New Client ID** in **OAuth**. Verrà visualizzata la finestra di dialogo **Create Client ID**. ![Google - creare ID Client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Nella finestra di dialogo **Create Client ID** per il tipo di applicazione mantenere l'impostazione predefinita **Web application**.  
-8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione **https://localhost:44300/** a meno che non siano stati creati altri progetti SSL. Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL per gestire gli URL per localhost e gli URL per l'ambiente di produzione.  
+8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione **https://localhost:44300/** a meno che non siano stati creati altri progetti SSL). Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL da tenere in considerazione per localhost e produzione.  
 
 9. Per **Authorized Redirect URI** immettere le impostazioni seguenti:
 	<pre class="prettyprint">  
@@ -521,7 +521,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
     {
         <mark>AddUserAndRole(context);</mark>
 </pre>
-5. Dopo avere salvato le modifiche, nella **Console di Gestione pacchetti** eseguire il comando seguente:  
+5. Dopo avere salvato le modifiche, nella **Console di gestione pacchetti** eseguire il comando seguente:  
 	<pre class="prettyprint">
 Update-Database
 </pre>Questo codice consente di creare un nuovo ruolo denominato `canEdit` e quindi di creare un nuovo utente locale con l'indirizzo di posta elettronica canEditUser@wideworldimporters.com. Quindi, il codice aggiunge canEditUser@wideworldimporters.com per il `canEdit` ruolo. Per altre informazioni, vedere la pagina relativa alle risorse di [ASP.NET Identity](http://www.asp.net/identity).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 
@@ -129,7 +129,7 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE]Si noti che le date di inizio e di fine vengono impostate sull'1 maggio 2014 e sul 5 maggio 2014 perché i dati di esempio in questa procedura dettagliata sono compresi tra l'1 maggio 2014 e il 5 maggio 2014.
+	Si noti che le date di **inizio** e di **fine** vengono impostate sull'1 maggio 2014 e sul 5 maggio 2014 perché i dati di esempio in questa procedura dettagliata sono compresi tra l'1 maggio 2014 e il 5 maggio 2014.
  
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la pipeline. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **CREAZIONE PIPELINE COMPLETATA**.
 	
@@ -167,4 +167,6 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

@@ -1,4 +1,4 @@
-﻿
+
 
 
 La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
@@ -7,7 +7,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Fare clic su **Esegui** per compilare il progetto e avviare l'app nell'emulatore iPhone.
 
-3. Nell'app digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic sull'icona con il segno PIÙ (**+**).
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (**+**).
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
@@ -15,4 +15,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
  	</div>
 
-<!--HONumber=52-->
+<!---HONumber=62-->

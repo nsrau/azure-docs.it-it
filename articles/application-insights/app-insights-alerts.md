@@ -78,4 +78,6 @@ Tra gli avvisi più diffusi sono compresi:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

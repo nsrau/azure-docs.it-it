@@ -18,7 +18,7 @@
 
 # Installare .NET in un ruolo del servizio cloud 
 
-Questo articolo descrive come installare .NET Framework in ruoli Web e di lavoro del servizio cloud. È possibile usare questi passaggi per installare una versione di .NET Framework che non è presente nel sistema operativo guest Azure per impostazione predefinita. Per le informazioni più recenti sulle versioni del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).
+Questo articolo descrive come installare .NET Framework in ruoli Web e di lavoro del servizio cloud. È possibile usare questi passaggi per installare .NET framework 4.5.2 sulla famiglia del sistema operativo Guest 4 di Azure. Per le informazioni più recenti sulle versioni del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).
 
 Il processo di installazione di .NET in ruoli Web e di lavoro prevede l'inclusione del pacchetto del programma di installazione .NET come parte del progetto cloud e l'avvio del programma di installazione come parte delle attività di avvio del ruolo.
 
@@ -115,6 +115,6 @@ Quando si distribuisce il servizio, le attività di avvio eseguiranno e installe
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

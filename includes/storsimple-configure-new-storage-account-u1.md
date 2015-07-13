@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Facoltativo: configurare un nuovo account di archiviazione per il servizio"
-   description="In questo argomento viene illustrato come configurare un account di archiviazione per il servizio StorSimple Manager su cui è in esecuzione l’aggiornamento 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
-
 #### Per aggiungere un account di archiviazione nell’aggiornamento 1.0 della serie 8000 di StorSimple
 
 1. Nella pagina di destinazione del servizio StorSimple Manager, selezionare il servizio e fare doppio clic su di esso. Verrà visualizzata la pagina **Avvio rapido**. Selezionare la pagina **Configura**.
@@ -50,16 +33,16 @@
 	  		
  - Se è stato selezionato **Openstack** come provider del servizio cloud, fornire un **nome host**, una **chiave di accesso** e una **chiave segreta**.
 
-        > [AZURE.NOTE] Per tutti i provider di servizi cloud, escluso Azure, è consentito un nome descrittivo. È possibile usare nomi descrittivi diversi e creare più account di archiviazione con lo stesso insieme di credenziali.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
 5. Selezionare **Abilita modalità SSL** per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud. Deselezionare la casella di controllo **Abilita modalità SSL** solo se si opera all'interno di un cloud privato.
 
-      \>[AZURE.NOTE]Se si usa HP come provider, SSL viene sempre abilitato.
+      >[AZURE.NOTE]Se si usa HP come provider, SSL viene sempre abilitato.
   		
 6. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Quando la creazione dell’account di archiviazione sarà completata si riceverà una notifica.
 
 7. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. Fare clic su **Salva** per salvare il nuovo account di archiviazione. Fare clic su **OK** quando viene richiesto di confermare.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

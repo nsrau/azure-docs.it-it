@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="antonba"/>
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
-
-Per altre informazioni sulla delega, vedere il video seguente.
-
-> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 ## <a name="delegate-signin-up"> </a>Delega dell'accesso e dell'iscrizione degli sviluppatori
 
@@ -105,7 +101,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={utente che invia la richiesta}&salt={string}&sig={string}*
 
-	Parametri di query per la sottoscrizione ai prodotti: - **operation**: identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono: - "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto) - "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto - "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta - **productId**: ID del prodotto a cui effettuare la sottoscrizione - **userId**: ID dell'utente per il quale viene effettuata la richiesta - **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza - **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+	Parametri di query per la sottoscrizione ai prodotti: - **operation**: identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono: - "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto) - "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto - "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta - **productId**: ID del prodotto a cui effettuare la sottoscrizione - **userId**: ID dell'utente per il quale viene eseguita la richiesta - **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza - **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
@@ -155,6 +151,12 @@ I codici di esempio seguenti illustrano come usare la *chiave di convalida della
     // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
+
+## Passaggi successivi
+
+Per altre informazioni sulla delega, vedere il video seguente.
+
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription

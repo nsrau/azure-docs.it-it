@@ -18,11 +18,11 @@
 
 # Cos'è Azure WebJobs SDK
 
-## <a id="overview"></a>Informazioni generali
+## <a id="overview"></a>Panoramica
 
 Questo articolo spiega cos'è WebJobs SDK, analizza alcuni scenari comuni in cui si rivela utile e traccia una panoramica della sua modalità di utilizzo nel codice personalizzato.
 
-I [processi Web](web-sites-create-web-jobs.md) sono una funzionalità di Servizio app di Azure che consente di eseguire un programma o uno script nello stesso contesto di un'app Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
+[WebJobs](web-sites-create-web-jobs.md) è una funzionalità del servizio app di Azure che consente di eseguire un programma o uno script nello stesso contesto di un'app Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
 
 In WebJobs SDK sono inclusi i componenti seguenti:
 
@@ -40,15 +40,15 @@ Ecco alcuni scenario tipici che è possibile gestire più facilmente con Azure W
 
 * Aggregazione RSS. Se si ha un sito che gestisce un elenco di feed RSS, è possibile effettuare il pull di tutti gli articoli dai feed in un processo in background.
 
-* Manutenzione di file, ad esempio aggregazione o pulizia di file di log.  Potrebbe essere necessario combinare file di log creati da più siti o in periodi di tempo diversi per eseguire processi di analisi. O potrebbe essere necessario pianificare un'attività settimanale per pulire i file di log vecchi.
+* Manutenzione di file, ad esempio aggregazione o pulizia di file di log. Potrebbe essere necessario combinare file di log creati da più siti o in periodi di tempo diversi per eseguire processi di analisi. O potrebbe essere necessario pianificare un'attività settimanale per pulire i file di log vecchi.
 
 * Ingresso alle tabelle di Azure. È probabile che siano stati archiviati file e BLOB da analizzare per poi archiviare i dati nelle tabelle. La funzione di ingresso potrebbe scrivere molte righe (milioni, in alcuni casi) e WebJobs SDK rende possibile implementare facilmente questa funzionalità. L'SDK fornisce anche il monitoraggio in tempo reale degli indicatori di stato come il numero di righe scritte nella tabella.
 
-* Altre attività con esecuzione prolungata da eseguire in un thread in background, ad esempio l'[invio di e-mail](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
+* Altre attività con esecuzione prolungata da eseguire in un thread in background, ad esempio l'[invio di messaggi di posta elettronica](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure).
 
 ## <a id="code"></a> Esempi di codice
 
-Il codice per gestire le attività tipiche che usano l'archiviazione di Azure è semplice. In un'applicazione console scrivere i metodi per le attività in background da eseguire e decorarli con attributi da WebJobs SDK. Il metodo  `Main` crea un oggetto  `JobHost` che coordina le chiamate ai metodi scritti. Il framework WebJobs SDK sa quando chiamare i metodi in base agli attributi di WebJobs SDK usati. 
+Il codice per gestire le attività tipiche che usano l'archiviazione di Azure è semplice. In un'applicazione console scrivere i metodi per le attività in background da eseguire e decorarli con attributi da WebJobs SDK. Il metodo `Main` crea un oggetto `JobHost` che coordina le chiamate ai metodi scritti. Il framework WebJobs SDK sa quando chiamare i metodi in base agli attributi di WebJobs SDK usati.
 
 Ecco un semplice programma che esegue il polling di una coda e crea un BLOB per ogni messaggio in coda ricevuto:
 
@@ -64,16 +64,16 @@ Ecco un semplice programma che esegue il polling di una coda e crea un BLOB per 
 		    writer.WriteLine(inputText);
 		}
 
-L'oggetto  `JobHost` è un contenitore per un set di funzioni in background. L'oggetto  `JobHost` monitora le funzioni, cerca gli eventi che le attivano ed esegue le funzioni quando si verificano eventi di attivazione. Un metodo  `JobHost` viene chiamato per indicare se eseguire il processo del contenitore nel thread corrente o in un thread in background. Nell'esempio il metodo  `RunAndBlock` esegue il processo ininterrottamente nel thread corrente.
+L'oggetto `JobHost` è un contenitore per un set di funzioni in background. L'oggetto `JobHost` monitora le funzioni, cerca gli eventi che le attivano ed esegue le funzioni quando si verificano eventi di attivazione. Un metodo `JobHost` viene chiamato per indicare se eseguire il processo del contenitore nel thread corrente o in un thread in background. Nell'esempio il metodo `RunAndBlock` esegue il processo ininterrottamente nel thread corrente.
 
-Poiché il metodo  `ProcessQueueMessage` in questo esempio ha un attributo  `QueueTrigger`, il trigger per tale funzione è la ricezione di un nuovo messaggio di coda. L'oggetto  `JobHost` cerca nuovi messaggi nella coda specificata (in questo esempio "webjobsqueue") e, quando ne trova uno, chiama  `ProcessQueueMessage`. L'attributo  `QueueTrigger` notifica anche al framework di associare il parametro  `inputText` al valore del messaggio di coda: 
+Poiché il metodo `ProcessQueueMessage` in questo esempio ha un attributo `QueueTrigger`, il trigger per tale funzione è la ricezione di un nuovo messaggio in coda. L'oggetto `JobHost` cerca nuovi messaggi nella coda specificata (in questo esempio "webjobsqueue") e, quando ne trova uno, chiama `ProcessQueueMessage`. L'attributo `QueueTrigger` notifica anche al framework di associare il parametro `inputText` al valore del messaggio in coda:
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] <mark>string inputText</mark>, 
+<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>, 
     [Blob("containername/blobname")]TextWriter writer)</pre>
 
-Il framework associa anche un oggetto  `TextWriter` a un BLOB denominato "blobname" in un contenitore denominato "containername":
+Il framework associa anche un oggetto `TextWriter` a un BLOB denominato "blobname" in un contenitore denominato "containername":
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]] string inputText, 
+<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
     <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
 
 La funzione usa quindi questi parametri per scrivere il valore del messaggio della coda nel BLOB:
@@ -82,27 +82,27 @@ La funzione usa quindi questi parametri per scrivere il valore del messaggio del
 
 Le funzionalità di trigger e di binder di WebJobs SDK semplificano notevolmente il codice da scrivere per usare l'archiviazione di Azure e le code di Service Bus. Il codice di livello base necessario per gestire l'elaborazione della coda e del BLOB viene compilato automaticamente dal framework WebJobs SDK. Il framework crea code che non esistono ancora, le apre, legge i messaggi delle code, li elimina al termine dell'elaborazione, crea contenitori di BLOB che non esistono ancora, scrive nei BLOB e così via.
 
-WebJobs SDK consente di usare l'archiviazione di Azure in molti modi diversi. Ad esempio, se il parametro con cui si associa l'attributo  `QueueTrigger` è una matrice di byte o un tipo personalizzato, viene automaticamente deserializzato da JSON. È inoltre possibile usare un attributo  `BlobTrigger` per attivare un processo quando viene creato un nuovo BLOB in un account di archiviazione di Azure. Tenere presente che, mentre  `QueueTrigger` trova i nuovi messaggi di coda in pochi secondi,  `BlobTrigger` può impiegare fino a 20 minuti per rilevare un nuovo BLOB.  `BlobTrigger` cerca i BLOB quando  `JobHost` viene avviato e quindi controlla periodicamente i log di archiviazione di Azure per rilevare nuovi BLOB.
+WebJobs SDK consente di usare l'archiviazione di Azure in molti modi diversi. Ad esempio, se il parametro con cui si associa l'attributo `QueueTrigger` è una matrice di byte o un tipo personalizzato, viene automaticamente deserializzato da JSON. È inoltre possibile usare un attributo `BlobTrigger` per attivare un processo quando viene creato un nuovo BLOB in un account di archiviazione di Azure. Tenere presente che, mentre `QueueTrigger` trova i nuovi messaggi in coda in pochi secondi, `BlobTrigger` può impiegare fino a 20 minuti per rilevare un nuovo BLOB. `BlobTrigger` cerca i BLOB quando viene avviato `JobHost` e quindi controlla periodicamente i log di archiviazione di Azure per rilevare nuovi BLOB.
 
-## <a id="workerrole"></a>Usare WebJobs SDK al di fuori dei processi Web
+## <a id="workerrole"></a>Uso di WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK è un'applicazione console standard che può essere eseguita ovunque, non obbligatoriamente come processo Web. È possibile testare il programma a livello locale sul computer di sviluppo e, in fase di produzione, eseguirlo in un ruolo di lavoro del servizio cloud oppure un servizio Windows, se si preferisce uno di questi ambienti. 
+Un programma che usa WebJobs SDK è un'applicazione console standard che può essere eseguita ovunque, non obbligatoriamente come processo Web. È possibile testare il programma a livello locale sul computer di sviluppo e, in fase di produzione, eseguirlo in un ruolo di lavoro del servizio cloud oppure un servizio Windows, se si preferisce uno di questi ambienti.
 
-Tuttavia il dashboard è disponibile solo come estensione per un'app Web di Servizio app di Azure. Per l'esecuzione all'esterno di un processo Web usando comunque il dashboard, è possibile configurare un'app Web in modo da usare lo stesso account di archiviazione a cui fa riferimento la stringa di connessione del dashboard di WebJobs SDK, nel quale verranno quindi visualizzati i dati relativi all'esecuzione della funzione dal programma che viene eseguito altrove. È possibile accedere al dashboard usando l'URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere il post di blog relativo all'[accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un nome meno recente per la stringa di connessione. 
+Tuttavia il dashboard è disponibile solo come estensione per un'app Web di Servizio app di Azure. Per l'esecuzione all'esterno di un processo Web usando comunque il dashboard, è possibile configurare un'app Web in modo da usare lo stesso account di archiviazione a cui fa riferimento la stringa di connessione del dashboard di WebJobs SDK, nel quale verranno quindi visualizzati i dati relativi all'esecuzione della funzione dal programma che viene eseguito altrove. È possibile accedere al dashboard usando l'URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere il post di blog riguardo l'[accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un vecchio nome per la stringa di connessione.
 
-## <a id="nostorage"></a>Usare WebJobs SDK per richiamare una funzione
+## <a id="nostorage"></a>Uso di WebJobs SDK per richiamare una funzione qualsiasi
 
 WebJobs SDK offre diversi vantaggi, anche se non è necessario lavorare direttamente con le code, le tabella o i BLOB di Archiviazione di Azure oppure con le code del bus di servizio:
 
 * È possibile richiamare le funzioni dal dashboard.
 * È possibile riprodurre le funzioni dal dashboard.
-* È possibile visualizzare nel dashboard log collegati al particolare processo Web (registri applicazioni scritti usando Console.Out, Console.Error, Trace e così via) oppure alla particolare chiamata di funzione che li ha generati (log scritti usando l'oggetto  `TextWriter` passato alla funzione come parametro dall'SDK). 
+* È possibile visualizzare nel dashboard i log collegati al particolare processo Web (registri applicazioni scritti usando Console.Out, Console.Error, Trace e così via) oppure alla particolare chiamata di funzione che li ha generati (log scritti usando l'oggetto `TextWriter` passato alla funzione come parametro dall'SDK). 
 
-* Per altre informazioni, vedere gli argomenti relativi a [come richiamare manualmente una funzione](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e [come scrivere log](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). 
+* Per altre informazioni, vedere le sezioni relative a [come chiamare manualmente una funzione](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e [come scrivere i log](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs).
 
 ## <a id="nextsteps"></a>Passaggi successivi
 
-Per altre informazioni su WebJobs SDK, vedere [Risorse per Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Per altre informazioni su WebJobs SDK, vedere le [risorse consigliate per i Processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

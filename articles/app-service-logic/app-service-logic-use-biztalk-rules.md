@@ -109,7 +109,7 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
   1.	Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
   2.	Descrizione: campo facoltativo.
   3.	Tipo: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
-  4.	Tipo di input: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono selezionabili 4 tipi di dati: i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") ii. Booleano: può essere true o false iii. Numero: può essere qualsiasi numero decimale iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM v. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. L'utente può immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando le parole chiave "da" e "a". L'utente può, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per il numero.
+  4.	Tipo di input: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono selezionabili 4 tipi di dati: i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") ii. Booleano: può essere true o false iii. Numero: può essere qualsiasi numero decimale iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM v. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. L'utente può immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando le parole chiave "da" e "a". L'utente può, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per il numero.
 
 ![Alt text][5]
 ##Definizione XML
@@ -135,7 +135,7 @@ Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta l'uten
 ##Concatenamento diretto esplicito
 BizTalk Rules supporta il concatenamento diretto esplicito. Ciò significa che se gli utenti desiderano rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 1. update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione. 2. Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
-##Abilitazione\\disabilitazione di regole
+##Abilitazione\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
 
 ##Priorità delle regole
@@ -200,5 +200,6 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

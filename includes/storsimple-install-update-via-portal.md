@@ -1,23 +1,6 @@
-<properties 
-   pageTitle="Installare l'aggiornamento 1 dal portale di gestione di Azure"
-   description="Viene illustrato come utilizzare il portale di gestione per installare l'aggiornamento 1 della serie 8000 di StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
-
 #### Per installare l'aggiornamento 1 dal portale di gestione
 
-1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Andare a **Dispositivi** \> **Manutenzione**.
+1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Andare a **Dispositivi** > **Manutenzione**.
 
 2. Nella parte inferiore della pagina, fare clic su **Cerca aggiornamenti**. Viene creato un processo che consente di cercare gli aggiornamenti disponibili. L'utente riceve una notifica al termine del processo.
 
@@ -57,8 +40,8 @@
 
 11. Una volta completato l'aggiornamento, andare alla pagina **Manutenzione** e scorrere verso il basso fino a **Aggiornamenti software**.
 
-12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 1.0 della serie 8000 di StorSimple \(6.3.9600.17491\)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**.
+12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 1.0 della serie 8000 di StorSimple (6.3.9600.17491)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**.
 
     ![Pagina di manutenzione](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -12,18 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
 
 Si vogliono effettuare alcune analisi personalizzate sui dati di telemetria? Oppure forse si vuole un messaggio di avviso di posta elettronica relativo a eventi con proprietà specifiche? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.
 
-La funzionalità Esportazione continua è disponibile nel periodo di valutazione gratuita e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
+La funzionalità di esportazione continua è disponibile nel periodo di valutazione gratuito e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Configurare Esportazione continua
+Se si vuole eseguire semplicemente un'[esportazione occasionale](app-insights-metrics-explorer.md#export-to-excel) dei dati visualizzati in un pannello delle metriche o di ricerca, fare clic sul pulsante di esportazione nella parte superiore del pannello.
 
-Nel pannello Panoramica dell'applicazione nel portale di Application Insights, aprire Esportazione continua:
+## <a name="setup"></a> Configurare l'esportazione continua
+
+Nel pannello Panoramica dell'applicazione nel portale di Application Insights aprire Esportazione continua:
 
 ![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
 
@@ -58,15 +60,15 @@ I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazion
 * I risultati dei test Web non sono attualmente inclusi. 
 * È possibile aggiungere dati del percorso che vengono calcolati dall'indirizzo IP del client.  
 
-Le metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati da cui viene calcolata la media.
+Le metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
 ## <a name="get"></a> Esaminare i dati
 
-Quando si apre l'archivio BLOB con uno strumento come [Esplora Server](http://msdn.microsoft.com/library/azure/ff683677.aspx), si noterà un contenitore con un set di file BLOB. L'URI di ogni file è application-id/telemetry-type/date/time.
+Quando si apre l'archivio BLOB con uno strumento come [Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx), si noterà un contenitore con un set di file BLOB. L'URI di ogni file è application-id/telemetry-type/date/time.
 
 ![Controllare l'archivio BLOB con uno strumento adatto](./media/app-insights-export-telemetry/04-data.png)
 
-La data e ora sono UTC e lo sono quando i dati di telemetria sono stati depositati nell'archivio, non l'ora in cui sono stati generati. Di conseguenza, se si scrive codice per scaricare i dati, è possibile spostarlo in modo lineare attraverso i dati.
+La data e ora sono UTC e lo sono quando i dati di telemetria sono stati depositati nell'archivio, non l'ora in cui sono stati generati. Di conseguenza, se si scrive codice per scaricare i dati, può spostarsi in modo lineare attraverso i dati.
 
 
 
@@ -77,7 +79,7 @@ La data e ora sono UTC e lo sono quando i dati di telemetria sono stati deposita
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
 
-Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi valori, ad esempio, mostrano un tempo di 10 ms per inviare una richiesta dal browser, 30 ms per riceverlo e 1,8 s per elaborare la pagina nel browser:
+Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi valori, ad esempio, mostrano un tempo di 10 ms per inviare una richiesta dal browser, 30 ms per riceverla e 1,8 s per elaborare la pagina nel browser:
 
 	"sendRequest": {"value": 10000.0},
 	"receiveRequest": {"value": 30000.0},
@@ -106,19 +108,19 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
       }
     }
 
-Per un esempio di codice più esaustivo, vedere la sezione in cui viene [usato un ruolo di lavoro][exportasa].
+Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
 
-#### Esportare in SQL
+#### Eseguire l'esportazione in SQL
 
 È anche possibile spostare i dati in un database SQL, dove è possibile eseguire analisi più dettagliate.
 
 Gli esempi disponibili illustrano i due metodi alternativi per spostare i dati dall'archivio BLOB a un database:
 
-* [Esportare in SQL usando un ruolo di lavoro][exportcode]
-* [Esportare in SQL usando Analisi dei flussi][exportasa]
+* [Eseguire l'esportazione in SQL usando un ruolo di lavoro][exportcode]
+* [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
 
 
-Su scala più grande valutare i cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
+Su scala più estesa considerare la possibilità di usare cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
 
 ## <a name="delete"></a>Eliminare i vecchi dati
 Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario.
@@ -136,9 +138,9 @@ L'esportazione continua verrà riavviata.
 
 ## Domande e risposte
 
-* *Si intende scaricare un grafico in una sola volta.*  
+* *Si intende scaricare semplicemente un grafico.*  
  
-    Su questo aspetto si sta lavorando separatamente.
+    Questa operazione è consentita. Nella parte superiore del pannello fare clic sul [pulsante di esportazione dati](app-insights-metrics-explorer.md#export-to-excel).
 
 * *È stata impostata un'esportazione, ma non sono presenti dati nell'archivio personale.*
 
@@ -152,7 +154,7 @@ L'esportazione continua verrà riavviata.
 
 * *È possibile eseguire un'esportazione direttamente al negozio locale?*
 
-    No. Il motore di esportazione deve basarsi su un canale aperto in cui inserire i dati.
+    No. Il motore di esportazione attualmente funziona solo con Archiviazione di Azure.
 
 * *Esiste un limite alla quantità di dati da inserire nell'archivio personale?*
 

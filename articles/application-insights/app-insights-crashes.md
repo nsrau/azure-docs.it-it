@@ -21,7 +21,7 @@
 
 Se gli utenti incontrano arresti anomali nell'app, si desidera avere rapidamente informazioni e dettagli su cosa è successo. Con Application Insights è possibile monitorare la frequenza con cui si verificano arresti anomali, ricevere avvisi quando si verificano e analizzare i report di singoli incidenti imprevisti.
 
-"Arresto anomalo" significa che l'applicazione viene terminata a causa di un'eccezione non rilevata. Se l'applicazione rileva un'eccezione, è possibile creare un report con l'[API TrackException][apiexceptions], ma continuare l'esecuzione. In tal caso, non verrà registrata come arresto anomalo.
+"Arresto anomalo" significa che l'applicazione viene terminata a causa di un'eccezione non rilevata. Se l'app rileva un'eccezione, è possibile creare un report con l'[API TrackException][apiexceptions], ma continuare l'esecuzione. In tal caso, non verrà registrata come arresto anomalo.
 
 
 ## Monitorare la frequenza di arresti anomali
@@ -50,7 +50,7 @@ Per individuare le eccezioni che causano arresti anomali, aprire la ricerca diag
 
 ![](./media/app-insights-crashes/appinsights-d26crashExceptions.png)
 
-[Altre informazioni sull'applicazione di filtri nella ricerca diagnostica][diagnostic]
+[Ulteriori informazioni sull'applicazione di filtri nella ricerca diagnostica][diagnostic]
  
 
 Fare clic su qualsiasi eccezione per visualizzarne i dettagli, tra cui le proprietà associate e l'analisi dello stack.
@@ -80,7 +80,7 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 
 [Rilevare, valutare e diagnosticare problemi con Application Insights][detect]
 
-[Application Insights API][api]
+[API Application Insights][api]
 
 
 

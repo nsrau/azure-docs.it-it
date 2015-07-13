@@ -170,9 +170,9 @@
 
 <sup>2</sup>I siti Basic e Standard sono eseguiti in computer dedicati. Il numero di siti effettivo che è possibile ospitare in questi computer dipende dall'attività dei siti, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.
 
-<sup>3</sup>Ad eccezione del livello Free, i limiti per i piani di hosting Web sono in base al gruppo di risorse. Per altre informazioni sulla creazione e la gestione dei gruppi di risorse, vedere [Uso dei gruppi di risorse per la gestione delle risorse di Azure][useresourcegroups].
+<sup>3</sup>Ad eccezione del livello Free, i limiti per i piani di hosting Web sono in base al gruppo di risorse. Per altre informazioni sulla creazione e la gestione di gruppi di risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](../articles/resource-group-overview.md).
 
-<sup>4</sup>Le opzioni per le istanze dedicate sono Piccola, Media o Grande. Vedere [Dettagli dei prezzi di Siti Web][websitespricing] per altri dettagli. Per richiedere istanze aggiuntive aprire una richiesta di supporto.
+<sup>4</sup>Le opzioni per le istanze dedicate sono Piccola, Media o Grande. Vedere [Dettagli dei prezzi di Siti Web](http://azure.microsoft.com/pricing/details/web-sites/) per altri dettagli. Per richiedere istanze aggiuntive aprire una richiesta di supporto.
 
 <sup>5</sup>Tutti i Siti Web condividono le stesse risorse di archiviazione per i contenuti del sito. Quindi il limite di archiviazione corrisponde alla dimensione totale in tutti i siti e si basa sui singoli siti Web. I limiti di archiviazione possono essere aumentati aprendo una richiesta di supporto.
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>Questo valore rappresenta le connessioni Web socket simultanee per ciascuna istanza del sito Web. Ad esempio, se si scala orizzontalmente un sito Web Basic in due istanze, si avranno 700 connessioni simultanee (350 x 2).
 
-<sup>9</sup>Per il livello Basic [si applicano i prezzi SSL standard][sslpricing].
+<sup>9</sup>Per il livello Basic [si applicano i prezzi SSL standard](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione o continuamente come attività in background nell'istanza di Siti Web. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

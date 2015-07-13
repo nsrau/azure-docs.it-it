@@ -18,13 +18,13 @@
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
 
-In questa guida verrà descritto come visualizzare il codice SAML \(Security Assertion Markup Language\) sottostante restituito all'applicazione dal Servizio di controllo di accesso di Azure. Questa guida si basa sull'argomento [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse][] e fornisce codice per la visualizzazione delle informazioni relative a SAML. L'applicazione completata avrà un aspetto analogo al seguente.
+In questa guida verrà descritto come visualizzare il codice SAML (Security Assertion Markup Language) sottostante restituito all'applicazione dal Servizio di controllo di accesso di Azure. Questa guida si basa sull'argomento [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse][] e fornisce codice per la visualizzazione delle informazioni relative a SAML. L'applicazione completata avrà un aspetto analogo al seguente.
 
 ![Esempio di output SAML][saml_output]
 
 Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps).
 
-> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure \(di Microsoft Open Technologies\) è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft Open Technologies, Inc. o Microsoft.
+> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure (di Microsoft Open Technologies) è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft Open Technologies, Inc. o Microsoft.
 
 ## Prerequisiti
 
@@ -128,7 +128,7 @@ Modificare **index.jsp** in modo che usi il codice seguente.
 					                 for (i=0; i < nChild; i++)
 				                     {
 					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
+					                    displaySAMLInfo(temp, parent + nodeName + "\", out);
 				                     }
 				               }
 			              }
@@ -195,4 +195,4 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

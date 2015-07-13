@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitorare le app Web nel servizio app di Azure"
+	pageTitle="Monitoraggio delle app Web in Servizio app di Azure"
 	description="Informazioni su come monitorare App Web nel servizio app di Azure usando il portale di gestione."
 	services="app-service\web"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
 
-[App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
+Il [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
 
 ##<a name="websitemetrics"></a>Procedura: aggiungere metriche dell'app Web
 
@@ -137,7 +137,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 - Posizione in cui verranno salvati i log dell'applicazione, relativi alla radice Web.
 
-- Valore predefinito:.. .. \LogFiles\Application
+- Valore predefinito:.. \.. \LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -254,7 +254,7 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 5.	Immettere l'URL per la parte dell'app Web da monitorare, ad esempio [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive).
 6.	Selezionare una o più posizioni geografiche nell'elenco.
 7.	Facoltativamente, ripetere i passaggi precedenti per creare un secondo endpoint.
-8.	Fare clic su **Salva**. Potrebbero essere necessari alcuni istanti prima che i dati di monitoraggio dell'endpoint Web siano disponibili nelle schede **Dashboard** e **Monitor**.
+8.	Fare clic su **Save**. Potrebbero essere necessari alcuni istanti prima che i dati di monitoraggio dell'endpoint Web siano disponibili nelle schede **Dashboard** e **Monitor**.
 
 	Per creare una regola di posta elettronica, effettuare le operazioni seguenti:
 
@@ -273,11 +273,11 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 
 - [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169

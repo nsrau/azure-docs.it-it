@@ -19,7 +19,7 @@
 
 # Uso di Azure Service Bus Connector nell'app per la logica #
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. 
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
 Azure Service Bus Connector consente di ricevere e inviare messaggi a una coda, un argomento o una sottoscrizione.
 
@@ -30,28 +30,18 @@ Per usare Azure Service Bus Connector, è necessario innanzitutto creare un'ista
 2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "Azure Service Bus Connector".
 3.	Configurare Azure Service Bus Connector come segue:
  
-	![][1]
-	- **Location**: scegliere la località geografica in cui si vuole distribuire il connettore
-	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Web hosting plan**: selezionare o creare un piano di hosting Web
-	- **Pricing tier**: scegliere un piano tariffario per il connettore
-	- **Name**: assegnare un nome a Azure Service Bus Connector
-	- **Impostazioni pacchetto**
-		- **Connection String**: stringa di connessione per il bus di servizio di Azure, ad esempio: Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key]
-		- **Entity Name**: nome della coda o dell'argomento
-		- **Subscription Name**: nome della sottoscrizione da cui ricevere messaggi. 
+	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore - **Impostazioni pacchetto** - **Stringa di connessione**: stringa di connessione del bus di servizio di Azure. Esempio: Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key] - **Nome entità**: nome della coda o dell'argomento - **Nome sottoscrizione**: nome della sottoscrizione da cui ricevere i messaggi.
 
-4.	Fare clic su Create. Verrà creato un nuovo Azure Service Bus Connector.
+4.	Fare clic su Crea. Verrà creato un nuovo Azure Service Bus Connector.
 5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Azure Service Bus Connector. 
 
-## Usare Azure Service Bus Connector nell'app per la logica ##
+## Uso di Azure Service Bus Connector nell'app per la logica ##
 Dopo aver creato l'app per le API, è possibile usare Azure Service Bus Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Azure Service Bus Connector.
  
 	![][2]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  
 	![][3]
 3.	Azure Service Bus Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
@@ -61,15 +51,13 @@ Dopo aver creato l'app per le API, è possibile usare Azure Service Bus Connecto
  
 5.	È ora possibile usare Azure Service Bus Connector nel flusso. È possibile usare il nuovo messaggio recuperato dal trigger di Azure Service Bus ("Message Available") in altre azioni del flusso.
  
-	![][5]
-	![][6] 
+	![][5] ![][6] 
 6.	In modo analogo è possibile usare l'azione di Azure Service Bus "Send Message" per l'invio di messaggi
 
-	![][7]
-	![][8]
+	![][7] ![][8]
 
 
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-azureservicebus/img1.PNG
 [2]: ./media/app-service-logic-connector-azureservicebus/img2.PNG
 [3]: ./media/app-service-logic-connector-azureservicebus/img3.png
@@ -79,5 +67,4 @@ Dopo aver creato l'app per le API, è possibile usare Azure Service Bus Connecto
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

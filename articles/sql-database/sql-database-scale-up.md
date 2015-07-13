@@ -31,6 +31,8 @@ Quando si passa da un livello di servizio a un altro, tenere presente quanto seg
 
 - Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. Per ulteriori informazioni sulla dimensione consentita per ogni livello di servizio, vedere la relativa tabella più avanti in questa sezione.
 
+- Quando si aggiorna un database con la [replica geografica standard](https://msdn.microsoft.com/library/azure/dn758204.aspx) o la [replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741339.aspx) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
+
 - Quando si effettua il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Terminare una relazione di copia continua](https://msdn.microsoft.com/library/azure/dn741323.aspx) per arrestare il processo di replica tra il database primario e i database secondari attivi.
 
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
@@ -87,7 +89,7 @@ Per effettuare il downgrade di un database a un livello di servizio inferiore, u
 
 ### Uso di Azure PowerShell
 1. Utilizzare Set-AzureSqlDatabase per specificare il livello di servizio, il livello di prestazioni e la dimensione massima del database.
-2. Impostare il contesto server utilizzando il cmdlet New-AzureSqlDatabaseServerContext dalla sintassi di esempio illustrata nella sezione Utilizzo dei comandi PowerShell di Azure 
+2. Impostare il contesto server utilizzando il cmdlet New-AzureSqlDatabaseServerContext dalla sintassi di esempio illustrata nella sezione Utilizzo dei comandi PowerShell di Azure
 3. Eseguire le operazioni seguenti:
  - Ottenere un handle per il database.
  - Ottenere un handle per il livello di prestazioni.
@@ -128,7 +130,7 @@ Infatti, i database secondari attivi devono disporre di un livello di prestazion
 3. Selezionare un database dal **relativo** elenco per l'account o per un server specifico. Verranno aperte le pagine relative al **dashboard del database** o di **avvio rapido**.
 5. Selezionare la scheda relativa alla **scalabilità** del database.
 6. Selezionare un **livello di prestazioni** per la relativa opzione
-7. Nella barra dei comandi nella parte inferiore della schermata, fare clic sul pulsante di **salvataggio** 
+7. Nella barra dei comandi nella parte inferiore della schermata, fare clic sul pulsante di **salvataggio**
 
 ###Uso di Azure PowerShell
 1. Utilizzare il cmdlet Set-AzureSqlDatabase per specificare il livello di prestazioni del database.
@@ -225,5 +227,6 @@ Impostare il contesto server con il cmdlet **New-AzureSqlDatabaseServerContext**
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

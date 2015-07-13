@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Risoluzione dei problemi e domande su Application Insights" 
-	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ." 
+	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ai dubbi più comuni." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -19,7 +19,22 @@
 
 ## Si può usare Application Insights con ...?
 
-[Vedere Piattaforme][platforms]
+[Vedere le piattaforme][platforms].
+
+## È gratuito?
+
+* Sì, se si sceglie il [piano tariffario](app-insights-pricing.md) gratuito. In tal modo, è possibile ottenere la maggior parte delle funzionalità e una quota dati soddisfacente. 
+* Per registrarsi in Microsoft Azure è necessario fornire i dati della propria carta di credito, ma verranno addebitati costi solo se si usa un altro servizio di Azure a pagamento o si effettua esplicitamente l'aggiornamento a un livello non gratuito.
+* Se la propria app invia una quantità di dati superiore a quella consentita dalla quota mensile, la registrazione si interrompe. In tal caso, è possibile scegliere di pagare o attendere che la quota venga reimpostata alla fine del mese.
+* I dati relativi alla sessione e all'utilizzo di base non sono soggetti a una quota.
+* È anche previsto un periodo di valutazione gratuita di 30 giorni durante il quale è possibile usufruire delle funzionalità Premium senza alcun addebito.
+* A ogni risorsa dell'applicazione è associata una quota separata ed è possibile impostare il relativo piano tariffario in modo indipendente rispetto alle altre.
+
+#### Quali vantaggi si ottengono a pagamento?
+
+* [Quota dati mensile](http://azure.microsoft.com/pricing/details/application-insights/) più elevata.
+* Possibilità di pagare l'"eccedenza" per continuare a raccogliere dati se viene superata la quota mensile. Quando i dati superano la quota prevista, l'addebito dei costi avviene per MB.
+* [Esportazione continua](app-insights-export-telemetry.md).
 
 ## Aggiunta dell'SDK
 
@@ -41,7 +56,7 @@ Può succedere se la comunicazione con il portale Application Insights non è ri
 
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa Application Insights o a riusarne una esistente.
+In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente.
 
 
 #### <a name="q14"></a>Quali modifiche apporta Application Insights al progetto?
@@ -101,9 +116,14 @@ A tale scopo, effettuare l'operazione seguente:
 4. Salvare il file.
 5. Fare clic con il pulsante destro del mouse sul progetto e scegliere Ricarica *nomeprogetto.csproj*
 
+## In che modo è possibile effettuare l'aggiornamento da versioni dell'SDK meno recenti?
+
+Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropriato per il tipo di applicazione.
+
+
 ## Dati non presenti
 
-#### <a name="q03"></a>Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.
+#### <a name="q03"></a>Dopo aver aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.
 
 + Nella pagina Panoramica, fare clic sul riquadro Ricerca per aprire Ricerca diagnostica. I dati verranno visualizzati prima qui.
 + Fare clic sul pulsante Aggiorna. Nella versione corrente il contenuto di un pannello non viene aggiornato automaticamente.
@@ -183,11 +203,11 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 ## <a name="q17"></a>In Application Insights sono state abilitate tutte le funzionalità?
 
 <table border="1">
-<tr><th>Cosa dovrebbe essere visualizzato</th><th>Come ottenerlo</th><th>Perché si vuole ottenerli</th></tr>
+<tr><th>Elementi che dovrebbero essere visualizzati</th><th>Come ottenerli</th><th>Perché si vuole ottenerli</th></tr>
 <tr><td>Grafici di disponibilità</td><td><a href="../app-insights-monitor-web-app-availability/">Test Web</a></td><td>Stabilire se l'app Web è attiva</td></tr>
 <tr><td>Prestazioni dell'app server: tempi di risposta, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Aggiunta di Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights sul server</a></td><td>Rilevare i problemi di prestazioni</td></tr>
-<tr><td>Telemetria di dipendenza</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights sul server</a></td><td>Diagnosticare i problemi relativi a database o altri componenti esterni</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Aggiungere Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Rilevare i problemi di prestazioni</td></tr>
+<tr><td>Telemetria di dipendenza</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Diagnosticare i problemi relativi a database o altri componenti esterni</td></tr>
 <tr><td>Ricavare analisi dello stack dalle eccezioni</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserire chiamate TrackException nel codice</a> (ma alcune sono segnalate automaticamente)</td><td>Rilevare e diagnosticare le eccezioni</td></tr>
 <tr><td>Eseguire la ricerca di tracce dei log</td><td><a href="../app-insights-search-diagnostic-logs/">Aggiungere un adattatore di registrazione</a></td><td>Diagnosticare le eccezioni, problemi di prestazioni</td></tr>
 <tr><td>Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Inizializzatore JavaScript nelle pagine Web</a></td><td>Analisi dell'utilizzo</td></tr>
@@ -197,6 +217,9 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
 Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [ottenere la diagnostica][azurediagnostic] in tale posizione.
 
+## Automazione
+
+È possibile [scrivere uno script di PowerShell](app-insights-powershell-script-create-resource.md) per creare una risorsa di Application Insights.
 
 
 <!--Link references-->

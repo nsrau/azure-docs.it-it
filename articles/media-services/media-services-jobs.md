@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
-# Usare i processi di Servizi multimediali di Azure
+#Usare i processi di Servizi multimediali di Azure
 
 Un **processo** contiene i metadati relativi all'elaborazione da eseguire. Ogni **processo** contiene una o più entità **Task** che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Per altre informazioni sulle impostazioni del codificatore, vedere Guide dei decodificatori e Schemi del codificatore.
 
@@ -27,37 +27,37 @@ Questa sezione contiene collegamenti alle attività comuni che vengono svolte du
 >[AZURE.NOTE]Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
 
 
-## Acquisizione del processore di contenuti multimediali
+##Acquisizione del processore di contenuti multimediali
 
-Ottenere il processore di contenuti multimediali con **.NET** o **API REST**.
+Ottenere il processore di contenuti multimediali con **.NET** o **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-## Creazione di processi 
+##Creazione di processi 
 
 Un processo è un'entità contenente i metadati relativi a un set di attività, ad esempio la codifica o l'indicizzazione. Ogni attività esegue in modo atomico un'operazione sugli asset di input. Per un esempio su come creare processi di codifica, vedere:
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
-## Indicizzazione
+##Indicizzazione
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-## Codifica 
+##Codifica 
 
 Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
-## Monitoraggio dello stato di avanzamento dei processi
+##Monitoraggio dello stato di avanzamento dei processi
 
-Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
+Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione di Azure**, **.NET** o **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
-## Collegamenti correlati
+##Collegamenti correlati
 
-[Quote e limitazioni](media-services-quotas-and-limitations.md) - Descrive le quote usate e le limitazioni del codificatore di Servizi multimediali
+[Quote e limitazioni](media-services-quotas-and-limitations.md) – Descrive le quote usate e le limitazioni del codificatore di Servizi multimediali
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

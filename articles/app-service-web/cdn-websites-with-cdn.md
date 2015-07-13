@@ -17,7 +17,7 @@
 	ms.author="cephalin"/>
 
 
-#<a name="intro"></a>Usare la rete CDN di Azure in Azure App Service
+#<a name="intro"></a>Usare la rete CDN di Azure nel servizio app di Azure
 
 Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) può essere integrato con la rete [CDN di Azure](/services/cdn/) per migliorare le funzionalità di scalabilità globali intrinseche in [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), rendendo disponibile il contenuto delle app Web a livello globale da nodi server vicini ai clienti. Per un elenco aggiornato delle località in cui si trovano attualmente i nodi, vedere [qui](http://msdn.microsoft.com/library/azure/gg680302.aspx). In scenari, ad esempio, in cui vengono rese disponibili immagini statiche, questa integrazione può aumentare notevolmente le prestazioni del servizio app per app Web e migliorare significativamente l'esperienza utente dell'app Web in ogni parte del mondo.
 
@@ -67,13 +67,11 @@ In questa sezione verrà distribuito nel servizio app il modello di applicazione
 
 8. Se non è stata creata un'app Web in Azure, è possibile farlo facilmente in Visual Studio. Nella finestra di dialogo **Configura sito Web di Microsoft Azure** verificare che il nome del sito sia univoco. Fare quindi clic su **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro Attività di pubblicazione Web facendo clic su **Pubblica `<app name>`￼ su questo sito adesso**. Fare clic su **Pubblica** per completare il processo.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Dopo il completamento della pubblicazione, l'app Web verrà visualizzata nel browser.
 
@@ -444,7 +442,7 @@ Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qua
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
 
-1. Nel progetto ASP.NE, aprire *App_Start\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
+1. Nel progetto ASP.NET, aprire *App_Start\BundleConfig.cs* a cui è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e sono state apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -491,7 +489,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 4. In *App_Start\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
 
-3. Tornare a `App_Start\BundleConfig.cs` e modificare l'ultima istruzione `bundles.Add` con il seguente codice evidenziato:
+3. Tornare a `App_Start\BundleConfig.cs` e modificare l'ultima istruzione `bundles.Add` con il codice evidenziato seguente:
 	<pre class="prettyprint">
 bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
     <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

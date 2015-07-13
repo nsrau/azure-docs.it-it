@@ -43,7 +43,7 @@ Se l'organizzazione dispone già di un nome di dominio personalizzato, l'amminis
 - Portale di gestione di Azure, portale di Office 365 o portale di Microsoft Intune.
 - Modulo di Azure Active Directory per Windows PowerShell. Per altre informazioni sui cmdlet che è possibile usare a questo scopo, vedere [Gestire i domini](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
-È necessario avere già registrato un nome di dominio e disporre delle credenziali di accesso necessarie per il registrar \(ad esempio, GoDaddy o Register.com\).
+È necessario avere già registrato un nome di dominio e disporre delle credenziali di accesso necessarie per il registrar (ad esempio, GoDaddy o Register.com).
 
 È possibile aggiungere più domini alla directory. Tuttavia, non è possibile aggiungere lo stesso dominio a directory diverse. Pertanto, se, ad esempio, si aggiunge il dominio personalizzato alla directory, non è possibile creare un'altra directory di Azure AD e aggiungervi lo stesso nome di dominio.
 
@@ -68,11 +68,11 @@ Se si prevede di usare la funzionalità Single Sign-On con il servizio cloud, è
         1. Selezionare la casella di controllo **Desidero configurare questo dominio per l'accesso Single Sign-On con il mio servizio Active Directory locale** e quindi fare clic sul pulsante **Aggiungi**.
         2. Dopo che viene visualizzato il messaggio che indica che il dominio è stato aggiunto correttamente ad Azure AD, fare clic sulla freccia per passare alla pagina successiva e quindi seguire le istruzioni nella pagina per configurare il dominio aggiunto per la funzionalità Single Sign-On.
 
-> [AZURE.NOTE]Dopo aver aggiunto il nome di dominio ad Azure AD, è possibile modificare il nome di dominio predefinito per i nuovi indirizzi di posta elettronica. Per altre informazioni, vedere [Come è possibile modificare il nome di dominio principale per gli utenti?](#how-can-i-change-the-primary-domain-name-for-users?) È anche possibile modificare il profilo per un account utente esistente per aggiornare l'indirizzo di posta elettronica \(che è anche l'ID utente\) in modo da usare il nome di dominio personalizzato anziché il dominio onmicrosoft.com.
+> [AZURE.NOTE]Dopo aver aggiunto il nome di dominio ad Azure AD, è possibile modificare il nome di dominio predefinito per i nuovi indirizzi di posta elettronica. Per altre informazioni, vedere [Come è possibile modificare il nome di dominio principale per gli utenti?](#how-can-i-change-the-primary-domain-name-for-users?) È anche possibile modificare il profilo per un account utente esistente per aggiornare l'indirizzo di posta elettronica (che è anche l'ID utente) in modo da usare il nome di dominio personalizzato anziché il dominio onmicrosoft.com.
 
 ### Modificare i record DNS per i servizi cloud
 
-> [AZURE.NOTE]Se si usa Microsoft Intune, non è necessario modificare i record DNS per il servizio cloud Microsoft Intune.
+> [AZURE.NOTE]Se si usa Microsoft Intune, Non è necessario modificare i record DNS per il servizio cloud Microsoft Intune.
 
 Dopo aver aggiunto e verificato il nome di dominio personalizzato, il passaggio successivo consiste nel modificare, presso il registrar o il provider di hosting DNS, i record DNS che indirizzano il traffico al servizio cloud. Azure AD fornisce le informazioni DNS necessarie.
 
@@ -103,7 +103,7 @@ Se si usa Microsoft Intune o il portale degli account di Azure:
 
 1. Nell'elenco di nomi di dominio nella pagina **Domini** trovare il dominio che si sta verificando. Nella colonna **Stato** fare clic su **Fare clic per verificare il dominio**.
 2. Nell'elenco a discesa **Vedere le istruzioni per eseguire questo passaggio con** della pagina **Verifica dominio** scegliere il provider di hosting DNS. Se il provider non viene visualizzato nell'elenco, scegliere **Istruzioni generali**.
-3. Nell'elenco a discesa **Selezionare un metodo di verifica** scegliere **Aggiungi un record TXT \(metodo consigliato\)** o **Aggiungi un record MX \(metodo alternativo\)**.
+3. Nell'elenco a discesa **Selezionare un metodo di verifica** scegliere **Aggiungi un record TXT (metodo consigliato)** o **Aggiungi un record MX (metodo alternativo)**.
 
     Se il provider di hosting DNS consente di creare record TXT, è consigliabile usare un record TXT per la verifica. Perché? I record TXT sono semplici da creare e non rischiano di interferire con il recapito tramite posta elettronica se viene immesso accidentalmente un valore non corretto.
 
@@ -129,10 +129,10 @@ Per istruzioni generali, attenersi alla procedura seguente per l'aggiunta di un 
 1. Accedere al sito Web del registrar e quindi selezionare il dominio da verificare.
 2. Nell'area di gestione DNS per l'account selezionare l'opzione per aggiungere un record TXT o MX per il dominio.
 3. Nella casella **TXT** o **MX** per il dominio digitare quanto segue: @
-4. Nella casella **Nome di dominio completo \(FQDN\)** o **Punta a** digitare o incollare le informazioni relative a **Indirizzo di destinazione o puntamento** registrate nel passaggio precedente.
-5. Per un record TXT, vengono chieste le informazioni relative a **TTL**. Digitare **1** per impostare la durata \(TTL\) su un'ora. 
+4. Nella casella **Nome di dominio completo (FQDN)** o **Punta a** digitare o incollare le informazioni relative a **Indirizzo di destinazione o puntamento** registrate nel passaggio precedente.
+5. Per un record TXT, vengono chieste le informazioni relative a **TTL**. Digitare **1** per impostare la durata (TTL) su un'ora. 
 
-    Per un record MX, viene richiesta una priorità \(o preferenza\). Digitare un numero maggiore rispetto a quello specificato per i record MX esistenti. In questo modo, il nuovo record MX non interferisce con l'inoltro della posta per il dominio. Anziché una priorità, potrebbero venire visualizzate le opzioni seguenti: **Bassa**, **Media**, **Alta**. In questo caso, scegliere **Bassa**.
+    Per un record MX, viene richiesta una priorità (o preferenza). Digitare un numero maggiore rispetto a quello specificato per i record MX esistenti. In questo modo, il nuovo record MX non interferisce con l'inoltro della posta per il dominio. Anziché una priorità, potrebbero venire visualizzate le opzioni seguenti: **Bassa**, **Media**, **Alta**. In questo caso, scegliere **Bassa**.
 
 6. Salvare le modifiche e quindi disconnettersi dal sito Web del registrar.
 
@@ -182,11 +182,11 @@ Se non è possibile rimuovere il nome di dominio, lo stato per il nome di domini
 
 ### Dopo aver apportato modifiche a un dominio, queste non vengono ancora visualizzate.
 
-A causa della modalità di spostamento degli aggiornamenti nel sistema DNS \(Domain Name System\), possono essere necessarie fino a 72 ore prima che le modifiche apportate presso un registrar o un provider di hosting si propaghino completamente in Internet e sia possibile iniziare a usare il nome di dominio con i servizi.
+A causa della modalità di spostamento degli aggiornamenti nel sistema DNS (Domain Name System), possono essere necessarie fino a 72 ore prima che le modifiche apportate presso un registrar o un provider di hosting si propaghino completamente in Internet e sia possibile iniziare a usare il nome di dominio con i servizi.
 
 Inoltre, le modifiche apportate presso il registrar devono essere corrette. Se si torna indietro per correggere un errore, potrebbero essere necessari diversi giorni affinché l'impostazione aggiornata venga visualizzata nel sito portale di servizi cloud.
 
-Il tempo necessario dipende in parte dall'impostazione della durata \(TTL\) specificata per il record DNS che si sta sostituendo o aggiornando. Fino alla scadenza della durata \(TTL\), i server Internet che hanno memorizzato nella cache i dati precedenti non eseguono query sul server dei nomi autorevole per richiedere il nuovo valore.
+Il tempo necessario dipende in parte dall'impostazione della durata (TTL) specificata per il record DNS che si sta sostituendo o aggiornando. Fino alla scadenza della durata (TTL), i server Internet che hanno memorizzato nella cache i dati precedenti non eseguono query sul server dei nomi autorevole per richiedere il nuovo valore.
 
 ### È stato aggiunto e verificato un dominio e i record DNS nel sito del registrar sono stati configurati. Perché i nuovi account di posta elettronica non ricevono ancora la posta? 
 
@@ -211,4 +211,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

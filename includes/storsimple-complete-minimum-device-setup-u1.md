@@ -1,3 +1,4 @@
+
 #### Per completare la configurazione minima del dispositivo StorSimple
 
 1. Selezionare il dispositivo e fare clic su **Avvio rapido**. Fare clic su **Configurazione completa dispositivo** per avviare la configurazione guidata dispositivo.
@@ -23,9 +24,9 @@
 
 5. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta di StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Si ritornerà alla pagina **Avvio rapido** del dispositivo.
 
- \>[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
+ >[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

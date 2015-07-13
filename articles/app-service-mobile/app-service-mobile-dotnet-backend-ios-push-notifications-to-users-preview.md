@@ -3,7 +3,7 @@
 	description="Informazioni su come inviare notifiche push a tutti i dispositivi di un utente specifico."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Inviare notifiche multipiattaforma a un utente specifico
@@ -104,5 +104,6 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [Introduzione all'autenticazione]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [Introduzione alle notifiche push]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

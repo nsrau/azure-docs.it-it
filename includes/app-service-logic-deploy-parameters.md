@@ -2,7 +2,7 @@ Gestione risorse di Azure permette di definire i parametri per i valori da speci
 
 Durante la definizione dei parametri, usare il campo **allowedValues** per specificare i valori che l'utente può fornire durante la distribuzione. Usare il campo **defaultValue** per assegnare un valore al parametro, se non viene specificato alcun valore durante la distribuzione.
 
-Di seguito viene fornita la descrizione di ogni parametro del modello.
+Di seguito è riportata la descrizione di ogni parametro del modello.
 
 ### logicAppName
 
@@ -35,7 +35,7 @@ Piano tariffario dell'app per la logica.
         ]
     }
 
-Il modello definisce i valori consentiti per il parametro (Gratuito, Basic, Standard o Premium) e assegna un valore predefinito (Standard) nel caso in cui non viene specificato alcun valore.
+Il modello definisce i valori consentiti per il parametro (Gratuito, Basic, Standard o Premium) e assegna un valore predefinito (Standard) nel caso in cui non venga specificato alcun valore.
 
 ### svcPlanSize
 
@@ -51,6 +51,6 @@ Dimensioni dell'istanza dell'app.
         ]
     }
 
-Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non viene specificato alcun valore. I valori corrispondono a piccola, media e grande.
+Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non venga specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
 
 <!---HONumber=62-->

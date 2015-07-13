@@ -4,15 +4,10 @@ In qualsiasi momento dopo il provisioning di un database MongoLab, è possibile 
 
 Per accedere all'interfaccia utente di MongoLab, effettuare le operazioni seguenti:
 
-1. Selezionare **Add-ons**.  
-![AddonsButton][button-addons]
-1. Individuare il servizio MongoLab nell'elenco dei componenti aggiuntivi.  
-![MongolabEntry][entry-mongolabaddon]
+1. Selezionare **Add-ons**. ![AddonsButton][button-addons]
+1. Individuare il servizio MongoLab nell'elenco dei componenti aggiuntivi. ![MongolabEntry][entry-mongolabaddon]
 1. Fare clic sul nome del componente aggiuntivo per passare alla relativa pagina.
-1. Fare clic su **Manage**.  
-![ManageButton][button-manage]  
-Verrà aperta una nuova finestra del browser con la home page del database MongoLab:  
-![DbHome][screen-dblanding]
+1. Fare clic su **Manage**. ![ManageButton][button-manage] Verrà aperta una nuova finestra del browser con la home page del database MongoLab: ![DbHome][screen-dblanding]
 
 Da qui sarà possibile selezionare una raccolta specifica ed eseguire il drill-down dei documenti desiderati. Al termine, effettuare la disconnessione.
 
@@ -21,4 +16,4 @@ Da qui sarà possibile selezionare una raccolta specifica ed eseguire il drill-d
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!----HONumber=62-->
+<!---HONumber=62-->

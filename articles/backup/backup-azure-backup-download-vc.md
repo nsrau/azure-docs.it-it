@@ -1,56 +1,56 @@
 <properties
-	pageTitle="Scaricare le credenziali dell'insieme di credenziali in Azure Backup"
-	description="Informazioni su come utilizzare le credenziali dell'insieme di credenziali per l'autenticazione computer con l'archivio di Backup e il servizio di Backup di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Scaricare le credenziali di insieme in Backup di Azure"
+   description="Informazioni sull'uso delle credenziali di insieme per l'autenticazione del computer con l'insieme di credenziali di backup e con il servizio Backup di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
-# Utilizzando le credenziali dell'insieme di credenziali per l'autenticazione con il servizio di Backup di Azure
+# Uso delle credenziali di insieme per l'autenticazione con il servizio Backup di Azure
 
-Il server locale (Windows client o server Windows Server o SCDPM) deve essere autenticato con un archivio di backup prima che è possibile eseguire il backup di dati in Azure. L'autenticazione viene eseguita mediante "archivio credenziali". Il concetto di credenziali dell'insieme di credenziali è simile al concetto di un file "impostazioni di pubblicazione" che viene utilizzato in Azure PowerShell.
+Per poter eseguire il backup dei dati in Azure, è necessario autenticare il server locale (Windows client, Windows Server o server SCDPM) con un insieme di credenziali per il backup. L'autenticazione viene eseguita mediante le "credenziali di insieme". Il concetto di credenziali di insieme è simile al concetto di un file di "impostazioni di pubblicazione" usato in Azure PowerShell.
 
-## Che cos'è il file delle credenziali dell'insieme?
+## Informazioni sul file delle credenziali di insieme
 
-Il file delle credenziali è un certificato generato nel portale per ogni insieme di credenziali di backup. Il portale quindi carica la chiave pubblica per il servizio di controllo di accesso (o ACS). La chiave privata del certificato viene reso disponibile per l'utente come parte del flusso di lavoro fornito come input per il flusso di lavoro di registrazione di computer. Consente di autenticare il computer per l'invio di dati di backup a un insieme di credenziali identificato nel servizio di Backup di Azure.
+Il file delle credenziali di insieme è un certificato generato dal portale per ogni insieme di credenziali per il backup. Il portale carica quindi la chiave pubblica nel Servizio di controllo di accesso (o ACS). La chiave privata del certificato viene resa disponibile per l'utente come parte del flusso di lavoro indicato come input nel flusso di lavoro di registrazione del computer. In questo modo viene eseguita l'autenticazione del computer per l'invio dei dati di backup a un insieme di credenziali identificato nel servizio Backup di Azure.
 
-È importante evidenziare che le credenziali dell'insieme di credenziali viene utilizzata solo durante il flusso di lavoro di registrazione. È responsabilità dell'utente per garantire che il file delle credenziali non venga compromesso. Se si trova nelle mani di qualsiasi utente non autorizzato, il file delle credenziali può essere utilizzato per registrare altre macchine con lo stesso archivio. Tuttavia, come i dati di backup viene crittografati utilizzando una passphrase che appartiene al cliente, dati di backup esistenti non possono essere compromessa. Per attenuare questo problema, le credenziali dell'insieme di credenziali è impostato di scadenza in 48hrs. È possibile scaricare le credenziali dell'insieme di credenziali di un archivio di backup un numero qualsiasi di volte, ma è applicabile solo il file più recente della credenziale insieme di credenziali durante il flusso di lavoro di registrazione.
+È importante evidenziare che le credenziali di insieme vengono usate solo durante il flusso di lavoro di registrazione. È responsabilità dell'utente garantire che il file delle credenziali di insieme non venga danneggiato. Nelle mani di un utente non autorizzato il file delle credenziali di insieme può essere usato per registrare altri computer nello stesso insieme di credenziali. Poiché i dati di backup sono crittografati tramite una passphrase appartenente al cliente, i dati di backup esistenti non possono tuttavia essere compromessi. Per ridurre questo rischio, le credenziali di insieme scadono dopo 48 ore. È possibile scaricare le credenziali di insieme di un insieme di credenziali per il backup un numero illimitato di volte, ma durante la registrazione del flusso di lavoro è applicabile solo il file delle credenziali di insieme più recente.
 
-## Scaricare il file di archivio delle credenziali
+## Scaricare il file delle credenziali di insieme
 
-Il file di archivio delle credenziali viene scaricato tramite un canale protetto dal portale di Azure. Il servizio di Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è persistente nel portale di o il servizio. Utilizzare la procedura seguente per scaricare le credenziali dell'insieme di credenziali in un computer locale.
+Il file delle credenziali di insieme viene scaricato dal portale di Azure tramite un canale sicuro. Il servizio Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è persistente nel portale o nel servizio. Usare la procedura seguente per scaricare le credenziali di insieme in un computer locale.
 
-1.  Accedi al [portale di gestione](https://manage.windowsazure.com/)
-2.  Fare clic su **servizi di ripristino** nel riquadro di spostamento a sinistra e selezionare l'archivio di backup che è stato creato. Fare clic sull'icona del cloud per ottenere la visualizzazione avvio rapido di credenziali per il backup. <br/> ![Visualizzazione rapida][1]
+1.  Accedere al [portale di gestione](https://manage.windowsazure.com/).
+2.  Fare clic su **Servizi di ripristino** nel pannello di navigazione sinistro e selezionare l'insieme di credenziali per il backup creato. Fare clic sull'icona del cloud per visualizzare la vista Avvio rapido dell'insieme di credenziali per il backup. <br/> ![Anteprima][1]
 
-3.  Nella pagina Quick Start fare clic su **credenziali archivio Download**. Il portale genera il file delle credenziali insieme di credenziali che è disponibile per il download. <br/> ![Download][2]
+3.  Nella pagina Avvio rapido fare clic su **Scarica credenziali di insieme**. Il portale genera il file delle credenziali di insieme, che diventa disponibile per il download. <br/> ![Download][2]
 
-4.  Il portale genererà una credenziale di insieme usando una combinazione del nome dell'insieme di credenziali e della data attuale. Fare clic su **salvare** per scaricare le credenziali dell'insieme di credenziali nella cartella download dell'account locale o selezionare Salva con nome dal menu Salva per specificare un percorso per le credenziali dell'insieme di credenziali.
+4.  Il portale genererà una credenziale di insieme usando una combinazione del nome dell'insieme di credenziali e della data attuale. Fare clic su **Salva** per scaricare le credenziali di insieme nella cartella di download dell'account locale o selezionare Salva con nome dal menu Salva per specificare un percorso per le credenziali.
 
 ## Nota
-+ A partire da marzo 2015, utenti non dispongono di un livello di programmazione (ad esempio: PowerShell) modo di scaricare le credenziali dell'insieme di credenziali.
++ A partire da marzo 2015, i clienti non dispongono di una modalità per il download delle credenziali di insieme a livello di codice (ad esempio PowerShell).
 
-+ Assicurarsi che le credenziali dell'insieme di credenziali viene salvato in un percorso accessibile dal computer. Se viene archiviato in un condivisione di file/SMB, controllare le autorizzazioni di accesso.
++ Assicurarsi che le credenziali di insieme vengano salvate in un percorso accessibile dal computer. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 
-+ Il file delle credenziali viene utilizzato solo durante il flusso di lavoro di registrazione.
++ Il file delle credenziali di insieme viene usato solo durante il flusso di lavoro di registrazione.
 
-+ Il file delle credenziali scade dopo 48hrs e può essere scaricato dal portale.
++ Il file delle credenziali di insieme scade dopo 48 ore e può essere scaricato dal portale.
 
-+ Fare riferimento a Azure Backup [domande frequenti su](backup-azure-backup-faq.md) per domande sul flusso di lavoro.
++ Per domande sul flusso di lavoro, fare riferimento alle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

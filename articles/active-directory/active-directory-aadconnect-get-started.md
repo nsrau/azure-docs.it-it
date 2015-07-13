@@ -23,7 +23,7 @@
 </div>
 
 
-La documentazione seguente contiene le informazioni necessarie per iniziare a usare Azure Active Directory Connect. Questa documentazione illustra l'uso dell'installazione rapida di Azure AD Connect. Per informazioni su un'installazione personalizzata vedere [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Per informazioni sull'aggiornamento da DirSync ad Azure AD Connect, vedere [Aggiornamento da DirSync ad Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+La documentazione seguente contiene le informazioni necessarie per iniziare a usare Azure Active Directory Connect. In questa documentazione viene illustrato l'uso dell'installazione rapida di Azure AD Connect. Per informazioni su un'installazione personalizzata vedere [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Per informazioni sull'aggiornamento da DirSync ad Azure AD Connect, vedere [Aggiornamento da DirSync ad Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 ## Scaricare Azure AD Connect
 
@@ -47,23 +47,23 @@ Per le opzioni personalizzate, ad esempio più foreste o l'accesso federato, son
 
 
 ## Installazione rapida di Azure AD Connect
-La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno degli scenari più comuni. In questo caso, Azure AD Connect distribuisce la sincronizzazione con l'opzione di sincronizzazione degli hash delle password. Questo scenario è possibile solo per una singola foresta e permette agli utenti di usare la propria password locale per accedere al cloud. Se si usa Impostazioni rapide, viene automaticamente avviata una sincronizzazione al termine dell'installazione \(anche se è possibile scegliere di non avviarla\). Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.
+La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno degli scenari più comuni. In questo caso, Azure AD Connect distribuisce la sincronizzazione con l'opzione di sincronizzazione degli hash delle password. Questo scenario è possibile solo per una singola foresta e permette agli utenti di usare la propria password locale per accedere al cloud. Se si usa Impostazioni rapide, viene automaticamente avviata una sincronizzazione al termine dell'installazione (anche se è possibile scegliere di non avviarla). Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/welcome.png)</center>
 
-### Per installare Connect di Azure Active Directory con impostazioni rapide
+### Per installare Azure AD Connect utilizzando le impostazioni di rapide
 --------------------------------------------------------------------------------------------
 
 1. Accedere al server in cui si vuole installare Azure AD Connect come amministratore dell'organizzazione. Deve essere il server da impostare come server di sincronizzazione.
 2. Selezionare e fare doppio clic su AzureADConnect.msi.
-3. Nella schermata iniziale selezionare la casella per accettare le condizioni di licenza e fare clic su **Continua**.
+3. Nella schermata iniziale, selezionare la casella che consente di accettare le condizioni di licenza e fare clic su **Continua**.
 4. Nella schermata Impostazioni rapide fare clic su **Usa impostazioni rapide**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/express.png)</center>
-6. Nella schermata Connessione ad Azure AD immettere il nome utente e password di un amministratore globale di Azure per Azure AD. Fare clic su **Avanti**.
-8. Nella schermata Connessione a Servizi di dominio Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Avanti**.
+6. Nella schermata Connessione ad Azure AD immettere il nome utente e password di un amministratore globale di Azure per Azure AD. Fare clic su **Next**.
+8. Nella schermata Connessione a Servizi di dominio di Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Next**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "\*\*Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale\*\*". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
+	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "**Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per **Distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Se non si prevede di avere cassette postali di Exchange nel cloud e in locale, non è necessario selezionare questa opzione.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -90,8 +90,8 @@ Dopo avere installato Azure AD Connect, è possibile verificare se la sincronizz
 <center>![Express Installation](./media/active-directory-aadconnect-get-started/verify.png)</center>
 
 ## Operazioni successive
-Dopo avere installato Azure AD Connect, è possibile fare clic [qui](active-directory-aadconnect-whats-next.md) per procedere con le attività successive all'installazione, ad esempio assegnare agli utenti le licenze di Azure AD Premium o Enterprise Mobility oppure configurando le opzioni aggiuntive.
+Dopo avere installato Azure AD Connect, è possibile fare clic [qui](active-directory-aadconnect-whats-next.md) per procedere con le attività successive all'installazione, ad esempio assegnare agli utenti le licenze di Azure AD Premium o Enterprise Mobility oppure configurare le opzioni aggiuntive.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

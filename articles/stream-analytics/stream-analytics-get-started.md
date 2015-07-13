@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Introduzione all’uso di Analisi dei flussi di Azure: rilevamento di illeciti in tempo reale | Microsoft Azure"
-	description="Informazioni su come utilizzare Analisi dei flussi per creare una soluzione di rilevamento degli illeciti in tempo reale sui dati di telecomunicazione generati."
+	pageTitle="Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale | Microsoft Azure"
+	description="Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale."
+	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -10,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="04/28/2015"
@@ -18,23 +19,26 @@
 
 
 
-# Introduzione all’uso di Analisi dei flussi di Azure: rilevamento di illeciti in tempo reale
+# Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
-Analisi dei flussi di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per altre informazioni, vedere [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md).
+Informazioni su come creare una soluzione end-to-end per il rilevamento di illeciti in tempo reale con Analisi di flusso. Portare gli eventi nell’hub eventi di Azure, scrivere le query di Analisi di flusso per l'aggregazione o l’avviso e inviare i risultati a un sink di output per ottenere informazioni sui dati in tempo reale.
 
-Informazioni su come creare una soluzione end-to-end per il rilevamento di illeciti in tempo reale con Analisi dei flussi. Portare eventi in Hub eventi di Azure, scrivere query di Analisi dei flussi per l'aggregazione o l’avviso e inviare i risultati a un sink di output per ottenere informazioni sui dati in tempo reale.
+Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md).
 
-##Scenario: Telecomunicazioni e illecito relativo alle SIM
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L’azienda desidera ridurre questi dati a una quantità gestibile e ottenere informazioni sull'utilizzo da parte dei clienti nel tempo e nelle diverse aree geografiche. Inoltre, è molto interessata al rilevamento delle frodi riguardanti le SIM per (più chiamate provenienti dalla stessa identità intorno alla stessa ora, ma in luoghi geograficamente diversi) in tempo reale, in modo da poter rispondere facilmente con una notifica ai clienti o l’arresto del servizio. Si tratta di scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard, nei quali viene generata una considerevole quantità di dati di telemetria o sensore e i clienti desiderano effettuarne l'aggregazione o generare avvisi relativi alle anomalie.
+## Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-##Prerequisiti
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: * Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. * Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
+
+In scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard viene generata una considerevole quantità di dati di telemetria o sensore e i clienti desiderano effettuarne l'aggregazione o generare avvisi relativi alle anomalie in tempo reale.
+
+## Prerequisiti
 
 Questo scenario si avvale di un generatore di eventi che si trova su GitHub. Scaricarlo [qui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) e attenersi alla procedura nell’esercitazione per configurare la soluzione.
 
 ## Creare un input hub eventi e un gruppo di consumer
 
-L'applicazione di esempio genererà gli eventi e li invierà a un'istanza di Hub eventi. Gli hub di eventi del bus di servizio sono il metodo preferito di inserimento di eventi per Analisi dei flussi. Ulteriori informazioni sugli hub eventi sono disponibili in [Documentazione relativa al bus di servizio di Azure](/documentation/services/service-bus/).
+L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell’hub eventi per l’elaborazione in tempo reale. Gli hub eventi del bus di servizio sono il metodo preferito di inserimento di eventi per Analisi di flusso. Ulteriori informazioni sugli hub eventi sono disponibili in [Documentazione relativa al bus di servizio di Azure](/documentation/services/service-bus/).
 
 Attenersi alla procedura seguente per creare un hub eventi.
 
@@ -50,7 +54,7 @@ Attenersi alla procedura seguente per creare un hub eventi.
 
 ## Configurare e avviare l'applicazione di generazione di eventi
 
-Microsoft ha fornito un'applicazione client per generare metadati chiamata relativi alle chiamate in ingresso di esempio e ne eseguirà il push all’hub eventi. Attenersi alla procedura seguente per configurare questa applicazione.
+Microsoft ha fornito un'applicazione client per generare i metadati di esempio relativi alle chiamate in ingresso ed eseguirne il push nell’hub eventi. Attenersi alla procedura seguente per configurare questa applicazione.
 
 1.	Scaricare la soluzione TelcoGenerator da [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
 2.	Sostituire i valori Microsoft.ServiceBus.ConnectionString e EventHubName in App.Config con la stringa di connessione hub eventi e il nome.
@@ -63,7 +67,7 @@ Nell'esempio seguente vengono generati 1000 eventi con una probabilità del 20% 
 
     TelcoDataGen.exe 1000 .2 2
 
-Verranno visualizzati i record inviati all'hub eventi. Di seguito sono definiti alcuni campi chiave che verranno utilizzati in questa applicazione:
+Verranno visualizzati i record inviati all'hub eventi. Di seguito sono definiti alcuni campi chiave che verranno utilizzati in questa applicazione di rilevamento di illecito in tempo reale:
 
 | Record | Definizione |
 | ------------- | ------------- |
@@ -75,10 +79,10 @@ Verranno visualizzati i record inviati all'hub eventi. Di seguito sono definiti 
 | CalledIMSI | Codice IMSI (International Mobile Subscriber Identity). Identificatore univoco del destinatario della chiamata |
 
 
-## Creare un processo di analisi dei flussi
-Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile impostare un processo di Analisi dei flussi per analizzare questi eventi in tempo reale.
+## Creare un processo di Analisi di flusso
+Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile impostare un processo di Analisi di flusso per analizzare questi eventi in tempo reale.
 
-### Eseguire il provisioning di un processo di Analisi dei flussi
+### Eseguire il provisioning di un processo di Analisi di flusso
 
 1.	Dal portale di Azure, fare clic su **Nuovo** > **Servizi dati** > **Analisi dei flussi** > **Creazione rapida**.
 2.	Specificare i valori seguenti, quindi fare clic su **Crea processo di Analisi dei flussi**:
@@ -120,7 +124,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 
 ### Specificare una query del processo
 
-Analisi dei flussi supporta un semplice modello di query dichiarative per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://msdn.microsoft.com/library/dn834998.aspx). Questa esercitazione consente di creare e testare diverse query sul flusso di dati chiamata.
+Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni per l’elaborazione in tempo reale. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/dn834998.aspx). Questa esercitazione consente di creare e testare diverse query sul flusso in tempo reale dei dati chiamata.
 
 #### Facoltativo: dati di input di esempio
 Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. Nella procedura seguente viene illustrato come eseguire questa operazione e viene inoltre fornito un esempio di file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) a scopo di test.
@@ -180,9 +184,9 @@ Per confrontare la quantità di chiamate in ingresso per area verrà utilizzata 
 
 	![Risultati della query per Timestamp by](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-### Identificazione di una frode SIM con un self-join
+### Rilevamento di illeciti relativi alla SIM con self-join
 
-Per identificare l'utilizzo potenzialmente illecito osserveremo le chiamate provenienti dallo stesso utente in ma località diverse in meno di 5 secondi. Per cercare questi casi, verrà utilizzata un’operazione [Join](https://msdn.microsoft.com/library/azure/dn835026.aspx) sul flusso di eventi di chiamata.
+Per identificare l'utilizzo potenzialmente illecito osserveremo le chiamate provenienti dallo stesso utente in ma località diverse in meno di 5 secondi. Per cercare questi casi, verrà utilizzata un’operazione [join](https://msdn.microsoft.com/library/azure/dn835026.aspx) sul flusso di eventi di chiamata.
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
@@ -226,23 +230,23 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 	* **FORMATO SERIALIZZATORE EVENTI**: JSON
 	* **CODIFICA** = "UTF8",
 
-6.	Fare clic sul pulsante con il segno di spunta per aggiungere l'origine e per verificare che l’analisi dei flussi possa connettersi all’account di archiviazione.
+6.	Fare clic sul pulsante con il segno di spunta per aggiungere l'origine e per verificare che Analisi di flusso possa connettersi all’account di archiviazione.
 
-## Avviare il processo
+## Avviare il processo per l'elaborazione in tempo reale
 
-Poiché sono stati specificati un processo di input, la query e l'output, a questo punto è possibile avviare il processo di analisi dei flussi.
+Poiché l’input, la query e l'output di un processo sono stati specificati, a questo punto è possibile avviare il processo di Analisi di flusso.
 
 1.	Dal processo **DASHBOARD**, fare clic su **AVVIA** nella parte inferiore della pagina.
 2.	Nella finestra di dialogo visualizzata, selezionare **ORA DI INIZIO PROCESSO**, quindi fare clic sul pulsante del segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
 
-## Visualizzare l’output
+## Visualizzare l'output di rilevamento di illeciti
 
-Utilizzare uno strumento come [Esplora archivi di Azure](https://azurestorageexplorer.codeplex.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare la scrittura degli eventi illeciti nell’output in tempo reale.
+Utilizzare uno strumento di [esplorazione di archiviazione di Azure](https://azurestorageexplorer.codeplex.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) per visualizzare la scrittura degli eventi illeciti nell’output in tempo reale.
 
-![Eventi illeciti visualizzati in tempo reale](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+![Rilevamento di illeciti: eventi illeciti visualizzati in tempo reale](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -251,6 +255,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
+- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

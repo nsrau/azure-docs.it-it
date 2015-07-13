@@ -28,9 +28,9 @@ DNS di Azure è un servizio di hosting per i domini DNS. Per consentire l'esecuz
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio "contoso.com". Un registrar è una società che può fornire nomi di dominio Internet e verificare se il dominio Internet richiesto è disponibile, consentendo all'utente di acquistarlo. Una volta registrato il nome di dominio, si sarà il legittimo proprietario del nome di dominio. Se si ha già un dominio Internet, si userà il registrar corrente per delegare al NS di Azure.
 
->[AZURE.NOTE]Per altre informazioni sul proprietario di un determinato nome di dominio o per acquistare un dominio, vedere le informazioni sui registrar e su come trovare e acquistare un dominio.
+>[AZURE.NOTE]Per altre informazioni sul proprietario di un determinato nome di dominio o su come acquistare un dominio, vedere [Gestione dei domini Internet in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Ad esempio, il dominio "contoso.com" può contenere una serie di record DNS, come "mail.contoso.com" \(per un server di posta elettronica\) e "www.contoso.com" \(per un sito Web\).
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Ad esempio, il dominio "contoso.com" può contenere una serie di record DNS, come "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web).
 
 DNS di Azure consente di ospitare una zona DNS e quindi gestire i record DNS per un dominio in Azure. Tenere presente che DNS di Azure non è un registrar.
 
@@ -51,13 +51,13 @@ Quando un server DNS ricorsivo riceve una query per un record DNS, ad esempio "w
 
 Questa procedura è definita risoluzione del nome DNS. La risoluzione DNS include rigorosamente passaggi aggiuntivi, ad esempio seguire i CNAME, ma non è importante per comprendere il funzionamento della delega DNS.
 
-In che modo una zona padre "punta" ai server dei nomi per una zona figlio? Usando un tipo speciale di record DNS, denominato record NS \(Name Server, server dei nomi\). Ad esempio, la zona radice contiene record NS per "com", mostrando i server dei nomi per la zona "com". A sua volta, la zona "com" contiene record NS per "contoso.com" mostrando i server dei nomi per la zona "'contoso.com". La configurazione di record NS per una zona figlio in una zona padre è definita delega del dominio.
+In che modo una zona padre "punta" ai server dei nomi per una zona figlio? Usando un tipo speciale di record DNS, denominato record NS (Name Server, server dei nomi). Ad esempio, la zona radice contiene record NS per "com", mostrando i server dei nomi per la zona "com". A sua volta, la zona "com" contiene record NS per "contoso.com" mostrando i server dei nomi per la zona "'contoso.com". La configurazione di record NS per una zona figlio in una zona padre è definita delega del dominio.
 
 Il diagramma seguente illustra questo processo:
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Ogni delega include effettivamente due copie dei record NS: una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio; cioè la zona "contoso.com" contiene i record NS per "contoso.com" \(oltre ai record NS contenuti in "com"\). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
+Ogni delega include effettivamente due copie dei record NS: una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio; cioè la zona "contoso.com" contiene i record NS per "contoso.com" (oltre ai record NS contenuti in "com"). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
 
 
 ## Delegare un dominio a DNS di Azure
@@ -66,14 +66,14 @@ Dopo aver creato la zona DNS nel servizio DNS di Azure, è necessario configurar
 
 >[AZURE.NOTE]Non è necessario essere proprietari di un dominio per creare una zona DNS con tale nome di dominio in DNS di Azure, tuttavia è necessario esserlo per configurare la delega in DNS di Azure con il registrar.
 
-Si supponga, ad esempio, che si acquisti il dominio "contoso.com" e si crei una zona con nome "contoso.com" nel servizio DNS di Azure. In qualità di proprietario del dominio, il registrar offrirà l'opzione di configurare gli indirizzi del server dei nomi \(cioè i record NS\) per il dominio. Il registrar archivierà questi record NS nel dominio padre, in questo caso ".com". I clienti di tutto il mondo verranno quindi reindirizzato al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in "contoso.com".
+Si supponga, ad esempio, che si acquisti il dominio "contoso.com" e si crei una zona con nome "contoso.com" nel servizio DNS di Azure. In qualità di proprietario del dominio, il registrar offrirà l'opzione di configurare gli indirizzi del server dei nomi (cioè i record NS) per il dominio. Il registrar archivierà questi record NS nel dominio padre, in questo caso ".com". I clienti di tutto il mondo verranno quindi reindirizzato al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in "contoso.com".
 
 Per configurare la delega, è necessario conoscere i nomi dei server dei nomi per la zona. DNS di Azure alloca i server dei nomi da un pool ogni volta che viene creata una zona e li archivia nei record NS autorevoli che vengono creati automaticamente all'interno della zona. Dunque, per visualizzare i nomi dei server dei nomi, è sufficiente recuperare questi record.
 
-È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue \(il nome del record "\#" viene usato per fare riferimento ai record al vertice della zona\):
+È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona):
 
-	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -89,7 +89,7 @@ In questo esempio, alla zona "contoso.com" sono stati assegnati i server dei nom
 
 Ogni registrar prevede i propri strumenti di gestione DNS per modificare i record del server dei nomi per un dominio. Nella pagina di gestione DNS del registrar, modificare i record NS e sostituirli con quelli creati da DNS di Azure.
 
-Dopo aver completato la delega, è possibile verificare il corretto funzionamento della risoluzione dei nomi usando uno strumento come "nslookup" per eseguire una query sul record SOA per la zona \(che viene creato automaticamente quando viene creata la zona\).
+Dopo aver completato la delega, è possibile verificare il corretto funzionamento della risoluzione dei nomi usando uno strumento come "nslookup" per eseguire una query sul record SOA per la zona (che viene creato automaticamente quando viene creata la zona).
 
 Si noti che non è necessario specificare i server dei nomi DNS di Azure, perché il normale processo di risoluzione DNS troverà i server dei nomi automaticamente se la delega è stata configurata correttamente.
 
@@ -126,7 +126,7 @@ Successivamente, si recupereranno i record NS autorevoli dalla zona figlio:
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-Infine, si crea un set di record NS corrispondente nella zona padre per completare la delega \(si noti che il nome del set di record nella zona padre corrisponde al nome della zona figlio, in questo caso "partner"\):
+Infine, si crea un set di record NS corrispondente nella zona padre per completare la delega (si noti che il nome del set di record nella zona padre corrisponde al nome della zona figlio, in questo caso "partner"):
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
@@ -161,4 +161,4 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

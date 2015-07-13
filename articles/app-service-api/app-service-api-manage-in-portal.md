@@ -82,7 +82,7 @@ I pannelli Gateway e Host gateway condividono la stessa interfaccia utente dei p
 
 Usare il pannello **Host gateway** per tutte le attività da eseguire per le app Web. Per altre informazioni, vedere [Gestire le app Web nel portale](web-sites-manage.md).
 
-## Come spostarsi ai pannelli App per le API e Gateway 
+## <a id="navigate"></a>Come spostarsi ai pannelli App per le API e Gateway 
 
 Per passare al pannello **App per le API** usare la funzionalità Sfoglia nel portale di Azure. Nella home page del portale fare clic su **Sfoglia > App per le API** per visualizzare tutte le app per le API che si possono gestire.
 

@@ -40,13 +40,13 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di POP3 Connector.
 
 	![][2]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
 
 	![][3]
 3.	POP3 Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra. Selezionarlo.
 
 	![][4]
-4.	È possibile trascinare l'app per le API POP3 Connector nell'editor facendo clic su “POP3 Connector”.
+4.	È possibile trascinare l'app per le API POP3 Connector nell'editor facendo clic su "POP3 Connector".
 
 5.	È ora possibile usare POP3 Connector nel flusso. Selezionare il trigger "Get Email" e configurare la frequenza e l'intervallo. È possibile usare il messaggio e-mail recuperato dal trigger di POP3 in altre azioni del flusso.
 		 

@@ -1,28 +1,28 @@
-## How to deploy with PowerShell
+## Come distribuire gruppi di risorse con PowerShell
 
-1. Login to your Azure account.
+1. Accedere al proprio account Azure.
 
           Add-AzureAccount
 
-   After providing your credentials, the command returns information about your account.
+   Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
           Id                             Type       ...
           --                             ----    
           example@contoso.com            User       ...   
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione. 
 
           Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
-3. Switch to the Azure Resource Manager module.
+3. Passare al modulo Gestione risorse di Azure.
 
           Switch-AzureMode AzureResourceManager
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione.
 
         New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
 
-   A summary of the new resource group is returned.
+   Viene restituito un riepilogo del nuovo gruppo di risorse.
 
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -34,24 +34,24 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
+5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario. 
    
-   You have the following options for providing parameter values: 
+   Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
    
-   - Use inline parameters.
+   - Usare i parametri inline.
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-   - Use a parameter object.
+   - Usare un oggetto parametro.
 
             $parameters = @{"<ParameterName>"="<Parameter Value>"}
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
-   - Using a parameter file.
+   - Usare un file di parametri.
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  Quando il gruppo di risorse è stato distribuito, verrà visualizzato un riepilogo della distribuzione.
 
              DeploymentName    : ExampleDeployment
              ResourceGroupName : ExampleResourceGroup
@@ -60,10 +60,12 @@
              Mode              : Incremental
              ...
 
-6. To get information about deployment failures.
+6. Per ottenere informazioni sugli errori di distribuzione.
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
-7. To get detailed information about deployment failures.
+7. Per ottenere informazioni dettagliate sugli errori di distribuzione.
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+
+<!---HONumber=62-->

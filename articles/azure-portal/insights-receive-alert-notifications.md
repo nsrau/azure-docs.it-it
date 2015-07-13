@@ -61,5 +61,6 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 * [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -71,5 +71,6 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 <!--Image references-->
 [1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

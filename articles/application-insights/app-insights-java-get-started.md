@@ -17,7 +17,7 @@
  
 # Introduzione ad Application Insights in un progetto Web Java
 
-*Application Insights è disponibile in anteprima.*
+*Application Insights è disponibile in Anteprima.*
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -79,7 +79,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 
 
-* *Errori di convalida di compilazione o checksum?*
+* *Errori di convalida checksum o compilazione?*
  * Provare a usare una versione specifica, come * `<version>0.9.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Per eseguire l'aggiornamento a un nuovo SDK*
  * Aggiornare le dipendenze del progetto.
@@ -99,7 +99,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
       // or applicationinsights-core for bare API
     }
 
-* *Errori di convalida di compilazione o checksum? Provare a usare una versione specifica, come* `version:'0.9.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).* 
+* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'0.9.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).* 
 * *Per eseguire l'aggiornamento a un nuovo SDK*
  * Aggiornare le dipendenze del progetto.
 

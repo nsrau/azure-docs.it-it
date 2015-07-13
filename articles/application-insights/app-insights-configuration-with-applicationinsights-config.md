@@ -17,16 +17,16 @@
 
 # Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 
-Application Insights SDK è costituito da un numero di moduli. Il modulo di base fornisce l'API di base che invia i dati di telemetria al portale di Application Insights. I moduli aggiuntivi raccolgono i dati dall'applicazione e dal relativo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e impostare i parametri per alcuni di essi.
+Application Insights SDK è costituito da diversi moduli. Il modulo principale fornisce l'API di base che invia i dati di telemetria al portale di Application Insights. I moduli aggiuntivi raccolgono i dati dall'applicazione e dal relativo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e impostare i parametri per alcuni di essi.
 
-Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene automaticamente aggiunto al progetto quando si [installa l'SDK][start]. Viene anche aggiunto a un'app Web da [Status Monitor in un server IIS][redfield] o quando si [seleziona l'estensione Appplication Insights per un sito Web o una macchina virtuale di Azure][azure].
+Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si [installa l'SDK][start]. Viene anche aggiunto a un'app Web da [Status Monitor in un server IIS][redfield] o quando si [seleziona l'estensione Application Insights per un sito Web o una macchina virtuale di Azure][azure].
 
 Non esiste un file equivalente per controllare l'[SDK in una pagina Web][client].
 
 
 ## Moduli di telemetria
 
-Esiste un nodo nel file di configurazione per ciascun modulo. Per disabilitare un modulo, eliminare il nodo o impostarlo come commento.
+Nel file di configurazione è presente un nodo per ogni modulo. Per disabilitare un modulo, eliminare il nodo o impostarlo come commento.
 
 #### Implementation.Tracing.DiagnosticsTelemetryModule
 
@@ -36,7 +36,7 @@ I dati vengono visualizzati in [Ricerca diagnostica][diagnostic].
 
 #### RuntimeTelemetry.RemoteDependencyModule
 
-Raccoglie i dati sulla velocità di risposta dei componenti esterni usati dall'applicazione. Per potere usare questo modulo in un server IIS, è necessario [installare Status Monitor][redfield]. Per usarlo nelle app Web o nelle macchine virtuali di Azure, [selezionare l'estensione Application Insights][azure].
+Raccoglie i dati sulla velocità di risposta dei componenti esterni usati dall'applicazione. Per far funzionare questo modulo in un server IIS, è necessario [installare Status Monitor][redfield]. Per usarlo nelle app Web o nelle macchine virtuali di Azure, [selezionare l'estensione Application Insights][azure].
 
 #### Web.WebApplicationLifecycleModule
 
@@ -44,11 +44,11 @@ Prova a scaricare tutti i buffer in memoria dei dati di telemetria in modo che n
 
 #### Web.RequestTracking.TelemetryModules.WebRequestTrackingTelemetryModule
 
-Conta le richieste che arrivano in un'app Web e misura i tempi di risposta.
+Conta le richieste che arrivano nell'app Web e misura i tempi di risposta.
 
 #### Web.RequestTracking.TelemetryModules.WebExceptionTrackingTelemetryModule
 
-Conta le eccezioni non gestite in un'app Web. Vedere [Errori ed eccezioni][exceptions].
+Conta le eccezioni non gestite nell'app Web. Vedere [Errori ed eccezioni][exceptions].
 
 
 
@@ -62,7 +62,7 @@ Conta le eccezioni non gestite in un'app Web. Vedere [Errori ed eccezioni][excep
 
 Per impostazione predefinita, questo modulo raccoglie una serie di contatori delle prestazioni di Windows. È possibile visualizzare questi contatori quando si apre il pannello Filtri in Esplora metriche.
 
-È possibile monitorare gli altri contatori delle prestazioni, sia i contatori standard di Windows che gli eventuali contatori aggiunti.
+È possibile monitorare altri contatori delle prestazioni, sia i contatori standard di Windows che gli eventuali contatori aggiunti.
       
 Usare la sintassi seguente per raccogliere gli altri contatori delle prestazioni:
       
@@ -72,15 +72,15 @@ Usare la sintassi seguente per raccogliere gli altri contatori delle prestazioni
         ...
       </Counters>
       
-`PerformanceCounter` deve essere `\CategoryName(InstanceName)\CounterName` o `\CategoryName\CounterName`
+`PerformanceCounter` deve essere `\CategoryName(InstanceName)\CounterName` o `\CategoryName\CounterName`.
       
 Se si fornisce l'attributo `ReportAs`, questo verrà usato come nome visualizzato in Application Insights.
 
 Per la creazione di report in Application Insights, i nomi dei contatori devono includere solo lettere, parentesi tonde, barre, trattini, caratteri di sottolineatura, spazi e punti.
 
-Usare ReportAs se il contatore da monitorare contiene caratteri non validi, ad esempio '#' o cifre.
+È necessario usare ReportAs se il contatore da monitorare contiene caratteri non validi, ad esempio '#' o cifre.
       
-Sono supportati i seguenti segnaposto come `InstanceName`:
+I seguenti segnaposto sono supportati come `InstanceName`:
 
     ?APP_WIN32_PROC?? - instance name of the application process  for Win32 counters.
     ??APP_W3SVC_PROC?? - instance name of the application IIS worker process for IIS/ASP.NET counters.
@@ -92,7 +92,7 @@ Questi parametri influiscono sul modo in cui l'SDK per Java deve archiviare e sc
 
 #### MaxTelemetryBufferCapacity
 
-Indica il numero di elementi di telemetria che possono essere archiviati nella risorsa di archiviazione in memoria dell'SDK. Quando viene raggiunto questo numero, il buffer di telemetria viene scaricato, ovvero gli elementi di telemetria vengono inviati al server di Application Insights.
+Indica il numero di elementi di telemetria che possono essere archiviati nella risorsa di archiviazione in memoria dell'SDK. Quando viene raggiunto questo numero, il buffer di telemetria viene scaricato, ovvero gli elementi di telemetria vengono inviati al server Application Insights.
 
 -	Min: 1
 -	Max: 1000
@@ -150,7 +150,7 @@ Questi componenti aggiungono i dati a ogni evento di telemetria inviato ad Appli
 
 #### Web.TelemetryInitializers.WebSyntheticTelemetryInitializer
 
-Questo componente identifica le richieste HTTP che sembrano provenire da robot, quali motori di ricerca e test web. Imposta TelemetryClient.Context.Operation.SyntheticSource.
+Questo componente identifica le richieste HTTP che sembrano provenire da robot, quali motori di ricerca e test Web. Imposta TelemetryClient.Context.Operation.SyntheticSource.
 
 #### Web.TelemetryInitializers.WebOperationNameTelemetryInitializer
 
@@ -160,11 +160,11 @@ Aggiunge un nome di operazione a ogni elemento di telemetria. Per le app Web, co
 
 Consente alla funzionalità di "trovare gli eventi nella stessa richiesta" in [Ricerca diagnostica][diagnostic]. Imposta TelemetryClient.Context.Operation.Id
 
-Aggiunge un ID operazione a ogni elemento di dati inviato ad Application Insights. Per le app Web, con "operazione" si intende una richiesta HTTP. Quindi, ad esempio, la richiesta e tutti gli eventi e le tracce personalizzati che fanno parte dell'elaborazione della richiesta contengono tutti lo stesso ID operazione.
+Aggiunge un ID operazione a ogni elemento di dati inviato ad Application Insights. Per le app Web, un'"operazione" è una richiesta HTTP. Quindi, ad esempio, la richiesta e tutti gli eventi e le tracce personalizzati che fanno parte dell'elaborazione della richiesta contengono tutti lo stesso ID operazione.
 
 #### Web.TelemetryInitializers.WebUserTelemetryInitializer
 
-Aggiunge un ID utente anonimo a tutti gli elementi di telemetria. In questo modo è possibile filtrare solo gli eventi relativi alle attività di un utente nella ricerca diagnostica. Se ad esempio viene segnalata un'eccezione, è possibile tracciare l'operazione che l'utente stava eseguendo.
+Aggiunge un ID utente anonimo a ogni elemento di telemetria. In questo modo è possibile filtrare solo gli eventi relativi alle attività di un utente nella ricerca diagnostica. Se ad esempio viene segnalata un'eccezione, è possibile tracciare l'operazione che l'utente stava eseguendo.
 
 Imposta telemetryClient.Context.User
 
@@ -228,11 +228,11 @@ In alternativa, è possibile scrivere il codice per installare l'inizializzatore
 
 ## InstrumentationKey
 
-Questo parametro determina la risorsa di Application Insights in cui vengono visualizzati i dati. In genere, viene creata una risorsa separata, con una chiave separata, per ognuna delle applicazioni.
+Determina la risorsa di Application Insights in cui vengono visualizzati i dati. In genere, viene creata una risorsa separata, con una chiave separata, per ognuna delle applicazioni.
 
-Se si vuole impostare la chiave in modo dinamico, ad esempio se si vogliono inviare i risultati dall'applicazione a diverse risorse, è possibile omettere la chiave dal file di configurazione e impostarla nel codice.
+Se si vuole impostare la chiave in modo dinamico, ad esempio se si intende inviare i risultati dall'applicazione a diverse risorse, è possibile omettere la chiave dal file di configurazione e impostarla nel codice.
 
-Per impostare la chiave per tutte le istanze di TelemetryClient, tra cui i moduli di telemetria standard, impostare la chiave in TelemetryConfiguration.Active. Eseguire questa operazione in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
+Per impostare la chiave per tutte le istanze di TelemetryClient, inclusi i moduli di telemetria standard, impostare la chiave in TelemetryConfiguration.Active. Eseguire questa operazione in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
 ```C#
 

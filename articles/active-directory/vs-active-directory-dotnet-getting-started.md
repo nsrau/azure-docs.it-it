@@ -1,30 +1,30 @@
 <properties 
-	pageTitle="Introduzione ad Azure Active Directory (progetto .NET)" 
+	pageTitle="Introduzione ad Azure Active Directory (progetti .NET)" 
 	description="Informazioni su come iniziare a usare Azure Active Directory in Visual Studio." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
- 
+  
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
-# Introduzione a Azure Active Directory (progetto .NET)
+# Introduzione ad Azure Active Directory (progetti .NET)
 
 > [AZURE.SELECTOR]
-> - [Guida introduttiva](vs-active-directory-dotnet-getting-started.md)
-> - [Risultati](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Richiesta di autenticazione ai controller di accesso 
 
-A tutti i controller del progetto è stato assegnato l'attributo **Authorize**. Questo attributo richiede l'autenticazione dell'utente prima dell'accesso ai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
+Tutti i controller del progetto sono dotati dell'attributo **Authorize**. Questo attributo richiede l'autenticazione dell'utente prima dell'accesso ai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
  
 #####Aggiunta di controlli SignIn/SignOut 
 
@@ -75,6 +75,6 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
     &lt;/html&gt;
 </PRE>
 
-[Ulteriori informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

@@ -1,16 +1,16 @@
-﻿
 
-1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **Registrazioni**. 
+
+1. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **Registrations**. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
-2. In **Registrazioni** fare clic sulla scheda **Script** e selezionare **Inserisci**.
+2. In **Registrations** fare clic sulla scheda **Script** e selezionare **Insert**.
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-	Viene visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **Registrazioni**.
+	Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **Registrations**.
 
-3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
+3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
 
 		function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registrations');
@@ -28,5 +28,4 @@
 
    Verrà registrato un nuovo script insert, che archivia le informazioni di registrazione nella nuova tabella.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

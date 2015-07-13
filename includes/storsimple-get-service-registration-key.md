@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="Ottenere la chiave di registrazione del servizio."
-   description="Viene illustrato come ottenere la chiave di registrazione utilizzata per registrare tutti i dispositivi StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-
 #### Per ottenere la chiave di registrazione del servizio StorSimple.
 
 1. Nella pagina del **servizio StorSimple Manager**, fare clic sul servizio creato. Verrà visualizzata la pagina **Avvio rapido**. È possibile fare clic sull'icona di avvio rapido ![Icona di avvio rapido di StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) per accedere alla pagina **Avvio rapido** in qualsiasi momento.

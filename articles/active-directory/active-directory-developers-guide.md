@@ -20,7 +20,7 @@
 # Guida per gli sviluppatori di Azure Active Directory
 
 ## Panoramica
-Azure Active Directory è una piattaforma IDMaaS \(Identity Management As A Service, gestione delle identità come servizio\) che offre agli sviluppatori un modo efficace per integrare la gestione delle identità nelle applicazioni. Gli articoli seguenti forniscono panoramiche sull'implementazione e illustrano le funzionalità principali di Azure Active Directory. È consigliabile leggere gli articoli nell'ordine presentato oppure passare alla sezione [Per iniziare](#getting-started) se si è pronti a passare all'azione.
+Azure Active Directory è una piattaforma IDMaaS (Identity Management As A Service, gestione delle identità come servizio) che offre agli sviluppatori un modo efficace per integrare la gestione delle identità nelle applicazioni. Gli articoli seguenti forniscono panoramiche sull'implementazione e illustrano le funzionalità principali di Azure Active Directory. È consigliabile leggere gli articoli nell'ordine presentato oppure passare alla sezione [Per iniziare](#getting-started) se si è pronti a passare all'azione.
 
 
 1. **[I vantaggi dell'integrazione di Azure AD](active-directory-how-to-integrate.md)**: illustra il motivo per cui l'integrazione con Azure Active Directory offre la migliore soluzione per autorizzazione e accesso sicuro.
@@ -61,7 +61,7 @@ Queste esercitazioni sono personalizzate per diverse piattaforme e consentono di
 
 ## Procedure
 
-Questi articoli descrivono come eseguire attività specifiche usando Azure Active Directory \(AD\).
+Questi articoli descrivono come eseguire attività specifiche usando Azure Active Directory (AD).
 
 - [Come ottenere un tenant di Azure AD](active-directory-howto-tenant.md)
 - [Come inserire l'applicazione nella raccolta di applicazioni di Azure AD](active-directory-app-gallery-listing.md)
@@ -103,13 +103,13 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 - **[Informazioni di riferimento sul protocollo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx)**: protocollo WS-Federation 1.2, come indicato nella specifica Web Services Federation versione 1.2.
 
-- **[Attestazioni e token di sicurezza supportati](active-directory-token-and-claims.md)**: guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JTW \(JSON Web Token\).
+- **[Attestazioni e token di sicurezza supportati](active-directory-token-and-claims.md)**: guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JTW (JSON Web Token).
 
 ## Video
 
 ### Build 2015
 
-Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory sono condotte da oratori che lavorano nel team di progettazione e presentano argomenti essenziali come gestione delle identità come servizio \(IDMaaS\), autenticazione, federazione delle identità e Single Sign-On.
+Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory sono condotte da oratori che lavorano nel team di progettazione e presentano argomenti essenziali come gestione delle identità come servizio (IDMaaS), autenticazione, federazione delle identità e Single Sign-On.
 
 - **[Azure Active Directory: gestione delle identità come servizio per le applicazioni moderne](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
 - **[Sviluppare applicazioni Web moderne con Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
@@ -132,4 +132,4 @@ Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory s
 
 - **[Azure AD su Twitter](https://twitter.com/azuread)**: annunci su Azure AD in 140 caratteri o meno.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

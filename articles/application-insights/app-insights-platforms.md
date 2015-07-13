@@ -39,7 +39,7 @@
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [App Web e VM Azure](../insights-perf-analytics.md)
++ [App Web e macchine virtuali di Azure](../insights-perf-analytics.md)
 + [Servizi cloud di Azure](app-insights-cloudservices.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
@@ -51,7 +51,7 @@
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
-+ [Altra](#projects)
++ [Altro](#projects)
 
 
 ## Framework di registrazione

@@ -114,4 +114,4 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=58-->
+<!---HONumber=62-->

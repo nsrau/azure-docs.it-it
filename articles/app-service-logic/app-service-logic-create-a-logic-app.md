@@ -17,7 +17,7 @@
 	ms.author="stepsic"/>
 
 #Creare una nuova app per la logica
-Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica di Servizi app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
+Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
 
 Per usare questo scenario è necessario disporre di:
 
@@ -55,7 +55,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dro
 
 	![Visualizzazione Crea app per le API](./media/app-service-logic-create-a-logic-app/gallery.png)
 
-8. Fare clic su **Create**. L'operazione di provisioning può richiedere uno o due minuti.
+8. Fare clic su **Crea**. L'operazione di provisioning può richiedere uno o due minuti.
 
 9. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
@@ -164,7 +164,7 @@ A questo punto l'app per la logica è operativa. Ogni volta che viene eseguito, 
 
 5. Per disattivare l'app, fare clic su **Disabilita** nella barra dei comandi.
 
-In meno di 5 minuti è stato possibile configurare una semplice app per la logica eseguita nel cloud. Per altre informazioni sull'uso delle funzionalità delle app per la logica, vedere [Usare le funzionalità delle app per la logica]. Per informazioni sulle definizioni stesse dell'app per la logica, vedere [Creare definizioni di app per la logica](app-service-logic-author-definitions.md).
+In meno di 5 minuti è stato possibile configurare una semplice app per la logica eseguita nel cloud. Per altre informazioni sull'uso delle funzionalità delle app per la logica, vedere [Usare le funzionalità delle app per la logica]. Per informazioni sulle definizioni stesse dell'app per la logica, vedere l'articolo relativo alla [creazione di definizioni di app per la logica](app-service-logic-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

@@ -173,7 +173,7 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 
 	**http://localhost:5001/api/Contacts**
 
-	È possibile visualizzare il contenuto di *Contacts.json*. Quando si visualizza il file, il contenuto sarà il seguente:
+	È quindi possibile visualizzare il contenuto di *Contacts.json*. Quando si visualizza il file, il contenuto sarà il seguente:
 
 	![Contenuto json restituito](./media/app-service-create-aspnet-api-app-using-vscode/08-contacts-json.png)
 
@@ -373,7 +373,7 @@ Nel portale è possibile gestire le funzionalità specifiche delle app per le AP
 
 	![Credenziali distribuzione di Azure](./media/app-service-create-aspnet-api-app-using-vscode/16-azure-credentials.png)
 
-7. Nel pannello **Host app per le API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
+7. Nel pannello **Host app API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
 
 8. Copiare l'**URL GIT** che verrà usato più avanti nell'esercitazione.
 
@@ -394,7 +394,7 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 1. Nella barra di spostamento a sinistra di VSCode selezionare l'opzione Git.
 2. Se Git non è già installato, installarlo scegliendo uno dei collegamenti forniti ([Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads)). Se non si ha familiarità con Git, scegliere **git-scm.com** e selezionare l'opzione per usare Git con GitBash dal prompt dei comandi di Windows. 
 3. Dopo l'installazione di Git, riavviare VSCode e selezionare l'opzione Git nella barra a sinistra.
-4. In VSCode Selezionare **Initialize git repository** per accertarsi che l'area di lavoro sia sotto il controllo del codice sorgente di Git. 
+4. In VSCode selezionare **Initialize git repository** per accertarsi che l'area di lavoro sia sotto il controllo del codice sorgente di Git. 
 
 	![Initialize Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
@@ -420,7 +420,7 @@ git remote add azure [URL dell'archivio remoto]
 
 	<pre class="prettyprint">
 git push azure master
-</pre>Verrà richiesto di specificare la password creata in precedenza. **Nota: La password non sarà visibile.**
+</pre>Verrà richiesto di specificare la password creata in precedenza. **Nota: la password non sarà visibile.**
 
 	L'output da questo comando termina con un messaggio che indica che la distribuzione è riuscita:
 

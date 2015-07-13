@@ -16,8 +16,9 @@
 	ms.date="03/05/2015" 
 	ms.author="jtwist"/>
 
-## Modelli di BizTalk e app di logica
+##Modelli di BizTalk e app di logica
 
-### Questa documentazione sarà disponibile a breve.
+###Questa documentazione sarà disponibile a breve.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

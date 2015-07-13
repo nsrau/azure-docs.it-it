@@ -21,7 +21,7 @@ Un asset di connessione di Automazione contiene le informazioni necessarie per l
 
 Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione o vengono creati con l'[API di Automazione di Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Gli unici tipi di connessione disponibili quando si crea una connessione sono i tipi installati nell'account di automazione.
 
->[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e viene archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
+>[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
 
 ## Cmdlet di Windows PowerShell
 
@@ -67,7 +67,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 
 ### Per creare una nuova connessione con Windows PowerShell
 
-Creare una nuova connessione con Windows PowerShell usando il cmdlet [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). Questo cmdlet ha un parametro denominato **ConnectionFieldValues** che prevede una [tabella hash](http://technet.microsoft.com/library/hh847780.aspx) che definisce i valori per ogni proprietà definita dal tipo di connessione.
+Creare una nuova connessione con Windows PowerShell usando il cmdlet [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). Questo cmdlet ha un parametro denominato **ConnectionFieldValues** che prevede una [tabella hash](http://technet.microsoft.com/it-it/library/hh847780.aspx) che definisce i valori per ogni proprietà definita dal tipo di connessione.
 
 
 I comandi di esempio seguenti creano una nuova connessione per [Twilio](http://www.twilio.com), un servizio di telefonia che permette di inviare e ricevere messaggi di testo. Un modulo di integrazione di esempio che include un tipo di connessione Twilio è disponibile nell'area [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8). Questo tipo di connessione definisce le proprietà per il SID dell'account e il token di autorizzazione, necessari per la convalida dell'account quando ci si connette a Twilio. Per il funzionamento corretto del codice di esempio, è necessario [scaricare questo modulo](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) e installarlo nell'account di automazione.
@@ -118,5 +118,6 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 ## Articoli correlati
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Come scalare la codifica
+#Come scalare la codifica
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
-## Informazioni generali
+##Panoramica
 
 Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità di elaborazione dei processi di codifica. È possibile scegliere uno dei seguenti tipi di unità riservata: **Basic**, **Standard** o **Premium**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **Standard** rispetto a quando si usa il tipo **Basic**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](http://azure.microsoft.com/blog/author/milanga).
 
@@ -29,33 +29,33 @@ Oltre al tipo di unità riservata, è possibile specificare il provisioning dell
 
 Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica, seguire questa procedura:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
 
-2. Selezionare la pagina **CODIFICA**. 
+2. Selezionare la pagina **CODIFICA**.
 
-	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere BASIC, STANDARD o PREMIUM. 
+	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere BASIC, STANDARD o PREMIUM.
 
-	Per cambiare il numero di unità riservate per il tipo selezionato, usare il dispositivo di scorrimento **CODIFICA**. 
+	Per cambiare il numero di unità riservate per il tipo selezionato, usare il dispositivo di scorrimento **CODIFICA**.
 	
 	
-	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
+	![Pagina relativa ai processori](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note] I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Pechino, Shanghai.
+	>[Azure.Note]I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Fare clic sul pulsante SALVA per salvare le modifiche apportate.
 
 	Le nuove unità riservate di codifica vengono allocate non appena si fa clic su SALVA.
 
-	>[Azure.Note] Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
+	>[Azure.Note]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
 
-## Quote e limitazioni
+##Quote e limitazioni
 
 Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 
 
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -99,9 +99,9 @@ Per altri input/output, andare alla Parte 2.
 
 ###Power BI
 1.	Fare clic su Rinnova autorizzazione:  
-![graphic35][graphic35]
+* ![graphic35][graphic35]
 * Si otterrà la conferma seguente:  
-![graphic36][graphic36]
+* ![graphic36][graphic36]
 2.	Fare clic sul comando Salva e confermare il salvataggio delle modifiche: ![graphic37][graphic37]
 3.	Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.
 4.	Andare alla Parte 4.
@@ -136,7 +136,7 @@ Si dovrebbe ottenere la conferma seguente:
 	Command(s) completed successfully.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -190,6 +190,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

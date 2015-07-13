@@ -81,7 +81,7 @@ Quando si passa al pannello del gruppo di risorse nel [portale di anteprima di A
 
 ![Diagramma Gruppo di risorse](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### Configurare l'app per le API in modo che richieda l'autenticazione
+### <a id="apiapp"></a>Configurare l'app per le API in modo che richieda l'autenticazione
 
 Per configurare l'app per le API in modo che accetti solo le richieste autenticate, sarà necessario impostarne l'accessibilità su **Pubblico (autenticato)** e configurare il gateway in modo che richieda l'autenticazione a un provider, ad esempio Azure Active Directory, Google o Facebook.
 

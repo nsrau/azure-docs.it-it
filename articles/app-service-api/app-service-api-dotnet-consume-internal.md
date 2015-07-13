@@ -137,7 +137,7 @@ Tuttavia, per aggiungere le intestazioni di autenticazione è necessario acceder
 		    public class ContactNamesController : ApiController
 		    {
 		        [HttpGet]
-		        public async Task<IEnumerable<string> Get()
+		        public async Task<IEnumerable<string>> Get()
 		        {
 		            var names = new List<string>();
 
@@ -226,7 +226,7 @@ App Service SDK dipende dalle definizioni delle API di Swagger per generare le c
 		httpRequest.RequestUri = new Uri("https://{yourapiappurl}/api/contacts");
 		Runtime.FromAppSettings(this.Request).SignHttpRequest(httpRequest);
 		var response = await httpClient.SendAsync(httpRequest); 
-		var contacts2 = await response.Content.ReadAsAsync<List<Contact>();
+		var contacts2 = await response.Content.ReadAsAsync<List<Contact>>();
 		foreach (Contact contact in contacts2)
 		{
 		    names.Add(contact.Name);
@@ -261,5 +261,6 @@ App Service SDK dipende dalle definizioni delle API di Swagger per generare le c
 Questo articolo ha illustrato come usare un'app per le API interna da un client .NET. Per informazioni su come usare le app per le API impostare sui livelli di accesso **Pubblico (anonimo)** e **Pubblico (autenticato)**, vedere [Usare un'app per le API nel servizio app di Azure da un client .NET](app-service-api-dotnet-consume.md).
 
 Per altri esempi di codice per chiamare app per le API dai client .NET, scaricare l'applicazione di esempio [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

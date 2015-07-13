@@ -56,5 +56,6 @@ Al termine del test, l'applicazione può essere inserita nella raccolta di appli
 > Allegare l'icona grande dell'applicazione (file PNG, 215x215 pixel, colore di sfondo a tinta unita):
 >
 > Allegare il logo dell'applicazione (file PNG, 150x122 pixel, colore di sfondo a tinta unita):
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

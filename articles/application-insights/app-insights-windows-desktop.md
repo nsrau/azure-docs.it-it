@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights per servizi e app desktop di Windows" 
-	description="Analizzare l'uso e le prestazioni dell'app per Windows con Application Insights." 
+	description="Analizzare l'uso e le prestazioni dell'app desktop di Windows con Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights su servizi e app desktop di Windows
@@ -33,6 +33,7 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
     ![Fare clic su Nuovo, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
+    La scelta del tipo di applicazione imposta il contenuto del pannello Panoramica e le proprietà disponibili nell'[area di esplorazione delle metriche][metrics].
 
 2.  Eseguire una copia della chiave di strumentazione.
 
@@ -45,11 +46,11 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
 2. Installare il pacchetto di Application Insights SDK.
 
-    ![Selezionare **Online**, **Includi versione preliminare** e cercare "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
-    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     In alternativa è possibile ottenere lo stesso effetto con il codice seguente:
     
@@ -60,7 +61,7 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
 Creare un'`TelemetryClient` istanza e quindi [usarla per inviare dati di telemetria][api].
 
-Usare `TelemetryClient.Flush` per inviare messaggi prima di chiudere l'app (non è consigliato per altri tipi di app).
+Usare `TelemetryClient.Flush()` per inviare messaggi prima di chiudere l'app L’SDK di base utilizza un buffer in memoria. Il metodo flush garantisce che questo buffer venga svuotato e che non si verifichi alcuna perdita di dati all'arresto del processo. (Non è consigliato per altri tipi di app. Gli SDK delle piattaforme implementano questo comportamento automaticamente).
 
 Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
@@ -107,9 +108,10 @@ Usare l'[API di Application Insights][api] per inviare dati di telemetria. Nelle
 
 #### Inizializzatori di contesto
 
-Invece di impostare i dati della sessione in ogni istanza di TelemetryClient, è possibile usare un inizializzatore di contesto:
+Per visualizzare i conteggi di utenti e sessioni, è possibile impostare i valori in ciascuna istanza di `TelemetryClient`. In alternativa, è possibile usare un inizializzatore di contesto per eseguire questa aggiunta per tutti i client:
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@ Invece di impostare i dati della sessione in ogni istanza di TelemetryClient, è
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 

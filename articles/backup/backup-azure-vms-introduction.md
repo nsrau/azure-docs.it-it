@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione al backup virtual machine Azure"
-	description="Un'introduzione al backup di macchine virtuali in Azure tramite il servizio di Backup di Azure"
+	pageTitle="Introduzione al backup delle macchine virtuali di Azure"
+	description="Introduzione al backup delle macchine virtuali di Azure usando il servizio Backup di Azure"
 	services="backup"
 	documentationCenter=""
 	authors="aashishr"
@@ -16,116 +16,116 @@
 	ms.date="05/26/2015"
 	ms.author="aashishr"/>
 
-# Backup della macchina virtuale di Azure - introduzione
+# Backup di macchine virtuali di Azure - Introduzione
 
-In questa sezione viene fornita un'introduzione all'utilizzo di Microsoft Azure Backup per proteggere le macchine virtuali di Azure. Leggendo l'articolo si apprenderà:
+Questa sezione offre un'introduzione all'uso del servizio Backup di Microsoft Azure per la protezione delle macchine virtuali di Azure. Leggendo l'articolo si apprenderà quanto segue:
 
-- Funzionamento di Azure funziona backup macchina virtuale
+- Come viene eseguito il backup di una macchina virtuale di Azure
 - La procedura per eseguire il backup della macchina virtuale di Azure
-- I prerequisiti per ottenere un'esperienza uniforme di backup
+- I prerequisiti per eseguire un backup senza problemi
 - Gli errori tipici rilevati e come gestirli
-- L'elenco di scenari non supportati e come influiscono le modifiche apportate al prodotto
+- L'elenco degli scenari non supportati e come suggerire modifiche al prodotto
 
-Per ulteriori informazioni sulle macchine virtuali di Azure rapidamente, vedere il [documentazione di Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Per altre informazioni sulle macchine virtuali, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## Eseguire il backup perché la macchina virtuale di Azure?
-Il cloud computing consente alle applicazioni di eseguire in un ambiente altamente disponibile e scalabile, per questo motivo Microsoft ha sviluppato le macchine virtuali di Azure. I dati generati da queste macchine virtuali di Azure sono importanti e richiede di backup per motivi di sicurezza. Scenari tipici che richiedono dati da ripristinare dal backup sono:
+## Perché eseguire il backup della macchina virtuale di Azure?
+Il cloud computing consente l'esecuzione delle applicazioni in un ambiente scalabile a disponibilità elevata ed è questo il motivo per cui Microsoft ha sviluppato le macchine virtuali di Azure. I dati generati dalle macchine virtuali di Azure sono importanti ed è necessario eseguirne il backup per motivi di sicurezza. Di seguito sono indicati gli scenari tipici che rendono necessario il ripristino da backup:
 
-- Eliminazione dei file accidentale o intenzionali
-- Danneggiamento della macchina virtuale durante l'aggiornamento patch
-- Eliminazione accidentale o intenzionali dell'intera macchina virtuale
+- Eliminazione di file accidentale o da parte di utenti malintenzionati
+- Danneggiamento della macchina virtuale durante l'aggiornamento di una patch
+- Eliminazione dell'intera macchina virtuale accidentale o da parte di utenti malintenzionati
 
-Dati possono essere eseguiti da queste macchine virtuali in due modi diversi:
+È possibile eseguire il backup dei dati da queste macchine virtuali in due modi diversi:
 
-- Eseguire il backup di singole origini di dati all'interno della macchina virtuale
-- Eseguire il backup intera macchina virtuale
+- Eseguire il backup delle singole origini dati dall'interno della macchina virtuale
+- Eseguire il backup dell'intera macchina virtuale
 
-Eseguire il backup dell'intera macchina virtuale è diffuso poiché è molto più semplice gestire e facilita inoltre facile ripristino del sistema operativo e dell'intera applicazione. Azure Backup può essere utilizzato per backup dei dati nei guest o della macchina virtuale completata.
+L'esecuzione del backup dell'intera macchina virtuale è il metodo più comune perché è molto più semplice da gestire e facilita il completo ripristino dell'applicazione e del sistema operativo. È possibile usare Backup di Azure per eseguire il backup dei dati in-guest o dell'intera macchina virtuale.
 
-I vantaggi aziendali di con Azure Backup per il backup della macchina virtuale sono:
+Di seguito sono elencati i vantaggi per l'azienda derivanti dall'uso del servizio Backup di Azure per il backup delle macchine virtuali:
 
-- Automazione dei flussi di lavoro di backup e ripristino per le macchine virtuali
-- I backup coerenti con l'applicazione per garantire che recuperati dati inizia da uno stato coerenza.
-- Senza tempi di inattività coinvolti durante il backup della macchina virtuale.
-- Windows o le macchine virtuali Linux possono eseguire il backup.
-- Punti di ripristino sono disponibili per il ripristino semplice nell'archivio di Backup di Azure.
-- Automatico eliminazione e garbage collection di punti di ripristino precedenti.
+- Automazione dei flussi di lavoro di backup e ripristino delle macchine virtuali
+- Backup coerenti con l'applicazione per assicurare che i dati ripristinati vengano avviati da uno stato coerente.
+- Nessun tempo di inattività durante il backup della macchina virtuale.
+- Possibilità di eseguire il backup di macchine virtuali Windows o Linux.
+- Disponibilità di punti di ripristino per un facile ripristino nell'insieme di credenziali di Backup di Azure.
+- Eliminazione e garbage collection automatiche dei punti di ripristino precedenti.
 
-## Funzionamento della macchina virtuale di Azure backup
-Per eseguire il backup di una macchina virtuale, è necessario innanzitutto snapshot dei dati a un punto nel tempo. Il servizio di Backup di Azure avvia il processo di backup all'ora pianificata e attiva l'estensione di backup per eseguire uno snapshot. L'estensione per il backup coordinato con il servizio VSS nel guest per ottenere la consistenza e richiama l'API snapshot del blob del servizio di archiviazione di Azure una volta raggiunta la coerenza. Questa operazione viene eseguita per ottenere uno snapshot coerente dei dischi della macchina virtuale senza che sia necessario arrestarlo.
+## Come viene eseguito il backup di una macchina virtuale di Azure?
+Per eseguire il backup di una macchina virtuale è prima necessario acquisire uno snapshot dei dati in un momento specifico. Il servizio Backup di Azure avvia il processo di backup all'ora pianificata e avvia l'estensione per il backup per acquisire uno snapshot. L'estensione per il backup si coordina con il servizio VSS in-guest per assicurare coerenza e, dopo averla ottenuta, richiama l'API snapshot del BLOB del servizio Archiviazione di Azure. Questa operazione viene eseguita per ottenere uno snapshot coerente dei dischi della macchina virtuale senza che sia necessario arrestarla.
 
-Dopo l'esecuzione dell'istantanea, i dati vengono trasferiti dal servizio di Backup di Azure all'archivio di backup. Il servizio si occupa di identificazione e trasferire solo i blocchi che sono stati modificati dall'ultimo backup – rendendo efficiente l'archiviazione dei backup. Quando viene completato il trasferimento dei dati, lo snapshot viene rimosso e viene creato un punto di ripristino. Il punto di ripristino può essere visualizzato nel portale di gestione di Azure.
+Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati all'insieme di credenziali per il backup. Il servizio provvede a identificare e trasferire soltanto i blocchi che sono stati modificati dopo l'ultimo backup, rendendo in questo modo efficiente l'archiviazione dei backup. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino. È possibile visualizzare tale punto di ripristino nel portale di gestione di Azure.
 
-![Architettura di macchina virtuale di Azure backup](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+![Architettura del backup delle macchine virtuali di Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
->[AZURE.NOTE]Per le macchine virtuali Linux, è possibile coerente solo file di backup.
+>[AZURE.NOTE]Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
 
-## Calcolo protetti istanze
-Macchine virtuali di Azure viene eseguito il backup tramite Backup di Azure sarà soggetto a [dei prezzi di Azure Backup](http://azure.microsoft.com/pricing/details/backup/). Il calcolo istanze protetti si basa sul *effettivo* dimensioni della macchina virtuale, che corrisponde alla somma di tutti i dati nella macchina virtuale, escludendo il disco"risorse". Si è *non* fatturato in base alla dimensione massima supportata per ogni disco dati collegato alla macchina virtuale, ma i dati effettivi archiviati nel disco dati. Analogamente, l'effetto di archiviazione di backup si basa sulla quantità di dati archiviati con Azure Backup, che è la somma dei dati effettivi presenti in ogni punto di ripristino.
+## Calcolo delle istanze protette
+Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a fatturazione sulla base dei [prezzi di tale servizio](http://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”. La fatturazione *non* sarà basata sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale, ma sui dati effettivi archiviati nel disco dati. Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviata con Backup di Azure, ovvero sul totale dei dati effettivi presenti in ogni punto di ripristino.
 
-Ad esempio, richiedere una macchina virtuale di dimensioni Standard A2 che dispone di due dischi dati aggiuntivi con una dimensione massima di 1TB. Nella tabella seguente fornisce i dati effettivi archiviati in ognuno di questi dischi:
+Si prenda ad esempio una macchina virtuale di dimensioni A2-Standard dotata di due dischi dati aggiuntivi con capacità massima di 1 TB ciascuno. La tabella seguente indica i dati effettivi archiviati in ciascuno di tali dischi:
 
 |Tipo di disco|Dimensioni massime|Dati effettivi presenti|
 |---------|--------|------|
-| Disco del sistema operativo | 1023GB | 17GB |
-| Disco locale o su disco di risorsa | 135GB | 5GB (non incluso per il backup) |
-| 1 disco dati |	1023GB | 30GB |
-| Disco dati 2 | 1023GB | 0GB |
+| Disco del sistema operativo | 1023 GB | 17 GB |
+| Disco locale/Disco risorse | 135 GB | 5 GB (non incluso per il backup) |
+| Disco dati 1 |	1023 GB | 30 GB |
+| Disco dati 2 | 1023 GB | 0 GB |
 
-Il *effettivo* dimensioni della macchina virtuale in questo caso sono pari a 17 GB + 30 GB + 0 GB = 47 GB. Questo diventa la dimensione di istanza protetto fattura mensile è basata su. Man mano che aumenta la quantità di dati nella macchina virtuale, la dimensione di istanza protetta utilizzata per la fatturazione anche verrà modificato in modo appropriato.
+In questo caso, le dimensioni *effettive* della macchina virtuale sono 17 GB + 30 GB + 0 GB = 47 GB. Queste dimensioni diventano le dimensioni dell'istanza protetta su cui è basata la fattura mensile. Con l'aumentare della quantità di dati presente nella macchina virtuale, le dimensioni dell'istanza protetta usata per la fatturazione cambiano di conseguenza.
 
-La fatturazione non viene avviato fino al completamento del primo backup riuscito. A questo punto verrà avviata la fatturazione per l'archiviazione e le istanze protette. La fatturazione continua finché è presente *qualsiasi backup dei dati archiviati con Azure Backup* per la macchina virtuale. L'operazione Arresta protezione dati non interrompe la fatturazione se vengono mantenuti i dati di backup. La fatturazione per una macchina virtuale specificata verrà sospesi solo se viene arrestata la protezione *e* eventuali dati di backup viene eliminati. Quando non sono disponibili processi di backup attivi (quando viene interrotta la protezione), le dimensioni della macchina virtuale al momento dell'ultimo backup completato diventa la dimensione di istanza protetto fattura mensile è basata su.
+La fatturazione inizia solo dopo il completamento del primo backup corretto. A questo punto inizierà la fatturazione sia per le istanze di archiviazione sia per quelle protette. La fatturazione continua fino a quando per la macchina virtuale sono presenti *dati di backup archiviati con Backup di Azure*. Se i dati di backup vengono mantenuti, l'esecuzione dell'operazione Arresta protezione non interrompe la fatturazione. La fatturazione relativa a una macchina virtuale specificata verrà interrotta solo se la protezione viene arrestata *e* i dati di backup vengono eliminati. Quando non sono presenti processi di backup attivi (quando la protezione è stata interrotta), le dimensioni della macchina virtuale al momento dell'ultimo backup corretto diventano le dimensioni dell'istanza protetta su cui è basata la fattura mensile.
 
 ## Prerequisiti
-### 1. Insieme di credenziali di backup
-Per avviare il backup delle macchine virtuali di Azure, è necessario innanzitutto creare un archivio di backup. L'insieme di credenziali è un'entità che tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali contiene inoltre i criteri di backup che verranno applicati alle macchine virtuali viene eseguito il backup.
+### 1. Insieme di credenziali per il backup
+Per avviare il backup delle macchine virtuali di Azure è prima necessario creare un insieme di credenziali per il backup. L'insieme di credenziali per il backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali contiene inoltre i criteri di backup che verranno applicati alle macchine virtuali di cui viene eseguito il backup.
 
-Nell'immagine seguente vengono illustrate le relazioni tra le varie entità di Backup di Azure: ![Relazione e l'entità di azure Backup](./media/backup-azure-vms-introduction/vault-policy-vm.png)
+La figura seguente mostra le relazioni tra le diverse entità di backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
 
-### Per creare un archivio di backup
+### Per creare un insieme di credenziali per il backup
 
 1. Accedere al [portale di gestione](http://manage.windowsazure.com/).
 
-2. Fare clic su **nuova** > **Data Services** > **servizi di ripristino** > **insieme di credenziali di Backup** > **Quick Create**. Se si dispone di più sottoscrizioni associate all'account aziendale, scegliere la sottoscrizione corretta per associare l'insieme di credenziali di backup. In ogni sottoscrizione di Azure è possibile avere più archivi di backup per organizzare le macchine virtuali protette.
+2. Fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali per il backup** > **Creazione rapida**. Se all'account aziendale sono associate più sottoscrizioni, scegliere quella corretta da associare all'insieme di credenziali per il backup. In ogni sottoscrizione di Azure possono essere presenti più insiemi di credenziali per il backup per organizzare la protezione delle macchine virtuali.
 
-3. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali. Questo deve essere univoco per ogni sottoscrizione.
+3. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. È necessario che il nome sia univoco per ogni sottoscrizione.
 
-4. In **Region** selezionare l'area geografica per l'insieme di credenziali. Si noti che l'insieme di credenziali deve essere nella stessa area le macchine virtuali che si desidera proteggere. Se si dispone di macchine virtuali in diverse aree di creare un insieme di credenziali in ognuno di essi. Non è necessario specificare gli account di archiviazione per archiviare i dati di backup: l'archivio di backup e il servizio di Backup di Azure verrà gestita automaticamente. ![Creare un archivio di backup](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
+4. In **Area** selezionare l'area geografica per l'insieme di credenziali. Si tenga presente che l'insieme di credenziali deve trovarsi nella stessa area geografica delle macchine virtuali che si desidera proteggere. Se si dispone di macchine virtuali situate in aree geografiche differenti, creare un insieme di credenziali in ciascuna di esse. Per archiviare i dati di backup non è necessario specificare account di archiviazione perché l'insieme di credenziali per il backup e il servizio Backup di Azure gestiranno questa operazione in modo automatico. ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
 
-    >[AZURE.NOTE]Macchina virtuale backup utilizzando il servizio di Backup di Azure è supportato solo in selezionare le aree. Controllare l'elenco di [supportati aree](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando è attualmente supportata, non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+    >[AZURE.NOTE]Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato solo in specifiche aree geografiche. Controllare l'elenco delle [aree geografiche supportate](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 
-5. Fare clic su **creare insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale. ![Creare la notifica popup insieme di credenziali](./media/backup-azure-vms-introduction/creating-vault.png)
+5. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale. ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Un messaggio di conferma che l'insieme di credenziali è stato creato correttamente e verrà elencato nella pagina Servizi di ripristino come attivo. ![Elenco degli archivi di backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
-7. Facendo clic su credenziali per il backup passa per la **Quick Start** pagina, in cui sono visualizzate le istruzioni per il backup di macchine virtuali di Azure. ![Istruzioni backup macchina virtuale nella pagina del Dashboard](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
+7. Se si fa clic sull'insieme di credenziali per il backup, viene visualizzata la pagina **Guida introduttiva** in cui sono riportate le istruzioni per il backup delle macchine virtuali di Azure. ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]Assicurarsi che l'opzione di ridondanza di archiviazione appropriato viene selezionato subito dopo aver creato l'insieme di credenziali. Ulteriori informazioni su [impostazione dell'opzione di ridondanza di archiviazione nell'archivio di backup][vault-storage-redundancy].
+    >[AZURE.NOTE]Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup[vault-archiviazione-ridondanza].
 
 ### 2. Agente di macchine virtuali
-Prima di iniziare a eseguire il backup di macchina virtuale di Azure, assicurarsi che l'agente VM di Azure sia installato correttamente nella macchina virtuale. Per eseguire il backup della macchina virtuale, il servizio di Backup di Azure consente di installare un'estensione per l'agente VM. Poiché l'agente VM è un componente facoltativo nel momento in cui viene creata la macchina virtuale, è necessario verificare che sia selezionata la casella di controllo per l'agente VM prima che venga effettuato il provisioning della macchina virtuale.
+Prima di iniziare ad eseguire il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure (agente VM) sia installato correttamente nella macchina virtuale. Per eseguire il backup della macchina virtuale, il servizio Backup di Azure installa un'estensione nell'agente di macchine virtuali. Poiché al momento della creazione della macchina virtuale l'agente VM è un componente opzionale, è necessario assicurarsi che la relativa casella di controllo sia selezionata prima di eseguire il provisioning della macchina virtuale.
 
-Ulteriori informazioni, vedere il [agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [modalità di installazione](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
->[AZURE.NOTE]Se si intende eseguire la migrazione della macchina virtuale dal Data Center locale a Azure, assicurarsi di scaricare e installare l'agente VM MSI prima l'inizio del processo di migrazione. Questo vale anche per le macchine virtuali protette in Azure con Site Recovery di Azure.
+>[AZURE.NOTE]Se si intende eseguire la migrazione della macchina virtuale dal data center locale a Azure, assicurarsi di scaricare e installare il file con estensione msi dell'agente VM prima di avviare il processo di migrazione. Questo vale anche per le macchine virtuali protette in Azure mediante Azure Site Recovery.
 
 ## Limitazioni durante l'anteprima
 
-- Backup delle macchine virtuali con più di 5 dischi non è supportata.
-- Backup di macchine virtuali tramite archiviazione Premium non è supportato.
-- Backup di macchine virtuali che utilizzano più schede di rete o in una configurazione con carico bilanciato non è supportato.
-- Sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Eliminare prima la macchina virtuale esistente e i dischi associati e quindi ripristinare i dati dal backup.
-- Backup delle macchine virtuali ripristinato utilizzando Azure Site Recovery non è supportata.
-- Tra aree di backup e ripristino non è supportata.
-- Macchina virtuale backup utilizzando il servizio di Backup di Azure è supportato solo in selezionare le aree. Controllare l'elenco di [supportati aree](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando è attualmente supportata, non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
-- Backup della macchina virtuale utilizzando il servizio di Backup di Azure solo è supportata solo per alcune versioni del sistema operativo:
-  - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). Altri porta-del-proprietari-distribuzioni Linux inoltre dovrebbero funzionare fino a quando l'agente VM è disponibile nella macchina virtuale.
-  - **Windows Server**: versioni antecedenti a Windows Server 2008 R2 non sono supportate.
+- Il backup di macchine virtuali con più di 5 dischi non è supportato.
+- Il backup di macchine virtuali con Archiviazione Premium non è supportato.
+- Il backup di macchine virtuali con più NIC (Network Interface Card) o presenti in una configurazione con bilanciamento del carico non è supportato.
+- La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
+- Il backup di macchine virtuali ripristinate mediante Azure Site Recovery non è supportato.
+- L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
+- Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato solo in specifiche aree geografiche. Controllare l'elenco delle [aree geografiche supportate](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+- Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi seguenti:
+  - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
+  - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
 
-Se tutte le funzionalità che si desidera vedere incluso, [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
+Se si desidera includere funzionalità aggiuntive, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
 ## Passaggi successivi
-Per iniziare a utilizzare il backup della macchina virtuale, informazioni su come:
+Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni relative a:
 
 - [Individuare, registrare e proteggere le macchine virtuali](backup-azure-vms.md)
 
@@ -133,4 +133,7 @@ Per iniziare a utilizzare il backup della macchina virtuale, informazioni su com
 
 + Monitorare i processi di backup
 
-<!---HONumber=GIT-SubDir--> 
+
+ 
+
+<!---HONumber=62-->

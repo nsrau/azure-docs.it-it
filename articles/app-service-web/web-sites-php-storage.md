@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un'app Web PHP nel servizio app di Azure tramite Archiviazione di Azure" 
-	description="Questa esercitazione illustra come creare un'app Web PHP nel servizio app di Azure e usare il servizio di archiviazione tabelle di Azure nel back-end." 
+	pageTitle="Creazione di un'app Web PHP in Servizio app di Azure tramite Archiviazione di Azure" 
+	description="Questa esercitazione illustra come creare un'app Web PHP in Servizio app di Azure e usare il servizio di archiviazione tabelle di Azure nel back-end." 
 	services="app-service\web, storage" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tomfitz"/>
 
-# Creare un'app Web PHP nel servizio app di Azure tramite Archiviazione di Azure
+# Creazione di un'app Web PHP in Servizio app di Azure tramite Archiviazione di Azure
 
 Questa esercitazione illustra come creare un'app Web PHP nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e usare il servizio di archiviazione tabelle di Azure nel back-end. A tale scopo, si presuppone che [PHP][install-php] e un server Web siano stati installati nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà di un'app Web PHP in esecuzione in Azure e in grado di accedere al servizio di archiviazione tabelle.
  
@@ -33,7 +33,7 @@ Verrà creata una semplice applicazione Web Tasklist in PHP. Di seguito è ripor
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Installazione delle librerie client di Azure
 
@@ -322,7 +322,7 @@ L'eliminazione di un elemento si ottiene con un'unica chiamata a `deleteItem`. I
 
 Per trasferire i dati dell'account dell'archivio applicazione nel cloud è necessario prima creare un account di archiviazione in Azure e poi passare le corrette informazioni di autenticazione alla classe *Configuration*.
 
-1. Eseguire l'accesso al [portale di Azure][management-portal].
+1. Eseguire l'accesso al [portale Azure][management-portal].
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
@@ -340,7 +340,7 @@ Per trasferire i dati dell'account dell'archivio applicazione nel cloud è neces
 
 Per creare un'app Web di Azure, seguire questa procedura:
 
-1. Eseguire l'accesso al [portale di Azure][management-portal].
+1. Eseguire l'accesso al [portale Azure][management-portal].
 
 2. Creare un'app Web vuota con le istruzioni fornite in [Procedura: Creare un'app Web tramite il portale di Azure](../web-sites-create-deploy.md#createawebsiteportal). Assicurarsi di creare un nuovo [piano del servizio app](azure-web-sites-web-hosting-plans-in-depth-overview) e selezionare il gruppo di risorse creato in precedenza per l'account di archiviazione.
 
@@ -404,7 +404,7 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 3. Passare a **http://[your web app domain]/index.php** per visualizzare le modifiche.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 

@@ -61,8 +61,7 @@ Una volta creata l'app per le API, si può usare il connettore Twitter come trig
 	![][6]
 7.	Analogamente, è possibile usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione corrispondente.
 
-	![][7] 
-	![][8]
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -73,5 +72,6 @@ Una volta creata l'app per le API, si può usare il connettore Twitter come trig
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

@@ -1,21 +1,5 @@
-<properties 
-   pageTitle="Completare la configurazione minima del dispositivo"
-   description="Viene descritto come completare la configurazione minima del dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-### Per completare la configurazione minima del dispositivo StorSimple
+#### Per completare la configurazione minima del dispositivo StorSimple
 
 1. Selezionare il dispositivo e fare clic su **Avvio rapido**. Fare clic su **Configurazione completa dispositivo** per avviare la configurazione guidata dispositivo.
 
@@ -39,4 +23,4 @@
 
  >[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

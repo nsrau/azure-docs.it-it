@@ -34,6 +34,6 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
 
 ## Articoli correlati
-- [Backup di Automazione di Azure](https://msdn.microsoft.com/library/dn643635.aspx)
+- [Backup di Automazione di Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

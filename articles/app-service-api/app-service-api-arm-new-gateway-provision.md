@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app per le API con un nuovo gateway
@@ -22,7 +22,9 @@ Questo argomento illustra come creare un modello di Gestione risorse di Azure ch
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per il modello completo, vedere il [modello di app per le API con un nuovo gateway](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
+Per ulteriori informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Per il modello completo, vedere il [modello di app per le API con un nuovo gateway](../../templates/app-service-api-arm-new-gateway-provision/).
 
 ## Elementi distribuiti
 
@@ -105,7 +107,7 @@ Si noti che **kind** è impostato su **gateway** in modo da indicare al portale 
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",

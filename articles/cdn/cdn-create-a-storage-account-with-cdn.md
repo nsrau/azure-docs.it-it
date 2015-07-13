@@ -51,7 +51,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 5.  Dall'elenco a discesa **Regione/gruppo di affinità** selezionare un'area o un gruppo di affinità per l'account di archiviazione. Selezionare un gruppo di affinità invece di un'area se si vuole che servizi di archiviazione si trovino nello stesso data center con gli altri servizi di Microsoft Azure in uso. Ciò può migliorare le prestazioni e non sono previste spese in uscita.
 
-    **Nota:** per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Microsoft Azure. Per altre informazioni, vedere \[Operazioni sui gruppi di affinità\].
+    **Nota:** per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Microsoft Azure. Per altre informazioni, vedere [Operazioni sui gruppi di affinità].
 
 6. Dall'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione con cui verrà usato l'account di archiviazione.
 7.  Fare clic su **Crea account di archiviazione**. Il completamento del processo di creazione dell'account di archiviazione potrebbe richiedere diversi minuti.
@@ -77,19 +77,19 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 	Il dominio di origine indica l'ubicazione da cui i contenuti vengono memorizzati nella cache dalla rete CDN. Il dominio di origine può essere un account di archiviazione o un servizio cloud. In questo esempio viene usato un account di archiviazione. Il contenuto di archiviazione viene memorizzato nella cache dei server perimetrali in base all'impostazione di controllo della cache specificata dall'utente o dall'euristica predefinita della rete di memorizzazione nella cache. Per altre informazioni, vedere [Come gestire la scadenza del contenuto di BLOB](http://msdn.microsoft.com/library/gg680306.aspx).
 
 
-    > [AZURE.NOTE]la configurazione creata per l'endpoint non sarà disponibile immediatamente. Per la propagazione della registrazione nella rete CDN potrebbero essere necessari fino a 60 minuti. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 \(Richiesta non valida\) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
+    > [AZURE.NOTE]la configurazione creata per l'endpoint non sarà disponibile immediatamente. Per la propagazione della registrazione nella rete CDN potrebbero essere necessari fino a 60 minuti. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 (Richiesta non valida) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
 
 
 ## Passaggio 3: Accedere al contenuto della rete CDN
 
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
 
-http://\<\*SpazioDeiNomiCDN\*\>.vo.msecnd.net/\<\*ContenitorePubblico\*\>/\<\*NomeBLOB\*\>
+http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblico*>/<*NomeBLOB*>
 
 
 ## Passaggio 4: Rimuovere contenuto dalla rete CDN
 
-Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione di contenuti \(rete CDN\) di Azure, è possibile eseguire una delle operazioni seguenti:
+Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione di contenuti (rete CDN) di Azure, è possibile eseguire una delle operazioni seguenti:
 
 -   È possibile rendere privato il contenitore, invece di pubblico. Per ulteriori informazioni, vedere [Limitare l'accesso a contenitori e Blob](http://msdn.microsoft.com/library/dd179354.aspx).
 -   È possibile disabilitare o eliminare l'endpoint della rete CDN usando il portale di gestione.
@@ -121,4 +121,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

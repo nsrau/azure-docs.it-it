@@ -1,74 +1,76 @@
 <properties 
-	pageTitle="Come personalizzare il monitoraggio" 
+	pageTitle="Monitorare le metriche del servizio" 
 	description="Informazioni su come personalizzare i grafici di monitoraggio in Azure." 
-	authors="alancameronwills" 
-	manager="kamrani" 
+	authors="stepsic-microsoft-com" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal"
+documentationCenter=""/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
-	ms.author="awills"/>
+	ms.date="04/28/2015" 
+	ms.author="stepsic"/>
 
-# Personalizzazione del monitoraggio
+# Monitorare le metriche del servizio
 
-Le applicazioni di Azure presentano una serie di metriche che è possibile monitorare e rappresentare in grafici per gli intervalli di tempo di propria scelta.
+Tutti i servizi di Azure tengono traccia delle metriche chiave che consentono di monitorare l'integrità, le prestazioni, la disponibilità e l'utilizzo dei dispositivi. È possibile visualizzare queste metriche nel portale di Azure e usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere al set completo di metriche a livello di codice.
 
-1. Nell'[anteprima del portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, quindi sulla risorsa da monitorare.
-2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, per i siti Web sono presenti Richiesto, Errori, [test Web](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409) [Analisi](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409). Facendo clic sulla parte relativa a **richieste ed errori di oggi** viene visualizzato il pannello **Metrica**.  
-    ![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
-3. Il pannello **Metrica** visualizza i dettagli di metrica selezionati. La parte superiore del pannello riporta un grafico, sotto il quale viene visualizzata una tabella contenente le aggregazioni delle metriche come media, minimo e massimo. Sotto la tabella viene visualizzato un elenco degli avvisi definiti dall'utente, filtrati in base alle metriche riportate nel pannello. In tal modo, in presenza di un gran numero di avvisi, qui è possibile visualizzare solo gli avvisi pertinenti. È sempre possibile visualizzare tutti gli avvisi relativi al sito Web facendo clic su **Regole di avviso** nel pannello **Sito Web**.  
-    ![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
-4. Per personalizzare le metriche da visualizzare, fare clic con il pulsante destro del mouse sul grafico e scegliere **Modifica query**:  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_MetricMenu.png)
-5. Nel pannello Modifica query è possibile effettuare due tipi di azione: modificare l'intervallo di tempo e scegliere una metrica diversa.  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-6. Per apportare cambiamenti all'intervallo di tempo è sufficiente scegliere un intervallo diverso (come **Ora precedente**) e fare clic su **Salva** nella parte inferiore del pannello. Nel portale di gestione è ora possibile scegliere anche **Personalizzato**:  
-    ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
-7. È infatti possibile scegliere qualsiasi periodo di tempo nell'arco delle ultime due settimane, ad esempio visualizzare le due settimane intere o solo un'ora del giorno precedente. Digitare l'orario diverso nella casella di testo.
-8. Sotto l'intervallo di tempo è possibile scegliere un numero qualsiasi di metriche da visualizzare nel grafico. È possibile visualizzare nuove metriche: **Working set della memoria** e **Working set medio della memoria**.
+Per alcuni servizi, potrebbe essere necessario attivare la diagnostica per visualizzare le metriche. Per altri, ad esempio le macchine virtuali, si otterrà un set di metriche di base, ma sarà necessario abilitare le metriche ad alta frequenza del set completo. Per altre informazioni, vedere [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md).
 
-9. Facendo clic su Salva, le modifiche verranno salvate fino all'uscita dal pannello del sito Web. A un accesso successivo al pannello, verranno visualizzate le metriche e l'intervallo di tempo originali.
+## Uso di grafici di monitoraggio 
 
-## Monitoraggio di nuove risorse
+È possibile rappresentare in un grafico qualsiasi metrica in un periodo di tempo scelto.
 
-Nell'anteprima del portale di Azure è ora possibile monitorare anche la metrica delle prestazioni per molte nuove risorse, ad esempio:
-- Piani di hosting Web
-- Cache Redis
-- Account DocumentDB
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia** e quindi su una risorsa che si intende monitorare.
 
-I piani di hosting Web sono più complessi di altre risorse, in quanto rappresentano le prestazioni delle istanze in cui vengono eseguiti i **siti Web**. Per accedere alla metrica del piano di hosting Web, fare clic sull'icona del piano nella sezione di riepilogo del sito Web.
+2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, un'app Web include **Richieste ed errori**, mentre una macchina virtuale includerebbe **Percentuale CPU** e **Lettura e scrittura disco**: ![Filtro di monitoraggio](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
+3. Facendo clic su un grafico qualsiasi viene visualizzato il pannello **Metrica**. Nel pannello, oltre al grafico, c'è una tabella che mostra le aggregazioni delle metriche (ad esempio, valore medio, minimo e massimo per l'intervallo di tempo scelto). Sotto si trovano le regole di avviso per la risorsa. ![Blade delle metriche](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
-Nel filtro **Monitoraggio** è possibile visualizzare un grafico che si comporta come il grafico nel pannello del sito Web, includendo le nuove metriche:
+4. Per personalizzare le righe visualizzate, fare clic sul pulsante **Modifica** nel grafico o sul comando **Modifica grafico** nel pannello Metrica.
 
-- Percentuale di CPU
-- Percentuale memoria
-- Profondità coda HTTP
-- Profondità coda disco
+5. Nel pannello Modifica query è possibile effettuare tre tipi di azione:
+    - Modificare l'intervallo di tempo
+    - Passare dal grafico a barre al grafico a linee
+    - Scegliere metriche diverse ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
+
+6. Per apportare cambiamenti all'intervallo di tempo è sufficiente scegliere un intervallo diverso (come **Past Hour**) e fare clic su **Save** nella parte inferiore del blade. Si può anche scegliere **Personalizzato**, che consente di scegliere un periodo di tempo qualsiasi nelle ultime due settimane. Ad esempio, è possibile visualizzare le due settimane intere o solo un'ora del giorno precedente. Digitare l'orario diverso nella casella di testo. ![Intervallo di tempo personalizzato](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+
+7. Sotto l'intervallo di tempo è possibile scegliere un numero qualsiasi di metriche da visualizzare nel grafico.
+
+8. Quando si fa clic su Salva, verranno salvate le modifiche per quella specifica risorsa. Ad esempio, se si dispone di due macchine virtuali e si modifica un grafico in una, l'altra non ne risentirà.
 
 ## Creazione di grafici affiancati
 
-Grazie alla notevole personalizzazione da parte dell'utente, nel portale di anteprima di Azure è possibile creare grafici affiancati.
+Con la personalizzazione avanzata del portale è possibile aggiungere tutti i grafici che si vuole.
 
-1. Innanzitutto, fare clic con il pulsante destro del mouse sul grafico dal quale si intende iniziare e scegliere **Personalizza**  
-    ![Customize chart](./media/insights-how-to-customize-monitoring/Insights_Customize.png)
-2. Fare quindi clic su **Clona** nel menu **...** per copiare la parte  
-    ![Clone part](./media/insights-how-to-customize-monitoring/Insights_ClonePart.png)
-3. Infine, nella barra degli strumenti nella parte superiore della schermata fare clic su **Fine**. Ora è possibile trattare questa parte come una normale parte delle metriche. Facendo clic con il pulsante destro del mouse e modificando la metrica visualizzata, è possibile visualizzare contemporaneamente due diverse metriche affiancate:  
-    ![Two metrics Side by Side](./media/insights-how-to-customize-monitoring/Insights_SideBySide.png)
+1. Nel menu **...** nella parte superiore del pannello fare clic su **Aggiungi riquadri**: ![Menu Aggiungi](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
+2. Quindi è possibile selezionare un grafico nella **Raccolta** a destra dello schermo: ![Raccolta](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+3. Se la metrica desiderata non è visibile, è sempre possibile aggiungere una delle metriche preimpostate e fare cli su **Modifica** per visualizzare nel grafico la metrica necessaria. 
 
-Si noti che il grafico relativo all'intervallo di tempo e le metriche selezionate verranno reimpostati nel momento in cui si lascia il portale.
+## Monitoraggio delle quote di utilizzo
 
+La maggior parte delle metriche mostrano le tendenze nel tempo, ma alcuni dati, come le quote di utilizzo, sono informazioni temporizzate con una soglia.
 
-<!--HONumber=46--> 
+È inoltre possibile visualizzare le quote di utilizzo nel pannello per le risorse per cui sono previste quote:
 
-<!--HONumber=46--> 
+![Utilizzo](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+
+Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere a livello di codice al set completo di quote di utilizzo.
+
+## Passaggi successivi
+
+* [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che una metrica supera una soglia.
+* [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
+* [Scalare automaticamente il numero di istanze](insights-how-to-scale.md) per assicurarsi che il servizio sia disponibile e reattivo.
+* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* Usare [Application Insights per app JavaScript e pagine Web](../app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
+* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
+
+<!---HONumber=62-->

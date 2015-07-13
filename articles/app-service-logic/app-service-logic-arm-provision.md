@@ -38,7 +38,7 @@ Con questo modello, verrà distribuita un'app per la logica.
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/it-it/status/feed/"
       }
     
 ## Risorse da distribuire

@@ -206,19 +206,19 @@ In questa sezione si disattiverà il Wi-Fi nel simulatore per creare uno scenari
 
 4. Attivare il Wi-Fi nel simulatore iOS, quindi eseguire il movimento di aggiornamento trascinando verso il basso l'elenco di elementi. Verranno visualizzati un indicatore di avanzamento e il testo "Syncing...".
 
-5. Visualizzare nuovamente i dati di TodoItem. Dovrebbero essere visualizzati gli elementi todo nuovi e modificati.
+5. Visualizzare nuovamente i dati di TodoItem. Dovrebbero essere visualizzati gli elementi TodoItems nuovi e modificati.
 
 ## Riepilogo
 
 Per supportare la funzionalità di sincronizzazione offline è stata usata l'interfaccia `MSSyncTable` ed è stato inizializzato `MSClient.syncContext` in un archivio locale. In questo caso l'archivio locale era un database basato su Core Data.
 
-Quando si usa un archivio locale Core Data, è necessario definire svariate tabelle con le [proprietà di sistema corrette][Review the Core Data model].
+Quando si usa un archivio locale Core Data, è necessario definire svariate tabelle con le [proprietà di sistema corrette][Esaminare il modello di Core Data].
 
 Le normali operazioni CRUD per il servizio per app per dispositivi mobili funzionano come se l'app fosse ancora connessa, ma tutte le operazioni si verificano nell'archivio locale.
 
 Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSSyncTable.pullWithQuery` e `MSClient.syncContext.pushWithCompletion`.
 
-*  Per eseguire il push delle modifiche al server, è stata effettuata la chiamata a `Review the Core Data model`. Questo metodo fa parte di `MSSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle:
+*  Per eseguire il push delle modifiche al server, è stata effettuata la chiamata a `Review the Core Data model`. Questo metodo fa parte di `MSSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle.
 
     Solo i record che sono stati in qualche modo modificati localmente (tramite le operazioni CUD) verranno inviati al server.
 
@@ -275,6 +275,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/it-it/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

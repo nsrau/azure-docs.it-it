@@ -48,4 +48,5 @@
         GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 La classe **ToDoActivity** è ora pronta per l'aggiunta di notifiche push.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

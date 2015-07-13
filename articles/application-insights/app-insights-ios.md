@@ -27,7 +27,7 @@ Sono necessari gli elementi seguenti:
 * Xcode 6 o versione successiva.
 * L'SDK viene eseguito nei dispositivi con iOS 6.0 o versione successiva.
 
-## Creare una risorsa Application Insights
+## Creare una risorsa di Application Insights
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'opzione per iOS.
 
@@ -37,7 +37,7 @@ Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo re
 
 ## Scaricare Application Insights per Mac
 
-\(Se non lo si è già fatto\).
+(Se non lo si è già fatto).
 
 1. Scaricare [Application Insights per Mac](http://go.microsoft.com/fwlink/?LinkID=533209)
 
@@ -107,7 +107,7 @@ Dopo avere chiamato `[MSAIApplicationInsights start]`, l'SDK inizierà a tenere 
 
 ## Visualizzare i dati in Application Insights
 
-Tornare a http://portal.azure.com e passare alla risorsa Application Insights.
+Tornare a http://portal.azure.com e passare alla risorsa di Application Insights.
 
 Fare clic su Cerca per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su Aggiorna.
 
@@ -141,4 +141,4 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

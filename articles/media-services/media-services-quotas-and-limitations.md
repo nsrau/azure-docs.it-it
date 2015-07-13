@@ -40,7 +40,7 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 
 - Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset.
 	
-	**Nota**: i localizzatori non sono progettati per gestire il controllo dell'accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM \(Digital Rights Management\).
+	**Nota**: i localizzatori non sono progettati per gestire il controllo dell'accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
 - Non è possibile includere più di 25 account di Servizi multimediali in una singola sottoscrizione.
 
@@ -49,11 +49,11 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 
 	È anche possibile avviare un massimo di cinque canali contemporaneamente. Per richiedere un limite maggiore, vedere la sezione *Come richiedere un limite maggiore per le quote aggiornabili* seguente.
 
-- Per impostazione predefinita, è possibile aggiungere fino a 50 programmi \(con stato arrestato\) a un singolo canale.
+- Per impostazione predefinita, è possibile aggiungere fino a 50 programmi (con stato arrestato) a un singolo canale.
 
 	Possono essere contemporaneamente presenti fino a tre programmi con stato in esecuzione. Per richiedere un limite maggiore, vedere la sezione *Come richiedere un limite maggiore per le quote aggiornabili* seguente.
 
-- Per impostazione predefinita, ogni account di Servizi multimediali può includere fino a due endpoint di streaming \(origini\).
+- Per impostazione predefinita, ogni account di Servizi multimediali può includere fino a due endpoint di streaming (origini).
 
 	Possono essere contemporaneamente presenti fino a due endpoint di streaming con stato in esecuzione.
 
@@ -65,7 +65,7 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 	**Importante**: non creare altri account di Servizi multimediali per aumentare il limite, ma inviare invece un ticket di supporto.
 
 
-- Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile \(503\). Per altre informazioni, vedere la descrizione dell'errore 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+- Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503). Per altre informazioni, vedere la descrizione dell'errore 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
 
 ##<a id="request_higher_limit"></a>Come richiedere un limite maggiore per le quote aggiornabili
 
@@ -73,9 +73,9 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 
 È possibile richiedere l'aggiornamento dei limiti per le seguenti quote aprendo un ticket di supporto. - Unità di codifica
 
-- Canali live \(con stato arrestato e in esecuzione\)
+- Canali live (con stato arrestato e in esecuzione)
  
-- Endpoint di streaming \(con stato arrestato e in esecuzione\)
+- Endpoint di streaming (con stato arrestato e in esecuzione)
  
 - Unità di streaming
 
@@ -102,4 +102,4 @@ Per aprire un ticket di supporto, seguire questa procedura:
 1. Fare clic su Invia per aprire il ticket.
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

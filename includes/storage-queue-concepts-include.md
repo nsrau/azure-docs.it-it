@@ -18,12 +18,10 @@ Il servizio di accodamento contiene i componenti seguenti:
       
 L'URL seguente fa riferimento a una delle code nel diagramma: http://myaccount.queue.core.windows.net/imagesToDownload
 
-- **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md).
+-**Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md).
 
 - **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda.
 
 - **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

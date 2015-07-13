@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connessione a input e output | Azure" 
-	description="Informazioni su come effettuare la connessione e configurare le origini di input e gli output di destinazione per le soluzioni di analisi del flusso." 
+	pageTitle="Connessione a input e output | Microsoft Azure" 
+	description="Informazioni su come effettuare la connessione e configurare le origini di input e le destinazioni di output per le soluzioni di analisi del flusso." 
 	documentationCenter="" 
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -74,19 +74,21 @@ In questo esempio, le credenziali fornite non sono corrette. È possibile correg
 ##Utilizzo di Hub eventi
 
 ###Panoramica
+ 
 Gli Hub eventi sono un ingestor di evento estremamente scalabile e sono in genere il modo più comune per l'ingresso dei dati nell'analisi flusso. Sono progettati per raccogliere i flussi di eventi da diversi dispositivi e servizi. Gli Hub eventi, insieme ad Analisi dei flussi, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi rendono disponibili i feed degli eventi ai clienti su Azure in tempo reale. Inoltre, i processi di analisi del flusso possono essere elaborati in tempo reale. Ad esempio, i clienti possono pubblicare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi del flusso per utilizzare gli Hub eventi come flussi di dati di input per disporre di filtri in tempo reale, aggregazione e join. Gli Hub eventi possono essere utilizzati anche per dati in uscita. L'utilizzo più comune degli Hub eventi si verifica quando l'output di un processo di analisi del flusso rappresenta l'input di un altro processo di flusso.
 
 ###Gruppi di utenti
 Ogni input del processo di analisi del flusso deve essere configurato in modo tale da disporre del proprio gruppo di utenti dell'Hub eventi. Quando un processo contiene self-join o più output, alcuni input potrebbero essere letti da più di un lettore. Ciò determina il superamento del limite di 5 lettori per gruppo di utenti in un singolo gruppo di utenti. In questo caso, la query dovrà essere suddivisa in più query e i risultati intermedi devono essere instradati tramite gli Hub eventi aggiuntivi. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per dettagli, vedere Guida per gli sviluppatori degli Hub eventi.
 
- 
+ 
 ###Parametri
+ 
 Sono presenti alcuni parametri per i clienti devono configurare per i flussi di dati dell'Hub eventi. Tali parametri vengono applicati all'input Hub eventi e ai flussi di dati di output, se non diversamente specificato.
 
 1. Spazio dei nomi Service Bus: Spazio dei nomi Service Bus dell'Hub eventi. Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo Hub eventi, viene inoltre creato uno spazio dei nomi Service Bus. 
 2. Nome Hub eventi: nome dell'Hub eventi. È il nome specificato al momento della creazione di un nuovo Hub eventi. 
 3. Nome criterio Hub eventi: il nome del criterio di accesso condiviso per l'accesso all'Hub eventi. Per un Hub eventi nella scheda Configura è possibile configurare criteri di accesso condiviso. Ogni criterio di accesso condiviso dispone di un nome, delle autorizzazioni impostate, e di tasti di scelta.
-4. Chiave di criterio Hub eventi: la chiave principale o secondaria del criterio di accesso condiviso per l'accesso all'Hub eventi. 
+4. Chiave di criterio Hub eventi: la chiave principale o secondaria del criterio di accesso condiviso per l'accesso all'Hub eventi.  
 5. Gruppo di utenti dell'Hub eventi: parametro facoltativo per gli input di Hub eventi. Il gruppo di utenti per acquisire dati dall'Hub eventi. Se non specificato, i processi di analisi del flusso utilizzano il gruppo di utenti predefinito per acquisire dati dall'Hub eventi. È consigliabile utilizzare un gruppo di utenti distinto per ogni processo di analisi del flusso.
 
 Colonna chiave di partizione: parametro facoltativo per gli output dell'Hub eventi. La colonna di attributo di dati utilizzata come chiave di partizione per l'output dell'Hub eventi.
@@ -148,7 +150,7 @@ In questo esempio, le credenziali fornite non sono corrette. È possibile correg
 ![graphic19][graphic19]
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -156,7 +158,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
@@ -180,6 +182,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic17]: ./media/stream-analytics-connect-data-event-input-output/17-stream-analytics-connect-data-event-input-output.png
 [graphic18]: ./media/stream-analytics-connect-data-event-input-output/18-stream-analytics-connect-data-event-input-output.png
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

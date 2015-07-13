@@ -49,7 +49,7 @@ Azure HDInsight effettua la distribuzione e il provisioning di cluster Hadoop ne
 
 Nella tabella seguente vengono confrontate le due opzioni:
 
-Categoria | Hadoop su Linux | Hadoop su Windows
+Category | Hadoop su Linux | Hadoop su Windows
 ---------| -------------------| --------------------
 **Sistema operativo del cluster** | Supporto a lungo termine (LST) Ubuntu 12.04 | Windows Server 2012 R2
 **Tipo di cluster** | Hadoop | Hadoop, Hbase, Storm

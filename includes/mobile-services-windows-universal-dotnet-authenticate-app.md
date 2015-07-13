@@ -1,9 +1,5 @@
 
-1. Aprire il file del progetto MainPage.cs condiviso e aggiungere l'istruzione using seguente:
-
-        using Windows.UI.Popups;
-
-2. Aggiungere il seguente frammento di codice alla classe MainPage:
+1. Aprire il file di progetto condiviso MainPage.cs e aggiungere il frammento di codice seguente alla classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Ripetere il passaggio precedente per il progetto dell'app di Windows Phone Store, questa volta aggiungendo l'elemento **Button** in **TitlePanel**, dopo l'elemento **TextBlock**.
+6. Nel progetto dell'app di Windows Phone aggiungere l'elemento **Button** seguente subito prima dell'elemento che definisce il pulsante **Save**:
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. Aprire il file del progetto App.xaml.cs condiviso e aggiungere l'istruzione using seguente, se non è già presente:
 
@@ -90,4 +89,5 @@
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
 9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -76,5 +76,4 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 [processo di provisioning dell'account SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

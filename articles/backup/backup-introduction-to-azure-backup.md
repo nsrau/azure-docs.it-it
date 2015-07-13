@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione al Backup di Azure"
-	description="In questo articolo viene fornita una panoramica del servizio di Backup di Azure che consente ai clienti di dati di backup in Azure"
+	pageTitle="Introduzione a Backup di Azure"
+	description="Questo articolo offre una panoramica del servizio Backup di Azure che consente il backup dei dati in Azure"
 	services="backup"
 	documentationCenter=""
 	authors="prvijay"
@@ -16,44 +16,44 @@
 	ms.date="04/08/2015"
 	ms.author="prvijay"/>
 
-# Introduzione al Backup di Azure
-In questo articolo viene fornita una panoramica di alto livello della soluzione di Microsoft cloud integrato backup che consente ai clienti di eseguire il backup i propri dati locali in Azure.
+# Introduzione a Backup di Azure
+Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati locali in Azure.
 
-## Che cos'è Azure Backup?
-Backup di Azure è un servizio di Azure con tenant multipli che consente di eseguire il backup dei dati locali in Azure. Sostituisce la soluzione di backup fuori sede o locale esistente con un cloud competitivo affidabile, sicuro e costo base offerta. Backup di Azure è basato su un'infrastruttura di classe mondiale è scalabile, durevole e a disponibilità elevata. Utilizzo di questa soluzione, è possibile eseguire backup dati e le applicazioni dai server di System Center Data Protection Manager (SCDPM), Windows Server o computer client Windows. Backup di Azure e SCDPM sono tecnologie fondamentali che costituiscono la soluzione di backup integrata e cloud di Microsoft.
+## Informazioni su Backup di Azure
+Backup di Azure è un servizio multi-tenant di Azure che consente di eseguire il backup dei dati locali in Azure. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione basata su cloud affidabile, sicura e conveniente. Backup di Azure si basa su un'infrastruttura di livello mondiale, scalabile, durevole e a disponibilità elevata. Con questa soluzione è possibile eseguire il backup di dati e applicazioni dai server System Center Data Protection Manager (SCDPM), dai server Windows o dai computer client Windows. Backup di Azure e SCDPM sono le tecnologie fondamentali di cui si compone la soluzione di backup integrata nel cloud di Microsoft.
 
-## Area di progettazione
-Soluzioni di backup tradizionali si sono evolute per considerare cloud come un endpoint simile su disco o nastro. Sebbene questo approccio è semplice e facile da distribuire e offre un'esperienza coerenza, ha un utilizzo limitato e non sfruttare la piattaforma sottostante. Ciò si traduce in una soluzione poco efficiente e costosa per i clienti finali. Trattando Azure come "solo come un endpoint di archiviazione" soluzioni di backup sono in grado di sfruttare la ricchezza e la potenza della piattaforma di cloud pubblico. D'altra parte, Backup di Azure offre un vero e proprio servizio che utilizza costrutti di cloud per fornire una soluzione di backup efficace e conveniente. Si integra con la soluzione di backup locale (SCDPM) per offrire una soluzione ibrida end-to-end.
+## Punto di progettazione cloud
+Le soluzioni di backup tradizionali si sono evolute e considerano ora un cloud come un endpoint analogo a un disco o a un nastro. Questo approccio è semplice, facile da distribuire e offre un'esperienza coerente, ma ha un uso limitato e non sfrutta appieno la piattaforma sottostante. Ne risulta una soluzione poco efficiente e costosa per i clienti finali. Le soluzioni di backup che considerano Azure come "un semplice endpoint di archiviazione" non sono in grado di sfruttare i vantaggi e la potenza dalla piattaforma cloud pubblica. Backup di Azure garantisce invece un servizio reale che sfrutta i costrutti del cloud per offrire una soluzione di backup efficace e conveniente. Si integra con la soluzione di backup locale (SCDPM) per offrire una soluzione ibrida end-to-end.
 
-I vantaggi di questo approccio sono:
+I vantaggi di questo approccio sono i seguenti:
 
-+ Architettura di archiviazione cloud efficiente che consente di memorizzare dati a basso costo e resilienti
++ Architettura di archiviazione cloud efficiente, che consente un'archiviazione dei dati resiliente e conveniente
 
-+ Non intrusivo, garantisce la scalabilità automatica del servizio con disponibilità elevata
++ Scalabilità automatica non invasiva del servizio con garanzia di disponibilità elevata
 
-+ Metodo coerente per il backup in locale, ibridi e le distribuzioni IaaS
++ Metodo coerente per il backup di distribuzioni IaaS, ibride e locali
 
-Le funzionalità principali di questa soluzione sono:
+Le funzionalità principali della soluzione sono le seguenti:
 
-1. **Servizio affidabile**: adottando Backup di Azure, è possibile ottenere un servizio di backup che è a disponibilità elevata. Il servizio è con tenant più e non è necessario preoccuparsi di gestire il calcolo sottostante o archiviazione.
+1. **Servizio affidabile**: con Backup di Azure è possibile ottenere un servizio di backup estremamente disponibile. Il servizio è multi-tenant e non richiede la gestione dell'archiviazione o del calcolo sottostante da parte dell'utente.
 
-2. **Archiviazione affidabile**: Backup di Azure si basa sull'archiviazione affidabile cloud supportata da elevata contratti di servizio. Non è necessario preoccuparsi delle spese di capitale o operazione mantenere lo spazio di archiviazione. Inoltre, è possibile scegliere di backup di archiviazione con ridondanza locale (archiviazione con ridondanza locale) o di archiviazione (archiviazione replica geografica) GRS. Mentre LRS consente di 3 copie dei dati nella stessa area geografica che protegge da errori hardware locale. GRS fornisce copie aggiuntive 3 (un totale di 6 copie) in un centro dati associati. Questo assicura che i dati di backup siano a disponibilità elevata. Anche se è presente un'emergenza a livello di sito Azure, i dati di backup sono sicuri con noi.
+2. **Archiviazione affidabile**: Backup di Azure si basa su un'archiviazione cloud affidabile, supportata da contratti di servizio elevati. Non è necessario preoccuparsi delle spese di capitale o dei costi delle operazioni per la gestione dell'archiviazione. È anche possibile scegliere se eseguire il backup in un'archiviazione con ridondanza locale (LRS) o in un'archiviazione con ridondanza geografica (GRS). LRS consente di eseguire 3 copie dei dati nella stessa area geografica, per proteggere i dati da errori hardware locali. GRS fornisce 3 copie aggiuntive (per un totale di 6 copie) in un data center associato. Questo assicura la disponibilità elevata dei dati di backup. Anche in caso di emergenza nel sito di Azure, i dati di backup sono al sicuro.
 
-3. **Secure**: dati di Azure backup viene crittografati a origine, durante la trasmissione e stored crittografati in Azure. La chiave di crittografia archiviata nell'origine e mai trasmessi o archiviata in Azure. La chiave di crittografia è necessaria per ripristinare i dati e solo il cliente ha accesso completo ai dati nel servizio.
+3. **Sicurezza**: i dati di Backup di Azure vengono crittografati all'origine, durante la trasmissione e archiviati crittografati in Azure. La chiave di crittografia viene archiviata nell'origine e non viene mai trasmessa o archiviata in Azure. La chiave di crittografia è necessaria per ripristinare i dati e solo il cliente dispone dell'accesso completo ai dati nel servizio.
 
-4. **Protezione fuori sede**: invece di pagare per soluzioni di backup su nastro fuori sede, i clienti possono eseguire il backup in Azure che fornisce una soluzione interessante con semantica di tipo nastro a un costo molto ridotto.
+4. **Protezione esterna**: anziché pagare per soluzioni di backup esterne su nastro, i clienti possono eseguire il backup in Azure, che offre una soluzione interessante con semantica simile a nastro a un costo molto ridotto.
 
-5. **Semplicità**: Backup di Azure fornisce un'interfaccia familiare scalabili in grado di proteggere una distribuzione di qualsiasi dimensione. Come si evolve il servizio, funzionalità quali gestione centrale consente di gestire l'infrastruttura di backup da un'unica posizione.
+5. **Semplicità**: l'interfaccia familiare di Backup di Azure garantisce la scalabilità necessaria per proteggere una distribuzione di qualsiasi dimensione. Con l'evoluzione del servizio, funzionalità come la gestione centrale consentiranno di gestire l'infrastruttura di backup da un'unica posizione.
 
-6. **Conveniente**: determinazione dei prezzi di Azure Backup include una Commissione di gestione di backup per ogni istanza e i costi di archiviazione (prezzo blob blocco) utilizzato in Azure. A differenza di altri offerta backup basato sul cloud, Azure Backup non viene addebitata i clienti per qualsiasi operazione di ripristino. Inoltre, i clienti non vengono addebitati per i trasferimenti di dati (in uscita) in uscita dei costi durante un'operazione di ripristino.
+6. **Conveniente**: le offerte di Backup di Azure includono una tariffa di gestione del backup per singola istanza e costi dell'archiviazione (prezzo per BLOB in blocchi) utilizzata in Azure. A differenza di altre offerte di backup basate su cloud, Backup di Azure non prevede addebiti per tutte le operazioni di ripristino. Non vengono inoltre addebitati costi per i trasferimenti dei dati in uscita durante le operazioni di ripristino.
 
 
-## Applicazione e i carichi di lavoro che è possibile eseguire il backup in Azure
-Combinata con Backup di Azure SCDPM possibile eseguire il backup:
+## Applicazioni e carichi di lavoro di cui è possibile eseguire il backup in Azure
+In associazione a SCDPM, Backup di Azure può eseguire il backup di:
 
-+ File e cartelle dal client aziendali, computer server
++ File e cartelle da client aziendali e computer server
 
-+ Backup della macchina virtuale a livello di host di macchine virtuali di Microsoft Hyper-V
++ Backup delle macchine virtuali a livello di host di macchine virtuali Hyper-V di Microsoft
 
 + Microsoft SQL Server
 
@@ -62,7 +62,8 @@ Combinata con Backup di Azure SCDPM possibile eseguire il backup:
 + Microsoft Exchange
 
 ## Passaggi successivi
-+ Domande frequenti domanda sul servizio Azure Backup è elencato [qui](backup-azure-backup-faq.md).
++ Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
 + Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

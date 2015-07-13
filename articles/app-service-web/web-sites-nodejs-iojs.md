@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Come utilizzare io.js con Azure applicazione servizio Web App" 
-	description="Imparare a utilizzare un applicazione web nel servizio di applicazione Azure con io.js." 
+	description="Imparare a utilizzare un'applicazione web nel servizio di applicazione Azure con io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
 	authors="felixrieseberg" 
@@ -59,6 +59,6 @@ In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando 
 [distribuzione io.js]: https://iojs.org/dist/
 [ io.js; consultare io.js su GitHub]: https://github.com/iojs/io.js
 [script di distribuzione io.js]: https://github.com/felixrieseberg/iojs-azure
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

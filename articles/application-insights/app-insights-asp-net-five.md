@@ -171,4 +171,4 @@ Tornare al [portale di Azure][portal] e passare alla risorsa Application Insight
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

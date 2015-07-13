@@ -21,7 +21,7 @@ Questo articolo illustra le azioni da eseguire per iniziare a usare Automazione 
 
 ## Account di Automazione
 
-Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione \(Runbook, asset\) dalle risorse di Automazione contenute in altri account di Automazione. È possibile usare gli account di Automazione per separare le risorse di Automazione in ambienti logici distinti. Ad esempio, è possibile usare un account per lo sviluppo e un altro per la produzione.
+Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione (Runbook, asset) dalle risorse di Automazione contenute in altri account di Automazione. È possibile usare gli account di Automazione per separare le risorse di Automazione in ambienti logici distinti. Ad esempio, è possibile usare un account per lo sviluppo e un altro per la produzione.
 
 Le risorse di Automazione per ogni account di Automazione sono associate a una singola area di Azure, ma gli account di Automazione possono gestire servizi di Azure in qualsiasi area. Il motivo principale per cui creare gli account di Automazione in aree diverse è la presenza di criteri che richiedono dati e risorse per essere isolati in un'area specifica.
 
@@ -43,10 +43,10 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 
 1. Accedere al portale di Azure come amministratore del servizio per la sottoscrizione di Azure da gestire.
 2. Selezionare **Active Directory**
-3. Selezionare il nome di directory associato alla sottoscrizione di Azure. Se necessario, è possibile cambiare l'associazione in **Impostazioni \> Sottoscrizioni \> Modifica directory**.
+3. Selezionare il nome di directory associato alla sottoscrizione di Azure. Se necessario, è possibile cambiare l'associazione in **Impostazioni > Sottoscrizioni > Modifica directory**.
 4. [Creare un nuovo utente di Active Directory](http://msdn.microsoft.com/library/azure/hh967632.aspx). Selezionare **Nuovo utente nell'organizzazione** per **Tipo di utente** e non selezionare **Abilita Multi-Factor Authentication**.
 5. Prendere nota del nome completo dell'utente e della password temporanea.
-7. Selezionare **Impostazioni -\> Amministratori \> Aggiungi**.
+7. Selezionare **Impostazioni -> Amministratori > Aggiungi**.
 8. Digitare il nome completo dell'utente creato.
 9. Selezionare la sottoscrizione che si vuole far gestire dall'utente.
 10. Disconnettersi da Azure e ripetere l'accesso con l'account appena creato. Verrà chiesto di cambiare la password dell'utente.
@@ -67,4 +67,4 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

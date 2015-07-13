@@ -30,4 +30,13 @@ Che tipo di app si ha a disposizione?
 * [App Web in IIS nella macchina virtuale di Azure](../insights-perf-analytics.md)
 * [Applicazione all'esterno di Azure](app-insights-get-started.md)
 
-<!---HONumber=58--> 
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=62-->

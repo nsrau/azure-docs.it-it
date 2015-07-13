@@ -30,7 +30,7 @@ Una delle funzionalità principali della personalizzazione del portale è la sos
 
 Il portale per sviluppatori è basato su un sistema di gestione dei contenuti, o CMS (Content Management System). L'intestazione visualizzata in ogni pagina è un tipo speciale di contenuto noto come widget. Per modificare i contenuti del widget, scegliere **Widget** dal menu **Portale per sviluppatori** a sinistra, quindi selezionare il widget **Intestazione** nell'elenco.
 
-![Intestazione widget][api-management-widgets-header]
+![Widget Intestazione][api-management-widgets-header]
 
 I contenuti dell'intestazione sono modificabili dal campo **Corpo**. Sostituire il testo con "Portale per sviluppatori Fabrikam" e fare clic su **Salva** nella parte inferiore della pagina.
 
@@ -42,7 +42,7 @@ A questo punto, la nuova intestazione dovrebbe essere visualizzata in ogni pagin
 
 I colori, il tipo di carattere e le dimensioni, la spaziatura e altri elementi relativi allo stile di ogni pagina del portale sono definiti da regole di stile. Per modificare gli stili, nel portale di pubblicazione scegliere **Aspetto** dal menu **Portale per sviluppatori**. Fare clic su **Inizia personalizzazione** per abilitare l'editor dello stile.
 
-Il browser passerà a una pagina nascosta nel portale per sviluppatori contenente esempi di contenuto ed esempi per tutte le regole di stile usate in qualsiasi parte del sito. Per aprire l'editor dello stile, spostare il cursore sulla riga verticale sottile nella parte all'estrema sinistra della pagina. Verrà visualizzata la barra degli strumenti dell'editor.
+Il browser passerà a una pagina nascosta nel portale per sviluppatori contenente esempi di contenuto ed esempi per tutte le regole di stile usate in qualsiasi parte del sito. Per aprire l'editor dello stile, spostare il cursore sulla riga verticale sottile nella parte all'estrema sinistra della pagina. Verrà visualizzata la barra degli strumenti dell'editor
 
 ![Barra degli strumenti Personalizzazione][api-management-customization-toolbar]
 

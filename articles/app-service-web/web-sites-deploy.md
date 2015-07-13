@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Distribuire un'app Web nel servizio app di Azure"
+	pageTitle="Distribuzione di un'app nel servizio app di Azure"
 	description="Informazioni sui metodi disponibili per la distribuzione di contenuti nelle app Web."
 	services="app-service\web"
 	documentationCenter=""
@@ -16,11 +16,11 @@
 	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
-#Distribuire un'app Web nel servizio app di Azure
+#Distribuzione di un'app nel servizio app di Azure
 
 ## Panoramica
 
-Sono disponibili numerose opzioni per distribuire i contenuti in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). In questo argomento vengono forniti una breve panoramica di ogni opzione e i collegamenti per visualizzare ulteriori informazioni.
+Sono disponibili numerose opzioni per distribuire i contenuti nel [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714). In questo argomento vengono forniti una breve panoramica di ogni opzione e i collegamenti per visualizzare ulteriori informazioni.
 
 
 ###<a name="cloud"></a>Distribuire da un sistema di controllo del codice sorgente ospitato nel cloud
@@ -109,7 +109,7 @@ Per informazioni su come eseguire la distribuzione con Mercurial vedere le risor
 [Dropbox](https://www.dropbox.com/) non è un sistema di controllo del codice sorgente, ma se si archivia il proprio codice sorgente in Dropbox è possibile automatizzarne la distribuzione dal proprio account Dropbox.
 
 * [Eseguire la distribuzione in App Web da Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). Come utilizzare il [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per configurare la distribuzione tramite Dropbox.
-* [Distribuzione di Dropbox ad App Web](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). In questo video viene illustrato il processo di connessione di una cartella di DropBox a un'app Web. Il video dimostra con quale rapidità è possibile rendere operativo un'app Web o gestirla per mezzo di una semplice distribuzione a trascinamento.
+* [Dropbox Deployment to Web App (Distribuzione di Dropbox ad App Web](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). In questo video viene illustrato il processo di connessione di una cartella di DropBox a un'app Web. Il video dimostra con quale rapidità è possibile rendere operativo un'app Web o gestirla per mezzo di una semplice distribuzione a trascinamento.
 * [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 ##<a name="vs"></a>Visual Studio
@@ -134,14 +134,14 @@ Per informazioni su come eseguire la distribuzione in App Web da WebMatrix, vede
 
 Per ulteriori informazioni, vedere le risorse seguenti:
 
-* [Creare un'app Web PHP-MySQL e distribuirla tramite FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [Come gestire le app Web](web-sites-manage.md#ftp-credentials). Contiene informazioni aggiuntive non incluse nell'esercitazione su PHP riguardanti la modalità di configurazione delle credenziali FTP.
+* [Creazione di un'app Web PHP-MySQL e distribuzione tramite FTP](web-sites-php-mysql-deploy-use-ftp.md).
+* [Come gestire le App Web](web-sites-manage.md#ftp-credentials). Contiene informazioni aggiuntive non incluse nell'esercitazione su PHP riguardanti la modalità di configurazione delle credenziali FTP.
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
 Team Foundation Server è la soluzione Microsoft locale per il controllo del codice sorgente e la collaborazione con il team. È possibile configurare TFS per l'esecuzione del recapito continuo a un'app Web.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * [Recapito continuo per Servizi cloud in Azure](../cloud-services-dotnet-continuous-delivery.md). Questo documento è relativo a un servizio cloud di Azure, ma alcuni dei contenuti si riferiscono ad App Web.
 
@@ -170,7 +170,7 @@ Per ulteriori informazioni sulla distribuzione da riga di comando, vedere le ris
 
 È facile creare credenziali [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per un'app Web e usarle con gli script batch FTP.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * [Utilizzo di script Batch FTP](http://support.microsoft.com/kb/96269).
 
@@ -178,7 +178,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 In [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) è possibile eseguire funzioni di distribuzione MSBuild o FTP. In tal caso, è inoltre possibile utilizzare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione RET di Azure.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * Capitolo dell'e-book relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything), in cui viene illustrato in che modo l'applicazione di esempio illustrata nell'e-book utilizza gli script di Windows PowerShell per creare un ambiente di testing Azure ed eseguirvi la distribuzione. Per ottenere collegamenti a ulteriori documenti su Azure PowerShell vedere la sezione relativa alle [risorse](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources).
 * [Utilizzo degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/library/dn642480.aspx). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
@@ -187,7 +187,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 È possibile scrivere il codice C# per eseguire funzioni MSBuild o FTP per la distribuzione. In tal caso, sarà possibile accedere all'API REST per la gestione per eseguire funzioni di gestione del sito.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * Post del blog di Scott Hanselman sull'[automazione completa con le librerie di gestione di Azure e .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Contiene una presentazione dell'API di gestione .NET e collegamenti a ulteriore documentazione.
 
@@ -203,7 +203,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 [Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) è il software Microsoft per la distribuzione in IIS che non solo offre funzioni intelligenti di sincronizzazione dei file, ma può anche eseguire o coordinare molte altre attività relative alla distribuzione che non è possibile automatizzare quando si utilizza il trasferimento FTP. Ad esempio, con Distribuzione Web è possibile distribuire un nuovo database oppure gli aggiornamenti al database assieme all'app Web. Distribuzione Web consente inoltre di ridurre al minimo i tempi richiesti per l'aggiornamento di un sito esistente dal momento che è in grado di copiare in maniera intelligente solo i file modificati. Il supporto per Distribuzione Web è incorporato in Microsoft WebMatrix, Visual Studio, Visual Studio Online e Team Foundation Server, ma è inoltre possibile utilizzare Distribuzione Web direttamente dalla riga di comando per automatizzare la distribuzione. I comandi di Distribuzione Web sono molti potenti, ma la curva di apprendimento può rivelarsi ripida.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * [Simple Web Apps: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog di David Ebbo riguardante uno strumento che ha creato per facilitare l'uso di Distribuzione Web.
 * Documentazione ufficiale sullo [strumento di distribuzione Web](http://technet.microsoft.com/library/dd568996) sul sito Microsoft TechNet. Articolo datato, ma è ancora un buon punto di partenza.
@@ -222,8 +222,8 @@ Per informazioni su come utilizzare il controllo degli accessi in base al ruolo 
 Per informazioni su altri argomenti relativi alla distribuzione, vedere la relativa sezione in [Documentazione di App Web](/documentation/services/web-sites/).
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
 <!---HONumber=62-->

@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Aggiungere o modificare una pianificazione di backup StorSimple"
-   description="In questo argomento viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e modificare pianificazioni di backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
 #### Per aggiungere o modificare una pianificazione di backup StorSimple
 
@@ -44,4 +28,4 @@
 La pagina **Criteri di backup** verrà aggiornata per salvare le modifiche apportate al criterio.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -20,4 +20,4 @@ Se si manifesta uno di questi sintomi, la versione di Android SDK installata in 
 
 4. A differenza di quanto avviene in Eclipse, in Android Studio il file manifesto non consente di specificare l'SDK di destinazione e la versione minima dell'SDK.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -24,18 +24,18 @@ Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi
 - Offerte semplificate e più economiche per app che includono client sia Web che mobili.
 - Nuove funzionalità host che includono processi Web, CName personalizzati e monitoraggio migliorato.
 - Integrazione chiavi in mano con Office 365, Dynamics CRM, Salesforce e altre API SaaS di importanza strategica.
-- Supporto per codice back-end Java e PHP, oltre a Node.js e .NET. 
+- Supporto per codice back-end Java e PHP, oltre a Node.js e .NET.
 - Integrazione chiavi in mano con Gestione traffico.
 - Connettività con risorse locali e VPN usando reti virtuali e connessioni ibride.
 - Monitoraggio e risoluzione dei problemi delle app mediante NewRelic o AppInsights e avvisi
-- Spettro più ampio di risorse di calcolo sottostanti, ad esempio dimensioni delle VM. 
+- Spettro più ampio di risorse di calcolo sottostanti, ad esempio dimensioni delle VM.
 - Scalabilità automatica predefinita, bilanciamento del carico e monitoraggio delle prestazioni.
-- Funzionalità predefinite di gestione temporanea, backup, rollback e test in ambiente di produzione. 
+- Funzionalità predefinite di gestione temporanea, backup, rollback e test in ambiente di produzione.
 
 ## Nuove funzionalità di hosting
 Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili* viene eseguito nello stesso contenitore dell'app Web e dell'app per le API. È pertanto possibile sfruttare tutte le funzionalità disponibili in questo contenitore, comprese alcune di quelle non attualmente presenti in Servizi mobili:
 
-- Aggiunta di logica back-end in continua esecuzione tramite processi Web 
+- Aggiunta di logica back-end in continua esecuzione tramite processi Web
 - Garanzia che il codice back-end sia sempre in esecuzione
 - Uso di CName personalizzati per fornire nomi descrittivi e stabili agli endpoint dei back-end mobili
 - Scalabilità geografica dell'app con Gestione traffico
@@ -64,9 +64,7 @@ Con il *servizio app di Azure* è ora possibile creare più ambienti privati di 
 
 
 
-Al momento del passaggio dell'*app per dispositivi mobili del servizio app di Azure* alla fase di disponibilità generale, verrà fornita una soluzione per eseguire la migrazione dei servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare il *servizio app* e sperimentando i vantaggi nel proprio servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).**
-
-
-
-<!--HONumber=52-->
+Al momento del passaggio dell'*app per dispositivi mobili del servizio app di Azure* alla fase di disponibilità generale, verrà fornita una soluzione per eseguire la migrazione dei servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare il *servizio app* e sperimentando i vantaggi nel proprio servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
+
+<!---HONumber=62-->

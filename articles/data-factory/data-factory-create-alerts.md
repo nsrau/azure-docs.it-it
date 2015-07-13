@@ -170,5 +170,6 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 Eseguire il comando seguente per visualizzare gli eventi generati:
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

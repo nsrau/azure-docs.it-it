@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso del connettore SQL in Microsoft Azure App Service" 
+   pageTitle="Uso del connettore SQL nel servizio app di Microsoft Azure" 
    description="Come usare SQL Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
@@ -22,15 +22,15 @@
 Connettersi a un'istanza di SQL Server in locale o a un database SQL di Azure per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore SQL nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
 - Esporre una sezione dei dati presenti nel database SQL usando un'applicazione Web o per dispositivi mobili. 
-- Aggiungere dati alla tabella del database SQL per l'archiviazione. Ad esempio, è possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
-- Ottenere dati da SQL per usarli in un processo aziendale. Ad esempio, è possibile ottenere i record cliente e inserirli in SalesForce. 
+- Inserire dati in una tabella del database SQL per l'archiviazione. È ad esempio possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
+- Ottenere dati da SQL per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce. 
 
 ## Trigger e azioni
-I *trigger* sono eventi che si verificano, ad esempio, quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger; ad esempio, quando si aggiorna un ordine, inviare un avviso al venditore oppure, quando si aggiunge un nuovo cliente, inviargli/le un messaggio di benvenuto.
+I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
 Il connettore SQL può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML.
 
-Il connettore SQL ha a disposizione i seguenti trigger e azioni:
+Il connettore SQL ha a disposizione i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
@@ -40,9 +40,9 @@ Poll Data | <ul><li>Inserimento nella tabella</li><li>Aggiornamento della tabell
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1. Nella schermata iniziale di Azure selezionare **Marketplace**.
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Connettore SQL".
-3. Immettere il Nome, il Piano di servizio app e altre proprietà.
+3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
 	Nome | Obbligatorio | Descrizione
@@ -52,7 +52,7 @@ Port | No | Il valore predefinito è 1433.
 User Name | Sì | Immettere un nome utente che può accedere all'istanza di SQL Server. Se ci si connette a un'istanza di Server SQL locale, immettere dominio\nome utente. 
 Password | Sì | Immettere il nome utente e la password.
 Database Name | Sì | Immettere il database a cui connettersi, ad esempio *Customers* o *dbo/orders*.
-On-Premises | Sì | Il valore predefinito è False. Immettere False per la connessione a un database SQL di Azure. Immettere True per la connessione a un'istanza di Server SQL locale. 
+On-Premises | Sì | Il valore predefinito è False. Immettere False per la connessione a un database SQL di Azure. Immettere True per la connessione a un'istanza di SQL Server locale. 
 Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
 Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup. 
 Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide. 
@@ -65,9 +65,9 @@ Poll Data Query | Per il supporto dei trigger | Istruzione SQL per eseguire il p
 ## Usare il connettore come trigger
 In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella SQL, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
-Per usare il connettore SQL come trigger, immettere i valori per **Data Available Query** e **Poll Data Query**. **Data Available Query** viene eseguito in base alla pianificazione immessa e determina se sono disponibili dati. Poiché questa query restituisce solo un numero scalare, può essere ottimizzata per l'esecuzione frequente.
+Per usare il connettore SQL come trigger, immettere i valori per **Data Available Query** e **Poll Data Query**. **Data Available Query** viene eseguita in base alla pianificazione immessa e determina se sono disponibili dati. Poiché questa query restituisce solo un numero scalare, può essere ottimizzata per l'esecuzione frequente.
 
-**Poll Data Query** viene eseguito solo quando Data Available Query indica che sono disponibili dati. Questa istruzione viene eseguita all'interno di una transazione e ne viene eseguito il commit solo quando i dati estratti vengono archiviati in modo permanente nel flusso di lavoro. È importante evitare di estrarre sempre gli stessi dati. La natura transazionale di questa esecuzione può essere usata per eliminare o aggiornare i dati per garantire che non vengano raccolti la volta successiva che viene eseguita una query sui dati.
+**Poll Data Query** viene eseguita solo quando Data Available Query indica che sono disponibili dati. Questa istruzione viene eseguita all'interno di una transazione e ne viene eseguito il commit solo quando i dati estratti vengono archiviati in modo permanente nel flusso di lavoro. È importante evitare di estrarre sempre gli stessi dati. La natura transazionale di questa esecuzione può essere usata per eliminare o aggiornare i dati per garantire che non vengano raccolti la volta successiva che viene eseguita una query sui dati.
 
 > [AZURE.NOTE]Lo schema restituito da questa istruzione identifica le proprietà disponibili nel connettore. Tutte le colonne devono essere denominate.
 
@@ -92,11 +92,11 @@ Per usare il connettore SQL come trigger, immettere i valori per **Data Availabl
 3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive: <br/> ![][7]
 
 ## Usare il connettore come azione
-Usando un semplice scenario di app per la logica che esegue il polling dei dati da una tabella SQL, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
+Usando un semplice scenario di app per la logica che esegue il polling dei dati da una tabella SQL, tali dati vengono aggiunti a un'altra tabella e quindi aggiornati.
 
-Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o delle stored procedure immesse durante la creazione del connettore del connettore SQL:
+Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o delle stored procedure immesse durante la creazione del connettore SQL:
 
-1. Dopo il trigger (o dopo aver scelto 'Esegui la logica manualmente'), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ossia *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
+1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
 2. Immettere i valori di input del record da inserire e fare clic su ✓: <br/> ![][9]
 
@@ -112,13 +112,13 @@ Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o del
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa un'istanza di SQL Server locale, è richiesta la Gestione connessione ibrida.
 
-Vedere [Uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
+Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
 
 ## Più vantaggi con il connettore
-Dopo aver creato il connettore è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md).
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e il connettore](../app-service-api/app-service-api-manage-in-portal.md).
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -128,6 +128,7 @@ Dopo aver creato il connettore è possibile aggiungerlo a un flusso di lavoro az
 [7]: ./media/app-service-logic-connector-sql/LogicApp3.png
 [8]: ./media/app-service-logic-connector-sql/LogicApp4.png
 [9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[10]: ./media/app-service-logic-connector-sql/LogicApp6.png
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 

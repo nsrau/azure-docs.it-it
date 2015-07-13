@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # Eseguire la migrazione del servizio mobile di Azure esistente a un'app mobile del servizio app
@@ -114,4 +114,5 @@ Una volta che i clienti hanno avuto l'opportunità di ricevere gli aggiornamenti
 [Utilità di pianificazione di Azure]: /it-it/documentation/services/scheduler/
 [processo Web]: ../app-service-web/websites-webjobs-resources.md
 [Inviare notifiche push multipiattaforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

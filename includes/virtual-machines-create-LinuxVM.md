@@ -1,5 +1,4 @@
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com). 
-Sulla barra dei comandi fare clic su **New**.
+1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com). Sulla barra dei comandi fare clic su **New**.
 
 2. Fare clic su **Virtual Machine**, quindi su **From Gallery**.
 
@@ -30,5 +29,6 @@ Sulla barra dei comandi fare clic su **New**.
 15.  In **Agente di macchine virtuali**, esaminare le estensioni disponibili. Tali estensioni forniscono varie funzionalità che semplificano l'uso e la gestione di una macchina virtuale. Per informazioni dettagliate, vedere [Estensioni delle macchine virtuali di Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
 
-Dopo aver creato la macchina virtuale e il servizio cloud in Azure, questi vengono elencati nel portale di gestione rispettivamente in **Macchine virtuali** e **Servizi cloud**. Sia la macchina virtuale che il servizio cloud vengono avviati automaticamente. 
-<!--HONumber=52-->
+Dopo aver creato la macchina virtuale e il servizio cloud in Azure, questi vengono elencati nel portale di gestione rispettivamente in **Macchine virtuali** e **Servizi cloud**. Sia la macchina virtuale che il servizio cloud vengono avviati automaticamente.
+
+<!---HONumber=62-->

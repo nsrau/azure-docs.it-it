@@ -18,19 +18,19 @@
 
 # Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK
 
-## Informazioni generali
+## Panoramica
 
-Questa guida fornisce esempi di codice C# che illustrano come leggere e scrivere le tabelle di archiviazione di Azure usando [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
+In questa guida sono forniti esempi di codice C# che illustrano come leggere e scrivere le tabelle di archiviazione di Azure usando [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
+Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 		
-Alcuni dei frammenti di codice illustrano l'attributo  `Table` usato nelle funzioni [chiamate manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ovvero non mediante uno degli attributi di trigger. 
+Alcuni dei frammenti di codice illustrano l'attributo `Table` usato nelle funzioni [chiamate manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e non mediante uno degli attributi del trigger.
 
 ## <a id="ingress"></a> Come aggiungere entità a una tabella
 
-Per aggiungere entità a una tabella, usare l'attributo  `Table` con un parametro  `ICollector<T>` o  `IAsyncCollector<T>` dove  `T` specifica lo schema delle entità che si desidera aggiungere. Il costruttore dell'attributo accetta un parametro stringa che specifica il nome della tabella. 
+Per aggiungere entità a una tabella, utilizzare l’attributo `Table` con un parametro `ICollector<T>` o `IAsyncCollector<T>` dove `T` specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
 
-Il seguente esempio di codice aggiunge `Person` come entità a una tabella denominata  *Ingress*.
+L’esempio di codice seguente aggiunge le entità `Person` a una tabella denominata *Ingress*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -47,7 +47,7 @@ Il seguente esempio di codice aggiunge `Person` come entità a una tabella denom
 		    }
 		}
 
-In genere il tipo usato con  `ICollector` deriva da  `TableEntity` o implementa  `ITableEntity`, anche se non necessariamente. Una delle seguenti classi  `Person` usa il codice illustrato nel precedente metodo  `Ingress`.
+In genere il tipo usato con `ICollector` deriva da `TableEntity` o implementa `ITableEntity`, anche se non necessariamente. Una delle seguenti classi `Person` usa il codice illustrato nel precedente metodo `Ingress`.
 
 		public class Person : TableEntity
 		{
@@ -61,7 +61,7 @@ In genere il tipo usato con  `ICollector` deriva da  `TableEntity` o implementa 
 		    public string Name { get; set; }
 		}
 
-Se si desidera usare direttamente l'API di archiviazione di Azure, è possibile aggiungere un parametro  `CloudStorageAccount` alla firma del metodo.
+Se si desidera usare direttamente l'API di archiviazione di Azure, è possibile aggiungere un parametro `CloudStorageAccount` alla firma del metodo.
 
 ## <a id="monitor"></a> Monitoraggio in tempo reale
 
@@ -69,7 +69,7 @@ Poiché spesso le funzioni di ingresso ai dati (Ingress) elaborano volumi elevat
 
 ![Funzione Ingress in esecuzione](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-La pagina **Invocation Details** indica lo stato di avanzamento della funzione (numero di entità scritte) mentre è in esecuzione e offre la possibilità di interromperla. 
+La pagina **Invocation Details** restituisce lo stato di avanzamento della funzione (numero di entità scritte) mentre è in esecuzione e offre la possibilità di interromperla.
 
 ![Funzione Ingress in esecuzione](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
@@ -79,9 +79,9 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 
 ## <a id="multiple"></a> Come leggere più entità da una tabella
 
-Per leggere una tabella, usare l'attributo  `Table` con un parametro  `IQueryable<T>` dove il tipo  `T` derives from `TableEntity` o implementa  `ITableEntity`.
+Per leggere una tabella, usare l’attributo `Table` con un parametro `IQueryable<T>` dove il tipo `T` deriva da `TableEntity` o implementa `ITableEntity`.
 
-Il seguente esempio di codice legge e registra tutte le righe dalla tabella  `Ingress`:
+Il seguente esempio di codice legge e registra tutte le righe dalla tabella `Ingress`:
  
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -97,9 +97,9 @@ Il seguente esempio di codice legge e registra tutte le righe dalla tabella  `In
 
 ### <a id="readone"></a> Come leggere una singola entità da una tabella
 
-È disponibile un costruttore dell'attributo  `Table` con due parametri aggiuntivi che consentono di specificare la chiave di partizione e la chiave di riga quando si desidera l'associazione a un'entità di tabella singola.
+È disponibile un costruttore dell'attributo `Table` con due parametri aggiuntivi che consentono di specificare la chiave di partizione e la chiave di riga quando si desidera l'associazione a un'entità di tabella singola.
 
-Il seguente esempio di codice legge una riga della tabella per un'entità  `Person` basata sui valori della chiave di partizione e della chiave di riga ricevuti in un messaggio di coda:  
+Il seguente esempio di codice legge una riga della tabella per un'entità `Person` basata sui valori della chiave di partizione e della chiave di riga ricevuti in un messaggio di coda:
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -119,13 +119,13 @@ Il seguente esempio di codice legge una riga della tabella per un'entità  `Pers
 		}
 
 
-La classe  `Person` in questo esempio non deve implementare  `ITableEntity`.
+La classe `Person` in questo esempio non deve implementare `ITableEntity`.
 
 ## <a id="storageapi"></a> Come usare l'API di archiviazione .NET direttamente con una tabella
 
-È possibile usare l'attributo  `Table` anche con un oggetto  `CloudTable` per una maggiore flessibilità nell'uso di una tabella.
+È possibile usare l'attributo `Table` anche con un oggetto `CloudTable` per una maggiore flessibilità nell'uso di una tabella.
 
-Il seguente esempio di codice usa un oggetto  `CloudTable` per aggiungere una singola entità alla tabella  *Ingress*. 
+Il seguente esempio di codice usa un oggetto `CloudTable` per aggiungere una singola entità alla tabella *Ingress*.
  
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
@@ -141,11 +141,11 @@ Il seguente esempio di codice usa un oggetto  `CloudTable` per aggiungere una si
 		    tableBinding.Execute(insertOperation);
 		}
 
-Per altre informazioni su come usare l'oggetto  `CloudTable`, vedere l'argomento relativo all'[uso dell'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables.md). 
+Per altre informazioni su come usare l'oggetto `CloudTable`, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables.md).
 
 ## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure sulle code
 
-Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di tabelle, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di tabelle, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Gli argomenti trattati in questo articolo includono quanto segue:
 
@@ -160,7 +160,7 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 
 ## <a id="nextsteps"></a> Passaggi successivi
 
-Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

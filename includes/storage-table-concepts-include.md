@@ -13,7 +13,7 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 
 Il servizio tabelle contiene i componenti seguenti:
 
-![Table1][Table1]
+![Tabella1][Table1]
 
 -   **Formato dell'URL:** il codice fa riferimento alle tabelle in un account usando il formato di indirizzo seguente: http://`<storage account>`.table.core.windows.net/`<table>`  
       
@@ -29,7 +29,7 @@ Il servizio tabelle contiene i componenti seguenti:
 
 
   
-[Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [OData.org]: http://www.odata.org/
 
-<!--HONumber=52-->
+<!---HONumber=62-->

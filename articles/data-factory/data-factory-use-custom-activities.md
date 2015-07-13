@@ -36,39 +36,35 @@ Per creare un'attività personalizzata:
 
 4. Aggiornare la classe per implementare l'interfaccia **IDotNetActivity**.
 	<ol type='a'>
-		<li>
-			Eseguire la derivazione della classe da <b>IDotNetActivity</b>.
-			<br/>
-			Esempio: <br/>
-			classe pubblica <b>MyDotNetActivity: IDotNetActivity</b>
-		</li>
+	<li>
+		Eseguire la derivazione della classe da <b>IDotNetActivity</b>.
+		<br/>
+		Esempio: <br/>
+		classe pubblica <b>MyDotNetActivity: IDotNetActivity</b>
+	</li>
 
-		<li>
-			Implementare il metodo <b>Execute</b> dell'interfaccia <b>IDotNetActivity</b>
-		</li>
+	<li>
+		Implementare il metodo <b>Execute</b> dell'interfaccia <b>IDotNetActivity</b>
+	</li>
 
-	</ol>
+</ol>
 5. Compilare il progetto.
 
 
 ## Uso dell'attività personalizzata in una pipeline
 Per usare l'attività personalizzata in una pipeline:
 
-1.	**Comprimere** tutti i file binari presenti nelle cartelle di output **bin\\debug** o **bin\\release** del progetto. 
+1.	**Comprimere** tutti i file binari presenti nelle cartelle di output **bin\debug** o **bin\release** del progetto. 
 2.	**Caricare il file ZIP** come BLOB nella propria **archiviazione BLOB di Azure**. 
 3.	Aggiornare il file **JSON della pipeline** per fare riferimento al file ZIP, al file DLL di attività personalizzata, alla classe di attività e al BLOB che contiene il file ZIP nel file JSON della pipeline. Nel file JSON:
 	<ol type ="a">
-		<li><b>Activity type</b> deve essere impostato su <b>DotNetActivity</b>.</li>
-		<li><b>AssemblyName</b> è il nome del file DLL di output relativo al progetto di Visual Studio.</li>
-		<li><b>EntryPoint</b> specifica lo <b>spazio dei nomi</b> e il <b>nome</b> della <b>classe</b> che implementa l'interfaccia <b>IDotNetActivity</b>.</li>
-		<li><b>PackageLinkedService</b> è il servizio collegato che fa riferimento al BLOB che contiene il file ZIP. </li>
-		<li><b>PackageFile</b> specifica il percorso e il nome del file ZIP che è stato caricato nell'archiviazione BLOB di Azure.</li>
-		<li><b>LinkedServiceName</b> è il nome del servizio collegato che consente di collegare un cluster HDInsight (su richiesta o personalizzato) a un data factory. L'attività personalizzata viene eseguita come processo solo di mapping nel cluster HDInsight specificato.</li>
-	</ol>
-
-	
-
-	**Esempio JSON parziale**
+	<li><b>Activity type</b> deve essere impostato su <b>DotNetActivity</b>.</li>
+	<li><b>AssemblyName</b> è il nome del file DLL di output relativo al progetto di Visual Studio.</li>
+	<li><b>EntryPoint</b> specifica lo <b>spazio dei nomi</b> e il <b>nome</b> della <b>classe</b> che implementa l'interfaccia <b>IDotNetActivity</b>.</li>
+	<li><b>PackageLinkedService</b> è il servizio collegato che fa riferimento al BLOB che contiene il file ZIP. </li>
+	<li><b>PackageFile</b> specifica il percorso e il nome del file ZIP che è stato caricato nell'archiviazione BLOB di Azure.</li>
+	<li><b>LinkedServiceName</b> è il nome del servizio collegato che consente di collegare un cluster HDInsight (su richiesta o personalizzato) a un data factory. L'attività personalizzata viene eseguita come processo solo di mapping nel cluster HDInsight specificato.</li>
+</ol>**Esempio JSON parziale**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -142,7 +138,7 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 		public class MyDotNetActivity : IDotNetActivity
 
-8. Implementare \(aggiungere\) il metodo **Execute** dell'interfaccia **IDotNetActivity** nella classe **MyDotNetActivity** e copiare il seguente codice di esempio nel metodo.
+8. Implementare (aggiungere) il metodo **Execute** dell'interfaccia **IDotNetActivity** nella classe **MyDotNetActivity** e copiare il seguente codice di esempio nel metodo.
 
 	I parametri **inputTables** e **outputTables** rappresentano le tabelle di input e di output per l'attività, come suggeriscono i nomi. È possibile visualizzare i messaggi registrati usando l'oggetto **logger** nel file di log che è possibile scaricare dal portale di Azure o usando i cmdlet. Il dizionario **extendedProperties** contiene l'elenco delle proprietà estese specificate nel file JSON per l'attività e i relativi valori.
 
@@ -290,8 +286,8 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 
 10. Compilare il progetto. Fare clic su **Compila** dal menu e scegliere **Compila soluzione**.
-11. Avviare **Esplora risorse** e passare alla cartella **bin\\debug** o **bin\\release**, a seconda del tipo di compilazione.
-12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\\bin\\Debug.
+11. Avviare **Esplora risorse** e passare alla cartella **bin\debug** o **bin\release**, a seconda del tipo di compilazione.
+12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\bin\Debug.
 13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **MyBlobStore** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **blobcustomactivitycontainer**. 
 
 
@@ -380,7 +376,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 
 ### Creare ed eseguire una pipeline che usi l'attività personalizzata
    
-1. Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... \(puntini di sospensione\)** per visualizzarlo. 
+1. Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo. 
 2. Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente. Per usare il proprio cluster dopo aver seguito i passaggi per creare il servizio collegato **HDInsightLinkedService**, sostituire **HDInsightOnDemandLinkedService** con **HDInsightLinkedService** nel codice JSON seguente. 
 
 		{
@@ -444,7 +440,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 	
 	adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28
 
-	\(percorso BLOB\), \(nome del BLOB\), \(numero di righe nel BLOB\), \(nodo in cui è stata eseguita l'attività\), \(indicatore data/ora\)
+	(percorso BLOB), (nome del BLOB), (numero di righe nel BLOB), (nodo in cui è stata eseguita l'attività), (indicatore data/ora)
 
 10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log scaricabili dal portale o con i cmdlet.
 
@@ -527,4 +523,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connettersi a un'istanza di SQL Server locale da un'app Web nel servizio app di Azure mediante Connessioni ibride" 
+	pageTitle="Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride" 
 	description="Creare un sito Web in Microsoft Azure e connetterlo a un database di SQL Server locale"
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,15 +16,15 @@
 	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
-# Connettersi a un'istanza di SQL Server locale da un'app Web nel servizio app di Azure mediante Connessioni ibride
+# Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
 
-Le connessioni ibride possono connettere App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) a risorse locali che usano una porta TCP statica. Le risorse supportate includono Microsoft SQL Server, MySQL, HTTP API Web, servizi mobili e la maggior parte dei servizi Web personalizzati.
+Le connessioni ibride possono connettere le App Web di [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a risorse locali che usano una porta TCP statica. Le risorse supportate includono Microsoft SQL Server, MySQL, HTTP API Web, servizi mobili e la maggior parte dei servizi Web personalizzati.
 
-In questa esercitazione si apprenderà come creare un'app Web del servizio app nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), connettere l'app Web al database SQL Server locale mediante la nuova funzionalità Connessioni ibride, creare una semplice applicazione Web ASP.NET che userà la connessione ibrida e distribuire l'applicazione nell'app Web del servizio app. Il sito Web completato su Azure memorizza le credenziali dell'utente in un database di appartenenza locale. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET.
+In questa esercitazione si apprenderà come creare un'app Web del servizio app nel [portale di anteprima di Azur](http://go.microsoft.com/fwlink/?LinkId=529715), connettere l'app Web al database SQL Server locale mediante la nuova funzionalità Connessioni ibride, creare una semplice applicazione Web ASP.NET che userà la connessione ibrida e distribuire l'applicazione nell'app Web del servizio app. Il sito Web completato su Azure memorizza le credenziali dell'utente in un database di appartenenza locale. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
->La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Prerequisiti ##
 
@@ -121,30 +121,30 @@ L'applicazione Web Visual Studio richiede un database di appartenenza al quale A
 	
 3. Nella finestra di dialogo **Nuovo database** immettere MembershipDB come nome del database, quindi fare clic su **OK**.
 	
-	![Specificare il nome del database][SSMSprovideDBname]
+	![Provide database name][SSMSprovideDBname]
 	
 	Si noti che in questa fase non vengono apportate modifiche al database. Le informazioni di appartenenza verranno aggiunte automaticamente in seguito dall'applicazione Web quando questa verrà eseguita.
 	
 4. In Esplora oggetti, se si espande **Database** si noterà che il database di appartenenza è stato creato.
 	
-	![MembershipDB creato][SSMSMembershipDBCreated]
+	![MembershipDB created][SSMSMembershipDBCreated]
 	
 <a name="CreateSite"></a>
 ## B. Creare un'app Web nel portale di anteprima di Azure ##
 
 > [AZURE.NOTE]e nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e servizi BizTalk](#CreateHC) e proseguire da quel punto.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
+1. Nel [portale di anteprima Azure](https://portal.azure.com), fare clic su **Nuova** > **Web + Mobile** > **App Web**.
 	
-	![Pulsante Nuovo][New]
+	![New button][New]
 	
 2. Configurare l'applicazione web e quindi fare clic su **Crea**.
 	
-	![Nome del sito Web][WebsiteCreationBlade]
+	![Website name][WebsiteCreationBlade]
 	
 3. Dopo alcuni momenti, l'app Web viene creata e viene visualizzato il relativo pannello. Il pannello è un dashboard scorrevole verticalmente che consente di gestire il sito.
 	
-	![Sito Web in esecuzione][WebSiteRunningBlade]
+	![Website running][WebSiteRunningBlade]
 	
 	Per verificare se il sito è online, è possibile fare clic sull'icona **Sfoglia** per visualizzare la pagina predefinita.
 	
@@ -153,11 +153,11 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 <a name="CreateHC"></a>
 ## C. Creare una connessione ibrida e un servizio BizTalk ##
 
-1. Tornare al portale, scorrere verso il basso il pannello dell'app Web e fare clic su **connessioni ibride**.
+1. Tornare al portale, scorrere verso il basso dell'applicazione web blade e fare clic su **connessioni ibride**.
 	
-	![Connessioni ibride][CreateHCHCIcon]
+	![Hybrid connections][CreateHCHCIcon]
 	
-2. Nel pannello delle connessioni ibride, fare clic su **Aggiungi** > **Nuova connessione ibrida**.
+2. Nel blade connessioni ibride, fare clic su **Aggiungi** > **nuova connessione ibrida**.
 	
 3. Nel **pannello Crea connessione ibrida**:
 	- In **Nome** specificare un nome per la connessione.
@@ -165,13 +165,13 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	- In **Porta** immettere 1433 (la porta predefinita per SQL Server).
 	- Fare clic su **servizio parlare Biz** e immettere un nome per il servizio BizTalk.
 	
-	![Creare una connessione ibrida][TwinCreateHCBlades]
+	![Create a hybrid connection][TwinCreateHCBlades]
 		
 5. Fare clic su **OK** due volte.
 
-	Al termine del processo, nell'area **Notifiche** verrà visualizzata una luce di colore verde per segnalare l'**esito positivo dell'operazione** e il pannello **Connessione ibrida** mostrerà la nuova connessione ibrida con stato **Non connesso**.
+	Al termine del processo, il **notifiche** area lampeggia una verde **successo** e **connessione ibrida** blade visualizzerà la nuova connessione ibrida con lo stato dei **non connessi**.
 	
-	![Una connessione ibrida creata][CreateHCOneConnectionCreated]
+	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
 A questo punto è stata completata una parte importante dell'infrastruttura della connessione ibrida cloud. Nel passaggio successivo verrà creato un elemento locale corrispondente.
 
@@ -185,14 +185,14 @@ Dopo aver completato l'infrastruttura della connessione ibrida, verrà creata un
 <a name="CreateASPNET"></a>
 ## E. E. Creare un progetto Web ASP.NET di base, modificare la stringa di connessione del database ed eseguire il progetto a livello locale ##
 
-### Creare un progetto ASP.NET di base ###
+### Create a basic ASP.NET project ###
 1. Nel menu **File** di Visual Studio creare un nuovo progetto:
 	
-	![Nuovo progetto di Visual Studio][HCVSNewProject]
+	![New Visual Studio project][HCVSNewProject]
 	
 2. Nella sezione **Modelli** della finestra di dialogo **Nuovo progetto** selezionare **Web** e scegliere **Applicazione Web ASP.NET** e quindi fare clic su **OK**.
 	
-	![Scegliere un'applicazione Web ASP.NET][HCVSChooseASPNET]
+	![Choose ASP.NET Web Application][HCVSChooseASPNET]
 	
 3. Nella finestra di dialogo **Nuovo progetto ASP.NET** scegliere **MVC**, quindi fare clic su **OK**.
 	
@@ -200,7 +200,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, verrà creata un
 	
 4. Dopo la creazione del progetto, viene visualizzata la pagina Leggimi dell'applicazione. Non eseguire ancora il progetto.
 	
-	![Pagina del file Leggimi][HCVSReadmePage]
+	![Readme page][HCVSReadmePage]
 
 ### Modificare la stringa di connessione del database per l'applicazione ###
 
@@ -287,7 +287,7 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 	
 	![Test log in][HCTestLogIn]
 	
-2. L'app Web del servizio app è ora connessa al database di appartenenza dell'applicazione Web sul computer locale. Per effettuare una verifica, accedere con le stesse credenziali immesse precedentemente nel database locale.
+2. L'app Web del servizio app e è ora connessa al database di appartenenza dell'applicazione Web sul computer locale. Per effettuare una verifica, accedere con le stesse credenziali immesse precedentemente nel database locale.
 	
 	![Hello greeting][HCTestHelloContoso]
 	
@@ -297,11 +297,11 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 	
 4. Per verificare che le credenziali del nuovo utente siano state archiviate nel database locale tramite la connessione ibrida, aprire SQL Management Studio sul computer locale. In Esplora oggetti espandere il database **MembershipDB**, quindi espandere **Tabelle**. Fare clic con il pulsante destro del mouse sulla tabella di appartenenza **dbo.AspNetUsers** e scegliere **Seleziona prime 1000 righe** per visualizzare i risultati.
 	
-	![Visualizzare i risultati][HCTestSSMSTree]
+	![View the results][HCTestSSMSTree]
 	
 5. La tabella di appartenenza locale ora mostra entrambi gli account, quello creato localmente e quello creato nel cloud di Azure. L'account creato nel cloud è stato salvato nel database locale mediante la funzionalità Connessioni ibride di Azure.
 	
-	![Utenti registrati nel database locale][HCTestShowMemberDb]
+	![Registered users in on-premises database][HCTestShowMemberDb]
 	
 È stata creata e implementata un'applicazione Web ASP.NET che usa una connessione ibrida tra un sito Web nel cloud di Azure e un database SQL Server locale. Congratulazioni.
 

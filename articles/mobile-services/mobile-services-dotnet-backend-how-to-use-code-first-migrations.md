@@ -11,27 +11,33 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Come modificare un modello di dati in un servizio mobile back-end .NET
 
 Questo argomento illustra come usare Migrazioni Code First di Entity Framework per apportare modifiche al modello di dati in un database SQL esistente di Azure ed evitare la perdita di dati esistenti. Per questa procedura si presuppone che il progetto di servizio mobile sia già stato pubblicato in Azure, che vi siano dati esistenti nel database e che i modelli di dati remoti e locali siano ancora sincronizzati. Questo argomento descrive anche gli inizializzatori Code First predefiniti implementati da Servizi mobili di Azure che vengono usati durante la fase di sviluppo. Questi inizializzatori consentono di apportare modifiche allo schema con estrema facilità, senza dover usare Migrazioni di Code First quando non è necessario per mantenere i dati esistenti.
 
->[AZURE.NOTE]Il nome dello schema usato per aggiungere un prefisso alle tabelle nel database SQL è definito dall'impostazione dell'app <strong>MS_MobileServiceName</strong> nel file web.config. Quando si scarica il progetto iniziale dal portale, questo valore è già impostato sul nome del servizio mobile. Quando il nome dello schema corrisponde al servizio mobile, più servizi mobili possono condividere la stessa istanza di database in modo sicuro.
+>[AZURE.NOTE]Il nome dello schema usato per aggiungere un prefisso alle tabelle nel database SQL è definito dall'impostazione dell'app MS_MobileServiceName nel file web.config. Quando si scarica il progetto iniziale dal portale, questo valore è già impostato sul nome del servizio mobile. Quando il nome dello schema corrisponde al servizio mobile, più servizi mobili possono condividere la stessa istanza di database in modo sicuro.
+
+## Aggiornamento del modello di dati
+
+Quando si aggiungono funzionalità al servizio mobile back-end .NET, è possibile aggiungere nuovi controller per esporre i nuovi endpoint nell'API. Viene creata una nuova API come un controller personalizzato o un controller di tabella. [TableController<TEntity>] espone un tipo di dati che eredita da [EntityData]. Per abilitare i dati da mantenere nel database, questo tipo di dati deve inoltre essere aggiunto al modello di dati come un nuovo [DbSet<T>] nel [DbContext]. Per ulteriori informazioni su Code First in Entity Framework, vedere [Creazione di un modello con Code First](https://msdn.microsoft.com/data/ee712907#codefirst).
+
+Visual Studio consente di creare facilmente un nuovo controller di tabella per l'esposizione di un nuovo tipo di dati in app client. Per ulteriori informazioni, vedere [Come usare i controller per accedere ai dati in servizi mobili](https://msdn.microsoft.com/library/windows/apps/xaml/dn614132.aspx).
 
 ## Inizializzatori del modello di dati
 
-Servizi mobili supporta due classi base di inizializzatori del modello di dati in un progetto di servizio mobile back-end .NET. Questi inizializzatori eliminano e ricreano tabelle nel database ogni volta che Entity Framework rileva una modifica del modello di dati in [DbContext]. Gli inizializzatori sono progettati per funzionare sia quando il servizio mobile viene eseguito in un computer locale sia quando è ospitato in Azure.
+Servizi mobili fornisce due classi base di inizializzatori del modello di dati in un progetto di servizio mobile back-end .NET. Entrambi gli inizializzatori eliminano e ricreano tabelle nel database quando Entity Framework rileva una modifica del modello di dati in [DbContext]. Gli inizializzatori sono progettati per funzionare sia quando il servizio mobile viene eseguito in un computer locale sia quando è ospitato in Azure.
 
 >[AZURE.NOTE]Quando si pubblica un servizio mobile back-end .NET, l'inizializzatore non viene eseguito finché non si verifica un'operazione di accesso ai dati. Ciò significa che, per un servizio pubblicato di recente, le tabelle dati usate per l'archiviazione non vengono create finché il client non richiede l'esecuzione di un'operazione di accesso ai dati, ad esempio una query.
 >
 >È anche possibile eseguire un'operazione di accesso ai dati usando la funzionalità predefinita di guida dell'API, accessibile dal collegamento **Prova** nella pagina iniziale. Per altre informazioni sull'uso delle pagine relative all'API testare il servizio mobile, vedere la sezione Testare il progetto di servizio mobile localmente in [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#test-the-service-locally).
 
-Entrambe le classi base di inizializzatori eliminano dal database tutte le tabelle, le viste, le funzioni e le procedure presenti nello schema usate dal servizio mobile.
+Entrambi gli inizializzatori eliminano dal database tutte le tabelle, le viste, le funzioni e le procedure presenti nello schema usate dal servizio mobile.
 
 + **ClearDatabaseSchemaIfModelChanges** <br/> Gli oggetti dello schema vengono eliminati solo quando Code First rileva una modifica nel modello di dati. L'inizializzatore predefinito in un progetto back-end .NET scaricato dal [portale di gestione di Azure] eredita da questa classe base.
  
@@ -159,5 +165,9 @@ Questo codice chiama il metodo [AddOrUpdate] con estensione helper per aggiunger
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
+[EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
+[DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

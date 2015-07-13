@@ -30,7 +30,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni di questa eserci
 
 ![Diagramma del flusso di lavoro][img-workflow-diagram]
 
-1. Un'azione di Hive esegue uno script HiveQL per contare le occorrenze di ogni tipo di livello di log in un file log4j. Ogni file log4j è costituito da una riga di campi che contiene un campo \[LOG LEVEL\] per visualizzare il tipo e la gravità, ad esempio:
+1. Un'azione di Hive esegue uno script HiveQL per contare le occorrenze di ogni tipo di livello di log in un file log4j. Ogni file log4j è costituito da una riga di campi che contiene un campo [LOG LEVEL] per visualizzare il tipo e la gravità, ad esempio:
 
 		2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
 		2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -59,7 +59,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni di questa eserci
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di Windows PowerShell, è necessario accedere come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Per altre informazioni, vedere l'articolo relativo all'[esecuzione degli script di Windows PowerShell][powershell-script].
+- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di Windows PowerShell, è necessario accedere come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Per altre informazioni, vedere l'articolo relativo all'[esecuzione degli script di Windows PowerShell][powershell-script].
 - **Un cluster HDInsight**. Per informazioni sulla creazione di un cluster HDInsight, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision] o [Introduzione all'uso di Hadoop con Hive in HDInsight per analizzare l'uso di telefoni cellulari][hdinsight-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
 
 	<table border = "1">
@@ -87,12 +87,12 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Definire il flusso di lavoro di Oozie e il relativo script HiveQL
 
-Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL \(XML Process Definition Language\). Il nome del file del flusso di lavoro predefinito è *workflow.xml*. Il file del flusso di lavoro verrà salvato a livello locale e distribuito nel cluster HDInsight tramite Windows PowerShell più avanti in questa esercitazione.
+Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XML Process Definition Language). Il nome del file del flusso di lavoro predefinito è *workflow.xml*. Il file del flusso di lavoro verrà salvato a livello locale e distribuito nel cluster HDInsight tramite Windows PowerShell più avanti in questa esercitazione.
 
 L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contiene tre istruzioni HiveQL:
 
 1. **L'istruzione DROP TABLE** consente di eliminare la tabella di Hive log4j, se esistente.
-2. **L'istruzione CREATE TABLE** consente di creare una tabella di Hive log4j esterna che punti al percorso del file di log log4j. Il delimitatore di campo è ",". Il delimitatore di riga predefinito è "\\n". La tabella di Hive esterna viene usata per evitare che il file di dati venga rimosso dal percorso originale, nel caso in cui si desideri eseguire il flusso di lavoro di Oozie più volte.
+2. **L'istruzione CREATE TABLE** consente di creare una tabella di Hive log4j esterna che punti al percorso del file di log log4j. Il delimitatore di campo è ",". Il delimitatore di riga predefinito è "\n". La tabella di Hive esterna viene usata per evitare che il file di dati venga rimosso dal percorso originale, nel caso in cui si desideri eseguire il flusso di lavoro di Oozie più volte.
 3. **L'istruzione INSERT OVERWRITE** conta le occorrenze di ogni tipo di livello di log nella tabella di Hive log4j e salva l'output in un BLOB nell'archiviazione di Azure. 
 
 Il percorso di Hive è caratterizzato da un problema noto che si verifica durante l'invio di un processo Oozie. Le istruzioni per la correzione del problema sono disponibili nell'articolo della sezione Wiki di TechNet sull'[errore di HDInsight Hive "Impossibile rinominare"][technetwiki-hive-error].
@@ -111,9 +111,9 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 	- ${hiveDataFolder}
 	- ${hiveOutputFolder}
 			
-	Il file di definizione del flusso di lavoro \(workflow.xml in questa esercitazione\) passa questi valori allo script HiveQL in fase di esecuzione.
+	Il file di definizione del flusso di lavoro (workflow.xml in questa esercitazione) passa questi valori allo script HiveQL in fase di esecuzione.
 		
-2. Salvare il file come **C:\\Tutorials\\UseOozie\\useooziewf.hql** usando la codifica **ANSI \(ASCII\)**. Usare il blocco note se l'editor di testo non offre questa opzione. Il file di script verrà distribuito nel cluster di HDInsight più avanti in questa esercitazione.
+2. Salvare il file come **C:\Tutorials\UseOozie\useooziewf.hql** usando la codifica **ANSI (ASCII)**. Usare il blocco note se l'editor di testo non offre questa opzione. Il file di script verrà distribuito nel cluster di HDInsight più avanti in questa esercitazione.
 
 
 
@@ -195,17 +195,17 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 <tr><td>${sqlDatabaseConnectionString}</td><td>Specifica la stringa di connessione del database SQL di Azure.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Specifica la tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifica la cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
-</table>Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per HDInsight versione 3.0\) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per HDInsight versione 2.1\).
+</table>Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
-2. Salvare il file come **C:\\Tutorials\\UseOozie\\workflow.xml** usando la codifica ANSI \(ASCII\). Usare il blocco note se l'editor di testo non offre questa opzione.
+2. Salvare il file come **C:\Tutorials\UseOozie\workflow.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
 	
 ##Distribuzione del progetto Oozie e operazioni preliminari all'esercitazione
 
 Eseguire uno script di Windows PowerShell per completare le attività seguenti:
 
-- Copiare lo script HiveQL \(useoozie.hql\) nell'archiviazione di Azure \(wasb:///tutorials/useoozie/useoozie.hql).
+- Copiare lo script HiveQL (useoozie.hql) nell'archiviazione di Azure (wasb:///tutorials/useoozie/useoozie.hql).
 - Copiare il file workflow.xml in wasb:///tutorials/useoozie/workflow.xml.
-- Copiare il file di dati \(/example/data/sample.log\) in wasb:///tutorials/useoozie/data/sample.log. 
+- Copiare il file di dati (/example/data/sample.log) in wasb:///tutorials/useoozie/data/sample.log. 
 - Creare una tabella di database SQL di Azure per l'archiviazione dei dati di esportazione di Sqoop. Il nome della tabella è *log4jLogCount*.
 
 **Informazioni sull'archiviazione in HDInsight**
@@ -220,7 +220,7 @@ Quando si effettua il provisioning di un cluster HDInsight, vengono designati co
 
 > [AZURE.NOTE]Il percorso wasb:// è un percorso virtuale. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
-È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito usando uno degli URI seguenti \(usare come esempio workflow.xml\):
+È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito usando uno degli URI seguenti (usare come esempio workflow.xml):
 
 	wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
 	wasb:///tutorials/useoozie/workflow.xml
@@ -244,7 +244,7 @@ Per altre informazioni, vedere l'[articolo introduttivo alle tabelle interne ed 
 
 **Operazioni preliminari all'esercitazione**
 
-1. Aprire Windows PowerShell ISE. Nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
+1. Aprire Windows PowerShell ISE. Nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
 2. Nel riquadro inferiore eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
 
 		Add-AzureAccount
@@ -335,13 +335,13 @@ Per altre informazioni, vedere l'[articolo introduttivo alle tabelle interne ed 
 
 ##Eseguire il progetto Oozie
 
-Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per HDInsight versione 3.0\) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per HDInsight versione 2.1\).
+Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
 **Per inviare un processo Oozie**
 
-1. Aprire Windows PowerShell ISE. Nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
+1. Aprire Windows PowerShell ISE. Nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
 
-3. Copiare lo script seguente nel riquadro di script e impostare le prime 10 variabili \(ignorare la variabile $storageUri\).
+3. Copiare lo script seguente nel riquadro di script e impostare le prime 10 variabili (ignorare la variabile $storageUri).
 
 		#HDInsight cluster variables
 		$clusterName = "<HDInsightClusterName>"
@@ -509,7 +509,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* o *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* dal nodo head del cluster. Per altre informazioni su RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in *C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* o *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* dal nodo head del cluster. Per altre informazioni su RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -559,7 +559,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 - [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
 - [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
 - [Usare Pig con Hadoop in HDInsight][hdinsight-use-pig]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C\# per HDInsight][hdinsight-develop-streaming-jobs]
+- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming-jobs]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -613,4 +613,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

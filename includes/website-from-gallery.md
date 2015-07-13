@@ -78,4 +78,4 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 [resourcegroup]: ./media/website-from-gallery/showgroup.png
 [browse]: ./media/website-from-gallery/browse.png
 
-<!--HONumber=54-->
+<!---HONumber=62-->

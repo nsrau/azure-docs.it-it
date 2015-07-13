@@ -48,5 +48,6 @@ Vi sono poi due ulteriori funzionalità, non ancora disponibili nell'interfaccia
 1. **Cronologia di attivazione**: i trigger di polling verificano l'API in base a un determinato intervallo, ma non avviano necessariamente un'esecuzione, a seconda della risposta (ad esempio, `200` significa che è necessario avviare l'esecuzione, mentre`202` che non è necessario). La cronologia di attivazione consente di visualizzare tutte le chiamate eseguite, ma che non eseguono l'app per la logica (le risposte `202`).
 
 2. **Versioni precedenti**: quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Ciò avviene perché se un'esecuzione è già in corso farà riferimento alla versione dell'app per la logica che esisteva all'avvio dell'esecuzione. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

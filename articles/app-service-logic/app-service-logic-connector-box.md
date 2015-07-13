@@ -33,92 +33,86 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
 	a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso cartella</td>
-	    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
-
-	>[AZURE.NOTE] non restituisce i contenuti dei file.
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso cartella</td>
+    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
+    <td>Sì</td>
+  </tr>
+</table>>[AZURE.NOTE]Non restituisce i contenuti dei file.
 
 
 
     b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso della cartella in cui è presente il file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo file</td>
-	    <td>Specifica se il file è di testo o binario.</td>
-	    <td>No</td>
-	  </tr>
-	</table>
-	>[AZURE.NOTE] questa operazione non eliminerà il file dopo averlo letto.
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso della cartella in cui è presente il file.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Tipo file</td>
+    <td>Specifica se il file è di testo o binario.</td>
+    <td>No</td>
+  </tr>
+</table>>[AZURE.NOTE]Questa operazione non eliminerà il file dopo la lettura.
 
 
 
-    c. Upload file: questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+    c. Carica file: come indicato dal nome, l'azione carica il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso del file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Contenuto file</td>
-	    <td>Contenuto del file da caricare.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Codifica trasferimento contenuto</td>
-	    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-
-    d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso del file.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Contenuto file</td>
+    <td>Contenuto del file da caricare.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Codifica trasferimento contenuto</td>
+    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
+    <td> </td>
+  </tr>
+</table>d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
  	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso del file completo incluse le cartelle.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso del file completo incluse le cartelle.</td>
+    <td>Sì</td>
+  </tr>
+</table>
 
 
 
 
 ## Creazione di un connettore Box per l'app per la logica
 
-Per usare il connettore Box, prima è necessario creare un'istanza dell'app per le API Box Connector. È possibile eseguire questa operazione all'interno dell'area di progettazione dell'app per la logica o all'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
+Per usare il connettore Box, prima è necessario creare un'istanza dell'app per le API del connettore Box. È possibile eseguire questa operazione all'interno dell'area di progettazione dell'app per la logica o all'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
 
 1. Aprire Azure Marketplace dalla home page del portale di Azure.
 
@@ -133,14 +127,14 @@ Per usare il connettore Box, prima è necessario creare un'istanza dell'app per 
 
 ## Uso del connettore Box nell'app per la logica
 
-Una volta creata l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A questo scopo, è necessario:
+Dopo aver creato l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A questo scopo, è necessario:
 
 
 1. Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore Box.
 
 2. Aprire "Trigger e azioni" per aprire la finestra di progettazione delle app per la logica e configurare il flusso. Il connettore Box apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
 
-3. Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possibile eseguire azioni sull'account Box con il connettore. Si noti che il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
+3. Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, sarebbe possibile eseguire azioni sull'account Box con il connettore. Si noti che il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
 
 4. Il primo passaggio prevede l'autenticazione e l'autorizzazione delle app per la logica in modo che eseguano operazioni per conto dell'utente. Per avviare l'autorizzazione, fare clic su Autorizza in Box Connector.
 
@@ -154,7 +148,7 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 
 	![][4]
 
-7. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire.
+7. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione appropriata da eseguire.
 
 	![][5]
 
@@ -166,4 +160,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=62-->
+<!---HONumber=62-->

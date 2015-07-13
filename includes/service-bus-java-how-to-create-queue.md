@@ -1,90 +1,59 @@
 <a id="what-are-service-bus-queues"></a>
-## What are Service Bus Queues?
+## Informazioni sulle code del bus di servizio
 
-Service Bus queues support a **brokered messaging** communication
-model. When using queues, components of a distributed application do not
-communicate directly with each other; instead they exchange messages via
-a queue, which acts as an intermediary (broker). A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
+Le code del bus di servizio supportano un modello di comunicazione con **messaggistica negoziata**. Quando si usano le code, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite una coda, che agisce da intermediario (broker). Un producer di messaggi (mittente) invia un messaggio alla coda e quindi prosegue con la relativa elaborazione. In modo asincrono, il consumer di messaggi (ricevitore) recupera il messaggio dalla coda e lo elabora. Il producer non deve attendere la risposta del consumer per continuare a elaborare e inviare ulteriori messaggi. Le code consentono un recapito dei messaggi di tipo **FIFO (First In, First Out)** a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
 
-![QueueConcepts](./media/service-bus-java-how-to-create-queue/sb-queues-08.png)
+![Concetti relativi alle code](./media/service-bus-java-how-to-create-queue/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
+Le code del bus di servizio sono una tecnologia di carattere generale che può essere usata in numerosi scenari:
 
--   Communication between web and worker roles in a multi-tier
-    Azure application.
--   Communication between on-premises apps and Azure hosted apps
-    in a hybrid solution.
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization.
+-   Comunicazione tra ruoli Web e di lavoro in un'applicazione Azure multilivello.
+-   Comunicazione tra app locali e app ospitate in Azure in una soluzione ibrida.
+-   Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione.
 
-Using queues enables you to scale out your applications more easily, and
-enable more resiliency to your architecture.
+L'uso delle code consente la scalabilità orizzontale delle applicazioni e garantisce maggiore resilienza all'architettura.
 
-## Create a service namespace
+## Creare uno spazio dei nomi del servizio
 
-To begin using Service Bus queues in Azure, you must first
-create a service namespace. A namespace provides a scoping
-container for addressing Service Bus resources within your application.
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-To create a service namespace:
+Per creare uno spazio dei nomi del servizio:
 
-1.  Log on to the [Azure Management Portal][].
+1.  Accedere al [portale di gestione di Azure][].
 
-2.  In the left navigation pane of the Management Portal, click
-    **Service Bus**.
+2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
 
-3.  In the lower pane of the Management Portal, click **Create**.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
+5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+	IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the management portal. Wait until the namespace status is **Active** before continuing.
+Sarà necessario attendere qualche istante affinché venga attivato lo spazio dei nomi creato che verrà quindi visualizzato nel portale di gestione. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
 
-## Obtain the default management credentials for the namespace
+## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-In order to perform management operations, such as creating a queue on
-the new namespace, you must obtain the management credentials for the
-namespace. You can obtain these credentials from the Azure management portal.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere questi valori nel portale di gestione di Azure.
 
-###To obtain management credentials from the portal
+###Per ottenere le credenziali di gestione dal portale
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
-2.  Click on the namespace you just created from the list shown.
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.
 
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
-4.  Make a note of the primary key, or copy it to the clipboard.
+4.  Prendere nota del valore della chiave o copiarlo negli Appunti.
 
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [portale di gestione di Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
+
+<!---HONumber=62-->

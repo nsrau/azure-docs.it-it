@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights" 
-	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua." 
+	description="Scrivere il codice per la propria analisi dei dati di telemetria in Application Insights usando la funzionalità di esportazione continua." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -15,65 +15,69 @@
 	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
-# Procedura dettagliata: esportare in SQL da Application Insights usando l'Analisi di flusso di Azure
+# Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 
-Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando l'[Esportazione continua][export] e l'[Analisi di flusso di Azure](http://azure.microsoft.com/services/stream-analytics/).
+Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](http://azure.microsoft.com/services/stream-analytics/).
 
-L'esportazione continua sposta i dati di telemetria nell'archiviazione di Azure nel formato JSON. Verranno analizzati gli oggetti JSON con l'Analisi di flusso di Azure e verranno create delle righe in una tabella di database.
+L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
-Più in generale, Esportazione continua è il modo per eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con la telemetria esportata, ad esempio l'aggregazione dei dati e la pubblicazione dei dati nelle applicazioni di visualizzazione PowerBI.
+Più in generale, l'esportazione continua consente di eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con i dati di telemetria esportati, ad esempio l'aggregazione dei dati e la relativa pubblicazione nelle applicazioni di visualizzazione PowerBI.
 
-Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
+Si partirà dal presupposto che si disponga già dell'app che si vuole monitorare.
 
 
-In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eventi personalizzati ed eccezioni.
+In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati.
 
 
 ## Aggiungere Application Insights SDK
 
-Per monitorare l'applicazione, [aggiungere un Application Insights SDK][start] all'applicazione. Esistono diversi SDK e strumenti di supporto per diverse piattaforme, linguaggi e IDE. È possibile monitorare le pagine Web, i server Web ASP.NET o Java e i dispositivi mobili di diversi tipi. Tutti gli SDK inviano dati di telemetria al [portale di Application Insights][portal], dove è possibile usare potenti strumenti di analisi e diagnostica ed esportare i dati nell'archivio.
+Per monitorare l'applicazione, [aggiungervi un Application Insights SDK][start]. Esistono SDK e strumenti di supporto diversi per piattaforme, IDE e linguaggi diversi. È possibile monitorare le pagine Web, i server Web ASP.NET o Java e i dispositivi mobili di diversi tipi. Tutti gli SDK inviano dati di telemetria al [portale di Application Insights][portal], dove è possibile usare potenti strumenti di analisi e diagnostica ed esportare i dati nell'archivio.
 
 Attività iniziali
 
 1. Ottenere un [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
 2. Nel [portale di Azure][portal] aggiungere una nuova risorsa di Application Insights per la propria app:
 
-    ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights e scegliere il tipo di applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+    ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights e infine il tipo di applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
 
 
-    Il tipo di app e la sottoscrizione potrebbero essere diversi.
+    Il tipo di app e la sottoscrizione di cui si dispone potrebbero essere diversi.
 3. Aprire Avvio rapido per scoprire come configurare l'SDK per il proprio tipo di app.
 
     ![Scegliere Avvio rapido e seguire le istruzioni](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
 
-    Se il tipo di app non è elencato, dare uno sguardo alla pagina [Introduzione][start].
+    Se il tipo di app di cui si dispone non è elencato, dare uno sguardo alla pagina [Introduzione][start].
 
-4. In questo esempio viene eseguito il monitoraggio di un'app Web, quindi è possibile usare gli strumenti di Azure in Visual Studio per installare l'SDK. A questo punto, viene specificato il nome della risorsa Application Insights:
+4. In questo esempio viene eseguito il monitoraggio di un'app Web, quindi è possibile usare gli strumenti di Azure in Visual Studio per installare l'SDK. A questo punto, specificare il nome della risorsa di Application Insights:
 
-    ![In Visual Studio, nella finestra di dialogo Nuovo progetto, selezionare Aggiungi Application Insights e, sotto Invia telemetria a, scegliere di creare una nuova applicazione o di usarne una esistente.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse e scegliere Aggiungi Application Insights. In Invia telemetria a scegliere di creare una nuova risorsa o usarne una esistente.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. Pubblicare l'app e controllare i dati di telemetria visualizzati nella risorsa di Application Insights.
 
 
-## Creare l'archiviazione in Azure
+## Creare l'archivio in Azure
+
+L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
 
 1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure][portal].
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
-2. Creare un contenitore
+2. Creare un contenitore.
 
-    ![Nel nuovo archivio selezionare Contenitori, quindi Aggiungi](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![Nel nuovo archivio selezionare Contenitori e quindi Aggiungi](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
-3. Copiare la chiave di accesso alle risorse di archiviazione
+3. Copiare la chiave di accesso alle risorse di archiviazione.
 
-    È necessaria per configurare l'input nel servizio di analisi di flusso.
+    Sarà presto necessaria per configurare l'input per il servizio di analisi di flusso.
 
     ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Avviare l'esportazione continua nell'archiviazione di Azure
+## Avviare l'esportazione continua in Archiviazione di Azure
 
-1. Nel portale di Azure passare alla risorsa Application Insights creata per la propria applicazione.
+1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
 
-    ![Scegliere Sfoglia, Application Insights, quindi l'applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Scegliere Sfoglia, Application Insights e quindi l'applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 
 2. Creare un'esportazione continua.
 
@@ -90,32 +94,32 @@ Attività iniziali
 
 Attendere ora che gli utenti usino l'applicazione per qualche tempo. Quando verranno restituiti i dati di telemetria, sarà possibile esaminare i grafici statistici in [Esplora metriche][metrics] e i singoli eventi in [Ricerca diagnostica][diagnostic].
 
-I dati saranno esportati anche nell'archiviazione, dove sarà possibile esaminarne il contenuto. Ad esempio, in Visual Studio è presente un browser di archiviazione:
+I dati saranno esportati anche nell'archivio, dove sarà possibile esaminarne il contenuto. Ad esempio, in Visual Studio è presente uno strumento di esplorazione delle informazioni archiviate:
 
 
 ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà quindi possibile scrivere del codice per leggere i dati dell'evento e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è la scrittura di codice per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
+Gli eventi vengono scritti in file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
 ## Creare un database SQL di Azure
 
-Dalla sottoscrizione nel [portale di Azure][portal] creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
+Sempre partendo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
 
 ![Nuovo, Dati, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
 
-Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
+Verificare che il server di database consenta di accedere ai servizi di Azure:
 
 
 ![Sfoglia, Server, il proprio server, Impostazioni, Firewall, Consenti l'accesso a Servizi di Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## Creare una tabella nel database SQL di Azure
 
-Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [Strumenti di gestione di SQL Server ](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server ](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
-Creare una nuova query ed eseguire l'istruzione T-SQL seguente:
+Creare una nuova query ed eseguire il codice T-SQL seguente:
 
 ```SQL
 
@@ -157,9 +161,9 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-## Creare un'istanza di Analisi di flusso di Azure
+## Creare un'istanza di analisi di flusso di Azure
 
-Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di Analisi di flusso di Azure e creare un nuovo processo di Analisi di flusso:
+Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
@@ -178,7 +182,7 @@ Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
 
-A questo punto è necessaria la chiave di accesso primaria dall'account di archiviazione annotata in precedenza. Impostarla come chiave dell'account di archiviazione.
+A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
@@ -188,18 +192,18 @@ A questo punto è necessaria la chiave di accesso primaria dall'account di archi
 
 Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).
 
-Lo schema prefisso percorso specifica il modo in cui l'Analisi di flusso trova i file di input nell'archiviazione. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
+Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
     webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
 
 Esempio:
 
-* `webapplication27` è il nome della risorsa Application Insights. 
-* `1000...` è la chiave di strumentazione della risorsa Application Insights. 
+* `webapplication27` è il nome della risorsa di Application Insights. 
+* `1000...` è la chiave di strumentazione della risorsa di Application Insights. 
 * `PageViews` è il tipo di dati da analizzare. I tipi disponibili dipendono dal filtro impostato nell'esportazione continua. Esaminare i dati esportati per vedere gli altri tipi disponibili.
 * `/{date}/{time}` è uno schema scritto letteralmente.
 
-Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
+Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
 
 #### Completare l'installazione iniziale
 
@@ -274,12 +278,12 @@ Avviare il processo dalla barra delle azioni:
 
 ![In Analisi di flusso fare clic su Avvia](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
-È possibile scegliere se avviare l'elaborazione dei dati a partire dai dati correnti o se includere i dati precedenti. L'ultima opzione è utile se l'esportazione continua è già stata eseguita per un determinato periodo di tempo.
+È possibile scegliere se avviare l'elaborazione dei dati a partire dai dati correnti o se includere i dati precedenti. La seconda opzione è utile se l'esportazione continua è già stata eseguita per un determinato periodo di tempo.
 
 
 ![In Analisi di flusso fare clic su Avvia](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
-Dopo alcuni minuti, tornare agli Strumenti di gestione di SQL Server e controllare i flusso dei dati. Usare ad esempio una query simile alla seguente:
+Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controllare il flusso dei dati. Usare ad esempio una query simile alla seguente:
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
@@ -287,7 +291,7 @@ Dopo alcuni minuti, tornare agli Strumenti di gestione di SQL Server e controlla
 
 ## Articoli correlati
 
-* [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Eseguire l'esportazione in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Esportazione continua in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 

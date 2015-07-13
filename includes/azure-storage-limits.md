@@ -1,72 +1,74 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource<sup>1</sup></th>
-   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Risorsa<sup>1</sup></th>
+   <th align="left" valign="middle">Limite predefinito</th>
 </tr>
 <tr>
-   <td valign="middle"><p>TB per storage account</p></td>
+   <td valign="middle"><p>TB per account di archiviazione</p></td>
    <td valign="middle"><p>500 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max size of a single blob container, table, or queue</p></td>
+   <td valign="middle"><p>Dimensione massima di un singolo contenitore BLOB o di una singola tabella o coda</p></td>
    <td valign="middle"><p>500 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account</p></td>
-   <td valign="middle"><p>Only limit is the 500 TB storage account capacity</p></td>
+   <td valign="middle"><p>Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione</p></td>
+   <td valign="middle"><p>L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB)</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max size of a file share</p></td>
+   <td valign="middle"><p>Dimensione massima di una condivisione file</p></td>
    <td valign="middle"><p>5 TB</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max number of files in a file share</p></td>
-   <td valign="middle"><p>Only limit is the 5 TB total capacity of the file share</p></td>
+   <td valign="middle"><p>Numero massimo di file in una condivisione file</p></td>
+   <td valign="middle"><p>L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB)</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max 8 KB IOPS per persistent disk (Basic Tier)</p></td>
+   <td valign="middle"><p>Numero massimo di IOPS da 8 KB per disco persistente (livello Basic)</p></td>
    <td valign="middle"><p>300<sup>2</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max 8 KB IOPS per persistent disk (Standard Tier)</p></td>
+   <td valign="middle"><p>Numero massimo di IOPS da 8 KB per disco persistente (livello Standard)</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Total Request Rate (assuming 1KB object size) per storage account</p></td>
-   <td valign="middle"><p>Up to 20,000 entities or messages per second</p></td>
+   <td valign="middle"><p>Frequenza di richiesta totale (presupponendo oggetti con dimensione di 1 KB) per account di archiviazione</p></td>
+   <td valign="middle"><p>Fino a 20.000 entità o messaggi al secondo</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Blob</p></td>
-   <td valign="middle"><p>Up to 60 MB per second, or up to 500 requests per second</p></td>
+   <td valign="middle"><p>Velocità effettiva da raggiungere per BLOB singolo</p></td>
+   <td valign="middle"><p>Fino a 60 MB al secondo o fino 500 richieste al secondo</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Queue (1 KB messages)</p></td>
-   <td valign="middle"><p>Up to 2000 messages per second</p></td>
+   <td valign="middle"><p>Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB)</p></td>
+   <td valign="middle"><p>Fino a 2000 messaggi al secondo</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Target Throughput for Single Table Partition (1 KB entities)</p></td>
-   <td valign="middle"><p>Up to 2000 entities per second</p></td>
+   <td valign="middle"><p>Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB)</p></td>
+   <td valign="middle"><p>Fino a 2000 entità al secondo</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max ingress per storage account (US Regions)</p></td>
-   <td valign="middle"><p>10 Gbps if GRS<sup>3</sup> enabled, 20 Gbps for LRS</p></td>
+   <td valign="middle"><p>Numero massimo in entrata per account di archiviazione (aree US)</p></td>
+   <td valign="middle"><p>10 Gbps se l'archiviazione con ridondanza geografica (GRS)<sup>3</sup> è abilitata, 20 Gbps per archiviazione con ridondanza locale (LRS)</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max egress per storage account (US Regions)</p></td>
-   <td valign="middle"><p>20 Gbps if GRS<sup>3</sup> enabled, 30 Gbps for LRS</p></td>
+   <td valign="middle"><p>Numero massimo in uscita per account di archiviazione (aree US)</p></td>
+   <td valign="middle"><p>20 Gbps se l'archiviazione con ridondanza geografica (GRS)<sup>3</sup> è abilitata, 30 Gbps per archiviazione con ridondanza locale (LRS)</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max ingress per storage account (European and Asian Regions)</p></td>
-   <td valign="middle"><p>5 Gbps if GRS<sup>3</sup> enabled, 10 Gbps for LRS</p></td>
+   <td valign="middle"><p>Numero massimo in entrata per account di archiviazione (aree europee e asiatiche)</p></td>
+   <td valign="middle"><p>5 Gbps se l'archiviazione con ridondanza geografica (GRS)<sup>3</sup> è abilitata, 10 Gbps per archiviazione con ridondanza locale (LRS)</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Max egress per storage account (European and Asian Regions)</p></td>
-   <td valign="middle"><p>10 Gbps if GRS<sup>3</sup> enabled, 15 Gbps for LRS</p></td>
+   <td valign="middle"><p>Numero massimo in uscita per account di archiviazione (aree europee e asiatiche)</p></td>
+   <td valign="middle"><p>10 Gbps se l'archiviazione con ridondanza geografica (GRS)<sup>3</sup> è abilitata, 15 Gbps per archiviazione con ridondanza locale (LRS)</p></td>
 </tr>
 </table>
 
-<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
+<sup>1</sup>Per altre informazioni su questi limiti, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md).
 
-<sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+<sup>2</sup>Per le macchine virtuali del livello Basic, non posizionare oltre 66 VHD (20.000/300) a uso intensivo in un account di archiviazione per evitare il limite della frequenza di richieste totale, pari a 20.000. Per le macchine virtuali del livello Standard, non posizionare oltre 40 VHD (20.000/500) a uso intensivo in un account di archiviazione. Per altre informazioni, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-<sup>3</sup>GRS is [Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). LRS is [Locally Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx). Note that GRS is also locally redundant.
+<sup>3</sup>GRS è l'acronimo di [Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). LRS è l'acronimo di [Locally Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx). Si noti che l'archiviazione con ridondanza geografica è anche localmente ridondante.
+
+<!---HONumber=62-->

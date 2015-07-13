@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilizzo dei connettori"
-   description="Utilizzo dei connettori"
+   pageTitle="Uso dei connettori"
+   description="Uso dei connettori"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -19,10 +19,10 @@
 #Connettori#
 I connettori sono app per le API che consentono di connettersi ai dati e ai servizi in esecuzione nel cloud oppure in locale. I connettori consentono di accedere ai dati con un'ampia gamma di trigger predefiniti e azioni cui è possibile accedere facilmente nelle app per la logica e altro ancora.
 
-Azure App Service fornisce una serie di connettori predefiniti:
+Il servizio app di Azure fornisce una serie di connettori predefiniti:
 
 ##Connettori Standard##
-* [Connettore del Bus di servizio di Azure]
+* [Connettore del bus di servizio di Azure]
 * [Connettore BLOB di archiviazione di Azure]
 * Connettore WebJobs di Azure
 * [Connettore Box]
@@ -50,12 +50,12 @@ Azure App Service fornisce una serie di connettori predefiniti:
 * [Connettore Yammer]
 
 ##Connettori Premium e app per le API##
-* AS2 Connector
-* BizTalk EDIFACT
+* [Connettore AS2]
+* [BizTalk EDIFACT]
 * [BizTalk Flat File Encoder]
 * BizTalk Transform Service
 * [BizTalk Rules]
-* BizTalk X12
+* [BizTalk X12]
 * [BizTalk XPath Extractor]
 * [BizTalk XML Validator]
 * DB2 Connector
@@ -73,10 +73,10 @@ Le app per la logica sono costituite da trigger e da azioni. Alcuni connettori p
 Diversi connettori forniscono i trigger per le app per la logica. Tali trigger sono di due tipi:
 
 1. Trigger di polling: questi trigger eseguiranno il polling del servizio che interessa a una frequenza specificata per verificare la disponibilità di nuovi dati. Quando sono disponibili nuovi dati, verrà eseguita una nuova istanza dell'app per la logica con i dati come input. Il trigger può eseguire altre attività, come la pulizia dei dati letti e passati all'app per la logica, per prevenirne l'utilizzo ripetuto. Esempi di tali connettori sono File, SQL e Archiviazione di Azure.
-2. Trigger di push: tali trigger restano in attesa di dati su un endpoint oppure che si verifichi un evento che attivi una nuova istanza dell'app per la logica. Esempi di tali connettori sono i listener HTTP e Twitter.
+2. Trigger di push: tali trigger restano in attesa di dati su un endpoint oppure che si verifichi un evento che attivi una nuova istanza dell'app per la logica. Esempi di tali connettori sono il listener HTTP e Twitter.
 
 ###Connettori come azioni###
-È anche possibile usare i connettori come azioni come parte dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione; ad esempio, può essere necessario cercare in un database SQL altre informazioni riguardo un cliente quando si elabora un ordine. In alternativa, può essere necessario scrivere, aggiornare o eliminare i dati in una destinazione, per cui è possibile usare le azioni fornite dai connettori. Le azioni eseguono il mapping a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
+È anche possibile usare i connettori come azioni come parte dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione; ad esempio, può essere necessario cercare in un database SQL altre informazioni riguardo un cliente quando si elabora un ordine. In alternativa, può essere necessario scrivere, aggiornare o eliminare i dati in una destinazione, per cui è possibile usare le azioni fornite dai connettori. Le azioni vengono mappate a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
 
 
 <!-- Links -->
@@ -101,7 +101,7 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 [Connettore DropBox]: app-service-logic-connector-dropbox.md
 [Connettore Chatter]: app-service-logic-connector-chatter.md
 [Connettore HDInsight]: app-service-logic-connector-hdinsight.md
-[Connettore del Bus di servizio di Azure]: app-service-logic-connector-azureservicebus.md
+[Connettore del bus di servizio di Azure]: app-service-logic-connector-azureservicebus.md
 [Connettore Oracle]: app-service-logic-connector-oracle.md
 [Connettore SQL]: app-service-logic-connector-sql.md
 [Connettore OneDrive]: app-service-logic-connector-onedrive.md
@@ -111,6 +111,8 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 [BizTalk XPath Extractor]: app-service-logic-xpath-extract.md
 [BizTalk XML Validator]: app-service-logic-xml-validator.md
 [BizTalk Rules]: app-service-logic-use-biztalk-rules.md
- 
+[Connettore AS2]: app-service-logic-connector-as2.md
+[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk X12]: app-service-logic-connector-x12.md
 
 <!---HONumber=62-->

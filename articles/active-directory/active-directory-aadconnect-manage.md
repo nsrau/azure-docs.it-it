@@ -37,7 +37,7 @@ Se si intende eseguire l'aggiornamento o passare da Azure AD Sync o DirSync, con
 
 Quando è necessario modificare la configurazione predefinita, eseguire le operazioni seguenti:
 
-- Evitare di modificare un flusso di attributi di una regola di sincronizzazione predefinita. Creare invece una nuova regola di sincronizzazione con una priorità superiore \(valore numerico inferiore\) che contenga il flusso di attributi necessario.
+- Evitare di modificare un flusso di attributi di una regola di sincronizzazione predefinita. Creare invece una nuova regola di sincronizzazione con una priorità superiore (valore numerico inferiore) che contenga il flusso di attributi necessario.
 - Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 - Se è necessario modificare l'ambito o l'impostazione di unione in una regola di sincronizzazione predefinita, documentare questa necessità e riapplicare la modifica dopo l'aggiornamento a una versione più recente di Azure AD Connect.
 
@@ -71,7 +71,7 @@ Nella schermata Regole di unione specificare telephoneNumber in Attributo di ori
 ## Uso del provisioning dichiarativo 
 Il provisioning dichiarativo è un tipo di provisioning "senza codice" che può essere impostato e configurato usando l'Editor regole di sincronizzazione. L'editor può essere usato per configurare e creare regole di provisioning personalizzate.
 
-Una parte essenziale del provisioning dichiarativo è il linguaggio delle espressioni usato nei flussi di attributi. Il linguaggio usato è un subset di Microsoft® Visual Basic®, Applications Edition \(VBA\). Questo linguaggio viene usato in Microsoft Office e verrà riconosciuto anche dagli utenti con esperienza in VBScript. Il linguaggio delle espressioni di provisioning dichiarativo usa solo funzioni e non è un linguaggio strutturato, né include metodi o istruzioni. Le funzioni verranno invece annidate per esprimere flussi di programmi.
+Una parte essenziale del provisioning dichiarativo è il linguaggio delle espressioni usato nei flussi di attributi. Il linguaggio usato è un subset di Microsoft® Visual Basic®, Applications Edition (VBA). Questo linguaggio viene usato in Microsoft Office e verrà riconosciuto anche dagli utenti con esperienza in VBScript. Il linguaggio delle espressioni di provisioning dichiarativo usa solo funzioni e non è un linguaggio strutturato, né include metodi o istruzioni. Le funzioni verranno invece annidate per esprimere flussi di programmi.
 
 Per altre informazioni sul linguaggio delle espressioni, vedere [Informazioni sulle espressioni di provisioning dichiarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
@@ -87,4 +87,4 @@ Parte della documentazione creata per Azure AD Sync è comunque pertinente e si 
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

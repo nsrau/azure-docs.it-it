@@ -51,7 +51,7 @@ L'URL della nuova app Web è `http://MyWebAppName.azurewebsites.net`.
 
 Si noti che è possibile eseguire il comando `azure site create` con una qualsiasi delle opzioni seguenti:
 
-* `--location [location name]`. Questa opzione consente di specificare il percorso del data center in cui viene creata l'app Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
+* `--location [location name]`. Questa opzione consente di specificare la posizione del data center in cui viene creata l'app Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
 * `--hostname [custom host name]`. Questa opzione consente di specificare un nome host personalizzato per l'app Web.
 * `--git`. Questa opzione consente di usare Git per pubblicare nell'app Web creando archivi Git sia nella directory delle applicazioni locale sia nel data center dell'app Web. Si noti che qualora la cartella locale sia già un archivio Git, il comando aggiungerà a quello esistente un nuovo archivio remoto che punterà all'archivio nel data center dell'app Web.
 
@@ -71,7 +71,7 @@ L'URL della nuova app Web è `http://MyWebAppName.azurewebsites.net`.
 
 Si noti che è possibile eseguire il comando `New-AzureWebsite` con una qualsiasi delle opzioni seguenti:
 
-* `-Location [location name]`. Questa opzione consente di specificare il percorso del data center in cui viene creata l'app Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
+* `-Location [location name]`. Questa opzione consente di specificare la posizione del data center in cui viene creata l'app Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
 * `-Hostname [custom host name]`. Questa opzione consente di specificare un nome host personalizzato per l'app Web.
 * `-Git`. Questa opzione consente di usare Git per pubblicare nell'app Web creando archivi Git sia nella directory delle applicazioni locale sia nel data center dell'app Web. Si noti che qualora la cartella locale sia già un archivio Git, il comando aggiungerà a quello esistente un nuovo archivio remoto che punterà all'archivio nel data center dell'app Web.
 

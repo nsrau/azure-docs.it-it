@@ -16,7 +16,7 @@
 	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# Copiare i dati con Data factory di Azure (copia attività)
+# Copiare i dati con Data factory di Azure (attività di copia)
 ## Panoramica
 È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. L'attività di copia può essere usata negli scenari seguenti:
 
@@ -56,10 +56,12 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<th>Database SQL di Azure</th>
 		<th>Server SQL locale</th>
 		<th>SQL Server in IaaS</th>
+		<th>Azure DocumentDB</th>
 	</tr>	
 
 	<tr>
 		<td><b>BLOB Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Database SQL di Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>File System locale</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>File System locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Database MySQL in locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Database DB2 in locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Database Teradata in locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Database Sybase in locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Database PostgreSQL in locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Azure DocumentDB</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+Per informazioni dettagliate, vedere l’argomento [Sink e origini supportate](https://msdn.microsoft.com/library/dn894007.aspx) in MSDN Library.
+
 ### SQL in Infrastructure-as-a-Service (IaaS)
-Come origine e sink è supportato anche SQL Server in IaaS. Gateway di gestione dati è necessario quando si crea un servizio collegato a SQL Server in IaaS. Si consiglia di installare il Gateway di gestione di dati in una macchina virtuale diversa da SQL Server hosting uno per evitare il degrado delle prestazioni per SQL Server e il gateway competono per le risorse. Per informazioni dettagliate sul Gateway di gestione dati, vedere [Consentire alle pipeline di usare dati locali][use-onpremises-datasources].
+SQL Server in IaaS è supportato anche come origine e sink contemporaneamente. Quando si crea un servizio collegato a SQL Server in IaaS, è necessario il Gateway di gestione dati. È consigliabile installare tale gateway in una macchina virtuale diversa da quella che ospita SQL Server per evitare un peggioramento delle prestazioni dovuto al fatto che SQL Server e il gateway entrano in competizione per usare le risorse. Per informazioni dettagliate sul Gateway di gestione dati, vedere [Consentire alle pipeline di usare dati locali][use-onpremises-datasources].
 
 1.	Macchina virtuale con nome DNS pubblico e porta pubblica statica: mapping delle porte private
 2.	Macchina virtuale con nome DNS pubblico senza endpoint SQL esposto
@@ -146,7 +225,7 @@ L'attività di copia contiene i componenti seguenti:
 Un'attività di copia può avere un'unica **tabella di input** e un'unica **tabella di output**.
 
 ## <a name="CopyActivityJSONSchema"></a>JSON per attività di copia
-Una pipeline è costituita da una o più attività. Le attività nelle pipeline vengono definite nella sezione **activities[]**. Il JSON per una pipeline è il seguente:
+Una pipeline è costituita da una o più attività. Le attività nelle pipeline vengono definite nella sezione **activities**. Il JSON per una pipeline è il seguente:
          
 	{
 		"name": "PipelineName",
@@ -364,7 +443,7 @@ Per gli archivi dati che offrono una connessione HTTPS, scegliere la connessione
 
 Per **Database SQL di Azure**, richiedere in modo esplicito una connessione crittografata e non ritenere attendibili i certificati server per evitare l'attacco "man in the middle". A tale scopo, usare **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per informazioni dettagliate vedere [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Per i database tradizionali, ad esempio **SQL Server**, soprattutto quando le istanze sono in una macchina virtuale di Azure, abilitare l'opzione di connessione crittografata tramite la configurazione di un certificato firmato con **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintassi della stringa di connessione](https://msdn.microsoft.com/library/ms254500.aspx).
+Per i database tradizionali, ad esempio **SQL Server**, soprattutto quando le istanze sono in una macchina virtuale di Azure, abilitare l'opzione di connessione crittografata tramite la configurazione di un certificato firmato con **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintassi della stringa di connessione.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scenari avanzati
 - **Filtro di colonna usando la definizione della struttura**. A seconda del tipo di tabella, è possibile specificare un subset di colonne dall'origine specificando un minor numero di colonne nella definizione **Structure** della definizione della tabella rispetto a quelle presenti nell'origine dati sottostante.
@@ -405,5 +484,6 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

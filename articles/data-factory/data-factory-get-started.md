@@ -41,7 +41,7 @@ Per eseguire questa esercitazione, saranno necessari il nome e la chiave dell'ac
 2. Fare clic sull'hub **SFOGLIA** a sinistra e selezionare **Account di archiviazione**.
 3. Nel pannello **Account di archiviazione** selezionare l'**account di archiviazione di Azure** da usare in questa esercitazione.
 4. Nel pannello **ARCHIVIAZIONE** fare clic sul riquadro **CHIAVI**.
-5. Nel pannello **Gestisci chiavi** fare clic sul pulsante **copia** \(immagine\) accanto alla casella di testo **NOME ACCOUNT DI ARCHIVIAZIONE** e salvarlo/incollarlo, ad esempio, in un file di testo.  
+5. Nel pannello **Gestisci chiavi** fare clic sul pulsante **copia** (immagine) accanto alla casella di testo **NOME ACCOUNT DI ARCHIVIAZIONE** e salvarlo/incollarlo, ad esempio, in un file di testo.  
 6. Ripetere il passaggio precedente per copiare o annotare la **CHIAVE DI ACCESSO PRIMARIA**.
 7. Fare clic su **X** per chiudere tutti i pannelli.
 
@@ -66,7 +66,7 @@ Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **A
 ### Preparare l'archiviazione BLOB di Azure e il database SQL Azure per l'esercitazione
 Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazione seguendo questa procedura:
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\\ADFGetStarted** sul disco rigido.
+1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStarted** sul disco rigido.
 
         John, Doe
 		Jane, Doe
@@ -87,9 +87,9 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Si noti che, per configurare il firewall per un server di Azure SQL, in questo articolo viene usato il portale di gestione della versione rilasciata \(http://manage.windowsazure.com), non il portale di anteprima \(http://portal.azure.com).
+	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Si noti che, per configurare il firewall per un server di Azure SQL, in questo articolo viene usato il portale di gestione della versione rilasciata (http://manage.windowsazure.com), non il portale di anteprima (http://portal.azure.com).
 
-	**Se nel computer è installato Visual Studio 2013:** nel [portale di anteprima di Azure](http://portal.azure.com) fare clic sull'hub **SFOGLIA** a sinistra, fare clic su **Server SQL**, selezionare il database e quindi fare clic sul pulsante **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server SQL di Azure ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer \(indirizzo IP\). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
+	**Se nel computer è installato Visual Studio 2013:** nel [portale di anteprima di Azure](http://portal.azure.com) fare clic sull'hub **SFOGLIA** a sinistra, fare clic su **Server SQL**, selezionare il database e quindi fare clic sul pulsante **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server SQL di Azure ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
 
 
 Eseguire le operazioni seguenti:
@@ -218,4 +218,4 @@ Eseguire le operazioni seguenti:
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

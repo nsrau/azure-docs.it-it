@@ -30,7 +30,7 @@ Per usare SMTP Connector, è necessario innanzitutto creare un'istanza dell'app 
 2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "SMTP Connector".
 3.	Configurare SMTP Connector nel modo seguente:
  
-	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore SMTP - **Impostazioni pacchetto** - **Nome utente**: specificare il nome utente per la connessione al server SMTP - **Password**: specificare la password per la connessione al server SMTP - **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server SMTP - **Porta del server**: specificare il numero di porta del server SMTP - **Abilita SSL**: specificare true per usare il protocollo SMTP tramite un canale SSL/TLS sicuro
+	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore - **Impostazioni pacchetto** - **Nome utente**: specificare il nome utente per la connessione al server SMTP - **Password**: specificare la password per la connessione al server SMTP - **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server SMTP - **Porta del server**: specificare il numero di porta del server SMTP - **Abilita SSL**: specificare true per usare il protocollo SMTP tramite un canale SSL/TLS sicuro
 4.	Fare clic su Crea. Verrà creato un nuovo SMTP Connector.
 5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare SMTP Connector. 
 
@@ -40,13 +40,13 @@ Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigge
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di SMTP Connector.
  
 	![][2]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  
 	![][3]
-3.	Il connettore SMTP verrà visualizzato nella sezione "App per le API in questo gruppo di risorse" della raccolta a destra. Selezionarlo.
+3.	SMTP Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra. Selezionarlo.
  
 	![][4]
-4.	È possibile trascinare l'app per le API SMTP Connector nell'editor facendo clic su “SMTP Connector”. 
+4.	È possibile trascinare l'app per le API SMTP Connector nell'editor facendo clic su "SMTP Connector". 
 	
 7.	È ora possibile usare SMTP Connector nel flusso. Selezionare l'azione "Send Email" e configurare le proprietà di input come segue:
 	- **To**: indirizzo di posta elettronica dei destinatari. Separare più indirizzi e-mail con un punto e virgola (;). Ad esempio: recipient1@domain.com;recipient2@domain.com.
@@ -55,7 +55,7 @@ Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigge
 	- **Body**: corpo del messaggio di posta elettronica.
 	- **Is HTML**: quando questa proprietà è impostata su true, il contenuto del corpo viene inviato in formato HTML.
 	- **Bcc**: indirizzo di posta elettronica dei destinatari in copia per conoscenza nascosta. Separare più indirizzi e-mail con un punto e virgola (;). Ad esempio: recipient1@domain.com;recipient2@domain.com.
-	- **Importance**: importanza del messaggio di posta elettronica. Le opzioni sono Normal, Low, High.
+	- **Importance**: importanza del messaggio di posta elettronica. Le opzioni sono Normal, Low e High.
 	- **Attachments**: allegati da inviare insieme al messaggio di posta elettronica. Un allegato contiene i seguenti campi:
 		- Content (stringa)
 		- Content transfer Encoding (Enum) ("none"|"base64")

@@ -42,7 +42,7 @@ Il seguente esempio di applicationHost.xdt mostra come aggiungere una nuova vari
 	</configuration>
 
 
-Un file di log che include lo stato e i dettagli relativi alla trasformazione è disponibile nella radice FTP in LogFiles\\Transform.
+Un file di log che include lo stato e i dettagli relativi alla trasformazione è disponibile nella radice FTP in LogFiles\Transform.
 
 Per esempi aggiuntivi, vedere [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -61,7 +61,7 @@ Servizi app supporta le estensioni di app Web come punto di estensibilità per l
 
 È necessario che i collegamenti interni per l'app Web facciano riferimento a un percorso relativo al percorso applicazione specificato nel file ApplicationHost.xdt. Dopo ogni modifica al file ApplicationHost.xdt sarà necessario il riavvio dell'app Web.
 
-informazioni aggiuntive relative a questi elementi chiave sono disponibili all'indirizzo ****[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+informazioni aggiuntive relative a questi elementi chiave sono disponibili all'indirizzo **[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)**.
 
 L'esempio dettagliato incluso illustra la procedura per la creazione e l'abilitazione di un'estensione privata dell'app Web. Il codice sorgente per l'esempio di PHP Manager seguente è disponibile per il download all'indirizzo [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
@@ -81,7 +81,7 @@ L'estensione PHP Manager è stata creata mediante il modello di applicazione Web
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-L'unica logica speciale necessaria per l'I/O file consente di indicare la posizione della directory wwwroot dell'app Web. Come illustrato nell'esempio seguente, la variabile di ambiente "HOME" indica il percorso della radice dell'app Web e il percorso wwwroot può essere creato mediante l'aggiunta di "site\\wwwroot":
+L'unica logica speciale necessaria per l'I/O file consente di indicare la posizione della directory wwwroot dell'app Web. Come illustrato nell'esempio seguente, la variabile di ambiente "HOME" indica il percorso della radice dell'app Web e il percorso wwwroot può essere creato mediante l'aggiunta di "site\wwwroot":
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -112,7 +112,7 @@ In alternativa è possibile usare solo percorsi relativi nell'applicazione Web o
 
 ####<a id="XDT"></a> File applicationHost.xdt
 
-Il codice per l'estensione di app Web va sotto %HOME%\\SiteExtensions\\your-extension-name. Questa sarà la radice dell'estensione.
+Il codice per l'estensione di app Web va sotto %HOME%\SiteExtensions\your-extension-name. Questa sarà la radice dell'estensione.
 
 Per registrare l'estensione dell'app Web con il file applicationHost.config, sarà necessario inserire un file denominato ApplicationHost.xdt nella radice dell'estensione. Il contenuto del file ApplicationHost.xdt deve essere analogo al seguente:
 
@@ -178,5 +178,6 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

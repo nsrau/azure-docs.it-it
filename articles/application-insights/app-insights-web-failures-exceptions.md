@@ -17,7 +17,7 @@
  
 # Diagnosticare errori ed eccezioni nelle app Web con Application Insights
 
-[Application Insights per Visual Studio][start] è un potente strumento per rilevare e diagnosticare errori nelle applicazioni. Questo articolo è incentrato sulle applicazioni Web, ma è anche possibile applicare Application Insights a una [vasta gamma di altre piattaforme][platforms].
+[Application Insights di Visual Studio][start] è un potente strumento per rilevare e diagnosticare errori nelle applicazioni. Questo articolo è incentrato sulle applicazioni Web, ma è anche possibile applicare Application Insights a una [vasta gamma di altre piattaforme][platforms].
 
 ## Configurare l'app con Application Insights
 
@@ -43,7 +43,7 @@ I dettagli variano da un tipo di applicazione all'altro. È possibile fare clic 
 
 ##<a name="events"></a>Eventi personalizzati
 
-Gli eventi personalizzati vengono visualizzati in [Ricerca diagnostica][diagnostic] e in [Esplora metriche][metrics]. È possibile inviarli da dispositivi, pagine web e applicazioni server. Possono essere usati per scopi diagnostici e per [comprendere i criteri di utilizzo][track].
+Gli eventi personalizzati vengono visualizzati in [Ricerca diagnostica][diagnostic] e in [Esplora metriche][metrics]. È possibile inviarli da dispositivi, pagine Web e applicazioni server. Possono essere usati per scopi diagnostici e per [comprendere i criteri di utilizzo][track].
 
 Un evento personalizzato è contraddistinto da un nome e può contenere anche proprietà che è possibile filtrare, insieme alle misurazioni numeriche.
 
@@ -219,7 +219,7 @@ Quando possibile, Application Insights segnala le eccezioni non gestite restitui
 
 > [AZURE.NOTE]Se in un Web browser si includono file script da reti CDN o da altri domini, verificare che il tag script includa l'attributo ```crossorigin="anonymous"``` e che il server invii intestazioni CORS per ottenere un'analisi dello stack e informazioni dettagliate per le eccezioni JavaScript non gestite da queste risorse.
 
-Tuttavia, in alcuni casi non è sempre possibile eseguire questa operazione perché .NET Framework rileva le eccezioni. Per fare in modo che vengano visualizzate tutte le eccezioni, è pertanto necessario scrivere un semplice gestore di eccezioni. La procedura migliore dipende dalla tecnologia. Per informazioni dettagliate, vedere [questo post di blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx).
+Tuttavia, in alcuni casi non è sempre possibile eseguire questa operazione perché .NET Framework rileva le eccezioni. Per fare in modo che vengano visualizzate tutte le eccezioni, è pertanto necessario scrivere un semplice gestore di eccezioni. La procedura migliore dipende dalla tecnologia. Per informazioni dettagliate, vedere [questo blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx).
 
 ### Correlazione con una compilazione
 
@@ -257,9 +257,9 @@ Se si vogliono inviare eventi aggiuntivi, è possibile usare l'API TrackRequest(
 
 ### <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 
-Risulta che l'utente abbia installato il pacchetto Nuget dell'adattatore di registrazione senza aver installato Application Insights.
+Risulta che l'utente abbia installato il pacchetto NuGet dell'adattatore di registrazione senza aver installato Application Insights.
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa Application Insights o a riusarne una esistente. Il problema verrà in tal modo risolto.
+In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente. Il problema verrà in tal modo risolto.
 
 ### <a name="limits"></a>Quanti dati vengono conservati?
 

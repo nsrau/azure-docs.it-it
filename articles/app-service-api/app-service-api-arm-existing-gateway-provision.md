@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app per le API con un gateway esistente
@@ -22,7 +22,9 @@ Questo argomento illustra come creare un modello di Gestione risorse di Azure ch
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per il modello completo, vedere il [modello di app per le API con gateway esistente](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json).
+Per ulteriori informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Per il modello completo, vedere il [modello di app per le API con gateway esistente](../../templates/app-service-api-arm-existing-gateway-provision/).
 
 ## Elementi distribuiti
 
@@ -51,7 +53,7 @@ Impostazioni del piano di hosting esistente.
       }
     }
 
-## Variables
+## Variabili
 
 Questo modello consente di definire una variabile usata durante la distribuzione delle risorse.
 

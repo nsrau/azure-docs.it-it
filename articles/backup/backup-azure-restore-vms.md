@@ -55,9 +55,9 @@
   - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Se si prevede di sostituire una macchina virtuale esistente con lo stesso nome, eliminare prima la macchina virtuale esistente e i relativi dischi dati, quindi ripristinare i dati da Backup di Azure.
   - Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
 
-        Qualunque nome di servizio cloud selezionato deve essere univoco a livello globale. In genere, il nome del servizio cloud viene associato a un URL pubblico nel formato [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già stato usato. Se si sceglie di creare un nuovo servizio cloud, a questo viene assegnato lo stesso nome della macchina virtuale. In tal caso, il nome della macchina virtuale deve essere sufficientemente univoco da poter essere applicato al servizio cloud associato.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        Vengono visualizzati soltanto servizi cloud e reti virtuali che non sono associati a gruppi di affinità nei dettagli dell'istanza di ripristino. [Altre informazioni](https://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
 
 2. Selezionare un account di archiviazione per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile selezionare uno degli account di archiviazione esistenti nella stessa area geografica dell'insieme di credenziali di Backup di Azure. Gli account di archiviazione con ridondanza della zona o con archiviazione di tipo Premium non sono supportati.
 
@@ -65,7 +65,7 @@
 
     ![Selezionare una rete virtuale](./media/backup-azure-restore-vms/restore-sa.png)
 
-3. Selezionare una rete virtuale: la rete virtuale \(VNET\) per la macchina virtuale dovrebbe essere selezionata al momento della creazione della macchina virtuale. L'interfaccia utente di ripristino mostra tutte le reti virtuali all'interno della sottoscrizione che possono essere usate. Non è obbligatorio selezionare una rete virtuale per la macchina virtuale ripristinata: sarà possibile connettersi alla macchina virtuale ripristinata tramite Internet, anche se non viene applicata la rete virtuale.
+3. Selezionare una rete virtuale: la rete virtuale (VNET) per la macchina virtuale dovrebbe essere selezionata al momento della creazione della macchina virtuale. L'interfaccia utente di ripristino mostra tutte le reti virtuali all'interno della sottoscrizione che possono essere usate. Non è obbligatorio selezionare una rete virtuale per la macchina virtuale ripristinata: sarà possibile connettersi alla macchina virtuale ripristinata tramite Internet, anche se non viene applicata la rete virtuale.
 
     Se il servizio cloud selezionato è associato a una rete virtuale, non è possibile modificare la rete virtuale.
 
@@ -104,4 +104,4 @@ Per la maggior parte degli errori è possibile seguire l'azione consigliata nei 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

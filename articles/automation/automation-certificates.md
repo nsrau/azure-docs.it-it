@@ -98,7 +98,7 @@ Per aggiungere un'attività **Get-AutomationCerticiate** a un Runbook grafico, f
 
 La figura seguente mostra un esempio dell'uso di un certificato in un Runbook grafico. Si tratta dello stesso esempio mostrato in precedenza per l'aggiunta di un certificato a un servizio cloud da un Runbook testuale.
 
-Questo esempio usa il set di parametri **UseConnectionObject** per l'attività \*\*Send-TwilioSMS\*\* che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), poiché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
+Questo esempio usa il set di parametri **UseConnectionObject** per l'attività **Send-TwilioSMS** che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), poiché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@ Questo esempio usa il set di parametri **UseConnectionObject** per l'attività \
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

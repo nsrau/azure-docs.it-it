@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Come configurare l'autenticazione Twitter per un'applicazione dei servizi app"
-	description="Informazioni su come configurare l'autenticazione Twitter per un'applicazione dei servizi app." 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="Informazioni su come configurare l'autenticazione Twitter per un'applicazione dei servizi app."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso di Twitter
@@ -65,5 +65,6 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [portale di gestione di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
