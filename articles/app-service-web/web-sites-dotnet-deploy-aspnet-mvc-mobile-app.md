@@ -262,7 +262,7 @@ Lo stile di Bootstrap [relativo ai gruppi elenchi collegati][] rende l'intera ca
 
 ![][AllSpeakersFixedDesktop]
 
-Anche se la visualizzazione per il browser per dispositivi mobili è stata migliorata, scorrere il lungo elenco di relatori è ancora difficile. Bootstrap non fornisce un filtro di ricerca pronto all'uso, ma è possibile aggiungere questa funzionalità con poche righe di codice. È necessario innanzitutto aggiungere alla visualizzazione una casella di ricerca e quindi collegare tale casella al codice JavaScript relativo alla funzione di filtro. *Views\Home\AllSpeakers.cshtml* aggiungere un tag <form> subito dopo il tag <h2>, come illustrato di seguito:
+Anche se la visualizzazione per il browser per dispositivi mobili è stata migliorata, scorrere il lungo elenco di relatori è ancora difficile. Bootstrap non fornisce un filtro di ricerca pronto all'uso, ma è possibile aggiungere questa funzionalità con poche righe di codice. È necessario innanzitutto aggiungere alla visualizzazione una casella di ricerca e quindi collegare tale casella al codice JavaScript relativo alla funzione di filtro. *Views\Home\AllSpeakers.cshtml* aggiungere un tag \<form\> subito dopo il tag \<h2\>, come illustrato di seguito:
 
     @model IEnumerable<string>
 
