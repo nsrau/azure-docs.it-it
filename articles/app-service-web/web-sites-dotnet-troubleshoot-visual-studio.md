@@ -565,7 +565,8 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 1. Nella finestra **App Web di Azure** di Visual Studio fare clic sulla scheda **Log**, quindi su **Configura registrazione nel portale di gestione**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Nel portale di gestione verrà visualizzata la scheda **Configura** relativa all'app Web. In alternativa, è possibile fare clic sulla scheda **App Web**, quindi sull'app Web e infine sulla scheda **Configura**.
 

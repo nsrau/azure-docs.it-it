@@ -48,17 +48,18 @@ Prima di continuare, assicurarsi di avere installato quanto segue:
 Se si conosce già Azure Store, utilizzare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Provisioning del database][provision] più avanti.
 
 1. Aprire Azure Marketplace facendo clic su **Nuovo** > **Markeplace**.  
-<!--- ![Store][button-store] -->
+	<!--- ![Store][button-store] -->
 2. Fare clic sul componente aggiuntivo **MongoLab**.  
-![MongoLab][entry-mongolab]
+	![MongoLab][entry-mongolab]
 3. Fare clic sul componente aggiuntivo **MongoLab** nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**.  
-![ConnectionInfoButton][button-connectioninfo]  
+	![ConnectionInfoButton][button-connectioninfo]  
 4. Copiare **MONGOLAB_URI** negli Appunti.  
-![ConnectionInfoScreen][screen-connectioninfo]
+	![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.
 
-5. Aggiungere il valore all'elenco **Stringhe di connessione** nel menu **Configurazione** dell'applicazione Web in Servizio app di Azure: ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Aggiungere il valore all'elenco **Stringhe di connessione** nel menu **Configurazione** dell'applicazione Web in Servizio app di Azure:  
+	![WebAppConnectionStrings][focus-website-connectinfo]
 6. In **Nome** digitare **MONGOLAB_URI**.
 7. In **Valore** incollare la stringa di connessione ottenuta nella sezione precedente.
 8. Selezionare **Personalizzato** nell'elenco a discesa Tipo (anziché la voce predefinita **SQLAzure**).
@@ -448,13 +449,14 @@ Prima di usare l'interfaccia della riga di comando di Azure, è necessario scari
 
 La creazione di un'app Web in Servizio app di Azure è molto semplice. Se si tratta della prima app Web di Azure, è necessario usare il portale. Se si dispone già di almeno un sito, andare al passaggio 7.
 
-1. Nel portale di Azure fare clic su **Nuovo**. ![Nuovo][button-new]
-2. Selezionare **Calcolo > App Web > Creazione rapida**.
-<!--- ![Create Web App][screen-mongolab-newwebsite] -->
+1. Nel portale di Azure fare clic su **Nuovo**.  
+	![Nuovo][button-new]
+2. Selezionare **Calcolo > App Web > Creazione rapida**.  
+	<!--- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Immettere un prefisso URL. Scegliere il nome desiderato, ma tenere presente che deve essere univoco. "mymongoapp" non sarà probabilmente disponibile.
 4. Fare clic su **Crea app Web**.
-5. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Verrà visualizzato il dashboard dell'app Web.
-<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+5. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Verrà visualizzato il dashboard dell'app Web.  
+	<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. Fare clic su **Imposta distribuzione dal controllo del codice sorgente** in **riepilogo rapido**, selezionare GitHub e immettere il nome utente e la password desiderati per git. Si userà questa password durante il push all'app Web (nel passaggio 9).  
 7. Se l'app Web è stata creata attenendosi ai passaggi precedenti, il comando seguente completerà il processo. Se, tuttavia, si dispone già di più di un'app Web di Azure, è possibile saltare i passaggi precedenti e creare una nuova app Web mediante questo stesso comando. Nella directory del progetto **tasklist**:
 
@@ -573,4 +575,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

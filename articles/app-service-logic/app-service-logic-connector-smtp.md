@@ -30,7 +30,19 @@ Per usare SMTP Connector, è necessario innanzitutto creare un'istanza dell'app 
 2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "SMTP Connector".
 3.	Configurare SMTP Connector nel modo seguente:
  
-	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore - **Impostazioni pacchetto** - **Nome utente**: specificare il nome utente per la connessione al server SMTP - **Password**: specificare la password per la connessione al server SMTP - **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server SMTP - **Porta del server**: specificare il numero di porta del server SMTP - **Abilita SSL**: specificare true per usare il protocollo SMTP tramite un canale SSL/TLS sicuro
+	![][1]
+	- **Località**: scegliere la località geografica in cui verrà distribuito il connettore
+	- **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore
+	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore
+	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
+	- **Piano tariffario**: scegliere il piano tariffario per il connettore
+	- **Nome**: assegnare un nome al connettore
+	- **Impostazioni pacchetto**
+		- **Nome utente**: specificare il nome utente per la connessione al server SMTP
+		- **Password**: specificare la password per la connessione al server SMTP
+		- **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server SMTP
+		- **Porta del server**: specificare il numero di porta del server SMTP
+		- **Abilita SSL**: specificare true per usare il protocollo SMTP tramite un canale SSL/TLS sicuro
 4.	Fare clic su Crea. Verrà creato un nuovo SMTP Connector.
 5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare SMTP Connector. 
 
@@ -64,7 +76,8 @@ Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigge
 		- File Name (stringa)
 	 
 	
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 
 	<!--Image references-->
@@ -76,4 +89,4 @@ Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigge
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

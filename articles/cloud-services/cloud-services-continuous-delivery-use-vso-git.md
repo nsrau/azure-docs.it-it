@@ -26,7 +26,8 @@
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account di Visual Studio Online: è possibile [aprire un account di Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account di Visual Studio Online:
+> è possibile [aprire un account di Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud in modo da compilare e distribuire automaticamente in Azure mediante Visual Studio Online, eseguire la procedura seguente:
 
@@ -49,19 +50,23 @@ Per configurare un servizio cloud in modo da compilare e distribuire automaticam
 
 1. Se non si ha ancora un account di Visual Studio Online, seguire le istruzioni riportate [qui](http://go.microsoft.com/fwlink/?LinkId=397665). Quando si crea il progetto team, scegliere Git come sistema di controllo del codice sorgente. Seguire le istruzioni per collegare Visual Studio al progetto team.
 
-2. In Team Explorer fare clic sul collegamento **Eseguire la clonazione di questo repository**. ![][3]
+2. In Team Explorer fare clic sul collegamento **Eseguire la clonazione di questo repository**. 
+![][3]
 
 3. Specificare il percorso della copia locale e scegliere il pulsante **Clona**.
  
 ## <a name="step2"> </a>Passaggio 2: Creare un progetto ed eseguirne il commit nel repository
 
-1. Nella sezione Soluzioni di Team Explorer scegliere il collegamento Nuovo per creare un nuovo progetto nel repository locale.<br/> ![][4]
+1. Nella sezione Soluzioni di Team Explorer scegliere il collegamento Nuovo per creare un nuovo progetto nel repository locale.<br/>
+![][4]
 
 2. È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Creare un nuovo progetto servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro. Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Creare un'app Web ASP.NET in Azure App Service](../web-sites-dotnet-get-started.md).
 
-3. Aprire il menu di scelta rapida relativo alla soluzione e scegliere **Commit**.<br/> ![][7]
+3. Aprire il menu di scelta rapida relativo alla soluzione e scegliere **Commit**.<br/>
+![][7]
 
-4. Se è la prima volta che si usa Git in Visual Studio Online, sarà necessario fornire alcune informazioni per identificarsi in Git. Nell'area **Modifiche in sospeso** di Team Explorer digitare il proprio nome utente e indirizzo di posta elettronica. Digitare un commento per il commit e scegliere **Commit**.<br/> ![][8]
+4. Se è la prima volta che si usa Git in Visual Studio Online, sarà necessario fornire alcune informazioni per identificarsi in Git. Nell'area **Modifiche in sospeso** di Team Explorer digitare il proprio nome utente e indirizzo di posta elettronica. Digitare un commento per il commit e scegliere **Commit**.<br/>
+![][8]
 
 5. Notare le opzioni per includere o escludere modifiche specifiche quando si esegue l'archiviazione. Se le modifiche desiderate sono escluse, scegliere **Includi tutto**.<br/>
 
@@ -69,39 +74,64 @@ Per configurare un servizio cloud in modo da compilare e distribuire automaticam
 
 ## <a name="step3"> </a>Passaggio 3: Connettere il progetto ad Azure
 
-1. Ora si dispone di un repository Git in Visual Studio Online contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure](http://manage.windowsazure.com), selezionare il servizio cloud o l’app Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Cloud Service** o **Web App**, quindi selezionare **Quick Create**.<br.> ![][9]
+1. Ora si dispone di un repository Git in Visual Studio Online contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure](http://manage.windowsazure.com), selezionare il servizio cloud o l’app Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Cloud Service** o **Web App**, quindi selezionare **Quick Create**.<br.>
+![][9]
 
-3. Scegliere il collegamento **Imposta pubblicazione con Visual Studio Online**. Per le app Web scegliere il collegamento **Imposta distribuzione dal controllo del codice sorgente**.<br/> ![][10]
+3. Scegliere il collegamento **Imposta pubblicazione con Visual Studio Online**. Per le app Web scegliere il collegamento **Imposta distribuzione dal controllo del codice sorgente**.<br/>
+![][10]
 
-2. Nella procedura guidata digitare il nome del proprio account di Visual Studio Online nella casella di testo e fare clic sul collegamento **Autorizza ora**. È possibile che venga richiesto di eseguire l'accesso.<br/> ![][11]
+2. Nella procedura guidata digitare il nome del proprio account di Visual Studio Online nella casella di testo e fare clic sul collegamento **Autorizza ora**. È possibile che venga richiesto di eseguire l'accesso.<br/>
+![][11]
 
-3. Nella finestra di dialogo popup OAuth scegliere **Accetta** per autorizzare Azure a configurare il progetto team in Visual Studio Online.<br/> ![][12]
+3. Nella finestra di dialogo popup OAuth scegliere **Accetta** per autorizzare Azure a configurare il progetto team in Visual Studio Online.<br/>
+![][12]
 
-4. Dopo aver concesso l'autorizzazione verrà visualizzato un elenco a discesa contenente un elenco dei progetti team di Visual Studio Online. Selezionare il nome del progetto team creato nei passaggi precedenti e fare clic sul pulsante con il segno di spunta della procedura guidata.<br/> ![][13]
+4. Dopo aver concesso l'autorizzazione verrà visualizzato un elenco a discesa contenente un elenco dei progetti team di Visual Studio Online. Selezionare il nome del progetto team creato nei passaggi precedenti e fare clic sul pulsante con il segno di spunta della procedura guidata.<br/>
+![][13]
 
 Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio Online compilerà e distribuirà il progetto in Azure.<br/>
 
 
 ## <a name="step4"> </a>Passaggio 4: Attivare una ricompilazione e ridistribuire il progetto
 
-1. In Visual Studio aprire un file e modificarlo. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\Shared di un ruolo Web MVC. <br/> ![][17] 
-2. Modificare il testo del piè di pagina per il sito e salvare il file.<br/> ![][18]
+1. In Visual Studio aprire un file e modificarlo. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\Shared di un ruolo Web MVC. <br/>
+![][17]
+
+2. Modificare il testo del piè di pagina per il sito e salvare il file.<br/>
+![][18]
 
 3. In Esplora soluzioni aprire il menu di scelta rapida per il nodo della soluzione, il nodo del progetto o il file modificato e scegliere **Commit**.<br/>
 
-4. Digitare un commento e scegliere **Commit**.<br/> ![][20]
+4. Digitare un commento e scegliere **Commit**.<br/>
+![][20]
 
-5. Scegliere il collegamento **Sincronizza**.<br/> ![][38]
+5. Scegliere il collegamento **Sincronizza**.<br/>
+![][38]
 
-6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Online. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza ** effettua anche il pull delle ultime modifiche dal repository.<br/> ![][39]
+6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Online. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza ** effettua anche il pull delle ultime modifiche dal repository.<br/>
+![][39]
 
-7. Scegliere il pulsante Home per tornare alla pagina iniziale di Team Explorer.<br/> ![][21]
+7. Scegliere il pulsante Home per tornare alla pagina iniziale di Team Explorer.<br/>
+![][21]
 
-8. Scegliere **Compilazioni** per visualizzare le compilazioni in corso.<br/> ![][22] <br/> Team Explorer mostra che è stata attivata una compilazione per la propria archiviazione.<br/> ![][23]
+8. Scegliere **Compilazioni** per visualizzare le compilazioni in corso.<br/>
+![][22]
+<br/>
+Team Explorer mostra che è stata attivata una compilazione per la propria archiviazione.<br/>
+![][23]
 
 9. Fare doppio clic sul nome della compilazione in corso per visualizzare un log dettagliato con l'avanzare della compilazione.<br/>
 
-10. Quando la compilazione è in corso, osservare la definizione di compilazione creata quando la procedura guidata è stata usata per eseguire il collegamento ad Azure. Aprire il menu di scelta rapida relativo alla definizione di compilazione e scegliere **Modifica definizione di compilazione**.<br/> ![][25] <br/> Nella scheda **Trigger** è possibile osservare che, per impostazione predefinita, la definizione di compilazione è configurata per la compilazione a ogni archiviazione. Per un servizio cloud, Visual Studio Online compila e distribuisce automaticamente il branch master nell'ambiente di gestione temporanea. È comunque necessario eseguire un'operazione manuale per distribuire il branch master nel sito attivo. Per un’app Web senza un ambiente di gestione temporanea, il branch master viene distribuito direttamente nel sito attivo.<br/> ![][26] <br/>Nella scheda **Processo** è possibile osservare che l'ambiente di distribuzione è configurato con il nome del proprio servizio cloud o app Web.<br/> ![][27] <br/> Specificare i valori per le proprietà se si desidera che siano diversi da quelli predefiniti. Le proprietà per la pubblicazione in Azure si trovano nella sezione Distribuzione e potrebbe anche essere necessario impostare i parametri MSBuild. Ad esempio, in un progetto di servizio cloud, per specificare una configurazione del servizio diversa da "Cloud", impostare i parametri MSbuild su /p:TargetProfile=*ProfiloPersonale* dove *ProfiloPersonale* corrisponde a un file di configurazione del servizio con un nome simile a ServiceConfiguration.*ProfiloPersonale*.cscfg. La tabella seguente illustra le proprietà disponibili nella sezione Distribuzione:
+10. Quando la compilazione è in corso, osservare la definizione di compilazione creata quando la procedura guidata è stata usata per eseguire il collegamento ad Azure. Aprire il menu di scelta rapida relativo alla definizione di compilazione e scegliere **Modifica definizione di compilazione**.<br/>
+![][25]
+<br/>
+Nella scheda **Trigger** è possibile osservare che, per impostazione predefinita, la definizione di compilazione è configurata per la compilazione a ogni archiviazione. Per un servizio cloud, Visual Studio Online compila e distribuisce automaticamente il branch master nell'ambiente di gestione temporanea. È comunque necessario eseguire un'operazione manuale per distribuire il branch master nel sito attivo. Per un’app Web senza un ambiente di gestione temporanea, il branch master viene distribuito direttamente nel sito attivo.<br/>
+![][26]
+<br/>
+Nella scheda **Processo** è possibile osservare che l'ambiente di distribuzione è configurato con il nome del proprio servizio cloud o app Web.<br/>
+![][27]
+<br/>
+Specificare i valori per le proprietà se si desidera che siano diversi da quelli predefiniti. Le proprietà per la pubblicazione in Azure si trovano nella sezione Distribuzione e potrebbe anche essere necessario impostare i parametri MSBuild. Ad esempio, in un progetto di servizio cloud, per specificare una configurazione del servizio diversa da "Cloud", impostare i parametri MSbuild su /p:TargetProfile=*ProfiloPersonale* dove *ProfiloPersonale* corrisponde a un file di configurazione del servizio con un nome simile a ServiceConfiguration.*ProfiloPersonale*.cscfg. La tabella seguente illustra le proprietà disponibili nella sezione Distribuzione:
 	<table>
 <tr><td><b>Proprietà</b></td><td><b>Valore predefinito</b></td></tr>
 ><tr><td>Consenti certificati non attendibili</td><td>Se è false, i certificati SSL devono essere firmati da un'autorità radice.</td></tr>
@@ -111,45 +141,63 @@ Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio
 <tr><td>Ambiente di distribuzione Azure</td><td>Nome dell’app Web o del servizio cloud</td></tr>
 </table> <br/>
 
-11. A questo punto la compilazione sarà stata completata correttamente.<br/> ![][28]
+11. A questo punto la compilazione sarà stata completata correttamente.<br/>
+![][28]
 
-12. Facendo doppio clic sul nome della compilazione, in Visual Studio verrà visualizzato un **Riepilogo compilazione** che include eventuali risultati del test restituiti dai progetti unit test associati.<br/> ![][29]
+12. Facendo doppio clic sul nome della compilazione, in Visual Studio verrà visualizzato un **Riepilogo compilazione** che include eventuali risultati del test restituiti dai progetti unit test associati.<br/>
+![][29]
 
-13. Nel [portale di Azure](http://manage.windowsazure.com) è possibile visualizzare la distribuzione associata nella scheda Distribuzioni quando si seleziona l'ambiente di gestione temporanea.<br/> ![][30]
+13. Nel [portale di Azure](http://manage.windowsazure.com) è possibile visualizzare la distribuzione associata nella scheda Distribuzioni quando si seleziona l'ambiente di gestione temporanea.<br/>
+![][30]
 
-14.	Passare all'URL del proprio sito. Per un’app Web, scegliere semplicemente il pulsante **Sfoglia** nel portale. Per un servizio cloud, scegliere l'URL nella sezione **Riepilogo rapido** della pagina **Dashboard** in cui è visualizzato l'ambiente di gestione temporanea. Le distribuzioni derivanti dall'integrazione continua per i servizi cloud vengono pubblicate nell'ambiente di gestione temporanea per impostazione predefinita. È possibile modificare questa impostazione configurando la proprietà Ambiente del servizio cloud alternativo su Produzione. Ecco dove si trova l'URL del sito nella pagina del dashboard del servizio cloud: <br/> ![][31] <br/> Il sito in esecuzione verrà aperto in una nuova scheda del browser.<br/> ![][32]
+14.	Passare all'URL del proprio sito. Per un’app Web, scegliere semplicemente il pulsante **Sfoglia** nel portale. Per un servizio cloud, scegliere l'URL nella sezione **Riepilogo rapido** della pagina **Dashboard** in cui è visualizzato l'ambiente di gestione temporanea. Le distribuzioni derivanti dall'integrazione continua per i servizi cloud vengono pubblicate nell'ambiente di gestione temporanea per impostazione predefinita. È possibile modificare questa impostazione configurando la proprietà Ambiente del servizio cloud alternativo su Produzione. Ecco dove si trova l'URL del sito nella pagina del dashboard del servizio cloud: <br/>
+![][31]
+<br/>
+Il sito in esecuzione verrà aperto in una nuova scheda del browser.<br/>
+![][32]
 
-15.	Se si apportano altre modifiche al progetto, si attiveranno altre compilazioni e si accumuleranno più distribuzioni. La più recente è contrassegnata come Attiva.<br/> ![][33]
+15.	Se si apportano altre modifiche al progetto, si attiveranno altre compilazioni e si accumuleranno più distribuzioni. La più recente è contrassegnata come Attiva.<br/>
+![][33]
 
 ## <a name="step5"> </a>Passaggio 5: Ridistribuire una compilazione precedente
 
-Questo passaggio è facoltativo. Nel portale di gestione selezionare una distribuzione precedente e fare clic su **Ridistribuisci** per riportare il sito a un'archiviazione precedente. Si noti che verrà attivata una nuova compilazione in TFS e verrà creata una nuova voce nella cronologia della distribuzione.<br/> ![][34]
+Questo passaggio è facoltativo. Nel portale di gestione selezionare una distribuzione precedente e fare clic su **Ridistribuisci** per riportare il sito a un'archiviazione precedente. Si noti che verrà attivata una nuova compilazione in TFS e verrà creata una nuova voce nella cronologia della distribuzione.<br/>
+![][34]
 
 ## <a name="step6"> </a>Passaggio 6: Modificare la distribuzione di produzione
 
- Quando si è pronti, è possibile alzare di livello l'ambiente di gestione temporanea all'ambiente di produzione scegliendo **Scambia** nel portale di gestione. L'ambiente di gestione temporanea appena distribuito verrà promosso alla produzione e il precedente ambiente di produzione (se presente) diventerà un ambiente di gestione temporanea. La distribuzione attiva potrebbe differire per gli ambienti di produzione e di gestione temporanea, ma la cronologia di distribuzione delle compilazioni recenti è la stessa indipendentemente dall'ambiente.<br/> ![][35]
+ Quando si è pronti, è possibile alzare di livello l'ambiente di gestione temporanea all'ambiente di produzione scegliendo **Scambia** nel portale di gestione. L'ambiente di gestione temporanea appena distribuito verrà promosso alla produzione e il precedente ambiente di produzione (se presente) diventerà un ambiente di gestione temporanea. La distribuzione attiva potrebbe differire per gli ambienti di produzione e di gestione temporanea, ma la cronologia di distribuzione delle compilazioni recenti è la stessa indipendentemente dall'ambiente.<br/>
+![][35]
 
 ## <a name="step7"> </a>Passaggio 6: Distribuire da un branch di lavoro.
 
 Quando si usa Git, in genere si apportano modifiche in un branch di lavoro che vengono integrate nel branch master quando lo sviluppo è terminato. Durante la fase di sviluppo di un progetto, è consigliabile compilare e distribuire il branch di lavoro in Azure.
 
-1. In Team Explorer scegliere il pulsante **Home** e quindi **Branch**.<br/> ![][40]
+1. In Team Explorer scegliere il pulsante **Home** e quindi **Branch**.<br/>
+![][40]
 
-2. Scegliere il collegamento **Nuovo branch**.<br/> ![][41]
+2. Scegliere il collegamento **Nuovo branch**.<br/>
+![][41]
 
-3. Digitare il nome del branch, ad esempio "working", e scegliere **Crea branch**. Verrà creato un nuovo branch locale.<br/> ![][42]
+3. Digitare il nome del branch, ad esempio "working", e scegliere **Crea branch**. Verrà creato un nuovo branch locale.<br/>
+![][42]
 
-4. Pubblicare il branch. Scegliere il nome del branch in **Branch non pubblicati** e scegliere **Pubblica**.<br/> ![][44]
+4. Pubblicare il branch. Scegliere il nome del branch in **Branch non pubblicati** e scegliere **Pubblica**.<br/>
+![][44]
 
 6. Per impostazione predefinita, solo le modifiche al branch master attivano una compilazione continua. Per configurare una compilazione continua per un branch di lavoro, scegliere la pagina Compilazioni in Team Explorer e scegliere **Modifica definizione di compilazione**.
 
-7. Aprire la scheda **Impostazioni di origine**. In **Branch monitorati** per le compilazioni a integrazione continua e in corso scegliere **Fare clic qui per aggiungere una nuova riga**.<br/> ![][47]
+7. Aprire la scheda **Impostazioni di origine**. In **Branch monitorati** per le compilazioni a integrazione continua e in corso scegliere **Fare clic qui per aggiungere una nuova riga**.<br/>
+![][47]
 
-8. Specificare il branch creato, ad esempio refs/heads/working. ![][48]
+8. Specificare il branch creato, ad esempio refs/heads/working.
+![][48]
 
-9. Modificare il codice, aprire il menu di scelta rapida per il file modificato e scegliere **Commit**.<br/> ![][43]
+9. Modificare il codice, aprire il menu di scelta rapida per il file modificato e scegliere **Commit**.<br/>
+![][43]
 
-10. Scegliere il collegamento **Commit non sincronizzati** e scegliere il pulsante **Sincronizza** o il collegamento **Push** per copiare le modifiche nella copia del branch di lavoro in Visual Studio Online. ![][45]
+10. Scegliere il collegamento **Commit non sincronizzati** e scegliere il pulsante **Sincronizza** o il collegamento **Push** per copiare le modifiche nella copia del branch di lavoro in Visual Studio Online.
+![][45]
 
 11. Passare alla visualizzazione **Compilazioni** e cercare la compilazione appena attivata per il branch di lavoro.
 
@@ -209,4 +257,4 @@ Per altre informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fw
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

@@ -126,7 +126,8 @@ Scegliere "Archivio tabelle" come output.
 Nella pagina successiva, immettere le informazioni della tabella di Azure. L'alias di output è il nome che è possibile utilizzare nella query per indirizzare la query di output su questa tabella.
 
 
-![graphic14][graphic14] ![graphic15][graphic15]
+![graphic14][graphic14]
+![graphic15][graphic15]
 
 La dimensione del batch rappresenta il numero di record per un'operazione batch. Se non si dispone di sufficiente familiarità, lasciare il valore invariato oppure fare riferimento a [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) per ulteriori dettagli
 
