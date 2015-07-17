@@ -118,7 +118,7 @@ Associazione di un gruppo di sicurezza di rete a una subnet: se un gruppo di sic
 
 Associazione di un gruppo di sicurezza di rete a una subnet e a una macchina virtuale: è possibile associare un gruppo di sicurezza di rete a una macchina virtuale e un gruppo di sicurezza di rete diverso alla subnet in cui si trova la macchina virtuale. Questo approccio è supportato e, in questo caso, la macchina virtuale ottiene due livelli di protezione. Per il traffico in ingresso, al pacchetto vengono applicate le regole di accesso specificate nella subnet, seguite dalle regole specificate nella macchina virtuale. Nel caso di traffico in uscita, al pacchetto vengono applicate prima le regole specificate nella macchina virtuale e quindi le regole specificate nella subnet, come illustrato nel diagramma seguente
 
-![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-networks-nsg/IC757774.png)
+![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
 
 Quando un gruppo di sicurezza di rete viene associato a una macchina virtuale o una subnet, le regole di controllo di accesso alla rete diventano molto esplicite. La piattaforma non inserisce alcuna regola implicita per consentire il traffico su una porta specifica. In questo caso, se si crea un endpoint nella macchina virtuale, è necessario creare anche una regola per consentire il traffico da Internet. In caso contrario, l'indirizzo VIP:<Port> non sarà accessibile dall'esterno.
 
