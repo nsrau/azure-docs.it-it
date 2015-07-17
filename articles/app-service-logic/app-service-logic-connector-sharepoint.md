@@ -35,7 +35,9 @@ L'app della raccolta di connettori SharePoint Online e SharePoint Server fornisc
 --- | --- | ---
 Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, documenti condivisi*.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
+<br/>
+![][1]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Online.
 
@@ -56,7 +58,9 @@ Password | No | Immettere una password valida per la connessione al sito di Shar
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][2]
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
+<br/>
+![][2]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Server.
 
@@ -71,13 +75,27 @@ Una volta creata l'app per le API, è possibile usare il connettore SharePoint c
 
 3. Se viene selezionato all'avvio dell'app per la logica, il connettore SharePoint agisce come trigger, in caso contrario sarebbe possibile eseguire azioni sull'account SharePoint con il connettore.
 
-4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Autorizza** nel connettore SharePoint: <br/> ![][3]
+4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per conto dell'utente è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Autorizza** nel connettore SharePoint:
+<br/>
+![][3]
 
-5. Facendo clic su Autorizza verrà visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni: <br/> ![][4]
+5. Facendo clic su Autorizza verrà visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:
+<br/>
+![][4]
 
-6. Concedere alle app per la logica l'accesso al proprio account utente per eseguire l'operazione per proprio conto: <br/> ![][5]
+6. Concedere alle app per la logica l'accesso all'account utente per eseguire le operazioni per conto dell'utente:
+<br/>
+![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato un elenco di azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/> ![][6] <br/> **URL relativo configurato per la libreria di documenti** <br/> ![][7] <br/> **URL relativo configurato per l'elenco di documenti**
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/>
+![][6]
+<br/>
+**URL relativo configurato per la libreria di documenti**
+<br/>
+![][7]
+<br/>
+**URL relativo configurato per l'elenco di documenti**
+<br/>
 
 > [AZURE.NOTE]Per i trigger seguenti si presuppone che l'utente abbia immesso "Documenti condivisi, Elenchi/attività" nelle impostazioni pacchetto del connettore, dove "Documenti condivisi" è una raccolta documenti ed "Elenchi/attività" è un elenco.
 
@@ -463,4 +481,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro a
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!---HONumber=62-->
+<!-----HONumber=62-->

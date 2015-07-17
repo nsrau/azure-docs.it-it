@@ -312,7 +312,7 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
 
 1. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+	> **Nota**: non utilizzare il numero di porta del progetto client HTML. È possibile fare clic con il pulsante destro del mouse sul progetto API e selezionare Debug > Avvia nuova istanza per visualizzare una finestra del browser che mostra il numero di porta.
 
 1. Assicurarsi che quando si esegue il client HTML sia in esecuzione anche il progetto di app per le API, perché in caso contrario il codice HTML JavaScript non funzionerà correttamente. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Proprietà**. Impostare quindi entrambi i progetti su **Avvia senza eseguire debug** e assicurarsi che il progetto API venga eseguito per primo. 
 

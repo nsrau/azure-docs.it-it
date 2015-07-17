@@ -83,7 +83,12 @@ L'applicazione di esempio in questa esercitazione, [WebApp-GroupClaims-DotNet](h
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]In Views\Roles\Index.cshtml, si noterà che la vista usa un oggetto JavaScript denominato <code>AadPicker</code> (definito in Scripts\AadPickerLibrary.js) per accedere all'azione di <code>ricerca</code> nel controller <code>Roles</code>. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> In Controllers\RolesController.cs verrà visualizzata l'azione di <code>ricerca</code>, che invia la richiesta all'API di Azure Active Directory Graph e restituisce la risposta alla pagina. Lo stesso metodo verrà usato successivamente per creare semplici funzionalità nell'applicazione.
+	> [AZURE.NOTE]In Views\Roles\Index.cshtml, si noterà che la vista usa un oggetto JavaScript denominato <code>AadPicker</code> (definito in Scripts\AadPickerLibrary.js) per accedere all'azione di <code>ricerca</code> nel controller <code>Roles</code>.
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		In Controllers\RolesController.cs verrà visualizzata l'azione di <code>ricerca</code>, che invia la richiesta all'API di Azure Active Directory Graph e restituisce la risposta alla pagina.
+		Lo stesso metodo verrà usato successivamente per creare semplici funzionalità nell'applicazione.
 
 6.	Selezionare un utente o un gruppo dall'elenco a discesa, quindi selezionare un ruolo e fare clic su **Assegna ruolo**.
 
@@ -151,7 +156,8 @@ In questo scenario si pubblicherà l'applicazione in un'app Web in Servizio app 
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Assicurarsi che il valore di ida:PostLogoutRedirectUri termini con una barra "/".
+&lt;/appSettings></pre>
+	Assicurarsi che il valore di ida:PostLogoutRedirectUri termini con una barra "/".
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -247,9 +253,12 @@ public class WorkItemsController : Controller
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-}</pre>Poiché i mapping dei ruoli vengono gestiti nel controller Roles, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
+	}</pre>
+	Poiché i mapping dei ruoli vengono gestiti nel controller Roles, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
 
-	> [AZURE.NOTE]Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto: + Azure Active Directory non invia il http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, richiesto per impostazione predefinita dal token antifalsificazione. + Se Azure Active Directory prevede la sincronizzazione con la directory di ADFS, per impostazione predefinita il trust ADFS non invia l'attestazione http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, anche se è possibile configurare manualmente ADFS per l'invio di questa attestazione, come illustrato nel passaggio successivo.
+	> [AZURE.NOTE]Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto:
+	> + Azure Active Directory non invia il http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, richiesto per impostazione predefinita dal token antifalsificazione.
+	> + Se Azure Active Directory prevede la sincronizzazione con la directory di ADFS, per impostazione predefinita il trust ADFS non invia l'attestazione http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, anche se è possibile configurare manualmente ADFS per l'invio di questa attestazione, come illustrato nel passaggio successivo.
 
 12.  In App_Start\Startup.Auth.cs aggiungere la riga di codice seguente nel metodo `ConfigureAuth`:
 
@@ -257,7 +266,9 @@ public class WorkItemsController : Controller
 	
 	`ClaimTypes.NameIdentifies` specifica l'attestazione `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, che non viene fornita da Azure Active Directory. Dopo avere definito le autorizzazioni, è possibile passare alla funzionalità effettiva delle azioni.
 
-13.	In Create() ed Edit() aggiungere il codice seguente per rendere disponibili alcune variabili a JavaScript in un secondo momento: ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+13.	In Create() ed Edit() aggiungere il codice seguente per rendere disponibili alcune variabili a JavaScript in un secondo momento:
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant;
 
 14.	In Views\WorkItems\Create.cshtml (un elemento sottoposto automaticamente a scaffolding) individuare il metodo helper `Html.BeginForm` e modificarlo come indicato di seguito:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -324,8 +335,9 @@ public class WorkItemsController : Controller
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>Nello script l'oggetto AadPicker cerca l'azione `~/Roles/Search` per gli utenti e i gruppi Azure Active Directory corrispondenti all'input. Dopo la selezione del pulsante di invio, l'oggetto AadPicker salva l'ID utente nel campo nascosto `AssignedToID`.
+	Nello script l'oggetto AadPicker cerca l'azione `~/Roles/Search` per gli utenti e i gruppi Azure Active Directory corrispondenti all'input. Dopo la selezione del pulsante di invio, l'oggetto AadPicker salva l'ID utente nel campo nascosto `AssignedToID`.
 
 15. È ora possibile eseguire l'app nel debugger di Visual Studio oppure effettuare la pubblicazione nelle app Web di Servizio app di Azure. Accedere come proprietario dell'applicazione e passare a `~/WorkItems/Create`. Per l'app line-of-business pubblicata si passa a `https://mylobapp.azurewebsites.net/WorkItems/Create`. Si osserverà che è possibile usare lo stesso filtro di ricerca AadPicker per selezionare un utente Azure Active Directory.
 

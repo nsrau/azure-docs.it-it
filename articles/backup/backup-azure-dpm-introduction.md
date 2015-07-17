@@ -58,7 +58,7 @@ Per avviare il backup delle macchine virtuali di Azure è prima necessario crear
 2. Fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali per il backup** > **Creazione rapida**. Se all'account aziendale sono associate più sottoscrizioni, scegliere quella corretta da associare all'insieme di credenziali per il backup. In ogni sottoscrizione di Azure possono essere presenti più insiemi di credenziali per il backup per organizzare la protezione dei dati.
 3. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. È necessario che il nome sia univoco per ogni sottoscrizione.
 4. In **Area** selezionare l'area geografica per l'insieme di credenziali. Si tenga presente che l'insieme di credenziali deve trovarsi nella stessa area geografica delle macchine virtuali che si desidera proteggere. Se si dispone di macchine virtuali situate in aree geografiche differenti, creare un insieme di credenziali in ciascuna di esse. Per archiviare i dati di backup non è necessario specificare account di archiviazione perché questa operazione verrà gestita in automatico mediante l'insieme di credenziali per il backup e il servizio Backup di Azure.
-    > [AZURE.NOTE][aree supportate](http://azure.microsoft.com/regions/#services)
+    > [AZURE.NOTE] Il backup della macchina virtuale con il servizio Azure Backup è disponibile sono in alcuni paesi, fare riferimento all’elenco dei paesi in cui il servizio è [supportato](http://azure.microsoft.com/regions/#services). Se il paese per cui si sta cercando il servizio non è supportato, non verrà visualizzato all’interno dell’elenco a discesa durante la creazione dell'insieme di credenziali.
 
 5. In **Subscription** immettere la sottoscrizione di Azure da usare con l'insieme di credenziali per il backup.
 6. Fare clic su **Crea insieme di credenziali**. ![Creare un insieme di credenziali per il backup](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
@@ -101,7 +101,7 @@ Sarà necessario scaricare il file di installazione dell'agente ed eseguirlo su 
 9. Nella pagina **Impostazione crittografia**, specificare i dettagli della passphrase oppure crearla automaticamente.
 10. Fare clic su Crea passphrase e in seguito Copia negli appunti. Verrà visualizzato un messaggio di conferma in merito alla copia della passphrase negli appunti. A questo punto, si consiglia di aprire il Blocco note, incollare la passphrase e salvare il file. Inoltre, è opportuno stampare il file e conservarlo in modo sicuro. Fare clic su Registra per registrare il server DPM nell'insieme di credenziali di Backup.
 
-    > [AZURE.TIP]
+    > [AZURE.TIP] Durante il passaggio relativo alle impostazione di crittografia, assicurarsi di copiare la passphrase negli appunti.
 11. Fare clic su **Register**.
 
     Al termine della registrazione, nella console DPM viene visualizzata la disponibilità del servizio Backup di Azure.
