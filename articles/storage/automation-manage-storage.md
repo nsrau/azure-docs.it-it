@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
@@ -47,7 +47,7 @@ La [raccolta di Runbook di Automazione di Azure](http://azure.microsoft.com/blog
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire BLOB, tabelle e code di Azure, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-Vedere l'[esercitazione introduttiva di Automazione di Azure.](../automation-create-runbook-from-samples.md)
+Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

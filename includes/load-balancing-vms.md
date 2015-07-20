@@ -1,3 +1,4 @@
+
 #Bilanciamento del carico per i servizi di infrastruttura di Azure#
 
 Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
@@ -60,4 +61,4 @@ Per altre informazioni, vedere [Bilanciamento del carico interno](http://msdn.mi
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -19,7 +19,6 @@
 
 # Serializzare i dati con la libreria Microsoft Avro
 
-##Panoramica
 Questo argomento descrive come usare la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">libreria Microsoft Avro</a> per serializzare oggetti e altre strutture di dati in flussi in modo da mantenerli in memoria, in un database o in un file, nonché come deserializzarli per recuperare gli oggetti originali.
 
 
@@ -1397,9 +1396,14 @@ In entrambi i casi, tutte le modifiche devono essere apportate nella sezione del
 Per pulire il cluster, eseguire il comando seguente:
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

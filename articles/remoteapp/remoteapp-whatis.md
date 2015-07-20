@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # Informazioni su Azure RemoteApp
@@ -30,7 +30,7 @@ Azure RemoteApp fa parte dell'[infrastruttura VDI Microsoft](http://www.microsof
 
 **Novità** Per altre informazioni su Azure RemoteApp o per verificare la scalabilità di RemoteApp, è possibile partecipare al [webinar settimanale con gli esperti](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## Opzioni di distribuzione di RemoteApp
+## Raccolte RemoteApp
 Sono disponibili due tipi di raccolte RemoteApp:
 
 
@@ -47,9 +47,10 @@ Un altro vantaggio dell'uso della raccolta cloud con le app di Office consiste n
 
 È anche possibile creare una raccolta cloud per condividere un'applicazione personalizzata o un set di applicazioni per gli utenti. A tale scopo è necessario [creare un'immagine modello personalizzata](remoteapp-imageoptions.md), che rappresenta il modo in cui vengono pubblicate le app in RemoteApp, e scegliere semplicemente tale immagine, anziché l'immagine di Office 2013, quando si crea la raccolta.
 
-####Quando scegliere la raccolta nel cloud
+#### Quando scegliere la raccolta cloud
 
-Una raccolta nel cloud è adatta quando l'applicazione non richiede la connettività alle risorse presenti sulla rete privata aziendale tramite un dispositivo VPN. Se l'applicazione usa solo risorse su Internet, OneDrive o Azure, questa soluzione è consigliabile e più semplice da configurare.
+Scegliere una raccolta cloud quando l'applicazione che si desidera condividere non richiede una connessione a una risorsa della rete privata della propria azienda (ad esempio, tramite un dispositivo VPN). Se l'applicazione usa risorse in Internet, OneDrive o Azure, una raccolta cloud è consigliabile ed è inoltre la più rapida da creare.
+
 
 ### Raccolta ibrida
 La [raccolta ibrida di RemoteApp](remoteapp-create-hybrid-deployment.md) consente di fornire agli utenti sia un set personalizzato di applicazioni che l'accesso ai dati e alle risorse nella rete locale. Diversamente dell'immagine personalizzata usata con la raccolta cloud, l'immagine creata per una raccolta ibrida esegue le app in un ambiente appartenente a un dominio, garantendo un accesso completo alla rete locale e ai dati.
@@ -58,14 +59,13 @@ Integrando Active Directory con Azure Active Directory (mediante DirSync), gli u
 
 Finché l'immagine modello viene compilata in Windows Server 2012 R2 con il servizio ruolo Host sessione Desktop remoto, esistono alcuni limiti per le app che è possibile pubblicare per gli utenti. Se le app funzionano correttamente in tale ambiente di immagine modello, gli utenti finali possono accedervi mediante RemoteApp.
 
-####Quando scegliere una raccolta ibrida
+#### Quando scegliere una raccolta ibrida
 
-Una raccolta ibrida è più adatta se è necessaria la connettività alla rete privata. Alcuni esempi sono:
+Scegliere una raccolta ibrida se è necessaria una connessione alle risorse della rete privata della propria azienda, ad esempio, se l'applicazione deve accedere a uno dei seguenti elementi:
 
-- Server di file privati
+- Server di file sulla rete intranet
 - Quicken
-- Database privati
-- e così via.
+- Database protetti da firewall
 
 Questa soluzione è generalmente più adatta a grandi aziende con molte risorse sulle proprie reti private, che non possono essere trasferite nel cloud.
 
@@ -76,8 +76,12 @@ Per le raccolte ibride, nonché per le raccolte cloud che usano un'immagine mode
 
 Dopo aver aggiornato l'immagine modello personalizzata, è possibile caricare la nuova immagine nel cloud di Azure e quindi aggiornare la raccolta con la nuova immagine (questa operazione può essere eseguita dalla pagina **Avvio rapido** di RemoteApp o dal Dashboard).
 
+Per altre informazioni vedere [Aggiornare la raccolta](remoteapp-update.md).
+
 ## Client supportati di RemoteApp
 Azure RemoteApp è supportato nelle app client RemoteApp per Windows e Windows RT, nonché nelle app di Desktop remoto Microsoft per Mac, iOS e Android. Gli utenti possono usare queste app sui dispositivi mobili o di calcolo per accedere ai nuovi programmi RemoteApp.
+
+Per altre informazioni sui client vedere [Accesso alle app in Azure RemoteApp](remoteapp-clients.md).
 
 ## Passaggi successivi
 Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare RemoteApp:
@@ -88,5 +92,6 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 - [Funzionamento delle licenze in RemoteApp](remoteapp-licensing.md)
 - [Procedure consigliate per l'uso di Azure RemoteApp](remoteapp-bestpractices.md)
 - [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

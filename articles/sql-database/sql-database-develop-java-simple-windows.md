@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="lbosq"/>
 
 
 # Connettersi al database SQL tramite Java con JDBC in Windows
+
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento presenta un esempio di codice Java che è possibile usare per connettersi al database SQL di Azure. L'esempio Java si basa su Java Development Kit (JDK) versione 1.8 e si connette a un database SQL di Azure tramite il driver JDBC.
@@ -220,4 +223,6 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 			+ resultSet.getString(3));
 	}
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

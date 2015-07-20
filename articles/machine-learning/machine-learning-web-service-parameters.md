@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare i parametri del servizio Web di Azure Machine Learning | Azure" 
+	pageTitle="Usare i parametri del servizio Web di Azure Machine Learning | Microsoft Azure" 
 	description="Come usare i parametri del servizio Web di Azure Machine Learning per modificare il comportamento del modello quando si accede al servizio Web." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="raymondl;garye"/>
 
 #Usare i parametri del servizio Web di Azure Machine Learning
@@ -22,7 +22,7 @@ Un servizio Web di Azure Machine Learning viene creato mediante la pubblicazione
 
 Un esempio comune è la configurazione del modulo [Reader][reader] in modo che l'utente del servizio Web pubblicato possa specificare un'origine dati differente quando si accede al servizio Web, oppure la configurazione del modulo [Writer][writer] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection].
 
-È possibile definire i parametri del servizio Web e associarli a uno o più parametri di modulo e specificare se sono obbligatori o facoltativi. Effettuando l'accesso al servizio e modificando adeguatamente le azioni del modulo, l'utente del servizio Web può fornire valori per tali parametri.
+È possibile definire i parametri del servizio Web e associarli a uno o più parametri di modulo e specificare se sono obbligatori o facoltativi. Effettuando l'accesso al servizio e modificando in fase di esecuzione le azioni del modulo, l'utente del servizio Web può fornire valori per tali parametri.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,8 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Writer][writ
 
     - In **Please specify data destination** selezionare "Azure Blob Storage".
     - In **Please specify authentication type** selezionare "Account".
-    - Immettere le informazioni dell'account per l'archiviazione BLOB di Azure. <p />
+    - Immettere le informazioni dell'account per l'archiviazione BLOB di Azure. 
+    <p />
 
 3.	Fare clic sull'icona a destra del **Path to blob beginning with container parameter**. L'aspetto sarà simile al seguente:
 
@@ -88,5 +89,6 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

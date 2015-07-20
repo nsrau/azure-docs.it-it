@@ -32,13 +32,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 <ol start="6">
 <li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
@@ -134,5 +134,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -25,7 +25,7 @@ Quando si utilizza Servizi mobili di Azure per distribuire un'applicazione, è p
 Per semplificare il ripristino nel caso in cui si verifichi un problema di disponibilità, è possibile prepararsi in anticipo a farvi ricorso:
 
 + **Eseguire il backup dei dati nel database SQL del servizio mobile di Azure** I dati dell'applicazione del servizio mobile sono archiviati in un database SQL di Azure. È consigliabile eseguirne il backup come descritto nelle linee guida relative alla [continuità aziendale nel database SQL].
-+ **Eseguire il backup degli script del servizio mobile** È consigliabile archiviare gli script del servizio mobile in un sistema di controllo del codice sorgente come [Team Foundation Service] o \[GitHub\] e non fare affidamento unicamente sulle copie presenti nel servizio mobile stesso. È possibile scaricare gli script tramite il portale di Azure usando la funzionalità per il [controllo del codice sorgente] di Servizi mobili oppure l'[interfaccia della riga di comando di Azure]. Prestare particolare attenzione alle funzionalità contrassegnate come "in anteprima" nel portale, poiché il ripristino per tali script non è garantito e può essere necessario ripristinarli dall'originale nel proprio programma di controllo del codice sorgente.
++ **Eseguire il backup degli script del servizio mobile** È consigliabile archiviare gli script del servizio mobile in un sistema di controllo del codice sorgente come [Team Foundation Service] o [GitHub] e non fare affidamento unicamente sulle copie presenti nel servizio mobile stesso. È possibile scaricare gli script tramite il portale di Azure usando la funzionalità per il [controllo del codice sorgente] di Servizi mobili oppure l'[interfaccia della riga di comando di Azure]. Prestare particolare attenzione alle funzionalità contrassegnate come "in anteprima" nel portale, poiché il ripristino per tali script non è garantito e può essere necessario ripristinarli dall'originale nel proprio programma di controllo del codice sorgente.
 + **Riservare un servizio mobile secondario** Nell'eventualità di un problema di disponibilità del servizio mobile, può essere necessario eseguirne nuovamente la distribuzione in un'area alternativa di Azure. Per garantire la disponibilità della capacità, ad esempio in circostanze rare come la perdita di un'intera area, è consigliabile creare un servizio mobile secondario nell'area alternativa e impostarne la modalità su un valore equivalente o superiore rispetto a quella del servizio primario. Se il servizio primario è in modalità Base, è possibile impostare il servizio secondario come Base o Standard. Se invece il servizio primario è in modalità Standard, dovrà esserlo anche il servizio secondario.
 
 ## <a name="watch"></a>Controllare i sintomi di eventuali problemi
@@ -51,7 +51,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 
    Se non si è ancora riservato un servizio mobile secondario, crearne uno ora in un'altra area di Azure. Impostare la relativa modalità di ridimensionamento sulla stessa modalità del servizio primario.
 
-3. Configurare l'interfaccia della riga di comando di Azure \(Azure CLI\) in modo da operare con la sottoscrizione in uso, come descritto nell'articolo [Automatizzare i servizi mobili con l'interfaccia della riga di comando].
+3. Configurare l'interfaccia della riga di comando di Azure (Azure CLI) in modo da operare con la sottoscrizione in uso, come descritto nell'articolo [Automatizzare i servizi mobili con l'interfaccia della riga di comando].
 
 4. È ora possibile usare il servizio secondario per ripristinare quello primario.
 
@@ -83,7 +83,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 	+ Se si usa un **back-end Javascript** e si gestisce il servizio tramite il portale, non sarà necessario eseguire altre azioni.
 	+ Se si usa un **back-end Javascript** e si gestisce il servizio tramite il nodo, aggiornare il Git remoto in modo che punti al nuovo repository. A questo scopo, rimuovere il percorso del file con estensione git dal Git remoto:
 
-		1. Trovare l'origine remota corrente: Git remoto -v origine https://myservice.scm.azure-mobile.net/myservice.git \(fetch\) origine https://myservice.scm.azure-mobile.net/myservice.git \(push\)
+		1. Trovare l'origine remota corrente: Git remoto -v origine https://myservice.scm.azure-mobile.net/myservice.git (fetch) origine https://myservice.scm.azure-mobile.net/myservice.git (push)
 		3. Aggiornare l'origine remota usando lo stesso URL, ma senza il percorso del file con estensione git finale: Git remoto set-url origine https://myservice.scm.azure-mobile.net
 		4. Effettuare il pull dell'origine per verificare che funzioni correttamente.
 
@@ -104,4 +104,4 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

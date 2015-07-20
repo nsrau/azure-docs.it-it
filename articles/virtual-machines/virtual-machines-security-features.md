@@ -40,4 +40,7 @@ Gli elenchi di controllo di accesso di rete consentono di autorizzare o negare s
 ##Risorse aggiuntive
 [Risorse](http://azure.microsoft.com/support/trust-center/resources/) in Centro protezione di Microsoft Azure
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

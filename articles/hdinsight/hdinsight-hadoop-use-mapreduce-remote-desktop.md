@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Uso di MapReduce con Hadoop in HDInsight con Desktop remoto
@@ -32,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="connect"></a>Connettersi con Desktop remoto
 
-Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
+Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo le istruzioni disponibili in [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 ##<a id="hadoop"></a>Usare il comando Hadoop
 
@@ -95,4 +95,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -34,15 +34,15 @@ Una connessione point-to-site richiede una rete virtuale con un gateway con rout
 1. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 1. Nella pagina **Virtual Network Details** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere il [pagina dettagli rete virtuale](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 	- **Nome**: assegnare un nome alla rete virtuale. Ad esempio "VNetEast". Questo sarà il nome che è possibile fare riferimento quando si distribuiscono macchine virtuali e istanze PaaS in questa rete virtuale.
-	- **Indirizzo**: la località è direttamente correlata alla posizione fisica \(regione\) in cui si desidera che le risorse \(macchine virtuali\) devono risiedere. Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
+	- **Indirizzo**: la località è direttamente correlata alla posizione fisica (regione) in cui si desidera che le risorse (macchine virtuali) devono risiedere. Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
 1. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per ulteriori informazioni, vedere il [pagina server DNS e connettività VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 	- **Server DNS**:immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, consente di specificare i server DNS che si desidera utilizzare per la risoluzione dei nomi per la rete virtuale. Se si desidera utilizzare il servizio di risoluzione dei nomi predefinito di Azure, lasciare vuota questa sezione.
 	- **Configura Point-To-Site VPN**: selezionare la casella di controllo.
 1. Nella pagina **Connettività Point-To-Site** e specificare l'intervallo indirizzi IP dal quale i client VPN riceveranno un indirizzo IP durante la connessione. Esistono diverse regole riguardano gli intervalli di indirizzi che è possibile specificare. È molto importante verificare che l'intervallo specificato non si sovrapponga ad altri intervalli presenti nella rete locale. Per altre informazioni, vedere la pagina [Configurare la connettività Point-to-Site](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT).
 1. Immettere le informazioni seguenti e quindi fare clic sulla freccia avanti.
- - **Spazio di indirizzi**: includono l'indirizzo IP iniziale e CIDR \(conteggio indirizzi\).
+ - **Spazio di indirizzi**: includono l'indirizzo IP iniziale e CIDR (conteggio indirizzi).
  - **Aggiungi spazio di indirizzi**: aggiungere solo se è necessario per la progettazione della rete.
-1. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici \(DIP\) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Esistono diverse regole relative allo spazio degli indirizzi della rete virtuale; è possibile fare riferimento alla pagina Web dedicata per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
+1. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Esistono diverse regole relative allo spazio degli indirizzi della rete virtuale; è possibile fare riferimento alla pagina Web dedicata per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
 1. Immettere le informazioni seguenti e quindi fare clic sul segno di spunta per iniziare a creare la rete virtuale.
  - **Spazio degli indirizzi**: aggiungere l'intervallo di indirizzi IP interno che si desidera utilizzare per la rete virtuale, inclusi IP iniziale e conteggio. Esistono diverse regole relative allo spazio degli indirizzi della rete virtuale; è possibile fare riferimento alla pagina [Web dedicata](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
  - **Aggiungi subnet**: non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP statici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
@@ -65,7 +65,7 @@ I certificati vengono utilizzati per autenticare i client VPN per le connessioni
 
 ### Generare un certificato radice autofirmato
 
-1. Un modo per creare un certificato x. 509 consiste nell'utilizzare lo strumento di creazione certificati \(makecert.exe\). Per utilizzare makecert, scaricare e installare [Microsoft Visual Studio Express 2013 per Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), che è disponibile gratuitamente.
+1. Un modo per creare un certificato x. 509 consiste nell'utilizzare lo strumento di creazione certificati (makecert.exe). Per utilizzare makecert, scaricare e installare [Microsoft Visual Studio Express 2013 per Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), che è disponibile gratuitamente.
 2. Individuare il **Visual Studio Tools** cartella e avviare il prompt dei comandi come amministratore.
 3. Il comando nell'esempio seguente consente di creare e installare un certificato radice nell'archivio certificati personale nel computer e creare anche un file corrispondente con estensione *.cer* da caricare in seguito nel portale di gestione.
 4. Passare alla directory in cui si vuole inserire il file con estensione cer, dove *RootCertificateName* è il nome che si vuole usare per il certificato. Se si esegue l'esempio riportato di seguito senza modifiche, il risultato sarà un certificato radice e il corrispondente file *RootCertificateName.cer*.
@@ -83,7 +83,7 @@ I certificati vengono utilizzati per autenticare i client VPN per le connessioni
 ### Generare un certificato client
 
 1. Nello stesso computer utilizzato per creare il certificato radice autofirmato aprire una finestra del prompt dei comandi di Visual Studio come amministratore.
-2. Passare alla directory nella posizione in cui si desidera salvare il client file di certificato. *RootCertificateName* fa riferimento al certificato radice autofirmato generato. Se si esegue l'esempio riportato di seguito \(sostituendo RootCertificateName con il nome del certificato radice\), il risultato sarà un certificato client denominato "ClientCertificateName" nell'archivio certificati personale.
+2. Passare alla directory nella posizione in cui si desidera salvare il client file di certificato. *RootCertificateName* fa riferimento al certificato radice autofirmato generato. Se si esegue l'esempio riportato di seguito (sostituendo RootCertificateName con il nome del certificato radice), il risultato sarà un certificato client denominato "ClientCertificateName" nell'archivio certificati personale.
 3. Digitare il seguente comando:
 
     Makecert.exe - n "CN = ClientCertificateName"-pe-sky exchange -m 96 -ss My - in "RootCertificateName" - è my-sha1
@@ -93,7 +93,7 @@ I certificati vengono utilizzati per autenticare i client VPN per le connessioni
 ### Esportazione e installare il certificato client
 
 1. Un certificato client deve essere installato in ogni computer che si connette alla rete virtuale. Ciò significa che saranno stati creati probabilmente creati più certificati client, pertanto è necessario esportarli. Per esportare i certificati client, utilizzare *certmgr. msc*. Fare clic con il certificato client che si desidera esportare, fare clic su **tutte le attività**, quindi fare clic su **esportare**.
-2. Esportare il *certificato client* con la chiave privata. Si tratta di un file *.pfx*. Assicurarsi di registrare o ricordare la password \(chiave\) impostata per il certificato.
+2. Esportare il *certificato client* con la chiave privata. Si tratta di un file *.pfx*. Assicurarsi di registrare o ricordare la password (chiave) impostata per il certificato.
 3. Copia il *pfx* file nel computer client. Nel computer client, fare doppio clic sui *pfx* file per poterlo installare. Immettere la password quando richiesto. Non modificare il percorso di installazione.
 
 ## Configurare il client VPN
@@ -103,12 +103,12 @@ Per connettersi alla rete virtuale, è inoltre necessario configurare il client 
 ### Creare il pacchetto di configurazione del client VPN
 
 1. Nel portale di gestione, nella pagina del Dashboard per la rete virtuale, passare alla rapida **menu immediatamente** nell'angolo destro e fare clic sul pacchetto VPN pertinente al client che si desidera connettere alla rete virtuale. Sono supportati i seguenti sistemi operativi client:
- - Windows 7 \(32 bit e a 64 bit\)
- - Windows Server 2008 R2 \(solo 64 bit\)
- - Windows 8 \(32 bit e a 64 bit\)
- - Windows 8.1 \(32 bit e a 64 bit\)
- - Windows Server 2012 \(solo 64 bit\)
- - Windows Server 2012 R2 \(solo 64 bit\)
+ - Windows 7 (32 bit e a 64 bit)
+ - Windows Server 2008 R2 (solo 64 bit)
+ - Windows 8 (32 bit e a 64 bit)
+ - Windows 8.1 (32 bit e a 64 bit)
+ - Windows Server 2012 (solo 64 bit)
+ - Windows Server 2012 R2 (solo 64 bit)
 
 1. Selezionare il pacchetto di download che corrisponde al sistema operativo client in cui verrà installato:
  - Per i client a 32 bit, selezionare **scaricare il pacchetto di VPN Client a 32 bit**
@@ -118,7 +118,7 @@ Per connettersi alla rete virtuale, è inoltre necessario configurare il client 
 
 ### Installare il pacchetto di configurazione VPN nel client e avvio della connessione
 
-1. Copiare il file di configurazione in locale al computer in cui si desidera connettere alla rete virtuale e fare doppio clic sul file .exe. Una volta installato il pacchetto, è possibile avviare la connessione VPN. Si noti che il pacchetto di configurazione non è firmato da Microsoft. È possibile firmare il pacchetto con il servizio di firma dell'organizzazione o firmarlo manualmente usando \[SignTool\]\(https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). È anche possibile utilizzare il pacchetto senza firma. Tuttavia, se il pacchetto non è firmato, verrà visualizzato un avviso quando si installa il pacchetto.
+1. Copiare il file di configurazione in locale al computer in cui si desidera connettere alla rete virtuale e fare doppio clic sul file .exe. Una volta installato il pacchetto, è possibile avviare la connessione VPN. Si noti che il pacchetto di configurazione non è firmato da Microsoft. È possibile firmare il pacchetto con il servizio di firma dell'organizzazione o firmarlo manualmente usando [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). È anche possibile utilizzare il pacchetto senza firma. Tuttavia, se il pacchetto non è firmato, verrà visualizzato un avviso quando si installa il pacchetto.
 2. Nel computer client passare alle connessioni VPN e individuare la connessione VPN appena creato. Verrà denominato lo stesso nome di rete virtuale. Fare clic su **Connect**.
 3. Verrà visualizzato un messaggio popup in che consente di creare un certificato autofirmato per l'endpoint del Gateway. Fare clic su **Continua** utilizzare privilegi elevati.
 4. Nel **connessione** pagina di stato, fare clic su **Connect** per avviare la connessione.
@@ -156,7 +156,7 @@ Se si desidera configurare una connessione VPN da sito a sito, vedere [configura
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md)
 
-Se si desidera configurare una connessione di rete virtuale mediante RRAS, vedere [configurare una VPN da sito a sito utilizzando Windows Server 2012 Routing e accesso remoto \(RRAS\)](https://msdn.microsoft.com/library/dn636917.aspx)
+Se si desidera configurare una connessione di rete virtuale mediante RRAS, vedere [configurare una VPN da sito a sito utilizzando Windows Server 2012 Routing e accesso remoto (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

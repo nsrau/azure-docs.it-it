@@ -1,3 +1,4 @@
+
 #### Per installare l'aggiornamento 1 dal portale di gestione
 
 1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Andare a **Dispositivi** > **Manutenzione**.
@@ -44,4 +45,4 @@
 
     ![Pagina di manutenzione](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

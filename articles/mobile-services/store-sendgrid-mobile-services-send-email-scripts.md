@@ -134,5 +134,6 @@ Dopo avere sperimentato quanto sia semplice utilizzare il servizio di posta elet
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
 [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

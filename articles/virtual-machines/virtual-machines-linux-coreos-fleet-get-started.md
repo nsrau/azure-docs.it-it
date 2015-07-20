@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Guida introduttiva a fleet su CoreOS in Azure" 
-	description="Vengono forniti esempi di base dell'utilizzo di Fleet e Docker in una macchina virtuale Linux CoreOS in Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="dlepow" 
+<properties
+	pageTitle="Guida introduttiva a fleet su CoreOS in Azure"
+	description="Vengono forniti esempi di base dell'utilizzo di Fleet e Docker in una macchina virtuale Linux CoreOS in Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
 	manager="timlt"
 	editor="madhana"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.workload="infrastructure-services" 
-	ms.date="03/17/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/17/2015"
 	ms.author="danlep"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # Guida introduttiva a fleet su CoreOS in Azure
 
 In questo articolo vengono forniti due esempi rapidi di utilizzo di [fleet](https://github.com/coreos/fleet) e [Docker](https://www.docker.com/) per eseguire le applicazioni in un cluster di macchine virtuali [CoreOS].
@@ -156,7 +154,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 Vedere anche [Computing Linux e open source in Azure] per ulteriori informazioni sull'utilizzo di ambienti open source su macchine virtuali Linux in Azure.
 
 <!--Link references-->
-[Azure Cross-Platform Interface (xplat-cli)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
 [CoreOS]: https://coreos.com/
 [panoramica di CoreOS]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -172,4 +170,6 @@ Vedere anche [Computing Linux e open source in Azure] per ulteriori informazioni
 [immagine Docker Hub busybox]: https://registry.hub.docker.com/_/busybox/
 [immagine Docker Hub Apache CoreOS]: https://registry.hub.docker.com/u/coreos/apache/
 [Computing Linux e open source in Azure]: virtual-machines-linux-opensource.md
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

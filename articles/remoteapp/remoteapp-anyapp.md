@@ -10,10 +10,10 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
+   ms.date="05/28/2015"
    ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con RemoteApp
@@ -35,7 +35,7 @@ Iniziare con la creazione di una raccolta, che servirà come contenitore per le 
 2. Fare clic su **Crea una raccolta RemoteApp**.
 3. Fare clic su **Creazione rapida** e immettere un nome per la raccolta.
 4. Selezionare l'area da usare per creare la raccolta. Per un'esperienza ottimale, selezionare l'area geograficamente più vicina alla località in cui gli utenti accederanno all'app. Ad esempio, in questa esercitazione gli utenti risiederanno a Redmond, Washington. L'area di Azure più vicina è **Stati Uniti occidentali**.
-5. Selezionare il piano di fatturazione da usare. Il piano di fatturazione di base prevede 16 utenti in una macchina virtuale di Azure di grandi dimensioni, mentre il piano di fatturazione standard include 10 in una macchina virtuale di Azure di grandi dimensioni. Come esempio generale, il piano di base è un'ottima soluzione per un flusso di lavoro di tipo immissione dati. Per un'app di produttività come Office è consigliabile il piano standard. 
+5. Selezionare il piano di fatturazione da usare. Il piano di fatturazione di base prevede 16 utenti in una macchina virtuale di Azure di grandi dimensioni, mentre il piano di fatturazione standard include 10 in una macchina virtuale di Azure di grandi dimensioni. Come esempio generale, il piano di base è un'ottima soluzione per un flusso di lavoro di tipo immissione dati. Per un'app di produttività come Office è consigliabile il piano standard.
 6. Infine selezionare l'immagine di Office 2013 Professional. Questa immagine contiene le app di Office 2013.  
 7. Fare clic su **Crea raccolta RemoteApp**.
 
@@ -71,15 +71,15 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 1. Iniziare con la pubblicazione dell'interfaccia della riga di comando (cmd.exe). Nella scheda **Pubblicazione** selezionare **cmd** e quindi fare clic su **Pubblica > Pubblica i programmi usando il percorso**.
 2. Immettere il nome dell'app e il percorso. Per questa esercitazione, usare "Esplora file" come nome e "%SYSTEMDRIVE%\\windows\\explorer.exe" come percorso. ![Pubblicare il file cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. È necessario creare un [account di archiviazione](../storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo (può essere presente un solo archivio "accessstorage"). ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo. ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria.
-6. Impostare il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
-   
+4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo.
+
+![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png) 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria. 6. Impostare il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
+
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	Ecco i cmdlet da eseguire per questa condivisione:
-    
+	So for our share, these are the cmdlets we run:
+
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
@@ -87,7 +87,11 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 Di seguito sono elencati i passaggi che dovrà eseguire l'utente. Innanzitutto chiedere agli utenti di installare un [client RemoteApp](remoteapp-clients.md). Dovranno quindi connettere un'unità dall'account alla condivisione file di Azure creata dall'amministratore e aggiungere i file di Access. Ecco come eseguire questa operazione:
 
 1. Nel client RemoteApp accedere alle app pubblicate. Avviare il programma cmd.exe.
-2. Eseguire il comando seguente per connettere un'unità dal computer alla condivisione file: net use z: <accountname>.file.core.windows.net<nome condivisione> /u:<user name> <account key>
+2. Eseguire il comando seguente per eseguire il mapping di un'unità dal computer alla condivisione file:
+
+		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
+
+	Se si imposta il parametro **/persistent** su Sì, l'unità mappata verrà mantenuta tra le sessioni.
 1. Avviare l'app Esplora file da RemoteApp. Copiare i file di Access che si desidera usare nell'app condivisa nella condivisione file. ![Inserimento dei file di Access in una condivisione di Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Infine aprire Access e quindi il database appena condiviso. I dati saranno visualizzati in Access in esecuzione nel cloud. ![Database Access reale in esecuzione dal cloud](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
@@ -100,5 +104,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

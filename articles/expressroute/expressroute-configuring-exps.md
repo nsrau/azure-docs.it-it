@@ -1,16 +1,17 @@
-<properties 
+<properties
    pageTitle="Configurazione di ExpressRoute tramite un provider di Exchange"
    description="Questa esercitazione illustra in modo dettagliato la configurazione di ExpressRoute tramite i provider di Exchange (EXP)."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="cherylmc"/>
 
@@ -27,9 +28,9 @@ Per configurare la connessione ExpressRoute tramite un provider di Exchange, sar
 
 Prima di iniziare la configurazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-- Sottoscrizione di Azure 
-- Versione più recente di Azure PowerShell 
-- I seguenti requisiti della rete virtuale: 
+- Sottoscrizione di Azure
+- Versione più recente di Azure PowerShell
+- I seguenti requisiti della rete virtuale:
 	- Un set di prefissi di indirizzo IP da usare in reti virtuali in Azure.
 	- Un set di prefissi IP locali, che può contenere indirizzi IP pubblici.
 	- Gateway di rete virtuale creato con una subnet /28.
@@ -53,59 +54,59 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 1. **Importare il modulo PowerShell per ExpressRoute.**
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1' 
-	
+	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+
 2. **Ottenere l'elenco dei provider, delle sedi e delle larghezze di banda supportate.**
 
 	Prima di creare un circuito, è necessario disporre di un elenco dei provider di servizi, delle sedi e delle opzioni di larghezza di banda supportati per ciascuna sede. Il cmdlet di PowerShell riportato di seguito restituirà informazioni necessarie nei passaggi successivi.
 
     	PS C:> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
-		
-		
-		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
-		----                 -------------------------      --------------------------                                                                                                                                                                                   
-		AT&T                 Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		British Telecom      London,Amsterdam               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Equinix              Amsterdam,Atlanta,Chicago,Dall 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		                     as,New York,Seattle,Silicon                                                                                                                                                                                                                 
-		                     Valley,Washington                                                                                                                                                                                                                           
-		                     DC,London,Hong                                                                                                                                                                                                                              
-		                     Kong,Singapore,Sydney,Tokyo                                                                                                                                                                                                                 
-		IIJ                  Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Level 3              London,Silicon                 200Mbps:200, 500Mbps:500, 1Gbps:1000                                                                                                                                                                         
-		Communications -     Valley,Washington DC                                                                                                                                                                                                                        
-		Exchange                                                                                                                                                                                                                                                         
-		Level 3              London,Silicon                 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Communications -     Valley,Washington DC                                                                                                                                                                                                                        
-		IPVPN                                                                                                                                                                                                                                                            
-		Orange               Amsterdam,London               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel Domestic     Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel              Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		International                                                                                                                                                                                                                                                    
-		TeleCity Group       Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Telstra Corporation  Sydney                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+
+
+		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths
+		----                 -------------------------      --------------------------
+		AT&T                 Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		British Telecom      London,Amsterdam               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		Equinix              Amsterdam,Atlanta,Chicago,Dall 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000
+		                     as,New York,Seattle,Silicon
+		                     Valley,Washington
+		                     DC,London,Hong
+		                     Kong,Singapore,Sydney,Tokyo
+		IIJ                  Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		Level 3              London,Silicon                 200Mbps:200, 500Mbps:500, 1Gbps:1000
+		Communications -     Valley,Washington DC
+		Exchange
+		Level 3              London,Silicon                 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		Communications -     Valley,Washington DC
+		IPVPN
+		Orange               Amsterdam,London               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		SingTel Domestic     Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		SingTel              Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
+		International
+		TeleCity Group       Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000
+		Telstra Corporation  Sydney                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
- 
+
 3. **Creare un circuito dedicato**
- 
+
 	L'esempio seguente illustra come creare un circuito ExpressRoute a 200 Mbps tramite Equinix Silicon Valley. Se si usa un altro provider e impostazioni diverse, sostituire tali informazioni al momento della richiesta.
 
 	Di seguito è riportato un esempio di richiesta di una nuova chiave di servizio:
-      
+
 		#Creating a new circuit
 		$Bandwidth = 200
 		$CircuitName = "EquinixSVTest"
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
-		 
+
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location
-		 
+
 		#Getting service key
 		Get-AzureDedicatedCircuit
- 
+
 	La risposta sarà simile a quella riportata nel seguente esempio:
-            
+
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
 		Location                         : Silicon Valley
@@ -117,7 +118,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 	Si possono recuperare queste informazioni in qualsiasi momento usando il cmdlet Get-AzureCircuit. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti. La chiave di servizio verrà elencata nel campo ServiceKey.
 
 		PS C:> Get-AzureDedicatedCircuit
-				 
+
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
 		Location                         : Silicon Valley
@@ -136,7 +137,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 	In questo modo, sarà possibile sapere quando il circuito viene abilitato dal provider. Dopo l'abilitazione del circuito, il parametro *ServiceProviderProvisioningState* verrà visualizzato come *Provisioned*, come illustrato nell'esempio riportato di seguito.
 
 		PS C:> Get-AzureDedicatedCircuit
-				 
+
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
 		Location                         : Silicon Valley
@@ -144,7 +145,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
 		Status                           : Enabled
- 
+
 6. **Configurare il routing per la rete virtuale.**
 
 	Per lo scambio delle route e per garantire un'elevata disponibilità, vengono usate sessioni BGP. Per creare una sessione BGP per il circuito, usare l'esempio seguente. Durante la creazione della sessione, sostituire i seguenti valori con valori personalizzati.
@@ -155,7 +156,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		$SecSN = "<subnet/30 use IP #1 and Azure uses IP #2>"
 		$ASN = <your ASN>
 		$VLAN = <your vlan ID>
-		 
+
 		#Create a new bgp peering session
 		New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN VlanId $VLAN –AccessType Private
 		#Get BGP parameters and Azure ASN
@@ -168,9 +169,9 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 	È possibile ottenere informazioni sul routing per un circuito che usa Get-AzureBGPPeering fornendo la chiave di servizio. È anche possibile aggiornare le impostazioni BGP tramite Set-AzureBGPPeering. Quando questo comando è in esecuzione, la sessione BGP non verrà visualizzata. Per attivare la sessione BGP, è necessario che il circuito sia collegato ad almeno una rete VNet.
 
 	La risposta riportata di seguito fornirà informazioni necessarie nei passaggi successivi. Utilizzare l'ASN del peer per configurare BGP sui VRF del router.
-                    
+
 		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
-				
+
 		AzureAsn            : 12076
 		PeerAsn             : 65001
 		PrimaryAzurePort    : EQIX-SJC-06GMR-CIS-1-PRI-A
@@ -181,16 +182,16 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		VlanId              : 100
 
 7. **Configurare il routing per i servizi ospitati in indirizzi IP pubblici.**
-	
+
 	Per lo scambio delle route e per garantire un'elevata disponibilità, vengono usate sessioni BGP. Per creare una sessione BGP per il circuito, usare l'esempio seguente. Durante la creazione della sessione, sostituire i seguenti valori con valori personalizzati.
 
 		#Setting up a bgp session
 		$ServiceKey = "<your key>"
 		$PriSN = "<subnet/30 subnet you use IP #1 and Azure uses IP #2>"
 		$SecSN = "< subnet/30 subnet you use IP #1 and Azure uses IP #2>"
-		$ASN = <your ASN> 
+		$ASN = <your ASN>
 		$VLAN = <your vlan ID>
-		 
+
 		#Create a new bgp peering session
 		New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Public
 		#Get BGP parameters and Azure ASN
@@ -199,13 +200,13 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		Set-AzureBGPPeering  -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Public
 		#Removing BGP peering config
 		Remove-AzureBGPPeering -ServiceKey $ServiceKey –AccessType Public
- 
+
 	È possibile ottenere informazioni sul routing per un circuito che usa Get-AzureBGPPeering fornendo la chiave di servizio. È anche possibile aggiornare le impostazioni BGP tramite Set-AzureBGPPeering. Quando questo comando è in esecuzione, la sessione BGP non verrà visualizzata. Per attivare la sessione BGP, è necessario che il circuito sia collegato ad almeno una rete VNet.
 
 	La risposta riportata di seguito fornirà informazioni necessarie nei passaggi successivi. Utilizzare l'ASN del peer per configurare BGP sui VRF del router.
 
 		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
-		 
+
 		AzureAsn            : 12076
 		PeerAsn             : 65001
 		PrimaryAzurePort    : EQIX-SJC-06GMR-CIS-1-PRI-A
@@ -214,7 +215,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		SecondaryPeerSubnet : 10.0.2.8/30
 		State               : Enabled
 		VlanId              : 101
- 
+
 8. **Configurare la rete virtuale e il gateway.**
 
 	Vedere [Configurare una rete virtuale e un gateway per ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Si noti che la subnet del gateway deve essere /28 per poter usare una connessione ExpressRoute.
@@ -222,7 +223,9 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 9. **Collegare la rete al circuito.** Procedere con le istruzioni riportate di seguito solo dopo aver confermato che lo stato del circuito è ora il seguente:
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
-	 
+
 			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

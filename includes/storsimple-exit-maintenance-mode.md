@@ -1,3 +1,4 @@
+
 #### Per uscire dalla modalità di manutenzione
 
 1. Al prompt dei comandi digitare:
@@ -8,4 +9,4 @@
 
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità normale.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -203,4 +203,4 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

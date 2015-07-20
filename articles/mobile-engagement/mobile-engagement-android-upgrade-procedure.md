@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -23,27 +23,88 @@ Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nel
 
 Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
 
-Indipendentemente dalla versione di partenza dell'aggiornamento, è necessario sostituire tutti i file `mobile-engagement-VERSION.jar` con i nuovi file.
+Indipendentemente dalla versione di partenza dell'aggiornamento, è necessario sostituire il file `mobile-engagement-VERSION.jar` con il nuovo file.
 
-###Dalla versione 2.4.0 alla 3.0.0
+##Dalla versione 3.0.0 alla 4.0.0
 
-La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement.
+### Push nativo
 
->[AZURE.IMPORTANT]Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement
+Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
 
-Se si esegue la migrazione da una versione precedente, vedere il sito Web Capptain per eseguire prima di tutto la migrazione alla versione 2.4 e quindi applicare la procedura seguente.
+Se non è già stata eseguita, completare [questa procedura](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-#### File JAR
+### AndroidManifest.xml
+
+L'integrazione con il servizio di copertura è stata modificata in ``AndroidManifest.xml``.
+
+Sostituire:
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+
+Con
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+      </intent-filter>
+    </receiver>
+
+È ora possibile che venga visualizzata una schermata di caricamento quando si fa clic su un annuncio (con contenuto di tipo testo/Web) o un sondaggio. L'aggiunta del codice seguente consente il funzionamento delle campagne in 4.0.0:
+
+    <activity
+      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
+      android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+### Risorse
+
+Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
+
+##Dalla versione 2.4.0 alla 3.0.0
+
+La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement. Se si esegue la migrazione da una versione precedente, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 2.4.0 e quindi applicare la procedura seguente.
+
+>[AZURE.IMPORTANT]Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement.
+
+### File JAR
 
 Sostituire `capptain.jar` con `mobile-engagement-VERSION.jar` nella cartella `libs`.
 
-#### File di risorse
+### File di risorse
 
 Ogni file di risorse fornito (con prefisso `capptain_`) deve essere sostituito con i nuovi file (con prefisso `engagement_`).
 
 Se questi file sono stati personalizzati, è necessario applicare di nuovo la personalizzazione ai nuovi file. **Tutti gli identificatori dei file di risorse sono stati anche rinominati**.
 
-#### ID applicazione
+### ID applicazione
 
 Il servizio Engagement usa ora una stringa di connessione per configurare gli identificatori dell'SDK, ad esempio l'identificatore dell'applicazione.
 
@@ -63,7 +124,7 @@ Rimuovere questa sezione da `AndroidManifest.xml`, se presente:
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-#### API Java
+### API Java
 
 Ogni chiamata a classi Java dell'SDK deve essere rinominata. Ad esempio, `CapptainAgent.getInstance(this)` deve essere rinominata come `EngagementAgent.getInstance(this)`, `extends CapptainActivity` come `extends EngagementActivity` e così via.
 
@@ -71,7 +132,7 @@ Se è stata eseguita l'integrazione con i file di preferenze agente predefiniti,
 
 Quando si creano annunci Web, il binder JavaScript è ora `engagementReachContent`.
 
-#### AndroidManifest.xml
+### AndroidManifest.xml
 
 Sono state apportate numerose modifiche. Il servizio non è più condiviso e molti ricevitori non sono più esportabili.
 
@@ -79,7 +140,7 @@ La dichiarazione del servizio è ora più semplice. Rimuovere il filtro Intent e
 
 Tutti gli elementi sono stati inoltre rinominati per l'uso di Engagement.
 
-L'aspetto deve essere analogo al seguente:
+L'aspetto è analogo al seguente:
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -154,7 +215,7 @@ La verifica per Google Play e SmartAd è stata rimossa dall'SDK. È sufficiente 
 				android:name="capptain:track:adservers"
 				android:value="smartad" />
 
-Le attività del servizio Reach vengono ora dichiarate nel modo seguente:
+Le attività del servizio di copertura vengono ora dichiarate nel modo seguente:
 
 			<activity
 			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
@@ -183,7 +244,7 @@ Le attività del servizio Reach vengono ora dichiarate nel modo seguente:
 			  </intent-filter>
 			</activity>
 			
-Se sono presenti attività personalizzate del servizio Reach, è sufficiente cambiare le azioni di tipo Intent in modo che corrispondano a `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` o `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+Se sono presenti attività personalizzate del servizio di copertura, è sufficiente cambiare le azioni di tipo Intent in modo che corrispondano a `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` o `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
 I ricevitori di trasmissioni sono stati rinominati e viene aggiunto `exported=false`. L'elenco seguente illustra in modo completo i ricevitori e le nuove specifiche. È ovviamente necessario rinominare solo i ricevitori da usare:
 
@@ -289,7 +350,7 @@ e
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-#### Proguard
+### Proguard
 
 La configurazione di Proguard può essere influenzata dal re-branding. Le regole hanno ora un aspetto analogo al seguente:
 
@@ -300,5 +361,6 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			  <methods>;
 			}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

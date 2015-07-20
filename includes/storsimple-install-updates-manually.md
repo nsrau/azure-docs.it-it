@@ -1,3 +1,4 @@
+
 #### Per installare gli aggiornamenti regolari tramite il portale di gestione
 
 1. Nella pagina **Dispositivi**, selezionare il dispositivo in cui si desidera installare gli aggiornamenti.
@@ -10,4 +11,4 @@
 
     Una volta completata l'installazione dell'aggiornamento, l'utente riceve una notifica.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

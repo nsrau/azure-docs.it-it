@@ -48,4 +48,4 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
 È ora possibile utilizzare il nuovo servizio mobile come archivio dati per l'app.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

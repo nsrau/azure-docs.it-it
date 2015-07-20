@@ -1,3 +1,4 @@
+
 #### Per modificare un contenitore di volumi
 
 1. Nella pagina **Dispositivi**, selezionare il dispositivo facendo doppio clic, quindi selezionare la scheda **Contenitori di volumi**.
@@ -24,4 +25,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

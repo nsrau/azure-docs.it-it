@@ -1,29 +1,32 @@
-<properties 
-	pageTitle="Sviluppare programmi MapReduce Java per Hadoop | Microsoft Azure" 
-	description="Informazioni su come sviluppare programmi MapReduce Java su HDInsight Emulator e implementarli in HDInsight." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="nitinme" 
+<properties
+	pageTitle="Sviluppare programmi MapReduce Java per Hadoop | Microsoft Azure"
+	description="Informazioni su come sviluppare programmi MapReduce Java su HDInsight Emulator e implementarli in HDInsight."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="nitinme"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/01/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/01/2015"
 	ms.author="nitinme"/>
 
 # Sviluppare programmi MapReduce Java per Hadoop in HDInsight
-Questa esercitazione illustra in modo dettagliato uno scenario end-to-end per lo sviluppo di un processo MapReduce Hadoop in Java usando Apache Maven. L'esercitazione mostra anche come eseguire il test dell'applicazione in HDInsight Emulator per Azure e quindi distribuirla ed eseguirla in un cluster HDInsight di Azure.
+
+[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
+
+Questa esercitazione illustra in modo dettagliato uno scenario end-to-end per lo sviluppo di un processo MapReduce Hadoop in Java usando Apache Maven. L'esercitazione mostra anche come eseguire il test dell'applicazione in HDInsight Emulator per Azure e quindi distribuirla ed eseguirla in un cluster HDInsight basato su Windows.
 
 ##<a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario aver completato quanto segue:
 
-- Installare HDInsight Emulator. Per istruzioni, vedere [Introduzione a HDInsight Emulator][hdinsight-emulator]. Verificare che tutti i servizi necessari siano in esecuzione. Nel computer in cui è installato HDInsight Emulator avviare la riga di comando di Hadoop dal collegamento sul desktop, passare a **C:\\hdp** ed eseguire il comando **start_local_hdp_services.cmd**.	
+- Installare HDInsight Emulator. Per istruzioni, vedere [Introduzione a HDInsight Emulator][hdinsight-emulator]. Verificare che tutti i servizi necessari siano in esecuzione. Nel computer in cui è installato HDInsight Emulator avviare la riga di comando di Hadoop dal collegamento sul desktop, passare a **C:\\hdp** ed eseguire il comando **start_local_hdp_services.cmd**.
 - Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure].
 - Installare la piattaforma Java JDK 7 o versioni successive nel computer dell'emulatore. È già disponibile nel computer dell'emulatore.
 - Installare e configurare [Apache Maven](http://maven.apache.org/).
@@ -41,8 +44,7 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 
 **Per creare un progetto con Maven**
 
-1. Creare una directory **C:\\Tutorials\\WordCountJava**.
-2. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory del percorso creato.
+1. Creare una directory **C:\\Tutorials\\WordCountJava**.2. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory del percorso creato.
 3. Usare il comando __mvn__, che viene installato con Maven, per generare lo scaffolding per il progetto.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -68,10 +70,10 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
       	  <artifactId>hadoop-mapreduce-client-common</artifactId>
       	  <version>2.5.1</version>
     	</dependency>
-    	<dependency>                                                                                     
-      	  <groupId>org.apache.hadoop</groupId>                                                                                                       
-      	  <artifactId>hadoop-common</artifactId>                                                                                                         
-      	  <version>2.5.1</version>                                                                                            
+    	<dependency>
+      	  <groupId>org.apache.hadoop</groupId>
+      	  <artifactId>hadoop-common</artifactId>
+      	  <version>2.5.1</version>
     	</dependency>
 
 	Questo codice indica a Maven che il progetto richiede le librerie (elencate in <artifactId>) con una versione specifica (elencata in <version>). In fase di compilazione, quest'ultimo verrà scaricato dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
@@ -98,7 +100,7 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
           			</goals>
         	    </execution>
       		  </executions>
-      	    </plugin>       
+      	    </plugin>
   		  </plugins>
 	    </build>
 
@@ -115,7 +117,7 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 2. Copiare e incollare il programma seguente nel Blocco note:
 
 		package org.apache.hadoop.examples;
-		
+
 		import java.io.IOException;
 		import java.util.StringTokenizer;
 		import org.apache.hadoop.conf.Configuration;
@@ -130,13 +132,13 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 		import org.apache.hadoop.util.GenericOptionsParser;
 
 		public class WordCount {
-		
-		  public static class TokenizerMapper 
+
+		  public static class TokenizerMapper
 		       extends Mapper<Object, Text, Text, IntWritable>{
-		    
+
 		    private final static IntWritable one = new IntWritable(1);
 		    private Text word = new Text();
-		      
+
 		    public void map(Object key, Text value, Context context
 		                    ) throws IOException, InterruptedException {
 		      StringTokenizer itr = new StringTokenizer(value.toString());
@@ -146,12 +148,12 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 		      }
 		    }
 		  }
-		  
-		  public static class IntSumReducer 
+
+		  public static class IntSumReducer
 		       extends Reducer<Text,IntWritable,Text,IntWritable> {
 		    private IntWritable result = new IntWritable();
-		
-		    public void reduce(Text key, Iterable<IntWritable> values, 
+
+		    public void reduce(Text key, Iterable<IntWritable> values,
 		                       Context context
 		                       ) throws IOException, InterruptedException {
 		      int sum = 0;
@@ -162,7 +164,7 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 		      context.write(key, result);
 		    }
 		  }
-		
+
 		  public static void main(String[] args) throws Exception {
 		    Configuration conf = new Configuration();
 		    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
@@ -184,7 +186,7 @@ Creare un'applicazione MapReduce per il conteggio delle parole. È una semplice 
 		}
 
 	Si noti che il nome del pacchetto è **org.apache.hadoop.examples** e il nome della classe è **WordCount**. Questi nomi verranno usati per l'invio del processo MapReduce.
-	
+
 3. Salvare il file.
 
 **Per compilare e creare il pacchetto dell'applicazione**
@@ -256,7 +258,7 @@ In questa esercitazione vengono usati come file di dati i file con estensione tx
 
 Per la corretta esecuzione del processo MapReduce nel cluster è necessario creare un gruppo di utenti denominato hdfs, a cui si dovrà aggiungere anche un utente Hadoop e l'utente locale con il quale eseguire l'accesso all'emulatore. Usare i comandi riportati di seguito da un prompt dei comandi con privilegi elevati:
 
-		# Add a user group called hdfs		
+		# Add a user group called hdfs
 		net localgroup hdfs /add
 
 		# Adds a user called hadoop to the group
@@ -315,16 +317,16 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	La variabile **$subscripionName** è associata alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName_Data** e **$containerName_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
+	La variabile **$subscripionName** è associata alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName_Data** e** $containerName_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
 3. Eseguire i comandi seguenti per creare un account di archiviazione e un contenitore di archiviazione BLOB nell'account:
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Data -location $location
-				
+
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -356,7 +358,7 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
-		
+
 4. Per creare un oggetto contesto archiviazione, eseguire i comandi seguenti:
 
 		# Create a storage context object
@@ -366,14 +368,14 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 
 5. Eseguire i comandi seguenti per copiare i file:
 
-		# Copy the files from the local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
-		 
+
 		    $fileName = "$localFolder\$file"
 		    $blobName = "$destFolder/$file"
-		
+
 		    write-host "Copying $fileName to $blobName"
-		
+
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName_Data -Blob $blobName -Context $destContext
 		}
 
@@ -425,9 +427,9 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 In questa sezione verrà creato uno script di Azure PowerShell che esegue le attività seguenti:
 
 1. Effettua il provisioning di un cluster HDInsight
-	
+
 	1. Creazione di un account di archiviazione che verrà usato come file system predefinito del cluster HDInsight
-	2. Creazione di un contenitore di archiviazione BLOB 
+	2. Creazione di un contenitore di archiviazione BLOB
 	3. Creare un cluster HDInsight
 
 2. Invia il processo MapReduce
@@ -448,7 +450,7 @@ In questa sezione verrà creato uno script di Azure PowerShell che esegue le att
 
 1. Aprire il Blocco note.
 2. Copiare e incollare il codice seguente:
-		
+
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
@@ -457,9 +459,9 @@ In questa sezione verrà creato uno script di Azure PowerShell che esegue le att
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		
+
 		$clusterName = $stringPrefix + "hdicluster"
-		
+
 		$storageAccountName_Default = $stringPrefix + "hdistore"
 		$containerName_Default =  $stringPrefix + "hdicluster"
 
@@ -469,62 +471,62 @@ In questa sezione verrà creato uno script di Azure PowerShell che esegue le att
 		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
+
 		# Create a PSCredential object. The user name and password are hardcoded here. You can change them if you want.
 		$password = ConvertTo-SecureString "Pass@word1" -AsPlainText -Force
-		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password) 
-		
+		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password)
+
 		Select-AzureSubscription $subscriptionName
-		
+
 		#=============================
 		# Create a Storage account used as the default file system
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
+
 		#=============================
 		# Create a Blob storage container used as the default file system
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
+
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
+
 		#=============================
 		# Create an HDInsight cluster
 		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
 		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
+
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
+
 		New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $creds -Config $config
-		
+
 		#=============================
 		# Create a MapReduce job definition
 		Write-Host "Create a MapReduce job definition" -ForegroundColor Green
 		$mrJobDef = New-AzureHDInsightMapReduceJobDefinition -JobName mrWordCountJob  -JarFile $jarFile -ClassName $className -Arguments $mrInput, $mrOutput -StatusFolder /WordCountStatus
-		
+
 		#=============================
 		# Run the MapReduce job
 		Write-Host "Run the MapReduce job" -ForegroundColor Green
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError 
+		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef
+		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600
+
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardOutput
-				
+
 		#=============================
 		# Delete the HDInsight cluster
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Remove-AzureHDInsightCluster -Name $clusterName  
-		
+
 		# Delete the default file system Storage account
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
 3. Impostare le prime sei variabili nello script. La variabile **$stringPrefix** verrà usata per aggiungere la stringa specificata come prefisso del nome del cluster HDInsight, del nome dell'account di archiviazione e del nome del contenitore di archiviazione BLOB. Poiché la lunghezza di questi nomi deve essere compresa tra 3 e 24 caratteri, assicurarsi che la stringa specificata e i nomi usati dallo script non superino, una volta combinati, il limite di caratteri fissato per il nome. Per **$stringPrefix** è necessario usare tutte lettere minuscole.
- 
+
 	Le variabili **$storageAccountName_Data** e **$containerName_Data** corrispondono all'account e al contenitore di archiviazione usati per archiviare i file di dati e l'applicazione. La variabile **$location** deve corrispondere alla posizione dell'account di archiviazione dei dati.
 
 4. Esaminare le variabili rimanenti.
@@ -551,9 +553,9 @@ In questa sezione viene illustrato come scaricare e visualizzare l'output. Per i
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
-	
+
 3. Per creare un oggetto contesto di Archiviazione di Azure, eseguire i comandi seguenti:
-		
+
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -607,5 +609,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

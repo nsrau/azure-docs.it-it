@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2014"
+	ms.date="07/06/2014"
 	ms.author="larryfr"/>
 
 #Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)
@@ -28,7 +28,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 
 * [Maven](http://maven.apache.org/)
 
-* [Un cluster HDInsight di Azure con HBase](../hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [Un cluster HDInsight di Azure con HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
 ##Creare il progetto
 
@@ -591,4 +591,4 @@ Sostituire __hdinsightclustername__ con il nome del cluster HDInsight.
 
 Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodotto durante l'esecuzione del processo.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -31,4 +31,4 @@
 
 	Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutte le app di Windows Store registrate dopo la corretta esecuzione dell'inserimento.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

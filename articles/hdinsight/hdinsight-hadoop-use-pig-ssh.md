@@ -13,9 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
- 
+
 #Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
@@ -24,7 +24,7 @@ Questo documento illustra in dettaglio il processo di connessione a un cluster H
 
 Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">Informazioni utili su Hadoop basato su Linux in HDInsight</a>.
+> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -32,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
 
-* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>.
+* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##<a id="ssh"></a>Connettersi con SSH
 
@@ -46,13 +46,13 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 **Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
 
+Per altre informazioni sull'uso di SSH con HDInsight, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 ###PuTTY (client basati su Windows)
 
-Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Per altre informazioni sull'uso di PuTTY, vedere la sezione **Usare PuTTY per connettersi a un computer Linux** in <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Come usare SSH con Linux in Azure</a>.
-
-> [AZURE.NOTE]Se è stato usato un certificato per l'autenticazione SSH per il cluster HDInsight, sarà necessario anche leggere la sezione **Creare una chiave privata PPK per PuTTY** in <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Come usare SSH con Linux in Azure</a>.
+Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ##<a id="pig"></a>Usare il comando Pig
 
@@ -153,4 +153,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

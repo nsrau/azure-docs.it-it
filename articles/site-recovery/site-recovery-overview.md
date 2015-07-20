@@ -33,7 +33,7 @@ Il servizio Site Recovery fornisce un'efficace soluzione di ripristino di emerge
 
 In questa tabella sono riepilogati gli scenari di replica supportati da Site Recovery.
 
-**Replicare in** | **Replicare da \(locale\)** | **Dettagli** | **Articolo**
+**Replicare in** | **Replicare da (locale)** | **Dettagli** | **Articolo**
 ---|---|---|---
 Azzurro | Sito di Hyper-V | Replicare la macchina virtuale in uno o più server host Hyper-V locali definiti come un sito di Hyper-V in Azure. Non è necessario alcun server VMM | [Ulteriori informazioni](site-recovery-hyper-v-site-to-azure.md)
 Azzurro| Server VMM | Replicare le macchine virtuali in uno o più server host Hyper-V locali in un cloud VMM in Azure. | [Ulteriori informazioni](site-recovery-vmm-to-azure.md) 
@@ -48,19 +48,19 @@ Centro dati secondario | Singolo server VMM | Replicare le macchine virtuali nei
 
 Le tecnologie di replica ASR sono compatibili con qualsiasi applicazione in esecuzione in una macchina virtuale. Sono stati eseguiti ulteriori test in collaborazione con i team di prodotto dell’applicazione per ulteriore supporto per ogni applicazione.
 
-**Carico di lavoro** | <p>\* \* Replicare macchine virtuali Hyper-V \* \*</p> <p>\*\*\(in sito secondario\) \* \*</p> | <p>\* \* Replicare macchine virtuali Hyper-V \* \*</p> <p>\*\*\(in Azure\) \* \*</p> | <p>\* \* Replicare macchine virtuali VMware \* \*</p> <p>\*\*\(in sito secondario\) \* \*</p> | <p>\*\*Replicare macchine virtuali VMware \*\*</p><p>\*\*\(in Azure\)\*\*</p>
+**Carico di lavoro** | <p>* * Replicare macchine virtuali Hyper-V * *</p> <p>**(in sito secondario) * *</p> | <p>* * Replicare macchine virtuali Hyper-V * *</p> <p>**(in Azure) * *</p> | <p>* * Replicare macchine virtuali VMware * *</p> <p>**(in sito secondario) * *</p> | <p>**Replicare macchine virtuali VMware **</p><p>**(in Azure)**</p>
 ---|---|---|---|---
 Active Directory, DNS | S | S | S | Presto disponibile 
-App Web \(IIS, SQL\) | S | S | S | Presto disponibile
+App Web (IIS, SQL) | S | S | S | Presto disponibile
 SCOM | S | S | S | Presto disponibile
 SharePoint | S | S | S | Presto disponibile
-<p>SAP</p><p>Replicare il sito SAP in Azure per non cluster</p> | Y \(testato da Microsoft\) | Y \(testato da Microsoft\) | Y \(testato da Microsoft\) | Presto disponibile
-Exchange \(non DAG\) | S | Presto disponibile | S | Presto disponibile
+<p>SAP</p><p>Replicare il sito SAP in Azure per non cluster</p> | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Presto disponibile
+Exchange (non DAG) | S | Presto disponibile | S | Presto disponibile
 Desktop remoto/VDI | S | S | S | Presto disponibile 
-<p>Linux</p> <p>\(sistema operativo e app\)</p> | Y \(testato da Microsoft\) | Y \(testato da Microsoft\) | Y \(testato da Microsoft\) | Presto disponibile 
+<p>Linux</p> <p>(sistema operativo e app)</p> | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Presto disponibile 
 Dynamics AX | S | S | S | Presto disponibile
 Dynamics CRM | Presto disponibile | Presto disponibile | S | Presto disponibile
-Oracle | Presto disponibile | Presto disponibile | Y \(testato da Microsoft\) | Presto disponibile
+Oracle | Presto disponibile | Presto disponibile | Y (testato da Microsoft) | Presto disponibile
 
 
 ## Funzionalità e requisiti 
@@ -181,4 +181,4 @@ In questa tabella vengono riepilogate le principali funzionalità di Site Recove
 Una volta completata questa panoramica [leggere le procedure consigliate](site-recovery-best-practices.md) che consentono di iniziare la pianificazione della distribuzione.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

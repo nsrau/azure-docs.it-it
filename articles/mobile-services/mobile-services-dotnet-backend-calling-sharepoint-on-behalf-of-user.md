@@ -217,5 +217,6 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/sharepoint/
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

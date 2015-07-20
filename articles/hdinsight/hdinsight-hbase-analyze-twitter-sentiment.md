@@ -102,8 +102,7 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 <tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
 <tr><td>Descrizione</td><td>MyHDInsightHBaseApp</td></tr>
 <tr><td>Sito Wen</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>
-> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
+</table>> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
 
 4. Fare clic su **Yes, I agree**, quindi scegliere **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions**. L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione. 
@@ -221,7 +220,7 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -413,9 +412,9 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 
 	Questo codice offre le seguenti funzionalità:
 
-	- **Connect to Hbase [ HBaseWriter() ]**: usare l'SDK di HBase per creare un oggetto *ClusterCredentials* con l'URL del cluster e le credenziali utenti di Hadoop, quindi creare un oggetto *HBaseClient* usando l'oggetto ClusterCredentials.
+	- **Connect to Hbase [ HBaseWriter() ]**: usare HBase SDK per creare un oggetto *ClusterCredentials* con l'URL del cluster e le credenziali utente di Hadoop, quindi creare un oggetto *HBaseClient* usando l'oggetto ClusterCredentials.
 	- **Create HBase table [ HBaseWriter() ]**: la chiamata al metodo è *HBaseClient.CreateTable()*.
-	- **Write to HBase table [ WriterThreadFunction() ]**: la chiamata di metodo è *HBaseClient.StoreCells()*.
+	- **Write to HBase table [ WriterThreadFunction() ]**: la chiamata al metodo è *HBaseClient.StoreCells()*.
 
 **Per completare Program.cs**
 
@@ -1176,8 +1175,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare layout.cshtml**
 
-1. In **Esplora soluzioni** espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**.
-2. Sostituire il contenuto con i contenuti seguenti:
+1. In **Esplora soluzioni** espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**. 2. Sostituire il contenuto con i contenuti seguenti:
 
 		<!DOCTYPE html>
 		<html>
@@ -1306,7 +1304,7 @@ In alternativa, è possibile distribuire l'applicazione in Siti Web di Azure. Pe
 
 In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimenti dei tweet, salvare i dati sui sentimenti su HBase e presentare i dati sui sentimenti di Twitter in tempo reale sulle mappe Bing. Per altre informazioni, vedere:
 
-- [Introduzione a HDInsight][hdinsight-get-started]
+- [Introduzione all'uso di HDInsight][hdinsight-get-started]
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analizzare i dati di Twitter con Hadoop in HDInsight][hdinsight-analyze-twitter-data]
 - [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data]
@@ -1355,5 +1353,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

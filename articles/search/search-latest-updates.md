@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Novità dell’ultimo aggiornamento di Ricerca di Azure#
@@ -63,7 +63,7 @@ Visitare [Come utilizzare Ricerca di Azure in .NET](http://go.microsoft.com/fwli
 
 - [moreLikeThis =](search-api-2015-02-28-Preview.md) è un parametro di ricerca reciprocamente esclusivo di `search=`, che attiva un percorso di esecuzione di query alternativo. Invece della ricerca con testo completo di `search=` in base all'input del termine di ricerca, `moreLikeThis=` trova i documenti simili a un determinato documento confrontandone i campi in cui è possibile eseguire ricerche.
 
-##Versione api 28/02/2015 
+##Versione api 28/02/2015
 **Data di rilascio: 5 marzo 2015**
 
 - [Indexers](http://go.microsoft.com/fwlink/p/?LinkID=528210) è una nuova funzionalità che semplifica enormemente l'indicizzazione da origini dati nel database SQL di Azure, Azure DocumentDB e SQL Server in macchine virtuali di Azure.
@@ -86,9 +86,9 @@ Visitare [Azure Search is now Generally Available](http://go.microsoft.com/fwlin
 
 Questa versione è stata la versione di anteprima pubblica per Ricerca di Azure e fornisce le funzionalità di base seguenti:
 
-- API REST per le operazioni di indice e documenti. La maggior parte di questa versione dell'API è rimasta inalterata nella versione del 28 febbraio 2015. La documentazione relativa alla versione `2014-07-31-Preview` è reperibile in [Azure Search Service REST API Version 2014-07-31](../search-api-2014-07-31-preview.md).
+- API REST per le operazioni di indice e documenti. La maggior parte di questa versione dell'API è rimasta inalterata nella versione del 28 febbraio 2015. La documentazione relativa alla versione `2014-07-31-Preview` è reperibile in [Azure Search Service REST API Version 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Profili di punteggio per l'ottimizzazione dei risultati della ricerca. Un profilo di punteggio consente di aggiungere i criteri utilizzati per calcolare i punteggi di ricerca. La documentazione relativa a questa funzionalità è reperibile in [Azure Search Service Scoring Profiles REST API Version 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md).
+- Profili di punteggio per l'ottimizzazione dei risultati della ricerca. Un profilo di punteggio consente di aggiungere i criteri utilizzati per calcolare i punteggi di ricerca. La documentazione relativa a questa funzionalità è reperibile in [Azure Search Service Scoring Profiles REST API Version 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - Il supporto geospaziale è stato reso disponibile dall'inizio, fornito tramite il tipo di dati `Edm.GeographyPoint` che è stato parte di Ricerca di Azure fin dal principio.
 
@@ -102,8 +102,9 @@ Questa versione è stata la versione di anteprima pubblica per Ricerca di Azure 
 ##Versione api di gestione 31/07/2014-Anteprima
 **Data di rilascio: ottobre 2014**
 
-La versione di anteprima dell'[API REST di gestione](../search-management-api-2014-07-31-preview.md) è stata aggiunta per supportare l'amministrazione di servizi a livello di codice. Il controllo delle versioni avviene indipendentemente dall'API REST di servizio.
+La versione di anteprima dell'[API REST di gestione](search-management-api-2014-07-31-preview.md) è stata aggiunta per supportare l'amministrazione di servizi a livello di codice. Il controllo delle versioni avviene indipendentemente dall'API REST di servizio.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

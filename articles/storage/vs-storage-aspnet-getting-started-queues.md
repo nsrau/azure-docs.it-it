@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
-# Introduzione all'Archiviazione di Azure \(progetti ASP.NET\)
+# Introduzione all'Archiviazione di Azure (progetti ASP.NET)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
@@ -29,14 +29,14 @@
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Come utilizzare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md). Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
 
-In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione delle code di Azure. Negli esempi, scritti in codice C\#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
+In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione delle code di Azure. Negli esempi, scritti in codice C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
 
 ## Accedere all'archiviazione di accodamento a livello di codice
 
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Dichiarazioni dello spazio dei nomi
-Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C\# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
+Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
 
 	using Microsoft.Azure;    
     using Microsoft.WindowsAzure.Storage;
@@ -70,7 +70,7 @@ Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da ut
 
 ## Inserire un messaggio in una coda
 
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo **AddMessage**. È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda \(se non esiste già\) e di inserire il messaggio 'Hello, World':
+Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo **AddMessage**. È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -152,7 +152,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
 ## Utilizzare il modello Async-Await modello con API delle code comuni
 
-In questo esempio viene illustrato come utilizzare il modello Async-Await con API delle code comuni. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato. Ciò può essere osservato dal suffisso Async di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await \(C\# e Visual Basic\)](https://msdn.microsoft.com/library/hh191443.aspx)
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API delle code comuni. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato. Ciò può essere osservato dal suffisso Async di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
@@ -181,7 +181,7 @@ In questo esempio viene illustrato come utilizzare il modello Async-Await con AP
 
 ## Usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
 
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi \(massimo 32\). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,7 +246,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 <ul>
 <li>Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Informazioni di riferimento sulle API REST</a></li>
   </ul>
@@ -263,7 +263,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 </ul>
 
   [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
@@ -275,4 +275,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

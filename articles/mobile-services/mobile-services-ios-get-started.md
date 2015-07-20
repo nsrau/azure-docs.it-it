@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="02/11/2015"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
@@ -22,15 +22,15 @@
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per iOS mediante Servizi mobili di Azure.
 
-In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile con la logica di business sul lato server in .NET, vedere la sezione [Versione per back-end .NET] di questo argomento.
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile con la logica di business sul lato server in .NET, vedere la sezione [Versione per back-end .NET] di questo argomento.
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere [servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-<h2>Creare una nuova app iOS</h2>
+## Creare una nuova app per iOS
 
 Per creare una nuova app connessa al servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione:
 
@@ -40,36 +40,31 @@ Per creare una nuova app connessa al servizio mobile, è possibile seguire una f
 
 3. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
-4. In **Scaricare ed eseguire l'applicazione** fare clic su **Download**. Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile, unitamente all'SDK di Servizi Mobili per iOS. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+4. In **Scaricare ed eseguire l'applicazione** fare clic su **Download**. Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile, unitamente a Mobile Services iOS SDK. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 ## Esecuzione della nuova app per iOS
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4">
-<li><p>Tornare al portale di gestione e fare clic sulla scheda <strong>DATA</strong> e quindi sulla tabella <strong>TodoItem</strong>. In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.<p></li></ol></p>
+<ol start="4"> <li><p>Nel portale di gestione fare clic sulla scheda <strong>DATI</strong>, quindi sulla tabella <strong>TodoItem</strong>. In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
-* [Aggiungere Servizi mobili a un'app esistente]
-	<br/>Ulteriori informazioni sull'archiviazione e le query dei dati tramite Servizi mobili.
+* [Aggiungere Servizi mobili a un'app esistente] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alla sincronizzazione dei dati offline]
-	<br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
-* [Aggiungere l'autenticazione a un'app esistente]
-	<br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione a un'app esistente] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push a un'app esistente]
-	<br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push a un'app esistente] <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 
 <!-- Anchors. -->
-[Introduzione a Servizi mobili]:#getting-started
-[Creare un nuovo servizio mobile]:#create-new-service
-[Definire l'istanza del servizio mobile]:#define-mobile-service-instance
-[Passaggi successivi]:#next-steps
+[Getting started with Mobile Services]: #getting-started
+[Create a new mobile service]: #create-new-service
+[Define the mobile service instance]: #define-mobile-service-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [6]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
@@ -88,10 +83,10 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [Aggiungere notifiche push a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-push.md
 
 
-[SDK di Servizi mobili per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Portale di gestione]: https://manage.windowsazure.com/
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -53,5 +53,6 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 - `EngagementOverlayNotification.xaml.cs`: codice collegato di `EngagementOverlayNotification.xaml`.
  
 - `EngagementPageOverlay.cs`: codice di visualizzazione annunci e notifiche di `Overlay`.
- 
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

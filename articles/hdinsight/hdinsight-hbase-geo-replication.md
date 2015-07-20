@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere Uso del cmdlet Set-ExecutionPolicy.
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere Uso del cmdlet Set-ExecutionPolicy.
 
 - **Due reti virtuali di Azure con connettività VPN e con DNS configurato**. Per istruzioni, vedere l'articolo [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-replication-vnet] e [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-replication-dns].
 
@@ -311,4 +311,4 @@ In questa esercitazione si è appreso come configurare la replica di HBase in du
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

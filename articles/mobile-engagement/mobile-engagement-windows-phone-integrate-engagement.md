@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
@@ -35,7 +35,7 @@ Mobile Engagement SDK per Windows Silverlight può essere integrato solo nelle a
 -   Windows Phone 8.0
 -   Windows Phone 8.1 Silverlight
 
-> [AZURE.NOTE]Se si usa Windows Phone 8.1 (non Silverlight) come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione nelle app di Windows universali](mobile-engagement-windows-store-integrate-engagement.md).
+> [AZURE.NOTE]Se si usa Windows Phone 8.1 (non Silverlight) come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione nelle app universali di Windows](mobile-engagement-windows-store-integrate-engagement.md).
 
 ##Installare Mobile Engagement SDK per Windows Silverlight
 
@@ -43,14 +43,14 @@ Mobile Engagement SDK per Windows Silverlight è disponibile come pacchetto NuGe
 
 ##Aggiungere le funzionalità
 
-L'SDK di Engagement richiede alcune funzionalità di Windows Phone Silverlight SDK per funzionare correttamente.
+Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare correttamente. richiede alcune funzionalità di Windows Phone Silverlight SDK per funzionare correttamente.
 
 Aprire il file `WMAppManifest.xml` e assicurarsi che le funzionalità seguenti siano dichiarate nel pannello `Capabilities`:
 
 -   `ID_CAP_NETWORKING`
 -   `ID_CAP_IDENTITY_DEVICE`
 
-##Inizializzare l'SDK di Engagement
+##Inizializzare Engagement SDK
 
 ### Configurazione di Engagement
 
@@ -73,7 +73,7 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di g
 
 ### Inizializzazione di Engagement
 
-Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs`. Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare l'SDK di Engagement.
+Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs`. Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.
 
 Modificare il file `App.xaml.cs`:
 
@@ -165,7 +165,7 @@ Modificare il file `.xaml` della pagina:
 
 #### Sostituire il comportamento predefinito
 
-Per impostazione predefinita, il nome della classe della pagina viene indicato come nome dell'attività, senza elementi aggiuntivi. Se la classe utilizza il suffisso "Page", Engagement rimuoverà anche questo elemento.
+Per impostazione predefinita, il nome della classe della pagina viene indicato come nome dell'attività, senza elementi aggiuntivi. Se la classe usa il suffisso "Page", Engagement rimuoverà anche questo elemento.
 
 Se si desidera eseguire l'override del comportamento predefinito per il nome, aggiungere quanto segue al codice:
 
@@ -201,7 +201,7 @@ Se non si può o non si vuole eseguire l'overload delle classi `PhoneApplication
 
 > [AZURE.IMPORTANT]Assicurarsi che la sessione venga terminata correttamente.
 >
-> L'SDK chiama automaticamente il metodo `EndActivity` quando viene chiusa l'applicazione. Di conseguenza, è **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente cambia e non chiamare **MAI** il metodo `EndActivity` poiché questo metodo forza la chiusura della sessione corrente.
+> L'SDK chiama automaticamente il metodo `EndActivity` quando viene chiusa l'applicazione. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente cambia e non chiamare **MAI** il metodo `EndActivity`. Questo metodo invia un messaggio al server di Engagement che segnala che l'utente ha chiuso l'applicazione e ciò influirà su tutti i log delle applicazioni.
 
 ##Segnalazione avanzata
 
@@ -225,7 +225,7 @@ Impostare la segnalazione degli arresti anomali su `false` tra i tag `<reportCra
 
 #### Dall'oggetto `EngagementConfiguration` in fase di esecuzione
 
-Impostare la segnalazione degli arresti anomali su false utilizzando l'oggetto EngagementConfiguration.
+Impostare la segnalazione degli arresti anomali su false usando l'oggetto EngagementConfiguration.
 
 		/* Engagement configuration. */
 
@@ -242,7 +242,9 @@ A tale scopo, chiamare il metodo:
 
 L'argomento è un valore in **millisecondi**. In qualsiasi momento, se si desidera riattivare la registrazione in tempo reale, chiamare il metodo senza alcun parametro o con il valore 0.
 
-La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi).
+La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi). Occorre notare che per i log salvati è previsto un limite di 300 elementi. Se l'invio richiede troppo tempo, è possibile che alcuni log vadano persi.
 
 > [AZURE.WARNING]La soglia di burst non può essere configurata per un periodo inferiore a un secondo. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà ripristinato automaticamente il valore predefinito, ovvero zero secondi. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

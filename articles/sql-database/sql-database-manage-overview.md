@@ -42,5 +42,6 @@ Per ulteriori informazioni sulla gestione di database SQL di Azure con SSMS e SS
 È possibile utilizzare strumenti da riga di comando come PowerShell per gestire database SQL di Azure e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database SQL di Azure e la distribuzione delle modifiche delle risorse in un ambiente di produzione.
 
 Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando [fare clic qui](sql-database-command-line-tools.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

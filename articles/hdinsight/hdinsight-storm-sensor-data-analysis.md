@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight \(Hadoop\)
+# Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
 Informazioni su come usare Apache Storm in HDInsight per elaborare i dati del sensore dall'hub eventi di Azure e visualizzarli con D3.j. Questo documento descrive inoltre come usare una rete virtuale di Azure per connettere Storm in HDInsight con HBase in HDInsight e archiviare in HBase i dati provenienti dalla topologia.
 
@@ -46,9 +46,9 @@ Questo esempio è costituito dai componenti seguenti:
 
 * **Storm in HDInsight**: assicura l'elaborazione in tempo reale dei dati provenienti dall'hub eventi.
 
-* **HBase in HDInsight** \(facoltativo\): offre un archivio persistente di dati NoSQL.
+* **HBase in HDInsight** (facoltativo): offre un archivio persistente di dati NoSQL.
 
-* **Servizio Rete virtuale di Azure** \(facoltativo, obbligatorio se si usa HBase\): abilita la comunicazione sicura tra cluster Storm in HDInsight e HBase in HDInsight.
+* **Servizio Rete virtuale di Azure** (facoltativo, obbligatorio se si usa HBase): abilita la comunicazione sicura tra cluster Storm in HDInsight e HBase in HDInsight.
 
 * **Sito Web del dashboard**: dashboard di esempio che rappresenta graficamente i dati in tempo reale.
 
@@ -71,7 +71,7 @@ Di seguito è riportato un diagramma della topologia:
 > [AZURE.NOTE]Si tratta di una visualizzazione molto semplificata della topologia. In fase di esecuzione, per ciascuna partizione dell'hub eventi in fase di lettura viene creata un'istanza di ogni componente. Queste istanze vengono distribuite tra i nodi del cluster e i dati vengono instradati tra di essi, come indicato di seguito:
 >
 > * I dati trasmessi dallo spout al parser sono sottoposti a bilanciamento del carico.
-> * I dati trasmessi dal parser al dashboard e a HBase \(se usato\) vengono raggruppati per ID dispositivo, in modo che i messaggi provenienti dallo stesso dispositivo vengano indirizzati sempre allo stesso componente.
+> * I dati trasmessi dal parser al dashboard e a HBase (se usato) vengono raggruppati per ID dispositivo, in modo che i messaggi provenienti dallo stesso dispositivo vengano indirizzati sempre allo stesso componente.
 
 ### Componenti
 
@@ -91,7 +91,7 @@ Prima di usare questo esempio, è necessario creare un hub eventi di Azure che v
 
 L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub eventi, seguire questa procedura.
 
-1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO \| Bus di servizio \| Hub eventi \| Creazione personalizzata**.
+1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO | Bus di servizio | Hub eventi | Creazione personalizzata**.
 
 2. Nella finestra di dialogo **Crea un nuovo hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e quindi creare un nuovo spazio dei nomi o selezionarne uno esistente. Infine fare clic sulla freccia per continuare.
 
@@ -282,13 +282,13 @@ Nell'ambiente di sviluppo seguire questa procedura per eseguire la topologia Tem
 
 Per usare insieme Storm e HBase, è necessario creare una rete virtuale di Azure e creare un cluster Storm e HBase all'interno di tale rete.
 
-### Creare una rete virtuale di Azure \(facoltativo\)
+### Creare una rete virtuale di Azure (facoltativo)
 
 Se si prevede di usare HBase con questo esempio, è necessario creare una rete virtuale di Azure contenente un cluster Storm in HDInsight e un cluster HBase in HDInsight.
 
 1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 
-2. Nella parte inferiore della pagina fare clic su **+NUOVO** \> **Servizi di rete** \> **Rete virtuale** \> **Creazione rapida**.
+2. Nella parte inferiore della pagina fare clic su **+NUOVO** > **Servizi di rete** > **Rete virtuale** > **Creazione rapida**.
 
 3. Digitare o selezionare i valori seguenti:
 
@@ -300,7 +300,7 @@ Se si prevede di usare HBase con questo esempio, è necessario creare una rete v
 
 	- **Percorso**: il percorso deve essere uguale a quello del cluster HBase che verrà creato.
 
-	- **Server DNS**: questo articolo usa un server DNS interno fornito da Azure. È quindi possibile scegliere **Nessuno**. Sono supportate anche configurazioni di rete più avanzate con server DNS personalizzati. Per istruzioni dettagliate, vedere [Risoluzione dei nomi \(DNS\)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Server DNS**: questo articolo usa un server DNS interno fornito da Azure. È quindi possibile scegliere **Nessuno**. Sono supportate anche configurazioni di rete più avanzate con server DNS personalizzati. Per istruzioni dettagliate, vedere [Risoluzione dei nomi (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
 4. Fare clic su **Crea rete virtuale**. Il nome della rete virtuale sarà visualizzato nell'elenco. Attendere l'impostazione del valore **Creata** nella colonna Stato.
 
@@ -314,7 +314,7 @@ Se si prevede di usare HBase con questo esempio, è necessario creare una rete v
 
 9. Nella parte inferiore della pagina il nome predefinito per la subnet è **Subnet-1**. Usare il pulsante **aggiungi subnet** per aggiungere **Subnet-2**. Queste subnet includeranno i cluster Storm e HBase.
 
-	> [AZURE.NOTE]In questo articolo si usano cluster con un solo nodo. Se si creano cluster con più nodi, verificare il valore di **CIDR \(CONTEGGIO INDIRIZZI\)** per la subnet che sarà usata per il cluster. Il conteggio di indirizzi deve essere superiore al numero di nodi di lavoro più sette \(Gateway: 2, Nodo head: 2, Zookeeper: 3\). Ad esempio, se è necessario un cluster HBase da 10 nodi, il conteggio di indirizzi per la subnet dovrà essere maggiore di 17 \(10+7\). In caso contrario, la distribuzione avrà esito negativo.
+	> [AZURE.NOTE]In questo articolo si usano cluster con un solo nodo. Se si creano cluster con più nodi, verificare il valore di **CIDR (CONTEGGIO INDIRIZZI)** per la subnet che sarà usata per il cluster. Il conteggio di indirizzi deve essere superiore al numero di nodi di lavoro più sette (Gateway: 2, Nodo head: 2, Zookeeper: 3). Ad esempio, se è necessario un cluster HBase da 10 nodi, il conteggio di indirizzi per la subnet dovrà essere maggiore di 17 (10+7). In caso contrario, la distribuzione avrà esito negativo.
 	>
 	> È consigliabile designare una singola subnet per un cluster.
 
@@ -352,7 +352,7 @@ Per scrivere in HBase dal cluster Storm, è necessario usare il nome di dominio 
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-Nei dati JSON restituiti, trovare la voce **"host\_name"**. Questa conterrà il nome di dominio completo per i nodi del cluster, ad esempio:
+Nei dati JSON restituiti, trovare la voce **"host_name"**. Questa conterrà il nome di dominio completo per i nodi del cluster, ad esempio:
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -368,7 +368,7 @@ La porzione del nome di dominio che inizia con il nome del cluster è il suffiss
 
 	Questo file verrà usato dal bolt HBase per comunicare con il cluster HBase.
 
-1. Aprire **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\*\* in un editor di testo e rimuovere i commenti dalle righe seguenti eliminando `//` all'inizio. Dopo aver apportato queste modifiche, salvare il file.
+1. Aprire **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** in un editor di testo e rimuovere i commenti dalle righe seguenti eliminando `//` all'inizio. Dopo aver apportato queste modifiche, salvare il file.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@ Prima di eseguire la topologia, è necessario preparare HBase per l'accettazione
 
 2. Dal desktop avviare le riga di comando di HDInsight e immettere i comandi seguenti:
 
-    cd %HBASE\_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\\hbase shell
 
 3. Dalla shell HBase immettere il comando seguente per creare una tabella in cui archiviare i dati del sensore:
 
@@ -416,9 +416,8 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 * Per altre informazioni sulla creazione di topologie in Java, vedere [Sviluppo di topologie basate su Java per Apache Storm in HDInsight](hdinsight-storm-develop-java-topology.md).
 
-* Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare topologie C\# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

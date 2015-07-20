@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## Informazioni sulle code del bus di servizio
 
 Le code del bus di servizio supportano un modello di comunicazione con **messaggistica negoziata**. Quando si usano le code, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite una coda, che agisce da intermediario (broker). Un producer di messaggi (mittente) invia un messaggio alla coda e quindi prosegue con la relativa elaborazione. In modo asincrono, il consumer di messaggi (ricevitore) recupera il messaggio dalla coda e lo elabora. Il producer non deve attendere la risposta del consumer per continuare a elaborare e inviare ulteriori messaggi. Le code consentono un recapito dei messaggi di tipo **FIFO (First In, First Out)** a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
@@ -53,10 +52,9 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
+5.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
 
-4.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
-
-###Per ottenere le credenziali di gestione da Esplora server
+### Per ottenere le credenziali di gestione da Esplora server
 
 Per ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui](http://msdn.microsoft.com/library/ff687127.aspx) nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Bus di servizio** nell'albero **Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
@@ -69,4 +67,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

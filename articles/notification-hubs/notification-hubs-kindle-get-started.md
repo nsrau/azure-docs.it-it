@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione ad Hub di notifica di Azure" 
-	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione ad Hub di notifica di Azure"
+	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
-	ms.devlang="Java" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-kindle"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica
@@ -79,8 +79,7 @@ Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configure*
 Aggiungere le librerie ADM al progetto Eclipse.
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
-2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
-3. Scaricare NotificationHubs Android SDK (collegamento).
+2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.3. Scaricare NotificationHubs Android SDK (collegamento).
 4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs ` in Eclipse.
 
 Modificare il manifesto dell'app per supportare ADM:
@@ -90,7 +89,7 @@ Modificare il manifesto dell'app per supportare ADM:
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Aggiungere le autorizzazioni come primo elemento sotto l'elemento manifesto. Sostituire **[YOUR PACKAGE NAME]** con il pacchetto usato per creare l'app. 
+2. Aggiungere le autorizzazioni come primo elemento sotto l'elemento manifesto. Sostituire **[YOUR PACKAGE NAME]** con il pacchetto utilizzato per creare l'app.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -99,15 +98,15 @@ Modificare il manifesto dell'app per supportare ADM:
 		<uses-permission android:name="android.permission.INTERNET"/>
 
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
+
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto usato per creare l'app.
+3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto utilizzato per creare l'app.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -115,18 +114,18 @@ Modificare il manifesto dell'app per supportare ADM:
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
-		 
+
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
+
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
+
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
+
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
 		    </intent-filter>
@@ -165,7 +164,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
 			}
-	
+
 			public static class Receiver extends ADMMessageReceiver
     		{
         		public Receiver()
@@ -173,10 +172,10 @@ Modificare il manifesto dell'app per supportare ADM:
             		super(MyADMMessageHandler.class);
         		}
     		}
-	
+
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
-		
+
 	   		 mNotificationManager = (NotificationManager)
 	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -196,10 +195,10 @@ Modificare il manifesto dell'app per supportare ADM:
 		}
 
 4. Aggiungere il codice seguente al metodo `OnMessage()`:
-	
+
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
- 
+
 5. Aggiungere il codice seguente al metodo `OnRegistered`:
 
 			try {
@@ -218,7 +217,7 @@ Modificare il manifesto dell'app per supportare ADM:
 
 7. Quindi, nel metodo `MainActivity`, aggiungere l'istruzione import seguente:
 
-		import com.amazon.device.messaging.ADM;				
+		import com.amazon.device.messaging.ADM;
 
 8. Alla fine del metodo `OnCreate` aggiungere il codice seguente:
 
@@ -280,6 +279,6 @@ Per inviare un messaggio usando .NET:
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

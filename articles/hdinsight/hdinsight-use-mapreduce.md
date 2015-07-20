@@ -1,6 +1,6 @@
 <properties
-   pageTitle="MapReduce con Hadoop in HDInsight"
-   description="Informazioni su come usare MapReduce con Hadoop in HDInsight."
+   pageTitle="MapReduce con Hadoop in HDInsight | Microsoft Azure"
+   description="Informazioni su come eseguire processi MapReduce in un cluster Hadoop in HDInsight. Si eseguirà un'operazione di base di conteggio parole implementata come processo MapReduce Java."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Usare MapReduce in Hadoop su HDInsight
@@ -61,11 +61,11 @@ Per esempi di utilizzo di Hadoop Streaming con HDInsight, vedere gli argomenti s
 
 In questo esempio si useranno i quaderni di Leonardo Da Vinci come dati di esempio, disponibili come documento di testo nel cluster HDInsight.
 
-I dati di esempio vengono archiviati nell'archiviazione BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file nell'archiviazione BLOB tramite il prefisso **wasb**. Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
+I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file nell'archivio BLOB tramite il prefisso **wasb**. Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
 
 	wasb:///example/data/gutenberg/davinci.txt
 
-Poiché l'archiviazione BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/gutenberg/davinci.txt**.
+Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/gutenberg/davinci.txt**.
 
 > [AZURE.NOTE]Nella sintassi precedente, **wasb:///** consente di accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione. Ad esempio: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**..
 
@@ -192,4 +192,4 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

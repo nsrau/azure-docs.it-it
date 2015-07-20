@@ -1,3 +1,4 @@
+
 #### Per attivare la modalità di manutenzione
 
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
@@ -12,4 +13,4 @@
 
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

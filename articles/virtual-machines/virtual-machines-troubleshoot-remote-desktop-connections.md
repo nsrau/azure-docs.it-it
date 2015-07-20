@@ -1,24 +1,25 @@
 <properties 
 	pageTitle="Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows" 
-	description="Informazioni su come ripristinare la connettività Desktop remoto (RDP) alla macchina virtuale di Azure con diagnostica e passaggi per isolare l'origine del problema."
+	description="Se non è possibile connettere la macchina virtuale di Azure basata su Windows, è possibile utilizzare questa diagnostica e questi passaggi per isolare l'origine del problema."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows
 
-In questo argomento viene descritto un approccio metodico per la correzione e la determinazione della causa radice delle connessioni Desktop remoto a macchine virtuali di Azure basate su Windows.
+Se non è connettersi alle macchine virtuali di Azure basate su Windows, in questo articolo viene descritto un approccio metodico per la correzione e la determinazione della causa principale delle connessioni Desktop remoto.
 
 ## Passaggio 1: Eseguire il pacchetto di diagnostica Azure IaaS
 
@@ -35,7 +36,7 @@ Se l'esecuzione del pacchetto di diagnostica Azure IaaS non ha consentito di ris
 
 ## Passaggio 2: Determinare il messaggio di errore dal client Desktop remoto
 
-Utilizzare queste sezioni in base al messaggio di errore che viene visualizzato.
+Utilizzare queste sezioni in base al messaggio di errore che viene visualizzato durante il tentativo di connessione.
 
 ### Finestra di messaggio di Connessione Desktop remoto: La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza.
 
@@ -60,12 +61,24 @@ Di seguito è illustrato un esempio di file RDP generato dal portale di gestione
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-La parte di indirizzo è costituita dal nome di dominio completo del servizio cloud che contiene la macchina virtuale (in questo esempio tailspin-azdatatier.cloudapp.net) e dalla porta TCP esterna dell'endpoint per il traffico di Desktop remoto (55919).
+In questo esempio, la parte di indirizzo è costituita dal nome di dominio completo del servizio cloud che contiene la macchina virtuale (in questo esempio tailspin-azdatatier.cloudapp.net) e la porta TCP esterna dell'endpoint per il traffico di Desktop remoto (55919).
 
 Possibili soluzioni al problema:
 
 - Se si utilizza una rete Intranet aziendale, assicurarsi che il computer abbia accesso al server proxy e sia in grado di inviargli traffico HTTPS.
-- Se si utilizza un file RDP archiviato localmente, provare a utilizzarne uno generato dal portale di gestione di Azure per essere certi di disporre del nome corretto per il servizio cloud e la porta endpoint della macchina virtuale.
+- Se si utilizza un file RDP archiviato localmente, provare a utilizzarne uno generato dal portale di gestione di Azure per essere certi di disporre del nome DNS corretto per la macchina virtuale o il servizio cloud e la porta endpoint della macchina virtuale.
+
+### Finestra di messaggio di connessione Desktop remoto: si è verificato un errore di autenticazione. Impossibile contattare l'autorità di protezione locale.
+
+Causa: La macchina virtuale a cui ci si connette non riesce a individuare l'autorità di protezione indicata nella porzione di nome utente delle credenziali.
+
+Quando il nome utente è nel formato *SecurityAuthority*\\*UserName* (esempio: CORP\\User1), la parte *SecurityAuthority* è o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+
+Possibili soluzioni al problema:
+
+- Se l'account utente è locale per la macchina virtuale, verificare l'ortografia del nome della macchina virtuale.
+- Se l'account utente è un account di Dominio di Active Directory, controllare l'ortografia del nome di dominio.
+- Se l'account utente è un account di Dominio di Active Directory e il nome di dominio è stato digitato correttamente, verificare che sia disponibile un controller di dominio per il dominio di Active Directory. Può trattarsi di un problema comune in una rete virtuale di Azure che contiene controller di dominio, in cui non è stato avviato un computer controller di dominio. Una soluzione temporanea consiste nell'utilizzare un account amministratore locale, anziché un account di dominio.
 
 ### Finestra di messaggio di Protezione di Windows: Le credenziali specificate non funzionano.
 
@@ -73,8 +86,8 @@ Causa: impossibile convalidare il nome account e la password inviati dalla macch
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, utilizzare la sintassi <computer name><nome account> (esempio: SQL1\\Admin4798). 
-- Per gli account di dominio, utilizzare la sintassi <domain name><nome account> (esempio: CONTOSO\\johndoe).
+- Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\\Admin4798). 
+- Per gli account di dominio, utilizzare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\\johndoe).
 
 Per i computer innalzati a controller di dominio in una nuova foresta di Active Directory, l'account amministratore locale al quale si è effettuato l’accesso al momento dell'innalzamento di livello viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account amministratore locale precedente viene eliminato. Ad esempio, se è stato effettuato l'accesso con l'account amministratore locale DC1\\DCAdmin e la macchina virtuale è stata innalzata al livello di controller di dominio in una nuova foresta per il dominio corp.contoso.com, l'account locale DC1\\DCAdmin viene eliminato e viene creato un nuovo account di dominio CORP\\DCAdmin con la stessa password.
 
@@ -90,7 +103,7 @@ Ogni computer Windows dispone di un gruppo locale Utenti Desktop remoto, che con
 
 Assicurarsi che l'account che si utilizza per avviare la connessione disponga dei diritti di accesso al desktop remoto. Utilizzare un account amministratore di dominio o amministratore locale come soluzione temporanea per creare una connessione Desktop remoto e aggiungere l'account desiderato al gruppo Utenti Desktop remoto locale utilizzando lo snap-in Gestione Computer (**Strumenti di sistema > Utenti e gruppi locali > Gruppi > Utenti Desktop remoto**).
 
-### Finestra di messaggio di Connessione Desktop remoto:  Impossibile connettersi al computer remoto per uno dei seguenti motivi ...
+### Finestra di messaggio di Connessione Desktop remoto: Impossibile connettersi al computer remoto per uno dei seguenti motivi ...
 
 Causa: il client Desktop remoto non è in grado di raggiungere il servizio Servizi Desktop remoto della macchina virtuale. Questo problema può dipendere da molte cause principali.
 
@@ -98,9 +111,9 @@ Di seguito viene riportato il set di componenti coinvolti.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_0.png)
  
-Prima di entrare nel processo dettagliato di risoluzione dei problemi, è utile esaminare mentalmente cosa è cambiato da quando si era in grado di creare connessioni Desktop remoto e utilizzare tale cambiamento come base per la correzione del problema. ad esempio:
+Prima di entrare nel processo dettagliato di risoluzione dei problemi, è utile esaminare mentalmente cosa è cambiato da quando si era in grado di creare connessioni Desktop remoto e utilizzare tale cambiamento come base per la correzione del problema. Ad esempio:
 
-- Se si era in grado di creare connessioni Desktop remoto ed è stato modificato l'indirizzo IP pubblico del servizio cloud contenente la macchina virtuale (noto anche come indirizzo IP virtuale [VIP]), nella cache del client DNS potrebbe essere presente una voce per il nome DNS del servizio cloud e l’*indirizzo IP precedente*. Scaricare la cache del client DNS e riprovare. In alternativa, provare a eseguire la connessione utilizzando il nuovo VIP.
+- Se si era in grado di creare connessioni Desktop remoto ed è stato modificato l'indirizzo IP pubblico della macchina virtuale o del servizio cloud contenente la macchina virtuale (noto anche come indirizzo IP virtuale [VIP]), nella cache del client DNS potrebbe essere presente una voce per il nome DNS e l’*indirizzo IP precedente*. Scaricare la cache del client DNS e riprovare. In alternativa, provare a eseguire la connessione utilizzando il nuovo VIP.
 - Se si è passati dall’utilizzo del portale di gestione di Azure o del portale di anteprima di Azure all’uso di un'applicazione per gestire le connessioni Desktop remoto, assicurarsi che la configurazione dell'applicazione includa la porta TCP determinato in modo casuale per il traffico di Desktop remoto. 
 
 Nelle sezioni seguenti si passerà dall’isolamento e dalla definizione delle varie cause principali di questo problema, al fornire soluzioni definitive e temporanee.
@@ -146,7 +159,7 @@ Per eliminare il dispositivo periferico dell’Intranet dell’organizzazione co
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e utilizzare una nuova macchina virtuale di Azure in un servizio cloud specifico. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare la macchina virtuale e il servizio cloud.
+Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e usare una nuova macchina virtuale di Azure nel suo proprio gruppo di risorse o servizio cloud. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare il gruppo di risorse o la macchina virtuale e il servizio cloud.
 
 Se è possibile creare una connessione Desktop remoto con un computer collegato direttamente a Internet, controllare se nel dispositivo periferico dell’Intranet dell’organizzazione si verificano le seguenti condizioni:
 
@@ -158,24 +171,26 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni del disposi
 
 ### Origine 3: endpoint del servizio cloud e ACL
 
-Per eliminare l'endpoint del servizio cloud e l’ACL come fonti di problemi o errori di configurazione, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud sia in grado di effettuare connessioni Desktop remoto alla macchina virtuale di Azure.
+Per eliminare l'endpoint del servizio cloud e l’ACL come fonti di problemi o errori di configurazione per le macchine virtuali create nella gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di effettuare connessioni Desktop remoto alla macchina virtuale di Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud, è possibile crearne facilmente una nuova. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
+> [AZURE.NOTE]Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#nsgs).
 
-Se è possibile creare una connessione Desktop remoto con una macchina virtuale nello stesso servizio cloud, verificare quanto indicato di seguito:
+Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, è possibile crearne facilmente una nuova. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
+
+Se è possibile creare una connessione Desktop remoto con una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare quanto indicato di seguito:
 
 - La configurazione dell'endpoint per il traffico Desktop remoto nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint deve corrispondere alla porta TCP su cui è in ascolto il servizio Servizi Desktop remoto nella macchina virtuale, che per impostazione predefinita è 3389. 
 - L’ACL per l'endpoint di traffico Desktop remoto sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Esaminare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per ulteriori informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Per eliminare l'endpoint come fonte del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per ulteriori informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](virtual-machines-set-up-endpoints.md).
 
-### Origine 4: gruppi di sicurezza di rete
+### <a id="nsgs"></a>Origine 4: gruppi di sicurezza di rete
 
 I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Esaminare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico di Desktop remoto da Internet.
 
-Per altre informazioni, vedere l'articolo relativo ai [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Per altre informazioni, vedere l'articolo relativo ai [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
 ### Origine 5: macchina virtuale di Azure basata su Windows
 
@@ -195,7 +210,7 @@ Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei proble
 - Windows Firewall o altri firewall locali dispongono di una regola in uscita che impedisce il traffico di Desktop remoto.
 - Il software di rilevamento delle intrusioni o il software per il monitoraggio della rete in esecuzione nella macchina virtuale di Azure impedisce le connessioni Desktop remoto.
 
-Per risolvere questi problemi, è possibile utilizzare una sessione di PowerShell nella macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Andare a [Configurare l’accesso remoto PowerShell protetto alle macchine virtuali di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** in una cartella nel computer locale.
+Per risolvere questi problemi per macchine virtuali create in gestione dei servizi, è possibile utilizzare una sessione remota di PowerShell nella macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Andare a [Configurare l’accesso remoto PowerShell protetto alle macchine virtuali di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** in una cartella nel computer locale.
 
 Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
@@ -258,7 +273,7 @@ Se non è possibile ricreare la macchina virtuale, potrebbe essere il momento pe
 
 Per archiviare un incidente, andare al [sito del supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
-Per informazioni sull'utilizzo del supporto tecnico di Azure, vedere [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 ## Risorse aggiuntive
 
@@ -268,9 +283,8 @@ Per informazioni sull'utilizzo del supporto tecnico di Azure, vedere [Domande fr
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Risolvere i problemi di connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Domande frequenti sulle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

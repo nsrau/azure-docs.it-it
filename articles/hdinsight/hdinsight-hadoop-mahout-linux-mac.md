@@ -48,9 +48,9 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 1. Usare SSH per connettersi al cluster HDInsight basato su Linux. L'indirizzo da usare durante la connessione è `CLUSTERNAME-ssh.azurehdinsight.net` e la porta è `22`.
 
-	Per ulteriori informazioni sull'uso di SSH per connettersi a HDInsight, vedere i seguenti documenti:
+	Per ulteriori informazioni sull'utilizzo di SSH per connettersi a HDInsight, vedere i seguenti documenti:
 
-    * **Client Linux, Unix o OS X**: vedere [Connettersi a un cluster HDInsight basato su Linux da Linux, OS X o Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+    * **Client Linux, Unix o OS X**: vedere [Connettersi a un cluster HDInsight basato su Linux, Unix e OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
     * **Client Windows**: vedere [Connettersi a un cluster HDInsight basato su Linux da Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
 
@@ -235,7 +235,7 @@ I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione 
 
 ##Passaggi successivi
 
-A questo punto, dopo aver appreso come usare Mahout, individuare altri modi per usare i dati in HDInsight:
+A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usare i dati in HDInsight:
 
 * [Hive con HDInsight](../hadoop-use-hive.md)
 * [Pig con HDInsight](../hadoop-use-pig.md)
@@ -255,4 +255,4 @@ A questo punto, dopo aver appreso come usare Mahout, individuare altri modi per 
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

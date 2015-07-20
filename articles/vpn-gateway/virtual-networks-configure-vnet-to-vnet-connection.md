@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configurare una connessione tra reti virtuali"
-   description="Tra reti virtuali supporta connessione reti virtuali di Azure. Non supporta le macchine virtuali o servizi non in una rete virtuale cloud."
-   services="virtual-network"
+   description="Come connettere reti virtuali di Azure nelle stesse o diverse sottoscrizioni o aree."
+   services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="05/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -23,29 +23,42 @@ Connessione di una rete virtuale di Azure (VNet) a un'altra rete virtuale di Azu
 
 ![Diagramma di connettività tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
-## Come posso con rete virtuale per la connettività di rete virtuale?
+## Perché connettere reti virtuali?
 
-### Presenza e ridondanza in più aree geografiche
-  - È possibile impostare le proprie sincronizzazione o replica geografica con connettività sicura senza passare da endpoint con connessione internet.
-  - Con bilanciamento del carico di Azure e Microsoft o terze parti, tecnologia di clustering, è possibile configurare il carico di lavoro a disponibilità elevata con ridondanza geografica in più aree di Azure. Un esempio importante è quella di configurare SQL Always On con gruppi di disponibilità distribuendo tra più aree di Azure.
+È possibile connettere reti virtuali per i seguenti motivi:
 
-### Applicazioni multilivello in singole aree geografiche con alto grado di isolamento
-  - Nella stessa area, è possibile configurare applicazioni multilivello con più reti virtuali collegate tra loro forte isolamento e la comunicazione tra livelli sicura.
+- **Presenza e ridondanza in più aree geografiche**
+	- È possibile impostare le proprie sincronizzazione o replica geografica con connettività sicura senza passare da endpoint con connessione internet.
+	- Con il servizio di bilanciamento del carico di Azure e Microsoft o tecnologia di clustering di terze parti, è possibile configurare il carico di lavoro a disponibilità elevata con ridondanza geografica in più aree di Azure. Un esempio importante è quella di configurare SQL Always On con gruppi di disponibilità distribuendo tra più aree di Azure.
 
-### Comunicazione tra sottoscrizioni e organizzazioni in Azure
-  - Se si dispone di più sottoscrizioni di Azure, si possono connettere i carichi di lavoro da sottoscrizioni diverse tra loro in modo sicuro tra reti virtuali.
-  - Per le aziende o i provider di servizi, è ora possibile abilitare la comunicazione tra organizzazioni con tecnologia VPN sicura in Azure.
+- **Applicazioni multi livello in singole aree geografiche con alto grado di isolamento**
+	- Nella stessa area, è possibile configurare applicazioni multilivello con più reti virtuali collegate tra loro forte isolamento e la comunicazione tra livelli sicura.
 
-### Problemi e considerazioni
-  - Tra reti virtuali supporta connessione reti virtuali di Azure. Non supporta le macchine virtuali o servizi non in una rete virtuale cloud.
-  - Tra reti virtuali richiede gateway VPN di Azure con VPN con routing dinamico: Azure VPN con routing statico non sono supportate. Collegamento tra loro più reti virtuali di Azure non richiede alcuna gateway VPN locali, a meno che la connettività cross-premise è obbligatorio.
-  - Connettività di rete virtuale può essere utilizzata contemporaneamente con VPN multisito, con un massimo di 10 tunnel VPN per un gateway VPN della rete virtuale connette ad altre reti virtuali o a siti locali.
-  - Gli spazi degli indirizzi delle reti virtuali e dei siti di rete locali non devono sovrapporsi. Spazi degli indirizzi sovrapposti causerà la creazione di reti virtuali o caricare i file di configurazione netcfg esito negativo.
-  - Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
-  - Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
-  - Non sono supportati tunnel ridondanti tra una coppia di reti virtuali.
-  - Un servizio cloud o un endpoint di bilanciamento del carico non può estendersi tra reti virtuali, anche se sono connessi tra loro.
-  - Tutti i tunnel VPN della rete virtuale, tra cui reti VPN P2S, condividono la larghezza di banda disponibile sul gateway VPN di Azure e i tempi di gateway VPN stesso contratto di servizio in Azure.
+- **Comunicazione tra sottoscrizioni e organizzazioni in Azure**
+	- Se si dispone di più sottoscrizioni di Azure, si possono connettere i carichi di lavoro da sottoscrizioni diverse tra loro in modo sicuro tra reti virtuali.
+	- Per le aziende o i provider di servizi, è ora possibile abilitare la comunicazione tra organizzazioni con tecnologia VPN sicura in Azure.
+
+## Domande frequenti relative alla connessione di reti virtuali
+
+- Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
+
+- Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
+
+- Un servizio cloud o un endpoint di bilanciamento del carico non può estendersi tra reti virtuali, anche se sono connesse tra loro.
+
+- Il collegamento di più reti virtuali di Azure non richiede alcun gateway VPN locale, a meno che la connettività cross-premise sia obbligatoria.
+
+- VNet to VNet supporta la connessione di reti virtuali di Azure. Non supporta le macchine virtuali o servizi non in una rete virtuale cloud.
+
+- Per la connettività tra reti virtuali sono necessari gateway VPN di Azure e VPN con routing dinamico. Le VPN con routing statico di Azure non sono supportate.
+
+- Connettività di rete virtuale può essere utilizzata contemporaneamente con VPN multisito, con un massimo di 10 tunnel VPN per un gateway VPN della rete virtuale connette ad altre reti virtuali o a siti locali.
+
+- Gli spazi degli indirizzi delle reti virtuali e dei siti di rete locali non devono sovrapporsi. Spazi degli indirizzi sovrapposti causerà la creazione di reti virtuali o caricare i file di configurazione netcfg esito negativo.
+
+- Non sono supportati tunnel ridondanti tra una coppia di reti virtuali.
+
+- Tutti i tunnel VPN della rete virtuale, tra cui reti VPN P2S, condividono la larghezza di banda disponibile sul gateway VPN di Azure e i tempi di gateway VPN stesso contratto di servizio in Azure.
 
 ## Configurare una connessione tra reti virtuali
 
@@ -55,12 +68,14 @@ Questa procedura viene utilizzata principalmente il portale di gestione, tuttavi
 
 ![Connessione tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
-Sono disponibili 5 sezioni per pianificare e configurare. Configurare ogni sezione nell'ordine indicato di seguito: 
-1. [Pianificare gli intervalli di indirizzi IP](#plan-your-ip-address-ranges) 
+Sono disponibili 5 sezioni per pianificare e configurare. Configurare ogni sezione nell'ordine indicato di seguito:
+
+1. [Pianificare gli intervalli di indirizzi IP](#plan-your-ip-address-ranges)
 2. [Creare le reti virtuali](#create-your-virtual-networks)
-3. [Aggiungere reti locali](#add-local-networks)
-4. [Creare il gateway con routing dinamico per ogni rete virtuale](#create-the-dynamic-routing-gateways-for-each-vnet) 
+3. [Reti locali](#add-local-networks)
+4. [Creare il gateway con routing dinamico per ogni rete virtuale](#create-the-dynamic-routing-gateways-for-each-vnet)
 5. [Connettere i gateway VPN](#connect-the-vpn-gateways)
+
 
 ## Pianificare gli intervalli di indirizzi IP
 
@@ -87,32 +102,42 @@ VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = US West
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
-3. Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti: Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere il [pagina dettagli rete virtuale](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti: Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere il [pagina dettagli rete virtuale](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 
   ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Name -** assegnare un nome alla rete virtuale. Ad esempio, VNet1:
   - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (regione). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
 
-4. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [DNS Servers and VPN Connectivity](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
-  ![Server DNS e connettività VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg) 
- - **Server DNS** - immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, consente di specificare i server DNS che si desidera utilizzare per la risoluzione dei nomi per la rete virtuale. Se si desidera disporre di risoluzione dei nomi tra le reti virtuali, sarà necessario configurare il server DNS, anziché utilizzare la risoluzione dei nomi fornita da Azure.
+
+Nella pagina **Server DNS e connettività VPN** immettere le informazioni seguenti e quindi fare clic sulla freccia Avanti in basso a destra. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [DNS Servers and VPN Connectivity](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+
+  ![Server DNS e connettività VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
+
+
+- **Server DNS**: immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, consente di specificare i server DNS che si desidera utilizzare per la risoluzione dei nomi per la rete virtuale. Se si desidera disporre di risoluzione dei nomi tra le reti virtuali, sarà necessario configurare il server DNS, anziché utilizzare la risoluzione dei nomi fornita da Azure.
 
   - Non selezionare Nessuna delle caselle di controllo. Semplicemente fare clic sulla freccia in basso a destra per passare alla schermata successiva.
 
-5. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Non esistono alcune regole spazio degli indirizzi di rete virtuale, è possibile vedere il [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
+Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Non esistono alcune regole spazio degli indirizzi di rete virtuale, è possibile vedere il [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
 
-  Immettere le informazioni seguenti e quindi fare clic sul segno di spunta in basso a destra per configurare la rete.
 
   ![Spazi di indirizzi della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
+
+  **Immettere le informazioni seguenti** e quindi fare clic sul segno di spunta in basso a destra per configurare la rete.
 
   - **Spazio degli indirizzi** inclusi IP iniziale e conteggio indirizzi. Verificare che gli spazi di indirizzi specificato non si sovrappongano a quelli degli spazi di indirizzi presenti nella rete locale. In questo esempio utilizzeremo 10.1.0.0/16 per VNet1.
   - **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP statici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
 
-6. Fare clic sul segno di spunta in basso a destra nella pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Status** verrà visualizzata la dicitura Created nella pagina relativa alle **Reti** del portale di gestione.
+**Fare clic sul segno di spunta** in basso a destra nella pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, nella colonna *Stato* della pagina *Reti* del portale di gestione verrà visualizzata la dicitura *Creato*.
 
-7. Creare una rete virtuale di Azure Ai fini di questa esercitazione, utilizzare questi valori: **VNet2**: spazio di indirizzi = 10.2.0.0/16; Regione = Giappone orientale
+## Creare un’ulteriore rete virtuale
+
+Successivamente, ripetere i passaggi precedenti per creare un'altra rete virtuale. In questo esercizio, si connetteranno queste due reti virtuali. Si noti che è molto importante che gli spazi degli indirizzi non siano duplicati o sovrapposti. Ai fini di questa esercitazione, è possibile utilizzare questi valori:
+
+- **VNet2**: spazio di indirizzi = 10.2.0.0/16
+- **Area**= Giappone orientale
 
 ## Reti locali
 
@@ -170,31 +195,32 @@ Quando tutti i passaggi precedenti sono stati completati, si imposteranno le chi
 
 Per VNet1
 
-````PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
+	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
-For VNet2
+Per VNet2
 
-````PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
+	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gateway assume l'aspetto illustrato nella figura seguente e le reti virtuali vengono connesse.
 
 ![Stato del gateway - connesso](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
 
-##Vedere anche
+## Passaggi successivi
 
-**Concetti**
+Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulla connettività cross-premise protetta della rete virtuale](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
-[Panoramica di Rete virtuale](https://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-[Attività di configurazione di Rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx)
+Se si desidera configurare una connessione VPN da sito a sito, vedere [configurare una connessione VPN da sito](vpn-gateway-site-to-site-create.md)
 
-[Operazioni sulle reti virtuali](https://msdn.microsoft.com/library/azure/jj157182.aspx)
+Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-[Operazioni sulle reti virtuali](https://msdn.microsoft.com/library/azure/jj154113.aspx)
+Se si desidera configurare una connessione di rete virtuale mediante RRAS, vedere [configurare una VPN da sito a sito utilizzando Windows Server 2012 Routing e accesso remoto (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
-**Altre risorse**
+Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-[Post di blog - connessioni tra reti in aree geografiche diverse virtuali](http://azure.microsoft.com/blog/2014/06/17/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)
 
-<!--HONumber=52-->
+[1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
+[2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
+
+<!---HONumber=July15_HO2-->

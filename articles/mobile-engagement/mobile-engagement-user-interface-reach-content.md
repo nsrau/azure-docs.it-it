@@ -18,7 +18,7 @@
 
 # Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
  
-È possibile usare la sezione Contenuto di una nuova campagna Reach per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
+È possibile usare la sezione Contenuto di una nuova campagna di copertura per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
  
 ### Tipi di contenuti:
 - Annunci
@@ -30,8 +30,8 @@
  ![Reach-Content1][30]
 
 ### Scegliere il tipo di annuncio:
--    Solo notifica: una semplice notifica standard. Ossia, se un utente seleziona l'annuncio, non verranno visualizzate schermate aggiuntive, ma si verificherà semplicemente l'azione associata.
--    Annuncio di testo: una notifica che incoraggia l'utente a esaminare una visualizzazione testo.
+-    Solo notifica: una semplice notifica standard. Vale a dire che se un utente fa clic, non apparirà alcuna ulteriore visualizzazione, ma si verificherà semplicemente l'azione associata.
+-    Annuncio di testo: una notifica che invita l'utente a esaminare una visualizzazione testo.
 -    Annuncio Web: una notifica che incoraggia l'utente a esaminare una visualizzazione Web.
 
 ### Vedere anche
@@ -50,7 +50,7 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
 
 - **Azioni di Android e iOS**
     - Aprire una pagina Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -70,11 +70,11 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
     - Esempio:geo:0,0?q=starbucks,paris
 - **Azioni solo di iOS**
     - Scaricare un'applicazione in App Store
-    - http://itunes.apple.com/[country]/app/[app nome]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
     - Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Azioni di Windows
     - Aprire una pagina Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -108,7 +108,7 @@ Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È poss
 - [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
 
 ## Contenuto dei sondaggi
-![Reach-Content2][31] Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiungere quindi domande e opzioni per le risposte alle domande. È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati. La definizione dei destinatari può essere basata anche sul feedback di risposta ai sondaggi, dove domande e opzioni di risposta vengono utilizzate come criteri.
+![Reach-Content2][31] Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiungere quindi domande e opzioni per le risposte alle domande. È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati. La definizione dei destinatari può essere basata anche sul feedback di risposta ai sondaggi, dove domande e opzioni di risposta vengono usate come criteri.
 
 ### Vedere anche
 - [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
@@ -228,5 +228,6 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

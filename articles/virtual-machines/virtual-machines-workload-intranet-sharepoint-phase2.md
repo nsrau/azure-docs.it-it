@@ -112,8 +112,8 @@ Accedere al primo computer controller di dominio utilizzando le credenziali dell
 5.	Viene visualizzata la finestra di dialogo del browser in cui viene chiesto se si desidera aprire o salvare ComputerName.rdp da manage.windowsazure.com. Fare clic su **Apri**.
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
-8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il seguente formato:  
-- *NomeComputer**NomeAccountAmministratopreLocale*
+8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il seguente formato: 
+- *NomeComputer*\\*NomeAccountAmministratopreLocale*
 9.	In **Password**, digitare la password per l'account amministratore locale.
 10.	Fare clic su **OK**.
 11.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Sì**. Il desktop della nuova macchina virtuale viene visualizzato in una finestra della sessione Desktop remoto.
@@ -207,8 +207,8 @@ Quindi, aggiornare i server DNS per la rete virtuale in modo che Azure assegni a
 2.	Fare clic su **Configure**.
 3.	In **Server DNS**, rimuovere le voci corrispondenti ai server DNS che si trovano sulla rete locale.
 4.	In **Server DNS**, aggiungere due voci con nomi descrittivi e gli indirizzi IP di questi due elementi di tabella:
-- Tabella V – Elemento 6 – Colonna Valore 
-- Tabella V – Elemento 7 – Colonna Valore 
+- Tabella V – Elemento 6 – Colonna Valore
+- Tabella V – Elemento 7 – Colonna Valore
 5.	Nella barra dei comandi in basso fare clic su **Salva**.
 6.	Nel riquadro sinistro del portale di gestione di Azure fare clic su **Macchine virtuali**, quindi fare clic sulla colonna **Stato** accanto al nome del primo controller di dominio.
 7.	Nella barra dei comandi fare clic su **Riavvia**.
@@ -242,4 +242,7 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

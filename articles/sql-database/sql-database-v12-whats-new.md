@@ -37,7 +37,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 Uno degli obiettivi principali della versione 12 del database SQL è stato il miglioramento della compatibilità con Microsoft SQL Server 2014. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
 
 
-- [Assembly Common Language Runtime \(CLR\)](http://msdn.microsoft.com/library/ms189524.aspx)
+- [Assembly Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Funzioni finestra](https://msdn.microsoft.com/library/bb934097.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [Indici XML](https://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Rilevamento modifiche](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -51,12 +51,12 @@ Per informazioni sul piccolo set di funzionalità non ancora supportate nel data
 ## Più prestazioni Premium, nuovi livelli di prestazioni
 
 
-Nella versione 12, le unità di prestazioni di database espresse in DTU \(Database Throughput Unit\) allocate a tutti i livelli di prestazioni sono state aumentate del 25% senza costi aggiuntivi. Con le nuove funzionalità, come quelle elencate di seguito, si possono ottenere miglioramenti delle prestazioni ancora maggiori:
+Nella versione 12, le unità di prestazioni di database espresse in DTU (Database Throughput Unit) allocate a tutti i livelli di prestazioni sono state aumentate del 25% senza costi aggiuntivi. Con le nuove funzionalità, come quelle elencate di seguito, si possono ottenere miglioramenti delle prestazioni ancora maggiori:
 
 
 - Supporto per gli [indici columnstore](http://msdn.microsoft.com/library/gg492153.aspx) in memoria.
 - [Partizionamento delle tabelle per riga](http://msdn.microsoft.com/library/ms187802.aspx) con miglioramenti correlati a [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- Disponibilità di viste a gestione dinamica [\(DMV\)](http://msdn.microsoft.com/library/ms188754.aspx) e di Eventi estesi[\(XEvents\)](https://msdn.microsoft.com/library/bb630282.aspx) per facilitare il monitoraggio e l'ottimizzazione delle prestazioni.
+- Disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) e di Eventi estesi[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) per facilitare il monitoraggio e l'ottimizzazione delle prestazioni.
 
 
 ## Migliore supporto per i fornitori di soluzioni cloud SaaS
@@ -85,14 +85,14 @@ La sicurezza è della massima importanza per chiunque gestisca la propria attivi
 ## Aumento della continuità aziendale quando è necessario il ripristino
 
 
-La versione 12 offre obiettivi del punto di ripristino \(RPO\) e tempi di recupero stimato \(ERT\) significativi:
+La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero stimato (ERT) significativi:
 
 
 | Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
 | :-- | :-- | :-- |
-| Ripristino geografico | • RPO \< 24 ore.<br/>• ERT \< 12 ore. | • RPO \< 1 ora.<br/>• ERT \< 12 ore. |
-| Replica geografica standard | • RPO \< 30 minuti.<br/>• ERT \< 2 ore. | • RPO \< 5 secondi.<br/>• ERT \< 30 secondi. |
-| Replica geografica attiva | • RPO \< 5 minuti.<br/>• ERT \< 1 ora. | • RPO \< 5 secondi.<br/>• ERT \< 30 secondi. |
+| Ripristino geografico | • RPO < 24 ore.<br/>• ERT < 12 ore. | • RPO < 1 ora.<br/>• ERT < 12 ore. |
+| Replica geografica standard | • RPO < 30 minuti.<br/>• ERT < 2 ore. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
+| Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 
 
 Per altre informazioni, vedere [Continuità aziendale del database SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx).
@@ -126,8 +126,8 @@ Per verificare in modo semplice se è in esecuzione un database o un server logi
 Un altra tecnica per verificare la versione consiste nell'eseguire l'istruzione `SELECT @@version;` nel database e visualizzare risultati simili ai seguenti:
 
 
-- **12**.0.2000.10 &nbsp; *\(versione 12\)*
-- **11**.0.9228.18 &nbsp; *\(versione 11\)*
+- **12**.0.2000.10 &nbsp; *(versione 12)*
+- **11**.0.9228.18 &nbsp; *(versione 11)*
 
 
 Un database versione 12 può essere ospitato solo in un server logico della versione 12. Un server versione 12 può ospitare solo database della versione 12.
@@ -139,7 +139,7 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree dell'anteprima
 
 
-La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di [Anteprima](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Da aprile 2015 la versione 12 è stata promossa al livello Disponibilità generale \(GA\) nella maggior parte delle aree geografiche.
+La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di [Anteprima](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Da aprile 2015 la versione 12 è stata promossa al livello Disponibilità generale (GA) nella maggior parte delle aree geografiche.
 
 
 La versione 12 è disponibile nella versione di anteprima nelle seguenti aree geografiche:
@@ -152,4 +152,4 @@ La versione 12 è disponibile nella versione di anteprima nelle seguenti aree ge
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

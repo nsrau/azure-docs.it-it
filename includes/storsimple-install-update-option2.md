@@ -1,3 +1,4 @@
+
 #### Per installare l'aggiornamento 1 dal portale di gestione di Azure
 
 1. Nel portale di gestione, accedere alla pagina **Dispositivi** e selezionare il proprio dispositivo.
@@ -14,4 +15,4 @@
 
 7. A questo punto è possibile [utilizzare il portale di gestione per installare l'aggiornamento 1](#use-the-management-portal-to-install-update-1).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

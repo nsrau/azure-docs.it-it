@@ -13,39 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="juliako"/>
 
 
-# Procedura: Ottenere un'istanza del processore di contenuti multimediali
+#Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md). 
+Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
 
-## Informazioni generali
+##Panoramica
 
-In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore di contenuti multimediali viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
+In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore multimediale viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
-La seguente tabella riporta il nome e la descrizione di tutti i processori di contenuti multimediali disponibili.
+Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori multimediali disponibili.
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
     <tr>
-       <th>Nome del processore di contenuti multimediali</th>
+       <th>Nome del processore multimediale</th>
        <th>Descrizione</th>
-	<th>Altre informazioni</th>
+	<th>Ulteriori informazioni</th>
     </tr>
   </thead>
   <tbody>
     <tr>
        <td>Azure Media Encoder</td>
        <td>Consente di eseguire attività di codifica usando Azure Media Encoder.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per il Codificatore multimediale di Azure</a></td>
     </tr>
     <tr>
        <td>Flusso di lavoro Premium del codificatore multimediale</td>
        <td>Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.</td>
-       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codifica con il flusso di lavoro Premium del codificatore multimediale.</a></td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificare con il flusso di lavoro Premium del codificatore multimediale.</a></td>
     </tr>    
 	<tr>
         <td>Azure Media Indexer</td>
@@ -60,8 +60,13 @@ La seguente tabella riporta il nome e la descrizione di tutti i processori di co
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>Consente di crittografare asset di file multimediali usando PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (anteprima)</td>
+		<td>Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.</td>
+		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Storage Decryption</td>
         <td>Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.</td>
@@ -71,17 +76,17 @@ La seguente tabella riporta il nome e la descrizione di tutti i processori di co
 
 <br />
 
-## Ottenere un'istanza di MediaProcessor
+##Ottenere un'istanza di MediaProcessor
 
->[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+>Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md). 
+>Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md).
 
 
 
-La seguente chiamata REST mostra come ottenere un'istanza del processore di contenuti multimediali, in questo caso **Azure Media Encoder**. 
+La seguente chiamata REST mostra come ottenere un'istanza del processore di contenuti multimediali, in questo caso **Codificatore multimediale di Azure**.
 
 	
 Richiesta:
@@ -115,12 +120,11 @@ Risposta:
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
 
 
-## Passaggi successivi
-Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset][] che illustra come usare Azure Media Encoder per codificare un asset.
+##Passaggi successivi
+Dopo avere ottenuto un'istanza del processore multimediale, passare all'argomento [Procedura: Codificare un asset][] che illustra come utilizzare Azure Media Encoder per codificare un asset.
 
-[Come codificare un asset]: media-services-rest-encode-asset.md
-[Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-rest-connect_programmatically/
+[Procedura: Codificare un asset]: media-services-rest-encode-asset.md
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
+[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

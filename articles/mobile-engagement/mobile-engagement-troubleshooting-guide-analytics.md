@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # Guida alla risoluzione dei problemi relativi ad analisi, monitoraggio, segmentazione e dashboard
@@ -40,10 +40,6 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 - Il periodo per l'analisi si basa sulla data presente nelle impostazioni del dispositivo dell'utente. Pertanto, se nel telefono di un utente la data è impostata in modo errato, è possibile che venga visualizzato il periodo errato.
 - Non vengono registrati dati sul lato server quando si usa il pulsante per "testare" i push, vengono registrati solo i dati per le campagne di push reali.
 
-### Vedere anche
-
-- [Guida alla risoluzione dei problemi - SDK][Link 25], [Documentazione dell'API][Link 4], [Documentazione dell'interfaccia utente - Segmenti][Link 18]
-
 ## Impossibile individuare elementi nell'interfaccia utente
 
 ### Problema
@@ -57,10 +53,6 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 - Nel caso di elementi integrati e tag sulle informazioni dell'app che non possono essere aggiunti a un segmento, sarà necessario impostare un elenco di criteri di destinazione per ogni campagna, in modo che eseguano la stessa funzione di selezione della destinazione basata su un segmento.
 - Visualizzare i menu di scelta rapida nelle sezioni di analisi, monitoraggio e dashboard dell'interfaccia utente di Azure Mobile Engagement per altre informazioni di supporto e procedure.
 
-### Vedere anche
-
-- [Documentazione dell'interfaccia utente - Ottenere nuovi criteri di push per la definizione dei destinatari][Link 28]
- 
 ## Risoluzione dei problemi di arresto anomalo
 
 ### Problema
@@ -69,41 +61,8 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 ### Cause
 
 - Per risolvere i problemi di arresto anomalo dell'applicazione visualizzati nelle sezioni di analisi, monitoraggio o dashboard, controllare le note sulla versione e verificare la presenza di problemi noti nelle versioni precedenti dell'SDK.
-- Per risolvere ulteriori problemi di arresto anomalo dell'app, eseguire un evento da un dispositivo di test su cui è installata l'app, quindi cercare l'ID dispositivo nella sezione "Monitor - Eventi" dell'interfaccia utente di Azure Mobile Engagement. Quindi, eseguire l'evento che causa l'arresto anomalo dell'applicazione e cercare altre informazioni nella sezione "Monitor - Arresto anomalo" dell'interfaccia utente di Azure Mobile Engagement. 
+- Per risolvere altri problemi di arresto anomalo dell'app, eseguire un evento da un dispositivo di test su cui è installata l'app, quindi cercare l'ID dispositivo nella sezione "Monitor - Eventi" dell'interfaccia utente di Azure Mobile Engagement. Quindi, eseguire l'evento che causa l'arresto anomalo dell'applicazione e cercare altre informazioni nella sezione "Monitor - Arresto anomalo" dell'interfaccia utente di Azure Mobile Engagement. 
 
-### Vedere anche
+ 
 
-- [Concetti - Domande frequenti][Link 6], [Concetti - Glossario][Link 6], [Documentazione dell'interfaccia utente][Link 1], [Documentazione dell'SDK - Note sulla versione][Link 5], [Documentazione dell'SDK - Guide all'aggiornamento][Link 5]
-
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

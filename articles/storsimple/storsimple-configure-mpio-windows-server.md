@@ -5,8 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> 
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -167,6 +166,6 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 
 12. Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **Dispositivi**. Per configurare il criterio MPIO per un dispositivo selezionato, fare clic su **MPIO**. Verrà visualizzata la finestra di dialogo **Dettagli dispositivo**. Nella scheda **MPIO**, è possibile selezionare le impostazioni **Criterio di bilanciamento del carico** appropriate. È inoltre possibile visualizzare il tipo di percorso **Attivo** o **Standby**.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

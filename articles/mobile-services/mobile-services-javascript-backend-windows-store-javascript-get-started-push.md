@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../../includes/mobile-services-selector-get-started-push-legacy.md)]
 
-Questo argomento  illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows Store. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
+Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows Store. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
 >[AZURE.NOTE]Questo argomento descrive come configurare manualmente le notifiche push mediante Servizi notifica Push Windows (WNS) per un'app di Windows Store. È possibile usare gli strumenti di Visual Studio 2013 per configurare automaticamente le stesse notifiche push in un progetto di app di Windows. Per altre informazioni, vedere la [versione di app Windows universale](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) di questa esercitazione.
 
@@ -126,5 +126,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

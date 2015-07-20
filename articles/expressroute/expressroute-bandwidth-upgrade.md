@@ -85,4 +85,4 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

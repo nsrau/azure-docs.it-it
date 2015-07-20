@@ -68,7 +68,7 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
    3. Dall'elenco a discesa, selezionare l'opzione **Ora di inizio**. Si tratta dell'orario relativo all'inizio della pianificazione.
    4. Dall'elenco a discesa, selezionare l'opzione **Ora di fine**. Si tratta dell'orario relativo all'interruzione della pianificazione.
    
-         > [AZURE.NOTE] Le pianificazioni sovrapposte non sono consentite. Se gli orari di inizio e di fine sono sovrapposti con altre pianificazioni, verrà visualizzato un messaggio di errore.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) utilizzata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud. Specificare un numero compreso tra 1 e 1000 per questo campo.
    
@@ -176,4 +176,4 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 Ulteriori informazioni sui [componenti di StorSimple](storsimple-components.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -148,5 +148,6 @@ La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campa
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

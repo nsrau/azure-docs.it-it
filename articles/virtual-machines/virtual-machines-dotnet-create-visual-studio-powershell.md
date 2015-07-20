@@ -22,7 +22,7 @@ Quando si crea un progetto Web per un sito Web di Azure, è possibile eseguire i
 
 Per creare una macchina virtuale quando si crea un sito Web, eseguire la procedura seguente:
 
-1. In Visual Studio scegliere **File**, **Nuovo progetto**, quindi **Web** e infine **Applicazione Web ASP.NET** \(sotto i nodi **Visual C** o **Visual Basic**\).
+1. In Visual Studio scegliere **File**, **Nuovo progetto**, quindi **Web** e infine **Applicazione Web ASP.NET** (sotto i nodi **Visual C** o **Visual Basic**).
 2. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il tipo di applicazione Web desiderata e quindi, nella sezione Azure nell'angolo inferiore destro della finestra di dialogo, verificare che sia selezionata la casella di controllo **Ospita nel cloud**. In alcune installazioni questa casella di controllo è denominata **Crea risorse remote**.
 
 	![][0]
@@ -38,7 +38,7 @@ Per creare una macchina virtuale quando si crea un sito Web, eseguire la procedu
 8. Nell'elenco **Dimensioni** selezionare le dimensioni della macchina virtuale.
 9. Specificare le credenziali di accesso per la macchina virtuale. Prendere nota di tali credenziali perché saranno necessarie per accedere al computer tramite Desktop remoto.
 10. Nell'elenco **Località** scegliere l'area che ospiterà la macchina virtuale.
-11. Scegliere **OK** per avviare la creazione della macchina virtuale. È possibile seguire l'avanzamento dell'operazione nella **finestra Output\*\*.
+11. Scegliere **OK** per avviare la creazione della macchina virtuale. È possibile seguire l'avanzamento dell'operazione nella **finestra Output**.
 	![][3]
 
 12. Dopo il provisioning della macchina virtuale, gli script di pubblicazione vengono creati in un nodo **PublishScripts**nella soluzione. Lo script di pubblicazione viene eseguito ed esegue il provisioning di una macchina virtuale in Azure. Nella finestra **Output** viene visualizzato lo stato. Lo script esegue le azioni seguenti per configurare la macchina virtuale:
@@ -51,9 +51,10 @@ Per creare una macchina virtuale quando si crea un sito Web, eseguire la procedu
 
 	![][4]
 
-<br/> 13. \(Facoltativo\) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Esegui connessione con Desktop remoto**.
+<br/> 13. (Facoltativo) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Esegui connessione con Desktop remoto**.
 
-	![][5]
+ ![][5]
+
 
 ## Passaggi successivi
 
@@ -64,7 +65,6 @@ Per personalizzare gli script di pubblicazione creati, vedere le informazioni pi
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
- 
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

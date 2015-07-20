@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guida introduttiva per l'API Recommendations di Machine Learning | Azure" 
+	pageTitle="Guida introduttiva per l'API Recommendations di Machine Learning | Microsoft Azure" 
 	description="Recommendations di Azure Machine Learning - Guida introduttiva" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
-	ms.author="jaymathe"/>
+	ms.date="07/06/2015" 
+	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations di Machine Learning
 
-Versione: 1.0<br>
-La versione più recente è disponibile [qui](machine-learning-recommendation-api-quick-start-guide.md)
+Versione: 1.0<br> La versione più recente è disponibile [qui](machine-learning-recommendation-api-quick-start-guide.md)
 
 Questo documento illustra come configurare il servizio o l'applicazione per l'uso di Recommendations di Azure ML.
 
@@ -71,8 +70,7 @@ Creazione di una richiesta "crea modello":
 |:--------			|:--------								|
 |	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 20 |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -125,8 +123,7 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | Dati del catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+||| | Corpo della richiesta | Dati del catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Risposta**:
@@ -174,8 +171,7 @@ Queste sezioni mostrano come caricare dati di utilizzo usando un file. È possib
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -313,8 +309,7 @@ Corpo della richiesta
   	</EventData>
 	</Event>
 
-**Risposta**:
-Codice stato HTTP: 200
+**Risposta**: Codice stato HTTP: 200
 
 ###Compilare un modello di raccomandazione
 
@@ -327,8 +322,7 @@ Codice stato HTTP: 200
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -627,8 +621,7 @@ Codice stato HTTP: 200
 	</feed>
 
 ###Aggiornare il modello
-È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. 
-*ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con "ID compilazione" attivo si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attivo si eseguono altre compilazioni per lo stesso modello, è consigliabile impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
+È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. *ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con "ID compilazione" attivo si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attivo si eseguono altre compilazioni per lo stesso modello, è consigliabile impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
 
 Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
@@ -641,8 +634,7 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 |:--------			|:--------								|
 | id | Identificatore univoco del modello. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Tenere presente che i tag xml Description e ActiveBuildId sono opzionali. Se si preferisce non impostare Description o ActiveBuildId, rimuovere l'intero tag.|
+||| | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Tenere presente che i tag xml Description e ActiveBuildId sono opzionali. Se si preferisce non impostare Description o ActiveBuildId, rimuovere l'intero tag.|
 
 **Risposta**:
 
@@ -659,9 +651,7 @@ Codice stato HTTP: 200
 	</feed>
 
 ##Note legali
-Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso.
-Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. 
-Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. 
-© 2014 Microsoft. Tutti i diritti sono riservati.
+Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Eseguire query Hive usando Query Console
@@ -34,7 +34,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="run"></a> Eseguire query Hive usando Query Console
 
-1. Aprire il <a href="https://manage.windowsazure.com" target="_blank">portale di Azure</a> e selezionare il cluster HDInsight. Nella parte inferiore della pagina selezionare **Query Console**. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
+1. Aprire il [portale di Azure](https://manage.windowsazure.com) e selezionare il cluster HDInsight. Nella parte inferiore della pagina selezionare **Query Console**. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 
     > [AZURE.NOTE]È possibile accedere a Query Console anche immettendo **https://CLUSTERNAME.azurehdinsight.net** nel browser.
 
@@ -106,18 +106,18 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

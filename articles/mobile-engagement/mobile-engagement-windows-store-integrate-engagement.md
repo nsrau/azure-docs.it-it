@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Mobile Engagement SDK per app di Windows universali" 
-	description="Come integrare Azure Mobile Engagement con le app di Windows universali" 					
+	pageTitle="Integrazione di Engagement SDK per app universali di Windows" 
+	description="Come integrare Azure Mobile Engagement con le app universali di Windows" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Integrazione di Mobile Engagement SDK per app di Windows universali
+#Integrazione di Engagement SDK per app universali di Windows
 
 > [AZURE.SELECTOR] 
 - [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
@@ -24,13 +24,13 @@
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 
 
-Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione di Windows universale.
+Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione universale di Windows.
 
-I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in un'app di Windows universale](mobile-engagement-windows-store-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
+I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in un'app universale di Windows](mobile-engagement-windows-store-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
 ##Versioni supportate
 
-Mobile Engagement SDK per app di Windows universali può essere integrato solo nelle applicazioni di runtime per:
+Mobile Engagement SDK per app universali di Windows può essere integrato solo nelle applicazioni di runtime per:
 
 -   Windows 8
 -   Windows 8.1
@@ -41,17 +41,17 @@ Mobile Engagement SDK per app di Windows universali può essere integrato solo n
 
 ##Installare Mobile Engagement SDK per app universali
 
-Mobile Engagement SDK per app di Windows universali è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio.
+Mobile Engagement SDK per app universali di Windows è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio.
 
 ##Aggiungere le funzionalità
 
-L'SDK di Engagement richiede alcune funzionalità di Windows SDK per funzionare correttamente.
+Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare correttamente.
 
 Aprire il file `Package.appxmanifest` e assicurarsi che le seguenti funzionalità siano dichiarate:
 
 -   `Internet (Client)`
 
-##Inizializzare l'SDK di Engagement
+##Inizializzare Engagement SDK
 
 ### Configurazione di Engagement
 
@@ -83,7 +83,7 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di A
 
 ### Inizializzazione di Engagement
 
-Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs`. Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare l'SDK di Engagement.
+Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs`. Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.
 
 Modificare il file `App.xaml.cs`:
 
@@ -184,7 +184,7 @@ Modificare il file `.xaml` della pagina:
 
 #### Eseguire l'override del comportamento predefinito
 
-Per impostazione predefinita, il nome della classe della pagina viene indicato come nome dell'attività, senza elementi aggiuntivi. Se la classe utilizza il suffisso "Page", Engagement rimuoverà anche questo elemento.
+Per impostazione predefinita, il nome della classe della pagina viene indicato come nome dell'attività, senza elementi aggiuntivi. Se la classe usa il suffisso "Page", Engagement rimuoverà anche questo elemento.
 
 Se si desidera eseguire l'override del comportamento predefinito per il nome, aggiungere quanto segue al codice:
 
@@ -220,13 +220,13 @@ Se non si può o non si vuole eseguire l'overload delle classi `Page`, in altern
 
 > [AZURE.IMPORTANT]Assicurarsi che la sessione venga terminata correttamente.
 > 
-> L'SDK per app di Windows universali chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. Di conseguenza, è *ALTAMENTE* consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI* il metodo `EndActivity` poiché questo metodo forza la chiusura della sessione corrente.
+> Windows Universal SDK chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente subisce modifiche e non chiamare **MAI** il metodo `EndActivity`, che segnala al server di Engagement che l'utente ha chiuso l'applicazione e influirà su tutti i log delle applicazioni.
 
 ##Segnalazione avanzata
 
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, usare gli altri metodi disponibili nella classe `EngagementAgent`. L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagement.
 
-Per altre informazioni, vedere [Come usare l'API di Engagement in un'app di Windows universale](../mobile-engagement-windows-store-use-engagement-api/).
+Per altre informazioni, vedere [Come usare l'API di Engagement in un'app universale di Windows](../mobile-engagement-windows-store-use-engagement-api/).
 
 ##Configurazione avanzata
 
@@ -244,7 +244,7 @@ Impostare la segnalazione degli arresti anomali su `false` tra i tag `<reportCra
 
 #### Dall'oggetto `EngagementConfiguration` in fase di esecuzione
 
-Impostare la segnalazione degli arresti anomali su false utilizzando l'oggetto EngagementConfiguration.
+Impostare la segnalazione degli arresti anomali su false usando l'oggetto EngagementConfiguration.
 
 		/* Engagement configuration. */
 		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -263,11 +263,12 @@ A tale scopo, chiamare il metodo:
 
 L'argomento è un valore in **millisecondi**. In qualsiasi momento, se si desidera riattivare la registrazione in tempo reale, chiamare il metodo senza alcun parametro o con il valore 0.
 
-La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi).
+La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi). Occorre notare che per i log salvati è previsto un limite di 300 elementi. Se l'invio richiede troppo tempo, è possibile che alcuni log vadano persi.
 
 > [AZURE.WARNING]Non è possibile configurare la soglia di burst per un periodo inferiore a 1s. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà reimpostato automaticamente sul valore predefinito, vale a dire, 0s. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

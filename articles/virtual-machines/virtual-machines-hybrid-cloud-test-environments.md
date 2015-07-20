@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Ambienti di test basati su cloud ibrido
@@ -53,6 +53,9 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!--HONumber=52-->
+
  
+
+<!---HONumber=July15_HO2-->

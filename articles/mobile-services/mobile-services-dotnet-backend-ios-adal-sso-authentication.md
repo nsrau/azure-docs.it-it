@@ -119,5 +119,6 @@ Per completare questa esercitazione, è necessario disporre di:
 [modalità di registrazione in Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -20,13 +20,13 @@
 
 Redis è una cache e un archivio chiave-valore open-source in cui le chiavi possono contenere strutture di dati quali stringhe, hash, elenchi, insiemi e insiemi ordinati. Redis supporta una serie di operazioni atomiche su questi tipi di dati. Con il rilascio di Redis versione 3.0, Redis Cluster è ora disponibile nella versione stabile più recente di Redis. Redis Cluster è un'implementazione distribuita di Redis in cui i dati sono partizionati automaticamente tra più nodi Redis, con la possibilità di continuare le operazioni quando si verificano errori in un subset di nodi.
 
-Cache Redis di Microsoft Azure è un servizio di cache Redis dedicato, gestito da Microsoft, ma non tutti i clienti di Microsoft Azure desiderano utilizzare Cache Redis di Azure. Alcuni desiderano mantenere la cache Redis dietro una subnet all'interno delle proprie distribuzioni di Azure, mentre altri trovano più comodo lasciare i propri server Redis in hosting nelle macchine virtuali Linux, per poter sfruttare appieno tutte le funzionalità di Redis.
+Cache Redis di Microsoft Azure è un Servizio cache Redis dedicato, gestito da Microsoft, ma non tutti i clienti di Microsoft Azure desiderano utilizzare Cache Redis di Azure. Alcuni desiderano mantenere la cache Redis dietro una subnet all'interno delle proprie distribuzioni di Azure, mentre altri trovano più comodo lasciare i propri server Redis in hosting nelle macchine virtuali Linux, per poter sfruttare appieno tutte le funzionalità di Redis.
 
-In questa esercitazione verrà illustrato l'utilizzo di un modello di gestione delle risorse di Azure (ARM) di esempio per distribuire Redis Cluster nelle macchine virtuali di Ubuntu all'interno di una subnet in un gruppo di risorse di Microsoft Azure. Oltre a Redis 3.0 Cluster, questo modello supporta anche la distribuzione di  Redis 2.8 con Redis Sentinel. Si noti che in questa esercitazione verrà trattate solo l'implementazione di Redis 3.0 Cluster.
+In questa esercitazione verrà illustrato l'utilizzo di un modello di Gestione risorse di Azure di esempio per distribuire Redis Cluster nelle VM di Ubuntu all'interno di una subnet in un gruppo di risorse di Microsoft Azure. Oltre a Redis 3.0 Cluster, questo modello supporta anche la distribuzione di Redis 2.8 con Redis Sentinel. Si noti che in questa esercitazione verrà trattata solo l'implementazione di Redis 3.0 Cluster.
 
-Redis Cluster viene creato dietro una subnet, in modo da non disporre di alcun IP pubblico di accesso a Redis Cluster. Come parte della distribuzione, può essere distribuito un "jumpbox" facoltativo. Si tratta di una macchina virtuale Ubuntu distribuita anch’essa nella subnet, ma che *espone* un indirizzo IP pubblico con una porta SSH aperta con la quale è possibile stabilire una connessione SSH. Tramite il "jumpbox", è possibile stabilire una connessione SSH con tutte le macchine virtuali Redis nella subnet.
+Il cluster Redis viene creato dietro una subnet, in modo da non disporre di alcun IP pubblico di accesso a Redis Cluster. Come parte della distribuzione, può essere distribuito un "jumpbox" facoltativo. Si tratta di una macchina virtuale Ubuntu distribuita anch’essa nella subnet, ma che *espone* un indirizzo IP pubblico con una porta SSH aperta con la quale è possibile stabilire una connessione SSH. Tramite il "jumpbox", è possibile stabilire una connessione SSH con tutte le macchine virtuali Redis nella subnet.
 
-Questo modello utilizza il concetto di "taglia" per specificare una configurazione "piccola", "media" o "grande" di Redis Cluster. Quando il linguaggio del modello ARM supporta il ridimensionamento dei modelli più dinamico, è possibile specificare invece il numero di nodi master Redis Cluster, nodi slave, dimensioni della macchina virtuale e così via. Per ora, è possibile visualizzare le dimensioni della macchina virtuale e il numero di master e slave definiti nel file **azuredeploy.json** nelle variabili `tshirtSizeSmall`, `tshirtSizeMedium` e `tshirtSizeLarge`.
+Questo modello utilizza il concetto di "taglia" per specificare una configurazione "piccola", "media" o "grande" di Redis Cluster. Quando il linguaggio del modello gestione risorse di Azure supporta il ridimensionamento dei modelli più dinamico, è possibile specificare invece il numero di nodi master Redis Cluster, nodi slave, dimensioni della VM e così via. Per ora, è possibile visualizzare le dimensioni della VM e il numero di master e slave definiti nel file azuredeploy.json nelle variabili `tshirtSizeSmall`, `tshirtSizeMedium`, and `tshirtSizeLarge`.
 
 Con il modello Redis Cluster per la taglia "medium" viene creata questa configurazione:
 
@@ -38,11 +38,11 @@ Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure 
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Distribuire un cluster Redis con un modello di Gestione risorse
+## Distribuire un cluster Redis utilizzando un modello di Gestione risorse
 
-Attenersi alla seguente procedura per creare un Redis Cluster utilizzando un modello di Gestione risorse dall'archivio dei modelli Github. Ogni passaggio includerà le indicazioni sia per Azure PowerShell che per l’interfaccia della riga di comando di Azure.
+Attenersi alla seguente procedura per creare un cluster Redis utilizzando un modello di Gestione risorse dall'archivio dei modelli GitHub. Ogni passaggio includerà le indicazioni sia per Azure PowerShell che per l’interfaccia della riga di comando di Azure.
 
-### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
+### Passaggio 1-a: Scaricare i file di modello utilizzando Azure PowerShell
 
 Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\RedisCluster).
 
@@ -88,9 +88,9 @@ $filePath = $folderName + "\shared-resources.json"
 $webclient.DownloadFile($url,$filePath)
 ```
 
-### Passaggio 1-b: Scaricare i file di modello tramite l’interfaccia della riga di comando di Azure
+### Passaggio 1-b: Scaricare i file di modello tramite l'interfaccia della riga di comando di Azure
 
-Clonare l’intero repository dei modelli utilizzando un client git di propria scelta, ad esempio:
+Clonare l’intero repository dei modelli utilizzando un client Git a propria scelta, ad esempio:
 
 ```
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
@@ -98,11 +98,11 @@ git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
 Una volta completata l’operazione, cercare la cartella **redis-high-availability** nella directory C:\\Azure\\Templates.
 
-### Passaggio 2: (facoltativo) Comprendere i parametri del modello 
+### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
-Quando si crea un Redis Cluster con un modello, è necessario specificare un set di parametri di configurazione. Per visualizzare i parametri che è necessario specificare per il modello in un file JSON locale prima di eseguire il comando per creare il Redis Cluster, aprire il file JSON in un editor di testo o in uno strumento a scelta.
+Quando si crea un cluster Redis utilizzando un modello, è necessario specificare un set di parametri di configurazione. Per visualizzare i parametri che è necessario specificare per il modello in un file JSON locale prima di eseguire il comando per creare il cluster Redis, aprire il file JSON in un editor di testo o in uno strumento a scelta.
 
-Cercare la sezione **"parametri"** nella parte superiore del file, nella quale è elencato il set di parametri necessari al modello per configurare il Redis Cluster. Questa è la sezione **"parameters"** per il modello azuredeploy.json:
+Cercare la sezione "parametri" nella parte superiore del file, nella quale è elencato il set di parametri necessari al modello per configurare il cluster Redis. Questa è la sezione "parameters" per il modello azuredeploy.json:
 
 ```json
 "parameters": {
@@ -122,7 +122,7 @@ Cercare la sezione **"parametri"** nella parte superiore del file, nella quale �
 		"type": "string",
 		"defaultValue": "",
 		"metadata": {
-			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
 		}
 	},
 	"location": {
@@ -149,7 +149,7 @@ Cercare la sezione **"parametri"** nella parte superiore del file, nella quale �
 		"type": "string",
 		"defaultValue": "redisSubnet1",
 		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+			"Description": "Subnet name for the virtual network that resources will be provisioned into"
 		}
 	},
 	"subnetPrefix": {
@@ -174,7 +174,7 @@ Cercare la sezione **"parametri"** nella parte superiore del file, nella quale �
 			"Disabled"
 		],
 		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Redis nodes"
+			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Redis nodes"
 		}
 	},
 	"tshirtSize": {
@@ -206,13 +206,13 @@ Cercare la sezione **"parametri"** nella parte superiore del file, nella quale �
 },
 ```
 
-Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, PowerShell o l’interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
+Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, Azure PowerShell o l’interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
 
-### Passaggio 3-a: Distribuire un cluster Redis con un modello tramite PowerShell
+### Passaggio 3-a: Distribuire un cluster Redis utilizzando un modello tramite Azure PowerShell
 
-Preparare un file dei parametri per la distribuzione creando un file JSON con i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in PowerShell verranno utilizzati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
+Preparare un file dei parametri per la distribuzione creando un file JSON con i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in Azure PowerShell verranno utilizzati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
 
-Di seguito è riportato un esempio che è possibile trovare nel file **azuredeploy-parameters.json**. Si noti che è necessario fornire valori validi per i parametri `storageAccountName`, `adminUsername` e `adminPassword`, più eventuali personalizzazioni per gli altri parametri:
+Di seguito è riportato un esempio che è possibile trovare nel file azuredeploy-parameters.json. Si noti che è necessario fornire valori validi per i parametri `storageAccountName`, `adminUsername` e `adminPassword`, più eventuali personalizzazioni per gli altri parametri:
 
 ```json
 {
@@ -258,7 +258,7 @@ Di seguito è riportato un esempio che è possibile trovare nel file **azuredepl
 }
 ```
 
->[AZURE.NOTE]Il parametro `storageAccountName` deve essere un nome account di archiviazione univoco, non esistente, che soddisfi i requisiti di denominazione per un account di Archiviazione di Microsoft Azure (solo numeri e lettere minuscole). Questo account di archiviazione verrà creato come parte del processo di distribuzione.
+>[AZURE.NOTE]Il parametro `storageAccountName` deve essere un nome account di Archiviazione univoco, non esistente, che soddisfi i requisiti di denominazione per un account di Archiviazione di Microsoft Azure (solo numeri e lettere minuscole). Questo account di Archiviazione verrà creato come parte del processo di distribuzione.
 
 Inserire un nome per la distribuzione Azure, un nome per il gruppo di risorse, il percorso di Azure e la cartella in cui sono stati salvati i file di JSON. Quindi eseguire i seguenti comandi:
 
@@ -277,9 +277,9 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 >[AZURE.NOTE]`$RGName` deve essere univoco all'interno della sottoscrizione.
 
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON (azuredeploy-parameters.json) e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l’uso di più file di parametri con gli ambienti diversi (ad esempio, test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
+Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON (azuredeploy-parameters.json) e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l'uso di più file di parametri con gli ambienti diversi (test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
 
-Quando si effettua la distribuzione, tenere presente che è necessario creare un nuovo account di Archiviazione di Azure, in modo che il nome che viene fornito come parametro di account di archiviazione sia univoco e soddisfi tutti i requisiti di un account di Archiviazione di Azure (solo lettere minuscole e numeri).
+Quando si effettua la distribuzione, tenere presente che è necessario creare un nuovo account di Archiviazione di Azure, in modo che il nome fornito come parametro di account di archiviazione sia univoco e soddisfi tutti i requisiti di un account di Archiviazione di Azure (solo lettere minuscole e numeri).
 
 Durante la distribuzione, verrà visualizzata una schermata simile alla seguente:
 
@@ -344,20 +344,20 @@ Durante la distribuzione, verrà visualizzata una schermata simile alla seguente
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [Portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
-- Nella barra di spostamento a sinistra, fare clic su "Sfoglia", scorrere verso il basso e fare clic su "Gruppi di risorse".
-- Selezionare il gruppo di risorse appena creato. Verrà visualizzato il pannello "Gruppo di risorse".
-- Nella sezione relativa al monitoraggio, selezionare il grafico a barre "Eventi". Verranno visualizzati gli eventi per la distribuzione.
-- Facendo clic su singoli eventi è possibile esaminare i dettagli di ogni singola operazione eseguita per conto del modello.
+- Nella barra di spostamento a sinistra, fare clic su **Sfoglia**, scorrere verso il basso e fare clic su **Gruppi di risorse**.
+- Selezionare il gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".
+- Nella sezione relativa al **Monitoraggio**, selezionare il grafico a barre "Eventi". Verranno visualizzati gli eventi per la distribuzione.
+- Facendo clic su singoli eventi è possibile esaminare i dettagli di ogni operazione eseguita per conto del modello.
 
-Se, dopo aver effettuato i test, è necessario rimuovere il gruppo di risorse e tutte le relative risorse (l'account di archiviazione, la macchina virtuale e la rete virtuale), utilizzare questo comando:
+Se, dopo aver effettuato i test, è necessario rimuovere il gruppo di risorse e tutte le relative risorse (l'account di Archiviazione, la macchina virtuale e la rete virtuale), utilizzare questo comando:
 
 ```powershell
 Remove-AzureResourceGroup –Name "<resource group name>"
 ```
 
-### Passaggio 3-b: Distribuire un cluster Redis con un modello tramite l’interfaccia della riga di comando di Azure
+### Passaggio 3-b: Distribuire un cluster Redis utilizzando un modello tramite l’interfaccia della riga di comando di Azure
 
 Per distribuire un cluster Redis tramite l’interfaccia della riga di comando di Azure, è necessario innanzitutto creare un gruppo di risorse specificando un nome e un percorso:
 
@@ -365,27 +365,27 @@ Per distribuire un cluster Redis tramite l’interfaccia della riga di comando d
 azure group create TestRG "West US"
 ```
 
-Passare il nome di questo gruppo di risorse, il percorso del file di modello JSON e il percorso del file dei parametri (vedere la sezione precedente di PowerShell per i dettagli) nel comando seguente:
+Passare il nome di questo gruppo di risorse, il percorso del file di modello JSON e il percorso del file dei parametri (vedere la sezione precedente di Azure PowerShell per i dettagli) nel comando seguente:
 
 ```powershell
 azure group deployment create TestRG -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 ```
 
-È possibile controllare lo stato delle distribuzioni delle singole risorse con il comando seguente:
+È possibile controllare lo stato delle distribuzioni delle singole risorse utilizzando il comando seguente:
 
 ```powershell
 azure group deployment list TestRG
 ```
 
-## Panoramica della struttura del modello di cluster Redis e dell’organizzazione dei file 
+## Panoramica della struttura del modello di cluster Redis e dell’organizzazione dei file
 
-Per creare un approccio efficace e riutilizzabile alla progettazione di modelli di Gestione risorse, è necessaria un’ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come Redis Cluster. Sfruttando le funzionalità di **collegamento dei modelli** ARM, **ciclo delle risorse** e di esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che può essere riutilizzato con potenzialmente qualsiasi distribuzione complessa basata su modelli.
+Per creare un approccio efficace e riutilizzabile alla progettazione di modelli di Gestione risorse, è necessaria un’ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come Redis Cluster. Sfruttando le funzionalità di collegamento del modello di gestione risorse, ciclo delle risorse e di esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che può essere riutilizzato con potenzialmente qualsiasi distribuzione complessa basata su modelli.
 
 In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da GitHub per la distribuzione:
 
 ![redis-files](media/virtual-machines-redis-template/redis-files.png)
 
-In questa sezione viene fornita una descrizione della struttura del file azuredeploy.json per Redis Cluster.
+In questa sezione viene fornita una descrizione della struttura del file azuredeploy.json per il cluster Redis.
 
 Se non è stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\RedisCluster). Sostituire il nome della cartella, quindi eseguire questi comandi.
 
@@ -401,7 +401,7 @@ Aprire il modello azuredeploy.json in un editor di testo o in uno strumento a sc
 
 ### sezione "parametri"
 
-È stato già menzionato il ruolo del file **azuredeploy-parameters.json**, che verrà utilizzato per passare un set di valori di parametro specificati durante l'esecuzione del modello. Nella sezione "parametri" di azuredeploy.json vengono specificati i parametri utilizzati per immettere i dati in questo modello.
+È stato già menzionato il ruolo del file azuredeploy-parameters.json, che verrà utilizzato per passare un set di valori di parametro specificati durante l'esecuzione del modello. Nella sezione "parametri" di azuredeploy.json vengono specificati i parametri utilizzati per immettere i dati in questo modello.
 
 Di seguito è riportato un esempio di un parametro per la "taglia":
 
@@ -453,9 +453,9 @@ La sezione "variabili" Specifica le variabili che possono essere utilizzate in q
 }
 ```
 
-`vmStorageAccountContainerName` e `vmStorageAccountDomain` sono esempi di nome semplice/variabili di valore. `vnetID` è un esempio di una variabile calcolata in fase di esecuzione mediante le funzioni `resourceId` e `parameters`. `machineSettings` si basa su questi concetti e inoltre nidifica l’oggetto JSON `osImageReference` nella variabile `machineSettings`. `vmScripts` contiene una matrice JSON, `scriptsToDownload`, che viene calcolata in fase di esecuzione mediante le funzioni `concat` e `variables`.
+Le variabili `vmStorageAccountContainerName` e `vmStorageAccountDomain` sono esempi di nome semplice/variabili di valore. `vnetID` è un esempio di una variabile calcolata in fase di esecuzione mediante le funzioni `resourceId` e `parameters`. `machineSettings` si basa su questi concetti e inoltre nidifica l’oggetto JSON `osImageReference` nella variabile `machineSettings`. `vmScripts` contiene una matrice JSON, `scriptsToDownload`, che viene calcolata in fase di esecuzione mediante le funzioni `concat` e `variables`.
 
-Se si desidera personalizzare le dimensioni della distribuzione del Redis Cluster, è possibile dunque modificare le proprietà delle variabili `tshirtSizeSmall`, `tshirtSizeMedium` e `tshirtSizeLarge` nel modello **azuredeploy.json**.
+Se si desidera personalizzare le dimensioni della distribuzione del Redis Cluster, è possibile dunque modificare le proprietà delle variabili `tshirtSizeSmall`, `tshirtSizeMedium` e `tshirtSizeLarge` nel modello azuredeploy.json.
 
 ```json
 "tshirtSizeSmall": {
@@ -491,7 +491,7 @@ Ulteriori informazioni relative al linguaggio del modello sono reperibili sul si
 
 ### sezione "risorse"
 
-La sezione **"risorse"** rappresenta la posizione in cui si svolgono la maggior parte delle operazioni. Analizzando attentamente questa sezione, è possibile identificare immediatamente due diversi casi, il primo dei quali è un elemento definito di tipo `Microsoft.Resources/deployments` che essenzialmente implica la chiamata di una distribuzione nidificata all'interno di quella principale. Il secondo è la proprietà `templateLink` (e la proprietà correlata `contentVersion`) che rende possibile specificare un file di modello correlato che verrà richiamato, passando una serie di parametri come input. Tutto questo può essere osservato in questo frammento di modello:
+La sezione "risorse" rappresenta la posizione in cui si svolgono la maggior parte delle operazioni. Analizzando attentamente questa sezione, è possibile identificare immediatamente due diversi casi. Il primo è un elemento definito di tipo `Microsoft.Resources/deployments` che richiama essenzialmente una distribuzione nidificata all'interno di quella principale. Il secondo è la proprietà `templateLink` (e la proprietà correlata `contentVersion`) che rende possibile specificare un file di modello correlato che verrà richiamato, passando una serie di parametri come input. Tutto questo può essere osservato in questo frammento di modello:
 
 ```json
 {
@@ -519,17 +519,17 @@ La sezione **"risorse"** rappresenta la posizione in cui si svolgono la maggior 
 },
 ```
 
-Da questo primo esempio è chiaro come il file **azuredeploy.json** in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file di modello, ciascuno responsabile di parte delle attività di distribuzione necessarie.
+Da questo primo esempio è chiaro come il file azuredeploy.json in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file. Ogni file è responsabile di parte delle attività di distribuzione necessarie.
 
-In particolare, i seguenti modelli collegati verranno utilizzati per la distribuzione:
+In particolare, i seguenti modelli collegati verranno usati per la distribuzione:
 
-- **shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Ne sono esempio gli account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale, le reti virtuali e i set di disponibilità.
+- **shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Ne sono esempio gli account di Archiviazione utilizzati per archiviare i dischi del sistema operativo della VM, le reti virtuali e i set di disponibilità.
 - **jumpbox-resources.json**: consente di distribuire la macchina virtuale “jumpbox” e tutte le risorse correlate, come interfaccia di rete, indirizzo IP pubblico e l’endpoint di input utilizzato per la connessione SSH all’ambiente.
-- **node-resources.json**: consente di distribuire tutte le macchine virtuali dei nodi Redis Cluster e le risorse collegate (ad esempio, schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire le estensioni della macchina virtuale (gli script personalizzati per Linux) e di richiamare uno script bash per installare fisicamente  e configurare Redis in ciascun nodo. Lo script per la richiamata viene passato a questo modello nella proprietà `commandToExecute` del parametro `machineSettings`. È possibile distribuire e creare script in parallelo di tutti i nodi del Redis Cluster tranne uno. Un nodo deve essere conservato fino alla fine poiché la configurazione di Redis Cluster può essere eseguita solo su un nodo, e deve essere eseguita dopo che in tutti i nodi è in esecuzione il server Redis. Questo è il motivo per cui lo script da eseguire viene passato a questo modello. L'ultimo nodo deve eseguire uno script leggermente diverso che non solo consentirà di installare il server Redis, ma anche di configurare il Redis Cluster.
+- **node-resources.json**: consente di distribuire tutte le VM dei nodi Redis Cluster e le risorse collegate (ad esempio, schede di rete, IP privati e così via). Questo modello consente inoltre di distribuire le estensioni della VM (gli script personalizzati per Linux) e di richiamare uno script bash per installare fisicamente e configurare Redis in ciascun nodo. Lo script per la richiamata viene passato a questo modello nel `machineSettings` parametro della `commandToExecute` proprietà. È possibile distribuire e creare script in parallelo di tutti i nodi del Redis Cluster tranne uno. Un nodo deve essere conservato fino alla fine poiché la configurazione di Redis Cluster può essere eseguita su un solo nodo, e deve essere eseguita dopo che in tutti i nodi è in esecuzione il server Redis. Questo è il motivo per cui lo script da eseguire viene passato a questo modello. L'ultimo nodo deve eseguire uno script leggermente diverso che non solo consentirà di installare il server Redis, ma anche di configurare il cluster Redis.
 
-Esaminiamo *come* viene utilizzato quest’ultimo modello, **node-resources.json**, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Ciclo delle risorse o Resource Looping**.
+Esaminiamo *come* viene utilizzato quest’ultimo modello, node-resources.json, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **ciclo delle risorse o resource looping**.
 
-Quando si richiama **node-resources.json** dall’interno del file **azuredeploy.json** principale, la richiamata viene eseguita dall’interno di una risorsa che utilizza l’elemento `copy` per creare un ciclo di ordinamenti. Una risorsa che utilizza l’elemento `copy` verrà copiata automaticamente per il numero di volte specificato nel parametro `count` dell’elemento `copy`. Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di **azuredeploy.json** è possibile osservare questo concetto applicato alla creazione di più macchine virtuali per i nodi Redis Cluster:
+Quando si richiama node-resources.json dall’interno del file azuredeploy.json principale, la richiamata viene eseguita dall’interno di una risorsa che utilizza l’elemento `copy` per creare un ciclo di ordinamenti. Una risorsa che utilizza l’elemento `copy` verrà copiata automaticamente per il numero di volte specificato nel parametro `count` dell’elemento `copy`. Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di azuredeploy.json è possibile osservare questo concetto applicato alla creazione di più VM per i nodi Redis Cluster:
 
 ```json
 {
@@ -580,7 +580,7 @@ Quando si richiama **node-resources.json** dall’interno del file **azuredeploy
 
 Un altro concetto importante nella creazione delle risorse è la possibilità di specificare le dipendenze e le priorità tra risorse, come è possibile vedere nella matrice JSON `dependsOn`. In questo particolare modello, è possibile vedere che i nodi Cluster Redis dipendono dalle risorse condivise create in precedenza.
 
-Come accennato precedentemente, l'ultimo nodo deve attendere per il provisioning fino a quando non è stato eseguito il provisioning di tutti gli altri Redis Cluster con il server Redis in esecuzione su di essi. Questa operazione viene eseguita in **azuredeploy.json** con una risorsa denominata `lastnode-resources` che dipende dal ciclo `copy` denominato `memberNodesLoop` dal frammento di modello precedente. Una volta completato il ciclo `memberNodesLoop`, è possibile eseguire il provisioning di `lastnode-resources`:
+Come accennato precedentemente, l'ultimo nodo deve attendere per il provisioning fino a quando non è stato eseguito il provisioning di tutti gli altri cluster Redis con il server Redis in esecuzione su di essi. Questa operazione viene eseguita in azuredeploy.json con una risorsa denominata `lastnode-resources` che dipende dal ciclo `copy` denominato `memberNodesLoop` dal frammento di modello precedente. Dopo il completamento del provisioning di `memberNodesLoop`, è possibile eseguire il provisioning di `lastnode-resources`:
 
 ```json
 {
@@ -625,9 +625,9 @@ Come accennato precedentemente, l'ultimo nodo deve attendere per il provisioning
 }
 ```
 
-Si noti come la risorsa `lastnode-resources` passi uno script `machineSettings.commandToExecute` leggermente diverso al modello collegato. Questo è il motivo per il quale per l'ultimo nodo, oltre al server Redis installato, è necessario anche chiamare uno script per configurare Redis Cluster (che deve essere eseguito solo una volta dopo che tutti i server Redis sono operativi).
+Si noti come la risorsa `lastnode-resources` passi uno script `machineSettings.commandToExecute` leggermente diverso al modello collegato. Questo è il motivo per il quale per l'ultimo nodo, oltre al server Redis installato, è necessario chiamare uno script per configurare Redis Cluster (che deve essere eseguito solo una volta dopo che tutti i server Redis sono operativi).
 
-Un altro frammento interessante da esplorare, è quello correlato alle estensioni della macchina virtuale `CustomScriptForLinux`. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster. In questo caso, questa viene utilizzata per installare e configurare Redis in ogni nodo della macchina virtuale. Esaminiamo un frammento del modello **node-resources.json** in cui vengono utilizzate le estensioni:
+Un altro frammento interessante da esplorare è quello correlato alle `CustomScriptForLinux` estensioni della VM. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster. In questo caso, questa viene utilizzata per installare e configurare Redis in ogni nodo della VM. Esaminiamo un frammento del modello node-resources.json in cui vengono utilizzate le estensioni:
 
 ```json
 {
@@ -650,20 +650,20 @@ Un altro frammento interessante da esplorare, è quello correlato alle estension
 }
 ```
 
-È possibile vedere che questa risorsa dipende dalla macchina virtuale della risorsa già distribuita (Microsoft.Compute/virtualMachines/vmMember<X>, nella quale <X> è il parametro "machineSettings.machineIndex", che è l’indice della macchina virtuale passato a questo script tramite la funzione “copyindex()”.
+È possibile vedere che questa risorsa dipende dalla VM della risorsa già distribuita (`Microsoft.Compute/virtualMachines/vmMember<X>`, nella quale `<X>` è il parametro `machineSettings.machineIndex`, che è l’indice della VM passato a questo script tramite la funzione **copyindex()**).
 
-Acquisendo familiarità con gli altri file inclusi in questa distribuzione, sarà in possibile comprendere tutti i dettagli e le procedure consigliate necessarie per organizzare e orchestrare le strategie di distribuzione complesse per le soluzioni con più nodi, basate su qualsiasi tecnologia e che sfruttano i modelli di Gestione risorse di Azure. Sebbene non obbligatorio, è un approccio consigliato per strutturare i file di modello come mostrato nel diagramma seguente:
+Acquisendo familiarità con gli altri file inclusi in questa distribuzione sarà possibile comprendere tutti i dettagli e le procedure consigliate necessarie per organizzare e orchestrare le strategie di distribuzione complesse per le soluzioni con più nodi, basate su qualsiasi tecnologia, che sfruttano i modelli di Gestione risorse di Azure. Sebbene non obbligatorio, è un approccio consigliato per strutturare i file di modello come mostrato nel diagramma seguente:
 
 ![redis-template-structure](media/virtual-machines-redis-template/redis-template-structure.png)
 
 In pratica, questo approccio suggerisce di:
 
-- Definire il file del modello di base come punto centrale di orchestrazione per tutte le attività di distribuzione specifiche, sfruttando il modello di collegamento per richiamare le esecuzioni del sottomodello
-- Creare un file di modello specifico che consentirà di distribuire tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (ad esempio gli account di archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riutilizzata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
-- Includere modelli di risorsa facoltativi per requisiti specifici di una determinata risorsa
-- Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche
-- Per tutte le attività di post-distribuzione (ad esempio, installazione del prodotto, configurazioni e così via) utilizzare estensioni di distribuzione di script e creare script specifici per ogni tecnologia
+- Definire il file del modello di base come un punto centrale di orchestrazione per tutte le attività di distribuzione specifiche, sfruttando il modello di collegamento per richiamare le esecuzioni del sottomodello.
+- Creare un file di modello specifico che consentirà di distribuire tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (account di Archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riusata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
+- Includere modelli di risorsa facoltativi per requisiti specifici di una determinata risorsa.
+- Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche.
+- Per tutte le attività di post distribuzione (installazione del prodotto, configurazioni e così via), usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia.
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -34,7 +34,7 @@ L'implementazione di HDInsight usa l'architettura di scalabilità orizzontale di
 
 ## Modalità di gestione dei dati in HBase di HDInsight
 
-I dati possono essere gestiti in HBase tramite i comandi `create`, `get`, `put` e `scan` dalla shell di HBase. I dati vengono scritti nel database tramite `put` e letti tramite `get`. Il comando `scan` viene usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C\# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][hbase-get-started]. Sono anche disponibili coprocessori che consentono l'elaborazione dei dati nei nodi che ospitano il database.
+I dati possono essere gestiti in HBase tramite i comandi `create`, `get`, `put` e `scan` dalla shell di HBase. I dati vengono scritti nel database tramite `put` e letti tramite `get`. Il comando `scan` viene usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][hbase-get-started]. Sono anche disponibili coprocessori che consentono l'elaborazione dei dati nei nodi che ospitano il database.
  
 
 ## Scenari: casi di utilizzo per HBase
@@ -46,7 +46,7 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 
 - Dati di sensori
 
-	HBase è utile per l'acquisizione di dati raccolti in modo incrementale da varie origini, incluse analisi di social media e serie temporali, e permette di mantenere aggiornati i dashboard interattivi con tendenze e contatori e di gestire i sistemi di log di controllo. Alcuni esempi includono il terminale dei trader di Bloomberg e il database OpenTSDB \(Open Time Series Database\), che archivia e fornisce l'accesso alle metriche raccolte sull'integrità dei sistemi di server.
+	HBase è utile per l'acquisizione di dati raccolti in modo incrementale da varie origini, incluse analisi di social media e serie temporali, e permette di mantenere aggiornati i dashboard interattivi con tendenze e contatori e di gestire i sistemi di log di controllo. Alcuni esempi includono il terminale dei trader di Bloomberg e il database OpenTSDB (Open Time Series Database), che archivia e fornisce l'accesso alle metriche raccolte sull'integrità dei sistemi di server.
 
 - Query in tempo reale
 
@@ -63,7 +63,7 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 - [Provisioning di cluster HDInsight in Rete virtuale di Azure][hbase-provision-vnet]
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analizzare i sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment]
-- [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight \(Hadoop\)][hbase-build-java-maven]
+- [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)][hbase-build-java-maven]
 
 ##<a name="see-also"></a>Vedere anche
 
@@ -104,4 +104,4 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

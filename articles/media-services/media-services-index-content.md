@@ -3,7 +3,7 @@
 	description="Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/21/2015" 
 	ms.author="juliako"/>
 
 
 # Indicizzazione di file multimediali con Azure Media Indexer
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) . 
+Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
-Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.  
+Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.
 
->[AZURE.NOTE] Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
+>[AZURE.NOTE]Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 
 
 Un processo di indicizzazione genera quattro output per ogni file di indicizzazione:
@@ -31,7 +31,7 @@ Un processo di indicizzazione genera quattro output per ogni file di indicizzazi
 - File CC (Closed Caption) in formato SAMI.
 - File CC (Closed Caption) in formato TTML (Timed Text Markup Language).
 
-	I file SAMI e TTML includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
+	I file SAMI e TTML includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
 - File di parole chiave (XML).
 - File BLOB di indicizzazione audio (AIB, Audio Indexing Blob) da usare con SQL Server.
 	
@@ -42,7 +42,7 @@ Questo argomento illustra come creare processi di indicizzazione per **indicizza
 
 Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [blog di Servizi multimediali](http://azure.microsoft.com/blog/topics/media-services/).
 
-## Uso di file configurazione e manifesto per l'indicizzazione delle attività
+##Uso di file configurazione e manifesto per l'indicizzazione delle attività
 
 È possibile specificare più informazioni per le attività di indicizzazione usando una configurazione di attività. Ad esempio, è possibile specificare quali metadati usare per il file multimediale. Questi metadati vengono usati dal modulo di gestione del linguaggio per espandere il vocabolario e migliorano notevolmente la precisione del riconoscimento vocale.
 
@@ -50,7 +50,7 @@ Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [bl
 
 Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-## Indicizzare un asset
+##Indicizzare un asset
 
 Il seguente metodo carica un file multimediale come asset e crea un processo per indicizzare l'asset.
 
@@ -143,7 +143,7 @@ Si noti che, qualora non venga specificato un file di configurazione, il file mu
 	    return processor;
 	} 
 	
-### <a id="output_files"></a>File di output
+###<a id="output_files"></a>File di output
 
 Il processo di indicizzazione genera i seguenti file di output. I file verranno archiviati nel primo asset di output.
 
@@ -152,7 +152,7 @@ Il processo di indicizzazione genera i seguenti file di output. I file verranno 
 <tr><th>Nome file</th><th>Descrizione</th></tr>
 <tr><td>InputFileName.aib </td>
 <td>File BLOB di indicizzazione audio.<br/><br/>
-Un file AIB (Audio Indexing Blob) è un file binario in cui è possibile eseguire ricerche full-text con Microsoft SQL Server.  Questo file è più potente dei semplici file di sottotitoli perché contiene alternative per ogni parola, offrendo funzioni di ricerca più avanzate.
+Un file AIB (Audio Indexing Blob) è un file binario in cui è possibile eseguire ricerche full-text con Microsoft SQL Server. Questo file è più potente dei semplici file di sottotitoli perché contiene alternative per ogni parola, offrendo funzioni di ricerca più avanzate.
 <br/>
 <br/>
 Per il file è necessaria l'installazione del componente aggiuntivo Indexer SQL su un computer che esegue Microsoft SQL Server 2008 o versioni successive. La ricerca full-text nel file AIB con Microsoft SQL Server restituisce risultati più precisi rispetto ai file di sottotitoli codificati generati da WAMI. Questo perché il file AIB contiene parole alternative con un suono simile, mentre i file di sottotitoli codificati contengono la parola con la massima probabilità per ogni segmento dell'audio. Se la ricerca di descrizioni vocali ha un'importanza molto rilevante, si consiglia di usare il file AIB insieme a Microsoft SQL Server.
@@ -165,7 +165,7 @@ Per scaricare il componente aggiuntivo, fare clic su <a href="http://aka.ms/inde
 <br/><br/>
 Possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.
 <br/><br/>
-I file SAMI e TTML includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.</td></tr>
+I file SAMI e TTML includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>File di parole chiave.
 <br/><br/>
@@ -176,7 +176,7 @@ Un file di parole chiave è un file XML che contiene parole chiave estratte da c
 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
-## Indicizzare più file
+##Indicizzare più file
 
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
@@ -256,11 +256,11 @@ Viene creato un file manifesto con estensione lst, che viene caricato nell'asset
 	}
 
 
-### File di output
+###File di output
 
-Quando sono presenti più file multimediali di input, WAMI genera un file manifesto per gli output del processo, denominato 'JobResult.txt'. Per ogni file multimediale di input, i file AIB, SAMI, TTML e di parole chiave risultanti verranno numerati in sequenza, come elencato di seguito.
+Quando sono presenti più file multimediali di input, WAMI genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file AIB, SAMI, TTML e di parole chiave risultanti verranno numerati in sequenza, come elencato di seguito.
 
-Per le descrizioni dei file di output, vedere [File di output](#output_files). 
+Per le descrizioni dei file di output, vedere [File di output](#output_files).
 
 
 <table border="1">
@@ -298,7 +298,7 @@ Error: indica se il file multimediale viene indicizzato correttamente. 0 in caso
 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
-### Processo parzialmente completato
+###Processo parzialmente completato
 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
@@ -320,20 +320,20 @@ Vengono generati gli stessi output dei processi completati. È possibile fare ri
 <tr><td>2006</td><td>Troppi file di input</td><td>Sono presenti oltre 10 file nel manifesto di input. </td></tr>
 <tr><td>3000</td><td>Impossibile decodificare il file multimediale</td>
 <td>Codec multimediale non supportato.
-<br/>o<br/>
+<br/>oppure<br/>
 File multimediale danneggiato.
-<br/>o<br/>
+<br/>oppure<br/>
 Nessun flusso audio nei file multimediali di input.</td></tr>
 <tr><td>4000</td><td>Indicizzazione batch parzialmente completata</td><td>Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="output_files">File di output</a>.</td></tr>
 <tr><td>Altro</td><td>Errori interni</td><td>Contattare il team di supporto.</td></tr>
 </table>
 
 
-## <a id="supported_languages"></a>Lingue supportate
+##<a id="supported_languages"></a>Lingue supportate
 
-Al momento è supportata solo la lingua inglese.
+Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere [Azure Media Indexer in lingua spagnola](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
-## Collegamenti correlati
+##Collegamenti correlati
 
 [Uso dei file AIB con Azure Media Indexer e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -343,5 +343,4 @@ Al momento è supportata solo la lingua inglese.
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

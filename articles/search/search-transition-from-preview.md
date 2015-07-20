@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Transizione dalla versione api di anteprima =2014* alla versione api=2015*#
@@ -22,12 +22,12 @@ Le linee guida seguenti sono indirizzate ai clienti che hanno compilato applicaz
 
 La versione di anteprima utilizzata può essere stata una delle due seguenti:
 
-- [Versione di anteprima del 31/07/2014](../search-api-2014-07-31-preview.md)
+- [Versione di anteprima del 31/07/2014](search-api-2014-07-31-preview.md)
 - [Versione di anteprima del 20/10/2014](search-api-2014-10-20-preview.md)
 
-Ora che Azure è disponibile a livello generale, si invita ad eseguire la transizione a versioni più recenti: la versione del 28/ 02/2015 è la versione API ufficiale della versione disponibile a livello generale di Ricerca di Azure. Questa versione è documentata in [MSDN](https://msdn.microsoft.com/it-it/library/azure/dn798933.aspx).
+Ora che Azure è disponibile a livello generale, si invita ad eseguire la transizione a versioni più recenti: la versione del 28/ 02/2015 è la versione API ufficiale della versione disponibile a livello generale di Ricerca di Azure. Questa versione è documentata in [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-È in corso anche la distribuzione della prossima versione di anteprima, [28/02/2015-Anteprima](../search-api-2015-02-28-preview.md), che introduce funzionalità ancora in fase di sviluppo. Sono graditi commenti e suggerimenti degli utenti nei [forum di Ricerca di Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch) o nella [pagina dei commenti](http://feedback.azure.com/forums/263029-azure-search).
+È in corso anche la distribuzione della prossima versione di anteprima, [28/02/2015-Anteprima](search-api-2015-02-28-preview.md), che introduce funzionalità ancora in fase di sviluppo. È possibile fornire commenti e suggerimenti sull'anteprima della API tramite il [Azure Cerca](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) nei forum o la [pagina commenti](http://feedback.azure.com/forums/263029-azure-search).
 
 ###Elenco di controllo per la migrazione###
 
@@ -41,7 +41,7 @@ Ora che Azure è disponibile a livello generale, si invita ad eseguire la transi
 
 La versione iniziale dell'API includeva una funzionalità di completamento automatico o suggerimenti di digitazione. Anche se utile, tale funzionalità era limitata alla corrispondenza dei prefissi, cercando il primo carattere del termine di ricerca, senza supporto per la corrispondenza di altre parti del campo. L'implementazione era una proprietà booleana denominata `suggestions` che era necessario impostare su `true` se si desiderava abilitare la corrispondenza dei prefissi in un campo specifico.
 
-Questa implementazione originale è diventata obsoleta ed è stata sostituta da un nuovo costrutto `Suggesters` definito nella funzionalità [indice](https://msdn.microsoft.com/it-it/library/azure/dn798941.aspx) che fornisce la corrispondenza di infissi e fuzzy. Come indicato dai nomi, le corrispondenze di infissi e fuzzy forniscono una gamma più ampia di possibilità di corrispondenza. La corrispondenza degli infissi comprende i prefissi in quanto viene ancora cercata la corrispondenza con i caratteri iniziali, ma la ricerca si estende in modo da includere tutta la stringa.
+Questa implementazione originale è diventata obsoleta ed è stata sostituta da un nuovo costrutto `Suggesters` definito nella funzionalità [indice](https://msdn.microsoft.com/library/azure/dn798941.aspx) che fornisce la corrispondenza di infissi e fuzzy. Come indicato dai nomi, le corrispondenze di infissi e fuzzy forniscono una gamma più ampia di possibilità di corrispondenza. La corrispondenza degli infissi comprende i prefissi in quanto viene ancora cercata la corrispondenza con i caratteri iniziali, ma la ricerca si estende in modo da includere tutta la stringa.
 
 Si è scelto di interrompere l'implementazione precedente, la proprietà booleana, che non sarà più disponibile nelle versioni 2015, senza compatibilità con le versioni precedenti, per evitare la sua adozione accidentale da parte dei clienti che compilano soluzioni più recenti. Se si utilizza `2015-02-28` o `2015-02-28-Preview` occorre utilizzare il nuovo costrutto `Suggesters` per consentire query con suggerimenti di digitazione.
 
@@ -135,12 +135,13 @@ Una definizione dello schema migrato omette la proprietà `Suggestions` e aggiun
 Dopo aver trasferito la soluzione e verificato che venga eseguita come previsto, è possibile utilizzare questi collegamenti per informazioni sulle nuove funzionalità.
 
 - [Azure Search is generally available (post di blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
-- [Novità dell’ultimo aggiornamento di Ricerca di Azure](../search-latest-updates/)
-- [Panoramica di Ricerca di Azure](https://msdn.microsoft.com/it-it/library/azure/dn798933.aspx)
+- [Novità dell’ultimo aggiornamento di Ricerca di Azure](search-latest-updates.md)
+- [Che cos'è la Ricerca di Azure?](search-what-is-azure-search.md)
 
 ##Ottenere aiuto##
 
-La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le opzioni di supporto e i collegamenti in [questa pagina](http://azure.microsoft.com/support/options/) per creare un ticket di supporto.
+La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le opzioni di supporto e i collegamenti in [questa pagina](../support/options/) per creare un ticket di supporto.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

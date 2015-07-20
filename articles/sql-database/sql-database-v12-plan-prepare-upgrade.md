@@ -14,17 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/07/2015"
 	ms.author="genemi"/>
 
 
 # Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL
-
-
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
 
 
 In questo argomento vengono descritti la pianificazione e i preparativi da effettuare per eseguire l'aggiornamento dei database SQL di Azure dalla versione V11 alla versione V12 ([in versione di anteprima in alcune aree geografiche](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
@@ -54,9 +48,9 @@ Le seguenti sottosezioni forniscono le informazioni da acquisire e indicano le d
 Questo documento riguarda l'aggiornamento del database SQL di Microsoft Azure dalla versione 11 alla versione 12. A livello più formale, i numeri di versione si avvicinano ai due seguenti valori, come indicato dall'istruzione Transact-SQL **SELECT @@version;**:
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(o appena superiore, V12)*
-
+- 11.0.9228.18 *(V11)*
+ - V11 è indicato anche come SAWA v2.
 
 ### Pianificazione del livello di servizio
 
@@ -156,13 +150,16 @@ In alternativa, per connettersi al database SQL di Azure è possibile utilizzare
 ### Limitazione *durante* l'aggiornamento alla versione 12
 
 
+Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento alla versione V12. Tuttavia è necessario considerare due limitazioni.
+
+
 | Limitazione | Descrizione |
 | :--- | :--- |
-| Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Con una dimensione superiore a 50 GB oppure <br/>*A un livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
+| Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Con una dimensione superiore a 50 GB oppure<br/>* A un livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
 | Replica geografica non supportata | La replica geografica non è supportata in un server 12 sottoposto a un aggiornamento dalla versione 11. |
 
 
-### Limitazione  *dopo* l'aggiornamento alla versione 12
+### Limitazione *dopo* l'aggiornamento alla versione 12
 
 
 | Limitazione | Descrizione |
@@ -245,5 +242,6 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

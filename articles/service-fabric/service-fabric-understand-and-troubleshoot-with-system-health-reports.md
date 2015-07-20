@@ -24,7 +24,7 @@ I componenti di Infrastruttura di servizi forniscono report, per impostazione pr
 
 I report di integrità del sistema forniscono visibilità nella funzionalità del cluster e dell'applicazione e contrassegnano i problemi riscontrati nell’integrità. Per applicazioni e servizi, i report di integrità del sistema verificano che le entità vengano implementate e che il comportamento sia corretto dal punto di vista di Infrastruttura di servizi. I report non forniscono il monitoraggio dell'integrità della logica di business del servizio o il rilevamento dei processi bloccati. I servizi utente possono arricchire i dati di integrità con informazioni specifiche per la logica.
 
-> [AZURE.NOTE]I report di integrità watchdog sono visibili solo **dopo** la creazione di un’entità da parte dei componenti di sistema. Quando viene eliminata un'entità, in Archivio integrità tutti i report ad essa associati vengono eliminati automaticamente. Lo stesso accade quando viene creata una nuova istanza dell'entità \(ad esempio, viene creata una nuova istanza di replica del servizio\): tutti i report associati all'istanza precedente vengono eliminati e rimossi dall’archivio.
+> [AZURE.NOTE]I report di integrità watchdog sono visibili solo **dopo** la creazione di un’entità da parte dei componenti di sistema. Quando viene eliminata un'entità, in Archivio integrità tutti i report ad essa associati vengono eliminati automaticamente. Lo stesso accade quando viene creata una nuova istanza dell'entità (ad esempio, viene creata una nuova istanza di replica del servizio): tutti i report associati all'istanza precedente vengono eliminati e rimossi dall’archivio.
 
 I report dei componenti di sistema vengono identificati dall’origine, che inizia con il prefisso *"System."*. I watchdog non possono utilizzare lo stesso prefisso per le rispettive origini, in quanto i report verranno rifiutati con parametri non validi. Osserviamo alcuni report di sistema per capire da quali eventi vengono attivati e come risolvere gli eventuali problemi che rappresentano.
 
@@ -34,7 +34,7 @@ I report dei componenti di sistema vengono identificati dall’origine, che iniz
 L'entità di integrità del cluster viene creata automaticamente nell'archivio di integrità, pertanto se tutto funziona correttamente non dispone di un report di sistema.
 
 ### Perdita di risorse
-Nei report System.Federation viene segnalato un errore quando si rileva una perdita di risorse. Il rapporto proviene dai singoli nodi e l'ID del nodo è incluso nel nome della proprietà. Se si verifica una sola perdita di risorse nell’intero anello di Infrastruttura di servizi, in genere è possibile prevedere due eventi \(entrambi i lati del gap effettueranno la segnalazione\). In caso di più perdite di risorse, si verificheranno più eventi. Nel report viene specificato il timeout Durata globale come valore TTL, e il report viene reinviato ogni metà del TTL finché la condizione è ancora attiva. L'evento viene rimosso automaticamente alla scadenza, pertanto, se il nodo di creazione dei report è disattivato, viene correttamente rimosso dall'Archivio integrità.
+Nei report System.Federation viene segnalato un errore quando si rileva una perdita di risorse. Il rapporto proviene dai singoli nodi e l'ID del nodo è incluso nel nome della proprietà. Se si verifica una sola perdita di risorse nell’intero anello di Infrastruttura di servizi, in genere è possibile prevedere due eventi (entrambi i lati del gap effettueranno la segnalazione). In caso di più perdite di risorse, si verificheranno più eventi. Nel report viene specificato il timeout Durata globale come valore TTL, e il report viene reinviato ogni metà del TTL finché la condizione è ancora attiva. L'evento viene rimosso automaticamente alla scadenza, pertanto, se il nodo di creazione dei report è disattivato, viene correttamente rimosso dall'Archivio integrità.
 
 - SourceId: System.Federation
 - Proprietà: inizia con "Neighborhood" e include informazioni sul nodo.
@@ -44,7 +44,7 @@ Nei report System.Federation viene segnalato un errore quando si rileva una perd
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Qualsiasi nodo deve disporre di un report da System.FM in cui viene mostrato lo stato. Le entità del nodo vengono rimosse quando il nodo è disabilitato.
 
 ### Nodo su/giù
-System.FM segnala OK quando il nodo viene aggiunto l'anello \(è attivo e in esecuzione\), ed errore quando il nodo si allontana dall'anello \(è disattivato, per l'aggiornamento oppure semplicemente per un guasto\). La gerarchia dell’integrità creata da Archivio integrità interviene sulle entità distribuite in correlazione con i report del nodo System.FM. Considera il nodo un padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo non vengono esposte tramite le query se il nodo è inattivo o non segnalato oppure se il nodo dispone di un'istanza diversa rispetto all'istanza associata alle entità. Quando FM segnala il nodo inattivo o riavviato \(nuova istanza\), l’Archivio integrità elimina automaticamente le entità distribuite che possono essere presenti unicamente sul nodo inattivo o sull’istanza precedente del nodo.
+System.FM segnala OK quando il nodo viene aggiunto l'anello (è attivo e in esecuzione), ed errore quando il nodo si allontana dall'anello (è disattivato, per l'aggiornamento oppure semplicemente per un guasto). La gerarchia dell’integrità creata da Archivio integrità interviene sulle entità distribuite in correlazione con i report del nodo System.FM. Considera il nodo un padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo non vengono esposte tramite le query se il nodo è inattivo o non segnalato oppure se il nodo dispone di un'istanza diversa rispetto all'istanza associata alle entità. Quando FM segnala il nodo inattivo o riavviato (nuova istanza), l’Archivio integrità elimina automaticamente le entità distribuite che possono essere presenti unicamente sul nodo inattivo o sull’istanza precedente del nodo.
 
 - SourceId: System.FM
 - Proprietà: State
@@ -54,7 +54,7 @@ Di seguito viene illustrato l'evento System.FM con stato di integrità OK per il
 
 ```powershell
 
-PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
 HealthEvents          :
@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### Scadenza dei certificati
-System.FabricNode segnala una condizione di avviso quando i certificati utilizzati dal nodo sono vicini alla scadenza. Esistono tre certificati per ogni nodo: Certificate\_cluster, Certificate\_server e Certificate\_default\_client. Quando la scadenza è almeno dopo due settimane, il tipo di report è OK. Se la scadenza è entro due settimane, il tipo di report è Warning. Il valore TTL di questi eventi è infinito, vengono rimossi quando un nodo abbandona il cluster.
+System.FabricNode segnala una condizione di avviso quando i certificati utilizzati dal nodo sono vicini alla scadenza. Esistono tre certificati per ogni nodo: Certificate_cluster, Certificate_server e Certificate_default_client. Quando la scadenza è almeno dopo due settimane, il tipo di report è OK. Se la scadenza è entro due settimane, il tipo di report è Warning. Il valore TTL di questi eventi è infinito, vengono rimossi quando un nodo abbandona il cluster.
 
 - SourceId: System.FabricNode
 - Proprietà: inizia con "Certificate" e contiene ulteriori informazioni sul tipo di certificato.
@@ -95,12 +95,12 @@ System.CM segnala OK quando l'applicazione viene creata o aggiornata. Informa l�
 
 - SourceId: System.CM
 - Proprietà: State
-- Passaggi successivi: se l'applicazione viene creata, è necessario che disponga del rapporto di integrità CM. In caso contrario, controllare lo stato dell'applicazione eseguendo una query \(ad esempio, il cmdlet Powershell Get-ServiceFabricApplication -ApplicationName <applicationName>\).
+- Passaggi successivi: se l'applicazione viene creata, è necessario che disponga del rapporto di integrità CM. In caso contrario, controllare lo stato dell'applicazione eseguendo una query (ad esempio, il cmdlet Powershell Get-ServiceFabricApplication -ApplicationName <applicationName>).
 
 Di seguito viene illustrato l’evento State nell’applicazione fabric:/WordCount.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -132,7 +132,7 @@ System.FM segnala OK quando viene creato il servizio. Elimina l'entità da Archi
 Di seguito viene illustrato l'evento State nel servizio fabric:/WordCount/WordCountService.
 
 ```powershell
-PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+PS C:> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Ok
@@ -174,7 +174,7 @@ System.FM segnala OK quando la partizione viene creata ed è integra. Elimina l'
 Di seguito viene illustrata una partizione integra.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
+PS C:> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
@@ -195,7 +195,7 @@ HealthEvents          :
 Di seguito viene illustrata l’integrità di una partizione che è al di sotto del conteggio delle repliche di destinazione. Passaggi successivi: ottenere la descrizione della partizione, che mostra il modo in cui è stata configurata: MinReplicaSetSize è 2, TargetReplicaSetSize è 7. Quindi, ottenere il numero di nodi nel cluster: 5. Pertanto in questo caso, 2 repliche non possono essere posizionate.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -216,7 +216,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
 
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
 
 PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 PartitionKind          : Int64Range
@@ -231,7 +231,7 @@ DataLossNumber         : 130743727710830900
 ConfigurationNumber    : 8589934592
 
 
-PS C:\> @(Get-ServiceFabricNode).Count
+PS C:> @(Get-ServiceFabricNode).Count
 5
 ```
 
@@ -253,7 +253,7 @@ System.RA segnala una condizione OK quando viene creata la replica.
 Di seguito viene illustrata una replica integra:
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
 AggregatedHealthState : Ok
@@ -272,7 +272,7 @@ HealthEvents          :
 ```
 
 ### Stato aperto della replica
-La descrizione di questo report di integrità contiene l'ora di inizio \(UTC\) del momento in cui è stata eseguita la chiamata dell'API. System.RA segnala una condizione di avviso se l’apertura della replica richiede più tempo del periodo configurato \(impostazione predefinita: 30 minuti\). Se l'API influisce sulla disponibilità del servizio, il report viene eseguito molto più rapidamente \(intervallo di tempo configurabile, valore predefinito di 30 secondi\). Questo tempo include il tempo impiegato per l’apertura del replicatore e l’apertura del servizio. Se l’apertura viene completata, la proprietà cambia in OK.
+La descrizione di questo report di integrità contiene l'ora di inizio (UTC) del momento in cui è stata eseguita la chiamata dell'API. System.RA segnala una condizione di avviso se l’apertura della replica richiede più tempo del periodo configurato (impostazione predefinita: 30 minuti). Se l'API influisce sulla disponibilità del servizio, il report viene eseguito molto più rapidamente (intervallo di tempo configurabile, valore predefinito di 30 secondi). Questo tempo include il tempo impiegato per l’apertura del replicatore e l’apertura del servizio. Se l’apertura viene completata, la proprietà cambia in OK.
 
 - SourceId: System.RA
 - Proprietà: ReplicaOpenStatus.
@@ -288,7 +288,7 @@ System.RAP e System.Replicator segnalano una condizione di avviso se una chiamat
 Nell'esempio seguente viene illustrata una partizione nella perdita di quorum e i passaggi di indagine effettuati per capire il motivo. Una delle repliche presenta uno stato di integrità Warning, pertanto consideriamo questa integrità. Viene mostrato che l’operazione di servizio richiede più tempo del previsto, evento segnalato da System.RAP. Dopo queste informazioni, il passaggio successivo consiste nell’esaminare il codice del servizio e indagare. In questo caso, l'implementazione di RunAsync del servizio con stato genera un'eccezione non gestita. Si noti che viene eseguito il riciclo delle repliche, pertanto è possibile che non venga visualizzata alcuna replica nello stato Warning. Riprovare a ottenere l'integrità e osservare se sono presenti differenze nell'ID di replica, indicazione che in alcuni casi fornisce qualche indizio.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
@@ -321,7 +321,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
 
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
+PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
 
 PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 PartitionKind          : Int64Range
@@ -335,7 +335,7 @@ HealthState            : Error
 DataLossNumber         : 130743746152927699
 ConfigurationNumber    : 227633266688
 
-PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 ReplicaId           : 130743746195428808
 ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
@@ -345,7 +345,7 @@ ReplicaStatus       : Ready
 LastInBuildDuration : 00:00:01
 HealthState         : Warning
 
-PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 ReplicaId             : 130743746195428808
@@ -407,7 +407,7 @@ System.Hosting segnala OK quando un’applicazione viene attivata correttamente 
 Di seguito viene illustrata l'attivazione riuscita:
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+PS C:> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
 
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
@@ -452,10 +452,10 @@ System.Hosting segnala OK se l’attivazione del pacchetto di servizi nel nodo h
 System.Hosting segnala OK per ogni pacchetto di codice se l'attivazione ha esito positivo. Se l'attivazione ha esito negativo, segnala una condizione di avviso, come configurato; se l’attivazione di CodePackage non è riuscita oppure è terminata con un errore oltre il valore 'CodePackageHealthErrorThreshold' configurato, Hosting segnala una condizione di errore. Se sono presenti più pacchetti di codice in un pacchetto del servizio, verrà generato un report Activation per ciascun pacchetto.
 
 - SourceId: System.Hosting
-- Proprietà: prefisso CodePackageActivation e contiene il nome del pacchetto di codice e il punto di ingresso. CodePackageActivation:<CodePackageName>:\<SetupEntryPoint/EntryPoint\>. Ad esempio, CodePackageActivation:Code:SetupEntryPoint.
+- Proprietà: prefisso CodePackageActivation e contiene il nome del pacchetto di codice e il punto di ingresso. CodePackageActivation:<CodePackageName>:<SetupEntryPoint/EntryPoint>. Ad esempio, CodePackageActivation:Code:SetupEntryPoint.
 
 ### Registrazione del tipo di servizio
-System.Hosting segnala OK se il tipo di servizio è stato registrato correttamente. Viene segnalata una condizione di errore se la registrazione non è stata effettuata in tempo \(configurato con ServiceTypeRegistrationTimeout\). Se la registrazione del tipo di servizio al nodo viene annullata, perché il runtime è stato chiuso. Hosting segnala una condizione di avviso
+System.Hosting segnala OK se il tipo di servizio è stato registrato correttamente. Viene segnalata una condizione di errore se la registrazione non è stata effettuata in tempo (configurato con ServiceTypeRegistrationTimeout). Se la registrazione del tipo di servizio al nodo viene annullata, perché il runtime è stato chiuso. Hosting segnala una condizione di avviso
 
 - SourceId: System.Hosting
 - Proprietà: prefisso ServiceTypeRegistration e contiene il nome del tipo di servizio. ed esempio "ServiceTypeRegistration:FileStoreServiceType"
@@ -463,7 +463,7 @@ System.Hosting segnala OK se il tipo di servizio è stato registrato correttamen
 Di seguito viene mostrato un pacchetto del servizio distribuito integro.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+PS C:> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
 ApplicationName       : fabric:/WordCount
@@ -530,4 +530,4 @@ System.Hosting segnala una condizione di errore se si verifica un errore di conv
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

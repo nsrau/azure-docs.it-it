@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -120,5 +120,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche di trasmissione ai sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

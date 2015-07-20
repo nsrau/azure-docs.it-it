@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Raccolta di Azure Machine Learning | Microsoft Azure" 
-	description="Descrizione del sito relativo alla raccolta di Azure Machine Learning con esperimenti apprendimento automatico pubblicati dalla community " 
+	pageTitle="Raccolta di esperimenti di Machine Learning | Microsoft Azure" 
+	description="Condividere e individuare gli esperimenti di apprendimento automatico nella raccolta di Azure Machine Learning Informazioni sugli esperimenti di altri utenti o attività iniziali di Machine Learning." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="cjgronlund" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="chhavib;garye"/>
+	ms.date="06/29/2015" 
+	ms.author="chhavib;cgronlun;garye"/>
 
 
-# **Raccolta di Machine Learning** #
+# Condividere e individuare gli esperimenti di apprendimento automatico nella raccolta di Machine Learning
 La raccolta di Azure Machine Learning è un sito di community in cui è possibile scoprire esperimenti creati per risolvere problemi interessanti. È destinata agli utenti che desiderano imparare dagli esperimenti condotti da altri o che desiderano acquisire familiarità con Azure Machine Learning. Alla realizzazione di questi esperimenti contribuisce in particolar modo la comunità degli utenti di Azure Machine Learning.
 
 Nella raccolta è possibile anche trovare e copiare esperimenti realizzati dal team di Microsoft Azure Machine Learning.
@@ -26,7 +26,7 @@ Nella raccolta è possibile anche trovare e copiare esperimenti realizzati dal t
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Vantaggi ##
+## Vantaggi 
 Usando la raccolta è possibile ottenere i vantaggi seguenti:
 
 - Scoprire esperimenti interessanti 
@@ -37,7 +37,7 @@ Accedendo con il proprio account Microsoft è possibile usufruire dei seguenti v
 - Copiare esperimenti nella propria area di lavoro e iniziare a risolvere eventuali problemi usando Azure ML
 - Contribuire illustrando il proprio lavoro
 
-## Scoprire ##
+## Scoprire 
 Nella raccolta è possibile cercare e scoprire esperimenti interessanti, in grado di soddisfare le proprie esigenze di apprendimento automatico, o semplicemente acquisire familiarità con il processo di creazione di esperimenti di Azure Machine Learning.
 
 Inizialmente è possibile usare la raccolta per trovare e consultare esperimenti anche senza eseguire l'accesso. È possibile trovare facilmente esperimenti pubblicati di recente o esperimenti di tendenza oppure cercare un esperimento per nome, etichetta, algoritmo o altri attributi.
@@ -48,24 +48,24 @@ Se si è interessati a un particolare esperimento, inoltre, è possibile visuali
 
 Nella pagina di ogni esperimento è disponibile anche una sezione dedicata ai commenti in cui è possibile inserire un commento o porre una domanda. È possibile anche condividere con amici o colleghi un esperimento di particolare interesse usando le funzionalità di condivisione con un account LinkedIn o Twitter. È possibile infine inviare il collegamento alla pagina dell’esperimento tramite un messaggio di posta elettronica.
 
-## Scaricare ##
+## Scaricare 
 La raccolta di Azure Machine Learning consente di copiare un esperimento nella propria area di lavoro con un solo clic, in modo da iniziare subito a usarlo a proprio vantaggio. Se si esplora la raccolta senza aver eseguito l'accesso, prima di copiare un esperimento nella propria area di lavoro di Studio verrà richiesto di accedere con un account Microsoft.
 
-## Contribuire ##
+## Contribuire 
 È possibile contribuire allo sviluppo della raccolta inserendo nuovi esperimenti.
 
 A tale scopo, seguire questa procedura:
 
-- Accedere a Studio usando il proprio account Microsoft (accertarsi che il nome e l'immagine del profilo presenti nelle impostazioni dell’account Microsoft siano quelli che si desidera mostrare)
-- Creare l’esperimento ed eseguirlo
-- Quando l'esperimento è pronto per essere pubblicato nella raccolta, fare clic su "Publish to Gallery" nella barra di colore nero inferiore di Studio. ![Pubblica](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Buon lavoro.
+- Accedere a Studio usando il proprio account Microsoft (accertarsi che il nome e l'immagine del profilo presenti nelle impostazioni dell'account Microsoft siano quelli che si desidera mostrare)
+- Creare l'esperimento ed eseguirlo
+- Quando l'esperimento è pronto per essere pubblicato nella raccolta, fare clic su "Publish to Gallery" nella barra di colore nero inferiore di Studio. ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Buon lavoro.
 
-## Esprimere un’opinione. ##
+## Esprimere un'opinione. 
 La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Per specificare gli aspetti della raccolta che più si apprezzano o che si ritiene possano essere migliorati, è possibile usare gli emoticon.
 
 ![Commenti e suggerimenti](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Domande frequenti ##
+## Domande frequenti 
 **È possibile apportare modifiche al flusso di lavoro di un esperimento già pubblicato nella raccolta?**
 
 Per il momento non è possibile aggiornare il flusso di lavoro di un esperimento già pubblicato nella raccolta. È comunque possibile eliminare l’esperimento precedente e pubblicarne uno nuovo contenente le modifiche desiderate. Tuttavia, si sta già lavorando per consentire la pubblicazione di aggiornamenti al flusso di lavoro di un esperimento già presente nella raccolta. Non rimane che attendere.
@@ -109,5 +109,6 @@ Per delimitare i tag è possibile usare la tabulazione.
 La funzionalità di rendering per descrizioni dettagliate non è ancora disponibile per tutti gli utenti della raccolta, ma si sta lavorando per rendere disponibile questa funzione tramite il supporto per il rendering del markdown.
 
 **[VAI ALLA RACCOLTA >>](http://gallery.azureml.net)**
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

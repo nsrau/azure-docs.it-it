@@ -33,7 +33,7 @@ Per determinare quale nodo head è attivo e verificare lo stato dei servizi in e
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Come accedere ai file di log sul nodo head secondario \
+## Come accedere ai file di log sul nodo head secondario \\
 
 Per accedere ai log dei processi sul nodo head secondario nel caso in cui sia diventato il nodo head attivo, è possibile usare l'interfaccia utente di JobTracker esattamente come per il nodo attivo primario. Per accedere a JobTracker è necessario connettersi al cluster Hadoop usando il protocollo RDP, come descritto nella sezione precedente. Dopo aver eseguito l'accesso remoto al cluster, fare doppio clic sull'icona **Hadoop Name Node** sul desktop e quindi su **NameNode logs** per ottenere la directory dei log sul nodo head secondario.
 
@@ -83,4 +83,4 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

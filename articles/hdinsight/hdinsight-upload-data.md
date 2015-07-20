@@ -20,7 +20,7 @@
 
 #Caricare dati per processi Hadoop in HDInsight
 
-Azure HDInsight include un'interfaccia completa per il file system HDFS \(Hadoop Distributed File System\) sull'archivio BLOB di Azure. Tale interfaccia è stata progettata come estensione HDFS per offrire un'esperienza lineare ai clienti tramite l'abilitazione del set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. L'archivio BLOB di Azure e HDFS sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per i vantaggi dell'uso dell'archivio BLOB di Azure, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
+Azure HDInsight include un'interfaccia completa per il file system HDFS (Hadoop Distributed File System) sull'archivio BLOB di Azure. Tale interfaccia è stata progettata come estensione HDFS per offrire un'esperienza lineare ai clienti tramite l'abilitazione del set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. L'archivio BLOB di Azure e HDFS sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per i vantaggi dell'uso dell'archivio BLOB di Azure, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
 ##Prerequisiti
 
@@ -95,9 +95,9 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 > [AZURE.NOTE]Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
-> * **AZURE\_STORAGE\_ACCOUNT**: nome dell'account di archiviazione
+> * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
 >
-> * **AZURE\_STORAGE\_ACCESS\_KEY**: chiave dell'account di archiviazione
+> * **AZURE_STORAGE_ACCESS_KEY**: chiave dell'account di archiviazione
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -148,7 +148,7 @@ Per usare il comando Hadoop, è innanzitutto necessario connettersi nel nodo hea
 
 * **HDInsight basato su Windows**: [connettersi tramite Desktop remoto](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
 
-* **HDInsight basato su LInux**: connettersi tramite SSH \([il comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) o [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)\)
+* **HDInsight basato su LInux**: connettersi tramite SSH ([il comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) o [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
 
 Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un file nell'archiviazione.
 
@@ -218,7 +218,7 @@ Per altre informazioni, vedere [Documentazione di Data factory](http://azure.mic
 
 ###<a id="sqoop"></a>Apache Sqoop
 
-Sqoop è uno strumento progettato per il trasferimento di dati tra Hadoop e i database relazionali. Può essere usato per importare dati in HDFS \(Hadoop Distributed File System\) da un sistema di gestione di database relazionali \(RDBMS\), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS.
+Sqoop è uno strumento progettato per il trasferimento di dati tra Hadoop e i database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS.
 
 Per altre informazioni, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 
@@ -279,4 +279,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

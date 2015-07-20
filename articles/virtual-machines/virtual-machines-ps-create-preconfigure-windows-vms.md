@@ -25,7 +25,7 @@
 
 Questi passaggi mostrano come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows mediante un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
-Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili \(le righe che iniziano con "$"\) con i propri valori.
+Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
 Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Linux, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
@@ -65,7 +65,7 @@ Di seguito sono riportati alcuni esempi di valori ImageFamily per i computer bas
 - Windows Server Technical Preview
 - SQL Server 2012 SP1 Enterprise in Windows Server 2012
 
-Se si trova l'immagine che si sta cercando, aprire una nuova istanza dell'editor di testo preferito o l'ambiente PowerShell Integrated Scripting Environment \(ISE\). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
+Se si trova l'immagine che si sta cercando, aprire una nuova istanza dell'editor di testo preferito o l'ambiente PowerShell Integrated Scripting Environment (ISE). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -83,7 +83,7 @@ Se si trova l'immagine corretta con questo comando, aprire una nuova istanza del
 
 Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in ISE, quindi compilando i valori delle variabili e rimuovendo i caratteri < and >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
-Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi \(obbligatorio\).
+Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
 
 Opzione 1: specificare un nome di macchina virtuale e una dimensione.
 
@@ -151,7 +151,7 @@ Facoltativamente, aggiungere la macchina virtuale a un set con carico bilanciato
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Infine, avviare il processo di creazione della macchina virtuale scegliendo uno di questi blocchi di comando \(obbligatorio\).
+Infine, avviare il processo di creazione della macchina virtuale scegliendo uno di questi blocchi di comando (obbligatorio).
 
 Opzione 1: creare la macchina virtuale in un servizio cloud esistente.
 
@@ -173,7 +173,7 @@ Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fa
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
-- Salvare questo set di comandi come file di script di PowerShell \(\*.ps1\)
+- Salvare questo set di comandi come file di script di PowerShell (*.ps1)
 - Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure
 
 ## <a id="examples"></a>Esempi:
@@ -270,4 +270,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

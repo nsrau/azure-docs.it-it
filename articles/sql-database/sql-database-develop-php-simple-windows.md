@@ -33,11 +33,11 @@ Questo argomento illustra come connettersi al database SQL di Azure da un'applic
 Per eseguire l'esempio di codice PHP fornito in questo argomento, nel computer client devono essere installati gli elementi software seguenti:
 
 
-- [Driver Microsoft per PHP per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) \(SQLSRV32.EXE contiene i bit più recenti\)
+- [Driver Microsoft per PHP per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contiene i bit più recenti)
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
 - [Driver Microsoft ODBC](https://www.microsoft.com/it-it/download/details.aspx?id=36434)
 - IIS Express
-- [5\.6 PHP per IIS Express](http://www.microsoft.com/web/downloads/platform.aspx): scaricare usando l'installazione guidata piattaforma. Assicurarsi di usare Internet Explorer per scaricare il programma di installazione piattaforma
+- [5.6 PHP per IIS Express](http://www.microsoft.com/web/downloads/platform.aspx): scaricare usando l'installazione guidata piattaforma. Assicurarsi di usare Internet Explorer per scaricare il programma di installazione piattaforma
 
 Per informazioni su come installare e configurare i requisiti menzionati, vedere il [blog del team](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) e il [video](https://www.youtube.com/watch?v=0oCjiRK_tUk).
 
@@ -74,7 +74,7 @@ Questa funzione **OpenConnection** viene chiamata nella parte superiore in tutte
 
 ## Eseguire una query e recuperare il set di risultati
 
-Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv\_query\(\)](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv\_fetch\_array\(\)](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -138,11 +138,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
-\-Avvio di una transazione
+-Avvio di una transazione
 
-\-Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
+-Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
 
-\-Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
+-Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
 
 
 	function Transactions()
@@ -192,4 +192,4 @@ Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai dat
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

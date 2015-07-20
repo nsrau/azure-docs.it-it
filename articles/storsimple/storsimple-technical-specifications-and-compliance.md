@@ -3,18 +3,17 @@
     description="Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per il dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
-    editor="tysonn" /> 
-
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/01/2015"
-    ms.author="v-sharos" />
+    ms.date="06/15/2015"
+    ms.author="alkohli" />
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -29,7 +28,7 @@ I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi a
 Il dispositivo StorSimple dispone di due moduli di alimentazione e raffreddamento (PCM) compatibili con SBB a doppia ventola da 100-240 V. Fornisce una configurazione di alimentazione ridondante. Se un PCM ha esito negativo, il dispositivo continua a funzionare normalmente sull’altro PCM fino alla sostituzione del modulo non riuscito.
 
 Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un PCM 764 W. Nelle tabelle seguenti sono elencate le specifiche tecniche associate ai PCM.
- 
+
 | Specifiche | PCM 580 W (EBOD) | PCM 764 W (principale) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Potenza massima in uscita | 580 W | 764 |
@@ -48,16 +47,16 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
  
 ## Statistiche sul consumo energetico  
 
-Nella tabella seguente vengono elencati i dati sul consumo energetico per i vari modelli di dispositivo StorSimple.
+Nella tabella seguente vengono elencati i dati sul consumo energetico tipico (i valori effettivi potrebbero differire da quelli pubblicati) per i vari modelli di dispositivo StorSimple.
  
-| Condizioni | CA 240 V | CA 110 V |
-| ---------- | -------- | -------- |
-| Ventole lente, unità inattive | 1,45 A 0,31 kW | 3,19 A 0,34 kW |
-| Ventole lente, accesso alle unità | 1,54 A 0,33 kW | 3,27 A 0,36 kW |
-| Ventole veloci, unità inattive, due PSU alimentati | 2,14 A 0,49 kW | 4,99 A 0,54 kW |
-| Ventole veloci, unità inattive, un PSU alimentato uno inattivo | 2,05 A 0,48 kW | 4,58 A 0,5 kW |
-| Ventole veloci, accesso alle unità, due PSU alimentati | 2,26 A 0,51 kW | 4,95 A 0,54 kW |
-| Ventole veloci, accesso alle unità, un PSU alimentato uno inattivo | 2,14 A 0,49 kW | 4,81 A 0,53 kW |
+ Condizioni | CA 240 V | CA 240 V | CA 240 V | CA 110 V | CA 110 V | CA 110 V 
+ ---------- | -------- | -------- | -------- | -------- | -------- | -------- 
+ Ventole lente, unità inattive | 1,45 A |0,31 kW | 1057,76 BTU/h | 3,19 A | 0,34 kW | 1160,13 BTU/h 
+ Ventole lente, accesso alle unità | 1,54 A | 0,33 kW | 1126,01 BTU/h | 3,27 A | 0,36 kW | 1228,37 BTU/h 
+ Ventole veloci, unità inattive, due PSU alimentati | 2,14 A | 0,49 kW | 1671,95 BTU/h | 4,99 A | 0,54 kW | 1842,56 BTU/h 
+ Ventole veloci, unità inattive, un PSU alimentato uno inattivo | 2,05 A | 0,48 kW | 1637,83 BTU/h | 4,58 A | 0,50 kW | 1706,07 BTU/h 
+ Ventole veloci, accesso alle unità, due PSU alimentati | 2,26 A | 0,51 kW | 1740,19 BTU/h | 4,95 A | 0,54 kW | 1842,56 BTU/h 
+ Ventole veloci, accesso alle unità, un PSU alimentato uno inattivo | 2,14 A |0,49 kW | 1671,95 BTU/h | 4,81 A | 0,53 kW | 1808,44 BTU/h 
 
 ## Specifiche unità disco  
 
@@ -106,7 +105,7 @@ In questa sezione vengono elencate le specifiche relative all'ambiente dello cha
 | Flusso d'aria | Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. La pressione posteriore creata dalle porte del rack e da ostacoli non deve superare i 5 Pascal (colonna d'acqua da 0,5 mm). |
 | Altitudine, operativa | Da -30 a 3.045 metri (da -100 a 10.000 piedi) con temperatura operativa massima a potenza ridotta di 5°C oltre i 7.000 piedi. |
 | Altitudine, non operativa | Da -305 metri a 12.192 metri (da -1.000 piedi a 40.000 piedi) |
-| Scossa, operativo | 5 g 10 ms ½ sinusoidali | 
+| Scossa, operativo | 5 g 10 ms ½ sinusoidali |
 | Scossa, non operativo | 30 g 10 ms ½ sinusoidali |
 | Vibrazione, operativa | 0,21g RMS 5-500 Hz casuali |
 | Vibrazione, non operativa | 1,04 g RMS 2-200 Hz casuali |
@@ -169,8 +168,8 @@ La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli s
 
 ## Cavi di rete supportati  
 
-Per le interfacce di rete 10 GbE, DATI 2 e DATI 3, l'elenco dei cavi di rete e dei moduli supportati può essere visualizzato accedendo al seguente indirizzo Web: [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+Per le interfacce di rete 10 GbE, DATI 2 e DATI 3, fare riferimento all'[elenco dei cavi di rete e dei moduli supportati](https://msdn.microsoft.com/library/dn891474.aspx).
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

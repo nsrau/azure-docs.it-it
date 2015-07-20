@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Panoramica della sicurezza nel database SQL" 
-   description="In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l'autenticazione, l'autorizzazione, la sicurezza della connessione,  la crittografia e conformità." 
+   description="In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l'autenticazione, l'autorizzazione, la sicurezza della connessione, la crittografia e conformità." 
    services="sql-database" 
    documentationCenter="" 
    authors="tmullaney" 
@@ -27,7 +27,7 @@ In questo articolo vengono esaminate le informazioni di base relative alla prote
 
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono utilizzate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di gestione di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per ulteriori informazioni, vedere [Firewall di database SQL di Azure](https://msdn.microsoft.com/library/ee621782).
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di gestione di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per ulteriori informazioni, vedere [Firewall di database SQL di Azure](https://msdn.microsoft.com/library/ee621782).
 
 Tutte le connessioni al database SQL di Azure richiedono la crittografia SSL/TLS (SSL/TLS) in qualsiasi caso quando i dati sono "in transito" da e verso il database in qualsiasi momento. Nella stringa di connessione dell'applicazione, è necessario specificare parametri per crittografare la connessione e *non* considerare attendibile il certificato del server (ciò viene eseguito automaticamente se si copia la stringa di connessione dal portale di gestione di Azure), in caso contrario durante le connessioni non verrà verificata l'identità del server e saranno possibili attacchi "man-in-the-middle". Per il driver ADO.NET, ad esempio, questi parametri della stringa di connessione sono **Encrypt = True** e **TrustServerCertificate = False**. Per ulteriori informazioni, vedere [Crittografia di connessione al database SQL di Azure e convalida dei certificati](https://msdn.microsoft.com/library/azure/ff394108#encryption).
 
@@ -50,7 +50,7 @@ Per ulteriori informazioni su come avviene l'autenticazione con database SQL, ve
 
 
 ## Authorization
-Per autorizzazione si intende a le operazioni che è possibile effettuare all'interno di un database SQL di Azure e questa funzionalità viene controllata da autorizzazioni e da appartenenze ai ruoli dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. Il database  SQL di Azure ne semplifica la gestione con i ruoli in+ T-SQL:
+Per autorizzazione si intende a le operazioni che è possibile effettuare all'interno di un database SQL di Azure e questa funzionalità viene controllata da autorizzazioni e da appartenenze ai ruoli dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. Il database SQL di Azure ne semplifica la gestione con i ruoli in+ T-SQL:
 
 ```
 ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
@@ -61,7 +61,7 @@ L'account di amministrazione del server a cui ci si sta connettendo è un membro
 
 Esistono modi per limitare ulteriormente le operazioni possibili con il database SQL di Azure:
 
-* È possibile utilizzare [ruoli del database](https://msdn.microsoft.com/library/ms189121) diversi da  db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti.
+* È possibile utilizzare [ruoli del database](https://msdn.microsoft.com/library/ms189121) diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti.
 * È possibile utilizzare [autorizzazioni](https://msdn.microsoft.com/library/ms191291) che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database.
 * È possibile utilizzare la [rappresentazione](https://msdn.microsoft.com/library/vstudio/bb669087) e la [firma del modulo](https://msdn.microsoft.com/library/bb669102) in modo sicuro per elevare temporaneamente le autorizzazioni in modo permanente.
 * [Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) consente di filtrare le righe visualizzabili da un utente.
@@ -96,5 +96,6 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 ## Conformità
 
 Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

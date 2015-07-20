@@ -52,7 +52,7 @@ Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per 
 		"AppKey" 
 	); 
 
-Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave dell'applicazione, in quest'ordine. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su "Dashboard".
+Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su "Dashboard".
 
 ## <a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 
@@ -470,5 +470,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
-# Informazioni generali su Servizi multimediali di Azure
+#Informazioni generali su Servizi multimediali di Azure
 
 Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni di distribuzione e gestione di contenuti multimediali altamente scalabili. Servizi multimediali si basa su API REST che consentono di caricare, archiviare e codificare in sicurezza contenuti video o audio, nonché creare pacchetti di tali contenuti per la distribuzione su richiesta e in modalità streaming live a vari tipi di client (ad esempio, TV, PC e dispositivi mobili).
 
@@ -25,120 +25,66 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 - [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Uno dei client SDK disponibili: [SDK di Servizi multimediali di Azure per .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java), [Servizi multimediali di Azure per Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- Uno degli SDK client disponibili: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - Strumenti esistenti: [Portale di gestione di Azure](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
-**Contratto di servizio**: Servizi multimediali garantisce una disponibilità al 99,9% delle transazioni delle API REST per il servizio di codifica di Servizi multimediali. Con l'acquisto di almeno un'unità riservata di trasmissione in flusso, il servizio di streaming su richiesta garantisce una disponibilità al 99,9% per i contenuti multimediali esistenti. La disponibilità viene calcolata in base a un periodo di fatturazione mensile. Per altre informazioni, scaricare il [documento relativo al contratto di servizio](https://www.microsoft.com/download/details.aspx?id=39302).
 
-Il seguente poster illustra i flussi di lavoro di Servizi multimediali di Azure, dalla creazione dei contenuti multimediali fino alla loro fruizione. È possibile scaricare il poster qui: [Poster di Servizi multimediali di Azure](http://www.microsoft.com/download/details.aspx?id=38195).
+Il seguente poster illustra i flussi di lavoro di Servizi multimediali di Azure, dalla creazione dei contenuti multimediali fino alla loro fruizione. È possibile scaricare il poster da qui: [Azure Media Services poster](http://www.microsoft.com/download/details.aspx?id=38195).
 
-![Informazioni generali][overview]
+![Panoramica][overview]
 
-## Concetti
+**Contratto di servizio**:
+
+- Per il servizio di codifica di Servizi multimediali, è garantita una disponibilità al 99,9% delle transazioni delle API REST.
+- Con l'acquisto di almeno un'unità di trasmissione in flusso, per il servizio di streaming, è garantita una disponibilità al 99,9% per i contenuti multimediali esistenti.
+- Per i canali live, è garantito che i canali in esecuzione avranno connettività esterna per almeno il 99,9% del tempo.
+- Per la protezione del contenuto, è garantita l'evasione delle richieste di chiavi per almeno il 99,9% del tempo.
+- Per l'indicizzatore, è garantito che verranno soddisfatte le richieste di attività dell'indicizzatore elaborate con un'unità riservata di codifica per il 99,9% del tempo.
+
+	Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+
+##Concetti
 
 Per altre informazioni, vedere [Concetti](media-services-concepts.md).
 
-## Scelta dell'esperienza multimediale
 
-Uno dei primi passaggi per condividere contenuti video consiste nel decidere il tipo di esperienza che si vuole offrire ai clienti. In che modo verrà visualizzato il contenuto dai clienti? Sono connessi a Internet? Il contenuto verrà visualizzato in un computer o in un dispositivo mobile? I clienti si aspettano di ricevere il video in HD? Le risposte a domande come queste saranno utili per poter fornire ai clienti la miglior esperienza possibile.
+##Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure
 
-### Accesso ai video
+Il seguente argomento descrive i passaggi dei normali flussi di lavoro VOD (Video On Demand) di Servizi multimediali. L'argomento include collegamenti ad altri argomenti che illustrano come eseguire questi passaggi usando tecnologie supportate da Servizi multimediali.
+
+[Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure](media-services-video-on-demand-workflow.md).
+
+##Distribuzione di Live Streaming con Servizi multimediali di Azure
+
+Il seguente argomento descrive i passaggi dei normali flussi di lavoro di streaming live di Servizi multimediali. L'argomento include collegamenti ad altri argomenti che illustrano come eseguire questi passaggi usando tecnologie supportate da Servizi multimediali.
+
+[Distribuzione di Live Streaming con Servizi multimediali di Azure](media-services-live-streaming-workflow.md).
+
+##Utilizzo di contenuto
+
+Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box. Il seguente argomento fornisce collegamenti a SDK e Player Framework che è possibile usare per sviluppare le proprie applicazioni client in modo che utilizzino i flussi multimediali da Servizi multimediali.
+
+[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
+
+##Indicazioni su modelli e procedure
+
+[Indicazioni su modelli e procedure](https://wamsg.codeplex.com/) [Documentazione online](https://msdn.microsoft.com/library/dn735912.aspx) [EBook scaricabile](https://www.microsoft.com/download/details.aspx?id=42629)
+
+##Supporto
+
+Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
+
+##Passaggi successivi
+
+[Distribuzione di Live Streaming con Servizi multimediali di Azure](media-services-live-streaming-workflow.md)
+
+[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
  
-Esistono quattro modalità principali di accesso ai contenuti video che i clienti possono usare:
-
-- Visualizzazione offline 
-- Download progressivo
-- Streaming / Streaming a velocità in bit adattiva
-
-#### Visualizzazione offline
-
-Per visualizzare un video offline un cliente scaricherà l'intero video nel proprio computer o dispositivo. I video tendono a essere di dimensioni alquanto grandi, pertanto il completamento del download può richiedere del tempo. Il vantaggio della visualizzazione offline è dato dal fatto che non è necessario disporre di una connessione di rete per visualizzarlo, dopo che questo è stato scaricato nel dispositivo. 
-
-#### Download progressivo
-
-Per il download progressivo è necessario che il cliente sia connesso a Internet. Questa modalità consente di iniziare a visualizzare il video prima che ne sia stato completato il download. Entrambi gli approcci, offline e download progressivo, richiedono un dispositivo con sufficiente spazio di archiviazione da poter contenere l'intero video.
-
-#### Streaming
-
-Le tecnologie di streaming richiedono anch'esse una connessione a Internet, ma consentono di scaricare una piccola porzione del video alla volta, cancellandola dopo la visualizzazione. Questo metodo richiede solo una piccola quantità di spazio di archiviazione nel dispositivo di visualizzazione. La velocità effettiva di una connessione di rete può variare, ma i clienti si aspetteranno di poter visualizzare i video indipendentemente dalla larghezza di banda. Le tecnologie a velocità in bit adattiva consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore consentendo al lettore di continuare la riproduzione del video con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le seguenti tecnologie a velocità in bit adattive: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
-
-### Su quali dispositivi
-
-Un'altra decisione da prendere è il tipo di dispositivi che i clienti useranno per visualizzare i video. Servizi multimediali fornisce supporto per Web browser, smartphone, tablet, XBOX, set-top box e TV connessi.
-
-#### Web browser
-
-I Web browser possono essere eseguiti su PC Windows, PC Macintosh e Smartphone. Durante l'esecuzione su PC o Macintosh è possibile usufruire di schermi e capacità di archiviazione di grandi dimensioni. Ciò consente di trasmettere in streaming video di qualità superiore. Nei PC Windows o Macintosh è possibile visualizzare video distribuiti da Servizi multimediali usando un'applicazione nativa o un Web browser compatibile con HTML. Le applicazioni native possono supportare Smooth Streaming, Apple HLS, download progressivo o visualizzazione offline. Le pagine Web HTML5 supportano il download progressivo.
-
-
-#### Smartphone
-
-Gli smartphone dispongono di schermi di dimensioni ridotte e di minori capacità di archiviazione. Lo streaming è la scelta migliore per questi dispositivi. Sono supportati i dispositivi iPhone, Windows Phone e Android. iPhone e Android supportano Smooth Streaming e HLS. I dispositivi Windows Phone supportano Smooth Streaming.
-
-### Tablet
-
-I tablet hanno schermi più grandi rispetto agli smartphone, tuttavia presentano in genere minore capacità di archiviazione. Anche per i tablet, la scelta migliore è lo streaming. I tablet con maggiori capacità di archiviazione possono sfruttare i vantaggi della visualizzazione offline e del download progressivo.
-
-#### XBox
-
-Le console XBox offrono il vantaggio di avere schermi di grandi dimensioni e maggiore capacità di archiviazione, il che rende sia la visualizzazione offline che il download progressivo, ma anche lo streaming, scelte ugualmente idonee.
-Set-top box e TV connessi
-Questi dispositivi presentano anch'essi schermi di grandi dimensioni ma capacità di archiviazione minime, ragion per cui la soluzione migliore è rappresentata dalla visualizzazione in streaming.
-
-### Tecnologie supportate per dispositivo
-
-La seguente tabella illustra ogni tipo di dispositivo e le tecnologie client supportate da Servizi multimediali:
- 
-<table border="1">
-<tr><th>Dispositivo</th><th>Tecnologie</th></tr>
-<tr><td>iOS</td><td>Smooth Streaming, Apple HLS, download progressivo</td></tr>
-<tr><td>Windows Phone 8</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows RT</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows</td><td>Smooth Streaming, download progressivo</td></tr>
-<tr><td>Smartphone Android</td><td>Smooth Streaming e Apple HLS</td></tr>
-<tr><td>XBox</td><td>Smooth Streaming</td></tr>
-<tr><td>Macintosh</td><td>Apple HLS, download progressivo</td></tr>
-<tr><td>Set-top Box, TV connessi</td><td>Smooth Streaming, Apple HLS, download progressivo</td></tr>
-</table>
-
-
-## Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure
-
-Per altre informazioni, vedere l'argomento relativo alla [distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure](media-services-video-on-demand-workflow.md).
-
-## Distribuzione di Live Streaming con Servizi multimediali di Azure
-
-Per altre informazioni, vedere l'argomento relativo alla [distribuzione di Live Streaming con Servizi multimediali di Azure](media-services-live-streaming-workflow.md), che contiene collegamenti ad argomenti che illustrano come eseguire le attività indicate sopra.
-
-## Client
-
-Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box.
-
-- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-- [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-- [Documentazione di HTML5 Player Framework ](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework per iOS](https://github.com/Azure/azure-media-player-framework) 
-- [Licenza per Microsoft(r) Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
-- Compilazione di applicazioni video in Windows 8 
-- [Sviluppo di applicazioni video per XBox](http://xbox.create.msdn.com/) 
-
-Per altre informazioni, vedere [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
-
-## Indicazioni su modelli e procedure
-
-[Indicazioni su modelli e procedure](https://wamsg.codeplex.com/)
-[Documentazione online](https://msdn.microsoft.com/library/dn735912.aspx)
-[EBook scaricabile](https://www.microsoft.com/download/details.aspx?id=42629)
-
-## Supporto
-
-[Il supporto tecnico di Azure](http://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
-
+[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

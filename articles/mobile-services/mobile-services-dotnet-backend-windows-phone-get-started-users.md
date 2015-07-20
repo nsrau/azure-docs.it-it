@@ -30,13 +30,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##  Limitare le autorizzazioni agli utenti autenticati
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 <ol start="6">
 <li>In Visual Studio aprire il progetto di app client e assicurarsi che l'istanza di <strong>MobileServiceClient</strong> in App.xaml.cs sia configurata per l'uso dell'URL del servizio mobile nel cloud.</li> 
@@ -53,7 +53,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ## Archiviare i token di autorizzazione sul client
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
 ##  Passaggi successivi
 
@@ -77,5 +77,6 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

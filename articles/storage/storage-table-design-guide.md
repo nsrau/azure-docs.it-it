@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure ストレージ テーブル設計ガイド | Microsoft Azure" 
-   description="Azure テーブル ストレージでスケーラビリティとパフォーマンスに優れたテーブルを設計する" 
-   services="storage" 
-   documentationCenter="na" 
-   authors="Tamram,jahogg" 
-   manager="adinah" 
+<properties
+   pageTitle="Guida alla progettazione di tabelle di archiviazione di Azure | Microsoft Azure"
+   description="Progettare tabelle scalabili ed efficienti in Archiviazione tabelle di Azure"
+   services="storage"
+   documentationCenter="na"
+   authors="tamram" 
+   manager="carolz"
    editor=""/>
 
 <tags
@@ -12,26 +12,26 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="storage" 
-   ms.date="02/26/2015"
+   ms.workload="storage"
+   ms.date="06/12/2015"
    ms.author="tamram"/>
 
-# Azure ストレージ テーブル設計ガイド:スケーラビリティとパフォーマンスに優れたテーブルを設計する
+# Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni
 
-## 概要
+## Panoramica
 
-スケーラビリティとパフォーマンスに優れたテーブルを設計するにあたっては、さまざまな事柄を考慮する必要があります。具体的にはパフォーマンス、スケーラビリティ、コストなどですが、過去にリレーショナル データベースのスキーマを設計した経験がある方なら、こうした考慮事項はご存じであると思われます。しかし、Azure Table サービス ストレージ モデルとリレーショナル モデルには類似の要素が多いとはいえ、重要な違いが多数あるのも事実です。こうした相違点は、リレーショナル データベースの扱いに慣れた方には直感的にわかりづらかったり、扱いづらかったりする設計につながりがちですが、Azure Table サービスなどの NoSQL キー/値ストアを設計する場合には好都合です。Table サービスを設計する際には、数十億ものデータ エンティティ (リレーショナル データベースの用語では "行") を格納できるクラウド規模のアプリケーションや、大量のトランザクションに対応したデータセットをサポートする必要がありますが、設計上の違いの多くはこれを反映したものとなります。したがって、データの格納方法をまったく別のものとして捉えると共に、Table サービスの動作について理解する必要があります。NoSQL データ ストアを適切に設計すれば、リレーショナル データベースを使うソリューションよりも、ソリューションのスケーラビリティが大幅に高まり、コストも抑えられます。このガイドでは、これらのトピックについて説明します。  
+Per progettare tabelle scalabili ed efficienti, è necessario tenere in considerazione diversi fattori, come le prestazioni, la scalabilità e il costo. Se in precedenza si sono progettati schemi per i database relazionali, queste considerazioni saranno già state fatte, ma, pur essendoci alcune somiglianze tra il modello di archiviazione del servizio tabelle di Azure e i modelli relazionali, esistono anche molte importanti differenze. Queste differenze in genere danno origine a progettazioni molto diverse che potrebbero sembrare poco plausibili o sbagliate a chi ha familiarità con i database relazionali, ma che invece hanno perfettamente senso se la progettazione è finalizzata a un archivio di chiavi/valori NoSQL, come il servizio tabelle di Azure. Molte differenze di progettazione rispecchieranno il fatto che il servizio tabelle è progettato per supportare applicazioni con scalabilità cloud che possono contenere miliardi di entità (dette righe nella terminologia dei database relazionali) di dati o per set di dati che devono supportare volumi di transazioni molto elevati: quindi è necessario pensare in modo diverso all'archiviazione dei dati e conoscere il funzionamento del servizio tabelle. Un archivio dati NoSQL ben progettato offre alla soluzione una scalabilità decisamente più elevata (e a un costo inferiore) rispetto a una soluzione che usa un database relazionale. Questa guida illustra proprio questi argomenti.
 
-## Azure テーブル サービス
+## Informazioni sul servizio tabelle di Azure
 
-このセクションでは、パフォーマンスとスケーラビリティを重視した設計に関連する Table サービスの主要機能を取り上げます。Azure ストレージやテーブル サービスを使用したことがない場合は、この記事を読み進める前に、「[Introduction to Microsoft Azure Storage (Microsoft Azure ストレージの概要)]」や(storage-introduction.md) 「[.NET からテーブル ストレージを使用する方法]」(storage-dotnet-how-to-use-tables.md) をご覧ください。このガイドで主に取り上げるのは Table サービスについてですが、Azure のキューや BLOB サービスと、それらのサービスをソリューションで Table サービスと共に使用する方法についても触れます。  
- 
-Table サービスとは名前が示すとおり、Table サービスではデータの格納にテーブル形式を使います。標準的な定義では、テーブルの各行はエンティティを表し、そのエンティティの各種プロパティは列に格納されます。各エンティティは、それ自体を一意に識別するためのキーのペアと、Table サービスがエンティティの最終更新日時をトラッキングするためのタイムスタンプ列を持ちます (エンティティの更新は自動的に行われます。タイムスタンプを任意の値を使って手動で上書きすることはできません)。Table サービスでは、この最終更新日時のタイムスタンプ (LMT) を使ってオプティミスティック同時実行を管理します。  
+Questa sezione evidenzia alcune funzionalità chiave del servizio tabelle, di particolare importanza per la progettazione a livello di prestazioni e scalabilità. Se non si ha familiarità con Archiviazione di Azure e con il servizio tabelle, prima di proseguire con la lettura di questo articolo, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md). Anche se l'argomento principale di questa guida è il servizio tabelle, sono incluse alcune informazioni sui servizi di accodamento e BLOB di Azure e su come sia possibile usarli con il servizio tabelle in una soluzione.
 
->[AZURE.NOTE] Table サービス REST API の処理では、LMT から派生する **ETag** 値も返されます。このドキュメントでは、ETag と LMT という用語を区別なく使います。基となる同じデータを表しているためです。  
+Cos'è il servizio tabelle? Come indica il nome stesso, il servizio tabelle usa un formato tabulare per archiviare i dati. In base alla terminologia standard, ogni riga della tabella rappresenta un'entità le cui diverse proprietà sono archiviate nelle colonne. Ogni entità ha una coppia di chiavi che la identificano in modo univoco e una colonna di tipo timestamp usata dal servizio tabelle per tenere traccia dell'ultimo aggiornamento dell'entità. Questa operazione è automatica e non è possibile sovrascrivere manualmente il timestamp con un valore arbitrario. Il servizio tabelle usa questo ultimo timestamp modificato (LMT, Last Modified Timestamp) per gestire la concorrenza ottimistica.
 
-次の例は、従業員と部署のエンティティを格納する、シンプルなテーブル設計を示しています。このガイドで紹介する例の多くは、このシンプルな設計が基になっています。  
- 
+>[AZURE.NOTE]Le operazioni API REST del servizio tabelle restituiscono anche un valore**ETag** derivato dal timestamp LMT. In questo documento i termini ETag ed LMT verranno usati in modo intercambiabile perché si riferiscono agli stessi dati sottostanti.
+
+L'esempio seguente mostra la progettazione di una semplice tabella in cui archiviare le entità dei dipendenti e dei reparti. Molti degli esempi illustrati più avanti in questa guida si basano su questo tipo di progettazione semplice.
+
 <table>
 <tr>
 <th>PartitionKey</th>
@@ -120,893 +120,862 @@ Table サービスとは名前が示すとおり、Table サービスではデ�
 </table>
 
 
-今のところ、リレーショナル データベースのテーブルと非常によく似ており、異なるキーが必須の列となっていて、同じテーブルに複数の種類のエンティティを格納できます。さらに、**FirstName** や **Age** などのユーザー定義プロパティには、リレーショナル データベースの列と同様に、integer や string などのデータ型があります。ただし、リレーショナル データベースとは違って、Table サービスにはスキーマがないため、エンティティごとにプロパティのデータ型は同じである必要ありません。1 つのプロパティに複雑なデータ型を格納するには、JSON や XML などのシリアル化された形式を使う必要があります。サポートされているデータ型、サポートされているデータ範囲、名前付け規則、サイズの制限など、Table サービスの詳細については、MSDN で「[テーブル サービス データ モデルについて](http://msdn.microsoft.com/library/azure/dd179338.aspx)」をご覧ください。
+Per il momento, sembra molto simile a una tabella di un database relazionale. Le principali differenze sono le colonne obbligatorie e la possibilità di archiviare più tipi di entità nella stessa tabella. Inoltre ogni proprietà definita dall'utente, come **FirstName** o **Age** ha un tipo di dati, ad esempio integer o stringa, proprio come una colonna in un database relazionale. Anche se diversamente da un database relazionale, essendo il servizio tabelle privo di schema, una proprietà non deve avere lo stesso tipo di dati in ogni entità. Per archiviare tipi di dati complessi in una sola proprietà, è necessario usare un formato serializzato come JSON o XML. Per ulteriori informazioni sul servizio tabelle, ad esempio sui tipi di dati supportati, sugli intervalli di date supportate, sulle regole di denominazione e sui limiti di dimensioni, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx) su MSDN.
 
-この後説明するように、優れたテーブル設計において、**PartitionKey** と **RowKey** の選択が非常に重要になってきます。テーブル内の各エンティティには、**PartitionKey** と **RowKey** の一意の組み合わせが必要です。リレーショナル データベースにおけるキーと同様に、**PartitionKey** と **RowKey** の値はインデックス化され、高速ルックアップを可能にするクラスター化されたインデックスが作成されます。ただし、Table サービスではセカンダリ インデックスが作成されることはないため、インデックス付きのプロパティは 2 つだけになります (後ほど説明するパターンの一部で、この明確な制限に対処する方法を示します)。  
+Come si vedrà, la scelta di**PartitionKey** e **RowKey** è fondamentale per la progettazione ottimale di una tabella. Ogni entità archiviata in una tabella deve avere una combinazione univoca di **PartitionKey** e **RowKey**. Come le chiavi in una tabella di database relazionale, i valori di **PartitionKey** e **RowKey** vengono indicizzati per creare un indice cluster che consenta di eseguire ricerche rapide. Il servizio tabelle non crea però indici secondari e dunque queste sono le due sole proprietà indicizzate. Alcuni dei modelli descritti più avanti mostrano come poter ovviare a questa apparente limitazione.
 
-テーブルは 1 つ以上のパーティションで構成されます。この後説明するように、設計上の決定事項の多くは、ソリューションを最適化するために適切な **PartitionKey** と **RowKey** を選ぶことに関係するものです。ソリューションによっては、すべてのエンティティがパーティションを使って整理された 1 つのテーブルだけで構成されるものもありますが、通常は複数のテーブルが含まれます。テーブルを使えばエンティティを論理的に整理できるほか、アクセス制御リストを使ってデータへのアクセスを管理できます。また、1 回のストレージ操作でテーブル全体を削除できます。  
+Una tabella è costituita da una o più partizioni e, come si vedrà, molte delle decisioni relative alla progettazione riguarderanno la scelta di un valore appropriato per **PartitionKey** e **RowKey** per poter ottimizzare la soluzione. Una soluzione può essere costituita da una sola tabella contenente tutte le entità organizzate in partizioni, ma normalmente una soluzione comprende più tabelle. Le tabelle permettono di organizzare in modo logico le entità e di gestire l'accesso ai dati con gli elenchi di controllo di accesso. Inoltre è possibile eliminare un'intera tabella con una sola operazione di archiviazione.
 
-### テーブルのパーティション  
-Table サービスがエンティティを格納するストレージ サービス内のパーティションは、アカウント名、テーブル名、**PartitionKey** を組み合わせて識別します。パーティションは、エンティティのアドレス指定スキームの一部であるだけでなく、トランザクションのスコープを定義し (以下の「[エンティティ グループ トランザクション](#entity-group-transactions) 」を参照)、Table サービスのスケーリング方法の基礎となるものでもあります。パーティションの詳細については、「[Azure ストレージのスケーラビリティとパフォーマンスのターゲット](http://msdn.microsoft.com/library/azure/dn249410.aspx)」をご覧ください。  
+### Partizioni della tabella  
+Il nome account, il nome tabella e **PartitionKey** insieme identificano la partizione nel servizio di archiviazione, in cui il servizio tabelle archivia l'entità. Oltre a far parte dello schema di indirizzamento per le entità, le partizioni definiscono un ambito per le transazioni (vedere più avanti [Transazioni di gruppi di entità](#entity-group-transactions)) Per altre informazioni sulle partizioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-Table サービスでは、個々のノードが 1 つ以上の完全なパーティションを提供し、サービスのスケーリングはノード間でパーティションの負荷を動的に分散させることで行われます。あるノードの負荷が高まると、Table サービスはそのノードが提供するパーティションの範囲を異なるノードに  *split* できます。トラフィックが収まると、サービスはそのパーティションの範囲をクワイエット ノードから単一のニードに  *merge* できます。  
+Nel servizio tabelle, un solo nodo gestisce una o più partizioni complete e il servizio scala bilanciando dinamicamente il carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.
 
-Table サービスの詳細、特にサービスがパーティションを管理する方法については、「[Microsoft Azure Storage:A Highly Available
-Cloud Storage Service with Strong Consistency (Microsoft Azure ストレージ: 強力な整合性を備えた高可用クラウド ストレージ サービス)](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)」をご覧ください。  
+Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’[Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-### エンティティ グループ トランザクション 
-エンティティ グループ トランザクション (EGT) は、Table サービスで複数のエンティティ間でアトミックな更新を行うための唯一の組み込みのメカニズムです。EGT は、ドキュメントによっては *バッチ トランザクション*とも呼ばれます。EGT では、同じパーティションに格納されたエンティティしか処理できないため (特定のテーブルで同じパーティション キーを共有)、複数のエンティティにまたがるアトミックなトランザクションが必要な場合は、それらのエンティティを同じパーティションに格納する必要があります。これが、異なる種類のエンティティに複数のテーブルを使わずに、異なる種類のエンティティを同じテーブル (とパーティション) に格納する主な理由です。単一の EGT で最大 100 個のエンティティを処理できます。  
+### Transazioni dei gruppi di entità
+Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. In alcuni documenti, le transazioni EGT sono chiamate anche *transazioni batch* Le transazioni EGT possono agire solo su entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una determinata tabella), quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità. Se si inviano più EGTs simultanee per l'elaborazione è importante garantire che tali EGTs non vengono applicate a entità che sono comuni tra EGTs altrimenti l’elaborazione potrebbe subire dei ritardi.
 
-EGT により、設計で評価が必要なトレードオフが生じる可能性もあります。使用するパーティションが増えると、ノード間で要求を負荷分散しやすくなるため、アプリケーションのスケーラビリティが向上するものの、アプリケーションでアトミックなトランザクションを実行し、データの強力な一貫性を維持する力が限られるおそれがあります。さらに、パーティションのレベルで固有のスケーラビリティ ターゲットが存在するため、単一のノードに期待できるトランザクションのスループットが制限される可能性があります。Azure ストレージ アカウントと Table サービスのスケーラビリティ ターゲットについては、MSDN で「[Azure Storage のスケーラビリティとパフォーマンスのターゲット](http://msdn.microsoft.com/library/azure/dd179338.aspx)」をご覧ください。このガイドの後のセクションでは、このようなトレードオフを管理しやすくするさまざまな設計戦略を紹介すると共に、クライアント アプリケーションの固有の要件に基づいてパーティション キーを選択する最適な方法についても説明します。  
+Le transazioni EGT introducono anche un potenziale compromesso da tenere in considerazione durante la progettazione: se si usano più partizioni, la scalabilità dell'applicazione aumenta perché Azure ha più opportunità di bilanciare il carico delle richieste tra i nodi, ma questo potrebbe limitare la possibilità dell'applicazione di eseguire transazioni atomiche e di mantenere la coerenza assoluta per i dati. Esistono poi specifici obiettivi di scalabilità a livello di partizione, che potrebbero limitare la velocità effettiva delle transazioni prevista per un singolo nodo: per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione di Azure e il servizio tabelle, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dd179338.aspx) su MSDN. Le sezioni successive di questa guida illustrano diverse strategie di progettazione che aiutano a gestire compromessi come questo e illustrano il modo migliore per scegliere la chiave di partizione in base ai requisiti specifici dell'applicazione client.
 
-### 容量に関する考慮事項
-次の表に、Table サービス ソリューションの設計時に考慮する必要のある主要な値をまとめます。  
+### Considerazioni sulla capacità
+La tabella seguente include alcuni valori chiave da tenere presenti quando si progetta una soluzione di servizio tabelle:
 
-|Azure ストレージ アカウントの合計容量|500 TB|
+|Capacità totale di un account di archiviazione di Azure|500 TB|
 |------------------------------------------|------|
-|Azure のストレージ アカウントのテーブルの数 | ストレージ アカウントの容量のみによる制限 |
-|テーブルのパーティションの数 | ストレージ アカウントの容量のみによる制限 |
-|パーティション内のエンティティの数 | ストレージ アカウントの容量のみによる制限|
-|個別のエンティティのサイズ | 最大で 1 MB、プロパティは最大で 255 個 (**PartitionKey**、**RowKey**、**Timestamp** を含む) |
-|**PartitionKey** のサイズ | 最大 1 KB の文字列 |
-| **RowKey** のサイズ | 最大 1 KB の文字列 |
-|エンティティ グループ トランザクションのサイズ | トランザクションには最大で 100 個のエンティティを含めることができ、ペイロードは 4 MB 未満にする必要があります。EGT では 1 回に 1 つのエンティティしか更新できません。 |
+|Numero di tabelle in un account di archiviazione di Azure | Limitato solo dalla capacità dell'account di archiviazione |
+|Numero di partizioni in una tabella | Limitato solo dalla capacità dell'account di archiviazione |
+|Numero di entità in una partizione | Limitato solo dalla capacità dell'account di archiviazione|
+|Dimensioni di una singola entità | Fino a 1 MB con un massimo di 255 proprietà (incluse **PartitionKey**, **RowKey**, e **Timestamp**) |
+|Dimensioni di **PartitionKey** | Stringa con dimensioni fino a 1 KB. |
+| Dimensioni di **RowKey** | Stringa con dimensioni fino a 1 KB. |
+|Dimensioni di una transazione di gruppi di entità | Una transazione può includere al massimo 100 entità e le dimensioni del payload devono essere inferiori a 4 MB. Una transazione EGT può aggiornare una sola entità per volta. |
 
-詳細については、MSDN で「[テーブル サービス データ モデルについて](http://msdn.microsoft.com/library/azure/dd179338.aspx)」をご覧ください。  
+Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx) su MSDN.
 
-### コストに関する考慮事項  
-テーブル ストレージは比較的安価ですが、テーブル ストレージを使うソリューションの評価の一環として、容量の使用とトランザクションの量を踏まえてコストを見積もる必要があります。ただし、多くのシナリオでは、ソリューションのパフォーマンスとスケーラビリティを向上させるために、非正規化されたデータまたは重複するデータを格納するのも有効です。料金の詳細については、「[ストレージ料金詳細](http://azure.microsoft.com/pricing/details/storage/)」をご覧ください。  
+### Considerazioni sul costo  
+Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi, sia per l'utilizzo della capacità che per la quantità di transazioni, nella valutazione delle soluzioni che usano il servizio tabelle. Tuttavia in molti scenari, l'archiviazione dei dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un valido approccio. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/storage/).
 
-### Azure テーブルと SQL Azure の比較  
-Azure SQL Database (リレーショナル データベース サービス) と Table サービスの比較については、MSDN で「[Azure テーブル ストレージと Microsoft Azure SQL Database の比較](http://msdn.microsoft.com/library/azure/jj553018.aspx)」をご覧ください。  
+### Confronto tra le tabelle di Azure e SQL Azure  
+Per un confronto tra Database SQL di Azure (un servizio di database relazionale) e il servizio tabelle, vedere [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/library/azure/jj553018.aspx) su MSDN.
 
-## テーブル設計のガイドライン  
-このリストには、テーブルを設計する際に考慮する必要のある主要なガイドラインのうち、いくつかをまとめています。その中身については、後で詳しく説明します。これらのガイドラインは、リレーショナル データベースの設計の際に一般的なガイドラインとは大きく異なっています。  
+## Linee guida per la progettazione di tabelle  
+Questi elenchi riepilogano alcune linee guida chiave che è necessario tenere presenti durante la progettazione delle, la guida li descriverà più nel dettaglio in seguito. Queste linee guida sono molto diverse dalle linee guida a cui in genere ci si attiene per la progettazione di database relazionali.
 
-効率的に  *read* できる Table サービス ソリューションを設計するには: 
+Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *lettura*:
 
--	***読み取り負荷の大きいアプリケーションでのクエリに対応した設計。***テーブルを設計する際には、エンティティの更新方法よりも先に、実行するクエリ (特に遅延時間の影響を受けやすいもの) についてご検討ください。そうすることでソリューションの効率とパフォーマンスが高まります。
--	***クエリで PartitionKey と RowKey を指定。*** *ポイント クエリ* (最も効率的な Table サービス クエリ) など。  
--	***エンティティの重複するコピーの格納を検討する。***テーブル ストレージは安価であるため、クエリの効率を上げるため、(異なるキーを持つ) 同じエンティティを複数回格納することをご検討ください。  
--	***データの非正規化を検討する。***テーブル ストレージは安価であるため、データの非正規化をご検討ください。たとえば、集計データに対するクエリで 1 つのエンティティにアクセスするだけで済むように、サマリ エンティティを格納します。
--	***複合キー値を使用する。***保持しているキーは **PartitionKey** と **RowKey** のみです。たとえば、複合キー値を使用すれば、エンティティへのキーによる代替アクセス パスを使用できるようになります。
--	***クエリ プロジェクションを使用する。***必要なフィールドだけを選択するクエリを使用すれば、ネットワークを介して転送するデータの量を削減できます。
+-	***Progettazione per le query nelle applicazioni con intensa attività di lettura.*** Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
+-	***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
+-	***Prendere in considerazione l'archiviazione di copie duplicate delle entità.*** Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
+-	***Considerare la denormalizzazione dei dati.*** L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
+-	***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
+-	***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
-効率的に  *write* できる Table サービス ソリューションを設計するには:   
+Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *scrittura*:
 
--	***ホット パーティションを作成しない。***任意の時点で複数のパーティション間に要求を分散させられるようなキーを選びます。
--	***トラフィックの突発的な増加を避ける。***ある程度の期間、トラフィックを平準化し、トラフィックの突発的な増加を避けます。
--	***必要がない場合は、エンティティの種類ごとに個別のテーブルを作成しない。***さまざまな種類のエンティティ間でアトミックなトランザクションが必要な場合は、それらのエンティティを同じテーブルの同じパーティションに格納できます。
--	***実現する必要のある最大スループットを検討する。***テーブル サービスのスケーラビリティ ターゲットを確認し、それを超えない設計にする必要があります。  
+-	***Non creare partizioni critiche*** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
+-	***Evitare picchi di traffico.*** Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
+-	***Non necessariamente creare una tabella separata per ogni tipo di entità.*** Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
+-	***Considerare la velocità effettiva massima che è necessario raggiungere.*** È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
 
-このガイドでは、これらの原則を実装した例を紹介します。  
+Questa guida contiene esempi in cui vengono messi in pratica tutti questi principi.
 
-## クエリに対応した設計  
-Table サービス ソリューションでは、読み取り、書き込み、またはその両方の負荷が高くなることがあります。このセクションでは、読み取り操作を効率的に行える Table サービスを設計する際に注意する必要のある事柄を中心に取り上げます。通常は、読み取り操作を効率的にサポートする設計は、書き込み操作についても効率が高くなります。ただし、次のセクションの「[データの変更に対応した設計](#design-for-data-modification)」で取り上げるように、書き込み操作をサポートする設計にする場合は、ほかにも考慮する必要のある事柄があります。
+## Progettazione per le query  
+Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettura, di scrittura o una combinazione di entrambe. Questa sezione è incentrata sugli aspetti da prendere in considerazione quando si progetta un servizio tabelle in grado di supportare in modo efficiente le operazioni di lettura. Una progettazione che supporta in modo efficiente le operazioni di lettura è in genere efficiente anche nelle operazioni di scrittura. Esistono però altri aspetti da considerare per una progettazione che supporti le operazioni di scrittura. La prossima sezione, [Progettazione per la modifica dei dati](#design-for-data-modification),
 
-データを効率的に読み取ることのできる Table サービス ソリューションを設計する際には、まず "必要なデータを Table サービスから取得するには、アプリケーションでどのようなクエリを実行する必要があるか" を考えてみてください。  
+Quando si inizia a progettare una soluzione di servizio tabelle che consenta di leggere i dati in modo efficiente, è importante chiedersi quali query dovrà eseguire l'applicazione per recuperare i dati necessari dal servizio tabelle.
 
->[AZURE.NOTE] Table サービスを使う場合は、事前に正しく設計することが重要です。後で設計を変更するのは難しいだけでなく、コストも高くなるためです。たとえば、リレーショナル データベースなら、既存のデータベースにインデックスを追加するだけでパフォーマンスの問題に対処できることが多いものの、Table サービスではそうはいきません。  
+>[AZURE.NOTE]Con il servizio tabelle, è fondamentale realizzare una progettazione corretta fin dall'inizio perché cambiarla in seguito sarebbe difficile e costoso. Ad esempio, in un database relazionale spesso è possibile risolvere i problemi di prestazioni semplicemente aggiungendo degli indici a un database esistente, ma questa opzione non è applicabile al servizio tabelle.
 
-このセクションでは、クエリに対応したテーブルを設計する際に対処する必要のある主要な問題を中心に取り上げます。このセクションで取り上げるトピックは次のとおりです。  
--	[PartitionKey と RowKey の選択がクエリのパフォーマンスに与える影響](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
--	[適切な PartitionKey を選ぶ](#choosing-an-appropriate-partitionkey)
--	[Table サービスのキー値ストアによるクエリの最適化](#optimizing-queries-with-a-key-value-store-for-the-table-service)
--	[Table サービスのキー値ストアでデータを並べ替える](#sorting-data-in-a-key-value-store-in-the-table-service)
+Questa sezione è incentrata sui problemi chiave che è necessario affrontare quando si progettano le tabelle per le query. Gli argomenti trattati in questa sezione includono:
 
-### PartitionKey と RowKey の選択がクエリのパフォーマンスに与える影響  
+- [Come la scelta di PartitionKey e RowKey compromette le prestazioni delle query](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
+- [Scelta di un valore PartitionKey appropriato](#choosing-an-appropriate-partitionkey)
+- [Ottimizzazione delle query con un archivio di valori chiave per il servizio tabelle](#optimizing-queries-with-a-key-value-store-for-the-table-service)
+- [Ordinamento dei dati in un archivio di valori chiave nel servizio tabelle](#sorting-data-in-a-key-value-store-in-the-table-service)
 
-次の例では、次の構造の従業員エンティティが Table サービスに格納されると想定しています (わかりやすいように、ほとんどの例で **Timestamp** プロパティは省略してあります)。  
+### Come la scelta di PartitionKey e RowKey compromette le prestazioni delle query  
 
-|*列名* |*データ型*|
+I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate entità dipendente con la struttura seguente (per maggiore chiarezza, nella maggior parte degli esempi viene omessa la proprietà **Timestamp**):
+
+|*Nome colonna* |*Tipo di dati*|
 |--------------|-----------|
-|**PartitionKey** (部署名)|文字列|
-|**RowKey** (従業員 Id)|文字列|
-|**FirstName**|文字列|
-|**LastName**|文字列|
-|**Age**|整数|
-|**EmailAddress**|文字列|
+|**PartitionKey** (nome del reparto)|Stringa|
+|**RowKey** (ID dipendente)|Stringa|
+|**FirstName**|Stringa|
+|**LastName**|Stringa|
+|**Age**|Integer|
+|**EmailAddress**|Stringa|
 
-前のセクション「[Azure Table service overview]」(#azure-table-service-overview) では、クエリに対応した設計に直接的な影響を与える Azure Table サービスの主要機能について説明しました。ここから、Table サービスのクエリを設計する際には、次のような一般的なガイドラインが考えられます。ただし、以下の例で使用されているフィルター構文は、Table サービス REST API からのものです。詳細については、MSDN で「[Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx)」をご覧ください。  
+La sezione precedente [Panoramica del servizio tabelle di Azure](#azure-table-service-overview) descrive alcune funzionalità chiave del servizio tabelle di Azure, che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
--	***ポイント クエリ*** は最も効率の良いルックアップであり、大量のルックアップや、遅延を極力抑える必要のあるルックアップに適しています。このようなクエリでは、インデックスを使用して個々のエンティティを非常に効率良く特定します (**PartitionKey** 値と **RowKey** 値の両方を指定)。次に例を示します。
-$filter=(PartitionKey eq 'Sales') と (RowKey eq '2')  
--	次にお勧めできるのは***範囲クエリ*** です。このクエリでは、**PartitionKey** を使い、**RowKey** 値の範囲でフィルター処理して複数のエンティティを返します。**PartitionKey** 値で特定のパーティションを識別し、**RowKey** 値でそのパーティション内のエンティティのサブセットを識別します。次に例を示します。
-$filter=PartitionKey eq 'Sales' と RowKey ge 'S' and RowKey lt 'T'  
--	3 番目にお勧めできるのは***パーティション スキャン*** です。このタイプでは、**PartitionKey** を使い、キー以外の別のプロパティでフィルター処理します。複数のエンティティが返されることがあります。**PartitionKey** 値で特定のパーティションを識別し、プロパティ値でそのパーティション内のエンティティのサブセットを選択します。次に例を示します。
-$filter=PartitionKey eq 'Sales' と LastName eq 'Smith'  
--	***テーブル スキャン*** には **PartitionKey** が含まれず、非常に非効率です。テーブルを構成するすべてのパーティションを検索し、さらに一致するエンティティを検索するためです。フィルターで **RowKey** が使用されているかどうかにかかわらず、テーブル スキャンを実行します。次に例を示します。
-$filter=LastName eq 'Jones'  
--	複数のエンティティを返すクエリは、**PartitionKey** と **RowKey** の順で並べ替えたうえで返します。クライアントでエンティティが再度並べ替えられるのを防ぐには、最も一般的な並べ替えの順序を定義する **RowKey** を選択します。  
+-	Una ***Query di tipo punto*** è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per trovare in modo molto efficiente una singola entità specificando entrambi i valori **PartitionKey** e **RowKey**. Ad esempio, $filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
+-	La seconda miglior ricerca è la ***query di intervallo*** che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio, $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
+-	La terza miglior ricerca è l'***analisi della partizione*** che usa **PartitionKey** e applica il filtro a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
+-	Una ***scansione di tabella*** non include **PartitionKey** ed è molto inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey** o meno. Ad esempio: $filter = LastName eq 'Jones'  
+-	Le query che restituiscono più entità le ordinano in base a **PartitionKey** e **RowKey**. Per non dover riordinare le entità nel client, scegliere un valore **RowKey** che definisca l'ordinamento più comune.  
 
-"**or**" を使用して **RowKey** 値に基づいてフィルターを指定した場合はパーティション スキャンが行われます。範囲クエリとしては扱われません。そのため、
-$filter=PartitionKey eq 'Sales' と (RowKey eq '121' or RowKey eq '322')  
+Si noti che, se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio: $filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')
 
-ストレージ クライアント ライブラリを使って効率的なクエリを実行するクライアント側コードの例については、  
+Per esempi di codice lato client che usano la libreria client di archiviazione per eseguire query efficienti, vedere:
 
--	「[ストレージ クライアント ライブラリを使って 1 つのエンティティを取得する]」をご覧ください。(#retrieving-a-single-entity-using-the-storage-client-library)
--	[LINQ を使って複数のエンティティを取得する](#retrieving-multiple-entities-using-linq)
--	[サーバー側のプロジェクション](#server-side-projection)  
+-	[Recupero di una singola entità usando la libreria client di archiviazione](#retrieving-a-single-entity-using-the-storage-client-library)
+-	[Recupero di più entità usando LINQ](#retrieving-multiple-entities-using-linq)
+-	[Proiezione lato server](#server-side-projection)  
 
-同じテーブルに格納された複数の種類のエンティティを処理できるクライアント側コードの例については、  
+Per esempi di codice lato client che possono gestire più tipi di entità archiviati nella stessa tabella, vedere:
 
--	「[異なる種類のエンティティを操作する]」をご覧ください。(#working-with-heterogeneous-entity-types)  
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
 
-### 適切な PartitionKey を選ぶ  
+### Scelta di un valore PartitionKey appropriato  
 
-**PartitionKey** を選ぶ際には、(一貫性の確保の目的で) EGT を使用できるようにする必要性と、(ソリューションのスケーラビリティを高める目的で) エンティティを複数のパーティションに分散させる必要性のバランスを取る必要があります。  
+La scelta di **PartitionKey** deve soddisfare sia la necessità di abilitare l'uso di transazioni EGT (per assicurare la coerenza) sia il requisito di distribuzione delle entità tra più partizioni (per assicurare una soluzione scalabile).
 
-すべてのエンティティを 1 つのパーティションに格納することも可能ですが、そうするとソリューションのスケーラビリティが制限され、Table サービスで要求を負荷分散できなくなる可能性があります。逆に、パーティションごとに 1 つのエンティティを格納することも可能です。そうするとスケーラビリティが高まり、Table サービスで要求を負荷分散できるようになるものの、EGT を使用できなくなります。  
+Da una parte, pur essendo possibile archiviare tutte le entità in una singola partizione, questo potrebbe limitare la scalabilità della soluzione e impedirebbe al servizio tabelle di bilanciare il carico delle richieste. D'altra parte, pur essendo possibile archiviare un'entità per partizione, ottenendo così la scalabilità e consentendo al servizio tabelle di bilanciare il carico delle richieste, questo impedirebbe di usare le transazioni EGT.
 
-最適な **PartitionKey** は、効率的なクエリを使用できると共に、ソリューションのスケーラビリティを確保できるだけのパーティションがある状態を実現できるものです。通常、エンティティには、十分な数のパーティションにエンティティを分散できるだけのプロパティがあります。  
+Il valore **PartitionKey** ideale consente di usare query efficienti e ha un numero sufficiente di partizioni per garantire la scalabilità della soluzione. Di solito le entità dispongono una proprietà apposita che le distribuisce in un numero sufficiente di partizioni.
 
->[AZURE.NOTE]たとえば、ユーザーまたは従業員に関する情報を格納するシステムでは、ユーザー ID を **PartitionKey** として使うと便利です。  
+Gli altri aspetti da considerare per la scelta di **PartitionKey** riguardano l'inserimento, l'aggiornamento e l'eliminazione delle entità: vedere la sezione [Progettazione per la modifica dei dati](#design-for-data-modification) qui di seguito.
 
-**PartitionKey** を選ぶ際には、エンティティの挿入、更新、削除の方法に関連する事柄も検討する必要があります。以下の「[データの変更に対応した設計](#design-for-data-modification) 」を参照してください。  
+### Ottimizzazione delle query per il servizio tabelle  
 
-### クエリを Table サービス向けに最適化する  
+Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey** in un singolo indice cluster. È per questo che le query di tipo punto sono le più efficienti da usare. Tuttavia, non esistono altri indici oltre a quello nell'indice cluster in **PartitionKey** e **RowKey**.
 
-Table サービスは、**PartitionKey** 値と **RowKey** 値を使用して、単一のクラスター化インデックスにエンティティのインデックスを作成します。これが、ポイント クエリが最も効率的である理由です。ただし、**PartitionKey** と **RowKey** に基づくクラスター化インデックス上のインデックス以外に、インデックスはありません。   
+Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio trovare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli seguenti nella sezione [Modelli di progettazione tabelle](#table-design-patterns) soddisfano questi tipi di requisito e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:
 
-多くの設計は、複数の条件に基づいてエンティティをルックアップできるようにするという要件を満たす必要があります。たとえば、電子メール、従業員 ID、姓に基づいて従業員エンティティを特定する場合などです。「[テーブル設計のパターン]」(#table-design-patterns) セクションで紹介する次のパターンでは、こうした要件を満たすと共に、Table サービスではセカンダリ インデックスが提供されないという弱点を回避する方法を紹介します。  
+-	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+-	[Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+-	[Modello per entità di indice](#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
 
--	[パーティション内セカンダリ インデックス パターン](#intra-partition-secondary-index-pattern) - 同じパーティション内の異なる **RowKey** 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。  
--	[パーティション間セカンダリ インデックス パターン](#inter-partition-secondary-index-pattern) - 異なるパーティションまたはテーブル内の異なる RowKey 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。  
--	[インデックス エンティティ パターン](#index-entities-pattern) - インデックス エンティティを保持して、エンティティの一覧を返す効率の良い検索を実現します。  
+### Ordinamento dei dati nel servizio tabelle  
 
-### Table サービスでデータを並べ替える  
+Il servizio tabelle restituisce le entità in ordine crescente in base a **PartitionKey** e quindi a **RowKey**. Queste chiavi sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore dell'ID dipendente usato come **RowKey** è un valore integer, è consigliabile convertire l'ID dipendente **123** in **00000123**.
 
-Table サービスは、昇順でエンティティを返します。その際、まず基準になるのが **PartitionKey**、その次が **RowKey** です。これらのキーは文字列値であり、数値を正しく並べ替えるには、固定長の値に変換し、ゼロ パディングを施す必要があります。たとえば、**RowKey** として使う従業員 ID の値が整数値である場合、従業員 ID **123** は **00000123** に変換する必要があります。  
+In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad esempio ordinando i dipendenti per nome o per data di assunzione. I modelli seguenti nella sezione [Modelli di progettazione tabella](#table-design-patterns) descrivono come alternare l'ordinamento per le entità:
 
-さまざまな順序 (名前、入社日など) で並べ替えられたデータを使う必要のあるアプリケーションは多数あります。「[テーブル設計のパターン]」(#table-design-patterns) では、エンティティの並び替え順を変更する方法について説明します。  
+-	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori.  
+-	[Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori RowKey.
+-	[Modello della parte finale del log](#log-tail-pattern) - Recupera le entità *n* aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
--	[パーティション内セカンダリ インデックス パターン](#intra-partition-secondary-index-pattern) - 同じパーティション内の異なる RowKey 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる RowKey 値を使用して並べ替え順を変更できるようにします。  
--	[パーティション間セカンダリ インデックス パターン](#inter-partition-secondary-index-pattern) - 異なるテーブルに含まれる異なるパーティション内の異なる RowKey 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる RowKey 値を使用して並べ替え順を変更できるようにします。 
--	[ログ テール パターン](#log-tail-pattern) - パーティションに追加されたエンティティを、追加日時の新しいものから  *n* 個取得します。その際、**RowKey** 値を使って日時の順序を逆にします。  
+## Progettazione per la modifica dei dati
+Questa sezione esamina le considerazioni relative alla progettazione per ottimizzare inserimenti, aggiornamenti ed eliminazioni. In alcuni casi, sarà necessario valutare il compromesso tra progettazioni che ottimizzano le query e progettazioni che ottimizzano la modifica dei dati, come avviene per le progettazioni per i database relazionali (anche se le tecniche per gestire i compromessi tra progettazioni sono diverse in un database relazionale). La sezione [Modelli di progettazione tabelle](#table-design-patterns) descrive in dettaglio alcuni modelli di progettazione per il servizio tabelle ed evidenzia alcuni di questi compromessi. In pratica si vedrà che molte progettazioni ottimizzate per le query delle entità vanno bene anche per la modifica delle entità.
 
-## データの変更に対応した設計
-このセクションでは、挿入、更新、削除の操作を最適化するための設計上の考慮事項を示します。場合によっては、リレーショナル データベースの設計と同様に、クエリ向けの最適化とデータ変更向けの最適化のトレードオフを評価する必要があります (設計のトレードオフを管理する手法はリレーショナル データベースでは異なります)。「[テーブル設計のパターン]」(#table-design-patterns) セクションでは、Table サービス向けの詳細な設計パターンをいくつか紹介し、こうしたトレードオフについて詳しく説明します。実際のところ、クエリ向けに最適化された設計の多くは、エントリの変更にも適していることがおわかりになると思います。  
- 
-### 挿入、更新、削除の操作のパフォーマンスを最適化する  
+### Ottimizzazione delle prestazioni delle operazioni di inserimento, aggiornamento ed eliminazione  
 
-エンティティを更新または削除するには、**PartitionKey** 値と **RowKey** 値を使ってそのエンティティを特定できる必要があります。この点で、エンティティの変更に適した **PartitionKey** と **RowKey** を選ぶ際には、ポイント クエリをサポートするためにキーを選ぶときと似た条件に従うことになります。できるだけ効率良くエンティティを特定できなければならないためです。エンティティの更新や削除に必要となる **PartitionKey** 値と **RowKey** 値を明らかにするために、エンティティの特定に非効率なパーティションまたはテーブル スキャンを使わないようにしてください。  
+Per aggiornare o eliminare un'entità, è necessario poterla identificare usando i valori **PartitionKey** e **RowKey**. In questo senso la scelta di **PartitionKey** e **RowKey** per modificare le entità deve seguire criteri simili a quelli usati per la scelta di supportare le query di tipo punto, perché l'obiettivo è identificare le entità nel modo più efficiente possibile. Si vuole evitare di usare una scansione di tabella o di partizione inefficiente per trovare un'entità e poter individuare i valori**PartitionKey** e **RowKey** necessari per aggiornarla o eliminarla.
 
-「[テーブル設計のパターン]」(#table-design-patterns) セクションで紹介する次のパターンでは、挿入、更新、削除の操作のパフォーマンスを最適化する方法を示します。  
+I modelli seguenti nella sezione [Modelli di progettazione tabelle](#table-design-patterns) consentono di ottimizzare le prestazioni delle operazioni di inserimento, aggiornamento ed eliminazione:
 
--	[大量削除パターン](#high-volume-delete-pattern) - すべてのエンティティを同時削除用に独立したテーブルに格納することで、大量のエンティティを削除できるようにします。エンティティを削除するときは、テーブル自体を削除することになります。  
--	[データ系列パターン](#data-series-pattern) - データ系列全体を単一のエンティティに格納し、要求の数を最小限に抑えます。  
--	[ワイド エンティティ パターン](#wide-entities-pattern) - 複数の物理エンティティを使用して、252 を超えるプロパティを持つ論理エンティティを格納します。  
--	[ラージ エンティティ パターン](#large-entities-pattern) - BLOB ストレージを使用して、大きなプロパティ値を格納します。  
+-	[Modello di eliminazione volume elevato](#high-volume-delete-pattern) - Abilita l'eliminazione di un volume elevato di entità mediante l'archiviazione di tutte le entità per l'eliminazione simultanea nella relativa tabella separata. Per eliminare le entità, eliminare la tabella.  
+-	[Modello di serie di dati](#data-series-pattern) - Archivia serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.  
+-	[Modello di entità di grandi dimensioni](#wide-entities-pattern) - Usa più entità fisiche per archiviare entità logiche con più di 252 proprietà.  
+-	[Modello di entità di grandi dimensioni](#large-entities-pattern) - Usa l'archiviazione BLOB per archiviare i valori di proprietà di grandi dimensioni.  
 
-### 格納されたエンティティの一貫性を確保する  
+### Verifica della coerenza nelle entità archiviate  
 
-データの変更を最適化するためのキーの選択を左右する要因として、アトミックなトランザクションを使って一貫性を確保する方法も挙げられます。同じパーティションに格納されたエンティティを操作する場合は、EGT を使用します。  
+L'altro aspetto importante che influisce sulla scelta delle chiavi per ottimizzare la modifica dei dati è come assicurare la coerenza usando le transazioni atomiche. È possibile usare una transazione EGT solo per agire sulle entità archiviate nella stessa partizione.
 
-「[テーブル設計のパターン]」(#table-design-patterns) セクションで紹介する次のパターンで、一貫性の管理方法を説明します。  
+I modelli seguenti nella sezione [Modelli di progettazione tabella](#table-design-patterns) descrive la gestione della coerenza:
 
--	[パーティション内セカンダリ インデックス パターン](#intra-partition-secondary-index-pattern) - 同じパーティション内の異なる **RowKey** 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。  
--	[パーティション間セカンダリ インデックス パターン](#inter-partition-secondary-index-pattern) - 異なるパーティションまたはテーブル内の異なる RowKey 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。  
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern) - Azure キューを使用して、パーティションやストレージ システムの境界を越えて、最終的に一貫した動作を実現します。
--	[インデックス エンティティ パターン](#index-entities-pattern) - インデックス エンティティを保持して、エンティティの一覧を返す効率の良い検索を実現します。  
--	[非正規化パターン](#denormalization-pattern) - 関連するデータを 1 つのエンティティに結合し、1 回のポイント クエリで必要なデータをすべて取得できるようにします。  
--	[データ系列パターン](#data-series-pattern) - データ系列全体を単一のエンティティに格納し、要求の数を最小限に抑えます。  
+-	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+-	[Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) - Abilita un comportamento di coerenza finale tra i limiti della partizione o i limiti del sistema di archiviazione usando le code di Azure.
+-	[Modello per entità di indice](#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
+-	[Modello di denormalizzazione](#denormalization-pattern) - Combina i dati correlati in una singola entità per consentire di recuperare tutti i dati necessari con un sola query di tipo punto.  
+-	[Modello di serie di dati](#data-series-pattern) - Archivia serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.  
 
-EGT の詳細については、「[エンティティ グループ トランザクション]」をご覧ください(#entity-group-transactions)。  
+Per informazioni sulle transazioni EGT, vedere la sezione [Transazioni dei gruppi di entità](#entity-group-transactions).
 
-### 効率的な変更に対応した設計によるクエリの効率化  
+### Verifica della capacità della progettazione per modifiche efficienti di facilitare query efficienti  
 
-効率的なクエリに適した設計は変更の効率も高いのが普通ですが、自分のシナリオにもそれが当てはまるかどうかは必ず評価する必要があります。「[テーブル設計のパターン](#table-design-patterns) 」セクションで紹介するパターンの一部では、エンティティのクエリと変更のトレードオフを明確に評価していますが、各タイプの操作の数を必ず考慮する必要があります。  
+In molti casi, una progettazione per query efficienti consente modifiche efficienti, ma è consigliabile valutare sempre se questa condizione si applica a uno specifico scenario. Alcuni dei modelli nella sezione [Modelli di progettazione tabelle](#table-design-patterns) valutano in modo esplicito i compromessi tra la query e la modifica delle entità. Inoltre è sempre consigliabile tenere in considerazione il numero di ogni tipo di operazione.
 
-「[テーブル設計のパターン]」(#table-design-patterns) セクションで紹介する次のパターンでは、効率的なクエリに対応した設計と効率的なデータ変更に対応した設計のトレードオフを取り上げています。  
+I seguenti modelli nella sezione [Modelli di progettazione tabelle](#table-design-patterns) considerano i compromessi tra la progettazione per query efficienti e la progettazione per una modifica efficiente dei dati:
 
--	[複合キー パターン](#compound-key-pattern) - 複合 **RowKey** 値を使用して、クライアントが単一のポイント クエリで関連データをルックアップできるようにします。  
--	[ログ テール パターン](#log-tail-pattern) - パーティションに追加されたエンティティを、追加日時の新しいものから  *n* 個取得します。その際、**RowKey** 値を使って日時の順序を逆にします。  
+-	[Modello per chiave composta](#compound-key-pattern) - Usa valori **RowKey** composti per consentire a un client di cercare dati correlati con una sola query di tipo punto.  
+-	[Modello della parte finale del log](#log-tail-pattern) - Recupera le entità *n* aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
-## リレーションシップのモデル化  
+## Modellazione di relazioni  
 
-複雑なシステムの設計において、ドメイン モデルの作成は重要なステップです。通常は、ビジネス ドメインについて理解し、システムの設計を伝えるための方法として、モデル化プロセスを使用してエンティティとエンティティどうしのリレーションシップを特定します。このセクションでは、ドメイン モデル内の一般的なリレーションシップの種類を Table サービス向けの設計に変換する方法を中心に説明します。論理データ モデルから物理的な NoSQL ベースのデータ モデルへのマッピング プロセスは、リレーショナル データベースの設計時に使われるプロセスとは大きく異なります。リレーショナル データベースの設計は、通常、冗長性を最小限に抑えるために最適化されたデータの正規化プロセスと、データベースの動作の実装方法を抽象化する宣言によるクエリ機能があることを前提としています。  
+La compilazione di modelli di dominio è un passaggio chiave della progettazione di sistemi complessi. Il processo di modellazione in genere viene usato per identificare le entità e le relazioni tra di esse, per poter comprendere il dominio aziendale e informare la progettazione del sistema. Questa sezione illustra come sia possibile convertire alcuni tipi comuni di relazione presenti nei modelli di dominio in progettazioni per il servizio tabelle. Il processo di mapping da un modello di dati logico a un modello di dati fisico basato su NoSQL è molto diverso da quello usato quando si progetta un database relazionale. La progettazione di database relazionali presuppone in genere un processo di normalizzazione dei dati ottimizzato per ridurre al minimo la ridondanza, oltre a una funzionalità di query dichiarativa che astrae l'implementazione per il funzionamento del database.
 
-### 一対多のリレーションシップ  
+### Relazioni uno a molti  
 
-ビジネス ドメイン オブジェクトの間で一対多のリレーションシップが存在することはよくあります。たとえば、1 つの部署に多数の従業員が存在する場合などです。特定のシナリオにおいて、長短それぞれあるものの、Table サービスに一対多のリレーションシップを実装する方法はいくつかあります。  
+Le relazioni uno a molti tra gli oggetti del dominio aziendale sono molto frequenti: ad esempio, un reparto ha più dipendenti. Esistono modi diversi per implementare le relazioni uno a molti nel servizio tabelle, ciascuno dei quali presenta pro e contro che potrebbero essere pertinenti a un particolare scenario.
 
-何万もの部署と従業員のエンティティがある大規模な多国籍企業の例を考えてみてください。各部署には多数の従業員が在籍しており、各従業員は 1 つの特定の部署に関連付けられています。次のように、部署のエンティティと従業員のエンティティを分けて格納する方法もあります。  
+Considerare l'esempio di una grande multinazionale con decine di migliaia di reparti ed entità dipendente, dove ogni reparto ha più dipendenti e ogni dipendente è associato a uno specifico reparto. Un approccio prevede l'archiviazione di entità reparto e dipendente separate, come queste:
 
 ![][1]
- 
-この例は、**PartitionKey** 値に基づく種類間の一対多のリレーションシップを暗黙的に示しています。各部署に多数の従業員が存在する可能性があります。  
 
-この例は、部署エンティティと、同じパーティションに含まれる関連の従業員エンティティも示しています。別のエンティティの種類として、別のパーティション、テーブル、またはストレージ アカウントを使うこともできます。  
+Questo esempio illustra una relazione uno a molti implicita tra i tipi basata sui valori **PartitionKey**. Ogni reparto può avere più dipendenti.
 
-別の方法として、次の例に示すように、データを非正規化し、非正規化された部署データと共に従業員エンティティのみを格納する方法もあります。このシナリオで部署のマネージャーの詳細を変更できるようにする必要がある場合は、この非正規化の方法は最適ではない可能性があります。部署内のすべての従業員を更新する必要が生じるためです。  
+Questo esempio mostra anche un'entità reparto e le relative entità dipendente nella stessa partizione. È possibile scegliere di usare partizioni, tabelle o anche account di archiviazione diversi per ogni tipo di entità.
+
+Un approccio alternativo prevede la denormalizzazione dei dati e l'archiviazione delle sole entità dipendente con i dati reparto denormalizzati, come illustrato nell'esempio seguente. In questo particolare scenario, l'approccio denormalizzato non sarà quello migliore se si deve essere in grado di cambiare i dettagli di un responsabile di reparto perché, per questa operazione, sarà necessario aggiornare ogni dipendente del reparto.
 
 ![][2]
- 
-詳細については、このガイドの後半にある「[非正規化のパターン]」(#denormalization-pattern) をご覧ください。  
 
-次の表に、上記で概要を示した一対多のリレーションシップを持つ従業員エンティティと部署エンティティを格納するアプローチについて、それぞれの長所と短所をまとめます。また、各種操作をどの程度の頻度で実行する見込みかも検討する必要があります。コストの高い操作であっても、実行頻度が高くなければ設計に含めてもかまいません。  
+Per ulteriori informazioni, vedere il [Modello di denormalizzazione](#denormalization-pattern) più avanti in questa guida.
+
+La tabella seguente riepiloga i vantaggi e gli svantaggi di ogni approccio descritto sopra per l'archiviazione delle entità dipendente e reparto con una relazione uno a molti. Si consiglia inoltre di considerare la frequenza con cui si prevede di eseguire le diverse operazioni: una progettazione che include un'operazione dal costo elevato può essere accettabile se l'operazione non viene eseguita spesso.
 
 <table>
 <tr>
-<th>アプローチ</th>
-<th>長所</th>
-<th>短所</th>
+<th>Approccio</th>
+<th>Vantaggi</th>
+<th>Svantaggi</th>
 </tr>
 <tr>
-<td>エンティティの種類は別、パーティション、テーブルは同じ</td>
+<td>Tipi di entità distinti, stessa partizione, stessa tabella</td>
 <td>
 <ul>
-<li>1 回の操作で部署エンティティを更新できる。</li>
-<li>従業員エンティティを更新、挿入、削除するたびに部署エンティティを変更する必要がある場合は、一貫性を維持するために EGT を使用できます。たとえば、部署ごとの従業員数を管理する場合などです。</li>
+<li>È possibile aggiornare un'entità reparto con un'unica operazione.</li>
+<li>È possibile usare una transazione EGT per mantenere la coerenza, se esiste un requisito che impone di modificare un'entità reparto quando si aggiorna/inserisce/elimina un'entità dipendente, ad esempio se si mantiene un conteggio dei dipendenti per ogni reparto.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>場合によっては、一部のクライアント アクティビティで、従業員エンティティと部署エンティティの両方を取得する必要がある。</li>
-<li>ストレージ操作が同じパーティションで行われる。トランザクションの量が多いときにホットスポットが生じる可能性がある。</li>
-<li>EGT を使用して従業員を新しい部署に移動できない。</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>エンティティの種類は別、パーティション、テーブル、ストレージ アカウントは別</td>
-<td>
-<ul>
-<li>1 回の操作で部署エンティティと従業員エンティティを更新できる。</li>
-<li>トランザクションの量が多いときに、負荷をより多くのパーティションに分散させることができる。</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>場合によっては、一部のクライアント アクティビティで、従業員エンティティと部署エンティティの両方を取得する必要がある。</li>
-<li>従業員を更新、挿入、削除し、部署を更新するときに、一貫性を維持するために EGT を使用できる。たとえば、部署エンティティ内の従業員数を更新する場合などです。</li>
-<li>EGT を使用して従業員を新しい部署に移動できない。</li>
+<li>Per alcune attività client, potrebbe essere necessario recuperare sia un'entità dipendente che un'entità reparto.</li>
+<li>Le operazioni di archiviazione vengono eseguite nella stessa partizione. Con volumi di transazioni elevati, potrebbe risultarne un hotspot.</li>
+<li>Non è possibile spostare un dipendente in un nuovo reparto con una transazione EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>単一のエンティティの種類への非正規化</td>
+<td>Tipi di entità distinti, partizioni o tabelle o account di archiviazione diversi</td>
 <td>
 <ul>
-<li>必要なすべての情報を 1 回の要求で取得できる。</li>
+<li>È possibile aggiornare un'entità reparto o un'entità dipendente con un'unica operazione.</li>
+<li>Con volumi di transazioni elevati, può essere più facile distribuire il carico tra più partizioni.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>部署の情報を更新する必要がある場合、一貫性の維持のコストが高くなる可能性がある (部署のすべての従業員を更新する必要があるため)。</li>
+<li>Per alcune attività client, potrebbe essere necessario recuperare sia un'entità dipendente che un'entità reparto.</li>
+<li>Non è possibile usare le transazioni EGT per mantenere la coerenza quando si aggiorna/inserisce/elimina un dipendente e si aggiorna un reparto, ad esempio quando si aggiorna un conteggio dipendenti in un'entità reparto.</li>
+<li>Non è possibile spostare un dipendente in un nuovo reparto con una transazione EGT.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Denormalizzazione in un solo tipo di entità</td>
+<td>
+<ul>
+<li>È possibile recuperare tutte le informazioni necessarie con una sola richiesta.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Mantenere la coerenza potrebbe risultare costoso, se è necessario aggiornare le informazioni sui reparti, perché si dovrebbero aggiornare tutti i dipendenti di un reparto.</li>
 </ul>
 </td>
 </tr>
 </table>
-	
-これらの選択肢のうちのどれを選ぶかや、どの長所と短所の影響が最も大きいかは、アプリケーションのシナリオによって異なります。たとえば、部署エンティティを変更する頻度、すべての従業員クエリに追加の部署情報が必要かどうか、パーティションまたはストレージ アカウントのスケーラビリティの制限までどのくらいかなどです。  
 
-### 一対一のリレーションシップ  
+Per scegliere tra queste opzioni e stabilire quali siano i vantaggi e gli svantaggi più importanti, è necessario considerare gli scenari specifici dell'applicazione. Ad esempio, ogni quanto si modificano le entità reparto, se tutte le query dei dipendenti richiedono informazioni aggiuntive sul reparto, quanto si è vicini ai limiti di scalabilità nelle partizioni o nell'account di archiviazione.
 
-ドメイン モデルにはエンティティ間の一対一のリレーションシップが含まれることもあります。Table サービスで一対一のリレーションシップを実装する必要がある場合は、2 つの関連するエンティティを取得する必要があるときにそれらをリンクする方法も選択する必要があります。このリンクはキー値の規則に基づいて暗黙的に存在する場合もあるほか、関連エンティティへのリンクを **PartitionKey** 値と **RowKey** 値の形式で各エンティティに格納することで、明示的に設定されることもあります。関連エンティティを同じパーティションに格納する必要があるかどうかについては、「[一対多のリレーションシップ]」をご覧ください(#one-to-many-relationships)。  
+### Relazioni uno a uno  
 
-実装上の検討内容に応じて、Table サービスで一対一のリレーションシップを実装する必要が生じることもあります。  
+I modelli di dominio possono includere relazioni uno a uno tra le entità. Se è necessario implementare una relazione uno a uno nel servizio tabelle, è necessario scegliere anche come collegare le due entità correlate quando è necessario recuperarle entrambe. Questo collegamento può essere implicito, ovvero basato su una convenzione nei valori chiave, o esplicito, ovvero basato sull'archiviazione di un collegamento all'entità correlata, sotto forma di valori **PartitionKey** e **RowKey** in ogni entità. Per informazioni utili a stabilire se archiviare le entità correlate nella stessa partizione, vedere la sezione [Relazioni uno a molti](#one-to-many-relationships).
 
--	ラージ エンティティの処理 (詳細については、「[ラージ エンティティの操作]」をご覧ください(#working-with-large-entities))。  
--	アクセス制御の実装 (詳細については、「[Shared Access Signature を使ってアクセスを制御する]」をご覧ください(#controlling-access-with-shared-access-signatures))。  
+Esistono anche alcune considerazioni sull'implementazione che potrebbero far decidere di implementare le relazioni uno a uno nel servizio tabelle:
 
-### クライアントでの結合  
+-	Gestione di entità di grandi dimensioni (per altre informazioni, vedere [Uso di entità di grandi dimensioni](#working-with-large-entities)).  
+-	Implementazione di controlli di accesso. Per altre informazioni, vedere [Controllo dell'accesso con le firme di accesso condiviso](#controlling-access-with-shared-access-signatures)  
 
-Table サービスでのリレーションシップのモデル化には何とおりかの方法があるものの、Table サービスを使う主な理由はスケーラビリティとパフォーマンスの 2 つであることを忘れないでください。ソリューションのパフォーマンスとスケーラビリティを損なう多数のリレーションシップをモデル化しようとしていることに気が付いた場合は、そのすべてのデータ リレーションシップをテーブル設計に組み込む必要があるかどうかを確認する必要があります。クライアント アプリケーションで必要な結合が実行されるようにすると、設計を簡素化し、ソリューションのスケーラビリティとパフォーマンスを向上させることができます。  
+### Join nel client  
 
-たとえば、変更頻度の高くないデータが格納された小さなテーブルがある場合は、そのデータを取得した後でクライアント上にキャッシュできます。そうすると、何度も同じデータを取得する必要がなくなります。このガイドで見てきた例では、小規模な組織の部署のセットは小さく、変更頻度も低いことが多いので、データをクライアント アプリケーションでダウンロードしてからルックアップ データとしてキャッシュするのに適しています。  
+Anche se esistono alcuni modi per modellare le relazioni nel servizio tabelle, è bene non dimenticare che i due principali motivi per usare il servizio tabelle sono la scalabilità e le prestazioni. Se ci si accorge che si stanno modellando troppe relazioni che compromettono le prestazioni e la scalabilità della soluzione, è consigliabile chiedersi se sia necessario compilare tutte le relazioni tra i dati nella progettazione tabelle. È possibile semplificare la progettazione e migliorare la scalabilità e le prestazioni della soluzione permettendo all'applicazione client di eseguire i join necessari.
 
-### 継承リレーションシップ  
+Ad esempio, se si dispone di tabelle di piccole dimensioni che contengono dati che non cambiano molto spesso, è possibile recuperare i dati una sola volta e memorizzarli nella cache del client. Questo consente di evitare round trip ripetuti per il recupero degli stessi dati. Negli esempi esaminati in questa guida, il set di reparti di una piccola organizzazione sarà probabilmente di dimensioni ridotte e cambierà raramente. Si tratta di un caso ideale di dati che l'applicazione client può scaricare una sola volta e memorizzare nella cache come dati di ricerca.
 
-クライアント アプリケーションでビジネス エンティティを表す継承リレーションシップの一部を構成するクラスのセットを使用する場合は、それらのエンティティを Table サービスで簡単に保持できます。たとえば、クライアント アプリケーションで次のクラスのセットを定義する場合があります (**Person** は抽象クラス)。
+### Relazioni di ereditarietà  
+
+Se l'applicazione client usa un set di classi che fanno parte di una relazione di ereditarietà per rappresentare entità aziendali, è possibile rendere facilmente le entità persistenti nel servizio tabelle. Ad esempio, nell'applicazione client potrebbe essere definito il set di classi seguente, dove **Person** è una classe astratta.
 
 ![][3]
- 
-エンティティを次のように扱う 1 つの Person テーブルを使えば、2 つの具象クラスのインスタンスを Table サービスで維持できます。  
+
+È possibile rendere persistenti le istanze delle due classi concrete nel servizio tabelle usando una singola tabella Persone con entità simili alle seguenti:
 
 ![][4]
- 
-クライアント コードで同じテーブル内の複数の種類のエンティティを操作する方法については、「[異なる種類のエンティティを操作する]」(#working-with-heterogeneous-entity-types) をご覧ください。クライアント コードでエンティティの種類を認識する方法の例が示されています。  
 
-## テーブル設計のパターン
-前のセクションでは、クエリを使用してエンティティ データを取得する場合と、エンティティ データを挿入、更新、削除する場合の両方のテーブル設計を最適化する方法について詳しく説明しました。このセクションでは、Table サービス ソリューションで使用するのに適したパターンをいくつか紹介します。また、このガイドで前に提起された問題とトレードオフの一部に実際に対処する方法を説明しています。次の図は、さまざまなパターンの関係をまとめたものです。  
+Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel codice del client, vedere la sezione [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types) più avanti in questa guida. In questa sezione sono disponibili esempi su come riconoscere il tipo di entità nel codice del client.
+
+## Modelli di progettazione tabelle
+Le sezioni precedenti illustrano in dettaglio come ottimizzare la progettazione della tabella sia per il recupero dei dati di entità mediante query che per l'inserimento, l'aggiornamento e l'eliminazione dei dati di entità. Questa sezione descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi evidenziati in precedenza in questa guida. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:
 
 ![][5]
- 
-上記のパターン マップには、このガイドに記載されているパターン (青) とアンチパターン (オレンジ) の関係の一部が示されています。もちろん、検討する価値があるパターンは他にもたくさんあります。たとえば、Table サービスの主なシナリオの 1 つでは、[コマンド クエリ責務分離](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS) パターンから[具体化されたビュー](https://msdn.microsoft.com/library/azure/dn589782.aspx)を格納します。  
 
-### パーティション内セカンダリ インデックス パターン
-同じパーティション内の異なる **RowKey** 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。コピー間の更新の一貫性は、EGT を使用して保つことができます。  
+La mappa dei modelli nella figura precedente evidenzia alcune relazioni tra i modelli (blu) e gli anti-modelli (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per il servizio tabelle è l'archiviazione di [Viste Materializzate](https://msdn.microsoft.com/library/azure/dn589782.aspx) dal modello [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
 
-#### コンテキストと問題
-Table サービスにより、**PartitionKey** 値と **RowKey** 値を使用してエンティティのインデックスが自動的に作成されます。そのため、クライアント アプリケーションでは、これらの値を使用してエンティティを効率的に取得できます。たとえば、以下のテーブル構造を使用した場合、クライアント アプリケーションでは、ポイント クエリで部署名と従業員 ID (**PartitionKey** 値と **RowKey** 値) を使用して、個々の従業員エンティティを取得できます。また、各部署内の従業員 ID で並べ替えたエンティティを取得することも可能です。
+### Modello per indice secondario intrapartizione
+Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi. Gli aggiornamenti tra copie possono essere mantenuti coerenti usando transazioni ETG.
+
+#### Contesto e problema
+Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente mediante questi valori. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può usare una query di tipo punto per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**). Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.
 
 ![][6]
- 
-また、電子メール アドレスなど、他のプロパティの値に基づいて従業員エンティティを検索できるようにする場合は、効率の劣るパーティション スキャンを使用して、一致するエンティティを検索する必要があります。これは、Table サービスではセカンダリ インデックスが提供されないためです。また、**RowKey** の順序とは異なる順序で並べ替えられた従業員の一覧を要求する方法はありません。  
 
-#### ソリューション
-セカンダリ インデックスが提供されない問題を回避するために、各エンティティのコピーを複数格納し、コピーごとに異なる **RowKey** 値を使用します。以下の構造でエンティティを格納した場合は、電子メール アドレスまたは従業員 ID に基づいて従業員エンティティを効率的に取得できます。**RowKey** のプレフィックス値 "empid_" と "email_" を使用すると、1 人の従業員を照会することや、電子メール アドレスまたは従業員 ID の範囲を指定して一連の従業員を照会できます。  
+Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey**.
+
+#### Soluzione
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso il **RowKey**, "empid_" e "email_" consentono di eseguire una query per un singolo dipendente o un intervallo di dipendenti utilizzando un intervallo di indirizzi di posta elettronica o ID dipendente.
 
 ![][7]
- 
-次の 2 つのフィルター条件 (従業員 ID で検索するフィルター条件と電子メール アドレスで検索するフィルター条件) ではどちらもポイント クエリを指定しています。  
 
--	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
--	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
+I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:
 
-一連の従業員エンティティを照会する場合は、従業員 ID 順に並べ替えられた範囲を指定するか、**RowKey** の適切なプレフィックスを使用してエンティティを照会することで電子メール アドレス順に並べ替えられた範囲を指定できます。  
+-	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'empid_000223)  
+-	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'email_jonesj@contoso.com')  
 
--	Sales 部署で従業員 ID が 000100 ～ 000199 の範囲のすべての従業員を検索するには、次の条件を使用します。
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
--	Sales 部署で電子メール アドレスが 'a' という文字で始まるすべての従業員を検索するには、次の条件を使用します。
-$filter=(PartitionKey eq 'Sales') と (RowKey ge 'email_a') と (RowKey lt 'email_b')  
+Se si esegue una query su un intervallo di entità dipendente, è possibile specificare un intervallo ordinato per ID dipendente o un intervallo ordinato per indirizzo di posta elettronica eseguendo la query sulle entità con il prefisso appropriato in **RowKey**.
 
- 上の例で使用しているフィルター構文は、Table サービス REST API の構文です。詳細については、MSDN の「[Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx)」をご覧ください。  
+-	Per trovare tutti i dipendenti nel reparto vendite con un id dipendente in uso nell'intervallo che va da 000100 a 000199 utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge'empid_000100') e (RowKey le 'empid_000199')  
+-	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge 'email_a') e (RowKey It'email_b')  
 
-#### 問題と注意事項  
+ Si noti che la sintassi del filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+#### Considerazioni e problemi  
 
--	テーブル ストレージは比較的低コストで利用できるため、重複するデータを格納してもコストは大きな問題になりません。ただし、必ず、予想されるストレージ要件に基づいて設計のコストを見積もり、クライアント アプリケーションが実行するクエリで使用するエンティティのみを複製する必要があります。  
--	セカンダリ インデックス エンティティは元のエンティティと同じパーティションに格納されるため、個々のパーティションのスケーラビリティ ターゲットを超えないようにする必要があります。  
--	EGT を使用してエンティティの 2 つのコピーをアトミックに更新することで、重複するエンティティどうしの一貫性を保つことができます。そのためには、エンティティのすべてのコピーを同じパーティションに格納する必要があります。詳細については、[エンティティ グループ トランザクションの使用]に関するセクションをご覧ください(#entity-group-transactions)。  
--	**RowKey** に使用する値は、各エンティティに対して一意である必要があります。複合キー値の使用を検討してください。  
--	従業員 ID 000223 のように、**RowKey** の数値をパディングすると、上限と下限に基づいて正しく並べ替えることやフィルター処理できます。  
--	必ずしもエンティティのすべてのプロパティを複製する必要はありません。たとえば、**RowKey** の電子メール アドレスを使用してエンティティを検索するクエリで従業員の年齢がまったく必要ない場合、これらのエンティティは以下の構造にすることができます。
+Prima di decidere come implementare questo modello, considerare quanto segue:
+
+-	L'uso dell'archiviazione tabelle è relativamente economico, pertanto l'aumento dei costi dovuto all'archiviazione di dati duplicati non dovrebbe rappresentare una preoccupazione. È però consigliabile valutare sempre il costo del progetto in base ai requisiti di archiviazione previsti e aggiungere entità duplicate solo per supportare le query che verranno eseguite dall'applicazione client.  
+-	Poiché le entità di indice secondario vengono archiviate nella stessa partizione delle entità originali, è necessario assicurarsi di non superare gli obiettivi di scalabilità delle singole partizioni.  
+-	Per mantenere la coerenza tra entità duplicate è possibile usare transazioni ETG, che consentono di aggiornare le due copie dell'entità in modo atomico. A questo scopo è necessario archiviare tutte le copie di un'entità nella stessa partizione. Per altre informazioni, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions).  
+-	Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
+-	Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtraggio corretto in base ai limiti superiori e inferiori.  
+-	Non è necessario duplicare tutte le proprietà dell'entità. Ad esempio, se le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
 ![][8]
- 
--	通常は、エンティティの検索と必要なデータの検索にそれぞれ異なるクエリを使用するよりも、重複するデータを格納し、必要なすべてのデータを単一のクエリで取得できるようにすることをお勧めします。  
 
-#### このパターンを使用する状況  
+-	In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
 
-クライアント アプリケーションで異なるさまざまなキーを使用してエンティティを取得する必要がある場合、クライアントで異なる順序で並べ替えたエンティティを取得する必要がある場合、さまざまな一意の値を使用して各エンティティを識別できる場合に、このパターンを使用します。ただし、異なる **RowKey** 値を使用してエンティティの検索を実行する際に、パーティションのスケーラビリティの限界を超えないようにする必要があります。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando l'applicazione client deve recuperare le entità usando una serie di chiavi diverse, quando il client deve recuperare entità con criteri di ordinamento diversi e nei casi in cui è possibile identificare ogni entità attraverso una varietà di valori univoci. È però necessario assicurarsi che durante l'esecuzione di ricerche di entità con valori **RowKey** diversi non vengano superati i limiti di scalabilità della partizione.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
- 
--	[パーティション間セカンダリ インデックス パターン](#inter-partition-secondary-index-pattern)
--	[複合キー パターン](#compound-key-pattern)
--	[エンティティ グループ トランザクション](#entity-group-transactions)
--	[異なる種類のエンティティを操作する](#working-with-heterogeneous-entity-types)
+#### Modelli correlati e informazioni aggiuntive  
 
-### パーティション間セカンダリ インデックス パターン
-異なるパーティションまたはテーブル内の異なる **RowKey** 値を使用して各エンティティの複数のコピーを格納することにより、高速で効率の良いルックアップを実現すると共に、異なる **RowKey** 値を使用して並べ替え順を変更できるようにします。  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-#### コンテキストと問題
-Table サービスにより、**PartitionKey** 値と **RowKey** 値を使用してエンティティのインデックスが自動的に作成されます。そのため、クライアント アプリケーションでは、これらの値を使用してエンティティを効率的に取得できます。たとえば、以下のテーブル構造を使用した場合、クライアント アプリケーションでは、ポイント クエリで部署名と従業員 ID (**PartitionKey** 値と **RowKey** 値) を使用して、個々の従業員エンティティを取得できます。また、各部署内の従業員 ID で並べ替えたエンティティを取得することも可能です。  
+-	[Modello per indice secondario interpartizione](#inter-partition-secondary-index-pattern)
+-	[Modello per chiave composta](#compound-key-pattern)
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)
+
+### Modello per indice secondario interpartizione
+Archivia più copie di ogni entità usando valori **RowKey** diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.
+
+#### Contesto e problema
+Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente mediante questi valori. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può usare una query di tipo punto per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**). Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.
 
 ![][9]
- 
-また、電子メール アドレスなど、他のプロパティの値に基づいて従業員エンティティを検索できるようにする場合は、効率の劣るパーティション スキャンを使用して、一致するエンティティを検索する必要があります。これは、Table サービスではセカンダリ インデックスが提供されないためです。また、**RowKey** の順序とは異なる順序で並べ替えられた従業員の一覧を要求する方法はありません。  
 
-これらのエンティティに対するトランザクションの量が膨大になることが予想される場合は、Table サービスによってクライアントが調整されるリスクを最小限に抑える必要があります。  
+Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey**.
 
-#### ソリューション  
-セカンダリ インデックスが提供されない問題を回避するために、各エンティティのコピーを複数格納し、コピーごとに異なる **PartitionKey** 値と **RowKey** 値を使用できます。以下の構造のエンティティを格納した場合は、電子メール アドレスまたは従業員 ID に基づいて従業員エンティティを効率的に取得できます。**PartitionKey** のプレフィックス値 "empid_" と "email_" を使用すると、クエリに使用するインデックスを特定できます。  
+Si prevede un volume molto elevato di transazioni su queste entità e si vuole ridurre al minimo il rischio che il servizio tabelle esegua la limitazione del client.
+
+#### Soluzione  
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per il **PartitionKey**, "empid_" e "email_" consentono di identificare quale indice si desidera utilizzare per una query.
 
 ![][10]
- 
-次の 2 つのフィルター条件 (従業員 ID で検索するフィルター条件と電子メール アドレスで検索するフィルター条件) ではどちらもポイント クエリを指定しています。  
 
--	$filter=(PartitionKey eq 'empid_Sales') and (RowKey eq '000223')
--	$filter=(PartitionKey eq 'email_Sales') and (RowKey eq 'jonesj@contoso.com')  
+I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:
 
-一連の従業員エンティティを照会する場合は、従業員 ID 順に並べ替えられた範囲を指定するか、**RowKey** の適切なプレフィックスを使用してエンティティを照会することで電子メール アドレス順に並べ替えられた範囲を指定できます。  
+-	$filter=(PartitionKey 'empid_Sales') e (RowKey eq '000223')
+-	$filter = (PartitionKey eq ' email_Sales') e (RowKey eq 'jonesj@contoso.com')  
 
--	Sales 部署で従業員 ID が **000100** ～ **000199** の範囲のすべての従業員を従業員 ID 順に並べ替えて検索するには、次の条件を使用します。 
-$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
--	Sales 部署で電子メール アドレスが 'a' で始まるすべての従業員を従業員 ID 順に並べ替えて検索するには、次の条件を使用します。
-$filter=(PartitionKey eq 'email_Sales') と (RowKey ge 'a') and (RowKey lt 'b')  
+Se si esegue una query su un intervallo di entità dipendente, è possibile specificare un intervallo ordinato per ID dipendente o un intervallo ordinato per indirizzo di posta elettronica eseguendo la query sulle entità con il prefisso appropriato in **RowKey**.
 
-上の例で使用しているフィルター構文は、Table サービス REST API の構文です。詳細については、MSDN の「[Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx)」をご覧ください。  
+-	Per trovare tutti i dipendenti del reparto vendite con un id dipendente nell'intervallo che va da **000100** a **000199** ordinati in base all’ID dipendente utilizzare: $filter = (PartitionKey eq ' empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+-	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con 'a' ordinato in base all’indirizzo di posta elettronica utilizzare: $filter = (PartitionKey eq ' email_Sales') e (RowKey ge 'a') e (RowKey lt "b")  
 
-#### 問題と注意事項  
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+Si noti che la sintassi del filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
--	[最終的に一貫性のあるトランザクション パターン]を使用してプライマリとセカンダリ インデックス エンティティを管理すると、(#eventually-consistent-transactions-pattern) 重複するエンティティどうしの一貫性を最終的に確保できます。  
--	テーブル ストレージは比較的低コストで利用できるため、重複するデータを格納してもコストは大きな問題になりません。ただし、必ず、予想されるストレージ要件に基づいて設計のコストを見積もり、クライアント アプリケーションが実行するクエリで使用するエンティティのみを複製する必要があります。  
--	**RowKey** に使用する値は、各エンティティに対して一意である必要があります。複合キー値の使用を検討してください。  
--	従業員 ID 000223 のように、**RowKey** の数値をパディングすると、上限と下限に基づいて正しく並べ替えることやフィルター処理できます。  
--	必ずしもエンティティのすべてのプロパティを複製する必要はありません。たとえば、**RowKey** の電子メール アドレスを使用してエンティティを検索するクエリで従業員の年齢がまったく必要ない場合、これらのエンティティは以下の構造にすることができます。
+#### Considerazioni e problemi  
+Prima di decidere come implementare questo modello, considerare quanto segue:
+
+-	Per mantenere la coerenza finale tra le entità duplicate, è possibile usare il [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) per gestire le entità di indice primario e secondario.  
+-	L'uso dell'archiviazione tabelle è relativamente economico, pertanto l'aumento dei costi dovuto all'archiviazione di dati duplicati non dovrebbe rappresentare una preoccupazione. È però consigliabile valutare sempre il costo del progetto in base ai requisiti di archiviazione previsti e aggiungere entità duplicate solo per supportare le query che verranno eseguite dall'applicazione client.  
+-	Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
+-	Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtraggio corretto in base ai limiti superiori e inferiori.  
+-	Non è necessario duplicare tutte le proprietà dell'entità. Ad esempio, se le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
 	![][11]
- 
--	通常は、セカンダリ インデックスを使用したエンティティの検索とプライマリ インデックス内の必要なデータの検索にそれぞれ異なるクエリを使用するよりも、重複するデータを格納し、必要なすべてのデータを単一のクエリで取得できるようにすることをお勧めします。  
 
-#### このパターンを使用する状況  
-クライアント アプリケーションで異なるさまざまなキーを使用してエンティティを取得する必要がある場合、クライアントで異なる順序で並べ替えたエンティティを取得する必要がある場合、さまざまな一意の値を使用して各エンティティを識別できる場合に、このパターンを使用します。異なる **RowKey** 値を使用してエンティティの検索を実行する際にパーティションのスケーラビリティの限界を超えないようにする必要がある場合も、このパターンを使用します。  
+-	In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità mediante l'indice secondario e un'altra per cercare i dati richiesti nell'indice primario.
 
-#### 関連のあるパターンとガイダンス
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
- 
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern)  
--	[パーティション内セカンダリ インデックス パターン](#intra-partition-secondary-index-pattern)  
--	[複合キー パターン](#compound-key-pattern)  
--	[エンティティ グループ トランザクション](#entity-group-transactions)  
--	[異なる種類のエンティティを操作する](#working-with-heterogeneous-entity-types)  
+#### Quando usare questo modello  
+Usare questo modello quando l'applicazione client deve recuperare le entità usando una serie di chiavi diverse, quando il client deve recuperare entità con criteri di ordinamento diversi e nei casi in cui è possibile identificare ogni entità attraverso una varietà di valori univoci. Usare questo modello quando si desidera evitare il superamento dei limiti di scalabilità della partizione durante l'esecuzione di ricerche di entità mediante i diversi valori **RowKey**.
 
-### 最終的に一貫性のあるトランザクション パターン  
+#### Modelli correlati e informazioni aggiuntive
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-Azure キューを使用して、パーティションやストレージ システムの境界を越えて、最終的に一貫した動作を実現します。  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
+-	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern)  
+-	[Modello per chiave composta](#compound-key-pattern)  
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)  
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
 
-#### コンテキストと問題  
+### Modello per transazioni con coerenza finale  
 
-EGT を使用すると、同じパーティション キーを共有する複数のエンティティに対してアトミックなトランザクションを実行できます。パフォーマンスやスケーラビリティの関係で、一貫性が必要なエンティティを別々のパーティションや別のストレージ システムに格納する場合があります。そのような場合は、EGT を使用して一貫性を保つことはできません。たとえば、次の一貫性を最終的に確保する必要があるとします。  
+abilita un comportamento di coerenza finale tra i limiti della partizione o i limiti del sistema di archiviazione usando le code di Azure.
 
--	同じテーブル内の 2 つの異なるパーティション、異なるテーブル、異なるストレージ アカウントに格納されているエンティティ。  
--	Table サービスに格納されているエンティティと BLOB サービスに格納されている BLOB。  
--	Table サービスに格納されているエンティティとファイル システム内のファイル。  
--	Table サービスに格納されているにもかかわらず、Azure Search サービスを使用してインデックスが作成されているエンティティ。  
+#### Contesto e problema  
 
-#### ソリューション  
+Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più entità che condividono la stessa chiave di partizione. Per motivi di scalabilità e prestazioni, si può scegliere di archiviare le entità con requisiti di coerenza in partizioni separate o in un sistema di archiviazione separato: in questo caso, non è possibile usare le transazioni ETG per mantenere la coerenza. Ad esempio, potrebbe essere necessario mantenere la coerenza finale tra:
 
-Azure キューを使用すると、2 つ以上のパーティションまたはストレージ システム間で最終的に一貫性を確保するソリューションを実装できます。
-この方法を説明するために、退職した従業員エンティティをアーカイブできるようにする必要があるとします。退職した従業員エンティティはめったに照会されず、現在の従業員を対象にしたすべてのアクティビティから除外する必要があります。この要件を実装するには、**Current** テーブルに現在の従業員を格納し、**Archive** テーブルに退職した従業員を格納します。従業員をアーカイブする場合は、**Current** テーブルからエンティティを削除し、そのエンティティを **Archive** テーブルに追加する必要があります。ただし、EGT を使用してこの 2 つの操作を行うことはできません。エンティティが両方のテーブルに表示されることや、どちらのテーブルにも表示されないことがないように、アーカイブ操作は最終的に一貫性が確保される必要があります。次のシーケンス図は、この操作の大まかな手順を示しています。その下のテキストには、例外パスの詳細が示されています。  
+-	Entità archiviate in due partizioni diverse nella stessa tabella, in tabelle diverse, in account di archiviazione diversi.  
+-	Un'entità archiviata nel servizio tabelle e un BLOB archiviato nel servizio BLOB.  
+-	Un'entità archiviata nel servizio tabelle e un file in un file system.  
+-	Un'entità archiviata nel servizio tabelle, ma indicizzata mediante Ricerca di Azure.  
+
+#### Soluzione  
+
+Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione. Per illustrare questo approccio, si supponga di avere l'esigenza di archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti correnti. Per implementare questo requisito è necessario archiviare i dipendenti attivi nella tabella dei dipendenti **Correnti** e i dipendenti precedenti nella tabella dei dipendenti **Archiviati**. Per archiviare un dipendente è necessario eliminare l'entità dalla tabella dei dipendenti **Correnti** e aggiungerla a quella dei dipendenti **Archiviati**, ma non è possibile usare una transazione ETG per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione. Nel testo che segue sono disponibili maggiori dettagli per i percorsi di eccezione.
 
 ![][12]
- 
-クライアントは、Azure キューにメッセージを配置することによって、アーカイブ操作を開始します。この例では、ID が 456 の従業員をアーカイブします。worker ロールは、キューをポーリングして新しいメッセージの有無を確認します。メッセージを見つけると、そのメッセージを読み取り、隠しコピーをキューに残します。worker ロールは、次に、**Current** テーブルからエンティティのコピーをフェッチし、**Archive** テーブルにコピーを挿入した後、**Current** テーブルから元のエンティティを削除します。最後に、前の手順でエラーが発生しなければ、worker ロールはキューから隠しメッセージを削除します。  
 
-この例では、手順 4. で、**Archive** テーブルに従業員を挿入しています。BLOB サービスの BLOB またはファイル システム内のファイルに従業員を加えることもできます。  
+Un client avvia l'operazione di archiviazione inserendo un messaggio in una coda di Azure, in questo esempio per l'archiviazione del dipendente 456. Un ruolo di lavoro esegue il polling della coda per individuare i nuovi messaggi. Quando ne trova uno, legge il messaggio e lascia una copia nascosta nella coda. Successivamente, il ruolo di lavoro recupera una copia dell'entità dalla tabella dei dipendenti **Correnti**, inserisce una copia nella tabella dei dipendenti **Archiviati** e quindi elimina l'originale dalla tabella dei dipendenti **Correnti**. Infine, se nei passaggi precedenti non si sono verificati errori, il ruolo di lavoro elimina il messaggio nascosto dalla coda.
 
-#### エラーからの回復  
+In questo esempio, il passaggio 4 inserisce il dipendente nella tabella dei dipendenti **Archiviati**. Potrebbe aggiungere il dipendente a un BLOB nel servizio BLOB o un file in un file system.
 
-worker ロールがアーカイブ操作を再実行する必要がある場合に備えて、手順 **4** と **5** の操作は必ず  *idempotent* であることが重要です。Table サービスを使用する場合は、手順 **4**. では "挿入または置換" 操作を使用し、手順 **5**. では使用しているクライアント ライブラリの "存在する場合に削除" 操作を使用する必要があります。他のストレージ システムを使用する場合は、適切なべき等操作を使用する必要があります。  
+#### Ripristino da errori  
 
-worker ロールが手順 **6**. をまったく完了しない場合は、タイムアウト後、worker ロールがメッセージの再処理を試行できるようにそのメッセージがキューに再度配置されます。worker ロールは、キュー上のメッセージを読み取った回数を確認し、必要に応じて、別のキューに送信することで、調査のために "有害" メッセージとしてフラグを設定できます。キュー メッセージの読み取りとデキュー カウントの確認の詳細については、「[Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)」をご覧ください。  
+È importante che le operazioni nei passaggi **4** e **5** siano *idempotenti* nei casi in cui il ruolo di lavoro deve riavviare l'operazione di archiviazione. Se si sta usando il servizio tabelle, per il passaggio **4** è consigliabile usare un'operazione "insert or replace"; per il passaggio **5** è consigliabile usare un'operazione "delete if exists" nella libreria client in uso. Se si sta usando un altro sistema di archiviazione, è consigliabile usare un'operazione idempotente appropriata.
 
-Table サービスと Queue サービスのエラーには一時的なエラーもあります。クライアント アプリケーションには、そうしたエラーに対処する適切な再試行ロジックを組み込む必要があります。  
+Se il ruolo di lavoro non completa mai il passaggio **6**, dopo un timeout il messaggio ricompare nella coda, pronto per una nuova elaborazione da parte del ruolo di lavoro. Il ruolo di lavoro può controllare quante volte un messaggio nella coda è stato letto e, se necessario, contrassegnarlo come messaggio non elaborabile da analizzare inviandolo a una coda separata. Per altre informazioni sulla lettura dei messaggi in coda e la verifica del numero di rimozioni dalla coda, vedere [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).
 
-#### 問題と注意事項
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+Alcuni errori del servizio tabelle e del servizio di accodamento sono temporanei e l'applicazione client deve includere la logica di ripetizione dei tentativi appropriata per gestirli.
 
--	このソリューションは、トランザクションを分離するためのソリューションではありません。たとえば、worker ロールが手順 **4**. と **5**. の間にさしかかったときに、クライアントで **Current** テーブルと **Archive** テーブルを読み取って、一貫性のないデータのビューを表示できます。データは最終的に一貫性が確保されます。  
--	最終的に一貫性を確保するために、手順 4. と 5. がべき等になっていることを確認する必要があります。  
--	複数のキューと worker ロール インスタンスを使用して、ソリューションを拡張できます。  
+#### Considerazioni e problemi
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況  
-別のパーティションまたはテーブルに存在するエンティティ間の一貫性を最終的に確保する必要がある場合に、このパターンを使用します。このパターンを拡張して、Table サービスと BLOB サービスのほかにも、データベースやファイル システムなどの Azure 以外のストレージ データ ソース間の操作で最終的な一貫性を確保できます。  
+-	Questa soluzione non prevede l'isolamento delle transazioni. Ad esempio, un client potrebbe leggere le tabelle dei dipendenti **Correnti** e **Archiviati** mentre il ruolo di lavoro è tra i passaggi **4** e **5** e ottenere una vista incoerente dei dati. Si noti che alla fine i dati saranno coerenti.  
+-	È necessario assicurarsi che i passaggi 4 e 5 siano idempotenti per garantire la coerenza finale.  
+-	È possibile ridimensionare la soluzione usando più code e istanze del ruolo di lavoro.  
 
-#### 関連のあるパターンとガイダンス  
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
--	[エンティティ グループ トランザクション](#entity-group-transactions)  
--	[マージまたは置換](#merge-or-replace)  
+#### Quando usare questo modello  
+Usare questo modello quando si desidera garantire la coerenza finale tra entità esistenti in tabelle o partizioni diverse. È possibile estendere il modello per garantire la coerenza finale per le operazioni tra il servizio tabelle e il servizio BLOB e altre origini dati di archiviazione non Azure, quali database o file system.
 
->[AZURE.NOTE] ソリューションにとってトランザクションの分離が重要な場合は、EGT を使用できるようにテーブルを再設計することを検討する必要があります。  
+#### Modelli correlati e informazioni aggiuntive  
+I seguenti modelli e le indicazioni seguenti possono essere importanti anche quando si implementa il pattern:- [Transazioni dei gruppi di entità](#entity-group-transactions) - [Unisci o sostituisci](#merge-or-replace)
 
-### インデックス エンティティ パターン
-インデックス エンティティを保持して、エンティティの一覧を返す効率の良い検索を実現します。  
+>[AZURE.NOTE]Se l'isolamento delle transazioni è importante per la soluzione, è consigliabile riprogettare le tabelle per consentire l'uso delle transazioni ETG.
 
-#### コンテキストと問題  
+### Modello per entità di indice:
+mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.
 
-Table サービスにより、**PartitionKey** 値と **RowKey** 値を使用してエンティティのインデックスが自動的に作成されます。そうすると、クライアント アプリケーションでポイント クエリを使用してエンティティを効率的に取得できます。たとえば、以下のテーブル構造を使用した場合、クライアント アプリケーションでは、部署名と従業員 ID (**PartitionKey** と **RowKey**) を使用して、個々の従業員エンティティを効率的に取得できます。  
- 
+#### Contesto e problema  
+
+Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Consente a un'applicazione client di recuperare un'entità in modo efficiente mediante una query di tipo punto. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può recuperare in modo efficiente una singola entità dipendente usando il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**).
+
 ![][13]
 
-また、姓など、一意ではない他のプロパティの値に基づいて従業員エンティティの一覧を取得できるようにする場合は、インデックスを使用して直接一致するエンティティを検索せずに、効率の劣るパーティション スキャンを使用して検索する必要があります。これは、Table サービスではセカンダリ インデックスが提供されないためです。  
+Se si desidera poter recuperare un elenco di entità dipendente anche in base al valore di un'altra proprietà non univoca, ad esempio il cognome, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza piuttosto che usare un indice per la ricerca diretta. Il motivo è che il servizio tabelle non fornisce indici secondari.
 
-#### ソリューション  
+#### Soluzione  
 
-上のエンティティ構造の場合、姓で検索できるようにするには、従業員 ID の一覧を保持する必要があります。Jones など、特定の姓を持つ従業員エンティティを取得するには、まず姓が Jones である従業員の従業員 ID の一覧を検索してから、それらの従業員エンティティを取得する必要があります。従業員 ID の一覧を格納する方法は主に次の 3 つがあります。  
+Per attivare la ricerca per cognome con la struttura delle entità illustrata in precedenza, è necessario gestire elenchi di ID dipendente. Per recuperare le entità dipendente con un determinato cognome, ad esempio Jones, è necessario innanzitutto individuare l'elenco di ID relativi ai dipendenti con il cognome Jones e quindi recuperare tali entità dipendente. Per l'archiviazione dell'elenco di ID dipendente sono disponibili tre opzioni principali:
 
--	BLOB ストレージを使用する。  
--	従業員エンティティと同じパーティションにインデックス エンティティを作成する。  
--	別のパーティションまたはテーブルにインデックス エンティティを作成する。  
+-	Usare l'archiviazione BLOB.  
+-	Creare entità di indice nella stessa partizione delle entità dipendente.  
+-	Creare entità di indice in una tabella o una partizione separata.  
 
-<u>手順 #1:BLOB ストレージを使用する</u>  
+<u>Opzione \#1: Usare l'archiviazione BLOB</u>
 
-最初の方法では、一意の姓ごとに BLOB を作成し、各 BLOB に、その姓を持つ従業員の **PartitionKey** (部署) 値と **RowKey** (従業員 ID) 値の一覧を格納します。従業員を追加または削除した場合は、関連する BLOB の内容と従業員エンティティの一貫性が最終的に確保されていることを確認する必要があります。  
+Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e archiviare in ogni BLOB un elenco dei valori **PartitionKey** (reparto) e **RowKey** (ID dipendente) per i dipendenti con questo cognome. Quando si aggiunge o elimina un dipendente, è necessario verificare la coerenza finale tra il contenuto del BLOB pertinente e le entità dipendente.
 
-<u>手順 #2:</u> 同じパーティションにインデックス エンティティを作成する  
+<u>Opzione 2:</u> Creare entità di indice nella stessa partizione
 
-2 番目の方法では、以下のデータを格納するインデックス エンティティを使用します。  
+Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
 ![][14]
- 
-**EmployeeIDs** プロパティには、**RowKey** に格納されている姓を持つ従業員の従業員 ID の一覧が含まれています。  
 
-次の手順は、2 番目の方法を使用した場合に、新しい従業員を追加するときに従う必要がある手順の概要を示しています。この例では、Sales 部署で ID が 000152、姓が Jones の従業員を追加します。  
-1.	**PartitionKey** 値が "Sales" で **RowKey** 値が "Jones" のインデックス エンティティを取得します。このエンティティの ETag を、手順 2. で使用するために保存します。  
-2.	新しい従業員エンティティ (**PartitionKey** 値が "Sales"、**RowKey** 値が "000152") を挿入し、EmployeeIDs フィールドの一覧に新しい従業員 ID を追加することによってインデックス エンティティ (**PartitionKey** 値が "Sales"、**RowKey** 値が "Jones") を更新する EGT を作成します。  
-3.	オプティミスティック同時実行エラー (他のユーザーがインデックス エンティティを変更したこと) が原因で ETG が失敗した場合は、手順 1. からまたやり直す必要があります。  
+La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.
 
-2 番目の方法を使用する場合は、同じような方法で従業員を削除できます。従業員の姓を変更するのは、3 つのエンティティ (従業員エンティティ、元の姓のインデックス エンティティ、新しい姓のインデックス エンティティ) を更新する ETG を実行する必要があるため、少し複雑です。変更を加える前に、各エンティティを取得して、ETag 値を取得する必要があります。その ETag 値を使用して、オプティミスティック同時実行で更新を実行できます。  
+I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones: 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per utilizzarlo nel passaggio 2. 2. Creare una transazione EGT che inserisca la nuova entità dipendente (con valore **PartitionKey** e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. 3. Se la transazione ETG ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.
 
-次の手順は、2 番目の方法を使用した場合に、ある部署で特定の姓を持つすべての従業員を検索する必要があるときに従う必要がある手順の概要を示しています。この例では、Sales 部署で姓が Jones のすべての従業員を検索します。  
+Se si usa la seconda opzione, è possibile adottare un approccio simile per l'eliminazione di un dipendente. Modificare il cognome del dipendente è un'operazione leggermente più complessa, in quanto è necessario eseguire una transazione EGT che aggiorna tre entità: l'entità dipendente, l'entità di indice per il cognome precedente e l'entità di indice per il nuovo cognome. È necessario recuperare ogni entità prima di apportare qualsiasi modifica, per recuperare i valori ETag da usare in seguito per eseguire gli aggiornamenti usando la concorrenza ottimistica.
 
-1.	**PartitionKey** 値が "Sales" で **RowKey** 値が "Jones" のインデックス エンティティを取得します。  
-2.	EmployeeIDs フィールドで従業員 ID の一覧を解析します。  
-3.	これらの各従業員の追加情報 (電子メール アドレスなど) が必要な場合は、手順 2. で取得した従業員の一覧から **PartitionKey** 値 "Sales" と **RowKey** 値を使用して各従業員エンティティを取得します。  
+I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipendenti di un reparto con un determinato cognome se si usa la seconda opzione. In questo esempio si cercano tutti i dipendenti del reparto vendite il cui cognome è Jones:
 
-<u>手順 #3:</u> 別のパーティションやテーブルにインデックス エンティティを作成する  
+1.	Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones".  
+2.	Analizzare l'elenco di ID dipendente nel campo EmployeeIDs.  
+3.	Se sono necessarie informazioni aggiuntive su ognuno dei dipendenti (ad esempio gli indirizzi di posta elettronica), recuperare ognuna delle entità dipendente usando il valore **PartitionKey** "Sales" e i valori **RowKey** dall'elenco dei dipendenti ottenuti nel passaggio 2.  
 
-3 番目の方法では、以下のデータを格納するインデックス エンティティを使用します。  
+<u>Opzione 3:</u> creare entità di indice in una tabella o una partizione separata
+
+Per la terza opzione, usare entità di indice che archiviano i dati seguenti:
 
 ![][15]
- 
-**EmployeeIDs** プロパティには、**RowKey** に格納されている姓を持つ従業員の従業員 ID の一覧が含まれています。  
 
-3 番目の方法では、インデックス エンティティが従業員エンティティとは別のパーティションにあるため、EGT を使用して一貫性を保つことはできません。インデックス エンティティが従業員エンティティと最終的に一貫していることを確認する必要があります。  
+La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.
 
-#### 問題と注意事項  
+Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. È necessario assicurarsi della coerenza finale tra le entità di indice e le entità dipendente.
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
--	このソリューションでは、一致するエンティティを取得するために、少なくとも 2 つのクエリが必要です。1 つはインデックス エンティティを照会して **RowKey** 値の一覧を取得するクエリです。もう 1 つはその一覧内の各エンティティを取得するクエリです。  
--	個々のエンティティの最大サイズは 1 MB であるため、ソリューションの方法 2 と方法 3 では、特定の姓の従業員 ID の一覧が 1 MB を超えることがないと仮定しています。従業員 ID の一覧のサイズが 1 MB を超える可能性がある場合は、方法 1 を使用して、BLOB ストレージにインデックス データを格納します。  
--	方法 2 を使用する (EGT を使用して、従業員の追加と削除、従業員の姓の変更を処理する) 場合は、トランザクションの量が特定のパーティションのスケーラビリティの限界に近づくかどうかを確認する必要があります。限界に近づく場合は、キューを使用して更新要求を処理し、従業員エンティティとは別のパーティションにインデックス エンティティを格納でき、最終的に一貫性が確保されるソリューション (方法 1 または方法 3) を検討する必要があります。  
--	このソリューションの方法 2 では、部署内を姓で検索する (たとえば、Sales 部署で姓が Jones の従業員の一覧を取得する) 必要があると想定しています。組織全体で姓が Jones のすべての従業員を検索できる必要がある場合は、方法 1 と方法 3 のどちらかを使用します。   
--	最終的に一貫性が確保されるキュー ベースのソリューションを実装できます (詳細については、「[最終的に一貫性のあるトランザクション パターン]」を(#eventually-consistent-transactions-pattern) ご覧ください)。  
+#### Considerazioni e problemi  
 
-#### このパターンを使用する状況  
+Tenere presente quanto segue prima di decidere come implementare questo modello. Questa soluzione richiede almeno due query per recuperare entità corrispondenti: una per eseguire una query dell’entità dell’indice e ottenere l'elenco dei valori **RowKey**, e una per eseguire una query e recuperare ogni entità nell'elenco. Dal momento che una singola entità ha una dimensione massima di 1 MB, l'opzione 2 e l'opzione 3 nella soluzione implicano che l'elenco degli ID dipendente per un determinato cognome non sia mai maggiore di 1 MB. Se l'elenco degli ID dipendente è possibilmente maggiore di 1 MB di dimensioni, utilizzare l'opzione 1 e archiviare i dati dell'indice nell'archiviazione blob. Se si utilizza l'opzione 2 (utilizzando EGT per gestire l'aggiunta e l'eliminazione di dipendenti e la modifica del cognome del dipendente) è necessario valutare se il volume di transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In questo caso, è necessario considerare una soluzione con coerenza finale (opzione 1 o 3) che utilizza le code per gestire le richieste di aggiornamento e consente di archiviare le entità di indice in una partizione separata dalle entità dipendente. L’opzione 2 in questa soluzione implica che si desidera cercare in base al cognome in un reparto: ad esempio si desidera recuperare un elenco di dipendenti con il cognome Jones nel reparto vendite. Se si desidera poter cercare tutti i dipendenti con un cognome Jones nell'intera organizzazione, utilizzare l'opzione 1 o 3. È possibile implementare una soluzione basata su coda che garantisce coerenza finale (vedere la [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) per ulteriori dettagli).
 
-姓が Jones のすべての従業員など、特定のプロパティ値がすべて共通している一連のエンティティを検索する場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando si desidera cercare un set di entità che condividono un valore di proprietà comune, ad esempio tutti i dipendenti con il cognome Jones.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
--	[複合キー パターン](#compound-key-pattern)  
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern)  
--	[エンティティ グループ トランザクション](#entity-group-transactions)  
--	[異なる種類のエンティティを操作する](#working-with-heterogeneous-entity-types)  
+#### Modelli correlati e informazioni aggiuntive  
 
-### 非正規化パターン  
+I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello: [Modello per chiave composta](#compound-key-pattern), [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern), [Transazioni per i gruppi di entità](#entity-group-transactions) e [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).
 
-関連するデータを 1 つのエンティティに結合し、1 回のポイント クエリで必要なデータをすべて取得できるようにします。  
+### Modello di denormalizzazione:  
 
-#### コンテキストと問題  
+combina i dati correlati in una singola entità per consentire di recuperare tutti i dati necessari con un sola query di tipo punto.
 
-リレーショナル データベースでは、通常、重複を排除するためにデータを正規化します。その結果、クエリで複数のテーブルからデータを取得することになります。Azure テーブルのデータを正規化した場合、関連するデータを取得するには、クライアント アプリケーションとサーバー間のラウンド トリップを複数回行う必要があります。たとえば、以下のテーブル構造を使用した場合、部署の詳細を取得するためには、2 回ラウンド トリップを行う必要があります。1 回目のラウンド トリップでマネージャーの ID を含む部署エンティティをフェッチし、2 回目で従業員エンティティからマネージャーの詳細をフェッチします。  
+#### Contesto e problema  
+
+In un database relazionale, in genere i dati vengono normalizzati per rimuovere i risultati duplicati nelle query che recuperano dati da più tabelle. Se si normalizzano i dati nelle tabelle di Azure, è necessario eseguire più round trip dal client al server per recuperare i dati correlati. Con la struttura della tabella riportata di seguito, ad esempio, per recuperare i dettagli per un reparto sono necessari due round trip: uno per recuperare l'entità reparto che include l'ID del manager e una seconda richiesta per recuperare i dettagli sul manager in un'entità dipendente.
 
 ![][16]
- 
-#### ソリューション  
 
-データを 2 つのエンティティに格納する代わりに、データを非正規化し、部署エンティティにマネージャーの詳細のコピーを保持します。次に例を示します。  
+#### Soluzione  
+
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:
 
 ![][17]
- 
-格納されている部署エンティティにはこれらのプロパティがあるため、ポイント クエリを使用して、部署に関する必要なすべての詳細を取得できます。  
 
-#### 問題と注意事項  
+Archiviando le entità reparto con queste proprietà, è possibile recuperare tutti i dettagli necessari su un reparto mediante una query di tipo punto.
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+#### Considerazioni e problemi  
 
--	一部のデータを重複して格納するため、多少コストがかかります。通常、ストレージ コストの増加はわずかなため、(ストレージ サービスへの要求が減少することによる) パフォーマンス上のメリットが勝ります (このコストの一部は、部署の詳細をフェッチするために必要なトランザクションの数が減少することで相殺されます)。  
--	マネージャーに関する情報を格納する 2 つのエンティティの一貫性を維持する必要があります。一貫性の問題は、EGT を使用して単一のアトミックなトランザクションで複数のエンティティを更新することで対処できます。この例では、部署エンティティと、部署マネージャーの従業員エンティティが同じパーティションに格納されています。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況
-関連情報を頻繁に検索する必要がある場合に、このパターンを使用します。このパターンを使用すると、クライアントが必要なデータを取得するために実行する必要があるクエリの数が減少します。  
+-	Archiviare alcuni dati due volte comporta un aumento dei costi. Il miglioramento delle prestazioni (risultante dal minor numero di richieste al servizio di archiviazione) in genere compensa l'incremento marginale dei costi di archiviazione, che per altro è parzialmente compensato dalla riduzione del numero di transazioni necessarie per recuperare i dettagli relativi a un reparto.  
+-	È necessario mantenere la coerenza tra le due entità in cui sono archiviate le informazioni sui manager. Il problema della coerenza può essere gestito usando transazioni ETG per aggiornare più entità in una singola transazione atomica: in questo caso, l'entità reparto e l'entità dipendente per il responsabile del reparto vengono archiviate nella stessa partizione.  
 
-#### 関連のあるパターンとガイダンス
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
--	[複合キー パターン](#compound-key-pattern)  
--	[エンティティ グループ トランザクション](#entity-group-transactions)  
--	[異なる種類のエンティティを操作する](#working-with-heterogeneous-entity-types)   
+#### Quando usare questo modello
+Usare questo modello quando è necessario cercare spesso informazioni correlate. Questo modello riduce il numero di query che il client deve eseguire per recuperare i dati necessari.
 
-### 複合キー パターン  
+#### Modelli correlati e informazioni aggiuntive
+I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello: [Modello per chiave composta](#compound-key-pattern), [Transazioni per i gruppi di entità](#entity-group-transactions) e [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).
 
-複合 **RowKey** 値を使用して、クライアントが単一のポイント クエリで関連データをルックアップできるようにします。  
+### Modello per chiave composta  
 
-#### コンテキストと問題  
+usa valori **RowKey** composti per consentire a un client di cercare dati correlati con una sola query di tipo punto.
 
-リレーショナル データベースでは、単一のクエリで関連するデータをクライアントに返すために、クエリでよく結合を使用します。たとえば、従業員 ID を使用して、その従業員の業績と評価データが含まれている関連エンティティの一覧を検索する場合があります。  
+#### Contesto e problema  
 
-次の構造を使用し、Table サービスに従業員エンティティを格納しているとします。  
+In un database relazionale è piuttosto normale usare join nelle query per restituire dati correlati al client in una singola query. Ad esempio, si può usare l'ID dipendente per cercare un elenco di entità correlate che contengono i dati relativi alle prestazioni e alle valutazioni per tale dipendente.
+
+Si supponga di archiviare le entità dipendente nel servizio tabelle usando la struttura seguente:
 
 ![][18]
- 
-また、各年度の従業員の評価と業績に関する履歴データを格納し、この情報に年度別でアクセスできる必要もあります。それには、次の構造でエンティティを格納する別のテーブルを作成するという方法があります。  
+
+È inoltre necessario archiviare i dati cronologici relativi alle valutazioni e alle prestazioni per ogni anno che il dipendente ha lavorato presso l'organizzazione, nonché poter accedere a queste informazioni in base all'anno. Una possibilità consiste nel creare un'altra tabella di archiviazione delle entità con la struttura seguente:
 
 ![][19]
- 
-この方法では、単一の要求でデータを取得できるようにするには、一部の情報 (姓や名など) を新しいエンティティに複製する必要があります。ただし、EGT を使用しても 2 つのエンティティをアトミックには更新できないため、強力な整合性を保つことはできません。  
 
-#### ソリューション
-次の構造のエンティティを使用して、元のテーブルに新しい種類のエンティティを格納します。  
+Si noti che con questo approccio è possibile decidere di duplicare alcune informazioni (ad esempio nome e cognome) nella nuova entità, in modo da poter recuperare i dati con una singola richiesta. Non è tuttavia possibile mantenere la coerenza assoluta, in quanto non si può usare una transazione EGT per aggiornare le entità in modo atomico.
+
+#### Soluzione
+Archiviare un nuovo tipo di entità nella tabella originale usando entità con la struttura seguente:
 
 ![][20]
- 
-**RowKey** が従業員 ID と評価データの年度で構成された複合キーになっていることに注目してください。そのため、単一のエンティティに対する単一の要求で従業員の業績と評価データを取得できます。  
 
-次の例では、Sales 部署の従業員 000123 など、特定の従業員のすべての評価データを取得する方法を示しています。  
+Si noti che ora il valore **RowKey** è una chiave composta costituita dall'ID dipendente e dall'anno dei dati di valutazione, che consente di recuperare le prestazioni e le valutazioni del dipendente con una singola richiesta per una singola entità.Si noti che ora il valore RowKey è una chiave composta costituita dall'ID dipendente e dall'anno dei dati di valutazione, che consente di recuperare le prestazioni e le valutazioni del dipendente con una singola richiesta per una singola entità.
 
-$filter=(PartitionKey eq 'Sales')、(RowKey ge 'empid_000123')、(RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+L'esempio seguente illustra come recuperare tutti i dati di valutazione per uno specifico dipendente (ad esempio il dipendente 000123 del reparto vendite):
 
-#### 問題と注意事項
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
 
--	**000123_2012** のように、**RowKey** 値を簡単に解析できるように適切な区切り文字を使用する必要があります。  
--	また、このエンティティは、同じ従業員の関連データを含む他のエンティティと同じパーティションに格納します。そうすると、EGT を使用して、強い整合性を維持できます。
--	このパターンが適切であるかどうかを判断には、データを照会する頻度を考慮する必要があります。たとえば、評価データにはあまり頻度にアクセスせず、メインの従業員データには頻度にアクセスする場合は、それらのデータを別々のエンティティとして保持する必要があります。  
+#### Considerazioni e problemi
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況  
+-	È consigliabile usare un carattere separatore appropriato che semplifichi l'analisi del valore **RowKey**, ad esempio **000123_2012**.  
+-	Inoltre, si sta archiviando l'entità nella stessa partizione di altre entità che contengono dati correlati per lo stesso dipendente, dunque è possibile usare transazioni EGT per mantenere la coerenza assoluta.
+-	Per determinare se questo modello è appropriato, considerare la frequenza con cui si eseguiranno query sui dati. Ad esempio, se si accederà raramente ai dati di valutazione e spesso ai dati principali sul dipendente, è consigliabile conservarli come entità separate.  
 
-頻繁に照会する関連エンティティを 1 つ以上格納する必要がある場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando è necessario archiviare una o più entità correlate su cui si eseguono query frequenti.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+#### Modelli correlati e informazioni aggiuntive  
 
--	[エンティティ グループ トランザクション](#entity-group-transactions)  
--	[異なる種類のエンティティを操作する](#working-with-heterogeneous-entity-types)  
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern)  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-### ログ テール パターン  
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)  
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
 
-パーティションに追加されたエンティティを、追加日時の新しいものから  *n* 個取得します。その際、**RowKey** 値を使って日時の順序を逆にします。  
+### Modello della parte finale del log  
 
-#### コンテキストと問題  
+recupera le *e*ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.
 
-よく、最近作成されたエンティティ (従業員が提出した経費請求を日時の新しいものから 10 件など) を取得できることが必要な場合があります。テーブル クエリでは、一連のデータから最初の  *n* 個のエンティティを返す **$top** クエリ操作をサポートしています。一連のデータの最後の n 個のエンティティを返す同等のクエリ操作はありません。  
+#### Contesto e problema  
 
-#### ソリューション  
+Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *e*ntità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.
 
-**RowKey** を使って日時の順序を逆にしてエンティティを格納し、最新のエントリが常にテーブルの最初のエントリになるようにします。  
+#### Soluzione  
 
-たとえば、従業員が提出した経費請求を日時の新しいものから 10 件取得できるようにする場合は、現在の日時から派生した逆順のティック値を使用できます。次の C# コード サンプルでは、日時の新しいもの順に並べ替える **RowKey** の適切な "逆順のティック" 値を作成する方法の 1 つを示しています。  
+Archiviare le entità usando un valore **RowKey** che usa un ordinamento inverso di data e ora, in modo che la voce più recente sia sempre la prima della tabella.
 
-`string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
+Ad esempio, per poter recuperare le ultime dieci note di rimborso spese inviate da un dipendente, è possibile usare un valore di tick inverso derivato dal valore di data/ora corrente. L'esempio di codice C# seguente illustra un modo per creare un valore "invertedTicks" appropriato per un valore **RowKey** che ordina dal più recente al meno recente:
 
-次のコードを使用すると、日時値に戻すことができます。  
+`string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`
 
-`DateTime dt = new DateTime(DateTime.MaxValue.Ticks - Int64.Parse(invertedTicks));`  
+Per tornare al valore di data e ora, usare il codice seguente:
 
-テーブル クエリは次のようになります。  
+`DateTime dt = new DateTime(DateTime.MaxValue.Ticks - Int64.Parse(invertedTicks));`
 
-`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
+La query sulla tabella ha un aspetto simile al seguente:
 
-#### 問題と注意事項  
+`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+#### Considerazioni e problemi  
 
--	文字列値が正しく並び替わるように、逆順のティック値の先頭にゼロをパディングする必要があります。  
--	パーティション レベルのスケーラビリティ ターゲットに注意する必要があります。ホット スポット パーティションが発生しないように注意してください。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況  
+-	È necessario aggiungere zeri iniziali al valore di tick inverso per assicurarsi che il valore di stringa venga ordinato come previsto.  
+-	È necessario tenere presenti gli obiettivi di scalabilità a livello di partizione. Fare attenzione a non creare partizioni critiche.  
 
-日時の逆順でエンティティにアクセスする必要がある場合、または追加日時の新しい順にエンティティにアクセスする必要がある場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando si desidera accedere alle entità in ordine di data/ora inverso o quando è necessario accedere alle entità aggiunte più di recente.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+#### Modelli correlati e informazioni aggiuntive  
 
--	[先頭または末尾に追加するアンチパターン](#prepend-append-anti-pattern)  
--	[エンティティを取得する](#retrieving-entities)  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-### 大量削除パターン  
+-	[Anti-modello prepend/append](#prepend-append-anti-pattern)  
+-	[Recupero di entità](#retrieving-entities)  
 
-すべてのエンティティを同時削除用に独立したテーブルに格納することで、大量のエンティティを削除できるようにします。エンティティを削除するときは、テーブル自体を削除することになります。  
+### Modello di eliminazione volume elevato  
 
-#### コンテキストと問題  
+Abilitare l'eliminazione di un volume elevato di entità mediante l'archiviazione di tutte le entità per l'eliminazione simultanea nella relativa tabella separata; per eliminare le entità, eliminare la tabella.
 
-多くのアプリケーションでは、クライアント アプリケーションで使用する必要がなくなった古いデータや、他の記憶域メディアにアーカイブした古いデータを削除します。通常は、日付でそうしたデータを特定します。たとえば、60 日以上前のすべてのログイン要求のレコードを削除する必要があるとします。  
+#### Contesto e problema  
 
-考えられる設計の 1 つとして、**RowKey** のログイン要求の日時を使用します。  
- 
+Molte applicazioni eliminano vecchi dati non più necessari a un'applicazione client o che l'applicazione ha archiviato in un altro supporto di archiviazione. In genere questi dati vengono identificati da una data; è presente un requisito che prevede l'eliminazione dei record di tutte le richieste di accesso risalenti a oltre 60 giorni prima.
+
+Una possibile progettazione consiste nell'usare la data e l'ora della richiesta di accesso in **RowKey**:
+
 ![][21]
 
-この方法では、アプリケーションが別のパーティションで各ユーザーのログイン エンティティを挿入したり削除したりできるため、パーティションのホット スポットを回避できます。ただし、まず削除するすべてのエンティティを特定するためにテーブル スキャンを実行し、その後、古い各エンティティを削除する必要があるため、エンティティの数が多い場合、この方法ではコストと時間がかかる可能性があります。複数の削除要求をバッチ処理として EGT にまとめることで、古いエンティティを削除するのに必要なサーバーへのラウンド トリップの回数を減らすことができます。  
+Questo approccio evita hotspot di partizione perché l'applicazione può inserire ed eliminare entità di accesso per ogni utente in una partizione separata, ma può rivelarsi dispendioso in termini di denaro e tempo se si dispone di un numero elevato di entità perché è necessario innanzitutto eseguire un'analisi di tabella per identificare tutte le entità da eliminare e successivamente eliminare ogni entità precedente. Si noti che è possibile ridurre il numero di round trip al server necessari per eliminare le entità precedenti raggruppando più richieste di eliminazione nelle transazioni EGT.
 
-#### ソリューション  
+#### Soluzione  
 
-ログイン試行の日付ごとに異なるテーブルを使用します。上のエンティティのデザインを使用すると、エンティティを挿入する際にホットスポットを回避できます。毎日数百や数千もの個々のログイン エンティティを検索して削除する代わりに、毎日テーブルを 1 つ削除する (単一のストレージ操作) だけで古いエンティティを削除できます。  
+Usare una tabella separata per ogni giorno di tentativi di accesso. È possibile usare la progettazione di entità riportata sopra per evitare hotspot durante l'inserimento di entità; l'eliminazione di entità comporterà semplicemente l'eliminazione di una tabella al giorno (una singola operazione di archiviazione) invece della ricerca ed eliminazione di centinaia o migliaia di singole entità ogni giorno.
 
-#### 問題と注意事項  
+#### Considerazioni e problemi  
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
--	特定のエンティティの検索、他のデータとのリンク、集計情報の生成など、データの他の用途もサポートするように設計していますか。  
--	新しいエンティティを挿入する際にホットスポットを回避するように設計していますか。  
--	テーブル名を削除した後に同じテーブル名を再利用する場合に遅延が必要であります。常に一意のテーブル名を使用することをお勧めします。  
--	Table サービスではアクセス パターンを学習して、ノード全体にパーティションを分散しますが、最初に新しいテーブルを使用するときは何らかの調整が行われます。新しいテーブルを作成する必要がある頻度を検討する必要があります。  
+-	La progettazione supporta altre modalità di uso dei dati da parte dell'applicazione, come la ricerca di entità specifiche, il collegamento con altri dati o la generazione di informazioni aggregate?  
+-	La progettazione consente di evitare hotspot durante l'inserimento di nuove entità?  
+-	Se si vuole riutilizzare lo stesso nome di tabella dopo l'eliminazione, prevedere un ritardo. È consigliabile usare sempre nomi di tabella univoci.  
+-	Prevedere una limitazione delle richieste quando si usa per la prima volta una nuova tabella mentre il servizio tabelle apprende i modelli di accesso e le partizioni vengono distribuite in nodi. È necessario considerare la frequenza con cui è necessario creare nuove tabelle.  
 
-#### このパターンを使用する状況  
+#### Quando usare questo modello  
 
-同時に削除する必要があるエンティティが大量にある場合に、このパターンを使用します。  
+Usare questo modello quando si dispone di un volume elevato di entità che è necessario eliminare contemporaneamente.
 
-#### 関連のあるパターンとガイダンス  
+#### Modelli correlati e informazioni aggiuntive  
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
--	[エンティティ グループ トランザクション](#entity-group-transactions)
--	[エンティティを変更する](#working-with-heterogeneous-entity-types)  
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)
+-	[Modifica di entità](#working-with-heterogeneous-entity-types)  
 
-### データ系列パターン  
+### Modello di serie di dati  
 
-データ系列全体を単一のエンティティに格納し、要求の数を最小限に抑えます。  
+Archiviare serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.
 
-#### コンテキストと問題  
+#### Contesto e problema  
 
-一般的なシナリオとして、通常、アプリケーションで一度にすべて取得する必要があるデータ系列を格納するというものがあります。たとえば、アプリケーションで 1 時間ごとに各従業員が送信した IM メッセージの数を記録し、後でその情報を使用して、各ユーザーが過去 24 時間以内に送信したメッセージの数をプロットするとします。設計の 1 つとして、従業員ごとに 24 個のエンティティを格納します。  
+Spesso un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente. L'applicazione potrebbe, ad esempio, registrare il numero di messaggi immediati che ogni dipendente invia ogni ora e quindi usare queste informazioni per tracciare il numero di messaggi inviati da ogni utente nelle 24 ore precedenti. Una progettazione potrebbe essere l'archiviazione di 24 entità per ogni dipendente:
 
 ![][22]
- 
-この設計では、アプリケーションでメッセージのカウント値を更新する必要があるときに、各従業員の更新するエンティティを簡単に検索して更新できます。ただし、情報を取得して、過去 24 時間の活動のグラフをプロットするためには、24 個のエンティティを取得する必要があります。  
 
-#### ソリューション  
+Con questa progettazione è possibile individuare e aggiornare l'entità da aggiornare per ogni dipendente ogni volta che l'applicazione deve aggiornare il valore del numero di messaggi. Tuttavia, per recuperare le informazioni allo scopo di tracciare un grafico dell'attività per le 24 ore precedenti, è necessario recuperare 24 entità.
 
-次のデザインを使用し、各時間のメッセージ数をそれぞれ別のプロパティに格納します。  
+#### Soluzione  
+
+Usare la progettazione seguente con una proprietà separata per archiviare il numero di messaggi per ogni ora:
 
 ![][23]
- 
-この設計では、マージ操作を使用して、特定の時間の従業員のメッセージ数を更新できます。これで、単一のエンティティに対する単一の要求を使用して、チャートをプロットするために必要なすべての情報を取得できます。  
 
-#### 問題と注意事項  
+Con questa progettazione è possibile usare un'operazione di unione per aggiornare il numero di messaggi per un dipendente per un'ora specifica. A questo punto, è possibile recuperare tutte le informazioni necessarie per tracciare il grafico usando una richiesta per una singola entità.
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
--	データ系列全体が単一のエンティティに収まらない場合 (エンティティは最大 252 個のプロパティを持つことができます)、BLOB などの代わりのデータ ストアを使用します。  
--	複数のクライアントが同時にエンティティを更新する場合は、**ETag** を使用して、オプティミスティック同時実行を実装する必要があります。クライアントがたくさんある場合は、競合が大量に発生する可能性があります。  
+#### Considerazioni e problemi  
 
-#### このパターンを使用する状況  
+Tenere presente quanto segue prima di decidere come implementare questo modello: se le serie complete di dati non rientrano in una singola entità (un'entità può contenere fino a 252 proprietà), utilizzare un archivio dati alternativo, ad esempio un blob. Se si dispone di più client di aggiornamento di un'entità contemporaneamente, è necessario utilizzare **ETag** per implementare la concorrenza ottimistica. Se si dispone di molti client, potrebbe verificarsi un conflitto elevato.
 
-個々のエンティティに関連付けられているデータ系列を更新したり取得したりする必要がある場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando è necessario aggiornare e recuperare una serie di dati associata a una singola entità.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+#### Modelli correlati e informazioni aggiuntive  
 
--	[ラージ エンティティ パターン](#large-entity-pattern)  
--	[マージまたは置換](#working-with-heterogeneous-entity-types)  
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern) (データ系列を BLOB に格納する場合)  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-### ワイド エンティティ パターン  
+-	[Modello di entità di grandi dimensioni](#large-entity-pattern)  
+-	[Unione o sostituzione](#working-with-heterogeneous-entity-types)  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) (se si archiviano le serie di dati in un blob)  
 
-複数の物理エンティティを使用して、252 を超えるプロパティを持つ論理エンティティを格納します。  
+### Modello di entità di grandi dimensioni  
 
-#### コンテキストと問題  
+Usare più entità fisiche per archiviare entità logiche con più di 252 proprietà.
 
-個々のエンティティが持つことができるプロパティは、(必須のシステム プロパティを除き) 252 個までです。また、格納できるデータは合計で 1 MB までです。リレーショナル データベースでは、通常、新しいテーブルを追加し、その新しいテーブルと 1 対 1 のリレーションシップを作成することによって、行のサイズに関するさまざまな制限を回避します。  
+#### Contesto e problema  
 
-#### ソリューション  
+Una singola entità può avere più di 252 proprietà (escludendo le proprietà di sistema obbligatorie) e non è possibile memorizzare più di 1 MB di dati in totale. In un database relazionale è in genere possibile aggirare gli eventuali limiti sulle dimensioni di una riga aggiungendo una nuova tabella e applicando una relazione 1 a 1 tra di esse.
 
-Table サービスを使用すると、複数のエンティティを格納して、252 を超えるプロパティを持つ単一の大きなビジネス オブジェクトを作成できます。たとえば、過去 365 日の間に各従業員が送信した IM メッセージの数を格納する場合は、スキーマの異なる 2 つのエンティティを使用する次のデザインを使用できます。  
+#### Soluzione  
+
+Usando il servizio tabelle, è possibile archiviare più entità per rappresentare un singolo oggetto aziendale di grandi dimensioni con più di 252 proprietà. Ad esempio, se si vuole archiviare un conteggio del numero di messaggi immediati inviati da ogni dipendente negli ultimi 365 giorni, è possibile usare la progettazione seguente che si avvale di due entità con schemi diversi:
 
 ![][24]
- 
-両方のエンティティを更新しないとエンティティどうしの同期が維持されない変更を加える必要がある場合は、EGT を使用できます。それ以外の場合は、単一のマージ操作を使用して、特定の日のメッセージ数を更新できます。個々の従業員のデータをすべて取得するには、両方のエンティティを取得する必要があります。この操作は、**PartitionKey** 値と **RowKey** 値の両方を使用する 2 つの効率的な要求で実行できます。  
 
-#### 問題と注意事項  
+Per apportare una modifica che richiede l'aggiornamento di entrambe le entità per mantenerle sincronizzate tra loro, è possibile usare una transazione EGT. Diversamente, è possibile usare una singola operazione di unione per aggiornare il numero di messaggi per un giorno specifico. Per recuperare tutti i dati per un singolo dipendente, è necessario recuperare entrambe le entità, operazione che è possibile eseguire con due richieste efficienti che usano entrambe un valore **PartitionKey** e **RowKey**.
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+#### Considerazioni e problemi  
 
--	論理エンティティ全体を取得するには、少なくとも 2 つのストレージ トランザクション (各物理エンティティを取得するトランザクション) が必要です。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況  
+-	Il recupero di un'entità logica completa richiede almeno due transazioni di archiviazione, una per recuperare ogni entità fisica.  
 
-サイズやプロパティの数が Table サービスの個々のエンティティの制限を超えるエンティティを格納する必要がある場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando è necessario archiviare entità le cui dimensioni o il cui numero di proprietà superano i limiti per una singola entità nel servizio tabelle.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+#### Modelli correlati e informazioni aggiuntive  
 
--	[エンティティ グループ トランザクション](#entity-group-transactions)
--	[マージまたは置換](#working-with-heterogeneous-entity-types)
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-### ラージ エンティティ パターン  
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)
+-	[Unione o sostituzione](#working-with-heterogeneous-entity-types)
 
-BLOB ストレージを使用して、大きなプロパティ値を格納します。  
+### Modello di entità di grandi dimensioni  
 
-#### コンテキストと問題  
+Usare l'archiviazione BLOB per archiviare valori di proprietà di grandi dimensioni.
 
-個々のエンティティに格納できるデータは合計で 1 MB までです。1 つまたは複数のプロパティに格納される値でエンティティの合計サイズが 1 MB を超える場合は、Table サービスにエンティティ全体は格納できません。  
+#### Contesto e problema  
 
-#### ソリューション  
+Una singola entità non può memorizzare più di 1 MB di dati in totale. Se una o più proprietà archiviano valori che causano il superamento delle dimensioni totali dell'entità, non è possibile archiviare l'intera entità nel servizio tabelle.
 
-1 つ以上のプロパティに大量のデータが含まれているためにエンティティのサイズが 1 MB を超える場合は、BLOB サービスにデータを格納し、エンティティのプロパティに BLOB のアドレスを格納できます。たとえば、BLOB ストレージに従業員の写真を格納し、従業員エンティティの **Photo** プロパティに写真のリンクを格納できます。  
+#### Soluzione  
 
-![][25] 
+Se l'entità supera le dimensioni di 1 MB perché una o più proprietà contengono una grande quantità di dati, è possibile archiviare i dati nel servizio BLOB e quindi archiviare l'indirizzo del BLOB in una proprietà nell'entità. Ad esempio, è possibile archiviare la foto di un dipendente nell'archiviazione BLOB e archiviare un collegamento a foto nella proprietà **Photo** dell'entità del dipendente:
 
-#### 問題と注意事項  
+![][25]
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+#### Considerazioni e problemi  
 
--	Table サービスのエンティティと BLOB サービスのデータの一貫性を最終的に確保する場合は、[最終的に一貫性のあるトランザクション パターン]を使用して、(#eventually-consistent-transactions-pattern) エンティティを管理します。    
--	エンティティ全体を取得するには、少なくとも 2 つのストレージ トランザクション (エンティティを取得するトランザクションと BLOB データを取得するトランザクション) が必要です。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
-#### このパターンを使用する状況  
+-	Per mantenere la coerenza finale tra l'entità nel servizio tabelle e i dati nel servizio BLOB, usare il [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) per mantenere le identità.
+-	Il recupero di un'entità completa richiede almeno due transazioni di archiviazione: una per recuperare l'entità e un'altra per recuperare i dati BLOB.  
 
-サイズが Table サービスの個々のエンティティの制限を超えるエンティティを格納する必要がある場合に、このパターンを使用します。  
+#### Quando usare questo modello  
 
-#### 関連のあるパターンとガイダンス  
+Usare questo modello quando è necessario archiviare entità le cui dimensioni superano i limiti per una singola entità nel servizio tabelle.
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+#### Modelli correlati e informazioni aggiuntive  
 
--	[最終的に一貫性のあるトランザクション パターン](#eventually-consistent-transactions-pattern)  
--	[ワイド エンティティ パターン](#large-entity-pattern)
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
-### 先頭または末尾に追加するアンチパターン  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern)  
+-	[Modello di entità di grandi dimensioni](#large-entity-pattern)
 
-大量に挿入する場合に、挿入を複数のパーティションに分散させることで、スケーラビリティを向上させます。  
+### Anti-modello prepend/append  
 
-#### コンテキストと問題  
+Quando si dispone di un volume elevato di inserimenti, aumentare la scalabilità suddividendoli tra più partizioni.
 
-格納されているエンティティの先頭または末尾にエンティティを追加すると、通常は、連続するパーティションの最初または最後のパーティションに新しいエンティティが追加されます。この場合、常に挿入はすべて同じパーティション内で行われるため、ホットスポットが発生し、Table サービスが複数のノードに挿入の負荷を分散できず、場合によっては、パーティションのスケーラビリティ ターゲットに達する可能性があります。たとえば、従業員によるネットワークやリソースへのアクセスをログに記録するアプリケーションで以下に示すエンティティ構造を使用した場合、トランザクションの量が個々のパーティションのスケーラビリティ ターゲットに達すると、現在処理が行われているパーティションがホットスポットになる可能性があります。  
+#### Contesto e problema  
+
+L'anteposizione o l'aggiunta di entità alle entità archiviate determina in genere l'aggiunta da parte dell'applicazione di nuove entità alla prima o ultima partizione di una sequenza di partizioni. In questo caso, tutti gli inserimenti in un determinato momento vengono eseguiti nella stessa partizione, creando un hotspot che impedisce al servizio tabelle di bilanciare il carico degli inserimenti tra più nodi e causando il possibile raggiungimento degli obiettivi di scalabilità per partizione da parte dell'applicazione. Ad esempio, se si dispone di un'applicazione che registra l'accesso alla rete e alle risorse da parte dei dipendenti, la struttura dell'entità mostrata sotto potrebbe determinare la trasformazione della partizione dell'ora corrente in un hotspot se il volume delle transazioni raggiunge l'obiettivo di scalabilità per una singola partizione:
 
 ![][26]
- 
-#### ソリューション  
 
-代わりに次のエンティティ構造を使用すると、アプリケーションでイベントをログに記録する際に特定のパーティションのホットスポットを回避できます。  
+#### Soluzione  
+
+La struttura di un'entità alternativa seguente evita gli hotspot in qualsiasi partizione specifica quando l'applicazione effettua la registrazione di eventi:
 
 ![][27]
 
-この例では、**PartitionKey** と **RowKey** の両方が複合キーになっていることに注目してください。**PartitionKey** では、複数のパーティションにログを分散するために、部署と従業員 ID の両方を使用しています。  
+Si noti come in questo esempio entrambi i valori **PartitionKey** e **RowKey** siano chiavi composte. Il valore **PartitionKey** usa sia l'ID reparto che l'ID dipendente per distribuire la registrazione in più partizioni.
 
-#### 問題と注意事項  
+#### Considerazioni e problemi  
 
-このパターンの実装方法を決めるときには、以下の点に注意してください。  
+Prima di decidere come implementare questo modello, considerare quanto segue:
 
--	挿入時のホット パーティションの発生を回避する代わりのキー構造でクライアント アプリケーションが実行するクエリを効率的にサポートしていますか。  
--	予想されるトランザクションの量から判断して、個々のパーティションのスケーラビリティ ターゲットに達し、ストレージ サービスによって調整される可能性がありますか。  
+-	La struttura chiave alternativa che evita la creazione di partizioni critiche negli inserimenti supporta in modo efficiente le query effettuate dall'applicazione client?  
+-	Il volume delle transazioni previste è indicativo della probabilità che si raggiungano gli obiettivi di scalabilità per una singola partizione e si sia limitati dal servizio di archiviazione?  
 
-#### このパターンを使用する状況  
+#### Quando usare questo modello  
 
-トランザクションの量により、ホット パーティションにアクセスするとストレージ サービスによって調整される可能性がある場合は、先頭または末尾に追加するアンチパターンを使用しないでください。  
+Evitare l'anti-modello prepend/append quando il volume delle transazioni determinerà probabilmente una limitazione da parte del servizio di archiviazione quando si accede a una partizione critica.
 
-#### 関連のあるパターンとガイダンス  
+#### Modelli correlati e informazioni aggiuntive  
 
-このパターンを実装する場合は、次のパターンとガイダンスも関連している可能性があります。  
+Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:
 
--	[複合キー パターン](#compound-key-pattern)  
--	[ログ テール パターン](#log-tail-pattern)  
--	[エンティティを変更する](#working-with-heterogeneous-entity-types)  
+-	[Modello per chiave composta](#compound-key-pattern)  
+-	[Modello della parte finale del log](#log-tail-pattern)  
+-	[Modifica di entità](#working-with-heterogeneous-entity-types)  
 
-### ログ データのアンチパターン  
+### Anti-modello dei dati di log  
 
-ログ データの格納には通常、Table サービスではなく BLOB サービスを使用します。  
+In genere è necessario usare il servizio BLOB invece del servizio tabelle per archiviare i dati di log.
 
-#### コンテキストと問題  
+#### Contesto e problema  
 
-ログ データを使用する局面として最も一般的なのが、特定の日付範囲または時間範囲のログ エントリを選択して取得するというものです。たとえば、特定の日の 15:04 から 15:06 までの間にアプリケーションが記録したエラー メッセージや重要なメッセージをすべて取得するなどの局面が挙げられます。ところが、ログ エンティティの保存先となるパーティションを決める基準としてログ メッセージの日付と時刻を使用しないこともあります。その場合、特定の時点で全部のエンティティが同じ **PartitionKey** の値を共有することになるため、ホット パーティションが発生することになります (「[先頭または末尾に追加するアンチパターン]」をご覧ください(#prepend-append-anti-pattern))。たとえば、ログ メッセージに関する以下のエンティティ スキーマでは、アプリケーションが現在の日付や時刻についてパーティションにあらゆるログ メッセージを書き込むことになるため、ホット パーティションの問題が発生します。  
+Un caso di utilizzo comune per i dati di log è il recupero di una selezione di voci di log per un intervallo specifico di data/ora. Ad esempio, per trovare tutti i messaggi di errore e critici registrati dall'applicazione tra le ore 15.04 e le ore 15.06 in una data specifica senza usare la data e l'ora del messaggio del registro per determinare la partizione in cui sono state salvate le entità, verrà creata una partizione critica perché in qualsiasi momento tutte le entità del log condividono lo stesso valore **PartitionKey**. Vedere la sezione [Anti-modello prepend/append](#prepend-append-anti-pattern). Ad esempio, lo schema di entità seguente per un messaggio di log determina una partizione critica perché l'applicazione scrive tutti i messaggi di log nella partizione per la data e l'ora correnti:
 
 ![][28]
- 
-この例では、**RowKey** にログ メッセージの日付や時刻が格納されているため、ログ メッセージが日付/時刻の順序に並んで保存されます。また、複数のログ メッセージが同じ日付と時刻を共有している場合には、RowKey にほかにもメッセージ ID が格納されます。  
 
-もう 1 つのアプローチには、アプリケーションが複数のパーティションをまたいでメッセージを書き込めるような **PartitionKey** を使用するという方法があります。たとえば、ログ メッセージのソースで多数のパーティションにメッセージを配信できるようになっている場合には、以下のエンティティ スキーマを使用できます。  
+In questo esempio il valore **RowKey** include la data e l'ora del messaggio di log per garantire che i messaggi di log vengono archiviati in ordine di data/ora e includa un ID del messaggio nel caso in cui più messaggi di log condividono la stessa data e la stessa ora.
+
+Un altro approccio prevede l'uso di un valore **PartitionKey** per assicurarsi che l'applicazione scriva i messaggi in un intervallo di partizioni. Ad esempio, se l'origine del messaggio di log consente di distribuire i messaggi in più partizioni, è possibile usare lo schema di entità seguente:
 
 ![][29]
- 
-ただし、このスキーマには問題があります。特定のタイム スパンに記録されたログ メッセージをすべて取得するときには、テーブル内のパーティションを逐一検索する必要があるからです。
 
-#### ソリューション  
+Tuttavia, il problema con questo schema risiede nel fatto che per recuperare tutti i messaggi di log per un intervallo di tempo specifico è necessario cercare ogni partizione nella tabella.
 
-前のセクションでは、ログ エントリの保存先として Table サービスを使用した場合に生じる問題について説明し、その解決策として、完璧とは言いがたいものの 2 つの設計を紹介しました。1 つ目に紹介した方法には、ホット パーティションが発生し、ログ メッセージの書き込みのパフォーマンスが低下するリスクがあります。これに対して 2 つ目の方法は、特定のタイム スパンについてログ メッセージを取得しようとした場合に、テーブル内のパーティションを逐一スキャンしなければならないため、クエリのパフォーマンスが低下するという問題がありました。BLOB ストレージなら、ここで取り上げたシナリオについて前の 2 つよりも優れたソリューションとなることができます。このため、Azure Storage Analytics が収集したログ データを保存するときにも、この BLOB ストレージが使用されています。  
+#### Soluzione  
 
-このセクションでは、Storage Analytics が BLOB ストレージにログ データを格納する流れの概要を説明し、範囲を指定してクエリを実行することが多いデータを保存する際にこのアプローチがどのように役立つかを見ていきます。  
+Nella sezione precedente è stato preso in esame il problema associato ai tentativi di usare il servizio tabelle per archiviare le voci di log e sono state proposte due progettazioni, entrambe insoddisfacenti. Una soluzione ha determinato una partizione critica che comporta il rischio di prestazioni insufficienti della scrittura dei messaggi di log; l'altra soluzione ha determinato prestazioni insufficienti delle query a causa del requisito di analizzare ogni partizione della tabella per recuperare i messaggi di log per un intervallo di tempo specifico. L'archiviazione BLOB offre una soluzione migliore per questo tipo di scenario ed è in questo modo che Analisi archiviazione di Azure archivia i dati di log raccolti.
 
-Storage Analytics では、ログ メッセージを一定の形式で区切ったものを、複数の BLOB に格納します。区切りに使用する形式は、クライアント アプリケーション側でログ メッセージのデータ解析を円滑に完了できるものになっています。  
+Questa sezione illustra come Analisi archiviazione archivia i dati di log nell'archiviazione BLOB per esemplificare questo approccio all'archiviazione dei dati per la quale vengono in genere eseguite query per intervallo.
 
-Storage Analytics が BLOB に対して使用している名前付け規則は、検索対象のログ メッセージが含まれる BLOB の場所を特定できるようなものになっています。たとえば、"queue/2014/07/31/1800/000001.log" という名前の BLOB であれば、2014 年 7 月 31 日の 18:00 から始まる時間の Queue サービスと関係があるログ メッセージが格納されています。"000001" という部分は、この期間の最初のログ ファイルであることを示しています。このほか、Storage Analytics では BLOB のメタデータの一環として、ファイルに保存されている最初と最後のログ メッセージのタイムスタンプを記録します。BLOB ストレージの API では、一定の名前プレフィックスに基づいてコンテナー内の BLOB の場所を特定できるようになっています。18:00 から始まる時間についてキューのログ データを格納している BLOB をすべて検索する場合には、"queue/2014/07/31/1800" というプレフィックスを使用します。  
+Analisi archiviazione archivia i messaggi di log in un formato delimitato in più BLOB. Il formato delimitato semplifica l'analisi dei dati nel messaggio di log da parte di un'applicazione client.
 
-Storage Analytics は内部のバッファーにログ メッセージを保管したうえで、ログ エントリのバッチの最新版を使って定期的に BLOB を更新したり、新しい BLOB を作成したりします。これによって、BLOB サービスに書き込みを実行する回数が少なくなります。  
+Analisi archiviazione usa una convenzione di denominazione per i BLOB che consente di localizzare uno BLOB o più BLOB che contengono i messaggi di log per i quali si sta effettuando la ricerca. Ad esempio, un BLOB denominato "queue/2014/07/31/1800/000001.log" contiene messaggi di log correlati al servizio di accodamento per l'ora che inizia alle 18.00 del 31 luglio 2014. "000001" indica che si tratta del primo file di log per il periodo. Analisi archiviazione registra inoltre i timestamp del primo e dell'ultimo messaggio di log archiviati nel file come parte dei metadati del BLOB. L'API per l'archiviazione BLOB consente di individuare i BLOB in un contenitore in base a un prefisso del nome: per individuare tutti i BLOB contenenti i dati di log della coda per l'ora che inizia alle 18.00, è possibile usare il prefisso "queue/2014/07/31/1800".
 
-アプリケーションにこれと似たソリューションを実装するときには、信頼性 (ログ エントリが発生するたびに BLOB ストレージに書き込む) と、コストとスケーラビリティ (アプリケーションに更新内容を一時的に保管し、バッチとして BLOB ストレージに書き込む) との間のトレードオフをどのようにするかについて、検討が必要になります。  
+Analisi archiviazione esegue il buffer dei messaggi di log e quindi aggiorna periodicamente il BLOB appropriato o ne crea uno nuovo con il batch di voci di log più recente. Ciò riduce il numero di scritture che deve eseguire nel servizio BLOB.
 
-#### 問題と注意事項  
+Se si implementa una soluzione simile nella propria applicazione, è necessario considerare come gestire il compromesso tra affidabilità (scrittura di ogni voce di log nell'archiviazione BLOB quando questa si verifica) e il costo e LA scalabilità (buffering degli aggiornamenti dell'applicazione e relativa scrittura nell'archiviazione BLOB in blocchi).
 
-ログ データの保存方法を決めるときには、以下の点に注意する必要があります。  
+#### Considerazioni e problemi  
 
--	ホット パーティションが発生しないような設計のテーブルを作成すると、ログ データに対するアクセス効率が低下することがあります。  
--	ログ データを処理するときには多くの場合、クライアント側で多くのレコードを読み込む必要があります。  
--	ログ データは構造化されていないことが多いものの、BLOB ストレージの方が優れたソリューションになることがあります。  
+Prima di decidere come archiviare i dati di log, considerare quanto segue:
 
-### 実装時の注意事項  
+-	Se si crea una progettazione di tabella che consente di evitare potenziali partizioni critiche, è possibile che non si possa accedere ai dati di log in modo efficiente.  
+-	Per elaborare i dati di log, spesso un client deve caricare molti record.  
+-	Nonostante i dati di log siano spesso strutturati, l'archiviazione BLOB può essere una soluzione migliore.  
 
-このセクションでは、ここまでのセクションで説明したパターンを実装する際に念頭に置く必要がある点をいくつか説明します。このセクションで示したコード例は、ほとんどが C# で書かれ、ストレージ クライアント ライブラリ (本稿執筆時点のバージョンは 4.3.0) を使用しています。  
+### Considerazioni sull'implementazione  
 
-### エンティティを取得する  
+Questa sezione illustra alcune considerazioni da tenere presente quando si implementano i modelli descritti nelle sezioni precedenti. Nella maggior parte di questa sezione vengono usati esempi scritti in C# che usano la libreria client di archiviazione (versione 4.3.0 al momento della stesura di questo documento).
 
-「[クエリに対応した設計](#design-for-querying)」のセクションで説明したとおり、効率という面で最も優れたクエリは、ポイント クエリです。ただ、時として多数のエンティティを同時に取得することも必要になります。このセクションでは、ストレージ クライアント ライブラリを使ってエンティティを取得するときによく使用される方法をいくつか紹介します。  
+### Recupero di entità  
 
-#### ストレージ クライアント ライブラリを使ってポイント クエリを実行する  
+Come descritto nella sezione [Progettazione per l'esecuzione di query](#design-for-querying), la query più efficiente è la query di tipo punto. Tuttavia, in alcuni scenari potrebbe essere necessario recuperare più entità. Questa sezione descrive alcuni approcci comuni al recupero di entità mediante la libreria client di archiviazione.
 
-ポイント クエリを実行するうえで最も簡単な方法は、テーブル 操作 **Retrieve** を使用することです。以下の C# コード スニペットをご覧ください。このコードでは、**PartitionKey** の値が "Sales" で **RowKey** の値が "212" のエンティティを取得できます。  
+#### Esecuzione di una query di tipo punto mediante la libreria client di archiviazione  
 
-	TableOperation retrieveOperation = 
+Il modo più semplice per eseguire una query di tipo punto consiste nell'usare l'operazione di tabella **Retrieve** come illustrato nel frammento di codice C# seguente che recupera un'entità con un **PartitionKey** di valore "Sales" e un **RowKey** di valore "212":
+
+	TableOperation retrieveOperation =
 		TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
 	var retrieveResult = employeeTable.Execute(retrieveOperation);
 	if (retrieveResult.Result != null)
@@ -1015,13 +984,13 @@ Storage Analytics は内部のバッファーにログ メッセージを保管�
     ...
 	}  
 
-この例では、取得するエンティティの型が **EmployeeEntity** となっています。  
+Si noti come in questo esempio l'entità recuperata prevista sia di tipo **EmployeeEntity**.
 
-#### LINQ を使って複数のエンティティを取得する  
+#### Recupero di più entità usando LINQ  
 
-LINQ とストレージ クライアント ライブラリを使用し、**where** 句を使ってクエリを指定すると、複数のエンティティを取得できます。テーブル スキャンを回避するには、where 句に必ず **PartitionKey** の値を指定します。可能であれば **RowKey** の値も指定すると、テーブル スキャンのほかにパーティション スキャンも回避できます。Table サービスは、where 句で一部の比較演算子 (より大きい、以上、より小さい、以下、等しい、等しくない) のみサポートしています。以下の C# コード スニペットは、営業部に所属し、姓が "B" で始まる従業員全員を特定するものです (ここでは **RowKey** に姓、**PartitionKey** に所属部署名が、それぞれあるものとします)。  
+È possibile recuperare più entità usando LINQ con la libreria client di archiviazione e specificando una query con una clausola **where**. Per evitare un'analisi di tabella, è consigliabile includere sempre il valore **PartitionKey** nella clausola where e, se possibile, il valore **RowKey** per evitare analisi di tabelle e partizioni. Il servizio tabelle supporta un set limitato di operatori di confronto (maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a) da usare per determinare la clausola where. Il frammento di codice C# seguente consente di trovare tutti i dipendenti il cui cognome inizia con la lettera "B" (presupponendo che il valore **RowKey** archivi il cognome) del reparto vendite (supponendo che il valore **PartitionKey** archivi il nome del reparto):
 
-	TableQuery<EmployeeEntity> employeeQuery = 
+	TableQuery<EmployeeEntity> employeeQuery =
   			employeeTable.CreateQuery<EmployeeEntity>();
 	var query = (from employee in employeeQuery
                 where employee.PartitionKey == "Sales" &&
@@ -1030,9 +999,9 @@ LINQ とストレージ クライアント ライブラリを使用し、**where
                 select employee).AsTableQuery();
 	var employees = query.Execute();  
 
-クエリにはパフォーマンス向上のため、**RowKey** と **PartitionKey** が 2 つとも指定されています。  
+Si noti come la query specifichi sia un valore **RowKey** sia un valore **PartitionKey** per garantire prestazioni migliori.
 
-以下のコード サンプルは、fluent API を使って上のコードと同等の機能を実現したものです (fluent API 全般について詳しくは、「[fluent API の設計に関するベスト プラクティス](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)」をご覧ください)。  
+L'esempio di codice seguente illustra la funzionalità equivalente usando l'API fluent (per altre informazioni sulle API fluent in generale, vedere l'articolo relativo alle [procedure consigliate per la progettazione di un’API fluent](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):
 
 	TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
  	 TableQuery.CombineFilters(
@@ -1050,17 +1019,17 @@ LINQ とストレージ クライアント ライブラリを使用し、**where
 	var employees = employeeTable.ExecuteQuery(employeeQuery);  
 
 
->[AZURE.NOTE] このサンプルでは、複数の **CombineFilters** メソッドを入れ子にしたうえで、3 つのフィルター条件を設定しています。  
+>[AZURE.NOTE]L'esempio annida più metodi **CombineFilters** per includere le tre condizioni di filtro.
 
-#### 1 件のクエリで大量のエンティティを取得する  
+#### Recupero di un numero elevato di entità da una query  
 
-最適化したクエリでは、**PartitionKey** と **RowKey** の値に基づいて個々のエンティティを 1 つずつ返します。ところが、場合によっては同じパーティション、ときには多数のパーティションから、多数のエンティティを返すことが必要になります。  
+Una query ottimale restituisce una singola entità in base a un valore **PartitionKey** e a un valore **RowKey**. In alcuni scenari, tuttavia, potrebbe essere presente il requisito di restituire molte entità dalla stessa partizione o anche da più partizioni.
 
-そのようなときには必ず、アプリケーションのパフォーマンスを綿密にテストする必要があります。  
+È sempre necessario eseguire test completi delle prestazioni dell'applicazione in tali scenari.
 
-Table サービスに対してクエリを実行した場合、一度に返されるエンティティの数は最大 1,000 件、クエリの実行時間は最大 5 秒間です。結果として返されるエンティティが 1,000 件を超える場合、クエリが 5 秒以内に完了しなかった場合、またはクエリがパーティションの境界をまたいで実行される場合には、Table サービスによって継続トークンが返されます。クライアント アプリケーションはこのトークンを使って、続きとなるエンティティを要求します。継続トークンの動作に関する詳細については、MSDN の「[クエリのタイムアウトと改ページ](http://msdn.microsoft.com/library/azure/dd135718.aspx)」をご覧ください。  
+Una query sul servizio tabelle può restituire un massimo di 1.000 entità contemporaneamente e può essere eseguita per un massimo di cinque secondi. Se il set di risultati contiene più di 1.000 entità, nel caso in cui la query non venga completata entro cinque secondi, o se la query supera il limite della partizione, il servizio tabelle restituisce un token di continuazione per consentire all'applicazione client di richiedere il successivo set di entità. Per altre informazioni sulle modalità dei token di continuazione, vedere [Timeout e paginazione delle query ](http://msdn.microsoft.com/library/azure/dd135718.aspx) su MSDN.
 
-ストレージ クライアント ライブラリを使用している場合には、Table サービスからエンティティが返されるたびに継続トークンが自動で処理されます。以下の C# コード サンプルではストレージ クライアント ライブラリを使用しているため、Table サービスが応答で返した継続トークンが自動的に処理されます。  
+La libreria client di archiviazione può gestire automaticamente i token di continuazione per l'utente mentre restituisce entità dal servizio tabelle. L'esempio di codice C# seguente che usa la libreria client di archiviazione gestisce automaticamente i token di continuazione se il servizio tabelle li restituisce in una risposta:
 
 	string filter = TableQuery.GenerateFilterCondition(
   		"PartitionKey", QueryComparisons.Equal, "Sales");
@@ -1073,7 +1042,7 @@ Table サービスに対してクエリを実行した場合、一度に返さ�
   		...
 	}  
 
-以下の C# コード サンプルでは、継続トークンの処理を明示的に記述しています。  
+Il codice C# seguente gestisce i token di continuazione in modo esplicito:
 
 	string filter = TableQuery.GenerateFilterCondition(
   		"PartitionKey", QueryComparisons.Equal, "Sales");
@@ -1093,21 +1062,21 @@ Table サービスに対してクエリを実行した場合、一度に返さ�
   	continuationToken = employees.ContinuationToken;
 	} while (continuationToken != null);  
 
-継続トークンを明示的に使用すると、アプリケーションが次のセグメントに相当するデータを取得するタイミングを制御ができます。たとえば、テーブルに格納されたエンティティをクライアント アプリケーションでページとして表示できるようにしている場合に、クエリで取得したエンティティをユーザーが最後まで見ないことがあります。そのようなとき、継続トークンを明示的に使用していれば、ユーザーが現在のセグメントのエンティティの最後のページに達した時点で、アプリケーションが継続トークンだけを使って次のセグメントを取得できます。この方法には、いくつかの利点があります。  
+Usando i token di continuazione in modo esplicito è possibile controllare quando l'applicazione recupera il successivo segmento di dati. Ad esempio, se l'applicazione client consente agli utenti di spostarsi tra le entità archiviate in una tabella, un utente può decidere di non spostarsi tra tutte le entità recuperate dalla query in modo che l'applicazione usi solo un token di continuazione per recuperare il segmento successivo quando l'utente ha terminato il paging di tutte le entità nel segmento corrente. Questo approccio offre diversi vantaggi:
 
--	Table サービスから取得するデータの量を制限したり、ユーザーがネットワークを移動したりできるようになります。  
--	.NET の非同期 IO を実行できるようになります。  
--	継続トークンをシリアル化して永続記憶装置に保存できるため、アプリケーションがクラッシュした場合でも処理を継続できるようになります。  
+-	Consente di limitare la quantità di dati da recuperare dal servizio tabelle e da spostare tramite la rete.  
+-	Consente di eseguire operazioni di I/O asincrone in .NET.  
+-	Consente di serializzare il token di continuazione in un archivio permanente in modo da poter proseguire in caso di arresto anomalo dell'applicazione.  
 
->[AZURE.NOTE] 継続トークンは通常、エンティティ 1,000 件を 1 つのセグメントにして返しますが、この数が少なくなることもあります。このことは、1 件のクエリによって返されるエントリの数に上限を設けた場合にも当てはまります。**Take** を使用すると、ルックアップ基準に合致するエンティティが任意の数だけ返されるようになります。Table サービスでは、セグメントとして返されるエンティティの数が指定よりも少なくなることがありますが、その場合には、残りのエンティティを取得できるように、併せて継続トークンが返されます。  
+>[AZURE.NOTE]Un token di continuazione in genere restituisce un segmento contenente al massimo 1.000 entità. Ciò avviene anche se si limita il numero di voci restituite da una query usando **Take** per restituire le prime n entità che corrispondono ai criteri di ricerca: il servizio tabelle può restituire un segmento contenente meno di n entità con un token di continuazione per consentire il recupero delle entità rimanenti.
 
-以下の C# コードは、1 つのセグメントで返されるエンティティの数を変更するためのものです。  
+Il codice C# seguente illustra come modificare il numero di entità restituite all'interno di un segmento:
 
 	employeeQuery.TakeCount = 50;  
 
-#### サーバー側のプロジェクション  
+#### Proiezione lato server  
 
-1 つのエンティティには最大で 255 個のプロパティを格納でき、エンティティの最大サイズは 1 MB です。テーブルに対してクエリを実行してエンティティを取得する際、すべてのプロパティが必要ない場合は、データの不要な転送を避けることができます (遅延とコストの削減につながります)。サーバー側のプロジェクションを使えば、必要なプロパティのみを転送できます。次の例では、クエリで選択されたエンティティから **Email** プロパティのみ (それに加えて **PartitionKey**、**RowKey**、**Timestamp**、**ETag**) を取得しています。  
+Una singola entità può avere fino a 255 proprietà e dimensioni fino a 1 MB. Quando si eseguono query sulla tabella e si recuperano entità, potrebbero non essere necessarie tutte le proprietà ed è possibile evitare di trasferire dati inutilmente (in modo da ridurre la latenza e i costi). È possibile usare la proiezione lato server per trasferire solo le proprietà necessarie. L'esempio seguente recupera solo la proprietà **Email** (insieme a **PartitionKey**, **RowKey**, **Timestamp** ed **ETag**) dalle entità selezionate dalla query.
 
 	string filter = TableQuery.GenerateFilterCondition(
   		"PartitionKey", QueryComparisons.Equal, "Sales");
@@ -1121,31 +1090,31 @@ Table サービスに対してクエリを実行した場合、一度に返さ�
   		Console.WriteLine("RowKey: {0}, EmployeeEmail: {1}", e.RowKey, e.Email);
 	}  
 
-**RowKey** 値は、取得対象のプロパティの一覧に含まれていなくても使用できることがわかります。  
+Si noti come il valore **RowKey** è disponibile anche se non è stato incluso nell'elenco delle proprietà da recuperare.
 
-### エンティティを変更する  
+### Modifica di entità  
 
-ストレージ クライアント ライブラリを使えば、Table サービスに格納されたエンティティを、挿入、削除、更新の各操作によって変更できます。また、EGT を使えば複数の挿入、更新、削除の操作を一括で行えるため、必要なラウンドトリップの回数が減り、ソリューションのパフォーマンスが高まります。  
+La libreria client di archiviazione consente di modificare le entità archiviate nel servizio tabelle mediante l'inserimento, l'eliminazione e l'aggiornamento di entità. È possibile usare le transazioni EGT per eseguire in batch più operazioni di inserimento, aggiornamento ed eliminazione insieme allo scopo di ridurre il numero di round trip necessari e migliorare le prestazioni della soluzione.
 
-ストレージ クライアント ライブラリが EGT を実行したときにスローされる例外には、通常、一括処理の失敗を招いたエンティティのインデックスが含まれます。これは EGT を使うコードをデバッグする際に役立ちます。  
+Si noti che le eccezioni generate quando la libreria client di archiviazione esegue una transazione EGT in genere includono l'indice dell'entità che ha causato l'esito negativo del batch. Ciò è utile quando si esegue il debug di codice che usa le transazioni EGT.
 
-クライアント アプリケーションでの同時実行と更新操作の処理方法に設計が及ぼす影響についても考慮が必要です。  
+È inoltre opportuno considerare l'influenza della progettazione sul modo in cui l'applicazione gestisce le operazioni di concorrenza e aggiornamento.
 
-#### 同時実行を管理する  
+#### Gestione della concorrenza  
 
-既定では、Table サービスには、個々のエンティティのレベルで **Insert**、**Merge**、**Delete** 操作についてオプティミスティック同時実行チェックが実装されます。ただし、クライアントが Table サービスでこれらのチェックを強制的にバイパスさせることもできます。Table サービスでの同時実行の管理方法については、Microsoft Azure の Web サイトで「[Microsoft Azure Storage での同時実行制御の管理]」(storage-concurrency.md) をご覧ください。  
+Per impostazione predefinita, il servizio tabelle implementa controlli di concorrenza ottimistica a livello di singole entità per le operazioni **Insert**, **Merge** e **Delete**, sebbene sia possibile per un client forzare il servizio tabelle in modo da ignorare questi controlli. Per altre informazioni sulla gestione della concorrenza nel servizio tabelle, vedere [Gestione della concorrenza nell’archiviazione di Microsoft Azure](storage-concurrency.md) nel sito Web di Microsoft Azure.
 
-#### マージまたは置換  
+#### Unione o sostituzione  
 
-**TableOperation** クラスの **Replace** メソッドは、Table サービス内の完全なエンティティを置き換えます。格納されたエンティティに存在するプロパティを要求に含めない場合、要求により、格納されたエンティティからそのプロパティが削除されます。格納されたエンティティからプロパティを明示的に削除しない場合は、すべてのプロパティを要求に含める必要があります。  
+Il metodo **Replace** della classe **TableOperation** sostituisce sempre l'entità completa nel servizio tabelle. Se non si include una proprietà nella richiesta quando tale proprietà è presente nell'entità archiviata, la richiesta rimuove la proprietà dall'entità archiviata. A meno che non si voglia rimuovere una proprietà in modo esplicito da un'entità archiviata, è necessario includere ogni proprietà nella richiesta.
 
-**TableOperation** クラスの **Merge** メソッドを使えば、エンティティを更新する際に Table サービスに送信するデータの量を減らすことができます。**Merge** メソッドは、格納されたエンティティ内のすべてのプロパティを、要求に含まれるエンティティのプロパティ値に置き換えますが、要求に含まれていないもののプロパティはそのまま残します。ラージ エンティティがあり、要求で少数のプロパティのみを更新する必要があるときに便利な処理です。  
+È possibile usare il metodo **Merge** della classe **TableOperation** per ridurre la quantità di dati inviati al servizio tabelle quando si vuole aggiornare un'entità. Il metodo **Merge** sostituisce le eventuali proprietà nell'entità archiviata con i valori di proprietà dell'entità inclusa nella richiesta, ma lascia invariate le proprietà nell'entità archiviata che non sono incluse nella richiesta. Ciò è utile se si dispone di entità di grandi dimensioni e si desidera solo aggiornare un numero limitato di proprietà in una richiesta.
 
->[AZURE.NOTE] エンティティが存在しない場合、**Replace** メソッドと **Merge** メソッドは失敗します。代わりに、**InsertOrReplace** メソッドと **InsertOrMerge** メソッドを使用すれば、エンティティが存在しない場合に新たに作成できます。  
+>[AZURE.NOTE]I metodi **Replace** e **Merge** non riescono se l'entità non esiste. In alternativa, se l'entità non esiste, è possibile usare i metodi **InsertOrReplace** e **InsertOrMerge** per creare una nuova entità.
 
-### 異なる種類のエンティティを操作する  
+### Uso di tipi di entità eterogenei  
 
-Table サービスは  *schema-less* テーブル ストアです。1 つのテーブルに複数の種類のエンティティを格納できるため、非常に柔軟な設計が可能です。次の例は、従業員エンティティと部署エンティティの両方を格納したテーブルを示しています。  
+Il servizio tabelle è un archivio di tabelle *senza schema*; ciò significa che una singola tabella può archiviare le entità di più tipi, offrendo una grande flessibilità di progettazione. L'esempio seguente illustra una tabella che archivia entità dipendente ed entità reparto:
 
 <table>
 <tr>
@@ -1232,12 +1201,12 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
 </table>
 </td>
 </tr>
-</table>	 	 	 
+</table>
 
-各エンティティに **PartitionKey** 値、**RowKey** 値、**Timestamp** 値が必要ですが、プロパティのセットがある可能性があります。さらに、エンティティの種類を示すものがありません (エンティティの種類に関する情報を格納していない場合)。エンティティの種類を識別する方法は 2 とおりあります。  
+Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **RowKey** e **Timestamp**, ma può avere qualsiasi set di proprietà. Inoltre, non esiste alcuna indicazione relativa al tipo di un'entità, a meno che non si scelga di memorizzare le informazioni in una posizione. Esistono due opzioni per identificare il tipo di entità:
 
--	**RowKey** (または **PartitionKey**) の先頭にエンティティの種類を追加します。たとえば、 **RowKey** 値を **EMPLOYEE_000123** または **DEPARTMENT_SALES** のようにします。  
--	以下の表に示すように、個別のプロパティを使用してエンティティの種類を記録します。  
+-	Anteporre il tipo di entità per il valore **RowKey** (o eventualmente il valore **PartitionKey**). Ad esempio, **EMPLOYEE_000123** o **DEPARTMENT_SALES** come valori **RowKey**.  
+-	Usare una proprietà separata per registrare il tipo di entità come illustrato nella tabella seguente.  
 
 <table>
 <tr>
@@ -1332,33 +1301,33 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
 </table>
 </td>
 </tr>
-</table>	 	 	 	 
+</table>
 
-エンティティの種類を **RowKey** の先頭に追加する最初の方法は、異なる種類の 2 つのエンティティに同じキー値が含まれる可能性がある場合に便利です。この方法なら、パーティションに同じ種類のエンティティのグループ化もできます。  
- 
-このセクションで説明した手法は、「[I継承のリレーションシップ]」(#inheritance-relationships) のセクション[リレーションシップのモデル化]の記述と同様です(#modelling-relationships)。  
+La prima opzione che precede l'entità per il valore **RowKey** è utile se sussiste la possibilità che due entità di tipi diversi abbiano lo stesso valore di chiave. Inoltre, raggruppa entità dello stesso tipo insieme nella partizione.
 
->[AZURE.NOTE] エンティティの種類の値にバージョン番号を追加して、クライアント アプリケーションで POCO オブジェクトを発展させ、さまざまなバージョンを操作できるようにすることを検討してください。  
+Le tecniche descritte in questa sezione sono particolarmente rilevanti per la discussione sulle [Relazioni di ereditarietà](#inheritance-relationships) trattata all’inizio di questa Guida nella sezione [Modellazione di relazioni](#modelling-relationships).
 
-このセクションの残りの部分では、同じテーブル内の異なる種類のエンティティを操作しやすくするストレージ クライアント ライブラリの機能について説明します。  
+>[AZURE.NOTE]È necessario considerare l'inclusione di un numero di versione nel valore del tipo di entità per consentire alle applicazioni client di sviluppare oggetti POCO e usare versioni diverse.
 
-#### 異なる種類のエンティティを取得する  
+La restante parte di questa sezione descrive alcune delle funzionalità della libreria client di archiviazione che semplificano l'uso di più tipi di entità nella stessa tabella.
 
-ストレージ クライアント ライブラリを使えば、3 とおりの方法で複数の種類のエンティティを操作できます。  
+#### Recupero di tipi di entità eterogenei  
 
-格納されているエンティティの種類が **RowKey** 値と **PartitionKey** 値からわかる場合は、種類を指定したうえでエンティティを取得できます。**EmployeeEntity** という種類のエンティティを取得する、前の 2 つの例をご覧ください。[ストレージ クライアント ライブラリを使って 1 つのエンティティを取得する](#retrieving-a-single-entity-using-the-storage-client-library) と [LINQ を使って複数のエンティティを取得する](#retrieving-multiple-entities-using-linq)。  
+Se si usa la libreria client di archiviazione, sono disponibili tre opzioni per l'uso di più tipi di entità.
 
-2 つ目の方法は、具象的な POCO エンティティの種類ではなく **DynamicTableEntity** 型 (プロパティ バッグ) を使う方法です (この方法なら、エンティティを .NET の型にシリアル化や逆シリアル化する必要がないため、パフォーマンスも高まる可能性があります)。次の C# コードでは、テーブルから異なる種類のエンティティを複数取得できますが、すべてのエンティティが **DynamicTableEntity** インスタンスとして返されます。さらに、**EventType** プロパティを使って各エンティティの種類が判断されます。  
+Se si conosce il tipo di entità archiviata con uno specifico valore **RowKey** e **PartitionKey**, è possibile specificare il tipo di entità quando si recupera l'entità, come illustrato nei due esempi precedenti dove viene eseguito il recupero di entità di tipo **EmployeeEntity**: [Recupero di una singola entità tramite la risorsa del client di archiviazione](#retrieving-a-single-entity-using-the-storage-client-library) e [Recupero di più entità utilizzando LINQ](#retrieving-multiple-entities-using-linq).
+
+La seconda opzione prevede l'uso del tipo **DynamicTableEntity** (un contenitore di proprietà) anziché un tipo di entità POCO concreto (questa opzione può anche migliorare le prestazioni perché non richiede la serializzazione e la deserializzazione dell'entità nei tipi .NET). Il codice C# seguente può recuperare più entità di tipo diverso dalla tabella, ma restituisce tutte le entità come istanze **DynamicTableEntity**. Usa quindi la proprietà **EntityType** per determinare il tipo di ogni entità:
 
 	string filter = 	TableQuery.CombineFilters(
     	TableQuery.GenerateFilterCondition("PartitionKey",
       QueryComparisons.Equal, "Sales"),
     	TableOperators.And,
     	TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition("RowKey", 
+        TableQuery.GenerateFilterCondition("RowKey",
           			QueryComparisons.GreaterThanOrEqual, "B"),
         	TableOperators.And,
-        	TableQuery.GenerateFilterCondition("RowKey", 
+        	TableQuery.GenerateFilterCondition("RowKey",
           QueryComparisons.LessThan, "F")
         )
     );
@@ -1369,23 +1338,23 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
 	IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
 	foreach (var e in entities)
 	{
-    EntityProperty eventTypeProperty;
-    if (e.Properties.TryGetValue("EntityType", out eventTypeProperty))
+    EntityProperty entityTypeProperty;
+    if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
     {
-        if (eventTypeProperty.StringValue == "Employee")
+        if (entityTypeProperty.StringValue == "Employee")
         {
-            // Use eventTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
+            // Use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
       	  }
    	 }
 	}  
 
-ただし、他のプロパティを取得するには、**DynamicTableEntity** クラスの **Properties** プロパティで **TryGetValue** メソッドを使用する必要があります。  
+Si noti che per recuperare le altre proprietà è necessario usare il metodo **TryGetValue** sulla proprietà **Properties** della classe **DynamicTableEntity**.
 
-3 つ目の方法は、**DynamicTableEntity** 型と **EntityResolver** インスタンスを組み合わせて使用する方法です。この方法なら、同じクエリで複数の POCO 型を解決できます。この例では、**EntityResolver** デリゲートで **EventType** プロパティを使って、クエリから返されるエンティティの 2 つの種類を識別しています。**Resolve** メソッドは、**resolver** デリゲートを使って **DynamicTableEntity** インスタンスを **TableEntity** インスタンスに解決します。  
+Una terza opzione prevede l'uso combinato del tipo **DynamicTableEntity** e di un'istanza **EntityResolver**. Ciò consente di risolvere a più tipi POCO nella stessa query. In questo esempio il delegato **EntityResolver** delegate usa la proprietà **EntityType** per distinguere i due tipi di entità restituite dalla query. Il metodo **Resolve** usa il delegato **resolver** per risolvere le istanze **DynamicTableEntity** alle istanze **TableEntity**.
 
 	EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
 	{
-  
+
   		TableEntity resolvedEntity = null;
   		if (props["EntityType"].StringValue == "Department")
   		{
@@ -1408,9 +1377,9 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
 	string filter = TableQuery.GenerateFilterCondition(
   		"PartitionKey", QueryComparisons.Equal, "Sales");
 	TableQuery<DynamicTableEntity> entityQuery =
-  		new TableQuery<DynamicTableEntity>().Where(filter); 
+  		new TableQuery<DynamicTableEntity>().Where(filter);
 
-	var entities = employeeTable.ExecuteQuery(entityQuery, resolver); 
+	var entities = employeeTable.ExecuteQuery(entityQuery, resolver);
 	foreach (var e in entities)
 	{
   		if (e is DepartmentEntity)
@@ -1423,11 +1392,11 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
   		}
 	}  
 
-#### 異なる種類のエンティティを変更する  
+#### Modifica dei tipi di entità eterogenei  
 
-エンティティの種類がわからなくても削除はできますが、挿入はできません。ただし、**DynamicTableEntity** 型を使えば、型を把握したり POCO エンティティ クラスを使用したりしなくても、エンティティを更新できます。次のコード サンプルでは、1 つのエンティティを取得し、更新の前に **EmployeeCount** プロパティが存在することを確認します。  
+Per eliminare un'entità non è necessario conoscerne il tipo, che è comunque sempre noto quando l'entità viene inserita. Tuttavia, è possibile usare il tipo **DynamicTableEntity** per aggiornare un'entità senza conoscerne il tipo e senza usare una classe di entità POCO. L'esempio di codice seguente consente di recuperare una singola entità e controlla che la proprietà **EmployeeCount** esista prima di aggiornarla.
 
-	TableResult result = 
+	TableResult result =
   		employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
 	DynamicTableEntity department = (DynamicTableEntity)result.Result;
 
@@ -1435,46 +1404,45 @@ Table サービスは  *schema-less* テーブル ストアです。1 つのテ�
 
 	if (!department.Properties.TryGetValue("EmployeeCount", out countProperty))
 	{
-  		throw new 
+  		throw new
     		InvalidOperationException("Invalid entity, EmployeeCount property not found.");
 	}
 	countProperty.Int32Value += 1;
 	employeeTable.Execute(TableOperation.Merge(department));  
 
-### Shared Access Signature を使ってアクセスを制御する  
+### Controllo dell'accesso con le firme di accesso condiviso  
 
-Shared Access Signature (SAS) トークンを使うと、クライアント アプリケーションで、Table サービスに対して直接認証しなくてもテーブル エンティティを直接変更 (と照会) できるようになります。通常、アプリケーションで SAS を使うと、次の 3 つのメリットが得られます。  
+È possibile usare i token delle firme di accesso condiviso (SAS) per consentire alle applicazioni client di modificare le entità di tabella, ed eseguire query sulle stesse, direttamente senza la necessità di eseguire l'autenticazione direttamente con il servizio tabelle. In genere, l'uso di SAS nell'applicazione comporta tre vantaggi principali:
 
--	デバイスで Table サービスのエンティティにアクセスして変更できるようにするために、安全ではないプラットフォーム (モバイル デバイスなど) にストレージ アカウント キーを配布する必要がない。  
--	Web ロールまたは worker ロールがエンティティを管理する際に実行する処理の一部を、エンド ユーザー コンピューターやモバイル デバイスなどのクライアント デバイスにオフロードできる。  
--	制約と時間制限のあるアクセス許可のセットをクライアントに割り当てることができる (読み取り専用アクセスを特定のリソースに許可するなど)。  
+-	Non è necessario distribuire la chiave dell'account di archiviazione in una piattaforma non sicura (ad esempio un dispositivo mobile) per consentire a tale dispositivo di accedere e modificare le entità nel servizio tabelle.  
+-	È possibile scaricare una parte del lavoro eseguito dai ruoli Web e di lavoro nella gestione delle entità per i dispositivi client, ad esempio computer e dispositivi mobili degli utenti finali.  
+-	È possibile assegnare un set vincolato e limitato nel tempo di autorizzazioni a un client (ad esempio, l'accesso di sola lettura a risorse specifiche).  
 
-Table サービスでの SAS トークンの使用の詳細については、「[共有アクセス署名、パート 1:SAS モデルについて](storage-dotnet-shared-access-signature-part-1.md)。  
+Per altre informazioni sull'uso di token di firme di accesso condiviso con il servizio tabelle, vedere [Firme di accesso condiviso, parte 1: Informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/).
 
-ただし、Table サービスのエンティティへのアクセスをクライアント アプリケーションに付与する SAS トークンを生成する必要はあります。これは、ストレージ アカウント キーに安全にアクセスできる環境で行うようにしてください。通常は、Web ロールまたは worker ロールを使って SAS トークンを生成し、エンティティへのアクセスを必要とするクライアント アプリケーションに配布します。SAS トークンの生成とクライアントへの配布にもやはりオーバーヘッドが伴うため、特に大量に扱うシナリオでは、このオーバーヘッドを減らす最適な方法を検討する必要があります。  
+Tuttavia, è comunque necessario generare i token delle firme di accesso condiviso che consentono a un'applicazione client di accedere alle entità nel servizio tabelle: questa operazione deve essere eseguita in un ambiente che dispone di un accesso sicuro alle chiavi dell'account di archiviazione. In genere, è possibile usare un ruolo Web o di lavoro per generare i token delle firme di accesso condiviso e distribuirli alle applicazioni client che richiedono l'accesso alle entità. Poiché la generazione e la distribuzione dei token delle firme di accesso condiviso ai client comportano comunque un sovraccarico, è consigliabile valutare il modo migliore di ridurre tale sovraccarico, soprattutto in scenari con volumi elevati.
 
-テーブル内のエンティティのサブセットへのアクセスを付与する SAS トークンを生成できます。既定では、SAS トークンはテーブル全体を対象に作成するものであるものの、SAS トークンで **PartitionKey** 値の範囲へのアクセスを付与するか、**PartitionKey** 値と **RowKey** 値の範囲へのアクセスを付与するかを指定することも可能です。システムの個々のユーザーに SAS トークンが生成されるようにすれば、各ユーザーの SAS トークンによってアクセスが許可されるのは、Table サービス内にあるユーザー独自のエンティティだけになります。  
+È possibile generare un token delle firme di accesso condiviso che concede l'accesso a un sottoinsieme delle entità in una tabella. Per impostazione predefinita, un token delle firme di accesso condiviso viene creato per un'intera tabella, ma è anche possibile specificare che il token delle firme di accesso condiviso conceda l'accesso a un intervallo di valori **PartitionKey** o a un intervallo di valori **PartitionKey** e **RowKey**. Si potrebbe scegliere di generare token delle firme di accesso condiviso per i singoli utenti del sistema in modo che il token delle firme di accesso condiviso di ogni utente consenta di accedere solo alle proprie entità nel servizio tabelle.
 
-### 非同期と並列操作  
+### Operazioni asincrone e parallele  
 
-要求を複数のパーティションに分散させている場合は、非同期または並列クエリを使ってスループットとクライアントの応答性を向上させることができます。 
-たとえば、テーブルに並列的にアクセスする複数の worker ロール インスタンスを使用する場合などです。個別の worker ロールで特定のパーティション セットのみを処理することも可能であるほか、テーブル内のすべてのパーティションにアクセスできる worker ロール インスタンスを複数実装することも可能です。  
+A condizione che le richieste vengano distribuite in più partizioni, è possibile migliorare la velocità effettiva e la velocità di risposta del client usando le query parallele o asincrone. Ad esempio, si potrebbero avere due o più istanze del ruolo di lavoro che accedono alle tabelle in parallelo. Si potrebbero avere singoli ruoli di lavoro responsabili di specifici set di partizioni o semplicemente avere più istanze del ruolo di lavoro, ciascuna in grado di accedere a tutte le partizioni in una tabella.
 
-クライアント インスタンスでは、ストレージ操作を非同期的に実行することでスループットを高めることができます。ストレージ クライアント ライブラリを使えば、非同期クエリと変更を簡単に記述できます。たとえば、次の C# コードに示すように、パーティション内のすべてのエントリを取得する同期メソッドをベースとして利用できます。  
+All'interno di un'istanza del client, è possibile migliorare la velocità effettiva effettuando operazioni di archiviazione in modo asincrono. La libreria client di archiviazione semplifica la scrittura di query e modifiche asincrone. Ad esempio, è possibile iniziare con il metodo sincrono che recupera tutte le entità in una partizione come mostrato nel codice C# seguente:
 
 	private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
 	{
   		string filter = TableQuery.GenerateFilterCondition(
     		"PartitionKey", QueryComparisons.Equal, department);
   		TableQuery<EmployeeEntity> employeeQuery =
-    		new TableQuery<EmployeeEntity>().Where(filter); 
+    		new TableQuery<EmployeeEntity>().Where(filter);
 
   		TableContinuationToken continuationToken = null;
 
   		do
   		{
     		var employees = employeeTable.ExecuteQuerySegmented(
-      			employeeQuery, continuationToken); 
+      			employeeQuery, continuationToken);
     		foreach (var emp in employees)
     	{
       	...
@@ -1483,20 +1451,20 @@ Table サービスでの SAS トークンの使用の詳細については、「
   		} while (continuationToken != null);
 	}  
 
-このコードを次のように少し変更して、クエリが非同期的に実行されるようにします。  
+È possibile modificare facilmente questo codice affinché la query venga eseguita in modo asincrono come segue:
 
 	private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
 	{
   		string filter = TableQuery.GenerateFilterCondition(
     		"PartitionKey", QueryComparisons.Equal, department);
   		TableQuery<EmployeeEntity> employeeQuery =
-    		new TableQuery<EmployeeEntity>().Where(filter); 
+    		new TableQuery<EmployeeEntity>().Where(filter);
   		TableContinuationToken continuationToken = null;
 
   		do
   		{
     		var employees = await employeeTable.ExecuteQuerySegmentedAsync(
-      			employeeQuery, continuationToken); 
+      			employeeQuery, continuationToken);
     		foreach (var emp in employees)
     		{
      		 ...
@@ -1505,16 +1473,16 @@ Table サービスでの SAS トークンの使用の詳細については、「
   			} while (continuationToken != null);
 	}  
 
-この非同期の例は、同期のバージョンに次の変更が加えられたものです。  
+In questo esempio asincrono è possibile visualizzare le modifiche seguenti dalla versione sincrona:
 
--	メソッドの署名に **async** 修飾子が含まれ、**Task** インスタンスが返されるようになっています。  
--	**ExecuteSegmented** メソッドを呼び出して結果を取得する代わりに、**ExecuteSegmentedAsync** メソッドを呼び出し、**await** 修飾子を使って結果を非同期的に取得するようになっています。  
+-	La firma del metodo include ora il modificatore **async** e restituisce un'istanza **Task**.  
+-	Invece di chiamare il metodo **ExecuteSegmented** per recuperare i risultati, il metodo ora chiama il metodo **ExecuteSegmentedAsync** e usa il modificatore **await** per recuperare i risultati in modo asincrono.  
 
-クライアント アプリケーションはこのメソッドを複数回呼び出すことができ (**department** パラメーターに異なる値を使う)、各クエリは別々のスレッドで実行されます。  
+L'applicazione client può chiamare questo metodo più volte (con valori diversi per il parametro **department**) e ogni query verrà eseguita su un thread separato.
 
-ただし、**TableQuery** クラスの **Execute** メソッドの非同期バージョンはありません。**IEnumerable** インターフェイスは非同期の列挙をサポートしていないためです。  
+Si noti che non è presente alcuna versione asincrona del metodo **Execute** nella classe **TableQuery** perché l'interfaccia **IEnumerable** non supporta l'enumerazione asincrona.
 
-エンティティを非同期的に挿入、更新、削除できます。次の C# の例は、従業員エンティティを挿入または置換する単純な同期メソッドです。  
+È inoltre possibile inserire, aggiornare ed eliminare entità in modo asincrono. Nell'esempio C# seguente viene illustrato un metodo semplice e sincrono per inserire o sostituire un'entità dipendente:
 
 	private static void SimpleEmployeeUpsert(CloudTable employeeTable,
   		EmployeeEntity employee)
@@ -1524,9 +1492,9 @@ Table サービスでの SAS トークンの使用の詳細については、「
   		Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
 	}  
 
-You can easily modify this code so that the update runs asynchronously as follows:  
+È possibile modificare facilmente questo codice affinché l'aggiornamento venga eseguito in modo asincrono come segue:
 
-	private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable, 
+	private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
   		EmployeeEntity employee)
 	{
   		TableResult result = await employeeTable
@@ -1534,21 +1502,21 @@ You can easily modify this code so that the update runs asynchronously as follow
   		Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
 	}  
 
-この非同期の例は、同期のバージョンに次の変更が加えられたものです。  
+In questo esempio asincrono è possibile visualizzare le modifiche seguenti dalla versione sincrona:
 
--	メソッドの署名に **async** 修飾子が含まれ、**Task** インスタンスが返されるようになっています。  
--	**Execute** メソッドを呼び出してエンティティを更新する代わりに、**ExecuteAsync** メソッドを呼び出し、**await** 修飾子を使って結果を非同期的に取得するようになっています。  
+-	La firma del metodo include ora il modificatore **async** e restituisce un'istanza **Task**.  
+-	Invece di chiamare il metodo **Execute** per aggiornare l'entità, il metodo ora chiama il metodo **ExecuteAsync** e usa il modificatore **await** per recuperare i risultati in modo asincrono.  
 
-クライアント アプリケーションは、これと同じように非同期メソッドを複数回呼び出すことができます。各メソッドの呼び出しは別々のスレッドで実行されます。  
-
-
-### 謝辞
-Azure チームの次のメンバーのご協力に感謝します:Dominic Betts、Jason Hogg、Jean Ghanem、Jai Haridas、Jeff Irwin、Vamshidhar Kommineni、Vinay Shah、Serdar Ozler  
-
-レビュー サイクルで貴重なフィードバックを提供してくださった次の Microsoft MVP の方々にも感謝申し上げます:Igor Papirov、Edward Bakker 
+L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo verrà eseguita su un thread separato.
 
 
- 
+### Crediti
+Vorremmo ringraziare i seguenti membri del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, Serdar Ozler e Tom Hollander di Microsoft DX.
+
+I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov e Edward Bakker.
+
+
+
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
 [3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
@@ -1578,6 +1546,6 @@ Azure チームの次のメンバーのご協力に感謝します:Dominic Betts
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori#
@@ -261,5 +261,6 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

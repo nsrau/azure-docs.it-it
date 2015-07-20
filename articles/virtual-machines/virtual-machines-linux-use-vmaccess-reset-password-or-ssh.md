@@ -18,15 +18,15 @@
 
 # Come reimpostare una password o SSH per le macchine virtuali Linux #
 
-Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH \(Secure Shell\) non valida o un problema di configurazione di SSH, usare il portale di anteprima di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH.
+Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare il portale di anteprima di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH.
 
 ## Portale di anteprima di Azure
 
-Per ripristinare la configurazione SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** \> **Macchine virtuali** \> *macchina virtuale Linux* \> **Reimposta accesso remoto**. Di seguito è fornito un esempio.
+Per ripristinare la configurazione SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Reimposta accesso remoto**. Di seguito è fornito un esempio.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-Per reimpostare il nome e la password dell'account utente con privilegi sudo o la chiave pubblica SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** \> **Macchine virtuali** \> *macchina virtuale Linux* \> **Tutte le impostazioni** \> **Reimpostazione password**. Di seguito è fornito un esempio.
+Per reimpostare il nome e la password dell'account utente con privilegi sudo o la chiave pubblica SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Tutte le impostazioni** > **Reimpostazione password**. Di seguito è fornito un esempio.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -36,7 +36,7 @@ Per reimpostare il nome e la password dell'account utente con privilegi sudo o l
 È necessario quanto segue:
 
 - Agente Linux di Microsoft Azure versione 2.0.5 o successive. La maggior parte delle immagini Linux nella raccolta di macchine virtuali include la versione 2.0.5. Per verificare la versione installata, eseguire **waagent -version**. Per aggiornare l'agente, attenersi alle istruzioni presenti nella [Guida dell'utente dell'agente Linux di Azure].
-- Interfaccia della riga di comando di Azure \(CLI\) Per ulteriori informazioni sull'impostazione dell’interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+- Interfaccia della riga di comando di Azure (CLI) Per ulteriori informazioni sull'impostazione dell’interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
 - Azure PowerShell. I comandi disponibili nel cmdlet Set-AzureVMExtension verranno usati per caricare e configurare automaticamente l'estensione VMAccessForLinux. Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell].
 - Una nuova password o un set di chiavi SSH da reimpostare. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
 
@@ -46,7 +46,7 @@ Non è necessario che l'estensione VMAccess sia installata per poterla usare. Se
 
 ## Utilizzare l’interfaccia della riga di comando di Azure
 
-Con l’interfaccia della riga di comando di Azure sarà possibile usare il comando **azure** dall'interfaccia della riga di comando \(Bash, terminale, prompt dei comandi\) per accedere ai comandi. Eseguire **azure vm extension set –help** per l’uso dell’estensione dettagliato.
+Con l’interfaccia della riga di comando di Azure sarà possibile usare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai comandi. Eseguire **azure vm extension set –help** per l’uso dell’estensione dettagliato.
 
 Con l’interfaccia della riga di comando di Azure è possibile eseguire le attività seguenti:
 
@@ -111,9 +111,9 @@ Per creare un nuovo utente sudo con accesso tramite chiave SSH, usare lo script 
 
 ### <a name="sshconfigresetcli"></a>Reimpostare la configurazione SSH
 
-Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset\_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente \(nome, password o chiavi SSH\) non verrà modificato.
+Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente (nome, password o chiavi SSH) non verrà modificato.
 
-> [AZURE.NOTE]Il file di configurazione SSH che viene reimpostato si trova in /etc/ssh/sshd\_config.
+> [AZURE.NOTE]Il file di configurazione SSH che viene reimpostato si trova in /etc/ssh/sshd_config.
 
 Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto.
 
@@ -228,7 +228,7 @@ Eseguire i comandi seguenti.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]Il file di configurazione SSH si trova in /etc/ssh/sshd\_config.
+> [AZURE.NOTE]Il file di configurazione SSH si trova in /etc/ssh/sshd_config.
 
 ### <a name="delete"></a> Eliminare un utente
 
@@ -263,4 +263,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

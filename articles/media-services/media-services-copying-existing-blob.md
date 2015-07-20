@@ -29,15 +29,15 @@ I BLOB possono essere presenti sia in un account di archiviazione associato al p
 - Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
 - Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
 - .NET Framework 4.5
-- Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 \(Professional, Premium, Ultimate o Express\).
+- Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
 
 ##Configurare il progetto
 
-In questa sezione si creerà e si configurerà un progetto di applicazione console in C\#.
+In questa sezione si creerà e si configurerà un progetto di applicazione console in C#.
 
-1. Usare Visual Studio 2012 o Visual Studio 2010 SP1 per creare una nuova soluzione contenente il progetto di applicazione console in C\#. 
+1. Usare Visual Studio 2012 o Visual Studio 2010 SP1 per creare una nuova soluzione contenente il progetto di applicazione console in C#. 
 2. Immettere CopyExistingBlobsIntoAsset per il nome e quindi fare clic su OK.
-1. Usare Nuget per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -\> Gestione pacchetti libreria -\> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
+1. Usare Nuget per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -> Gestione pacchetti libreria -> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
 1. Aggiungere gli altri riferimenti richiesti per il progetto System.Configuration.
 1. Sostituire le istruzioni using aggiunte per impostazione predefinita al file Programs.cs con le seguenti:
 		
@@ -283,4 +283,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,3 @@
 Si tratta probabilmente del database più conosciuto disponibile nella letteratura relativa al riconoscimento di schemi. Il set di dati è relativamente piccolo, poiché contiene 50 esempi di misurazione di ogni petalo di tre varietà di iris.<p> </p><b>Utilizzo:</b> prevedere il tipo di iris in base alle misurazioni. <p> </p><b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

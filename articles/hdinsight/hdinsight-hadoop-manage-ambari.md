@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/01/2015"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight usando Ambari (anteprima)
@@ -30,9 +30,9 @@ Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati
 
 ##Proxy SSH
 
-> [AZURE.NOTE]Sebbene Ambari per il cluster sia accessibile direttamente su Internet, alcune funzionalità si basano sull'accesso ai nodi con il nome di dominio interno usato dal cluster. Poiché si tratta di un nome di dominio interno e non pubblico, si riceveranno errori di "server non trovato" se si tenta di accedere ad alcune funzionalità tramite Internet.
+> [AZURE.NOTE]Mentre Ambari per il cluster è accessibile direttamente tramite Internet, alcuni collegamenti dall'interfaccia utente Web di Ambari (ad esempio JobTracker) non sono esposte in Internet. Di conseguenza, quando si tenta di accedere a queste funzionalità, verranno visualizzati errori di "server non trovato", a meno di usare un tunnel Secure Shell (SSH) per il proxy del traffico Web al nodo head del cluster.
 
-Per risolvere questo problema, usare un tunnel SSH (Secure Shell) per inoltrare il traffico Web al nodo head del cluster, che è in grado di risolvere i nomi di dominio interno. Usare i seguenti articoli per creare un tunnel SSH da una porta nel computer locale al cluster:
+Usare i seguenti articoli per creare un tunnel SSH da una porta nel computer locale al cluster:
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH usando il comando `ssh`.
 
@@ -74,9 +74,9 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 * **Pulsante admin**: gestione di Ambari, impostazioni utente e disconnessione.
 
-###Monitoraggio
+##Monitoraggio
 
-####Avvisi
+###Avvisi
 
 Ambari fornisce numerosi avvisi, che potranno avere uno dei seguenti stati:
 
@@ -102,7 +102,7 @@ Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere vi
 
 ![finestra di dialogo Create Alert](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-####HDInsight
+###HDInsight
 
 La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage**, forniscono informazioni aggiuntive quando vengono selezionati.
 
@@ -116,7 +116,7 @@ Per altre informazioni sui nodi del cluster, selezionare **Hosts**, quindi il no
 
 ![dettagli dell'host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-####Servizi
+###Servizi
 
 La barra laterale **Services** sul dashboard fornisce informazioni rapide sullo stato dei servizi in esecuzione nel cluster. Vengono usate diverse icone per indicare lo stato o le azioni da intraprendere, ad esempio un simbolo giallo di riciclo indica che un servizio deve essere riciclato.
 
@@ -126,7 +126,7 @@ Selezionando un servizio verranno visualizzate informazioni più dettagliate su 
 
 ![informazioni di riepilogo sul servizio](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-#####Collegamenti rapidi
+####Collegamenti rapidi
 
 Alcuni servizi visualizzano un collegamento **Quick Links** nella parte superiore della pagina. Questi possono essere usati per accedere alle interfacce utente Web specifiche del servizio, ad esempio:
 
@@ -134,27 +134,27 @@ Alcuni servizi visualizzano un collegamento **Quick Links** nella parte superior
 
 * **Resource Manager**: interfaccia utente di gestione risorse di YARN.
 
-* **NameNode**: interfaccia utente  NameNode del file system distribuito Hadoop (HDFS).
+* **NameNode**: interfaccia utente NameNode del file system distribuito Hadoop (HDFS).
 
 * **Oozie Web UI**: interfaccia utente Oozie.
 
 Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel browser che visualizzerà la pagina selezionata.
 
-> [AZURE.NOTE]Se si seleziona un collegamento **Quick Links** per un servizio, verrà visualizzato un errore di "server non trovato" a meno che non si usi un tunnel SSL (Secure Sockets Layer) per inoltrare il traffico Web al cluster. Infatti, Ambari usa il nome di dominio interno per questi collegamenti.
-> 
+> [AZURE.NOTE]Se si seleziona un collegamento **Quick Links** per un servizio, verrà visualizzato un errore di "server non trovato" a meno che non si usi un tunnel SSL (Secure Sockets Layer) per inoltrare il traffico Web al cluster. Questo comportamento è dovuto al fatto che le applicazioni Web usate per visualizzare queste informazioni non sono esposte in Internet.
+>
 > Per informazioni sull'uso di un tunnel SSL con HDInsight, vedere uno dei seguenti argomenti:
-> 
+>
 > * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH usando il comando `ssh`.
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Windows</a>: passaggi relativi all'uso di PuTTY per creare un tunnel SSH.
 
-###gestione
+##gestione
 
-####Utenti, gruppi e autorizzazioni Ambari
+###Utenti, gruppi e autorizzazioni Ambari
 
 Non eseguire la gestione di utenti, gruppi e autorizzazioni con l'anteprima di HDInsight basato su Linux.
 
-####Hosts
+###Hosts
 
 La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seguire questa procedura.
 
@@ -190,7 +190,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 		> [AZURE.NOTE]Non usare questa azione nei cluster HDInsight.
 
-####<a id="service"></a>Services
+###<a id="service"></a>Services
 
 Nella pagina **Dashboard** o **Services** usare il pulsante **Actions** nella parte inferiore dell'elenco di servizi per aggiungere nuovi servizi o per arrestare e avviare tutti i servizi.
 
@@ -252,5 +252,4 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

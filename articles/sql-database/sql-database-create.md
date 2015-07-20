@@ -64,4 +64,6 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 [11]: ./media/sql-database-create/resourcegroup.png
 [12]: ./media/sql-database-create/create.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

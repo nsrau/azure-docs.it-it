@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Progettazione e selezione di funzioni in Azure Machine Learning | Azure" 
-	description="Illustra le finalità della progettazione e della selezione di funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning." 
+<properties
+	pageTitle="Progettazione e selezione di funzioni in Azure Machine Learning | Microsoft Azure" 
+	description="Illustra le finalità della progettazione e della selezione di funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/21/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -29,16 +29,16 @@ Le funzioni progettate e selezionate migliorano l'efficienza del processo di tra
 
 La progettazione e selezione delle funzioni fanno parte di un processo più ampio, costituito in genere da quattro passaggi:
 
-* Raccolta dei dati 
-* Miglioramento dei dati 
-* Costruzione del modello 
-* Post-elaborazione 
+* Raccolta dei dati
+* Miglioramento dei dati
+* Costruzione del modello
+* Post-elaborazione
 
 Progettazione e selezione costituiscono il passaggio di **miglioramento dei dati** in Machine Learning. Per le finalità di questo documento, si possono distinguere tre aspetti di questo processo:
 
 * **Pre-elaborazione dei dati**: questo processo tenta di assicurare che i dati raccolti siano puliti e coerenti. Include attività come integrazione di più set di dati, gestione di dati mancanti, gestione di dati incoerenti e conversione di tipi di dati.
 * **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
-* **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training. 
+* **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
 Questo argomento tratta solo gli aspetti relativi a progettazione e selezione di funzioni del processo di miglioramento dei dati. Per altre informazioni sul passaggio di pre-elaborazione dei dati, guardare il video sulla [pre-elaborazione dei dati in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
@@ -51,7 +51,7 @@ Il tipo di funzioni da creare per migliorare il set di dati durante il training 
 
 Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo processo in modo concreto tramite gli esempi disponibili in Studio. Di seguito ne vengono presentati due:
 
-* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) in un esperimento controllato in cui sono noti i valori di destinazione. 
+* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) in un esperimento controllato in cui sono noti i valori di destinazione.
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing][feature-hashing].
 
 ### Esempio 1: Aggiunta di funzioni temporali per il modello di regressione ###
@@ -59,7 +59,7 @@ Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo
 Per dimostrare come progettare le funzioni per un'attività di regressione, si userà l'esperimento "Demand forecasting of bikes" in Azure Machine Learning Studio. L'obiettivo di questo esperimento è stimare la domanda di biciclette, ovvero il numero di noleggi di biciclette nell'arco di un mese, un giorno o un'ora specifica. Come dati di input non elaborati si usa il set di dati "Bike Rental UCI dataset". Questo set di dati si basa su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC, negli Stati Uniti. Il set di dati rappresenta il numero di noleggi di biciclette in un'ora specifica del giorno negli anni 2011 e 2012 r include 17379 righe e 17 colonne. Il set di funzioni non elaborate include le condizioni meteorologiche (temperatura/umidità/velocità del vento) e il tipo di giorno (festività/giorno feriale). Il campo per la stima è "cnt", un conteggio che rappresenta i noleggi di biciclette in un'ora specifica e compreso nell'intervallo da 1 a 977.
 
 Allo scopo di costruire funzioni efficaci nei dati di training, vengono compilati quattro modelli di regressione con lo stesso algoritmo, ma con quattro diversi set di dati di training. I quattro set di dati rappresentano gli stessi dati di input non elaborati, ma con un numero crescente di set di funzioni. Queste funzioni sono raggruppate in quattro categorie:
- 
+
 1. A = funzioni meteo + festività + giorno feriale + fine settimana per la giornata prevista.
 2. B = numero di biciclette noleggiate in ognuna delle 12 ore precedenti.
 3. C = numero di biciclette noleggiate in ognuno dei 12 giorni precedenti alla stessa ora.
@@ -83,8 +83,8 @@ Per completare questa attività, si applica una tecnica definita **hashing di fu
 
 In Azure Machine Learning è disponibile un modulo [Feature Hashing][feature-hashing] che crea in modo pratico queste funzioni basate su parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo del modulo [Feature Hashing][feature-hashing] è recuperare una serie di nuove funzioni che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro particolare. Per usare questo modulo, è necessario completare i passaggi seguenti:
 
-* Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio). 
-* Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice. 
+* Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio).
+* Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.
 * Infine, impostare il parametro "N-grams" su 2. In questo modo si ottiene la frequenza di occorrenze di unigrammi (una funzione per ogni singola parola) e di digrammi (una funzione per ogni coppia di valori adiacenti) dal testo di input. L'intervallo del parametro "N-grams" è compreso tra 0 e 10 e indica il numero massimo di parole sequenziali da includere in una funzione.  
 
 ![Modulo "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
@@ -97,15 +97,15 @@ La figura seguente mostra l'aspetto delle nuove funzioni.
 
 La selezione delle funzioni è un processo applicato comunemente per la costruzione di set di dati di training per le attività di modellazione predittive, come la classificazione o la regressione. L'obiettivo consiste nel selezionare un subset di funzioni dal set di dati originale, che riducono le dimensioni usando un set minimo di funzioni per rappresentare la quantità massima di varianza nei dati. Questo subset di funzioni rappresenta quindi le sole funzioni da includere per il training del modello. La selezione delle funzioni ha due scopi principali.
 
-* La selezione di funzioni migliora spesso la  precisione della classificazione eliminando le funzioni irrilevanti, ridondanti o altamente correlate. 
-* In secondo luogo, riduce il numero di funzioni rendendo più efficiente il processo di training del modello. Questo aspetto è particolarmente importante per gli strumenti di apprendimento, come le macchine a vettori di supporto, il cui training risulta costoso. 
+* La selezione di funzioni migliora spesso la precisione della classificazione eliminando le funzioni irrilevanti, ridondanti o altamente correlate.
+* In secondo luogo, riduce il numero di funzioni rendendo più efficiente il processo di training del modello. Questo aspetto è particolarmente importante per gli strumenti di apprendimento, come le macchine a vettori di supporto, il cui training risulta costoso.
 
 Anche se la selezione delle funzioni cerca di ridurre il numero di funzioni nel set di dati usato per il training del modello, non viene in genere definita con il termine "riduzione della dimensionalità". I metodi di selezione delle funzioni estraggono un subset delle funzioni originali presenti nei dati senza apportarvi modifiche. I metodi di riduzione della dimensionalità usano funzioni progettate che possono trasformare le funzioni originali e quindi modificarle. Analisi in componenti principali, analisi di correlazione canonica e scomposizione di valori singolari sono esempi di metodi di riduzione della dimensionalità.
 
 Tra le altre, una categoria di funzioni ampiamente applicata in un contesto supervisionato è detta "Selezione delle funzioni basata su filtro". Tramite la valutazione della correlazione tra ogni funzione e l'attributo di destinazione, questi metodi applicano una misura statistica per assegnare un punteggio a ogni funzione. Queste funzioni vengono quindi classificate in base al punteggio, che può essere usato per facilitare l'impostazione della soglia per mantenere o eliminare una funzione specifica. Correlazione di Pearson, informazione mutua e test del chi quadrato sono esempi di misure statistiche usate in questi metodi.
 
 In Azure Machine Learning Studio sono disponibili moduli per la selezione delle funzioni. Come illustrato nella figura seguente, questi moduli includono [Filter-Based Feature Selection][filter-based-feature-selection] e [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
- 
+
 ![Esempio di selezione delle funzioni](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 
@@ -133,5 +133,6 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

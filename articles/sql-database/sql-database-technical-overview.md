@@ -25,5 +25,6 @@ Il database SQL offre una [scalabilità verticale](sql-database-service-tiers.md
 Il database SQL è disponibile nei [livelli di servizio](sql-database-service-tiers.md) Basic, Standard e Premium che supportano carichi di lavoro semplici fino a carichi di lavoro complessi. È pertanto possibile passare da un livello a un altro o combinarne diversi per progettazioni di applicazioni innovative. Con la potenza e la portata di Azure, è possibile combinare e integrare i servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione di app moderne dell'azienda, promuovere l'efficienza in termini di costi e di risorse e sfruttare nuove opportunità commerciali.
 
 È possibile iniziare con una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

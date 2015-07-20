@@ -51,7 +51,7 @@ Il modo in cui è possibile impostare il mapping di rete dipende dal proprio sce
 
 La rete logica VMM fornisce una visualizzazione astratta dell'infrastruttura di rete fisica. Le reti VM forniscono un'interfaccia di rete in modo che le macchine virtuali possano connettersi alle reti logiche. Una rete logica richiede almeno una rete VM. Quando si inserisce una macchina virtuale in un cloud per la protezione, tale macchina deve essere connessa a una rete VM che si collega a una rete logica associata al cloud. Per altre informazioni, consultare:
 
-- [Reti logiche \(parte 1\)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
+- [Reti logiche (parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [Reti virtuali in VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
 
 ## Esempio
@@ -78,7 +78,7 @@ Di seguito viene indicato in che modo vengono configurati i cloud VMM e in che m
 
 ### Impostazioni di protezione del cloud
 
-**Cloud protetto** | **Protezione del cloud** | **Rete logica \(New York\)**  
+**Cloud protetto** | **Protezione del cloud** | **Rete logica (New York)**  
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
@@ -113,13 +113,13 @@ Se la rete di destinazione dispone di più subnet e una di esse ha lo stesso nom
 
 ### Failback
 
-Per vedere cosa succede in caso di failback \(replica inversa\), si supponga che venga eseguito il mapping di VMNetwork1-NewYork a VMNetwork1-Chicago, con le impostazioni seguenti.
+Per vedere cosa succede in caso di failback (replica inversa), si supponga che venga eseguito il mapping di VMNetwork1-NewYork a VMNetwork1-Chicago, con le impostazioni seguenti.
 
 
 **Macchina virtuale** | **Connessa alla rete VM**
 ---|---
 VM1 | VMNetwork1-Network
-VM2 \(replica di VM1\) | VMNetwork1-Chicago
+VM2 (replica di VM1) | VMNetwork1-Chicago
 
 Con queste impostazioni esaminare cosa accade in un paio di scenari possibili.
 
@@ -136,4 +136,4 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 Ora che si dispone di una comprensione migliore del mapping di rete, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -157,5 +157,6 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [Notifiche periodiche]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

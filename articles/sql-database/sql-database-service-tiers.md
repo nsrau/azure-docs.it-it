@@ -87,5 +87,6 @@ Il livello Premium è progettato per applicazioni di importanza strategica. Offr
 Ulteriori informazioni sui prezzi di tali livelli sono disponibili in [Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
 
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

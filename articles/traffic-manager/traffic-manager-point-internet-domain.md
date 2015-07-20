@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Scelta di un dominio Internet aziendale per un dominio di Gestione traffico"
-   description="In questo articolo vengono fornite istruzioni per scegliere il nome di dominio aziendale per un nome di dominio di Gestione traffico".
+   pageTitle="Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico"
+   description="In questo articolo vengono fornite istruzioni per scegliere il nome di dominio aziendale per un nome di dominio di Gestione traffico."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico
 
@@ -21,11 +21,11 @@ Per scegliere il nome di domino aziendale per un nome di dominio di Gestione tra
 
 Ad esempio, per scegliere il nome di dominio aziendale **www.contoso.com** per il nome di dominio di Gestione traffico **contoso.trafficmanager.net**, è possibile aggiornare il record di risorse DNS nel seguente modo:
 
-    www.contoso.com IN CNAME contoso.trafficmanager.net 
+    www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Tutte le richieste di traffico a  *www.contoso.com* verranno indirizzate a  *contoso.trafficmanager.net*.
+Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT] Non è possibile scegliere un dominio di secondo livello, come  *contoso.com*, per il dominio di Gestione traffico. Si tratta del limite del protocollo DNS, che non consente record CNAME per i nomi di dominio di secondo livello.
+>[AZURE.IMPORTANT]Non è possibile scegliere un dominio di secondo livello, come *contoso.com*, per il dominio di Gestione traffico. Si tratta del limite del protocollo DNS, che non consente record CNAME per i nomi di dominio di secondo livello.
 
 ## Vedere anche
 
@@ -34,5 +34,6 @@ Tutte le richieste di traffico a  *www.contoso.com* verranno indirizzate a  *con
 [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Panoramica di Gestione traffico](traffic-manager-overview.md)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

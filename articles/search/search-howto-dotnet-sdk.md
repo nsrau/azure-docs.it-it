@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="04/17/2015"
+   ms.date="07/08/2015"
    ms.author="brjohnst"/>
 
 # Come utilizzare Ricerca di Azure da un'applicazione .NET #
@@ -29,9 +29,9 @@ La libreria client definisce classi come `Index`, `Field`, e `Document`, nonché
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-La versione corrente di .NET SDK di Ricerca di Azure è `0.10.0-preview`. Questa è una versione provvisoria dell'SDK. Per fornire a Microsoft commenti e suggerimenti da incorporare nella prima versione stabile, visitare la [pagina dei commenti](http://feedback.azure.com/forums/263029-azure-search).
+La versione corrente .NET SDK di Ricerca di Azure è la versione non definitiva. Per fornire a Microsoft commenti e suggerimenti da incorporare nella prima versione stabile, visitare la [pagina dei commenti](http://feedback.azure.com/forums/263029-azure-search).
 
-.NET SDK supporta la versione `2015-02-28` dell'API REST di Ricerca di Azure, documentata su [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Nuove funzionalità che *non* fanno parte di questa versione, ad esempio il supporto per i processori del linguaggio naturale di Microsoft o il parametro di ricerca `moreLikeThis`, sono in [anteprima](../search-api-2015-02-28-preview/) e non ancora disponibili nell'SDK. È possibile consultare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Latest updates to Azure Search](../search-latest-updates/) per gli aggiornamenti dello stato di tali funzionalità.
+.NET SDK supporta la versione `2015-02-28` dell'API REST di Ricerca di Azure, documentata su [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Nuove funzionalità che *non* fanno parte di questa versione, ad esempio il supporto per i processori del linguaggio naturale di Microsoft o il parametro di ricerca `moreLikeThis`, sono in [anteprima](search-api-2015-02-28-preview.md) e non ancora disponibili nell'SDK. È possibile consultare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Latest updates to Azure Search](search-latest-updates.md) per gli aggiornamenti dello stato di tali funzionalità.
 
 Altre funzionalità non supportate in questo SDK sono:
 
@@ -41,7 +41,7 @@ Altre funzionalità non supportate in questo SDK sono:
 
 1. Visual Studio 2013 o una versione più recente.
 
-2. Un servizio di Ricerca di Azure. Per utilizzare l'SDK, è necessario il nome del servizio e una o più chiavi API. [Creare un servizio nel portale](../search-create-service-portal/) per eseguire facilmente questi passaggi.
+2. Un servizio di Ricerca di Azure. Per utilizzare l'SDK, è necessario il nome del servizio e una o più chiavi API. [Creare un servizio nel portale](search-create-service-portal.md) per eseguire facilmente questi passaggi.
 
 3. Scaricare il [pacchetto NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) di SDK .NET di Ricerca di Azure tramite "Gestisci pacchetti NuGet" in Visual Studio. Cercare il nome del pacchetto `Microsoft.Azure.Search` su NuGet.org. Assicurarsi di selezionare "Includi versione provvisoria" per garantire che la versione provvisoria dell'SDK venga visualizzata nei risultati della ricerca.
 
@@ -293,7 +293,7 @@ La seconda parte crea un `IndexAction` per ogni `Hotel`, quindi li raggruppa ins
 
 > [AZURE.NOTE]In questo esempio, verranno semplicemente caricati i documenti. Se si desidera unire le modifiche in un documento esistente o eliminare un documento, è possibile creare un `IndexAction` con il corrispondente `IndexActionType`. Non è necessario specificare `IndexActionType` in questo esempio perché il valore predefinito è `Upload`.
 
-La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio,  oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
+La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio, oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
 
 Infine, il metodo ritarda per due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
@@ -623,5 +623,6 @@ Hotel.cs:
             }
         }
     }
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

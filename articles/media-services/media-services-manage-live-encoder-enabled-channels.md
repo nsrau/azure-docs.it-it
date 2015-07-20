@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure (anteprima)
@@ -40,6 +40,16 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS), quindi ne esegue la codifica in un flusso a più velocità in bit.
 
 ![Flusso di lavoro live][live-overview]
+
+>[AZURE.NOTE]Non tutti i data center supportano la codifica live con Servizi multimediali di Azure.
+>
+>Se si usa il portale di gestione di Azure per creare i canali, saranno disponibili due opzioni per il tipo di codifica canale: **None** e **Standard**. Se è visualizzata solo l'opzione **None**, significa che il data center non supporta la codifica live con AMS.
+>
+>Se si usa .NET SDK o l'API REST, eseguire le operazioni seguenti per verificare:
+>
+>1. Provare a creare un canale con il tipo di codifica impostato su Standard. 
+>2. Se viene restituito il codice di errore HTTP 412 (Condizione preliminare non riuscita) con un messaggio simile al seguente: *"Codifica live non supportata in quest'area. EncodingType deve essere impostato su 'None'."*, il data center non supporta la codifica live.
+
 
 ##Contenuto dell'argomento
 
@@ -69,7 +79,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 	Se si crea un programma tramite il portale di gestione di Azure, viene creato anche un asset.
 
-	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma.
+	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
 1. Pubblicare l'asset associato al programma.   
 
 	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
@@ -111,23 +121,23 @@ Considerazioni:
 		- High Profile (4:2:0, 4:2:2)
 		- 422 Profile (4:2:0, 4:2:2)
 
-	- MPEG-4 AVC/H.264 Video  
+	- MPEG-4 AVC/H.264 Video
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Baseline, Main, High Profile (4:2:0 a 8 bit)
+		- High 10 Profile (4:2:0 a 10 bit)
+		- High 422 Profile (4:2:2 a 10 bit)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- MPEG-2 AAC-LC Audio
 	
 		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- Stile MPEG-2, pacchetto ADTS
 
-	- Dolby Digital (AC-3) Audio 
+	- Dolby Digital (AC-3) Audio
 
 		- Mono, Stereo, Surround (5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- MPEG Audio (Layer II e III)
 			
 		- Mono, Stereo
 
@@ -158,15 +168,15 @@ Considerazioni:
 
 	- MPEG-4 AVC/H.264 Video  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Baseline, Main, High Profile (4:2:0 a 8 bit)
+		- High 10 Profile (4:2:0 a 10 bit)
+		- High 422 Profile (4:2:2 a 10 bit)
 
 	- MPEG-2 AAC-LC Audio
 
 		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- Frequenza di campionamento a 44.1 kHz
+		- Stile MPEG-2, pacchetto ADTS
 	
 - I codec consigliati includono:
 
@@ -304,9 +314,10 @@ ID univoco dell'interruzione pubblicitaria che dovrà essere usato dall'applicaz
 
 ###Visualizza slate
 
-Facoltativa. Segnala al codificatore live di passare all'immagine dello slate predefinita durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**.
+Facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**.
  
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata.
+
 
 ##Inserire immagini dello slate
 
@@ -322,14 +333,17 @@ Durata dello slate in secondi. Per avviare lo slate, deve essere un valore posit
 
 Quando è impostata su true, questa opzione configura il codificatore live in modo che venga inserita un'immagine dello slate durante un'interruzione pubblicitaria. Il valore predefinito è true.
 
-###ID asset dello slate predefinito
+###<a id="default_slate"></a>ID asset dello slate predefinito
 
-Facoltativa. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null.
+Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null.
 
-**Nota**: prima di creare il canale, è necessario caricare l'immagine dello slate (con una risoluzione massima di 1920x1080, in formato JPEG e con dimensioni massime di 3 MB) come asset dedicato, nel quale non dovranno essere presenti altri file. L'estensione di file dovrà essere *JPG e questo AssetFile dovrà essere contrassegnato come file primario dell'asset. L'asset non può essere crittografato per l'archiviazione.
+**Nota**: prima di creare il canale, è necessario caricare l'immagine dello slate con le seguenti limitazioni come asset dedicato, nel quale non dovranno essere presenti altri file.
+
+- Risoluzione massima: 1920x1080.
+- Dimensione massima: 3 MB.
+- Il nome file deve avere *estensione jpg.- L'immagine deve essere caricata in un asset come unico AssetFile di tale asset e questo AssetFile deve essere contrassegnato come file primario. L'asset non può essere crittografato per l'archiviazione.
 
 Se non si specifica l'**ID asset dello slate predefinito** e **Inserisci slate su marcatore di annuncio** è impostato su **true**, per nascondere il flusso video di input verrà usata un'immagine predefinita di Servizi multimediali di Azure. Durante la visualizzazione dello slate viene disattivato anche l'audio.
-
 
 
 ##Programmi del canale
@@ -378,8 +392,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 </table>
 
 
->[AZURE.NOTE]L'avvio del canale, attualmente in anteprima, può richiedere fino a 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
-
+>[AZURE.NOTE]L'avvio del canale, attualmente in anteprima, può richiedere più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
 
 
 ##<a id="Considerations"></a>Considerazioni
@@ -390,6 +403,12 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 - Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 - Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 - Il costo viene addebitato solo quando il canale è nello stato **In esecuzione**. Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
+
+##Problemi noti
+
+- L'avvio del canale può richiedere più di 20 minuti.
+- Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 
 
 ##<a id="tasks"></a>Attività relative allo streaming live
@@ -420,10 +439,14 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###Protezione degli asset
+
+**Panoramica**:
+
+[Panoramica della protezione dei contenuti](media-services-content-protection-overview.md)
 
 Per crittografare un asset associato a un programma tramite AES (Advanced Encryption Standard) usando chiavi di crittografia a 128 bit oppure con DRM PlayReady, è necessario creare una chiave simmetrica.
 
@@ -435,12 +458,17 @@ Dopo aver creato la chiave simmetrica, è possibile configurare i criteri di aut
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
+####Integrazione con i partner
+
+[Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
+
+
 ###Pubblicazione e distribuzione degli asset
 
 **Panoramica**:
 
 - [Panoramica della creazione dinamica dei pacchetti](../media-services-dynamic-overview.md)
-- [Panoramica della distribuzione di contenuti](media-services-deliver-content-overview.md)
+
 
 Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST**.
 
@@ -450,6 +478,11 @@ Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+Distribuire contenuti
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Abilitazione della rete CDN di Azure
 
@@ -467,8 +500,9 @@ Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezi
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
+[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

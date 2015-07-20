@@ -239,4 +239,4 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
 
        `RefreshTokenCacheFilter` viene usato nel codice in aggiunta a `ProgressFilter`. Durante `onCreate` è anche necessario che sia caricata la cache di token. A tale scopo, `false` viene passato al metodo `authenticate`.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

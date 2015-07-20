@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Uso di Hive con Hadoop in HDInsight con Desktop remoto
@@ -22,7 +22,7 @@
 
 In questo articolo si apprenderà come connettersi a un cluster HDInsight tramite Desktop remoto e quindi eseguire query Hive usando l'interfaccia della riga di comando di Hive.
 
-> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere <a href="hdinsight-use-hive.md" target="_blank">Usare Hive con Hadoop in HDInsight</a>.
+> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="connect"></a>Connettersi con Desktop remoto
 
-Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
+Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo le istruzioni disponibili in [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 ##<a id="hive"></a>Usare il comando Hive
 
@@ -88,11 +88,11 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
 
-    Per verificare che solo le righe contenenti **[ERROR]** nella colonna t4 siano state archiviate nella tabella **errorLogs**, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**.
+    Per verificare che solo le righe contenenti **ERROR** nella colonna t4 siano state archiviate nella tabella **errorLogs**, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
 
         SELECT * from errorLogs;
 
-    Dovrebbero essere restituite tre righe di dati, tutte contenenti **[ERROR]** nella colonna t4.
+    Dovrebbero essere restituite tre righe di dati, tutte contenenti **ERROR** nella colonna t4.
 
 ##<a id="summary"></a>Riepilogo
 
@@ -131,18 +131,18 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

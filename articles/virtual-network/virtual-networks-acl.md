@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

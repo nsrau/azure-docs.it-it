@@ -20,7 +20,7 @@
 
 In questo argomento viene descritta la struttura del file di modello azuredeploy.json per la farm di SharePoint a tree server. È possibile visualizzare il contenuto di questo modello nel browser da [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-In alternativa, per esaminare una copia locale del file azuredeploy.json, specificare una cartella locale come posizione per il file e crearlo \(ad esempio, C:\\Azure\\Templates\\SharePointFarm\). Inserire il nome della cartella ed eseguire questi comandi nel prompt dei comandi di Azure PowerShell.
+In alternativa, per esaminare una copia locale del file azuredeploy.json, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\SharePointFarm). Inserire il nome della cartella ed eseguire questi comandi nel prompt dei comandi di Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -120,7 +120,7 @@ Di seguito è fornito un esempio:
 
 ### Microsoft.Network/virtualNetworks
 
-In questa sezione viene creata una rete virtuale solo cloud con tre subnet \(una per ogni livello della distribuzione\), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
+In questa sezione viene creata una rete virtuale solo cloud con tre subnet (una per ogni livello della distribuzione), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -140,7 +140,7 @@ In questa sezione viene creata una rete virtuale solo cloud con tre subnet \(una
 
 ### Microsoft.Network/loadBalancers
 
-Queste sezioni crea istanze del servizio di bilanciamento del carico per ogni macchina virtuale fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e, per il server SharePoint, una regola per consentire il traffico web in ingresso \(porta TCP 80\) da Internet. Ecco un esempio per il server SharePoint:
+Queste sezioni crea istanze del servizio di bilanciamento del carico per ogni macchina virtuale fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e, per il server SharePoint, una regola per consentire il traffico web in ingresso (porta TCP 80) da Internet. Ecco un esempio per il server SharePoint:
 
 
 	{
@@ -354,15 +354,15 @@ La sezione **"type": "Microsoft.Compute/virtualMachines"** successiva consente d
 
 Si noti l'organizzazione generale delle sottosezioni del **"risorse"** sezione del file JSON:
 
-1.	Creare gli elementi dell'infrastruttura di Azure che sono necessari per il supporto di più macchine virtuali \(un account di archiviazione, gli indirizzi IP pubblici, i set di disponibilità, una rete virtuale, interfacce di rete, istanze del servizio di bilanciamento del carico\).
+1.	Creare gli elementi dell'infrastruttura di Azure che sono necessari per il supporto di più macchine virtuali (un account di archiviazione, gli indirizzi IP pubblici, i set di disponibilità, una rete virtuale, interfacce di rete, istanze del servizio di bilanciamento del carico).
 2.	Creare la macchina virtuale del controller di dominio, che utilizza gli elementi comuni e specifici creati in precedenza dell'infrastruttura di Azure, aggiunge un disco dati ed esegue uno script di PowerShell. Inoltre, aggiornare la rete virtuale per utilizzare l’indirizzo IP statico del controller di dominio.
 3.	Creare la macchina virtuale di SQL Server, che utilizza gli elementi comuni e specifici creati in precedenza dell'infrastruttura di Azure creata per il controller di dominio, aggiunge dischi dati ed esegue uno script di PowerShell per configurare SQL Server.
 4.	Creare la macchina virtuale di SharePoint server, che utilizza gli elementi comuni e specifici creati in precedenza dell'infrastruttura di Azure ed esegue uno script di PowerShell per configurare la farm di SharePoint.
 
 Un modello JSON per compilare un'infrastruttura a più livelli in Azure deve seguire la stessa procedura:
 
-1.	Creare il comune \(account di archiviazione, rete virtuale\), livello specifico \(set di disponibilità\) e macchina virtuale specifico \(indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico\) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
-2.	Per ogni livello dell'applicazione \(ad esempio l'autenticazione web, database\), creare e configurare i server in tale livello mediante comuni \(account di archiviazione, rete virtuale\), livello specifico \(set di disponibilità\) ed elementi specifici della macchina virtuale \(indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico\).
+1.	Creare il comune (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) e macchina virtuale specifico (indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
+2.	Per ogni livello dell'applicazione (ad esempio l'autenticazione web, database), creare e configurare i server in tale livello mediante comuni (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) ed elementi specifici della macchina virtuale (indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico).
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
@@ -378,4 +378,4 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

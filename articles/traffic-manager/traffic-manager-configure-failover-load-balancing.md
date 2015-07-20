@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà a configurare il bilanciamento del carico di failover in Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Configurare il bilanciamento del carico failover
 
@@ -27,16 +27,16 @@ Tenere presente che i siti Web di Azure forniscono funzionalità di bilanciament
 2. Nel riquadro di Gestione traffico nel portale di gestione individuare il profilo di Gestione traffico in cui sono contenute le impostazioni che si desidera modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 3. Nella parte superiore della pagina del profilo fare clic su **Endpoint** e verificare che siano presenti i servizi cloud e i siti Web (endpoint) che si vuole includere nella configurazione. Per i passaggi necessari per aggiungere o rimuovere endpoint, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
 4. Nella parte superiore della pagina del profilo fare clic su **Configura** per aprire la pagina di configurazione.
-5. Per le **impostazioni del metodo di bilanciamento del carico**, verificare che il metodo di bilanciamento del carico sia **Failover**. In caso contrario, fare clic su **Failover** nell'elenco a discesa.
-6. Per l'**elenco delle priorità di failover** regolare l'ordine di failover per gli endpoint. Quando si seleziona il metodo di bilanciamento del carico **Failover**, l'ordine degli endpoint selezionati è rilevante. L'endpoint primario si trova nella parte superiore. Usare i tasti freccia SU e GIÙ per modificare l'ordine secondo le esigenze. Per informazioni su come impostare le priorità di failover usando Windows PowerShell, vedere [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
-7. Verificare che le **impostazioni di monitoraggio** siano configurate correttamente. Tramite il monitoraggio viene assicurato il mancato invio di traffico agli endpoint offline. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Si noti che la barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita). Per altre informazioni sul monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
+5. Per **Impostazioni del metodo di bilanciamento del carico**, verificare che il metodo di bilanciamento del carico sia **Failover**. In caso contrario, fare clic su **Failover** nell'elenco a discesa.
+6. Per **Elenco priorità failover** regolare l'ordine di failover per gli endpoint. Quando si seleziona il metodo di bilanciamento del carico **Failover**, l'ordine degli endpoint selezionati è rilevante. L'endpoint primario si trova nella parte superiore. Usare i tasti freccia SU e GIÙ per modificare l'ordine secondo le esigenze. Per informazioni su come impostare le priorità di failover usando Windows PowerShell, vedere [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
+7. Verificare che le **Impostazioni di monitoraggio** siano configurate correttamente. Tramite il monitoraggio viene assicurato il mancato invio di traffico agli endpoint offline. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Si noti che la barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita). Per altre informazioni sul monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 8. Dopo aver completato le modifiche di configurazione, fare clic su **Salva** nella parte inferiore della pagina.
 9. Verificare le modifiche apportate alla configurazione. Per altre informazioni, vedere [Test delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
-10. Dopo avere impostato e verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico. Per altre informazioni, vedere [Come impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
+10. Dopo avere impostato e verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
 
 ## Vedere anche
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione Traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
 [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
@@ -46,8 +46,9 @@ Tenere presente che i siti Web di Azure forniscono funzionalità di bilanciament
 
 [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-[Operazioni relative a Gestione traffico (riferimento all'API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

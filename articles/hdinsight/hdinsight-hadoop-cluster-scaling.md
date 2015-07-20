@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Ridimensionare i cluster Hadoop, HBase o Apache Storm per modificare il numero di nodi dati in HDInsight 
@@ -145,4 +145,4 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 Per altre informazioni sull'uso di HDInsight .NET SDK, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

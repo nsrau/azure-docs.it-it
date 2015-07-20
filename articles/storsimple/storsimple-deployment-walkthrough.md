@@ -1,26 +1,29 @@
-<properties 
+<properties
    pageTitle="Distribuire un dispositivo StorSimple locale"
    description="Passaggi e procedure consigliate per la distribuzione del servizio e del dispositivo StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
-
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
+
+[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
 ## Panoramica
 
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple.
+
+Queste esercitazioni sulla distribuzione si applicano a StorSimple serie 8000 (versione di rilascio), StorSimple serie 8000 aggiornamento 0.1, StorSimple serie 8000 aggiornamento 0.2 e StorSimple serie 8000 aggiornamento 0.3.
 
 Questa serie di esercitazioni descrive come configurare i dispositivi StorSimple e fornisce un elenco di controllo preliminare all’installazione, i prerequisiti di configurazione e i passaggi di configurazione dettagliati.
 
@@ -37,7 +40,7 @@ L’elenco di controllo pre-installazione seguente descrive le informazioni che 
 | | Requisiti | Dettagli | Valori |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | Nome descrittivo del dispositivo | Un nome descrittivo per il dispositivo | |
-| 2 | Impostazioni di rete <ol><li>Indirizzo IP del dispositivo</li><li>Interfacce di rete, 4x1 GbE, 2x10 GbE</li><li>IP controller fisso</li><li>Subnet mask</li><li>Gateway</li></ol> | Totale indirizzi IP richiesti: 8 <ol><li>Uno per ogni dispositivo</li><li>Uno per ogni interfaccia di rete abilitata, totale 6</li><li>Uno per ogni controller, totale 2</li><li>Uno per ogni indirizzo IP</li><li>Uno per ogni dispositivo</li></ol> | |
+| 2 | Impostazioni di rete <ol><li>Interfacce di rete, 4x1 GbE, 2x10 GbE</li><li>IP controller fisso</li><li>Subnet mask</li><li>Gateway</li></ol> | Totale indirizzi IP richiesti: 8 <ol><li>Uno per ogni interfaccia di rete abilitata, totale 6</li><li>Uno per ogni controller, totale 2</li><li>Uno per ogni indirizzo IP</li><li>Uno per ogni dispositivo</li></ol> | |
 | 3 | Accesso seriale | Configurazione iniziale del dispositivo | Sì/No |
 | 4 | Indirizzi IP del server DNS | Necessari per connettersi a Microsoft Azure: 2 totali necessari per la disponibilità elevata | |
 | 5 | Indirizzi IP del server NTP | Necessari per sincronizzare l'ora con Azure: 1 necessario, 1 facoltativo | |
@@ -76,13 +79,13 @@ Prima di configurare il dispositivo, verificare che:
 
 Effettuare i seguenti passaggi necessari per configurare il dispositivo StorSimple e connettersi al servizio StorSimple Manager:
 
-- Passaggio 1: Creare un nuovo servizio 
+- Passaggio 1: Creare un nuovo servizio
 - Passaggio 2: Ottenere la chiave di registrazione del servizio
-- Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple 
+- Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple
 - Passaggio 4: Completare l'installazione minima del dispositivo
-- Passaggio 5: Creare un contenitore di volumi 
+- Passaggio 5: Creare un contenitore di volumi
 - Passaggio 6: Creare un volume
-- Passaggio 7: Montare, inizializzare e formattare un volume 
+- Passaggio 7: Montare, inizializzare e formattare un volume
 - Passaggio 8: Eseguire un backup
 
 Oltre ai passaggi necessari esistono alcuni passaggi facoltativi che potrebbe essere necessario completare durante la distribuzione della soluzione. Tali passaggi facoltativi descrivono come:
@@ -103,8 +106,8 @@ Un servizio StorSimple Manager può gestire più dispositivi StorSimple. Effettu
 
 > [AZURE.IMPORTANT]Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#Configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. 
-> * Se è stata abilitata la creazione automatica di un account di archiviazione, andare al Passaggio 2: Ottenere la chiave di registrazione del servizio.
+> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#Configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
+> * Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
@@ -207,6 +210,6 @@ Per istruzioni sull'installazione di MPIO, vedere [Configurare MPIO per il dispo
 Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

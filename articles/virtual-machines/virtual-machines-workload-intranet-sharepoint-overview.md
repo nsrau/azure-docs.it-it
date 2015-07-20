@@ -67,4 +67,6 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!--HONumber=54--> 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -45,5 +46,6 @@ Nella tabella seguente vengono descritti gli errori che potrebbero verificarsi q
 | 4 | Invoke-HcsSetupWizard: il valore non è compreso nell'intervallo previsto. | L'errore viene generato da una subnet mask non corretta. Le possibili cause sono: <ul><li> La subnet mask è assente o vuota.</li><li>Il formato del prefisso Ipv6 non è corretto.</li><li>L'interfaccia è abilitata per il cloud ma il gateway è assente o non corretto.</li></ul>Considerare che DATI 0 è automaticamente abilitata per il cloud se configurata tramite la configurazione guidata. | Per determinare il problema, utilizzare la subnet 0.0.0.0 o 256.256.256.256 ed esaminare l'output. Immettere i valori corretti per la subnet mask, un gateway e un prefisso Ipv6, se necessario. |
  
 ## Passaggi successivi
-Se il problema non viene risolto, [contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) per assistenza. <!--HONumber=52-->
- 
+Se il problema non viene risolto, [contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) per assistenza.
+
+<!---HONumber=July15_HO2-->

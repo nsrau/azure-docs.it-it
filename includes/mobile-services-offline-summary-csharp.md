@@ -24,4 +24,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 * Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

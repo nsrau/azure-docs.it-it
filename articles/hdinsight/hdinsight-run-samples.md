@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 
 
 
 #Eseguire gli esempi di Hadoop in HDInsight
+
+[AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Sono disponibili alcuni esempi utili per iniziare a eseguire processi MapReduce nei cluster Hadoop usando Azure HDInsight. Questi esempi sono disponibili in ogni cluster creato e gestito da HDInsight. L'esecuzione di questi esempi permetterà di acquisire familiarità con l'uso dei cmdlet di Azure PowerShell per l'esecuzione di processi nei cluster Hadoop.
 
@@ -86,6 +88,5 @@ In questo articolo e negli articoli relativi ai singoli esempi, si è appreso co
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

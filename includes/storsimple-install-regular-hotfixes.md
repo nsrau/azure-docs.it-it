@@ -1,3 +1,4 @@
+
 #### Per installare aggiornamenti rapidi regolari tramite Windows PowerShell per StorSimple
 
 1. Connettersi alla console seriale del dispositivo. Per altre informazioni, vedere [Connettersi alla console seriale](#connect-to-the-serial-console).
@@ -14,4 +15,4 @@
 
 5. Verrà richiesto di confermare. Digitare **Y** per procedere con l'installazione dell'aggiornamento rapido.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

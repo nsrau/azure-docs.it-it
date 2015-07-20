@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in un'app di Windows universale
@@ -315,7 +315,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -349,7 +349,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -358,5 +358,6 @@ Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamat
 Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

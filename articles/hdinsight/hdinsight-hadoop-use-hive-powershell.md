@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Esecuzione di query Hive usando PowerShell
@@ -22,7 +22,7 @@
 
 Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire query Hive in un cluster Hadoop in HDInsight.
 
-> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere <a href="hdinsight-use-hive.md" target="_blank">Usare Hive con Hadoop in HDInsight</a>.
+> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
 
 ##<a id="prereq"></a>Prerequisiti
@@ -34,7 +34,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="powershell"></a>Eseguire query Hive usando Azure PowerShell
 
-Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota query Hive in HDInsight. Questo risultato viene ottenuto internamente usando chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
+Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota query Hive in HDInsight. Questo risultato si ottiene internamente usando chiamate REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
@@ -142,6 +142,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

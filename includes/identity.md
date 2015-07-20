@@ -118,4 +118,4 @@ L'utilizzo delle identità è importante per la maggior parte delle applicazioni
 
 David Chappell è il titolare della società Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) di San Francisco, California.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -19,9 +19,9 @@
 
 # Ripristino di emergenza con SQL Server e Azure Site Recovery 
 
-Site Recovery è un servizio di Azure che favorisce la strategia di continuità aziendale e ripristino di emergenza \(BCDR\) gestendo la replica, il failover e il ripristino di macchine virtuali e server fisici. Site Recovery supporta una serie di meccanismi di replica per la protezione, la replica e il failover coerenti delle macchine in Azure o in un centro dati secondario. Per una panoramica di tutti gli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
+Site Recovery è un servizio di Azure che favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino di macchine virtuali e server fisici. Site Recovery supporta una serie di meccanismi di replica per la protezione, la replica e il failover coerenti delle macchine in Azure o in un centro dati secondario. Per una panoramica di tutti gli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
- In questo articolo viene descritto come proteggere il backend SQL Server di un'applicazione usando una combinazione di Site Recovery e tecnologie di continuità aziendale e ripristino di emergenza \(BCDR\) di SQL Server. Prima di distribuire gli scenari descritti in questo articolo, è necessario avere una buona conoscenza di Site Recovery e delle funzionalità di continuità aziendale e ripristino di emergenza \(BCDR\) di SQL Server \(clustering di failover, gruppi di disponibilità AlwaysOn, mirroring del database, log shipping\).
+ In questo articolo viene descritto come proteggere il backend SQL Server di un'applicazione usando una combinazione di Site Recovery e tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server. Prima di distribuire gli scenari descritti in questo articolo, è necessario avere una buona conoscenza di Site Recovery e delle funzionalità di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server (clustering di failover, gruppi di disponibilità AlwaysOn, mirroring del database, log shipping).
 
 
 
@@ -59,7 +59,7 @@ Site Recovery è in grado di proteggere l’esecuzione di SQL Server come macchi
 
 ## Supporto e integrazione
 
-Site Recovery può essere integrato con le tecnologie di continuità aziendale e ripristino di emergenza \(BCDR\) di SQL Server native riepilogate nella tabella per fornire una soluzione di ripristino di emergenza.
+Site Recovery può essere integrato con le tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server native riepilogate nella tabella per fornire una soluzione di ripristino di emergenza.
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -91,7 +91,7 @@ Site Recovery può essere integrato con le tecnologie di continuità aziendale e
     </tbody>
     </table>
 
-Nella tabella seguente vengono riepilogati i suggerimenti per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza \(BCDR\) di SQL Server nella distribuzione di Site Recovery.
+Nella tabella seguente vengono riepilogati i suggerimenti per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server nella distribuzione di Site Recovery.
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -168,7 +168,7 @@ Le istruzioni riportate in questo documento presuppongono che un controller di d
 In questa configurazione è consigliabile usare la replica di Site Recovery per proteggere il computer SQL Server. La procedura varia a seconda che SQL Server sia configurato come una macchina virtuale o un server fisico e che si voglia eseguire la replica in Azure o in un sito locale secondario. Per istruzioni relative a tutti gli scenari di distribuzione vedere [Panoramica di Site Recovery](site-recovery-overview.md).
 
 
-### Configurare la protezione per il cluster di SQL Server \(2012 o 2014 Enterprise\)
+### Configurare la protezione per il cluster di SQL Server (2012 o 2014 Enterprise)
 
 Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'istanza del cluster di failover, è consigliabile utilizzare gruppi di disponibilità anche nel sito di ripristino. Queste linee guida sono valide per le applicazioni che non usano transazioni distribuite.
 
@@ -194,7 +194,7 @@ Quando si esegue la replica in Azure, la configurazione di più gruppi di dispon
 6. Configurare un listener di SQL Server per il gruppo di disponibilità tramite il servizio di bilanciamento del carico interno di Azure.
 7. Configurare il livello applicazione per usare il listener per accedere al livello database. Per le applicazioni che usano transazioni distribuite si consiglia di usare Site Recovery con la replica SAN o la replica VMWare da sito a sito.
 
-### Configurare la protezione per il cluster di SQL Server \(Standard o 2008 R2\)
+### Configurare la protezione per il cluster di SQL Server (Standard o 2008 R2)
 
 Per un cluster che esegue l’edizione SQL Server Standard o SQL Server 2008 R2 è consigliabile usare la replica di Site Recovery per proteggere SQL Server.
 
@@ -211,7 +211,7 @@ Site Recovery non fornisce il supporto di cluster guest durante la replica in Az
 
 1. Configurare un'istanza di SQL Server autonoma aggiuntiva nel sito locale.
 2. Configurare questa istanza come mirroring per i database che richiedono protezione. Configurare il mirroring in modalità di protezione elevata
-3.	Configurare Site Recovery nel sito locale in base all'ambiente \([Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md)\).
+3.	Configurare Site Recovery nel sito locale in base all'ambiente ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md)).
 4.	Usare la replica di Site Recovery per eseguire la replica della nuova istanza di SQL Server in Azure. Si tratta di una copia mirror a protezione elevata, per cui verrà sincronizzata con il cluster primario, ma verrà replicata in Azure tramite la replica di Site Recovery.
 
 Nell'immagine seguente viene illustrata questa configurazione.
@@ -225,7 +225,7 @@ Nell'immagine seguente viene illustrata questa configurazione.
 I piani di ripristino raggruppano i computer che devono essere sottoposti a failover contemporaneamente. Acquisire ulteriori informazioni su [piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md) prima di iniziare.
 
 
-### Creare un piano di ripristino per i cluster di SQL Server \(SQL Server 2012/2014 Enterprise\)
+### Creare un piano di ripristino per i cluster di SQL Server (SQL Server 2012/2014 Enterprise)
 
 #### Configurare gli script di SQL Server per il failover in Azure
 
@@ -315,7 +315,7 @@ In questo scenario vengono usati script personalizzati e automazione di Azure pe
 
 2. Quando si crea un piano di ripristino per l'applicazione, aggiungere un passaggio di script "pre-Group 1 boot" che richiami lo script per eseguire il failover dei gruppi di disponibilità.
 
-### Creare un piano di ripristino per i cluster di SQL Server \(Standard\)
+### Creare un piano di ripristino per i cluster di SQL Server (Standard)
 
 #### Configurare gli script di SQL Server per il failover in Azure
 
@@ -423,7 +423,7 @@ Se si usano gruppi di disponibilità AlwaysOn, non è possibile eseguire un fail
 	2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
 
 - Opzione 2
-1.	Creare una copia dell'istanza della macchina virtuale di SQL Server di replica \(usano il clone VMM per il backup da sito a sito o Azure\) e aprirla in una rete di test
+1.	Creare una copia dell'istanza della macchina virtuale di SQL Server di replica (usano il clone VMM per il backup da sito a sito o Azure) e aprirla in una rete di test
 2.	Eseguire il failover di test usando il piano di ripristino.
 
 ## Considerazioni sul failback
@@ -436,4 +436,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

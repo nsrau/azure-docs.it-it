@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement con Android SDK" 
-	description="Ultimi aggiornamenti e procedure per Android SDK per Azure Mobile Engagement"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-# Contenuto dell'SDK
+#Contenuto dell'SDK
 
 Questo documento elenca e illustra il contenuto dell'archivio SDK.
 
@@ -39,6 +39,6 @@ Cartella `src`
 > Collegamento al sito di documentazione corrispondente alla versione scaricata dell'SDK.
 
 Gli altri file sono una copia delle licenze per il software.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="" 
+	description="Informazioni su come iniziare a usare l'archiviazione tabelle di Azure in un progetto ASP.NET 5 in Visual Studio." 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# Introduzione all'Archiviazione di Azure (progetti ASP.NET vNext)
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](vs-storage-aspnet5-getting-started-tables.md)
-> - [Risultati](vs-storage-aspnet5-what-happened.md)
-
-## Introduzione all'Archiviazione di Azure (progetti ASP.NET vNext)
+> - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
 > [AZURE.SELECTOR]
-> - [BLOB](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Code](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tabelle](vs-storage-aspnet5-getting-started-tables.md)
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.  Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
+Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md/#create-table "Come usare l'archiviazione tabelle da .NET").
 
 Per accedere alle tabelle a livello di codice in progetti ASP.NET 5, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
 
@@ -35,27 +35,28 @@ Per accedere alle tabelle a livello di codice in progetti ASP.NET 5, è necessar
 
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Table;
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Usare il codice seguente per ottenere l'impostazione di configurazione.
 
-		Configuration = new Configuration()
+		IConfigurationSourceRoot config = new Configuration()
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-##### Ottenere la stringa di connessione di archiviazione
-Prima di eseguire operazioni relative a una tabella, è necessario ottenere la stringa di connessione per l'account di archiviazione in cui risiederanno le tabelle. È possibile usare il tipo **CloudStorageAccount** per rappresentare le informazioni sull'account di archiviazione. Se si usa un progetto vNext ASP.NET, sarà possibile chiamare il metodo Get dell'oggetto Configuration per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure, come mostrato nel codice seguente.
+#####Ottenere la stringa di connessione di archiviazione
+Prima di poter eseguire qualsiasi operazione con una tabella, è necessario ottenere la stringa di connessione per l'account di archiviazione in cui si troveranno le tabelle. Per rappresentare le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si usa un progetto vNext ASP.NET, sarà possibile chiamare il metodo Get dell'oggetto Configuration per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure, come mostrato nel codice seguente.
 
-**NOTA:** le API che effettuano chiamate all'Archiviazione di Azure in ASP.NET 5 sono asincrone. Per altre informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice seguente si presuppone l'uso di metodi di programmazione asincrona.
+**Nota:** le API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-##### Creare una tabella
-Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di usarlo per creare una nuova tabella. Il codice tenta di fare riferimento a una tabella denominata "people". Se non è in grado di trovare una tabella con tale nome, ne crea una.
+#####Creare una tabella
+Per ottenere oggetti di riferimento per tabelle ed entità, è possibile utilizzare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di utilizzarlo per creare una nuova tabella. Il codice tenta di fare riferimento a una tabella denominata "people". Se non è in grado di trovare una tabella con tale nome, ne crea una.
 
-**NOTA:** in tutto il codice incluso in questa guida si presuppone che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure. Usare inoltre tutto questo codice prima del codice nelle sezioni seguenti.
+**NOTA:** tutti i codici di questa guida presuppongono che l'applicazione in fase di creazione faccia parte di un progetto dei servizi cloud di Azure e che l'applicazione utilizzi la stringa di connessione all'archiviazione memorizzata nella configurazione relativa ai servizi dell'applicazione Azure. Usare inoltre tutto questo codice prima del codice nelle sezioni seguenti.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -64,7 +65,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare u
 	CloudTable table = tableClient.GetTableReference("people");
 	await table.CreateIfNotExistsAsync();
 
-##### Aggiungere un'entità a una tabella
+#####Aggiungere un'entità a una tabella
 Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
 	public class CustomerEntity : TableEntity
@@ -95,7 +96,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the insert operation.
 	await table.ExecuteAsync(insertOperation);
 
-##### Inserire un batch di entità
+#####Inserire un batch di entità
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** usando il metodo Insert e quindi avvia l'operazione chiamando CloudTable.ExecuteBatchAsync.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -121,7 +122,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the batch operation.
 	await table.ExecuteBatchAsync(batchOperation);
 
-##### Ottenere tutte le entità di una partizione
+#####Ottenere tutte le entità di una partizione
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
@@ -144,8 +145,8 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
     return View();
 
 
-##### Ottenere una singola entità
-È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in TableResult.Result è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **Tabelle**.
+#####Ottenere una singola entità
+È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in TableResult.Result è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **tabelle**.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -162,7 +163,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-##### Eliminare un'entità
+#####Eliminare un'entità
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
 
 	// Create the CloudTable that represents the "people" table.
@@ -191,8 +192,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-[Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
-
-<!--HONumber=42-->
+[Ulteriori informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/) Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
  
+
+<!---HONumber=July15_HO2-->

@@ -95,6 +95,6 @@ Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di
 I formati di file di origine seguenti non sono supportati dalla creazione dinamica dei pacchetti.
 
 - File Dolby Digital Plus MP4.
-- File Dolby Digital Plus Smooth.
+- File Dolby Digital Plus Smooth. 
 
-<!---HONumber=52-->
+<!---HONumber=July15_HO2-->

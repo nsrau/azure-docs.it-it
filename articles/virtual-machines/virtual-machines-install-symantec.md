@@ -18,7 +18,7 @@
 
 # Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure
 
-Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale \(VM\) nuova o esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni.
+Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) nuova o esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni.
 
 Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali. In una nuova macchina virtuale si procede all'installazione dell'agente insieme al client dell'endpoint. In una macchina virtuale esistente senza l'agente, sarà necessario prima scaricare e installare l'agente stesso. In questo articolo vengono descritte entrambe le situazioni.
 
@@ -45,7 +45,7 @@ Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows
 
 Prima di iniziare, è necessario disporre di quanto segue:
 
-- Modulo Azure PowerShell 0.8.2 o versioni successive. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure \| format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell][PS].  
+- Modulo Azure PowerShell 0.8.2 o versioni successive. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure | format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell][PS].  
 
 - Agente di macchine virtuali.
 
@@ -68,7 +68,7 @@ Se l'agente di macchine virtuali è installato, eseguire questi comandi per inst
 Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia aggiornata:
 
 1.	Accedere alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][Logon].
-2.	Per Windows Server 2008 R2, fare clic su **Start \> Symantec Endpoint Protection**. Per Windows Server 2012 o Windows Server 2012 R2, nella schermata Start digitare **Symantec**, quindi fare clic su **Symantec Endpoint Protection**.
+2.	Per Windows Server 2008 R2, fare clic su **Start > Symantec Endpoint Protection**. Per Windows Server 2012 o Windows Server 2012 R2, nella schermata Start digitare **Symantec**, quindi fare clic su **Symantec Endpoint Protection**.
 3.	Nella scheda **Stato** della finestra **Stato - Symantec Endpoint Protection** applicare gli aggiornamenti o, se necessario, riavviare.
 
 ## Risorse aggiuntive
@@ -95,4 +95,4 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -3,7 +3,7 @@
    description="Questo articolo aiuterà a comprendere i diversi metodi di bilanciamento del carico usati da Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="07/01/2015"
+   ms.author="joaoma" />
 
-# Informazioni sui metodi di bilanciamento del carico di Gestione traffico
+# Metodi di routing di Gestione traffico
 
-Sono disponibili tre metodi di bilanciamento del carico in Gestione traffico. In ogni profilo di Gestione traffico può essere usato un solo metodo di bilanciamento del carico alla volta, sebbene in qualsiasi momento sia possibile selezionarne uno diverso.
+Sono disponibili tre metodi di routing in Gestione traffico. In ogni profilo di Gestione traffico può essere usato un solo metodo di routing alla volta, sebbene in qualsiasi momento sia possibile selezionarne uno diverso.
 
-È importante notare che tutti i metodi di bilanciamento del carico prevedono il monitoraggio degli endpoint. Dopo aver configurato il profilo di Gestione traffico per specificare il metodo di bilanciamento del carico che meglio soddisfa le proprie esigenze, configurare le impostazioni di monitoraggio. Quando il monitoraggio è configurato correttamente, Gestione traffico monitora lo stato degli endpoint, costituiti da servizi cloud e siti Web, e non invia il traffico agli endpoint ritenuti non disponibili. Per informazioni sul monitoraggio di Gestione traffico, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md). 
+È importante notare che tutti i metodi di routing prevedono il monitoraggio degli endpoint. Dopo aver configurato il profilo di Gestione traffico per specificare il metodo di routing che meglio soddisfa le proprie esigenze, configurare le impostazioni di monitoraggio. Quando il monitoraggio è configurato correttamente, Gestione traffico monitora lo stato degli endpoint, costituiti da servizi cloud e siti Web, e non invia il traffico agli endpoint ritenuti non disponibili. Per informazioni su Gestione traffico, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 
-I tre metodi di bilanciamento del carico di Gestione traffico sono:
+I tre metodi routing di Gestione traffico sono:
 
 - **Failover**: selezionare Failover quando gli endpoint si trovano nello stesso data center o in data center diversi di Azure, noti come regioni nel portale di gestione, e si desidera usare un endpoint primario per tutto il traffico, ma fornire backup da usare nel caso in cui l'endpoint primario o di backup non sia disponibile. Per altre informazioni, vedere [Metodo di bilanciamento del carico di failover](#failover-load-balancing-method).
 
@@ -31,7 +31,7 @@ I tre metodi di bilanciamento del carico di Gestione traffico sono:
 
 Tenere presente che Siti Web di Azure offre già funzionalità di bilanciamento del carico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico consente di specificare il bilanciamento del carico failover e round robin per i siti Web che si trovano in data center diversi.
 
->[AZURE.NOTE] La durata TTL del DNS indica ai client e ai resolver DNS sui server DNS per quanto tempo i nomi risolti rimarranno memorizzati nella cache. I client continueranno a usare un endpoint specificato durante la risoluzione del nome di dominio fino alla scadenza della voce cache DNS locale per il nome.
+>[AZURE.NOTE]La durata TTL del DNS indica ai client e ai resolver DNS sui server DNS per quanto tempo i nomi risolti rimarranno memorizzati nella cache. I client continueranno a usare un endpoint specificato durante la risoluzione del nome di dominio fino alla scadenza della voce cache DNS locale per il nome.
 
 ### Metodo di bilanciamento del carico Failover
 
@@ -43,9 +43,9 @@ Nella Figura 1 viene illustrato un esempio di metodo di bilanciamento del carico
 
 ![Bilanciamento del carico di failover di Gestione traffico](./media/traffic-manager-load-balancing-methods/IC750592.jpg)
 
-**Figure 1**
+**Figura 1**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 1.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 1.
 
 1. Gestione traffico riceve una richiesta in ingresso da un client tramite DNS e individua il profilo.
 2. Il profilo contiene un elenco ordinato di endpoint. Gestione traffico individua il primo endpoint nell'elenco. Se l'endpoint è online, in base al monitoraggio dell'endpoint in corso, viene specificato questo nome DNS dell'endpoint nella risposta DNS al client. Se l'endpoint è offline, Gestione traffico determina il successivo endpoint online nell'elenco. In questo esempio CS-A è offline (non disponibile), mentre CS-B è online (disponibile).
@@ -62,7 +62,7 @@ La Figura 2 mostra un esempio di bilanciamento del carico Round robin per un set
 
 **Figura 2**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 2.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 2.
 
 1. Gestione traffico riceve una richiesta in ingresso da un client e individua il profilo.
 2. Il profilo contiene un elenco di endpoint. Gestione traffico seleziona un endpoint a caso dall'elenco, escludendo gli endpoint offline (non disponibili) determinati mediante il monitoraggio degli endpoint di Gestione traffico. In questo esempio si tratta dell'endpoint CS-B.
@@ -85,7 +85,7 @@ Non si può attualmente usare il portale di gestione per configurare il bilancia
 
 Per informazioni sull'uso delle API REST, vedere [Operazioni per Gestione traffico (documentazione di riferimento sulle API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
-Per informazioni sull'uso dei cmdlet di Azure PowerShell, vedere [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Per una configurazione di esempio, vedere l'articolo relativo agli [endpoint esterni di Gestione traffico di Azure e al metodo Round robin ponderato tramite PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) nel blog di Azure.
+Per informazioni sull'uso dei cmdlet di Azure PowerShell, vedere [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Per una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell nel blog di Azure](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 Per testare il profilo da un singolo client e osservare il comportamento del metodo Round robin uniforme o ponderato, assicurarsi che il nome DNS venga risolto in un indirizzo IP diverso per ogni endpoint in base ai valori uniformi o ponderati definiti nel profilo. Durante il test è necessario disabilitare la memorizzazione nella cache DNS sul lato client oppure cancellare la cache DNS tra un tentativo e l'altro per assicurarsi che venga inviata una nuova query relativa al nome DNS.
 
@@ -101,7 +101,7 @@ La Figura 4 illustra un esempio di metodo di bilanciamento del carico Prestazion
 
 **Figura 4**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 4.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 4.
 
 1. Gestione traffico compila periodicamente la tabella della latenza di Internet. Sull'infrastruttura di Gestione traffico vengono eseguiti test per determinare i tempi di round trip tra diversi punti nel mondo e i data center di Azure in cui sono ospitati gli endpoint.
 2. Gestione traffico riceve una richiesta in ingresso da un client tramite il server DNS locale e individua il profilo.
@@ -119,7 +119,7 @@ I passaggi numerati seguenti corrispondono ai numeri nella Figura 4.
 
 ## Figure di Gestione traffico
 
-Se si vogliono scaricare le figure presenti in questo argomento come diapositive di PowerPoint da usare per una presentazione su Gestione traffico o da modificare per altri scopi, vedere la pagina relativa alle [figure di Gestione traffico nella documentazione MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
+Se si vogliono scaricare le figure presenti in questo argomento come diapositive di PowerPoint da usare per una presentazione su Gestione traffico o da modificare per altri scopi, vedere [Figure di Gestione traffico nella documentazione MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
 ## Vedere anche
 
@@ -127,7 +127,7 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
-[Operazioni relative a Gestione traffico (riferimento all'API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -135,5 +135,6 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

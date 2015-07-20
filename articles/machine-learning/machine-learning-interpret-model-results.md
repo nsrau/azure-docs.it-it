@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come interpretare i risultati dei modelli di Azure Machine Learning | Azure" 
+	pageTitle="Come interpretare i risultati dei modelli in Machine Learning | Microsoft Azure" 
 	description="Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model." 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **Comprensione e visualizzazione dell'output del modulo "Score Model"** Questo argomento illustra come visualizzare e interpretare risultati di stima in Azure Machine Learning Studio. Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima ottenuto.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 In Azure Machine Learning esistono quattro tipi principali di modelli di apprendimento automatico:
 
@@ -264,7 +264,7 @@ Sono presenti sei colonne: la prima rappresenta gli ID utente, ricavati dai dati
 
 *Trovare gli utenti correlati a un determinato utente*
 
-Selezionando la voce Related Users del menu "Recommender prediction kind", si chiede al sistema di raccomandazione di trovare utenti correlati a un determinato utente. Per utenti correlati si intendono tutti gli utenti con preferenze simili. In questo scenario è necessario scegliere un parametro aggiuntivo: Related user selection. Mentre l'opzione "From Users That Rated Items (for model evaluation)" viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione "From All Users"  Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 23.
+Selezionando la voce Related Users del menu "Recommender prediction kind", si chiede al sistema di raccomandazione di trovare utenti correlati a un determinato utente. Per utenti correlati si intendono tutti gli utenti con preferenze simili. In questo scenario è necessario scegliere un parametro aggiuntivo: Related user selection. Mentre l'opzione "From Users That Rated Items (for model evaluation)" viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione "From All Users" Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 23.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/23.png)
 
@@ -274,7 +274,7 @@ Sono presenti sei colonne: la prima rappresenta gli ID utente, ricavati dai dati
 
 **Trovare gli elementi correlati a un determinato elemento**
 
-Selezionando la voce **Related Items** del menu **Recommender prediction kind**, si chiede al sistema di raccomandazione di trovare elementi correlati a un determinato elemento. Per elementi correlati si intendono tutti gli elementi che con più probabilità sono apprezzati dallo stesso utente. In questo scenario è necessario scegliere un parametro aggiuntivo: Related item selection. Mentre l'opzione **From Rated Items (for model evaluation)** viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items**  Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 24.
+Selezionando la voce **Related Items** del menu **Recommender prediction kind**, si chiede al sistema di raccomandazione di trovare elementi correlati a un determinato elemento. Per elementi correlati si intendono tutti gli elementi che con più probabilità sono apprezzati dallo stesso utente. In questo scenario è necessario scegliere un parametro aggiuntivo: Related item selection. Mentre l'opzione **From Rated Items (for model evaluation)** viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items** Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 24.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/24.png)
 
@@ -307,5 +307,6 @@ Figura 26 Risultato della pubblicazione come servizio Web del problema relativo 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

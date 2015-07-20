@@ -123,4 +123,4 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

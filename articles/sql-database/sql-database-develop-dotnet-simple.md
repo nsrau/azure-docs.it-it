@@ -127,4 +127,6 @@ Per eseguire un'istruzione e recuperare la prima colonna e le prima riga restitu
 	}
 	```
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

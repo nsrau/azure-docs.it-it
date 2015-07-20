@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
@@ -226,7 +226,7 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 * [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]
 
-* [Azure Friday: App con supporto offline in Servizi mobili di Azure] \(nota: le demo sono per Windows, la descrizione delle funzionalità si applica a tutte le piattaforme\)
+* [Azure Friday: App con supporto offline in Servizi mobili di Azure] (nota: le demo sono per Windows, la descrizione delle funzionalità si applica a tutte le piattaforme)
 
 <!-- URLs. -->
 
@@ -272,4 +272,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

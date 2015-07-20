@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Come distribuire un database SQL - Azure" 
-	description="Informazioni su come distribuire un database di SQL Server in Azure. Per caricare un database di esempio si userà la procedura guidata di distribuzione del database al database SQL." 
+	pageTitle="Come distribuire un database SQL in SQL Azure" 
+	description="Distribuire un database di SQL Server nel database SQL di Azure tramite la procedura guidata in SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="sidneyh" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,32 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="07/01/2015" 
+	ms.author="sidneyh"/>
 
 
+# Informazioni su come distribuire un database di SQL Server in Azure.
 
+In questo articolo, si utilizzerà la **Distribuzione guidata di un database nel database SQL di Azure** per caricare un database di esempio nel database SQL di Azure. È necessario scaricare **SQL Server 2016 Management Studio (CTP 2.1)** per questa esercitazione.
 
+Tempo stimato per il completamento: 15 minuti (incluso il tempo di download)
 
+> [AZURE.NOTE]Questa esercitazione utilizza un database di esempio "school" che è intenzionalmente semplice; tutti i relativi oggetti sono compatibili con il database SQL di Azure, eliminando la necessità di modificare o preparare il database per la migrazione. Se si esegue la migrazione di un database esistente più complesso, è inoltre possibile utilizzare la [Migrazione guidata di database SQL](http://sqlazuremw.codeplex.com/) e vedere questa [panoramica](sql-database-cloud-migrate.md).
 
-<h1><a id="howtodeploySQLdb"></a>Come distribuire un database in Azure</h1>
+## Prerequisiti
 
-È possibile spostare un database SQL Server locale su Azure in molti modi diversi. In questa attività si userà la procedura guidata di distribuzione del database al database SQL per il caricamento di un database di esempio.
+Un **account di Microsoft Azure**. Per una versione di valutazione gratuita, vedere questa [offerta](http://azure.microsoft.com/pricing/free-trial/).
 
-Il database di esempio School è convenientemente semplice. Tutti i relativi oggetti sono compatibili con il database SQL, eliminando la necessità di modificare o preparare un database per la migrazione. In qualità di nuovo amministratore, prima di iniziare a usare i propri database provare innanzitutto a distribuire un database semplice in modo da apprendere la procedura corretta. 
+Scaricare [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx) (Per ulteriori informazioni sullo strumento, vedere [SQL Server Management Studio - note sulla versione di giugno 2015](https://msdn.microsoft.com/library/mt238486.aspx)).
 
-**Nota:** per istruzioni dettagliate su come preparare un database locale per la migrazione in Azure, rivedere la guida alla migrazione dei database SQL. Provare anche a scaricare il Kit di formazione di Azure, che include un lab in cui è illustrato un approccio alternativo alla migrazione di un database locale.
+Un server esistente nel database SQL di Azure. Per istruzioni sulla creazione di un nuovo database (in un nuovo server), vedere [Creazione del primo database SQL di Azure](sql-database-get-started.md).
 
+## Creare il database school su un server locale
 
-<h2><a id="schooldb"></a>Procedura: Creare il database school su un server locale</h2>
+Eseguire gli script in SQL Server Management Studio (SSMS) allo scopo di creare una versione locale del database "school".
 
-Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL][Introduzione all'amministrazione del database SQL]. In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
+1. In SSMS, effettuare la connessione a un server locale. Fare clic con il pulsante destro del mouse su **Databases** e quindi fare clic su **New Database**, infine immettere *school*.
 
-1. In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Database**, quindi selezionare **Nuovo database** e infine immettere *school*.
+2. Fare clic con il pulsante destro del mouse su *school* e quindi fare clic su **New Query**.
 
-2. Fare clic con il pulsante destro del mouse su *school*, quindi fare clic su **Nuova query**. 
-
-3. Copiare e quindi eseguire lo script Create Schema dall'esercitazione. 
+3. Copiare ed eseguire questo script:
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -531,68 +534,63 @@ Quindi, copiare ed eseguire lo script Insert Data.
 	VALUES (1061, 30, 4);
 	GO
 </pre></div>
+Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file con estensione bacpac, caricarlo in Azure e importarlo nel database SQL.
 
-   Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file con estensione bacpac, caricarlo in Azure e importarlo nel database SQL.
+	
+## Distribuzione del database in Azure SQL 
+	
+1. In Management Studio, fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Tasks** e quindi fare clic su **Deploy Database to Microsoft Azure SQL Database**.
+2. In **Impostazioni di distribuzione** immettere un nome per il database, ad esempio *school*.
+5. Fare clic su **Connect**. Per risolvere problemi relativi alla connettività, provare questa [risoluzione dei problemi](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+6. In **Nome server** immettere il nome del server composto da 10 caratteri, seguito da **.database.windows.net**
+7. In **Autenticazione** scegliere **Autenticazione di SQL Server**.
+8. Immettere il nome di accesso e la password dell'amministratore creati durante il provisioning del server logico del database SQL.
+9. Fare clic su **Opzioni**.
+10. Nella sezione Proprietà connessione, in **Connetti al database**, digitare **master**.
 
+	**Nota** È necessario connettersi al database **master** ogni volta che si desidera creare un database nel server del database SQL di Azure. 
+11. Fare clic su **Connect**. Con questo passaggio si concludono le specifiche di connessione e l'utente viene riportato alla procedura guidata.
+12. Per eseguire la procedura guidata, fare clic su **Next** e quindi fare clic su **Finish**.
 
-<h2><a id="deploydb"></a>Procedura: Distribuire nel database SQL</h2>
-
-1. In Management Studio connettersi a un'istanza di SQL Server locale che dispone di un database di cui si desidera eseguire la migrazione.
-
-2. Fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Attività**, quindi fare clic su **Distribuisci database in SQL Azure**.
-
-3. In Impostazioni di distribuzione immettere un nome per il database, ad esempio *school*. 
-
-4. Fare clic su **Connetti**.
-
-5. In Nome server immettere il nome del server composto da 10 caratteri, seguito da .database.windows.net.
-
-6. In Autenticazione scegliere **Autenticazione di SQL Server**.
-
-7. Immettere il nome di accesso e la password dell'amministratore forniti durante la creazione del server logico del database SQL.
-
-8. Fare clic su **Opzioni**.
-
-9. Nella sezione Proprietà connessione, in **Connetti al database**, digitare **master**.
-
-10. Fare clic su **Connetti**. Con questo passaggio si concludono le specifiche di connessione e l'utente viene riportato alla procedura guidata.
-
-
-11. Per eseguire la procedura guidata, fare clic su **Avanti** e quindi su **Fine**.
-
-
-<h2><a id="verify"></a>Procedura: Verificare la distribuzione del database</h2>
-
-1. Nella sezione Esplora oggetti di Management Studio aggiornare l'elenco dei database per visualizzare quello appena creato.
-
+	
+## Procedura: verificare la distribuzione del database
+	
+1. In Management Studio, in **Esplora oggetti**, fare clic sull’icona **Connect**.
+2. Nella casella del nome **Server**, digitare il nome del server SQL di Azure, seguito da **database.windows.net**
+3. In **Autenticazione**, selezionare **Autenticazione di SQL Server**.
+4. Immettere il nome dell'account di accesso e la password dell’amministratore creato durante il provisioning del server. 
+5. Fare clic sul pulsante **Opzioni**.
+6. Scegliere l’elenco a discesa **Connetti al database** e fare clic su **Sfoglia server**. Nella finestra di dialogo seguente, fare clic su **Sì** per consentire l'esplorazione del server.
+7. Scegliere il database **school** per selezionarla, quindi fare clic su **OK**. 
+8. Fare clic su **Connect**. Per risolvere problemi relativi alla connettività, provare questa [risoluzione dei problemi](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Espandere la cartella **Database**. Verrà visualizzato il database **school** nell'elenco.
 
-3. Fare clic con il pulsante destro del mouse sul database school e quindi selezionare **Nuova query**.
-
+	**Nota** È necessario connettersi al database su cui si desidera eseguire una query. 
+3. Fare doppio clic su **school** e fare clic su **Nuova query**.
 4. Inoltrare la seguente query per verificare l'accessibilità dei dati.
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
-	SELECT
-		Course.Title as "Course Title"
-  		,Department.Name as "Department"
-  		,Person.LastName as "Instructor"
-  		,OnsiteCourse.Location as "Location"
-  		,OnsiteCourse.Days as "Days"
-  		,OnsiteCourse.Time as "Time"
-	FROM
- 	 Course
- 	 INNER JOIN Department
-  	  ON Course.DepartmentID = Department.DepartmentID
- 	 INNER JOIN CourseInstructor
- 	   ON Course.CourseID = CourseInstructor.CourseID
- 	 INNER JOIN Person
- 	   ON CourseInstructor.PersonID = Person.PersonID
- 	 INNER JOIN OnsiteCourse
+		SELECT
+			Course.Title as "Course Title"
+				,Department.Name as "Department"
+				,Person.LastName as "Instructor"
+				,OnsiteCourse.Location as "Location"
+				,OnsiteCourse.Days as "Days"
+				,OnsiteCourse.Time as "Time"
+		FROM
+			 Course
+			 INNER JOIN Department
+			  ON Course.DepartmentID = Department.DepartmentID
+			 INNER JOIN CourseInstructor
+			   ON Course.CourseID = CourseInstructor.CourseID
+			 INNER JOIN Person
+			   ON CourseInstructor.PersonID = Person.PersonID
+			 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-</pre></div>
+		
+## Passaggi successivi
 
-[Introduzione all'amministrazione del database SQL]: /manage/services/sql-databases/getting-started-w-sql-databases/  
+Per un'esercitazione sulla creazione di un nuovo database SQL Azure, vedere [Introduzione all'amministrazione del database SQL](sql-database-get-started.md). Per le nozioni fondamentali per la connessione a un database SQL di Azure da un'applicazione C#, vedere [Connettersi ed eseguire una query nel database SQL con C#](sql-database-connect-query.md). Per ulteriori esercitazioni sulla connessione da varie piattaforme (ad esempio PHP), vedere [Sviluppo nel database SQL di Azure: Procedure](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

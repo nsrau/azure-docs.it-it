@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Estendere l'esperimento con R | Azure"
+	pageTitle="Estendere l'esperimento con R | Microsoft Azure"
 	description="Come estendere le funzionalità di Azure Machine Learning Studio tramite il linguaggio R usando il modulo Execute R Script."
 	services="machine-learning"
 	documentationCenter=""
@@ -238,7 +238,7 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 | highr | Evidenziazione della sintassi per R |
 | Hmisc | Varie di Harrell |
 | htmltools | Strumenti per HTML |
-| httpuv | Libreria HTTP e WebSocket per server  |
+| httpuv | Libreria HTTP e WebSocket per server |
 | httr | Strumenti per l'utilizzo di URL e HTTP |
 | IBrokers | API R per Trader Workstation di Interactive Brokers |
 | igraph | Analisi di rete e visualizzazione |
@@ -315,7 +315,7 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 | MNP | Pacchetto R per l'adattamento del modello di probit multinomiale |
 | modeltools | Strumenti e classi per modelli statistici |
 | mombf | Fattori di Bayes del momento e del momento inverso |
-| monomvn | Stima per dati T di Student e normali multivariati con assenza monotona  |
+| monomvn | Stima per dati T di Student e normali multivariati con assenza monotona |
 | monreg | Regressione monotona non parametrica |
 | mosaic | Utilità per l'insegnamento di matematica e statistica del progetto MOSAIC (mosaic-web.org) |
 | MSBVAR | Modelli di autoregressione vettoriale bayesiana con passaggio a Markov |
@@ -446,7 +446,7 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 | spdep | Dipendenza spaziale: peso di schemi, statistich e modelli |
 | spikeslab | Stima e selezione di variabili con la regressione di tipo Spike e Slab |
 | splancs | Analisi dei modelli di punti spaziali e spazio-temporali |
-| splines | Classi e funzioni spline di regressione  |
+| splines | Classi e funzioni spline di regressione |
 | spTimer | Modellazione bayesiana spazio-temporale con R |
 | Statistiche | Pacchetto di statistiche R |
 | stats4 | Funzioni statistiche con le classi S4 |
@@ -501,5 +501,6 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

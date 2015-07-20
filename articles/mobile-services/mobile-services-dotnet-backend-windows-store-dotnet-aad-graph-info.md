@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Accesso alle informazioni di Azure Active Directory Graph
@@ -59,7 +59,7 @@ In questa sezione viene creata l'API personalizzata GetUserInfo che userà l'API
 Se non sono mai state usate le API personalizzate con i Servizi mobili, consultare l'[esercitazione sull'API personalizzata] prima di completare questa sezione.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**.
-2. Nella finestra di dialogo Gestione pacchetti NuGet, immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile. Questa esercitazione è stata testata di recente con la versione provvisoria 3.0.110281957-alpha del pacchetto ADAL.
+2. Nella finestra di dialogo Gestione pacchetti NuGet, immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile. Questa esercitazione è stata testata di recente con la versione provvisoria 3.3.205061641-alpha del pacchetto ADAL.
 
 
 3. In Visual Studio fare clic con il pulsante destro del mouse sulla cartella **Controller** per il progetto del servizio mobile e quindi fare clic su **Aggiungi** per aggiungere un nuovo **controller personalizzato dei Servizi mobili di Microsoft Azure** denominato `GetUserInfoController`. Il client chiamerà questa API per ottenere informazioni sull'utente da Active Directory.
@@ -252,5 +252,6 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [blog del Team di Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

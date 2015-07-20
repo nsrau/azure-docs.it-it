@@ -20,4 +20,4 @@ Questa esercitazione è basata su **GetStartedWithData**, che è un'app per Andr
 <!-- URLs. -->
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

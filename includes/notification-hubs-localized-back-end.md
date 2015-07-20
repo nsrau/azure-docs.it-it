@@ -52,4 +52,4 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
 	
 Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

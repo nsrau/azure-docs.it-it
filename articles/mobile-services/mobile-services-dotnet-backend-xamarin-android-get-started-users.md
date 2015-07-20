@@ -32,13 +32,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 <ol start="6">
 <li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
@@ -52,7 +52,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 1. Aggiungere la proprietà seguente alla classe **TodoActivity**:
 
-			private MobileServiceUser user;
+			private MobileServiceUser user;
 
 2. Aggiungere il metodo seguente alla classe **TodoActivity**:
 
@@ -71,7 +71,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato.
 
-    > [AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Nel metodo **OnCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto `MobileServiceClient`.
 
@@ -110,5 +110,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

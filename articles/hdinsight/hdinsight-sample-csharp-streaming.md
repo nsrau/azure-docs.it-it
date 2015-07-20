@@ -204,4 +204,4 @@ Per esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -27,7 +27,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##Provisioning di cluster HDInsight
@@ -279,4 +279,4 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Formati e codec di Azure Media Encoder" 
-	description="Questo argomento fornisce una panoramica dei formati e dei codec di Azure Media Encoder." 
+	description="Questo argomento fornisce una panoramica dei formati e dei codec del Codificatore multimediale di Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Formati e codec di Azure Media Encoder
 
-I codificatori comprimono i file multimediali digitali mediante l'uso di codec. In genere nei codificatori sono disponibili diverse impostazioni, che permettono di specificare le proprietà dei file multimediali generati, ad esempio i codec usati, il formato dei file, la risoluzione e la velocità in bit. I formati di file sono contenitori che includono il video compresso, oltre a informazioni sui codec usati per la compressione del video. 
+I codificatori comprimono i file multimediali digitali mediante l'uso di codec. In genere nei codificatori sono disponibili diverse impostazioni, che permettono di specificare le proprietà dei file multimediali generati, ad esempio i codec usati, il formato dei file, la risoluzione e la velocità in bit. I formati di file sono contenitori che includono il video compresso, oltre a informazioni sui codec usati per la compressione del video.
 
 I codec consistono in due componenti: un componente per la compressione dei file multimediali digitali per la trasmissione e un altro per la decompressione dei file multimediali digitali per la riproduzione. Sono disponibili codec audio per la compressione e la decompressione di audio e codec video per la compressione e decompressione di video. I codec possono usare la compressione con o senza perdita di dati. I codec senza perdita di dati conservano tutte le informazioni durante la compressione. Quando il file è decompresso, si ottiene un file identico al file multimediale di input. I codec senza perdita di dati sono quindi ideali per l'archiviazione. I codec con perdita di dati perdono alcune informazioni durante la codifica e producono file di dimensioni minori rispetto all'originale, ma con una riduzione della qualità del video. Sono ideali per la trasmissione in streaming su Internet. I due principali codec usati da Azure Media Encoder per la codifica sono h. 264 e VC-1. Altri codec possono essere disponibili nell'ecosistema dei codificatori dei partner.
 
@@ -27,9 +27,9 @@ I codec consistono in due componenti: un componente per la compressione dei file
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Azure Media Encoder.
 
 
-[Formati di importazione del Codificatore multimediale ](#import_formats)
+[Formati di importazione del Codificatore multimediale](#import_formats)
 
-[Formati di esportazione del Codificatore multimediale](#export_formats)
+[Formati di esportazione del codificatore multimediale](#export_formats)
 
 
 ##<a id="import_formats"></a>Formati di importazione del Codificatore multimediale 
@@ -137,5 +137,4 @@ Questo è un elenco parziale dei formati non compressi supportati.
 <tr><td>Formato YVU9 prodotto da Indeo</td><td>Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.</td></tr>
 </table>
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

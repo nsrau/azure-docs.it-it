@@ -1,9 +1,9 @@
 <properties
    pageTitle="Test delle impostazioni di Gestione traffico"
-   description="Informazioni su come testare le impostazioni di Gestione traffico."
+   description="In questo articolo vengono fornite le informazioni per verificare le impostazioni di Gestione traffico."
    services="traffic-manager"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Test delle impostazioni di Gestione traffico
 
@@ -33,45 +33,28 @@ Il modo migliore per testare le impostazioni di Gestione traffico consiste nel c
 
 2-Digitare `ipconfig /flushdns` per scaricare la cache del resolver DNS.
 
-3-Digitare `nslookup <your Traffic Manager domain name>`. Il comando seguente, ad esempio, consente di controllare il nome di dominio con il prefisso *myapp.contoso*
-    nslookup myapp.contoso.trafficmanager.net
-Il risultato tipico sarà simile al seguente:
-- Nome DNS e indirizzo IP del server DNS a cui si accede per risolvere questo nome di dominio di Gestione traffico.
-- Nome del dominio di Gestione traffico digitato nella riga di comando dopo "nslookup" e indirizzo IP in cui viene risolto il dominio di Gestione traffico. Il secondo indirizzo IP è quello più importante da verificare. Deve corrispondere a un indirizzo VIP per uno dei servizi cloud o dei siti Web nel profilo di Gestione traffico in fase di verifica.
+3-Digitare `nslookup <your Traffic Manager domain name>`. Tramite il comando seguente, ad esempio, viene controllato il nome di dominio con il prefisso *myapp.contoso* nslookup myapp.contoso.trafficmanager.net Il risultato tipico sarà simile al seguente: - Nome DNS e indirizzo IP del server DNS a cui si accede per risolvere questo nome di dominio di Gestione traffico. - Nome del dominio di Gestione traffico digitato nella riga di comando dopo "nslookup" e indirizzo IP in cui viene risolto il dominio di Gestione traffico. Il secondo indirizzo IP è quello più importante da verificare. Deve corrispondere a un indirizzo VIP per uno dei servizi cloud o dei siti Web nel profilo di Gestione traffico in fase di verifica.
 
 ## Metodi di bilanciamento del carico di test
 
 
 ### Per verificare un metodo di bilanciamento del carico failover
 
-1-Lasciare attivi tutti gli endpoint.
-2-Usare un singolo client.
-3-Richiedere la risoluzione DNS per il nome di dominio aziendale tramite lo strumento Nslookup.exe o un'utilità simile.
-4-Verificare che l'indirizzo IP risolto ottenuto sia quello dell'endpoint primario.
-5-Arrestare l'endpoint primario o rimuovere il file di monitoraggio affinché Gestione traffico ritenga che sia stato arrestato.
-6-Attendere altri due minuti oltre il tempo corrispondente al valore TTL (Time-to-Live) di DNS nel profilo di Gestione traffico. Ad esempio, se la durata TTL del DNS è 300 secondi (5 minuti), è necessario attendere 7 minuti.
-7-Scaricare la cache del client DNS e richiedere la risoluzione DNS. In Windows è possibile scaricare la cache DNS con il comando ipconfig /flushdns eseguito a un prompt dei comandi o di Windows PowerShell.
-8-Verificare che l'indirizzo IP ottenuto sia quello dell'endpoint secondario.
-9-Ripetere il processo, arrestando l'endpoint secondario, quindi il terziario e così via. Ogni volta, assicurarsi che la risoluzione DNS restituisca l'indirizzo IP dell'endpoint successivo nell'elenco. Quando tutti gli endpoint sono inattivi, si dovrebbe ottenere nuovamente l'indirizzo IP dell'endpoint primario.
+1-Lasciare attivi tutti gli endpoint. 2-Usare un singolo client. 3-Richiedere la risoluzione DNS per il nome di dominio aziendale tramite lo strumento Nslookup.exe o un'utilità simile. 4-Verificare che l'indirizzo IP risolto ottenuto sia quello per l'endpoint primario. 5-Arrestare l'endpoint primario oppure rimuovere il file di monitoraggio in modo che Gestione traffico lo consideri inattivo. 6-Attendere altri due minuti oltre il tempo corrispondente al valore TTL (Time-to-Live) di DNS nel profilo di Gestione traffico. Ad esempio, se la durata TTL del DNS è 300 secondi (5 minuti), è necessario attendere 7 minuti. 7-Scaricare la cache del client DNS e richiedere la risoluzione DNS. In Windows è possibile scaricare la cache DNS con il comando ipconfig /flushdns eseguito a un prompt dei comandi o di Windows PowerShell. 8-Verificare che l'indirizzo IP ottenuto sia quello dell'endpoint secondario. 9-Ripetere il processo, arrestando l'endpoint secondario, quindi il terziario e così via. Ogni volta, assicurarsi che la risoluzione DNS restituisca l'indirizzo IP dell'endpoint successivo nell'elenco. Quando tutti gli endpoint sono inattivi, si dovrebbe ottenere nuovamente l'indirizzo IP dell'endpoint primario.
 
 ### Per verificare un metodo di bilanciamento del carico round robin
 
-1-Lasciare attivi tutti gli endpoint.
-2-Usare un singolo client.
-3-Richiedere la risoluzione DNS per il dominio aziendale tramite lo strumento Nslookup.exe o un'utilità simile.
-4-Verificare che l'indirizzo IP ottenuto corrisponda a uno di quelli presenti nell'elenco.
-5-Scaricare la cache del client DNS e ripetere più volte i passaggi 3 e 4. Vengono visualizzati i diversi indirizzi IP restituiti per ognuno degli endpoint. Il processo viene quindi ripetuto.
+1-Lasciare attivi tutti gli endpoint. 2-Usare un singolo client. 3-Richiedere la risoluzione DNS per il dominio aziendale tramite lo strumento Nslookup.exe o un'utilità simile. 4-Verificare che l'indirizzo IP ottenuto corrisponda a uno di quelli presenti nell'elenco. 5-Scaricare la cache del client DNS e ripetere più volte i passaggi 3 e 4. Vengono visualizzati i diversi indirizzi IP restituiti per ognuno degli endpoint. Il processo viene quindi ripetuto.
 
 ### Per verificare un metodo di bilanciamento del carico delle prestazioni
 
 Per verificare in modo efficace il metodo di bilanciamento del carico delle prestazioni, è necessario che i client si trovino in diverse parti del mondo. È possibile creare i client in Azure che tenteranno di chiamare i servizi tramite il nome di dominio aziendale. In alternativa, se la società è globale, è possibile accedere ai client in altre parti del mondo in modalità remota ed eseguire il test da questi client.
 
-I servizi di ricerca DNS basati sul Web sono disponibili gratuitamente. Alcuni di essi consentono di verificare la risoluzione del nome DNS da località diverse. Eseguire una ricerca in "Ricerca DNS" per alcuni esempi. Un'altra opzione consiste nell'usare una soluzione di terze parti, ad esempio Gomez o Keynote, per assicurarsi che i profili distribuiscano il traffico come previsto.
+Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. Alcuni di essi consentono di verificare la risoluzione del nome DNS da località diverse. Eseguire una ricerca in "Ricerca DNS" per alcuni esempi. Un'altra opzione prevede l'utilizzo di una soluzione di terze parti, come ad esempio Gomez o Keynote, per verificare se i profili distribuiscono il traffico come previsto.
 
 ## Vedere anche
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione Traffico](../about-traffic-manager-balancing-methods.md)
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-[Gestione traffico](../traffic-manager.md)
+[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gestione traffico](../traffic-manager.md)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

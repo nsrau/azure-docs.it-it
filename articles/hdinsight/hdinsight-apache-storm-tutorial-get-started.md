@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -42,9 +42,9 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	>[AZURE.NOTE]L'opzione Creazione rapida per il provisioning di un cluster HDInsight, come quello usato in questa esercitazione, non richiede un percorso durante il provisioning del cluster. Il cluster si trova invece per impostazione predefinita nello stesso data center usato per l'account di archiviazione. Assicurarsi di creare l'account di archiviazione nelle aree supportate per il cluster, ovvero: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti Orientali**, **Stati Uniti Occidentali**, **Stati Uniti centro-settentrionali** e **Stati Uniti centro-meridionali**.
 
-4. Attendere che il valore **STATUS** del nuovo account di archiviazione venga modificato in **Online**.
+4. Attendere che il valore **STATO** del nuovo account di archiviazione venga modificato in **Online**.
 
-Per altre informazioni sulla creazione di account di archiviazione, vedere <a href="../storage-create-storage-account/" target="_blank">Come creare un account di archiviazione</a>.
+Per altre informazioni sulla creazione di account di archiviazione, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md)
 
 ##Eseguire il provisioning di un cluster Storm nel portale di Azure
 
@@ -92,7 +92,7 @@ Il modulo **Submit Topology** può essere usato per caricare ed eseguire file co
 
 ###<a id="run"></a>Eseguire l'esempio relativo al conteggio parole dal progetto Storm Starter in GitHub
 
-Gli esempi forniti con il cluster includono diverse varianti di una topologia di conteggio parole. Questi esempi includono uno **spout** che genera frasi in modo casuale e **bolt** che suddividono ogni frase in singole parole e quindi contano le occorrenze di ciascuna di esse. Questi esempi sono compresi negli <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">esempi di Storm Starter</a>, che fanno parte di Apache Storm.
+Gli esempi forniti con il cluster includono diverse varianti di una topologia di conteggio parole. Questi esempi includono uno **spout** che genera frasi in modo casuale e **bolt** che suddividono ogni frase in singole parole e quindi contano le occorrenze di ciascuna di esse. Questi esempi sono compresi negli [esempi di Storm Starter](https://github.com/apache/storm/tree/master/examples/storm-starter), che fanno parte di Apache Storm.
 
 Per eseguire un esempio di Storm Starter, seguire questa procedura:
 
@@ -143,7 +143,7 @@ L'interfaccia utente di Storm consente di monitorare la topologia.
 
 	* **Deactivate**: sospende una topologia in esecuzione.
 
-	* **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster. Per altre informazioni, vedere l'articolo relativo al <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">parallelismo di una topologia Storm</a>.
+	* **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster. Per altre informazioni, vedere l'articolo relativo al [parallelismo di una topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Kill**: arresta una topologia Storm dopo il timeout specificato.
 
@@ -190,9 +190,9 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 
 * **HDInsight Tools per Visual Studio**: HDInsight Tools consente di usare Visual Studio per inviare, monitorare e gestire topologie Storm in modo simile a quanto avviene in Storm Dashboard, descritto in precedenza. HDInsight Tools offre inoltre la possibilità di creare topologie Storm C#. Include infine topologie di esempio che è possibile distribuire ed eseguire sul cluster.
 
-	Per altre informazioni, vedere <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introduzione all'uso di HDInsight Tools per Visual Studio</a>.
+	Per altre informazioni, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **File di esempio**: nella directory **%STORM_HOME%\contrib** del cluster Storm in HDInsight sono disponibili diversi esempi. Ogni esempio deve contenere quanto riportato di seguito:
+* **File di esempio**: nella directory **%STORM_HOME%\\contrib** del cluster Storm in HDInsight sono disponibili diversi esempi. Ogni esempio deve contenere quanto riportato di seguito:
 
 	* Il codice sorgente, ad esempio storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 
 	> [AZURE.NOTE]I documenti Java sono costituiti da pagine Web. Dopo aver estratto i file, usare un browser per visualizzare il file **index.html**.
 
-	Per accedere a questi esempi, è necessario abilitare Desktop remoto per Storm nel cluster HDInsight e quindi copiare i file da **%STORM_HOME%\contrib**.
+	Per accedere a questi esempi, è necessario abilitare Desktop remoto per Storm nel cluster HDInsight e quindi copiare i file da **%STORM_HOME%\\contrib**.
 
 * Il documento seguente contiene un elenco di altri esempi che è possibile usare con Storm in HDInsight:
 
@@ -216,6 +216,5 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

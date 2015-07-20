@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-Introduzione a Azure RemoteApp con PowerShell
+# Introduzione a Azure RemoteApp con PowerShell
 =====================================
 
 
-Ottenere i cmdlet 
-------------- 
-Prima di tutto è necessario scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175), che includono anche quelli di RemoteApp.
+## Ottenere i cmdlet 
+-------------
+Prima di tutto è necessario scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175), inclusi quelli di RemoteApp.
 
-Configurare i cmdlet di Azure per usare la sottoscrizione
+## Configurare i cmdlet di Azure per usare la sottoscrizione
 ------------------
 Seguire [questa guida](../powershell-install-configure.md) per poter usare i cmdlet con la sottoscrizione di Azure.
 
-Creare una raccolta nel cloud
+## Creare una raccolta nel cloud
 --------------------
 È semplice, basta eseguire il comando seguente:
 
@@ -49,6 +49,7 @@ Dopo aver completato la creazione della raccolta, è possibile aggiungervi utent
 
 L'operazione è così completata. L'utente dovrebbe essere in grado di connettersi all'applicazione tramite il client Azure RemoteApp disponibile [qui](https://www.remoteapp.windowsazure.com/).
 
+## Cmdlet disponibili
 Sono disponibili molti altri comandi, la cui documentazione sarà disponibile a breve:
 
 Cmdlet della raccolta RemoteApp di base:
@@ -96,6 +97,6 @@ Altri cmdlet di RemoteApp:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

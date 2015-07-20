@@ -158,4 +158,4 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elenco e visualizzazione di cluster"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Usare SSH con Hadoop basato su Linux in HDInsight da Windows (anteprima)
@@ -28,7 +28,7 @@ I cluster Azure HDInsight basati su Linux offrono la possibilità di usare l'acc
 
 ##Prerequisiti
 
-* **PuTTY** e **PuTTYGen** per client basati su Windows. Queste utilità sono disponibili nella pagina Web <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+* **PuTTY** e **PuTTYGen** per client basati su Windows. Queste utilità sono disponibili nella pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Un moderno Web browser che supporta HTML5.
 
@@ -78,7 +78,7 @@ Quando si crea un cluster HDInsight basato su Linux, è necessario fornire la ch
 
 * **Interfaccia della riga di comando di Azure**: usa i comandi della riga di comando per creare il cluster.
 
-Ognuno di questi metodi richiede la chiave pubblica. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate (anteprima)</a>.
+Ognuno di questi metodi richiede la chiave pubblica. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo [Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Portale di Azure
 
@@ -92,7 +92,7 @@ Viene creato un account di accesso per l'utente specificato ed è possibile eseg
 
 È possibile usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md) per creare un nuovo cluster tramite il comando `azure hdinsight cluster create`.
 
-Per altre informazioni sull'uso di questo comando, vedere l'articolo <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate</a>.
+Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Connettersi a un cluster HDInsight basato su Linux
 
@@ -124,7 +124,7 @@ I nodi di lavoro non sono direttamente accessibili dall'esterno del data center 
 
 Se è stata specificata una chiave SSH quando è stato creato l'account utente, è necessario eseguire la procedura seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster per connettersi ai nodi di lavoro.
 
-1. Installare Pageant dalla pagina Web <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>. Questa utilità consente di memorizzare nella cache le chiavi SSH per PuTTY.
+1. Installare Pageant dalla pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Questa utilità consente di memorizzare nella cache le chiavi SSH per PuTTY.
 
 2. Eseguire Pageant. Si ridurrà a icona nella barra di stato. Fare clic con il pulsante destro del mouse sull'icona e scegliere **Add Key**.
 
@@ -224,11 +224,11 @@ Seguire questa procedura per creare un tunnel SSH e configurare il browser in mo
 
 	> [AZURE.NOTE]Se si seleziona **Remote DNS**, le richieste DNS verranno risolte usando il cluster HDInsight. Se questa opzione è deselezionata, il DNS verrà risolto localmente.
 
-	È possibile verificare che il traffico sia instradato attraverso il tunnel visitando un sito come <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
+	È possibile verificare che il traffico sia instradato attraverso il tunnel visitando un sito come [http://www.whatismyip.com/](http://www.whatismyip.com/) con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
 
 ###Estensioni del browser
 
-Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser, ad esempio <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>, supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus) in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
+Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser, ad esempio [FoxyProxy](http://getfoxyproxy.org/), supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus), in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
 
 Se è stato installato FoxyProxy Standard, seguire questa procedura per configurarlo in modo che inoltri tramite tunnel solo il traffico per HDInsight.
 
@@ -277,6 +277,5 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

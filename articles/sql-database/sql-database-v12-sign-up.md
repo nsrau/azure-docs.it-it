@@ -46,7 +46,7 @@ Per altre informazioni sugli account Azure, vedere [Gestire account, sottoscrizi
 
 Questa sezione descrive una sequenza di clic che è possibile seguire una volta entrati nell'interfaccia utente del portale di anteprima di Azure per attivare l'opzione della versione 12. Una volta attivata, l'opzione rimane disponibile.
 
-Tutti gli scenari di attivazione usano la stessa idea di base. La prima volta che si tenta di [creare un nuovo server di database SQL](sql-database-create.md), viene visualizzato un pannello denominato **Latest Update (preview>)** contenente una casella di controllo che è possibile selezionare per attivare il privilegio per l'uso della versione 12. Dopo aver attivato il privilegio, la casella di controllo non è più visibile. Viene visualizzato invece un controllo  **Sì |No** che consente di specificare se si desidera che il nuovo server usi la versione 12. Se si sceglie **No**, si crea un server versione 11 (come riportato da SELECT @@VERSION;).
+Tutti gli scenari di attivazione usano la stessa idea di base. La prima volta che si tenta di [creare un nuovo server di database SQL](sql-database-create.md), viene visualizzato un pannello denominato **Latest Update (preview>)** contenente una casella di controllo che è possibile selezionare per attivare il privilegio per l'uso della versione 12. Dopo aver attivato il privilegio, la casella di controllo non è più visibile. Viene visualizzato invece un controllo **Sì |No** che consente di specificare se si desidera che il nuovo server usi la versione 12. Se si sceglie **No**, si crea un server versione 11 (come riportato da SELECT @@VERSION;).
 
 ### B.1 Controllo Sì|No per la versione 12
 
@@ -65,4 +65,6 @@ I seguenti argomenti illustrano come usare la versione 12 del database SQL.
 <!-- References, Images. -->
 [Image1]: ./media/sql-database-v12-sign-up/V12Preview-YesNo-Option-New-SQLDatabase-Server-Newserver-Screenshot-e23.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

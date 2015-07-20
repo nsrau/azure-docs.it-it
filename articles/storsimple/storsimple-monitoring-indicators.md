@@ -1,22 +1,21 @@
 <properties 
-    pageTitle="Risoluzione dei problemi riguardo gli indicatori di monitoraggio"
+    pageTitle="Indicatori di monitoraggio di StorSimple"
     description="Descrive i LED e gli avvisi utilizzati per monitorare lo stato del dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# Risoluzione dei problemi riguardo gli indicatori di monitoraggio   
+# Indicatori di monitoraggio di StorSimple   
 
 ## Panoramica
 
@@ -35,6 +34,8 @@ Nel promemoria del presente articolo vengono descritti i vari indicatori LED di 
 Il pannello anteriore, noto anche come *pannello operativo* o *pannello delle operazioni.*, visualizza lo stato aggregato di tutti i moduli del sistema. Il pannello anteriore è identico sia sul dispositivo StorSimple che sullo chassis EBOD e viene illustrato di seguito.
 
    ![][1]
+
+**Figura 1: Pannello anteriore del dispositivo**
  
 Il pannello anteriore include i seguenti indicatori:
 
@@ -68,11 +69,14 @@ Gli indicatori LED del modulo di alimentazione e raffreddamento (PCM) sono dispo
 - LED PCM per lo chassis EBOD
 
 ## LED PCM per lo chassis principale  
+
 Il dispositivo StorSimple dispone di un modulo PCM da 764 W con una batteria aggiuntiva. Nella figura seguente è illustrato il pannello LED per il dispositivo.
 
    ![][2]
+
+**Figura 2: LED PCM per lo chassis principale**
  
-**Legenda dei LED**
+Legenda dei LED:
 
 1. Guasto dell’alimentazione CA
 2. Guasto alla ventola
@@ -111,6 +115,8 @@ Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del d
 Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannello PCM per lo chassis EBOD dispone di indicatori LED esclusivi per gli alimentatori e la ventola. Nella figura seguente vengono illustrati tali LED.
 
    ![][3]
+
+**Figura 3: LED PCM per lo chassis EBOD**
  
 È possibile utilizzare la tabella riportata di seguito per determinare lo stato del PCM.
 
@@ -134,6 +140,8 @@ La figura seguente facilita l’identificazione dei LED sul controller primario.
 
    ![][4]
  
+**Figura 4: LED di monitoraggio per il controller primario**
+
 Utilizzare la tabella seguente per determinare se il modulo controller funziona correttamente.
 
 ### Indicatori LED del controller  
@@ -150,15 +158,17 @@ Utilizzare la tabella seguente per determinare se il modulo controller funziona 
 >[AZURE.IMPORTANT]Il LED di errore acceso indica un problema con il modulo controller che potrebbe essere risolto tramite riavvio. Se il riavvio del controller non consente di risolvere il problema, contattare il supporto tecnico Microsoft.
 
 
-###LED di monitoraggio per EBOD (chassis EBOD)  
+### LED di monitoraggio per EBOD (chassis EBOD)  
 
 Ogni controller EBOD SAS 6 Gb/s dispone di LED che indicano lo stato, come illustrato nella figura seguente.
 
   ![][5]
+
+**Figura 5: LED di monitoraggio per lo chassis EBOD**
  
 Utilizzare la tabella seguente per determinare se il modulo controller EBOD funziona normalmente.
 
-###Indicatori LED del modulo controller EBOD  
+### Indicatori LED del modulo controller EBOD  
 
 |Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -171,6 +181,8 @@ Le unità disco del dispositivo StorSimple sono collocate sia nello chassis prin
 Per le unità disco, lo stato dell’unità è indicato da un LED verde e un LED rosso-ambra montati sulla parte anteriore di ogni modulo supporto unità. Nella figura seguente vengono illustrati tali LED.
 
   ![][6]
+
+**Figura 6: LED delle unità disco**
  
 Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che, a sua volta, influisce sullo stato generale del LED del pannello anteriore.
 
@@ -209,7 +221,7 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | S3 | Modalità disattivato: invisibile all'utente | Nessuno |
 | S4 | Modalità errore critico: allarme continuo | Non disponibile: disattivazione non attiva |
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 
 >  - Nello stato di allarme S1, se non si preme Disattiva entro 2 minuti, lo stato passa automaticamente da S2 a S3.  
 >  - Dopo la risoluzione della condizione di errore, gli stati di allarme da S1 a S4 tornano a S0.  
@@ -242,6 +254,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore di controllo dell’alimentazione dell’unità | Errore - Critico; interruzione dell'alimentazione unità | S1 | Errore del modulo |
 | Unità rimossa | Warning | Nessuno | Errore del modulo |
 | Disponibilità alimentazione insufficiente | Warning | nessuno | Errore del modulo |
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -249,6 +262,6 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

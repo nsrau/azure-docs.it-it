@@ -25,14 +25,14 @@ Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e
 
 Reliable Services è uno dei modelli di programmazione disponibili in Service Fabric. Per altre informazioni sul modello di programmazione Reliable Actors, consultare l'[introduzione](../service-fabric/service-fabric-reliable-actors-introduction.md).
 
-In Service Fabric un servizio è costituito da configurazione, codice dell'applicazione e stato \(facoltativo\).
+In Service Fabric un servizio è costituito da configurazione, codice dell'applicazione e stato (facoltativo).
 
 Service Fabric gestisce il ciclo di vita dei servizi, dalle fasi di provisioning e sviluppo fino all'aggiornamento e all'eliminazione, mediante gli strumenti di [gestione delle applicazioni di Service Fabric](../service-fabric/service-fabric-deploy-remove-applications.md).
 
 ## Che cos'è Reliable Services?
 Reliable Services offre un modello di programmazione di alto livello, semplice e potente, per specificare gli elementi importanti per l'applicazione. Il modello di programmazione Reliable Services offre quanto indicato di seguito:
 
-1. Per i servizi con stato, il modello di programmazione Reliable Services consente di archiviare lo stato in modo coerente e affidabile all'interno del servizio usando le raccolte Reliable Collections, un semplice insieme di classi a disponibilità elevata ben conosciuto da chiunque abbia familiarità con le raccolte C\#. In passato, per la gestione dello stato affidabile i servizi dovevano contare su sistemi esterni. Le raccolte Reliable Collections consentono di archiviare lo stato insieme ai calcoli effettuati con gli stessi livelli di disponibilità e affidabilità garantiti dagli archivi esterni a disponibilità elevata.
+1. Per i servizi con stato, il modello di programmazione Reliable Services consente di archiviare lo stato in modo coerente e affidabile all'interno del servizio usando le raccolte Reliable Collections, un semplice insieme di classi a disponibilità elevata ben conosciuto da chiunque abbia familiarità con le raccolte C#. In passato, per la gestione dello stato affidabile i servizi dovevano contare su sistemi esterni. Le raccolte Reliable Collections consentono di archiviare lo stato insieme ai calcoli effettuati con gli stessi livelli di disponibilità e affidabilità garantiti dagli archivi esterni a disponibilità elevata.
 
 2. Un modello semplice per l'esecuzione di codice simile ai modelli di programmazione di uso comune: il codice dispone di un punto di ingresso ben definito e di un ciclo di vita di facile gestione.
 
@@ -43,7 +43,7 @@ Reliable Services in Service Fabric è diverso da eventuali servizi sviluppati i
 
 + <u>Affidabilità</u>: il servizio rimarrà operativo anche se nell'ambiente si verificano eventi negativi, ad esempio errori delle macchine o problemi di rete.
 
-+ <u>Disponibilità</u>: il servizio sarà effettivamente raggiungibile e reattivo \(è possibile che siano attivi servizi non individuabili o raggiungibili\).
++ <u>Disponibilità</u>: il servizio sarà effettivamente raggiungibile e reattivo (è possibile che siano attivi servizi non individuabili o raggiungibili).
 
 + <u>Scalabilità</u>: i servizi vengono separati da componenti hardware specifici e possono essere aumentati o ridotti secondo necessità mediante l'aggiunta o la rimozione di risorse hardware o virtuali. I servizi, in particolare quelli con stato, possono essere partizionati facilmente. In questo modo, le porzioni indipendenti del servizio possono essere scalate e, in caso di errore, possono rispondere in modo indipendente. Service Fabric, infine, permette di ottenere servizi "leggeri" consentendo il provisioning di migliaia di servizi con un unico processo, evitando così di richiedere o dedicare intere istanze del sistema operativo a una singola istanza di un particolare carico di lavoro.
 
@@ -56,9 +56,9 @@ Reliable Services fornisce un ciclo di vita semplice che consente di attivare ra
 
 + RunAsync: con questo metodo il codice può effettivamente eseguire operazioni. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Si supponga, ad esempio, di avere un servizio che deve effettuare costantemente il pull dei messaggi all'esterno di un oggetto ReliableQueue per elaborarli. RunAsync è il metodo con cui vengono eseguite tali attività.
 
-I principali eventi del ciclo di vita di un servizio Reliable Services sono i seguenti: 1. Viene costruito l'oggetto Service, ovvero l'oggetto che deriva da StatelessService o StatefulService. 2. Viene chiamato il metodo CreateCommunicationListener, così da consentire al servizio di restituire un CommunicationListener di propria scelta. + Si noti che questa operazione è facoltativa, anche se la maggior parte dei servizi esporrà alcuni endpoint direttamente. 3. Dopo la creazione, il CommunicationListener viene aperto. + I CommunicationListener dispongono di un metodo denominato Open\(\) che viene chiamato a questo punto e restituisce l'indirizzo di ascolto per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente. 4. Dopo l'esecuzione del metodo Open\(\) su CommunicationListener, viene eseguita una chiamata RunAsync\(\) sul servizio principale. + Si noti che RunAsync è facoltativo. Se il servizio effettua direttamente le operazioni solo in risposta alle chiamate dell'utente, non è necessario implementare RunAsync\(\).
+I principali eventi del ciclo di vita di un servizio Reliable Services sono i seguenti: 1. Viene costruito l'oggetto Service, ovvero l'oggetto che deriva da StatelessService o StatefulService. 2. Viene chiamato il metodo CreateCommunicationListener, così da consentire al servizio di restituire un CommunicationListener di propria scelta. + Si noti che questa operazione è facoltativa, anche se la maggior parte dei servizi esporrà alcuni endpoint direttamente. 3. Dopo la creazione, il CommunicationListener viene aperto. + I CommunicationListener dispongono di un metodo denominato Open() che viene chiamato a questo punto e restituisce l'indirizzo di ascolto per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente. 4. Dopo l'esecuzione del metodo Open() su CommunicationListener, viene eseguita una chiamata RunAsync() sul servizio principale. + Si noti che RunAsync è facoltativo. Se il servizio effettua direttamente le operazioni solo in risposta alle chiamate dell'utente, non è necessario implementare RunAsync().
 
-Quando il servizio viene arrestato, ovvero quando viene eliminato o semplicemente spostato da una particolare posizione, l'ordine delle chiamate rimane inalterato: prima viene chiamato Close\(\) sul CommunicationListener, quindi viene eliminato il token di annullamento che era stato passato a RunAsync\(\).
+Quando il servizio viene arrestato, ovvero quando viene eliminato o semplicemente spostato da una particolare posizione, l'ordine delle chiamate rimane inalterato: prima viene chiamato Close() sul CommunicationListener, quindi viene eliminato il token di annullamento che era stato passato a RunAsync().
 
 ## Servizi di esempio
 Per mostrare il funzionamento del modello di programmazione descritto, di seguito sono illustrati due differenti servizi.
@@ -68,7 +68,7 @@ Un servizio senza stato è un servizio al cui interno non viene letteralmente ge
 
 Si prenda come esempio un servizio Calculator non dotato di memoria e che riceve in un'unica soluzione tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo RunAsync\(\) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener, ad esempio [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add\(n1, n2\)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener, ad esempio [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 
@@ -104,11 +104,11 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 
 - L'applicazione deve creare o distruggere dinamicamente dizionari o code affidabili in fase di esecuzione
 
-- È necessario controllare a livello di codice i backup forniti da Service Fabric e ripristinare le funzionalità per lo stato del servizio\*
+- È necessario controllare a livello di codice i backup forniti da Service Fabric e ripristinare le funzionalità per lo stato del servizio*
 
-- L'applicazione deve gestire la cronologia delle modifiche per le unità di stato\*
+- L'applicazione deve gestire la cronologia delle modifiche per le unità di stato*
 
-- Si desidera utilizzare provider di stato di terze parti o svilupparne di personalizzati\*
+- Si desidera utilizzare provider di stato di terze parti o svilupparne di personalizzati*
 
 > [AZURE.NOTE]*La disponibilità di queste funzionalità è legata alla disponibilità generale di SDK
 
@@ -119,4 +119,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 + [Modello di programmazione Reliable Actors](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -13,47 +13,37 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="04/24/2015" 
 	ms.author="kathydav"/>
 
-#Come collegare un disco dati a una macchina virtuale Windows
+# Come collegare un disco dati a una macchina virtuale Windows
 
-È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso. 
+È possibile collegare dischi vuoti e dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
-> [AZURE.NOTE] È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non usare l'unità D per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
-
-- [Procedura: Collegare un disco vuoto](#attachempty)
-- [Procedura: Collegare un disco esistente](#attachexisting)
-- [Procedura: Inizializzare un nuovo disco dati in Windows Server](#initializeinWS)
-
+> [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non usare l'unità D per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
+## <a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
 
-1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
+1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
 
-2. Dopo aver effettuato l'accesso, avviare **Server Manager**, nel riquadro sinistro espandere **Storage**, quindi fare clic su **Disk Management**.
+2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
 
-	![Open Server Manager](./media/storage-windows-attach-disk/ServerManager.png)
+	![Avviare Server Manager](./media/storage-windows-attach-disk/fileandstorageservices.png)
 
-3. Fare clic con il pulsante destro del mouse su **Disk 2**, quindi su **Initialize Disk** e infine su **OK**.
+3. Espandere il menu e selezionare **Dischi**.
 
-	![Initialize the disk](./media/storage-windows-attach-disk/InitializeDisk.png)
+4. Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Disco 0 è il disco del sistema operativo, disco 1 è il disco temporaneo (che non deve essere usato per l'archiviazione dei dati) e disco 2 è il disco dati connesso alla macchina virtuale. Il disco dati ha una capacità di 5 GB, come specificato quando il disco è stato collegato. Fare clic con il pulsante destro del mouse sul disco 2 e scegliere **Inizializza**.
 
-4. Fare clic con il pulsante destro del mouse sull'area di allocazione spazio per il disco 2, scegliere **New Simple Volume**, quindi terminare la procedura guidata con i valori predefiniti.
+5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Quindi, fare di nuovo clic con il pulsante destro del mouse sul disco 2 e scegliere **Nuovo volume**.
 
-	![Initialize the volume](./media/storage-windows-attach-disk/InitializeDiskVolume.png)
+6.	Completare la procedura guidata usando i valori predefiniti. Al termine della procedura guidata, nella sezione **Volumi** verrà visualizzato il nuovo volume. Il disco sarà ora online e pronto per l'archiviazione di dati.
 
-[logon]: ../virtual-machines-log-on-windows-server/
+	![Inizializzazione del volume completata](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-	Il disco sarà ora online e pronto per l'uso con una nuova lettera di unità.
+> [AZURE.NOTE]Le dimensioni della macchina virtuale determinano il numero di dischi che è possibile collegare. Per altri dettagli, vedere [Servizi cloud e dimensioni delle macchine virtuali](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-	![Volume successfully initialized](./media/storage-windows-attach-disk/InitializeSuccess.png)
+[logon]: virtual-machines-log-on-windows-server.md
 
-> [AZURE.NOTE] Il numero massimo di dischi che è possibile collegare a una macchina virtuale varia in base alle dimensioni della macchina virtuale stessa. Ad esempio, è possibile collegare solo 4 dischi allo Standard A2, ma è possibile collegare 32 dischi allo Standard D14 e 64 dischi allo Standard G5. I dettagli sul numero di dischi che è possibile collegare in base alle dimensioni della macchina virtuale sono disponibili [a questo indirizzo](https://msdn.microsoft.com/it-it/library/azure/dn197896.aspx).
-
-
-
-<!--HONumber=42-->
- 
+<!---HONumber=July15_HO2-->

@@ -1,26 +1,25 @@
 <properties 
-    pageTitle="Note sulla versione di StorSimple - Ottobre 2014"
+    pageTitle="Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014"
     description="Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative per la versione di ottobre 2014 di StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Note sulla versione di StorSimple - Ottobre 2014  
+# Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014  
 
 ## Panoramica
 
-Le seguenti note sulla versione identificano i problemi critici non risolti per la versione di ottobre 2014 di Microsoft Azure StorSimple. Contengono inoltre un elenco degli aggiornamenti software e firmware di StorSimple inclusi in questa versione. Si tratta della prima versione dopo quella di disponibilità generale (GA) di Microsoft Azure StorSimple e corrisponde alla versione software 6.3.9600.17312.
+Nelle note sulla versione seguenti sono indicati i problemi critici non risolti relativi all'aggiornamento 0.1 di StorSimple serie 8000 rilasciato a ottobre 2014. Contengono inoltre un elenco degli aggiornamenti software e firmware di StorSimple inclusi in questa versione. Si tratta della prima versione dopo la versione di rilascio di StorSimple serie 8000 resa disponibile a livello generale a luglio 2014 e corrisponde alla versione del software 6.3.9600.17312.
 
 Subito dopo l'installazione del dispositivo, si consiglia di ricercare e applicare eventuali aggiornamenti disponibili. È inoltre possibile attivare gli aggiornamenti automatici per scaricare e installare gli aggiornamenti ad alta priorità non appena vengono rilasciati da Microsoft. Per altre informazioni, vedere la procedura di installazione degli [Aggiornamenti](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).
 
@@ -34,7 +33,7 @@ Prima di distribuire gli aggiornamenti nella soluzione StorSimple, esaminare le 
 
 Prima di effettuare l’aggiornamento del dispositivo StorSimple, assicurarsi che i seguenti prerequisiti siano soddisfatti.
 
-- Assicurarsi che entrambi i controller di dispositivo siano in esecuzione prima di cercare nuovi aggiornamenti. Se uno dei due controller non è in esecuzione, la ricerca ha esito negativo. Per verificare che lo stato dei controller sia integro, passare a **Stato Hardware** nella pagina **Manutenzione**. Se vi sono componenti di tipo **Richiesta attenzione**, contattare il supporto tecnico Microsoft prima di continuare.  
+- Assicurarsi che entrambi i controller di dispositivo siano in esecuzione prima di cercare nuovi aggiornamenti. Se uno dei due controller non è in esecuzione, la ricerca ha esito negativo. Per verificare che lo stato dei controller sia integro, passare a **Stato hardware** nella pagina **Manutenzione**. Se vi sono componenti di tipo **Richiesta attenzione**, contattare il supporto tecnico Microsoft prima di continuare.  
 - Assicurarsi che gli IP fissi, sia per il controller 0 che per il controller 1, siano instradabili e in grado di effettuare la connessione a Internet in quanto vengono utilizzati per fornire gli aggiornamenti al dispositivo. È possibile utilizzare il [cmdlet di connessione di test](https://technet.microsoft.com/library/hh849808.aspx) per eseguire il ping di un indirizzo noto all'esterno alla rete, ad esempio outlook.com, per verificare che il controller disponga della connettività alla rete esterna.  
 - Assicurarsi che le porte 80 e 443 siano disponibili sul dispositivo StorSimple per le comunicazioni in uscita. Per ulteriori informazioni, vedere [Requisiti di rete per il dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).  
 - Se la versione del software del dispositivo è precedente alla 6.3.9600.17312 (aggiornamento di ottobre 2014), disabilitare le porte DATI 2 e DATI 3, se attivate, prima di avviare l'aggiornamento. Se si lasciano le porte DATI 2 e DATI 3 abilitate quando viene applica l'aggiornamento, il controller del dispositivo potrebbe passare alla modalità di ripristino. Considerare che quando si disattivano le interfacce di rete, tutti i volumi associati verranno disconnessi e gli I/O verranno interrotti per la durata dell'aggiornamento.  
@@ -81,9 +80,9 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 7 | Account di archiviazione | L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente. | Sì | Sì |
 | 8 | Failover del dispositivo | I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. | Il failover da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di gestione. | Sì | No |
 | 9 | Installazione | Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | | Sì | No |
-| 10 | Proxy Web | Se la configurazione del proxy Web dispone di HTTPS come protocollo specificato, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo sarà offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. | Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Ulteriori informazioni su come [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sì | No |
-| 11 | Proxy Web | Se il proxy Web viene configurato e abilitato su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | | Sì | No |
-| 12 | Elevata latenza del cloud ed elevato carico di lavoro I/O | Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". | In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere  il problema. | Sì | No |
+| 10 | Proxy Web | Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. | Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Ulteriori informazioni su come [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sì | No |
+| 11 | Proxy Web | Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | | Sì | No |
+| 12 | Elevata latenza del cloud ed elevato carico di lavoro I/O | Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". | In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere il problema. | Sì | No |
 
 ## Aggiornamenti del dispositivo fisico nella versione di ottobre
 
@@ -98,6 +97,6 @@ Questa versione applica anche un aggiornamento del firmware cumulativo che risol
 ## Aggiornamenti del dispositivo virtuale nella versione di ottobre
 
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

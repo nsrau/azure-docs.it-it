@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+	ms.date="05/11/2015" 
     ms.author="tamram"/>
 
 # Come usare l'archiviazione BLOB da C++  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Panoramica
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB.
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB.
 
->[AZURE.NOTE]Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 0.5.0 e successive. La versione consigliata è Storage Client Library 0.5.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
+>[AZURE.NOTE]Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata è Storage Client Library 1.0.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ Per installare la libreria client di Archiviazione di Azure per C++, è possibil
 -	**Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 -	**Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
 
-		Install-Package wastorage -Pre
+		Install-Package wastorage
 
 ## Configurazione dell'applicazione per l'accesso all'archiviazione BLOB  
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:
@@ -73,17 +73,29 @@ Successivamente, ottenere un riferimento alla classe **cloud_blob_client**, in q
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## Procedura: creare un contenitore
-Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. In questo esempio viene creato un contenitore, nel caso in cui non esista già:
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 
 	try 
 	{
-	// Recuperare l’account di archiviazione dalla stringa di connessione. azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
-	
-	// Creare il client BLOB. azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
-	
-	// Recuperare un riferimento a un contenitore. azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
-	
-	// Creare il contenitore se non esiste già. container.create_if_not_exists(); } catch (const std::exception& e) { std::wcout << U("Error: ") << e.what() << std::endl; }
+		// Retrieve storage account from connection string.
+		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+
+		// Create the blob client.
+		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
+
+		// Retrieve a reference to a container.
+		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
+
+		// Create the container if it doesn't already exist.
+		container.create_if_not_exists();
+	}
+	catch (const std::exception& e)
+	{
+		std::wcout << U("Error: ") << e.what() << std::endl;
+	}  
 
 Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera rendere i file all'interno del contenitore disponibili per tutti, è possibile impostare il contenitore come pubblico utilizzando il codice seguente:
 
@@ -128,7 +140,7 @@ Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un conteni
 In alternativa, è possibile utilizzare il metodo **upload_from_file** per caricare un file in un BLOB in blocchi.
 
 ## Procedura: elencare i BLOB in un contenitore
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **list_blobs_segmented** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un oggetto restituito **blob_result_segment**, è necessario chiamare la proprietà **blob_result_segment.blobs** per ottenere un oggetto **cloud_blob** o la proprietà **blob_result_segment.directories** per ottenere un oggetto cloud_blob_directory. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ciascun elemento del contenitore **my-sample-container**:
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **list_blobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un **list_blob_item** restituito, è necessario richiamare il metodo **list_blob_item.as_blob** per ottenere un oggetto **cloud_blob** o il metodo **list_blob.as_directory** per ottenere un oggetto cloud_blob_directory. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ciascun elemento del contenitore **my-sample-container**:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -139,18 +151,19 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
 	// Retrieve a reference to a previously created container.
 	azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-	// Loop over items within the container and output the length and URI.
-	azure::storage::continuation_token token;
-	do
+	// Output URI of each item.
+	azure::storage::list_blob_item_iterator end_of_results;
+	for (auto it = container.list_blobs(); it != end_of_results; ++it)
 	{
-	azure::storage::blob_result_segment result = container.list_blobs_segmented(token); std::vector<azure::storage::cloud_blob> blobs = result.blobs();
-	
-	for (std::vector<azure::storage::cloud_blob>::const_iterator it = blobs.cbegin(); it != blobs.cend(); ++it) { std::wcout << U("Blob: ") << it->uri().primary_uri().to_string() << std::endl; }
-	
-	std::vector<azure::storage::cloud_blob_directory> directories = result.directories();
-	
-	for (std::vector<azure::storage::cloud_blob_directory>::const_iterator it = directories.cbegin(); it != directories.cend(); ++it) { std::wcout << U("Directory: ") << it->uri().primary_uri().to_string() << std::endl; } token = result.continuation_token(); } while (!token.empty());
-
+		if (it->is_blob())
+		{
+			std::wcout << U("Blob: ") << it->as_blob().uri().primary_uri().to_string() << std::endl;
+		}
+		else
+		{
+			std::wcout << U("Directory: ") << it->as_directory().uri().primary_uri().to_string() << std::endl;
+		}
+	}
 
 ## Procedura: scaricare i BLOB
 Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chiamare il metodo **download_to_stream**. Nell'esempio seguente viene utilizzato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto stream che è quindi possibile rendere persistente in un file locale.
@@ -225,6 +238,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

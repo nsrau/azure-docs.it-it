@@ -70,4 +70,4 @@
 
 Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -121,4 +121,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

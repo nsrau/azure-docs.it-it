@@ -67,7 +67,7 @@ PS D:\temp>
 
 ## Registrare il pacchetto applicazione
 
-Quando si registra il pacchetto applicazione, il tipo e la versione dell'applicazione dichiarati nel manifesto di quest'ultima diventano disponibili per l'uso Il sistema leggerà il pacchetto caricato nel passaggio precedente, lo verificherà \(mediante un'operazione equivalente all'esecuzione di **Test-ServiceFabricApplicationPackage** in locale\), ne elaborerà il contenuto e infine copierà il pacchetto elaborato in un percorso di sistema interno.
+Quando si registra il pacchetto applicazione, il tipo e la versione dell'applicazione dichiarati nel manifesto di quest'ultima diventano disponibili per l'uso Il sistema leggerà il pacchetto caricato nel passaggio precedente, lo verificherà (mediante un'operazione equivalente all'esecuzione di **Test-ServiceFabricApplicationPackage** in locale), ne elaborerà il contenuto e infine copierà il pacchetto elaborato in un percorso di sistema interno.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -226,4 +226,4 @@ PS D:\temp>
 [11]: service-fabric-application-upgrade.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

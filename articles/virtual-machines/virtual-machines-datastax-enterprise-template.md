@@ -80,7 +80,7 @@ Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Passaggio 1-b: Scaricare i file di modello tramite l’interfaccia della riga di comando di Azure
+### Passaggio 1-b: Scaricare i file di modello tramite l'interfaccia della riga di comando di Azure
 
 Clonare l’intero repository dei modelli utilizzando un client git di propria scelta, ad esempio:
 
@@ -242,7 +242,7 @@ Inserire un nome per la distribuzione Azure, un nome per il gruppo di risorse, i
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l’uso di più file di parametri con gli ambienti diversi (ad esempio, test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
+Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l'uso di più file di parametri con gli ambienti diversi (ad esempio, test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
 
 Quando si effettua la distribuzione, tenere presente che è necessario creare un nuovo account di Archiviazione di Azure, in modo che il nome fornito come parametro di account di archiviazione sia univoco e soddisfi tutti i requisiti di un account di Archiviazione di Azure (solo lettere minuscole e numeri).
 
@@ -285,11 +285,11 @@ In questa sezione viene fornita una descrizione della struttura del file **azure
 
 ### sezione "parametri"
 
-Nella sezione "parametri" di **azuredeploy.json** vengono specificati i parametri modificabili utilizzati in questo modello. Il file **azuredeploy-parameters.json** citato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
+Nella sezione "parametri" di **azuredeploy.json** vengono specificati i parametri modificabili usati in questo modello. Il file **azuredeploy-parameters.json** citato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
 
 ### sezione "variabili"
 
-La sezione "variabili" Specifica le variabili che possono essere utilizzate in questo modello. Contiene un numero di campi (tipi di dati o frammenti JSON) che verranno impostati su costanti o valori calcolati in fase di esecuzione. Di seguito è riportata la sezione "variabili" per questo modello Datastax:
+La sezione "variabili" Specifica le variabili che possono essere usate in questo modello. Contiene un numero di campi (tipi di dati o frammenti JSON) che verranno impostati su costanti o valori calcolati in fase di esecuzione. Di seguito è riportata la sezione "variabili" per questo modello Datastax:
 
 	"variables": {
 	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-enterprise/",
@@ -382,7 +382,7 @@ La sezione **"resources"** rappresenta la posizione in cui si svolgono la maggio
 
 Da questo primo esempio è chiaro come il file **azuredeploy.json** in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file di modello, ciascuno responsabile di parte delle attività di distribuzione necessarie.
 
-In particolare, i seguenti modelli collegati verranno utilizzati per la distribuzione:
+In particolare, i seguenti modelli collegati verranno usati per la distribuzione:
 
 -	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
 -	**opscenter-resources.json**: consente di distribuire la macchina virtuale OpsCenter e tutte le relative risorse, tra cui un’interfaccia di rete e un indirizzo IP pubblico.
@@ -493,11 +493,12 @@ Acquisendo familiarità con gli altri file inclusi in questa distribuzione sarà
 In pratica, questo approccio suggerisce di:
 
 -	Definire il file del modello di base come un punto centrale di orchestrazione per tutte le attività di distribuzione specifiche, sfruttando il modello di collegamento per richiamare le esecuzioni del sottomodello
--	Creare un modello specifico di file che verranno distribuiti a tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (ad esempio gli account di archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riutilizzata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
+-	Creare un modello specifico di file che verranno distribuiti a tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (ad esempio gli account di archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riusata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
 -	Includere modelli di risorsa facoltativi per requisiti specifici di una determinata risorsa
 -	Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche
--	Per tutte le attività di post-distribuzione (ad esempio, installazione del prodotto, configurazioni e così via) utilizzare estensioni di distribuzione di script e creare script specifici per ogni tecnologia
+-	Per tutte le attività di post-distribuzione (ad esempio, installazione del prodotto, configurazioni e così via) usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -34,12 +34,12 @@ Per completare questa esercitazione, è necessario disporre di Xamarin.Android e
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili]. 
@@ -52,11 +52,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
-1. Aggiungere la proprietà seguente alla classe **TodoActivity**:
+1. Aggiungere la proprietà seguente alla classe **ToDoActivity**:
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. Aggiungere il metodo seguente alla classe **TodoActivity**:
+2. Aggiungere il metodo seguente alla classe **ToDoActivity**:
 
         private async Task Authenticate()
         {
@@ -85,14 +85,17 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -113,7 +116,7 @@ Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le vari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
+Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili.
 
 <!-- Anchors. -->
 [Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
@@ -133,5 +136,6 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

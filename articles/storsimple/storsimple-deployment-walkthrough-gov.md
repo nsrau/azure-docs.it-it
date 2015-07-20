@@ -33,7 +33,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 
 ## Elenco di controllo di pre-installazione
 
-L'elenco di controllo pre-installazione seguente descrive le informazioni che è necessario raccogliere prima di configurare il software sul dispositivo StorSimple. La preparazione di queste informazioni in anticipo consentirà di semplificare il processo di distribuzione del dispositivo StorSimple nell'ambiente.
+L’elenco di controllo pre-installazione seguente descrive le informazioni che è necessario raccogliere prima di configurare il software sul dispositivo StorSimple. La preparazione di queste informazioni in anticipo consentirà di semplificare il processo di distribuzione del dispositivo StorSimple nell'ambiente.
 
 | | Requisiti | Dettagli | Valori |
 |---| --------------------- | ---------------------- | ------------- |
@@ -41,9 +41,9 @@ L'elenco di controllo pre-installazione seguente descrive le informazioni che è
 | 2 | Accesso seriale | Configurazione iniziale del dispositivo | Sì/No |
 | 3 | Indirizzi IP del server DNS | Necessari per connettersi a Microsoft Azure: 2 totali necessari per la disponibilità elevata | |
 | 4 | Indirizzi IP del server NTP | Necessari per sincronizzare l'ora con Azure: 1 necessario, 1 facoltativo | |
-| 5 | Server proxy \(facoltativo\) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
+| 5 | Server proxy (facoltativo) | Indirizzo IP/nome di dominio completo del server proxy, porta da utilizzare | |
 | 6 | Account di archiviazione di Azure | Credenziali di accesso quali nome dell'account e chiave di accesso per ogni account di archiviazione | |
-| 7 | Chiave di crittografia di archiviazione cloud \(consigliata\) | Per ogni contenitore di volumi | |
+| 7 | Chiave di crittografia di archiviazione cloud (consigliata) | Per ogni contenitore di volumi | |
 | 8 | Nome qualificato iSCSI dell'host | Per ogni host | |
 
 ## Prerequisiti di distribuzione
@@ -70,7 +70,7 @@ Prima di configurare il dispositivo, verificare che:
 
 - Il dispositivo è stato montato su un rack come descritto in [Montare su rack il dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757749.aspx) o [Montare su rack il dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757745.aspx).
 
-- Il dispositivo è completamente cablato per l'alimentazione, la rete e l'accesso seriale come descritto in [Cablare il dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o [Cablare il dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+- Il dispositivo è completamente cablato per l’alimentazione, la rete e l’accesso seriale come descritto in [Cablare il dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o [Cablare il dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
 
 - Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).
 
@@ -186,7 +186,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 
 ## Ottenere il nome qualificato iSCSI di un host di Windows Server
 
-Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI \(IQN\) di un host di Windows che esegue Windows Server® 2012.
+Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un host di Windows che esegue Windows Server® 2012.
 
 [AZURE.INCLUDE [Creazione di un backup manuale](../../includes/storsimple-get-iqn.md)]
 
@@ -198,7 +198,7 @@ Eseguire i passaggi seguenti nel portale per enti pubblici per creare un backup 
 
 ## Configurare MPIO
 
-Multipath I/O \(MPIO\) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
+Multipath I/O (MPIO) è una funzionalità facoltativa e non è installata in Windows Server per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager.
 
 > [AZURE.NOTE]La funzionalità MPIO non è supportata in un dispositivo virtuale StorSimple.
 
@@ -211,4 +211,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

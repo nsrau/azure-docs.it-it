@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Note sulla versione dell'SDK per app di Windows universali" 
-	description="Azure Mobile Engagement - Note sulla versione dell'SDK per app di Windows universali"
+	pageTitle="Note sulla versione di Windows Universal Apps SDK" 
+	description="Azure Mobile Engagement - Note sulla versione di Windows Universal Apps SDK"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,7 +16,11 @@
 	ms.date="04/02/2015" 
 	ms.author="piyushjo" />
 
-#Note sulla versione dell'SDK per app di Windows universali
+#Note sulla versione di Windows Universal Apps SDK
+
+##3.1.0 (21/05/2015)
+
+-   L'ID del dispositivo di Mobile Engagement è ora basato su un GUID generato in fase di installazione
 
 ##3.0.1 (29/04/2015)
 
@@ -35,5 +39,6 @@
 -   La configurazione di appId/sdkKey viene sostituita da una configurazione della stringa di connessione.
 -   Sono stati introdotti miglioramenti per la sicurezza.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

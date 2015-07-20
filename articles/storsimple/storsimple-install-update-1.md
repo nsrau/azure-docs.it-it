@@ -19,7 +19,7 @@
 
 ## Panoramica
 
-In questa esercitazione viene illustrato come installare l'aggiornamento 1 in un dispositivo StorSimple in cui è in esecuzione una versione del software prima dell'aggiornamento 1. Il dispositivo potrebbe essere in esecuzione la versione \(GA\) disponibile in genere, aggiornamento 0,1, aggiornamento 0,2 o 0,3 di aggiornamento software.
+In questa esercitazione viene illustrato come installare l'aggiornamento 1 in un dispositivo StorSimple in cui è in esecuzione una versione del software prima dell'aggiornamento 1. Il dispositivo potrebbe essere in esecuzione la versione (GA) disponibile in genere, aggiornamento 0,1, aggiornamento 0,2 o 0,3 di aggiornamento software.
 
 Durante l'installazione, se nel dispositivo è in esecuzione una versione precedente all'aggiornamento 1, i controlli vengono eseguiti sul dispositivo. Questi controlli determinano l'integrità del dispositivo in termini di connettività di stato e di rete hardware.
 
@@ -55,7 +55,7 @@ Verrà richiesto di eseguire una pre-verifica di manuale per assicurarsi che:
 
 - Prima di aggiornare il dispositivo, è consigliabile eseguire uno snapshot dei dati del dispositivo nel cloud.
 
-Dopo aver verificato e riconosciuto i controlli manuali \(sopra\), verrà eseguita una serie di controlli di pre-aggiornamento automatici. Sono state illustrate le seguenti operazioni:
+Dopo aver verificato e riconosciuto i controlli manuali (sopra), verrà eseguita una serie di controlli di pre-aggiornamento automatici. Sono state illustrate le seguenti operazioni:
 
 - **Controlli di integrità del controller** per verificare che entrambi i controller dei dispositivi siano integri e online.
 
@@ -100,4 +100,4 @@ Se si è verificato è presente la connettività e continuare a visualizzare que
 
 Ulteriori informazioni su [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

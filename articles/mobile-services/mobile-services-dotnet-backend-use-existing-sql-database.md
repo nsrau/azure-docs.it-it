@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili
 
 Il back-end .NET per Servizi mobili consente di sfruttare le risorse esistenti nella compilazione di un servizio mobile. Uno scenario particolarmente interessante è l'uso di un database SQL esistente (locale o nel cloud), che potrebbe essere già usato da altre applicazioni, per rendere i dati esistenti disponibili per i client mobili. In questo caso è indispensabile che il modello di database (o *schema*) rimanga invariato, per permettere alle soluzioni esistenti di continuare a funzionare.
-
-Questa esercitazione include le sezioni seguenti:
-
-1. [Esplorazione del modello di database esistente](#ExistingModel)
-2. [Creazione di oggetti DTO per il servizio mobile](#DTOs)
-3. [Definizione di un mapping tra gli oggetti DTO e il modello](#Mapping)
-4. [Implementazione della logica specifica del dominio](#DomainManager)
-5. [Implementazione di un elemento TableController con gli oggetti DTO](#Controller)
 
 <a name="ExistingModel"></a>
 ## Esplorazione del modello di database esistente
@@ -158,7 +150,7 @@ Il modello di dati da usare con il servizio mobile potrebbe essere complesso. Po
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Aggiungere quindi queste altre proprietà a ogni classe:
+4. Aggiungere quindi queste proprietà a ogni classe:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@ Il modello di dati da usare con il servizio mobile potrebbe essere complesso. Po
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Quindi nel corpo di **ExistingContext** eseguire l'override di [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
+5. Nel corpo di **ExistingContext** eseguire l'override di [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
     }
 
-Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio.
-<!--HONumber=54--> 
+Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+
+<!---HONumber=July15_HO2-->

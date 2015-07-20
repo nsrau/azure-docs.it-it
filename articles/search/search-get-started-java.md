@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione a Ricerca di Azure in Java" 
-	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando Java come linguaggio di programmazione." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Introduzione a Ricerca di Azure in Java"
+	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando Java come linguaggio di programmazione."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/30/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
 #Introduzione a Ricerca di Azure in Java#
@@ -46,7 +46,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 - Search.jsp: fornisce l'interfaccia utente
 - SearchServlet.java: fornisce i metodi (simile a un controller MVC)
-- SearchServiceClient.java: gestisce le richieste HTTP 
+- SearchServiceClient.java: gestisce le richieste HTTP
 - SearchServiceHelper.java: una classe di supporto che fornisce metodi statici
 - Document.Java: fornisce il modello di dati
 - config.properties: imposta l'URL del servizio di ricerca e la chiave dell'api
@@ -58,24 +58,24 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
- 
+
      ![][1]
 
 3. Configurare il nome del servizio, il livello di prezzo, il gruppo di risorse, la sottoscrizione e la posizione. Queste impostazioni sono necessarie e non possono essere modificate dopo il provisioning del servizio.
 
      ![][2]
 
-	- Il **nome del servizio** deve essere univoco, in lettere minuscole, lungo massimo 15 caratteri e senza spazi. Questo nome diventa parte dell'endpoint del servizio Ricerca di Azure. Vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) per ulteriori informazioni sulle convenzioni di denominazione. 
-	
+	- Il **nome del servizio** deve essere univoco, in lettere minuscole, lungo massimo 15 caratteri e senza spazi. Questo nome diventa parte dell'endpoint del servizio Ricerca di Azure. Vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) per ulteriori informazioni sulle convenzioni di denominazione.
+
 	- Il **livello di prezzo** determina capacità e fatturazione. Entrambi i livelli offrono le stesse funzionalità, ma a livelli diversi di risorse.
-	
+
 		- Il livello **gratuito** viene eseguito in cluster condivisi con altri sottoscrittori. Offre capacità sufficienti per provare le esercitazioni e scrivere codice per i modelli di prova, ma non è consigliato per le applicazioni in ambienti di produzione. La distribuzione di un servizio gratuito in genere richiede solo pochi minuti.
 		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene eseguito il provisioning di un servizio standard con una replica e una partizione, ma è possibile regolare la capacità una volta creato il servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
-	
+
 	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, Siti Web di Azure, il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
-	
+
 	- L’opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
-	
+
 	- La **posizione** è l'area geografica del data center. Attualmente, tutte le risorse devono essere eseguite nello stesso data center. La distribuzione di risorse tra più data center non è supportata.
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
@@ -87,7 +87,7 @@ Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizz
 
 Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL e `api-key`. Per le connessioni al servizio Ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
-1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio. 
+1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
 
 2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -121,8 +121,8 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 ## Configurare l'URL del servizio e la chiave Api
 
-1. In **Project Explorer**, fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'api. 
- 
+1. In **Project Explorer**, fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'api.
+
 2. Fare riferimento ai passaggi descritti in precedenza in questo articolo, in cui sono forniti l'URL del servizio e la chiave api nel [portale Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
 
 3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL http://servicename.search.windows.net) sostituisce "service name" nello stesso file.
@@ -148,13 +148,13 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\\Programmi\\Microsoft Files\\Apache Software Foundation\\Tomcat *versione*.
 
 6. Fare clic su **Finish**.
- 
+
 7. Selezionare **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
 
 8. In **Add JRE**, selezionare **Standard VM**.
 
 10. Fare clic su **Avanti**.
- 
+
 11. Nella definizione dell'ambiente JRE, nella home di JRE, fare clic su **Directory**.
 
 12. Passare a **Program Files** | **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
@@ -170,13 +170,13 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 La configurazione del dispositivo è stata completata. A questo punto, compilare ed eseguire il progetto.
 
 ## Compilare il progetto
- 
+
 1. In Project Explorer, fare clic con il pulsante destro del mouse sul progetto e scegliere **Run As** | **Maven build...** per configurare il progetto.
 
     ![][10]
 
 8. In Edit Configuration, in Goals, digitare "clean install", quindi fare clic su **Run**.
- 
+
 I messaggi di stato vengono visualizzati nella finestra della console. Un messaggio di compilazione completata indica che il progetto è stato compilato senza errori.
 
 ## Esecuzione dell'app
@@ -213,12 +213,12 @@ L’immissione di un termine di ricerca fornirà al motore di ricerca un element
 
 Questa è la prima esercitazione di Ricerca di Azure basata su Java e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](../search-pagination/) o implementando l’[esplorazione basata su facet](../search-faceted-navigation/). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](search-pagination.md) o implementando l’[esplorazione basata su facet](../search-faceted-navigation/). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](https://msdn.microsoft.com/library/azure/dn798933.aspx) per accedere a ulteriori informazioni.
 
 <!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-11.PNG
+[1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-21.PNG
 [3]: ./media/search-get-started-java/create-search-portal-31.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
@@ -230,5 +230,6 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

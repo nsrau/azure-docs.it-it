@@ -16,7 +16,7 @@
 					// Change 'MobileService' to the name of your MobileServiceClient instance.
 					// Sign-in using Facebook authentication.
                     user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
                     message = 
                         string.Format("You are now signed in - {0}", user.UserId);
                 }
@@ -90,4 +90,4 @@
 
 9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

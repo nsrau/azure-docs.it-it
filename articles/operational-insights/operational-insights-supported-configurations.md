@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Configurazioni supportate per Operational Insights"
    description="Informazioni sulle configurazioni necessarie per Operational Insights"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Configurazioni supportate per Operational Insights
@@ -38,14 +39,8 @@ L'uso di Operational Insights come servizio collegato prevede i prerequisiti seg
 
 Per le istruzioni sull'installazione e la configurazione, vedere [Visualizzazione degli avvisi di Operational Insights](http://go.microsoft.com/fwlink/?LinkID=293793).
 
-Per visualizzare gli avvisi di Operational Insights relativi a SharePoint Server 2010, Lync Server 2013, Lync Server 2010 o System Center 2012 SP1 - Virtual Machine Manager è necessario configurare un account RunAs per questi carichi di lavoro. Vedere le informazioni seguenti:
+Per visualizzare gli avvisi di Operational Insights relativi a SharePoint Server 2010, Lync Server 2013, Lync Server 2010 o System Center 2012 SP1 - Virtual Machine Manager è necessario configurare un account RunAs per questi carichi di lavoro. Per informazioni sull’impostazione degli account RunAs vedere [Considerazioni su Operations Manager con Operational Insights](operational-insights-operations-manager.md).
 
-
-- [Impostare l'account RunAs per SharePoint](../operational-insights-run-as.md)
-
-- [Impostare l'account RunAs per Lync Server](../operational-insights-run-as.md)
-
-- [Impostare l'account RunAs per Virtual Machine Manager (VMM)](../operational-insights-run-as.md)
 
 ### Sistemi operativi di Operations Manager
 
@@ -105,5 +100,4 @@ Per SQL Server sono supportate per l'analisi le edizioni seguenti a 32 bit e a 6
 
 È inoltre supportata l'edizione a 32 bit di SQL Server eseguita nell'implementazione WOW64.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

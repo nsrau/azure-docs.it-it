@@ -51,4 +51,4 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

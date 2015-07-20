@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -16,19 +16,19 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-#Come integrare il servizio Reach di Engagement in Android
+#Come integrare il servizio di copertura di Engagement in Android
 
 > [AZURE.IMPORTANT]Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 
 ##Integrazione standard
 
-L'SDK di Reach richiede la **libreria di supporto per Android (v4)**.
+Reach SDK richiede la **libreria di supporto per Android (v4)**.
 
 Il modo più rapido per aggiungere la libreria al progetto in **Eclipse** consiste nel `Right click on your project -> Android Tools -> Add Support Library...`.
 
 Se non si usa Eclipse, è possibile leggere le istruzioni disponibili [qui].
 
-Copiare i file di risorse del servizio Reach dall'SDK al progetto:
+Copiare i file di risorse del servizio di copertura dall'SDK al progetto:
 
 -   Copiare i file dalla cartella `res/layout` disponibile nell'SDK alla cartella `res/layout` dell'applicazione.
 -   Copiare i file dalla cartella `res/drawable` disponibile nell'SDK alla cartella `res/drawable` dell'applicazione.
@@ -57,16 +57,25 @@ Modificare il file `AndroidManifest.xml`:
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -85,16 +94,29 @@ Modificare il file `AndroidManifest.xml`:
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
--   Nella campagna Reach è anche possibile specificare se il dispositivo deve emettere un segnale e/o una vibrazione in caso di notifiche di sistema. A questo scopo, è necessario assicurarsi di avere dichiarato l'autorizzazione seguente dopo il tag `</application>`:
+-   Nella campagna di copertura è anche possibile specificare se il dispositivo deve emettere un segnale e/o una vibrazione in caso di notifiche di sistema. A questo scopo, è necessario assicurarsi di avere dichiarato l'autorizzazione seguente dopo il tag `</application>`:
 
 			<uses-permission android:name="android.permission.VIBRATE" />
 
-	Senza questa autorizzazione, Android impedisce la visualizzazione delle notifiche di sistema se è stata selezionata l'opzione relativa al segnale o alla vibrazione nel gestore della campagna Reach.
+	Senza questa autorizzazione, Android impedisce la visualizzazione delle notifiche di sistema se è stata selezionata l'opzione relativa al segnale o alla vibrazione nel responsabile della campagna di copertura.
 
 -   Se si compila l'applicazione usando **ProGuard** e vengono visualizzati errori relativi alla libreria di supporto per Android o al file con estensione jar di Engagement, aggiungere le righe seguenti al file `proguard.cfg`:
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## Push nativo
+
+Dopo la configurazione del modulo di copertura, sarà necessario configurare il push nativo in modo da permettere la ricezione delle campagne sul dispositivo.
+
+Sono supportati due servizi su Android:
+
+  - Dispositivi Google Play: usare [Google Cloud Messaging] seguendo le istruzioni dell'articolo [Come integrare GCM con Engagement](mobile-engagement-android-gcm-integrate.md).
+  - Dispositivi Amazon: usare [Amazon Device Messaging] seguendo le istruzioni dell'articolo [Come integrare ADM con Engagement](mobile-engagement-android-adm-integrate.md).
+
+Per fare riferimento sia ai dispositivi Amazon che ai dispositivi Google Play, è possibile includere tutti gli elementi in un file AndroidManifest.xml/APK per lo sviluppo. È tuttavia possibile che l'applicazione venga rifiutata da Amazon, se viene rilevato il codice GCM.
+
+In tale caso, usare più file APK.
 
 **L'applicazione è ora pronta per ricevere e visualizzare campagne Reach.**
 
@@ -102,7 +124,7 @@ Modificare il file `AndroidManifest.xml`:
 
 ### Integrazione
 
-Se si vuole che l'applicazione sia in grado di ricevere push di dati del servizio Reach, è necessario creare una classe secondaria di `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` e includere un riferimento a tale classe nel file `AndroidManifest.xml`, tra i tag `<application>` e/o `</application>`:
+Se si vuole che l'applicazione sia in grado di ricevere push di dati del servizio di copertura, è necessario creare una classe secondaria di `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` e includere un riferimento a tale classe nel file `AndroidManifest.xml`, tra i tag `<application>` e/o `</application>`:
 
 			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
 			  android:exported="false">
@@ -144,27 +166,14 @@ Le linee guida seguenti permettono di gestire correttamente il parametro restitu
 -   Se riconosce il push di dati ma lo rimuove per qualsiasi motivo, uno dei ricevitori di trasmissioni deve restituire `false` nel callback. Se i dati ricevuti non sono validi, ad esempio, verrà restituito `false`.
 -   Se un ricevitore di trasmissioni restituisce `true` mentre un altro restituisce `false` per lo stesso push di dati, il comportamento non è definito. È necessario evitare questa situazione.
 
-Il tipo restituito viene usato solo per le statistiche del servizio Reach:
+Il tipo restituito viene usato solo per le statistiche del servizio di copertura:
 
 -   `Replied` viene incrementato di uno se i ricevitori di trasmissioni hanno restituito `true` o `false`.
 -   `Actioned` viene incrementato solo se uno dei ricevitori di trasmissioni ha restituito `true`.
 
-##Come ricevere campagne in qualsiasi momento
-
-Quando si esegue la procedura di integrazione descritta sopra, il servizio Engagement si connette ai server di Engagement solo quando è necessario creare report relativi alle statistiche (con un timeout di 1 minuto). Di conseguenza, **le campagne Reach possono essere ricevute solo durante una sessione utente**. È comunque possibile configurare Engagement in modo da **permettere all'applicazione di ricevere campagne Reach in qualsiasi momento**, anche quando il dispositivo è inattivo. Ovviamente, il dispositivo deve avere una connessione di rete attiva e i messaggi vengono posticipati quando il dispositivo è offline.
-
-Per usufruire dei vantaggi del push di dati in qualsiasi momento, è necessario usare uno o più servizi per il push nativo, in base ai dispositivi di destinazione:
-
-  - Dispositivi Google Play: usare [Google Cloud Messaging] seguendo le istruzioni dell'articolo [Come integrare GCM con Engagement](mobile-engagement-android-gcm-integrate.md).
-  - Dispositivi Amazon: usare [Amazon Device Messaging] seguendo le istruzioni dell'articolo [Come integrare ADM con Engagement](mobile-engagement-android-adm-integrate.md).
-
-Per fare riferimento sia ai dispositivi Amazon che ai dispositivi Google Play, è possibile includere tutti gli elementi in un file AndroidManifest.xml/APK per lo sviluppo. È tuttavia possibile che l'applicazione venga rifiutata da Amazon, se viene rilevato il codice GCM.
-
-In tale caso, usare più file APK.
-
 ##Come personalizzare le campagne
 
-Per personalizzare le campagne, è possibile modificare i layout disponibili nell'SDK di Reach.
+Per personalizzare le campagne, è possibile modificare i layout disponibili in Reach SDK.
 
 È consigliabile mantenere tutti gli identificatori usati nei layout e i tipi di visualizzazioni che usano un identificatore, in particolare per le visualizzazioni di testo e le visualizzazioni di immagini. Alcune visualizzazioni vengono semplicemente usate per nascondere o mostrare alcune aree, in modo da consentirne la modifica del tipo. Se si vuole modificare il tipo di una visualizzazione nei layout forniti, verificare il codice sorgente.
 
@@ -220,9 +229,9 @@ Le sovrimpressioni sono ideali per un'integrazione rapida, ma possono risultare 
 
 In questo esempio è stato aggiunto un contenitore padre, poiché il layout originale usa una visualizzazione elenco come elemento di primo livello. È stato incluso anche un elemento `android:layout_weight="1"` per permettere l'aggiunta di una visualizzazione sotto una visualizzazione elenco configurata con `android:layout_height="fill_parent"`.
 
-L'SDK del servizio Reach di Engagement rileva automaticamente che il layout per le notifiche è incluso nell'attività e non aggiunge alcuna sovrimpressione per questa attività.
+Engagement Reach SDK rileva automaticamente che il layout per le notifiche è incluso nell'attività e non aggiunge alcuna sovrimpressione per questa attività.
 
-> [AZURE.TIP]Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio Reach impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
+> [AZURE.TIP]Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio di copertura impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
 
 ##### Disabilitazione delle notifiche dell'applicazione per le singole attività
 
@@ -234,11 +243,11 @@ Se non si vuole che la sovrimpressione venga aggiunta all'attività e se non si 
 
 #### <a name="categories"></a> Categorie
 
-Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna Reach, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
+Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna di copertura, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
 
-> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'articolo "Come integrare Engagement in Android".
+> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'argomento "Come integrare Engagement in Android".
 
 L'esempio seguente presuppone che l'avviso precedente sia stato rispettato e che sia stata usata una classe secondaria di `EngagementApplication`:
 
@@ -518,7 +527,7 @@ Ad esempio, per creare una categoria per un annuncio di testo, è possibile este
 
 Si noti che la categoria nel filtro Intent viene usata per la differenziazione rispetto all'attività predefinita dell'annuncio.
 
-L'SDK di Reach usa il sistema basato su Intent per risolvere l'attività corretta per una categoria specifica ed esegue il fallback alla categoria predefinita in caso di risoluzione non riuscita.
+Reach SDK usa il sistema basato su Intent per risolvere l'attività corretta per una categoria specifica ed esegue il fallback alla categoria predefinita in caso di risoluzione non riuscita.
 
 In tal caso è necessario implementare `MyCustomTextAnnouncementActivity`. Se si vuole solo modificare il layout, mantenendo gli stessi identificatori visualizzazione, è sufficiente definire la classe come illustrato nell'esempio seguente:
 
@@ -556,11 +565,11 @@ Per i sondaggi è possibile estendere `EngagementPollActivity` e dichiarare l'at
 			
 ##### Implementazione da zero
 
-È possibile implementare le categorie per le attività di annuncio e sondaggio senza estendere una delle classi `Engagement*Activity` fornite dall'SDK di Reach. Ciò risulta utile ad esempio se si vuole definire un layout che non usa la stessa visualizzazione dei layout standard.
+È possibile implementare le categorie per le attività di annuncio e sondaggio senza estendere una delle classi `Engagement*Activity` fornite da Reach SDK. Ciò risulta utile ad esempio se si vuole definire un layout che non usa la stessa visualizzazione dei layout standard.
 
 Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminare il codice sorgente dell'implementazione standard.
 
-Occorre tenere presente che il servizio Reach avvia l'attività con uno scopo specifico, corrispondente al filtro Intent, oltre a un parametro aggiuntivo che corrisponde all'identificatore del contenuto.
+Occorre tenere presente che il servizio di copertura avvia l'attività con uno scopo specifico, corrispondente al filtro Intent, oltre a un parametro aggiuntivo che corrisponde all'identificatore del contenuto.
 
 Per recuperare il contenuto che include i campi specificati durante la creazione della campagna nel sito Web, è possibile eseguire le operazioni seguenti:
 
@@ -636,5 +645,6 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [qui]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

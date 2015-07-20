@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # Come usare l'archiviazione delle code da C++  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## Panoramica
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
 
->[AZURE.NOTE]Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 0.5.0 e successive. La versione consigliata è Storage Client Library 0.5.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
+>[AZURE.NOTE]Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata è Storage Client Library 1.0.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ Per installare la libreria client di Archiviazione di Azure per C++, è possibil
 -	**Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 -	**Windows:** in Visual Studio, fare clic su **Strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
 
-			Install-Package wastorage -Pre  
+		Install-Package wastorage 
  
 ## Configurazione dell'applicazione per l’accesso ad Archiviazione di accodamento
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:
@@ -58,7 +58,7 @@ Per eseguire il test dell’applicazione sul proprio computer Windows locale, è
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Start** o premere il tasto **Windows**. Iniziare a digitare **Emulatore di archiviazione di Azure** e selezionare **Emulatore di archiviazione di Microsoft Azure** dall’elenco delle applicazioni.
+Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Start** o premere il tasto **Windows**. Iniziare a digitare **Emulatore di archiviazione di Azure** e selezionare **Emulatore di archiviazione di Microsoft Azure** dall'elenco delle applicazioni.
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
@@ -83,7 +83,7 @@ Utilizzare l’oggetto **cloud_queue_client** per ottenere un riferimento alla c
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
-		queue.create_if_not_exists();
+ 	queue.create_if_not_exists();  
 
 ## Procedura: inserire un messaggio in una coda
 Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **cloud_queue_message**. Quindi, chiamare il metodo **add_message**. È possibile creare un oggetto **cloud_queue_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
@@ -119,7 +119,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## Procedura: cambiare il contenuto di un messaggio accodato
@@ -142,6 +142,8 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Procedura: rimuovere il messaggio successivo dalla coda
@@ -161,8 +163,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## Procedura: usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **get_messages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **get_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
@@ -184,12 +185,10 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## Procedura: recuperare la lunghezza delle code
@@ -237,6 +236,6 @@ A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodament
 -	[Riferimento MSDN ad Archiviazione di Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

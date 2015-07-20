@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Pubblicare un servizio Web di Machine Learning | Azure" 
+	pageTitle="Pubblicare un servizio Web di Machine Learning | Microsoft Azure" 
 	description="Come convertire un esperimento di training in un esperimento di assegnazione dei punteggi, prepararlo per la pubblicazione e pubblicarlo come servizio Web di Azure Machine Learning." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #Pubblicare un servizio Web di Azure Machine Learning
@@ -44,7 +44,7 @@ Dopo aver pubblicato il servizio Web, è possibile:
 
 ##Creare un esperimento di training
 
-Per il training di un modello di analisi predittiva, usare Azure Machine Learning Studio per creare un esperimento di training, in cui vengono inclusi diversi moduli per caricare i dati di training, prepararli, applicare gli algoritmi di apprendimento e valutare i risultati. È possibile eseguire l'iterazione dell'esperimento e provare diversi algoritmi di apprendimento per confrontare e valutare i risultati.
+Per il training di un modello di analisi predittiva, usare Azure Machine Learning Studio per creare un esperimento di training, in cui vengono inclusi diversi moduli per caricare i dati di training, prepararli, applicare gli algoritmi di apprendimento e valutare i risultati. È possibile eseguire l'iterazione dell'esperimento e provare diversi algoritmi di apprendimento automatico per confrontare e valutare i risultati.
 
 Il processo di creazione e gestione degli esperimenti di training è trattato in modo più approfondito altrove. Vedere gli articoli seguenti per altre informazioni ed esempi:
 
@@ -93,8 +93,7 @@ Per altre informazioni su come accedere a un servizio Web di Machine Learning, v
 
 Nel portale di gestione di Azure è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della pubblicazione.
 
-Per altre informazioni, vedere [Gestire un'area di lavoro di Machine Learning di Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -107,5 +106,6 @@ Per aggiornare il servizio Web, aprire l'esperimento di assegnazione dei puntegg
 
 > [AZURE.NOTE]Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
 
+Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,47 +1,16 @@
 
 # Gestione di database SQL di Azure tramite SQL Server Management Studio 
 
-Per amministrare le sottoscrizioni del database SQL nonché creare e gestire server e database logici associati, è possibile utilizzare il portale di gestione database SQL di Azure oppure l'applicazione client di SQL Server Management Studio (SSMS). Le seguenti linee guida illustrano come usare Management Studio per gestire i database e i server logici di un database SQL.
+È possibile utilizzare SQL Server Management Studio (SSMS) per amministrare i server logici e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server logico e di un database creati nel database SQL di Azure. Per iniziare, leggere [Creare il primo database SQL di Azure](sql-database-get-started.md), quindi tornare e proseguire.
 
->[AZURE.NOTE]Per gestire il database SQL di Azure, incluso l'ultimo aggiornamento del database SQL V12, è necessario usare SQL Server 2014 Management Studio e installare gli aggiornamenti più recenti (CU5 o versione successiva). È possibile usare anche SQL Server 2012 o la versione SQL Server 2008 R2 di SSMS. Le versioni precedenti non sono supportate.
+Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS. Per ottenerla, visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/it-it/library/mt238290.aspx).
 
-Questo argomento include le seguenti procedure:
 
--   [Passaggio 1: ottenere SQL Server 2014 Management Studio][]
--   [Passaggio 2: connettersi al database SQL][]
--   [Passaggio 3: creare e gestire i database][]
--   [Passaggio 4: creare e gestire gli account di accesso][]
--   [Passaggio 5: monitorare il database SQL mediante le viste a gestione dinamica][]
-
-<h2><a id="Step1" name="Step1"> </a>Passaggio 1: ottenere SQL Server 2014 Management Studio</h2>
-
-Management Studio è un ambiente integrato per la gestione dei database SQL. Per la gestione dei database in Azure, è possibile usare l'applicazione Management Studio installata con SQL Server oppure scaricare la versione gratuita di SQL Server 2014 Management Studio (SSMS). Nei seguenti passaggi viene descritto come eseguire l'installazione di SSMS.
-
-1.  Nella pagina [Microsoft SQL Server 2014 Express][] fare clic su **Download** per aprire la finestra di selezione file.
-
-2.  Selezionare **MgmtStudio 32BIT\SQLManagementStudio_x86_ENU.exe** se si esegue un sistema operativo a 32 bit oppure **MgmtStudio 64BIT\SQLManagementStudio_x64_ENU.exe** per un sistema operativo a 64 bit.
-
-3.  Fare clic su **Avanti** e, quando richiesto, eseguire il programma di installazione
-
-2.  Fare clic su **New SQL Server stand-alone installation or add features to an existing installation**, quindi su **OK**.
-
-3.  Accettare le condizioni di licenza e fare clic su **Avanti**.
-
-4. Fare clic su **Install** per installare i file richiesti dal programma di installazione di SQL Server.
-
-5.  Nella schermata **Selezione funzionalità** sono preselezionate le opzioni **Strumenti di gestione - Di base** e **Strumenti di gestione - Completa**. Fare clic su **Avanti**.
-
-6.  Nella schermata **Error Reporting**, se lo si desidera, è possibile scegliere di inviare le segnalazioni degli errori a Microsoft.
-
-7.  Al termine dell'installazione verrà visualizzata la pagina di completamento. Fare clic su **Close**.
-
-8. Installare gli aggiornamenti più recenti dalla pagina [Pacchetto di aggiornamento cumulativo 5 per SQL Server Management Studio 2014][].
-
-<h2><a id="Step2" name="Step2"> </a>Passaggio 2: connettersi al database SQL</h2>
+## Connessione a un server logico del database SQL
 
 Per la connessione al database SQL è necessario conoscere il nome del server in Azure. Potrebbe essere necessario accedere al portale per ottenere questa informazione.
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2.  Nel riquadro sinistro fare clic su **Database SQL**.
 
@@ -77,15 +46,15 @@ Per la connessione al database SQL è necessario conoscere il nome del server in
 
 8.  Fare clic su **Connetti** per stabilire la connessione.
 
-SQL Server 2014 SSMS con gli aggiornamenti più recenti offre ampio supporto per attività come la creazione e la modifica dei database di Azure SQL. Inoltre, è possibile usare anche le istruzioni Transact-SQL al fine di completare tali attività. Nei passaggi successivi vengono forniti esempi di tali istruzioni. Per altre informazioni sull'uso di Transact-SQL con database SQL, compresi i dettagli sui comandi supportati, vedere [Riferimento a Transact-SQL (database SQL)][].
+SQL Server 2014 SSMS con gli aggiornamenti più recenti offre ampio supporto per attività come la creazione e la modifica dei database di Azure SQL. Inoltre, è possibile usare anche le istruzioni Transact-SQL al fine di completare tali attività. Nei passaggi successivi vengono forniti esempi di tali istruzioni. Per altre informazioni sull'uso di Transact-SQL con database SQL, compresi i dettagli sui comandi supportati, vedere [Riferimento a Transact-SQL (database SQL)](http://msdn.microsoft.com/library/bb510741.aspx).
 
-<h2><a id="Step3" name="Step3"> </a>Passaggio 3: creare e gestire i database</h2>
+## Creazione e gestione dei database SQL di Azure
 
 Durante la connessione al database **master**, è possibile creare nuovi database nel server e modificare o eliminare database esistenti. Nei seguenti passaggi viene descritto come completare diverse attività comuni di gestione del database tramite Management Studio. Per eseguire queste attività, assicurarsi di essere connessi al database **master** con l'account di accesso dell'entità di livello server creato al momento della configurazione del server.
 
 Per aprire una finestra Query in Management Studio, aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master**, e quindi fare clic su **Nuova query**.
 
--   Per creare un nuovo database, utilizzare l'istruzione **CREATE DATABASE**. Per altre informazioni, vedere [CREATE DATABASE (database SQL)][]. La seguente istruzione consente di creare un nuovo database denominato **myTestDB** specificando che si tratta di un database Standard S0 Edition con una dimensione massima di 250 GB.
+-   Per creare un nuovo database, utilizzare l'istruzione **CREATE DATABASE**. Per altre informazioni, vedere [CREATE DATABASE (database SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La seguente istruzione consente di creare un nuovo database denominato **myTestDB** specificando che si tratta di un database Standard S0 Edition con una dimensione massima di 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
@@ -93,13 +62,13 @@ Per aprire una finestra Query in Management Studio, aprire la cartella Database,
 
 Fare clic su **Execute** per eseguire la query.
 
--   Usare l'istruzione **ALTER DATABASE** per modificare un database esistente, ad esempio se si desidera modificarne il nome e l'edizione. Per altre informazioni, vedere [ALTER DATABASE (database SQL)][]. La seguente istruzione consente di modificare il database creato nel passaggio precedente per modificare l’edizione in Standard S1.
+-   Usare l'istruzione **ALTER DATABASE** per modificare un database esistente, ad esempio se si desidera modificarne il nome e l'edizione. Per altre informazioni, vedere [ALTER DATABASE (database SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La seguente istruzione consente di modificare il database creato nel passaggio precedente per modificare l’edizione in Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
         (SERVICE_OBJECTIVE='S1');
 
--   Per eliminare un database esistente, utilizzare l'istruzione **DROP DATABASE**. Per altre informazioni, vedere [DROP DATABASE (database SQL)][]. L'istruzione seguente consente di eliminare il database **myTestDB**, ma non eliminarlo ora perché sarà necessario utilizzarlo per creare account di accesso nel prossimo passaggio.
+-   Per eliminare un database esistente, utilizzare l'istruzione **DROP DATABASE**. Per altre informazioni, vedere [DROP DATABASE (database SQL)](https://msdn.microsoft.com/library/ms178613.aspx). L'istruzione seguente consente di eliminare il database **myTestDB**, ma non eliminarlo ora perché sarà necessario utilizzarlo per creare account di accesso nel prossimo passaggio.
 
         DROP DATABASE myTestBase;
 
@@ -111,22 +80,22 @@ Fare clic su **Execute** per eseguire la query.
 
 >[AZURE.NOTE]Molte delle istruzioni Transact-SQL che consentono di creare o modificare un database devono essere eseguite nell'ambito del proprio batch e non possono essere raggruppate insieme ad altre istruzioni Transact-SQL. Per altre informazioni, vedere i dettagli specifici di ogni istruzione forniti nei collegamenti elencati sopra.
 
-<h2><a id="Step4" name="Step4"> </a>Passaggio 4: creare e gestire gli account di accesso</h2>
+## Creare e gestire gli account di accesso
 
-Il database **master** tiene traccia degli account di accesso riconoscendo quelli che dispongono delle autorizzazioni per creare database o ulteriori account di accesso. Per gestire gli account di accesso, connettersi al database **master** con l'account di accesso dell'entità di livello server creato al momento della configurazione del server. È possibile utilizzare le istruzioni **CREATE LOGIN**, **ALTER LOGIN** o **DROP LOGIN** per eseguire query sul database master che gestirà gli account di accesso per l'intero server. Per altre informazioni, vedere [Gestione di database e account di accesso in database SQL][].
+Il database **master** tiene traccia degli account di accesso riconoscendo quelli che dispongono delle autorizzazioni per creare database o ulteriori account di accesso. Per gestire gli account di accesso, connettersi al database **master** con l'account di accesso dell'entità di livello server creato al momento della configurazione del server. È possibile utilizzare le istruzioni **CREATE LOGIN**, **ALTER LOGIN** o **DROP LOGIN** per eseguire query sul database master che gestirà gli account di accesso per l'intero server. Per altre informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 
--   Utilizzare l'istruzione **CREATE LOGIN** per creare un nuovo account di accesso di livello server. Per altre informazioni, vedere [CREATE LOGIN (database SQL)][]. L'istruzione seguente consente di creare un nuovo account di accesso denominato **login1**. Sostituire **password1** con la password desiderata.
+-   Utilizzare l'istruzione **CREATE LOGIN** per creare un nuovo account di accesso di livello server. Per altre informazioni, vedere [CREATE LOGIN (database SQL)](https://msdn.microsoft.com/library/ms189751.aspx). L'istruzione seguente consente di creare un nuovo account di accesso denominato **login1**. Sostituire **password1** con la password desiderata.
 
         CREATE LOGIN login1 WITH password='password1';
 
--   Per concedere autorizzazioni di livello database, utilizzare l'istruzione **CREATE USER**. Tutti gli account di accesso devono essere creati nel database **master** ma per connettere un account di accesso a un database diverso, è necessario concedere a tale account autorizzazioni di livello database utilizzando l'istruzione **CREATE USER** nel database a cui si desidera connetterlo. Per altre informazioni, vedere [CREATE USER (database SQL)][].
+-   Per concedere autorizzazioni di livello database, utilizzare l'istruzione **CREATE USER**. Tutti gli account di accesso devono essere creati nel database **master** ma per connettere un account di accesso a un database diverso, è necessario concedere a tale account autorizzazioni di livello database utilizzando l'istruzione **CREATE USER** nel database a cui si desidera connetterlo. Per altre informazioni, vedere [CREATE USER (database SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 -   Per concedere a login1 le autorizzazioni per un database denominato **myTestDB**, eseguire i passaggi seguenti:
 
  1.  Per aggiornare Esplora oggetti in modo da visualizzare il database **myTestDB** creato, fare clic con il pulsante destro del mouse sul nome del server in Esplora oggetti e quindi scegliere **Aggiorna**.  
 
-     Se si è chiusa la connessione, è possibile ristabilirla selezionando **Connect Object Explorer** dal menu File. Ripetere le istruzioni in [Passaggio 2: connettersi al database SQL][] per connettersi al database.
+     Se si è chiusa la connessione, è possibile ristabilirla selezionando **Connect Object Explorer** dal menu File.
 
  2. Fare clic con il pulsante destro del mouse sul database **myTestDB** e selezionare **New Query**.
 
@@ -134,11 +103,11 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Utilizzare la stored procedure **sp_addrolemember** per concedere all'account utente il livello appropriato di autorizzazioni per il database. Per altre informazioni, vedere [sp_addrolemember (Transact-SQL)][]. L'istruzione seguente concede a **login1User** autorizzazioni di sola lettura del database mediante l'aggiunta di **login1User** al ruolo **db_datareader**.
+-   Utilizzare la stored procedure **sp_addrolemember** per concedere all'account utente il livello appropriato di autorizzazioni per il database. Per altre informazioni, vedere [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). L'istruzione seguente concede a **login1User** autorizzazioni di sola lettura del database mediante l'aggiunta di **login1User** al ruolo **db_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   Per modificare un account di accesso esistente, ad esempio se si desidera modificarne la password, utilizzare l'istruzione **ALTER LOGIN**. Per altre informazioni, vedere [ALTER LOGIN (database SQL)][]. L'istruzione **ALTER LOGIN** deve essere eseguita sul database **master**. Tornare alla finestra Query relativa a tale database.
+-   Per modificare un account di accesso esistente, ad esempio se si desidera modificarne la password, utilizzare l'istruzione **ALTER LOGIN**. Per altre informazioni, vedere [ALTER LOGIN (database SQL)](https://msdn.microsoft.com/library/ms189828.aspx). L'istruzione **ALTER LOGIN** deve essere eseguita sul database **master**. Tornare alla finestra Query relativa a tale database.
 
     L'istruzione seguente consente di modificare l'account di accesso **login1** per reimpostare la password. Sostituire **newPassword** con la password desiderata e **oldPassword** con la password attuale dell'account.
 
@@ -146,7 +115,7 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   Per eliminare un account di accesso esistente, utilizzare l'istruzione **DROP LOGIN**. L'eliminazione di un account di accesso a livello del server comporta anche l'eliminazione di eventuali account utente database associati. Per altre informazioni, vedere [DROP DATABASE (database SQL)][]. L'istruzione **DROP LOGIN** deve essere eseguita sul database **master**. L'istruzione seguente consente di eliminare l'account di accesso **login1**.
+-   Per eliminare un account di accesso esistente, utilizzare l'istruzione **DROP LOGIN**. L'eliminazione di un account di accesso a livello del server comporta anche l'eliminazione di eventuali account utente database associati. Per altre informazioni, vedere [DROP DATABASE (database SQL)](https://msdn.microsoft.com/library/ms178613.aspx). L'istruzione **DROP LOGIN** deve essere eseguita sul database **master**. L'istruzione seguente consente di eliminare l'account di accesso **login1**.
 
         DROP LOGIN login1;
 
@@ -154,9 +123,9 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
 
         SELECT * FROM sys.sql_logins;
 
-<h2><a id="Step5" name="Step5"> </a>Passaggio 5: monitorare il database SQL mediante le viste a gestione dinamica</h2>
+## Monitorare il database SQL usando viste a gestione dinamica</h2>
 
-Il database SQL supporta diverse viste a gestione dinamica che possono essere usate per il monitoraggio di database specifici. Di seguito vengono forniti alcuni esempi del tipo di dati di monitoraggio che possono essere recuperati tramite tali viste. Per informazioni dettagliate e altri esempi d'uso, vedere [Monitoraggio di database SQL di Azure mediante le viste a gestione dinamica][].
+Il database SQL supporta diverse viste a gestione dinamica che possono essere usate per il monitoraggio di database specifici. Di seguito vengono forniti alcuni esempi del tipo di dati di monitoraggio che possono essere recuperati tramite tali viste. Per informazioni dettagliate e altri esempi d'uso, vedere [Monitoraggio di database SQL di Azure mediante le viste a gestione dinamica](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
 -   L'esecuzione di query in una vista a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE**. Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente database specifico, connettersi al database che si desidera gestire utilizzando l'account di accesso dell'entità di livello server ed eseguire l'istruzione seguente sul database:
 
@@ -197,41 +166,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<h2>Risorse aggiuntive</h2>
-
-* [Introduzione al database SQL][]   
-* [Gestione di database e account di accesso in database SQL][]   
-* [Monitoraggio del database SQL tramite le viste a gestione dinamica][]   
-* [Riferimento a Transact-SQL Reference (Database SQL)][]
-
-  [How to use Azure SQL Database]: http://www.windowsazure.com/develop/net/how-to-guides/sql-azure/
-  [Passaggio 1: ottenere SQL Server 2014 Management Studio]: #Step1
-  [Passaggio 2: connettersi al database SQL]: #Step2
-  [Passaggio 3: creare e gestire i database]: #Step3
-  [Passaggio 4: creare e gestire gli account di accesso]: #Step4
-  [Passaggio 5: monitorare il database SQL mediante le viste a gestione dinamica]: #Step5
-  [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/download/details.aspx?id=42299
-  [Pacchetto di aggiornamento cumulativo 5 per SQL Server Management Studio 2014]: http://support2.microsoft.com/kb/3011055
-  [SSMS Installer - Select installation type]: /media/installer_installation_type.png
-  [SSMS Installer - Select features]: /media/installer_feature_selection.png
-  [SSMS Installer - Installation complete]: /media/installer_completed.png
-  [portale di gestione di Azure]: http://manage.windowsazure.com/
-  [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
-  [Connect to SSMS]: /media/ssms_connect.png
-  [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
-  [Riferimento a Transact-SQL Reference (Database SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
-  [Riferimento a Transact-SQL (database SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (database SQL)]: https://msdn.microsoft.com/library/dn268335.aspx
-  [ALTER DATABASE (database SQL)]: https://msdn.microsoft.com/library/ms174269.aspx
-  [DROP DATABASE (database SQL)]: https://msdn.microsoft.com/library/ms178613.aspx
-  [Gestione di database e account di accesso in database SQL]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (database SQL)]: https://msdn.microsoft.com/library/ms189751.aspx
-  [CREATE USER (database SQL)]: https://msdn.microsoft.com/library/ms173463.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
-  [ALTER LOGIN (database SQL)]: https://msdn.microsoft.com/library/ms189828.aspx
-  [Monitoraggio del database SQL tramite le viste a gestione dinamica]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
-  [Monitoraggio di database SQL di Azure mediante le viste a gestione dinamica]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
-  [Introduzione al database SQL]: http://azure.microsoft.com/services/sql-database/
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -37,7 +37,7 @@ Il database viene elaborato tramite la Migrazione guidata database SQL di Azure,
 ### Opzione 3
 ***Aggiornamento offline dello schema del database tramite Visual Studio e la Migrazione guidata database SQL di Azure e distribuzione con SSMS***
 
-Il database di origine viene importato in un progetto di database di Visual Studio per l'elaborazione offline. La Migrazione guidata database SQL di Azure viene eseguita in tutti gli script del progetto per applicare una serie di trasformazioni e correzioni. Il progetto viene aggiornato in base alla versione 12 del database SQL e compilato. Gli eventuali errori rimanenti vengono segnalati e quindi risolti manualmente con gli strumenti di SQL Server in Visual Studio. Una volta compilato, il progetto viene pubblicato in una copia del database di origine. Il database aggiornato viene quindi distribuito al database  SQL di Azure mediante l'opzione 1. Se è necessario eseguire la migrazione del solo schema, è possibile pubblicarlo direttamente da Visual Studio nel database SQL di Azure. Usare questa opzione quando lo schema del database richiede più modifiche di quelle che possono essere gestite dalla Migrazione guidata database SQL di Azure.
+Il database di origine viene importato in un progetto di database di Visual Studio per l'elaborazione offline. La Migrazione guidata database SQL di Azure viene eseguita in tutti gli script del progetto per applicare una serie di trasformazioni e correzioni. Il progetto viene aggiornato in base alla versione 12 del database SQL e compilato. Gli eventuali errori rimanenti vengono segnalati e quindi risolti manualmente con gli strumenti di SQL Server in Visual Studio. Una volta compilato, il progetto viene pubblicato in una copia del database di origine. Il database aggiornato viene quindi distribuito al database SQL di Azure mediante l'opzione 1. Se è necessario eseguire la migrazione del solo schema, è possibile pubblicarlo direttamente da Visual Studio nel database SQL di Azure. Usare questa opzione quando lo schema del database richiede più modifiche di quelle che possono essere gestite dalla Migrazione guidata database SQL di Azure.
 
 ## Scelta delle opzioni
 - Se si prevede che la migrazione di un database non richiederà alcuna modifica, è consigliabile usare l'opzione 1, più semplice e veloce. Se non si è certi della necessità di modifiche, iniziare esportando dal database un file BACPAC contenente solo lo schema, come descritto nell'opzione 1. Se l'esportazione viene completata senza errori, è possibile usare l'opzione 1 per eseguire la migrazione del database con i relativi dati.  
@@ -78,4 +78,7 @@ Per la versione 12 del database SQL di Azure è necessario usare la versione pi�
 | Strumento supportato da Microsoft. | Strumento supportato dalla community e scaricato da CodePlex. | Strumenti supportati da Microsoft con l'uso facoltativo dello strumento supportato dalla community e scaricato da CodePlex. |
 | Viene eseguito un semplice processo di configurazione, in uno o due passaggi. | La trasformazione dello schema e la generazione e la distribuzione nel cloud vengono coordinate mediante una singola procedura guidata facile da usare. | Viene eseguito un processo complesso, in più passaggi (più semplice se viene distribuito solo lo schema). |
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

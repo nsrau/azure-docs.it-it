@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="raynew"/>
 
 # Gestire registrazione e protezione
@@ -22,11 +22,11 @@ In questo articolo viene descritto come annullare la registrazione di server dal
 
 ## Annullare la registrazione di un server VMM
 
-Per annullare la registrazione di un server VMM da un insieme di credenziali, eliminare il server nella scheda **Server** del portale di Azure Site Recovery. Tenere presente quanto segue:
+Per annullare la registrazione di un server VMM da un insieme di credenziali, eliminare il server nella scheda **Server** del portale di Azure Site Recovery. Si noti che:
 
--  È consigliabile annullare la registrazione del server VMM quando è connesso ad Azure. Ciò garantisce che le impostazioni nel server VMM locale e i server ad esso VMM associati \(i server VMM che contengono cloud mappati ai cloud sul server da eliminare\) vengano rimosse correttamente. Si consiglia di rimuovere un server non connesso solo in caso di problema di connettività permanente.
-- Se il server VMM non è connesso quando viene eliminato, è necessario eseguire uno script per eseguire la pulizia manualmente. Lo script è disponibile nella [Raccolta Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Prendere nota dell'ID di VMM del server per completare il processo di pulizia manuale.
-- Se si desidera annullare la registrazione di un server VMM distribuito in un cluster, procedere nel modo seguente:
+-  **Server VMM connesso**: è consigliabile annullare la registrazione del server VMM quando è connesso ad Azure. Ciò garantisce che le impostazioni nel server VMM locale e i server ad esso VMM associati (i server VMM che contengono cloud mappati ai cloud sul server da eliminare) vengano rimosse correttamente. Si consiglia di rimuovere un server non connesso solo in caso di problema di connettività permanente.
+- **Server VMM non connesso**: se il server VMM non è connesso quando viene eliminato, è necessario eseguire uno script per eseguire la pulizia manualmente. Lo script è disponibile nella [Raccolta Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Prendere nota dell'ID di VMM del server per completare il processo di pulizia manuale.
+- **Server VMM in cluster**: se si desidera annullare la registrazione di un server VMM distribuito in un cluster, procedere nel modo seguente:
 
 	- Se il server è connesso, eliminare il server VMM connesso nella scheda **Server**. Per disinstallare il Provider nel server, accedere a ogni nodo del cluster e disinstallarlo dal Pannello di controllo. Eseguire lo script di pulizia a cui si fa riferimento nella sezione precedente in tutti i nodi passivi del cluster per eliminare le voci di registrazione.
 	- Se il server non è connesso è necessario eseguire lo script di pulizia in tutti i nodi del cluster.
@@ -37,7 +37,7 @@ Nel server VMM che si desidera rimuovere:
 
 1. Annullare la registrazione del server VMM dal portale di Azure.
 2. Nel server VMM, scaricare lo script di pulizia.
-3. Aprire PowerShell con l'opzione di esecuzione come amministratore per modificare i criteri di esecuzione per l'ambito predefinito \(LocalMachine\).
+3. Aprire PowerShell con l'opzione di esecuzione come amministratore per modificare i criteri di esecuzione per l'ambito predefinito (LocalMachine).
 4. Seguire le istruzioni contenute nello script. 
 
 Nei server VMM con cloud associati ai cloud nel server da rimuovere:
@@ -49,10 +49,10 @@ Nei server VMM con cloud associati ai cloud nel server da rimuovere:
 
 ## Annullare la registrazione di un server Hyper-V in un sito di Hyper-V
 
-Quando Azure Site Recovery viene distribuito per proteggere le macchine virtuali presenti in un server Hyper-V in un sito di Hyper-V \(con nessun server VMM\) è possibile annullare la registrazione di un server Hyper-V da un insieme di credenziali come indicato di seguito:
+Quando Azure Site Recovery viene distribuito per proteggere le macchine virtuali presenti in un server Hyper-V in un sito di Hyper-V (con nessun server VMM) è possibile annullare la registrazione di un server Hyper-V da un insieme di credenziali come indicato di seguito:
 
 1. Disabilitare la protezione per le macchine virtuali presenti nel server Hyper-V.
-2. Nella scheda **Server** nel portale di Azure Site Recovery, selezionare il server \> Elimina. Il server non deve necessariamente essere connesso ad Azure quando si esegue questa operazione.
+2. Nella scheda **Server** nel portale di Azure Site Recovery, selezionare il server > Elimina. Il server non deve necessariamente essere connesso ad Azure quando si esegue questa operazione.
 3. Eseguire lo script seguente per pulire le impostazioni del server e annullare la registrazione dall'insieme di credenziali. 
 
 	    pushd .
@@ -136,19 +136,21 @@ Quando Azure Site Recovery viene distribuito per proteggere le macchine virtuali
 	    popd
 
 
-## Arrestare la protezione di macchine virtuali
+## Arrestare la protezione di una macchina virtuale Hyper-V
 
-Per arrestare la protezione di una macchina virtuale in qualsiasi momento:
+Se si desidera arrestare la protezione di una macchina virtuale Hyper-V è necessario rimuovere la protezione. A seconda come si rimuove la protezione potrebbe essere necessario rimuovere le impostazioni di protezione manualmente nel computer.
 
-1. Nella scheda **Macchine virtuali** delle proprietà del cloud, selezionare la macchina virtuale \> **Rimuovi**.
+### Rimuovere la protezione
+
+1. Nella scheda **Macchine virtuali** delle proprietà del cloud, selezionare la macchina virtuale > **Rimuovi**.
 2. Nella pagina **Conferma rimozione della macchina virtuale** sono disponibili due opzioni:
 
-	- **Disabilitare la protezione per la macchina virtuale**: se si abilita e si salva questa opzione la macchina virtuale non sarà protetta da Azure Site Recovery. Le impostazioni di protezione per la macchina virtuale verranno pulire automaticamente.
-	- **Interrompere la gestione della macchina virtuale**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dal servizio di Azure Site Recovery. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate e sarà necessario eliminarle manualmente usando le istruzioni seguenti.
+	- **Disabilitare la protezione**: se si abilita e si salva questa opzione la macchina virtuale non sarà protetta da Ripristino sito. Le impostazioni di protezione per la macchina virtuale verranno pulire automaticamente.
+	- **Rimuovere dall'insieme di credenziali**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dall'insieme di credenziali di Ripristino sito. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. È necessario eliminare le impostazioni manualmente per rimuovere le impostazioni di protezione, rimuovere la macchina virtuale da una sottoscrizione di Azure e rimuovere le impostazioni di protezione che dovranno essere eliminate manualmente utilizzando le istruzioni seguenti.
 
 Se si sceglie di eliminare la macchina virtuale e i relativi dischi rigidi, essi verranno rimossi dal percorso di destinazione.
 
-### Eseguire la pulizia manuale delle impostazioni di protezione \(tra i siti VMM\)
+### Eseguire la pulizia manuale delle impostazioni di protezione (tra i siti VMM)
 
 Se si seleziona **Interrompere la gestione della macchina virtuale**, rimuovere manualmente le impostazioni:
 
@@ -168,7 +170,7 @@ Se si seleziona **Interrompere la gestione della macchina virtuale**, rimuovere 
 	    Remove-VMReplication –VMName “SQLVM1”
 
 
-### Eseguire la pulizia manuale delle impostazioni di protezione \(tra i siti VMM locali e Azure\)
+### Eseguire la pulizia manuale delle impostazioni di protezione (tra i siti VMM locali e Azure)
 
 1. Nel server VMM di origine eseguire questo script per pulire le impostazioni per la macchina virtuale secondaria:
 
@@ -183,8 +185,7 @@ Se si seleziona **Interrompere la gestione della macchina virtuale**, rimuovere 
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-
-### Eseguire la pulizia manuale delle impostazioni di protezione \(tra i siti Hyper-V e Azure\)
+### Eseguire la pulizia manuale delle impostazioni di protezione (tra i siti Hyper-V e Azure)
 
 1. Nel server host Hyper-V di origine, per rimuovere la replica per la macchina virtuale usare questo script. Sostituire SQLVM1 con il nome della macchina virtuale.
 
@@ -193,23 +194,22 @@ Se si seleziona **Interrompere la gestione della macchina virtuale**, rimuovere 
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-### Eseguire la pulizia manuale delle impostazioni di protezione \(tra i siti VMware e Azure\)
+## Arrestare la protezione di una macchina virtuale VMware o un server fisico
 
-Nel server di origine, disinstallare il servizio di mobilità.
+Se si desidera arrestare la protezione di una macchina virtuale VMware o un server fisico è necessario rimuovere la protezione. A seconda come si rimuove la protezione potrebbe essere necessario rimuovere le impostazioni di protezione manualmente nel computer.
 
+### Rimuovere la protezione
 
+1. Nella scheda **Macchine virtuali** delle proprietà del cloud, selezionare la macchina virtuale > **Rimuovi**.
+2. In **Rimuovi macchina virtuale** selezionare una delle opzioni:
 
+	- **Disabilitare la protezione (utilizzare per l’analisi del ripristino e il ridimensionamento del volume)**: l’opzione è visibile e selezionabile solo se:
+		- **Il volume della macchina virtuale è stato ridimensionato**: quando si ridimensiona un volume, la macchina virtuale passa in uno stato critico. In questo caso è necessario selezionare questa opzione che disabilita la protezione mantenendo i punti di ripristino in Azure. Quando si riabilita la protezione per la macchina virtuale, i dati per il volume ridimensionato verranno trasferiti in Azure.
+		- **Un failover è stato eseguito**: dopo aver testato l'ambiente eseguendo un failover da macchine virtuali VMware locali o di server fisici in Azure, selezionare questa opzione per iniziare a proteggere le macchine virtuali locali nuovamente. Questa opzione disabilita ogni macchina virtuale e quindi sarà necessario riabilitare la protezione. Si noti che:
+			- La disabilitazione della macchina virtuale con questa impostazione non riguarda la macchina virtuale di replica in Azure.
+			- Non si deve disinstallare il servizio Mobility dalla macchina virtuale.
+	
+	- **Disabilitare la protezione**: se si abilita e si salva questa opzione la macchina virtuale non sarà protetta da Ripristino sito. Le impostazioni di protezione per la macchina virtuale verranno pulite automaticamente.
+	- **Rimuovere dall'insieme di credenziali**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dall'insieme di credenziali di Ripristino sito. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nel computer e per rimuovere la macchina virtuale dalla sottoscrizione di Azure ed è necessario pulire le impostazioni tramite la disinstallazione del servizio Mobility. ![Rimuovere le opzioni](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

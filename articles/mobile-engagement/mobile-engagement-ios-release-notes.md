@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Note sulla versione di Azure Mobile Engagement SDK per iOS" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per iOS"
+	pageTitle="Note sulla versione di Azure Mobile Engagement iOS SDK" 
+	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -18,6 +18,10 @@
 
 #Note sulla versione
 
+##2.2.0 (21/05/2015)
+
+-   L'ID del dispositivo di Mobile Engagement per dispositivi < iOS 6 è ora basato su un GUID generato in fase di installazione.
+
 ##2.1.0 (24/04/2015)
 
 -   È stata aggiunta la compatibilità per Swift.
@@ -34,5 +38,6 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

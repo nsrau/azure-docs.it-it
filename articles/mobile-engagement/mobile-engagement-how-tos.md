@@ -3,7 +3,7 @@
    description="Panoramica dell'interfaccia utente di Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduzione</a> 
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigazione</a> 
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home page</a> 
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">Account personale</a> 
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a> 
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a> 
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a> 
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campagna</a> 
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterio</a> 
-<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Contenuto</a> 
-<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - Procedure</a> 
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segmenti</a> 
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a> 
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Impostazioni</a>
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
+
 Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la sezione Reach dell'interfaccia utente per inviare notifiche push agli utenti dell'app.
 
 ## Creare la prima campagna di notifica push
@@ -307,5 +291,6 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

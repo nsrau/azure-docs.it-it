@@ -21,14 +21,14 @@
 
 In questa esercitazione viene illustrato come utilizzare il servizio StorSimple Manager **criteri di Backup** pagina per controllare i processi di backup e memorizzazione dei backup per i volumi StorSimple. Viene inoltre descritto come eseguire un backup manuale.
 
-Il **criteri di Backup** pagina consente di gestire i criteri di backup e pianificare locale e gli snapshot cloud. \(Criteri di backup vengono utilizzati per configurare pianificazioni di backup e memorizzazione dei backup per un insieme di volumi\). I criteri di backup consentono di creare uno snapshot di più volumi contemporaneamente. Questo significa che i backup creati con un criterio di backup saranno copie coerenti con l'arresto anomalo. Questa pagina vengono elencati i criteri di backup, i relativi tipi, i volumi associati, il numero di backup conservati e l'opzione per abilitare questi criteri.
+Il **criteri di Backup** pagina consente di gestire i criteri di backup e pianificare locale e gli snapshot cloud. (Criteri di backup vengono utilizzati per configurare pianificazioni di backup e memorizzazione dei backup per un insieme di volumi). I criteri di backup consentono di creare uno snapshot di più volumi contemporaneamente. Questo significa che i backup creati con un criterio di backup saranno copie coerenti con l'arresto anomalo. Questa pagina vengono elencati i criteri di backup, i relativi tipi, i volumi associati, il numero di backup conservati e l'opzione per abilitare questi criteri.
 
 Il **criteri di Backup** pagina consente inoltre di filtrare i criteri di backup esistenti da una o più dei seguenti campi:
 
 - **Nome criterio** : il nome associato al criterio. I diversi tipi di criteri includono:
 
    - Criteri pianificati, vengono creati esplicitamente dall'utente.
-   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName\_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di gestione. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
+   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di gestione. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
    - Criteri importati, che sono stati originariamente creati in Gestione Snapshot StorSimple. Hanno un tag che descrive l'host di gestione Snapshot StorSimple che i criteri sono stati importati da.
 
 - **Volumi** – i volumi associati al criterio. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
@@ -49,7 +49,7 @@ Le operazioni utilizzate di frequente che è possibile eseguire da questa pagina
 
 ## Aggiungere un criterio di backup
 
-Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di gestione per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione \(vedere [aggiungere o modificare una pianificazione](#add-or-modify-a-schedule).
+Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di gestione per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [aggiungere o modificare una pianificazione](#add-or-modify-a-schedule).
 
 [AZURE.INCLUDE [storsimple-aggiungere-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
@@ -84,4 +84,4 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 Informazioni su come gestire i backup di StorSimple con il [Gestione Snapshot StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

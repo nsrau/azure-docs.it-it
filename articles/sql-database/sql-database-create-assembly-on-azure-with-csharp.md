@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -38,7 +38,7 @@ Per comprendere questo argomento, è necessario conoscere già parzialmente quan
 - [Funzioni con valori di tabella CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Viene illustrato il funzionamento dell'istruzione Transact-SQL CREAZIONE ASSEMBLY con altre istruzioni per Microsoft SQL Server locale.
 
 
-## A. Tecnica generale
+## R. Tecnica generale
 
 
 1. ELIMINA FUNZIONE ed ELIMINA ASSEMBLY, se necessario, per eseguire il clean up di un'operazione precedente.
@@ -50,9 +50,7 @@ Per comprendere questo argomento, è necessario conoscere già parzialmente quan
 5. Istruzione T-SQL SELECT per chiamare e testare la funzione.
 
 
-L'elenco precedente non fornisce informazioni relative a...<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-...perché non è necessario per il database SQL di Azure, pur essendo necessario per Microsoft SQL Server.
+Nell'elenco precedente non è menzionato...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ... .perché non è richiesto per il database SQL di Azure, anche se è necessario per Microsoft SQL Server.
 
 
 Se è necessario rieseguirlo, il codice T-SQL per eliminare la funzione e l'assembly è il seguente:
@@ -330,5 +328,4 @@ Il blocco di codice Transact-SQL precedente termina con un'istruzione SELECT che
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

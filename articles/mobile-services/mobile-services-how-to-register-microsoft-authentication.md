@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/14/2015" 
 	ms.author="glenga"/>
 
 # Registrare l'app per l'uso dell'account Microsoft per l'autenticazione
+
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
+## Panoramica 
 
 Questo argomento illustra come registrare l'app per dispositivi mobili in modo da usare l'account Microsoft come provider di identità con Servizi mobili di Azure. Gli stessi passaggi si applicano all'autenticazione diretta dal servizio e all'autenticazione diretta dal client mediante Live SDK.
 
@@ -36,7 +40,7 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 
    	Verrà creata una nuova registrazione a Windows Store per l'app.
 
-3. In Visual Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili].
+3. In Visual Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**.
 
@@ -44,11 +48,11 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 
    	Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
 
-5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft, selezionare il nome dell'app riservato al passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
+5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft, selezionare il nome dell'app riservato al passaggio 2, quindi fare clic su **Avanti** > **Associa**.
 
    	Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
 
-6. (Facoltativo) Per un'app di Windows universale, ripetere i passaggi da 4 a 5 per il progetto Windows Phone Store.
+6. (Facoltativo) Per un'app universale di Windows, ripetere i passaggi da 4 a 5 per il progetto Windows Phone Store.
 
 6. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
@@ -77,14 +81,15 @@ Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8,
 	Il **dominio radice** deve essere compilato automaticamente.
 
 4. Fare clic su **Impostazioni app** e prendere nota dei valori di **ID client**, **segreto client** e **ID di sicurezza del pacchetto**.
-
+	
    	![Impostazioni app dell'account Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
-
+	
+	
     > [AZURE.NOTE]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app. Solo per le registrazioni delle app di Windows Store il campo relativo all'ID di sicurezza del pacchetto risulta compilato.
 
 4. Nel [portale di gestione di Azure] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità e fare clic su **Salva**.
 
- 	![Scheda Identità dell'account Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-identity-tab.png)
+ 	![Scheda Identità di Servizi mobili](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-identity-tab.png)
 	
 	>[AZURE.NOTE]Non è necessario specificare un valore per l'ID di sicurezza del pacchetto per un'app per Windows Phone 8, Windows Phone Store 8.1 Silverlight o non per Windows.
 	
@@ -100,5 +105,6 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

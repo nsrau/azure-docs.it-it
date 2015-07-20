@@ -27,4 +27,4 @@
 
 A questo punto è necessario installare Gestione connessione ibrida nel computer locale.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

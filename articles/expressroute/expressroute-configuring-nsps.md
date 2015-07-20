@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  Configurare una connessione ExpressRoute tramite un provider di servizi di rete
@@ -89,7 +89,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **Effettuare una richiesta per una chiave del servizio e passarla al provider di Exchange.**
+3. **Effettuare una richiesta per una chiave del servizio e passarla al provider di servizi di rete.**
 
 	Per creare la richiesta verrà usato un cmdlet di PowerShell. Per questo esempio verrà usato AT & T Netbond come provider di servizi e sarà specificato un circuito ExpressRoute a 50 Mbps in Silicon Valley. Se si usa un altro provider e impostazioni diverse, sostituire tali informazioni al momento della richiesta.
 
@@ -150,4 +150,4 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

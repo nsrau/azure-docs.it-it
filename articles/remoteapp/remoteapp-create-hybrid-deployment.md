@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come creare una raccolta ibrida per RemoteApp" 
+	pageTitle="Come creare una raccolta ibrida per Azure RemoteApp" 
 	description="Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# Come creare una raccolta ibrida per RemoteApp
+# Come creare una raccolta ibrida per Azure RemoteApp
 
 Sono disponibili due tipi di raccolte RemoteApp:
 
 - Cloud: risiede completamente in Azure e viene creata tramite l'opzione **Creazione rapida** nel portale di gestione di Azure.  
 - Ibrida: include una rete virtuale per l'accesso locale e viene creata con l'opzione **Crea con rete virtuale** nel portale di gestione.
 
-Questa esercitazione illustra la creazione di una raccolta ibrida. Prevede sette passaggi:
+Questa esercitazione illustra la creazione di una raccolta ibrida. Sono previsti otto passaggi:
 
-1.	Creare un'[immagine personalizzata per RemoteApp](remoteapp-imageoptions.md) oppure scegliere una delle immagini incluse nella sottoscrizione.
+1.	Decidere quale [immagine](remoteapp-imageoptions.md) utilizzare per la raccolta. È possibile creare un'immagine personalizzata oppure usare una delle immagini Microsoft incluse nella sottoscrizione.
 2. Configurare la rete virtuale.
 2.	Creare una raccolta RemoteApp.
 2.	Collegare la raccolta alla rete virtuale.
@@ -42,8 +42,8 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 - Creare in Active Directory un account utente da usare come account del servizio RemoteApp. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 - Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
 - Installare il modulo [Azure PowerShell](../install-configure-powershell.md).
-- Raccogliere informazioni sugli utenti a cui concedere l'accesso. Le informazioni possono essere relative all'account Microsoft o all'account di lavoro Active Directory.
-- Creare un'immagine modello. Un'immagine modello di RemoteApp contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Creare un'immagine di RemoteApp](remoteapp-imageoptions.md). 
+- Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente.
+- Scegliere un'immagine modello. Un'immagine modello di RemoteApp contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp](remoteapp-imageoptions.md). 
 - [Configurare Active Directory per RemoteApp](remoteapp-ad.md).
 
 
@@ -134,5 +134,6 @@ A questo punto, dopo aver creato la raccolta RemoteApp, è necessario aggiungere
 La procedura è stata completata e la raccolta ibrida RemoteApp è stata creata e distribuita. Il passaggio successivo consiste nel chiedere agli utenti di scaricare e installare il client Desktop remoto. L'URL del client è indicato nella pagina Avvio rapido di RemoteApp. Chiedere quindi agli utenti di connettersi al client e di accedere alle app pubblicate.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -38,7 +38,7 @@ Il diagramma seguente illustra un'architettura di integrazione di alto livello t
 
 ##Generazione di token di autenticazione per ottenere una licenza
 
-castLabs e Servizi multimediali di Azure supportano entrambi il formato di token JWT \(JSON Web Token\), necessario per autorizzare una licenza.
+castLabs e Servizi multimediali di Azure supportano entrambi il formato di token JWT (JSON Web Token), necessario per autorizzare una licenza.
 
 ###Token JWT in Servizi multimediali di Azure 
 
@@ -80,14 +80,14 @@ Per usare l'applicazione console:
 
 		 var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
 
-4.	Usare un ID asset per assegnare un nome all'asset nel sistema castLabs \(riga 44 nel file Program.cs\).
+4.	Usare un ID asset per assegnare un nome all'asset nel sistema castLabs (riga 44 nel file Program.cs).
 
 	È necessario impostare l'ID asset per **castLabs**: deve essere una stringa alfanumerica univoca.
 
 5.	Eseguire il programma.
 
 
-Per usare l'applicazione Web \(STS\):
+Per usare l'applicazione Web (STS):
 
 1.	Modificare il file web.config per impostare l'ID società di castlabs, la configurazione del servizio token di sicurezza e la chiave condivisa.
 2.	Eseguire la distribuzione nei siti Web di Azure.
@@ -95,7 +95,7 @@ Per usare l'applicazione Web \(STS\):
 
 ##Riproduzione di un video
 
-Per riprodurre un video crittografato con la crittografia comune \(PlayReady\), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
+Per riprodurre un video crittografato con la crittografia comune (PlayReady), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
 
 1.	Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Accedere a [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -108,10 +108,10 @@ Per riprodurre un video crittografato con la crittografia comune \(PlayReady\), 
 
 Per riprodurre il video protetto in HTML5 con Chrome tramite il lettore castLabs, contattare yanmf@microsoft.com per ottenere l'accesso al lettore. Nel momento in cui si ottiene l'accesso, è necessario tenere presente due aspetti:
 
-1.	Il lettore castLabs deve poter accedere al file manifesto MPEG-DASH. Aggiungere quindi \(format=mpd-time-csf\) al proprio file manifesto per ottenere il file manifesto MPEG-DASH, anziché il file Smooth Streaming predefinito.
+1.	Il lettore castLabs deve poter accedere al file manifesto MPEG-DASH. Aggiungere quindi (format=mpd-time-csf) al proprio file manifesto per ottenere il file manifesto MPEG-DASH, anziché il file Smooth Streaming predefinito.
 
 2.	Quando si usa il server licenze castLabs, non è necessario aggiungere il prefisso "Bearer=" davanti al token. Se presente, quindi, è necessario rimuoverlo prima di inviare il token.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

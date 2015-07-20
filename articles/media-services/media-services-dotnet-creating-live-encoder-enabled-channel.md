@@ -13,17 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##Panoramica
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
 >[AZURE.NOTE]Per informazioni più concettuali sui canali abilitati per la codifica live, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+
+>[AZURE.NOTE]È necessario usare Media Services .NET SDK versione 3.2.0.0 o successiva.
 
 ##Scenario comune di streaming live
 
@@ -491,5 +498,7 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 	
 ##Argomenti correlati
 
-[Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md)<!--HONumber=52-->
+[Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

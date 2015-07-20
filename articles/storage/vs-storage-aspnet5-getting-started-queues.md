@@ -16,7 +16,7 @@
 	ms.date="04/20/2015" 
 	ms.author="patshea123"/>
 
-# Introduzione all'Archiviazione di Azure \(progetti ASP.NET 5\)
+# Introduzione all'Archiviazione di Azure (progetti ASP.NET 5)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet5-getting-started-queues.md)
@@ -31,12 +31,13 @@ Il servizio di archiviazione di accodamento di Azure consente di archiviare gran
 
 Per accedere alle code a livello di codice in progetti ASP.NET 5, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
 
-1. Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C\# in cui si vuole accedere ad Archiviazione di Azure a livello di codice:
+1. Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di codice:
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Usare il codice seguente per ottenere l'impostazione di configurazione.
 
@@ -71,14 +72,14 @@ Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da ut
 **NOTA:** usare tutto questo codice prima del codice nelle sezioni seguenti.
 
 #####Inserire un messaggio in una coda
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Chiamare quindi il metodo AddMessageAsync\(\). È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda \(se non esiste già\) e di inserire il messaggio 'Hello, World'.
+Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Chiamare quindi il metodo AddMessageAsync(). È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World'.
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	await queue.AddMessageAsync(message);
 
 #####Visualizzare il messaggio successivo
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo PeekMessageAsync\(\).
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo PeekMessageAsync().
 
 	// Peek at the next message in the queue.
 	CloudQueueMessage peekedMessage = queue.PeekMessage();
@@ -90,10 +91,10 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 Il codice può rimuovere un messaggio da una coda in due passaggi.
 
 
-1. Chiamare GetMessageAsync\(\) per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessageAsync\(\) diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 
-2.	Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessageAsync\(\). 
+1. Chiamare GetMessageAsync() per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessageAsync() diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 
+2.	Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessageAsync(). 
 
-Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama DeleteMessageAsync\(\) immediatamente dopo l'elaborazione del messaggio.
+Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama DeleteMessageAsync() immediatamente dopo l'elaborazione del messaggio.
 
 	// Get the next message in the queue.
 	CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
@@ -104,4 +105,4 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 [Ulteriori informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/) Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

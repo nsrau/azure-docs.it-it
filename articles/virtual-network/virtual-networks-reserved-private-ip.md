@@ -99,4 +99,4 @@ Per aggiungere un indirizzo IP interno statico alla macchina virtuale creata usa
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

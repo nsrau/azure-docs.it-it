@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Distribuire e gestire topologie Apache Storm in HDInsight
@@ -177,6 +177,5 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

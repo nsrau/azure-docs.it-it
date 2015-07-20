@@ -1,6 +1,6 @@
 ## Ricevere messaggi con EventProcessorHost
 
-[EventProcessorHost] è una classe .NET che semplifica la ricezione di messaggi da Hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub. Usando [EventProcessorHost], è possibile suddividere gli eventi tra più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost] per un singolo ricevitore. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare [EventProcessorHost] con più ricevitori.
+[EventProcessorHost] è una classe .NET che semplifica la ricezione di messaggi da Hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub. Usando [EventProcessorHost], è possibile suddividere gli eventi tra più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost] per un singolo ricevitore. L'esempio di [elaborazione di eventi scalata orizzontalmente] mostra come utilizzare [EventProcessorHost] con più ricevitori.
 
 Per poter usare [EventProcessorHost], è necessario avere un [account di Archiviazione di Azure]:
 
@@ -8,17 +8,17 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 
 2. Fare clic su **Servizi dati**, quindi su **Archiviazione** e infine su **Creazione rapida** e digitare un nome per l'account di archiviazione. Selezionare l'area desiderata e quindi fare clic su **Crea account di archiviazione**.
 
-  ![][11]
+    ![][11]
 
 3. Fare clic sull'account di archiviazione appena creato e quindi su **Gestisci chiavi di accesso**:
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    Copiare la chiave di accesso da usare più avanti in questa esercitazione.
 
 4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
-  ![][14]
+    ![][14]
 
 5. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet**.
 
@@ -26,9 +26,9 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 
 6. Cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, fare clic su **Installa** e accettare le condizioni per l'uso.
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	Viene scaricato e installato il <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost</a>, con tutte le relative dipendenze, e viene aggiunto un riferimento a tale pacchetto.
 
 7. Fare clic con il pulsante destro del mouse sul progetto **Receiver**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla nuova classe il nome **SimpleEventProcessor** e quindi fare clic su **OK** per crearla.
 
@@ -129,4 +129,4 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

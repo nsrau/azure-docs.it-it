@@ -1,3 +1,4 @@
+
 #### Per creare un contenitore di volumi
 
 1. Nella pagina **Avvio rapido** del dispositivo fare clic su **Aggiungere un contenitore di volumi**. Verrà visualizzata la finestra di dialogo **Crea contenitore di volumi**.
@@ -14,4 +15,4 @@
 
   Il contenitore di volumi appena creato verrà elencato nella pagina **Contenitori di volumi**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

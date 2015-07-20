@@ -21,9 +21,9 @@
 
 ## Panoramica
 
-Azure Site Recovery favorisce la strategia di continuità aziendale e ripristino di emergenza \(BCDR\) gestendo la replica, il failover e il ripristino delle macchine virtuali in diversi scenari di distribuzione. Per un elenco completo degli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
+Azure Site Recovery favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino delle macchine virtuali in diversi scenari di distribuzione. Per un elenco completo degli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
-Se si dispone solo di un singolo server VMM nell'infrastruttura, è possibile distribuire Site Recovery per replicare le macchine virtuali in cloud VMM in Azure oppure è possibile replicare tra cloud in un singolo server VMM. Si consiglia di eseguire questa procedura solo se non è possibile distribuire due server VMM \(uno in ciascun sito\) poiché failover e ripristino non sono automatici in questa distribuzione. Per il ripristino è necessario eseguire manualmente il failover del server VMM dall'esterno della console di Azure Site Recovery \(tramite Replica Hyper-V nella console di gestione di Hyper-V\).
+Se si dispone solo di un singolo server VMM nell'infrastruttura, è possibile distribuire Site Recovery per replicare le macchine virtuali in cloud VMM in Azure oppure è possibile replicare tra cloud in un singolo server VMM. Si consiglia di eseguire questa procedura solo se non è possibile distribuire due server VMM (uno in ciascun sito) poiché failover e ripristino non sono automatici in questa distribuzione. Per il ripristino è necessario eseguire manualmente il failover del server VMM dall'esterno della console di Azure Site Recovery (tramite Replica Hyper-V nella console di gestione di Hyper-V).
 
 È possibile configurare la replica usando un singolo server VMM in due modi:
 
@@ -62,7 +62,7 @@ Nel caso di problemi di configurazione di questo scenario, inviare le proprie do
 	- [Novità del cloud privato con System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=) e [VMM 2012 e i cloud](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html). 
 	- [Configurazione dell'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- [Creazione di un cloud privato in VMM](https://technet.microsoft.com/library/jj860425.aspx) e [Procedura dettagliata: creazione di cloud privati con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
-3. Aggiungere il server host Hyper-V di origine in cui si trova la macchina virtuale che si desidera proteggere al cloud che si intende proteggere \(cloud di origine\). Aggiungere il server di host Hyper-V di destinazione al cloud nel server VMM che fornirà la protezione.
+3. Aggiungere il server host Hyper-V di origine in cui si trova la macchina virtuale che si desidera proteggere al cloud che si intende proteggere (cloud di origine). Aggiungere il server di host Hyper-V di destinazione al cloud nel server VMM che fornirà la protezione.
 4. [Creare](site-recovery-vmm-to-vmm.md/#step-1-create-a-site-recovery-vault) un insieme di credenziali di Azure Site Recovery e generare una chiave di registrazione per l’insieme di credenziali.
 4. [Installare](site-recovery-vmm-to-vmm.md/#step-3-install-the-azure-site-recovery-provider) il provider di Azure Site Recovery nel server VMM e registrare il server nell'insieme di credenziali. 
 5. Verificare che i cloud vengano visualizzati nel portale di Site Recovery e [configurare le impostazioni di protezione del cloud](site-recovery-vmm-to-vmm.md/#step-4-configure-cloud-protection-settings).
@@ -74,7 +74,7 @@ Nel caso di problemi di configurazione di questo scenario, inviare le proprie do
 	- In **Origine** e **Destinazione** specificare il nome del singolo server VMM.
 	- In **Rete nell'origine** selezionare la rete VM configurata per il cloud che si vuole proteggere.
 	- In **Rete nella destinazione** selezionare la rete VM configurata per il cloud che si vuole utilizzare per la protezione.
-	- Il mapping di rete può essere configurato tra due reti di macchine virtuali \(VM\) sullo stesso server VMM. Se la stessa rete VMM esiste in due siti diversi, è possibile eseguire il mapping tra le stesse reti.
+	- Il mapping di rete può essere configurato tra due reti di macchine virtuali (VM) sullo stesso server VMM. Se la stessa rete VMM esiste in due siti diversi, è possibile eseguire il mapping tra le stesse reti.
 7. [Abilitare la protezione](site-recovery-vmm-to-vmm.md/#step-7-enable-virtual-machine-protection) per le macchine virtuali nel cloud VMM che si vuole proteggere. 
 7. Nella console di gestione di Hyper-V, configurare la replica per la macchina virtuale VMM con Replica Hyper-V. La macchina virtuale VMM non deve essere aggiunta ai cloud VMM.
 
@@ -100,4 +100,4 @@ In caso di emergenza, i carichi di lavoro possono essere ripristinati tramite la
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

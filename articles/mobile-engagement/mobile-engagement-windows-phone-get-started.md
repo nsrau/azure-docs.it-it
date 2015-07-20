@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Introduzione a Azure Mobile Engagement per app per Windows Phone Silverlight" 
+<properties
+	pageTitle="Introduzione a Azure Mobile Engagement per app per Windows Phone Silverlight"
 	description="Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per Windows Phone Silverlight."
-	services="mobile-engagement" 
-	documentationCenter="windows" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="windows"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Introduzione a Azure Mobile Engagement per app per Windows Phone Silverlight
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'utilizzo dell'app e inviare notifiche push a utenti segmentati di un'applicazione per Windows Phone Silverlight. Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Windows Phone Silverlight vuota che raccoglie dati di base e riceve notifiche push tramite il Servizio notifica push Microsoft (MPNS). Al termine, si sarà in grado di trasmettere notifiche push a tutti i dispositivi o a utenti specifici in base alle proprietà dei loro dispositivi (tramite MPNS). Seguire anche l'esercitazione successiva per imparare a usare Mobile Engagement per rivolgersi a gruppi di dispositivi e a utenti specifici.
 
@@ -45,11 +46,11 @@ Per completare questa esercitazione, è necessario disporre di:
    	![][7]
 
 3. Nella finestra popup che viene visualizzata, immettere le informazioni seguenti:
- 
+
    	![][8]
 
 	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione (**Windows Phone Silverlight**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma. 
+	- **Piattaforma**: selezionare la piattaforma di destinazione (**Windows Phone Silverlight**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
 	- **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
 	- **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
 	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
@@ -58,7 +59,7 @@ Per completare questa esercitazione, è necessario disporre di:
 4. Selezionare l'app appena creata nella scheda **Applicazioni**.
 
 5. Fare clic su **Informazioni di connessione** per visualizzare le impostazioni di connessione da inserire nell'integrazione dell'SDK nell'app per dispositivi mobili.
- 
+
    	![][10]
 
 6. Copiare la **stringa di connessione**, che è necessaria per identificare l'app nel codice dell'applicazione e connettersi a Mobile Engagement dall'app per il telefono.
@@ -83,12 +84,12 @@ Si creerà un'app di base con Visual Studio per illustrare l'integrazione.
 
 A questo punto è stata creata una nuova app per Windows Phone Silverlight in cui si integrerà Azure Mobile Engagement SDK.
 
-###Connettere l'app al back-end di Mobile Engagement 
+###Connettere l'app al back-end di Mobile Engagement
 
 1. Installare il pacchetto NuGet di [Mobile Engagement SDK per Windows Phone] nel progetto.
 
 2. Aprire `WMAppManifest.xml` nella cartella Proprietà e assicurarsi che le funzionalità seguenti siano dichiarate (in caso contrario, aggiungerle) nel tag `<Capabilities />`:
-		
+
 		<Capability Name="ID_CAP_NETWORKING" />
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
@@ -105,7 +106,7 @@ A questo punto è stata creata una nuova app per Windows Phone Silverlight in cu
 			using Microsoft.Azure.Engagement;
 
 	b. Inizializzare l'SDK nel metodo `Application_Launching`:
-			
+
 			private void Application_Launching(object sender, LaunchingEventArgs e)
 			{
 			  EngagementAgent.Instance.Init();
@@ -133,8 +134,8 @@ Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necess
 3. Nel file `MainPage.xml`: a. Aggiungere le dichiarazioni di spazi dei nomi:
 
 			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-	
-	b. Sostituire `phone:PhoneApplicationPage` nel nome del tag xml con `engagement:EngagementPage`
+
+	b. Sostituire `phone:PhoneApplicationPage` nel nome del tag XML con `engagement:EngagementPage`
 
 ###Controllare che l'app sia connessa tramite il monitoraggio in tempo reale
 
@@ -164,8 +165,8 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 Aggiungere nuove funzionalità al file `WMAppManifest.xml`:
 
-		ID_CAP_PUSH_NOTIFICATION 
-		ID_CAP_WEBBROWSERCOMPONENT 
+		ID_CAP_PUSH_NOTIFICATION
+		ID_CAP_WEBBROWSERCOMPONENT
 
 ![][34]
 
@@ -234,5 +235,6 @@ A questo punto si creerà una campagna di notifica push semplice che invierà un
 [37]: ./media/mobile-engagement-windows-phone-get-started/campaign-content.png
 [39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

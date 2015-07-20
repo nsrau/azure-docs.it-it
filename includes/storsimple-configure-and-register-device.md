@@ -62,4 +62,4 @@
   
       >[AZURE.NOTE]Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

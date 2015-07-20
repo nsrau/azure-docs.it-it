@@ -1,3 +1,4 @@
+
 Le macchine virtuali sono sempre disponibili in un servizio cloud, che funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può trovarsi facoltativamente in una rete virtuale.
 
 Se un servizio cloud non si trova in una rete virtuale, è detto servizio cloud *autonomo*. Le macchine virtuali in tale servizio cloud possono comunicare solo con altre macchine virtuali usando i nomi DNS pubblici delle altre macchine virtuali e il traffico verrà trasmesso attraverso Internet. Se un servizio cloud si trova in una rete virtuale, le macchine virtuali in tale servizio cloud possono comunicare con tutte le altre macchine virtuali nella rete virtuale senza inviare traffico su Internet.
@@ -48,4 +49,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

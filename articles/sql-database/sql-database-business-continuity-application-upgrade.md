@@ -29,5 +29,6 @@ Quando si progetta il processo di aggiornamento di un'applicazione, l'obiettivo 
 
 Se l'applicazione può funzionare temporaneamente in modalità di sola lettura, il flusso di lavoro di aggiornamento potrebbe essere progettato in modo da eliminare completamente il tempo di inattività. Per comprendere come implementare il flusso di lavoro di aggiornamento per la specifica topologia dell'applicazione, vedere [le procedure consigliate per ridurre al minimo le interruzioni del database SQL di Azure durante gli aggiornamenti in sequenza delle applicazioni](https://msdn.microsoft.com/library/azure/dn790385.aspx).
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

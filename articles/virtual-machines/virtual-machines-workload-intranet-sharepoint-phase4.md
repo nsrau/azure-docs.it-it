@@ -95,7 +95,7 @@ Una volta specificati tutti i valori appropriati, eseguire il blocco risultante 
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Utilizzare la procedura [Accesso a una macchina virtuale con una connessione Desktop remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quattro volte, una volta per ogni server SharePoint, per accedere utilizzando le credenziali dell’account [Dominio]\\sp_farm_db  create nella [Fase 2: Configurare i controller di dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Utilizzare la procedura [Accesso a una macchina virtuale con una connessione Desktop remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quattro volte, una volta per ogni server SharePoint, per accedere utilizzando le credenziali dell’account [Domain]\\sp_farm_db create nella [Fase 2: Configurare i controller di dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Utilizzare la procedura [Per verificare la connettività](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) quattro volte, una per ogni server SharePoint, per testare la connettività ai percorsi nella rete dell'organizzazione.
 
@@ -109,11 +109,11 @@ Utilizzare questi passaggi per configurare il primo server SharePoint nella farm
 4.	Nella pagina Connessione a una server farm, selezionare **Crea una nuova server farm** e fare clic su **Avanti**.
 5.	Nella pagina Imposta server database di configurazione:
 - In **Server database**, digitare il nome del server SQL primario. 
-- In **Nome utente**, digitare [Dominio]* * \\sp_farm_db** (creato nella [Fase 2: Configurare i controller di dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). È importante ricordare che l'account sp_farm_db dispone dei privilegi sysadmin in SQL server. 
+- In **Nome utente**, digitare [Domain]**\\sp_farm_db** (creato nella [Fase 2: Configurare i controller di dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). È importante ricordare che l'account sp_farm_db dispone dei privilegi sysadmin in SQL server. 
 - In **Password**, digitare la password dell'account sp_farm_db.
 6.	Fare clic su **Avanti**.
 7.	Nella pagina Specifica impostazioni di sicurezza della farm, digitare due volte una passphrase. Registrare la passphrase e archiviarla in un luogo sicuro per riferimento futuro. Fare clic su **Avanti**.
-8.	Nella pagina Configurazione applicazione Web Amministrazione centrale SharePoint, fare clic su  **Avanti**.
+8.	Nella pagina Configurazione applicazione Web Amministrazione centrale SharePoint, fare clic su **Avanti**.
 9.	Verrà visualizzata la pagina Completamento Configurazione guidata Prodotti SharePoint. Fare clic su **Avanti**.
 10.	Verrà visualizzata la pagina Configurazione di Prodotti SharePoint in corso. Attendere il completamento del processo di configurazione, circa 8 minuti.
 11.	Una volta configurata la farm, fare clic su **Fine**. Verrà avviato il nuovo sito Web di amministrazione.
@@ -129,7 +129,7 @@ Eseguire la procedura seguente nel secondo server applicazioni di SharePoint e n
 6.	Fare clic su **SharePoint_Config** nell’elenco di nomi di database, quindi fare clic su **Avanti**. 
 7.	Nella pagina Specifica impostazioni di sicurezza della farm digitare la passphrase della procedura precedente. Fare clic su **Avanti**.
 8.	Verrà visualizzata la pagina Completamento Configurazione guidata Prodotti SharePoint. Fare clic su **Avanti**.
-9.	Nella pagina Configurazione completata, fare clic su  **Fine**. 
+9.	Nella pagina Configurazione completata, fare clic su **Fine**. 
 
 Quando in SharePoint viene creata la farm, viene configurato un set di account di accesso server nella macchina virtuale SQL Server primario. SQL Server 2012 introduce il concetto di utenti con password per i database indipendenti. Il database stesso archivia tutti i metadati del database e le informazioni degli utenti, e non è necessario che un utente definito in questo database abbia un account di accesso corrispondente. Le informazioni contenute in questo database vengono replicate dal gruppo di disponibilità e sono disponibili dopo un failover. Per ulteriori informazioni, vedere [Database indipendenti](http://go.microsoft.com/fwlink/p/?LinkId=262794).
 
@@ -188,4 +188,7 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

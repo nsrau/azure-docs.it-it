@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Abilitare la registrazione per i servizi Web di Machine Learning | Azure" 
-	description="Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning." 
+	pageTitle="Registrazione per i servizi Web di Machine Learning | Microsoft Azure" 
+	description="Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/12/2015"
-	ms.author="garye"/>
-
+	ms.date="06/30/2015"
+	ms.author="raymondl;garye"/>
 
 #Abilitare la registrazione per i servizi Web di Machine Learning  
 
@@ -37,5 +36,6 @@ Questo documento include informazioni sulla funzionalità di registrazione dei s
 	-	Il nome di ogni BLOB include un prefisso nel formato seguente: {ID area di lavoro}-{ID servizio Web}-{ID endpoint}/{Tipo di log}  
 -	Il tipo di log accetta uno dei valori seguenti: batch punteggio/richieste punteggio/inizializzazione  
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

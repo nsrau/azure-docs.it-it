@@ -134,7 +134,7 @@ Utilizzare la seguente procedura due volte (una volta per ogni computer SQL serv
 1.	Nella schermata Start, fare doppio clic su **Computer**, quindi fare clic su **Proprietà**.
 2.	Nella finestra **Sistem** fare clic su **Impostazioni di connessione remota**.
 3.	Nella sezione **Desktop remoto** fare clic su **Selezione utenti**, quindi su **Aggiungi**.
-4.	In **Immettere i nomi di oggetto da selezionare**, digitare [dominio]**\\sp_farm_db**, quindi fare clic su **OK** per tre volte.
+4.	In **Immettere i nomi di oggetto da selezionare**, digitare [domain]**\\sp_farm_db**, quindi fare clic su **OK** per tre volte.
 
 SQL Server richiede una porta utilizzata dai client per accedere al server di database. È necessario inoltre che le porte per la connessione con SQL Server Management Studio e la gestione del gruppo di disponibilità elevata. Successivamente, eseguire il comando seguente a un prompt di Windows PowerShell a livello di amministratore per due volte (una volta per ogni SQL server) per aggiungere una regola firewall che consenta il traffico in ingresso a SQL server.
 
@@ -201,7 +201,7 @@ Utilizzare questi passaggi per abilitare i gruppi di disponibilità AlwaysOn di 
 3.	Nel riquadro sinistro fare clic su **Servizi di SQL Server**.
 4.	Nel riquadro del contenuto, fare doppio clic su **SQL Server (MSSQLSERVER)**.
 5.	In **Proprietà SQL Server (MSSQLSERVER)**, fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita i gruppi di disponibilità AlwaysOn**s fare clic su **Applica**, quindi fare clic su **OK** quando richiesto. Non chiudere ancora la finestra Proprietà. 
-6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Dominio]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **Conferma password**, quindi fare clic su **OK**.
+6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Domain]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **Conferma password**, quindi fare clic su **OK**.
 7.	Nella finestra di messaggio, fare clic su **Sì** per riavviare il servizio SQL Server.
 8.	Accedere al server SQL secondario e ripetere questo processo. 
 
@@ -223,5 +223,7 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 4: C
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

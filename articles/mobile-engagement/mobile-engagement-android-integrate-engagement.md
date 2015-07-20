@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -30,9 +30,9 @@ Questa procedura descrive il modo più semplice per attivare le funzioni di anal
  
 I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in Android](mobile-engagement-android-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
-##Incorporare il servizio e l'SDK di Engagement nel progetto Android
+##Incorporare il servizio ed Engagement SDK nel progetto Android
 
-Ottenere i file `mobile-engagement-VERSION.jar` e inserirli nella cartella `libs` del progetto Android (creare la cartella libs, se non esiste ancora).
+Android SDK è disponibile [qui](http://go.microsoft.com/?linkid=9863935&clcid=0x409) per il download. Ottenere i file `mobile-engagement-VERSION.jar` e inserirli nella cartella `libs` del progetto Android (creare la cartella libs, se non esiste ancora).
 
 > [AZURE.IMPORTANT]Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantenere alcune classi. È possibile usare il frammento di codice di configurazione seguente:
 >
@@ -165,7 +165,7 @@ Questo esempio è molto simile alla classe `EngagementActivity` e alle relative 
 
 ##Test
 
-Per verificare l'integrazione, vedere l'argomento relativo al test dell'integrazione di Engagement in Android.
+Verificare ora l'integrazione, eseguendo l'app per dispositivi mobili in un emulatore o in un dispositivo e verificando che registri una sessione nella scheda Monitoraggio.
 
 Le sezioni successive sono facoltative.
 
@@ -309,5 +309,6 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 
 <!-- URLs. -->
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

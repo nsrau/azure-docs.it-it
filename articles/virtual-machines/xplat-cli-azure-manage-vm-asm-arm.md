@@ -18,7 +18,7 @@
 
 
 # Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure
-In questo articolo vengono elencati i comandi equivalenti interfaccia della riga di comando di Azure (Azure CLI) per creare e gestire macchine virtuali di Azure in modalità di gestione dei servizi (asm) in modalità di gestione risorse (arm). Usare come guida utile per la migrazione degli script dalla modalità uno comando a altro.
+In questo articolo vengono elencati i comandi equivalenti all’interfaccia della riga di comando di Microsoft Azure (Azure CLI) per creare e gestire macchine virtuali di Azure in modalità di gestione dei servizi (asm) e in modalità di gestione risorse (arm). Usare come guida utile per la migrazione degli script dalla modalità uno comando a altro.
 
 * Se l'interfaccia della riga di comando di Azure non è ancora stata installata e connessa alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md). Assicurarsi di connettersi con il metodo di accesso quando si usano i comandi di modalità arm.
 
@@ -27,9 +27,9 @@ In questo articolo vengono elencati i comandi equivalenti interfaccia della riga
 * Per la Guida in linea di comando e le opzioni, digitare `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
 ## Scenari
-Di seguito sono operazioni comuni di macchina virtuale è possibile eseguire con i comandi di Azure CLI in modalità asm e arm. Con molti comandi in modalità arm, è necessario passare il nome di un gruppo di risorse esistente.
+Nella tabella seguente sono elencate le operazioni comuni di macchina virtuale che è possibile eseguire con i comandi di Azure CLI in modalità asm e arm. Con molti comandi in modalità arm, è necessario passare il nome di un gruppo di risorse esistente.
 
-> [AZURE.NOTE]Questi esempi non includono operazioni basate su modello in modalità arm. Per informazioni, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Questi esempi non includono operazioni basate su modello in modalità arm. Per informazioni, vedere [Utilizzo dell'interfaccia della riga di comando con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
 
 Scenario | modalità asm | modalità ARM
 -------------- | ----------- | -------------------------
@@ -48,20 +48,19 @@ Creare una macchina virtuale da un disco specializzato | `azure  vm create [opti
 Aggiungere un disco dati a una macchina virtuale | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -O- <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Rimuovere un disco dati da una macchina virtuale | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Aggiungere un'estensione generica a una macchina virtuale | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
-Aggiungere l'estensione accesso alle macchine Virtuali a una macchina virtuale | NON DISPONIBILE | `azure vm reset-access [options] <resource-group> <name>`
+Aggiungere l'estensione accesso alle macchine Virtuali a una macchina virtuale | Non disponibile | `azure vm reset-access [options] <resource-group> <name>`
 Aggiungere Docker estensione a una macchina virtuale | `azure  vm docker create [options] <dns-name> <image> <user-name> [password]` | `azure  vm docker create [options] <resource-group> <name> <location> <os-type>`
-Aggiungere l'estensione Chef a una macchina virtuale | `azure  vm extension get-chef [options] <vm-name>` | NON DISPONIBILE
-Disabilitare un'estensione di macchina virtuale | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | NON DISPONIBILE
+Aggiungere l'estensione Chef a una macchina virtuale | `azure  vm extension get-chef [options] <vm-name>` | Non disponibile
+Disabilitare un'estensione di macchina virtuale | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | Non disponibile
 Rimuovere un'estensione di macchina virtuale | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
 Elencare le estensioni di macchina virtuale | `azure vm extension list [options]` | `azure  vm extension get [options] <resource-group> <vm-name>`
 Elenco immagini di macchina virtuale | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]` -OR- <br/> `azure vm image list-publishers [options] <location>` -OR- <br/> `azure vm image list-offers [options] <location>` -OR- <br/> `azure vm image list-skus [options] <location>`
-Visualizzare un'immagine di macchina virtuale | `azure vm image show [options]` | NON DISPONIBILE
+Visualizzare un'immagine di macchina virtuale | `azure vm image show [options]` | Non disponibile
 
 
 ## Passaggi successivi
 
 * Per ulteriori informazioni sull'uso di Azure CLI per lavorare con le risorse in modalità arm, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Managing Role-Based controllo di accesso con l'interfaccia della riga di comando di Azure](../role-based-access-control-xplat-cli.md).
 * Per altri esempi di comandi CLI, vedere [Strumento da riga di comando di Azure per Mac e Linux](../virtual-machines-command-line-tools.md) e [Uso della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

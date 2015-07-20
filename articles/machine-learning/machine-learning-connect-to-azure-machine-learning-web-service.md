@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Connessione a un servizio Web di Azure Machine Learning | Azure" 
+	pageTitle="Connessione a un servizio Web di Machine Learning | Microsoft Azure" 
 	description="Effettuare la connessione a un servizio Web di Azure Machine Learning con c# o Python utilizzando una chiave di autorizzazione." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
 # Connessione a un servizio Web di Azure Machine Learning 
-L'esperienza dello sviluppatore di Azure Machine Learning è un'API del servizio Web per eseguire stime dai dati di input in tempo reale o in modalità batch. È possibile utilizzare Azure Machine Learning Studio (ML Studio) per creare stime e pubblicare un servizio Web di Azure ML. 
+L'esperienza dello sviluppatore di Azure Machine Learning è un'API del servizio Web per eseguire stime dai dati di input in tempo reale o in modalità batch. È possibile usare Azure Machine Learning Studio per creare stime e pubblicare un servizio Web di Azure Machine Learning.
 
-Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning utilizzando ML Studio:
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-- [Panoramica del processo Azure ML](../machine-learning-overview-of-azure-ml-process.md)
+Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning tramite Studio:
+
+- [Pubblicare un servizio Web di Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 - [Introduzione a ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Anteprima di Azure Machine Learning](https://studio.azureml.net/)
 - [Centro di documentazione Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/)
@@ -36,45 +38,43 @@ Azure Machine Learning dispone di due tipi di servizi:
 - Servizio di richiesta-risposta (RRS). Un servizio a latenza bassa e altamente scalabile che offre un'interfaccia ai modelli senza stati creati e pubblicati da ML Studio.
 - Servizio esecuzione batch (BES). Un servizio asincrono che valuta un batch di record di dati.
 
-Per ulteriori informazioni sui servizi Web di Azure Machine Learning, vedere [Panoramica del processo di Azure ML](../machine-learning-overview-of-azure-ml-process.md).
+Per altre informazioni sui servizi Web di Azure Machine Learning, vedere [Pubblicare un servizio Web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Ottenere una chiave di autorizzazione Azure Machine Learning ##
 È possibile ottenere una chiave API del servizio Web da un servizio Web ML. È possibile ottenerla da Microsoft Azure Machine Learning studio o dal portale di gestione di Azure.
-### Microsoft Azure Machine Learning studio ###
-1. In Microsoft Azure Machine Learning studio, fare clic su **SERVIZI WEB** sulla sinistra.
-2. Fare clic su un servizio Web. La "Chiave API" si trova sulla scheda **DASHBOARD**.
+### Microsoft Azure Machine Learning Studio ###
+1. In Microsoft Azure Machine Learning Studio fare clic su **WEB SERVICES** a sinistra.
+2. Fare clic su un servizio Web. La "chiave API" si trova nella scheda **DASHBOARD**.
 
 ### Portale di gestione di Azure ###
 
-1. Fare clic su **APPRENDIMENTO AUTOMATICO** sulla sinistra.
+1. Fare clic su **MACHINE LEARNING** a sinistra.
 2. Fare clic su un'area di lavoro.
-3. Fare clic su **SERVIZI WEB**.
+3. Fare clic su **WEB SERVICES**.
 4. Fare clic su un servizio Web.
-5. Fare clic su un endpoint. La "Chiave API" si trova in basso a destra.
+5. Fare clic su un endpoint. La "CHIAVE API" si trova in basso a destra.
 
-## <a id="connect"></a>Connessione a un servizio Web di Azure Machine Learning
+## <a id="connect"></a>Connettersi a un servizio Web di Azure Machine Learning
 
 È possibile effettuare la connessione a un servizio Web di Azure Machine Learning utilizzando qualsiasi linguaggio di programmazione che supporta la risposta e richiesta HTTP. È possibile visualizzare gli esempi in c#, Python e R da una pagina della Guida del servizio Web ML di Azure.
 
 ### Per visualizzare una pagina della Guida API del servizio Web di Azure ML ###
-Una pagina della Guida API ML Azure viene creata quando si pubblica un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Pubblicazione del servizio Web](machine-learning-walkthrough-5-publish-web-service.md).
+Una pagina della Guida API ML Azure viene creata quando si pubblica un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Pubblicare il servizio Web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Per visualizzare una pagina della Guida API ML Azure**
-In Microsoft Azure Machine Learning Studio:
+**Per visualizzare una pagina della Guida per l'API di Azure ML** In Microsoft Azure Machine Learning Studio:
 
-1. Scegliere **SERVIZI WEB**.
+1. Scegliere **WEB SERVICES**.
 2. Scegliere un servizio Web.
-3. Scegliere **Pagina della Guida API** - **RICHIESTA/RISPOSTA** o **ESECUZIONE BATCH**.
+3. Scegliere la **pagina della Guida per l'API** - **REQUEST/RESPONSE** o **BATCH EXECUTION**.
 
 
-**Pagina della Guida API di Azure ML**
-La pagina della Guida API ML Azure contiene i dettagli su un servizio web di stima tra cui
+**Pagina della Guida per l'API di Azure ML** La pagina della Guida per l'API di Azure ML contiene i dettagli su un servizio Web di stima tra cui
 
 
 <table>
 	<tr>
-		<td>&nbsp;</td>
+		<td>&#160;</td>
 		<td>Esempio </td>
 	</tr>
 	<tr>
@@ -86,16 +86,16 @@ La pagina della Guida API ML Azure contiene i dettagli su un servizio web di sti
 	<tr>
 		<td>Richiesta di esempio </td>
 		<td>{ <br/> 
-			&nbsp;&nbsp; "Id": "score00001",   <br/>
-			&nbsp;&nbsp; "Instance": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector": { <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3": "0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters": {}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
+			&#160;&#160; "Id": "score00001",   <br/>
+			&#160;&#160; "Instance": <br/>
+			&#160;&#160;&#160;&#160; {  <br/>  
+ 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
+			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
+			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
+			&#160;&#160;&#160;&#160; } <br/>
 		}</td>
 	</tr>
 	<tr>
@@ -129,7 +129,7 @@ La pagina della Guida API ML Azure contiene i dettagli su un servizio web di sti
 	</tr>
 	<tr>
 		<td>Risposta di esempio </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,...] </td>
+		<td>["Col1","1","1",…] </td>
 	</tr>
 	<tr>
 		<td>Codice di esempio </td>
@@ -137,23 +137,23 @@ La pagina della Guida API ML Azure contiene i dettagli su un servizio web di sti
 	</tr>
 </table>
 
-**NOTA** Gli esempi sono dell'esempio 1: Scaricare il set di dati da UCI: Il set di dati di seconda classe per adulti fa parte della raccolta di esempio Azure ML.
+**NOTA** Gli esempi sono tratti da Sample 1: Download dataset from UCI: Adult 2 class dataset che fa parte della raccolta di esempi di Azure ML.
 
 ### Esempio C# ###
 
-Per effettuare la connessione a un servizio Web Azure ML, utilizzare un **HttpClient** passando a ScoreData. ScoreData contiene un vettore FeatureVector e n-dimensional  di funzionalità numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio Azure ML con una chiave API.
+Per connettersi a un servizio Web di Azure ML, usare **HttpClient** per passare ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio Azure ML con una chiave API.
 
-Per effettuare la connessione a un servizio Web ML, è necessario installare il pacchetto **Microsoft.AspNet.WebApi.Client** Nuget.
+Per connettersi a un servizio Web di ML, è necessario installare il pacchetto NuGet **Microsoft.AspNet.WebApi.Client**.
 
 **Installare Microsoft.AspNet.WebApi.Client Nuget su Visual Studio**
 
-1. Pubblicare il download del set di dati da UCI: Servizio Web del set di dati di 2 classe per adulti.
-2. Fare clic su **Strumenti** > **Gestione pacchetto Nuget** > **Console di gestione pacchetti**.
+1. Pubblicare il set di dati di download dal servizio Web UCI: Adult 2 class dataset.
+2. Fare clic su **Strumenti** > **Gestione pacchetto NuGet** > **Console di Gestione pacchetti**.
 2. Scegliere **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Per eseguire l'esempio di codice**
 
-1. Publicare "Sample 1: Scaricare il set di dati da UCI: La prova set di dati 2 classe per adulti", fa parte della raccolta di esempio Azure ML.
+1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", parte della raccolta di esempi di Azure ML.
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
@@ -256,12 +256,12 @@ Per effettuare la connessione a un servizio Web ML, è necessario installare il 
 
 ### Esempio Python ###
 
-Per connettersi a un servizio Web di Azure ML, utilizzare la libreria **urllib2** passando ScoreData. ScoreData contiene un vettore FeatureVector e n-dimensional  di funzionalità numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio Azure ML con una chiave API.
+Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per passare ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio Azure ML con una chiave API.
 
 
 **Per eseguire l'esempio di codice**
 
-1. Publicare "Sample 1: Scaricare il set di dati da UCI: La prova set di dati 2 classe per adulti", fa parte della raccolta di esempio Azure ML.
+1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", parte della raccolta di esempi di Azure ML.
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
@@ -312,5 +312,6 @@ Per connettersi a un servizio Web di Azure ML, utilizzare la libreria **urllib2*
 	
 		result = response.read()
 		print(result) 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

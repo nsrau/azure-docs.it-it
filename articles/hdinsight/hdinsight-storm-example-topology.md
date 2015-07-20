@@ -56,4 +56,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

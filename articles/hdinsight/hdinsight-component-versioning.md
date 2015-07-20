@@ -42,7 +42,7 @@ Azure HDInsight supporta più versioni cluster di Hadoop che possono essere dist
 
 **Ottenere le informazioni sulla versione del componente corrente**
 
-Le versioni dei componenti associate alle versioni cluster HDInsight potrebbero subire modifiche nei futuri aggiornamenti a HDInsight. Per determinare i componenti disponibili e verificare le versioni in uso per un cluster, usare l'API REST Ambari. È possibile usare il comando **GetComponentInformation** per recuperare informazioni su un componente del servizio. Per informazioni dettagliate, vedere la [documentazione di Ambari][ambari-docs]. Per ottenere queste informazioni, è anche possibile accedere a un cluster usando Desktop remoto ed esaminare direttamente il contenuto della directory "C:\apps\dist".
+Le versioni dei componenti associate alle versioni cluster HDInsight potrebbero subire modifiche nei futuri aggiornamenti a HDInsight. Per determinare i componenti disponibili e verificare le versioni in uso per un cluster, usare l'API REST Ambari. È possibile usare il comando **GetComponentInformation** per recuperare informazioni su un componente del servizio. Per informazioni dettagliate, vedere la [documentazione di Ambari][ambari-docs]. Per ottenere queste informazioni, è anche possibile accedere a un cluster usando Desktop remoto ed esaminare direttamente il contenuto della directory "C:\\apps\\dist".
 
 
 **Note sulla versione**
@@ -153,4 +153,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

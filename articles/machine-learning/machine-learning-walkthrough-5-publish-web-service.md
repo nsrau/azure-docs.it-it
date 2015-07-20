@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Azure" 
-	description="Passaggio 5 della procedura dettagliata della soluzione: Pubblicare un esperimento di punteggio in Azure Machine Learning Studio come servizio Web di Azure Machine Learning" 
+	pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Microsoft Azure" 
+	description="Passaggio 5 della procedura dettagliata Sviluppare una soluzione predittiva: Pubblicare un esperimento di punteggio in Machine Learning Studio come servizio Web." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,153 +13,116 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-Questo è il quinto passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning][sviluppare]:
+# Passaggio 5 della procedura dettagliata: Pubblicare il servizio Web di Azure Machine Learning
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+Questo è il quinto passaggio della procedura dettagliata, [Sviluppo di una soluzione predittiva con Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.	[Creare un'area di lavoro ML][create-workspace]
-2.	[Caricare i dati esistenti][upload-data]
-3.	[Creare un nuovo esperimento][create-new]
-4.	[Eseguire il training e valutare i modelli][train-models]
+1.	[Creare un'area di lavoro di Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.	[Caricare i dati esistenti](machine-learning-walkthrough-2-upload-data.md)
+3.	[Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)
+4.	[Eseguire il training e valutare i modelli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5.	**Pubblicare il servizio Web**
-6.	[Accedere al servizio Web][access-ws]
-
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
 
-# Passaggio 5: Pubblicare il servizio Web di Azure Machine Learning
+Per rendere il modello predittivo disponibile per altri utenti, occorre pubblicarlo come servizio Web in Azure.
 
-Per rendere il modello predittivo disponibile per altri utenti, occorre pubblicarlo come servizio Web in Azure. L'utente potrà inviare al servizio un set di dati di una richiesta di credito e il servizio restituirà la stima del rischio di credito.  
+Fino a questo punto è stato sperimentato il training da parte del modello, tuttavia il servizio pubblicato non servirà più per il training, ma per assegnare un punteggio all'input dell'utente. Si eseguiranno perciò alcune attività di preparazione e quindi si pubblicherà questo esperimento come servizio Web funzionante accessibile agli utenti. L'utente potrà inviare al servizio un set di dati di una richiesta di credito e il servizio restituirà la stima del rischio di credito.
 
-A questo scopo, è necessario:  
+A questo scopo, è necessario:
 
--	Preparare l'esperimento in modo che sia pronto per la pubblicazione
--	Pubblicarlo in un server di gestione temporanea in cui sia possibile testarlo
--	Alzarlo di livello sul server attivo quando si pensa che sia pronto  
+- Convertire l'*esperimento di training* creato in un *esperimento di classificazione*
+- Pubblicazione dell'esperimento di classificazione come servizio Web
 
-Prima di proseguire, occorre creare una copia di questo esperimento da modificare. In questo modo sarà possibile tornare all'esperimento creato ogni volta che sarà necessario lavorare di nuovo sui modelli.  
+Prima però è necessario ridurre un po' questo esperimento. Nell'esperimento attualmente sono presenti due modelli diversi, ma ora è necessario selezionare un solo modello da pubblicare. Si supponga che il modello di albero con boosting sia il modello più indicato. La prima cosa da fare, quindi, è rimuovere il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] e i moduli usati per eseguirne il training. È possibile creare prima una copia dell'esperimento facendo clic su **Save As** nella parte inferiore dell'area di disegno dell'esperimento.
 
-1.	Fare clic su **Salva con nome** sotto l'area di disegno.
-2.	Specificare un nome descrittivo per la copia dell'esperimento. In genere si aggiunge "- Copia" al nome originale dell'esperimento. In questo caso, è possibile digitare "Stima del rischio di credito - Esperimento di assegnazione dei punteggi"
-3.	Fare clic su **OK**.  
+È necessario eliminare i seguenti moduli:
+
+1.	[Two-Class Support Vector Machine][two-class-support-vector-machine]
+2.	I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
+3.	[Normalize Data][normalize-data] (entrambi)
+4.	[Evaluate Model][evaluate-model]
+
+A questo punto, è possibile pubblicare il modello.
+
+##Convertire l'esperimento di training in un esperimento di classificazione
+
+La conversione in un esperimento di punteggio prevede tre passaggi:
+
+1. Salvare il modello di cui è stato eseguito il training e usarlo per sostituire i moduli di training
+2. Ridurre l'esperimento per rimuovere i moduli che sono serviti solo per il training
+3. Definire dove devono trovarsi i nodi di input e di output del servizio Web
+
+Fortunatamente, per eseguire i tre passaggi, è sufficiente fare clic su **Create Scoring Experiment** nella parte inferiore dell'area di disegno dell'esperimento.
+
+Quando si clic su **Create Scoring Experiment**, vengono eseguite alcune operazioni:
+
+- Il modello di cui è stato eseguito il training viene salvato come modulo **Trained Model** nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento e sarà disponibile nella tavolozza in **Trained Models**.
+- Vengono rimossi i moduli usati per il training. In particolare:
+  - [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
+  - [Train Model][train-model] 
+  - [Split][split]
+  - Il secondo modulo [Execute R Script][execute-r-script] usato per i dati di test
+- Il modello con training salvato viene aggiunto all'esperimento.
+- Vengono aggiunti i moduli **Web service input** e **Web service output**.
+
+> [AZURE.NOTE]L'esperimento è stato salvato in due parti: l'esperimento di training originale e il nuovo esperimento di punteggio . È possibile accedere a entrambi usando le schede nella parte superiore dell'area di disegno dell'esperimento.
+
+È necessario eseguire un altro passaggio con l'esperimento. Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] quando ha rimosso il modulo [Split][split], ma ha lasciato l'altro modulo [Execute R Script][execute-r-script]. Poiché tale modulo è stato usato solo per il training e il test (ha fornito una funzione di ponderazione per i dati di esempio), ora è possibile rimuoverlo e connettere [Metadata Editor][metadata-editor] a [Score Model][score-model].
+
+L'esperimento dovrebbe risultare simile al seguente:
+
+![Valutazione del modello sottoposto a training][4]
 
 
-L'esperimento originale e la copia saranno presenti nell'elenco ESPERIMENTI in ML Studio.  
+Ci si chiederà perché il set di dati relativo alle carte di credito tedesche UCI sia stato lasciato nell'esperimento di punteggio. Il servizio userà i dati dell'utente, non il set di dati originale, quindi serve mantenerli collegati?
 
-![Experiments list][1]
- 
-##Preparare l'esperimento di assegnazione dei punteggi
-Per preparare il modello per la pubblicazione come servizio Web, sono necessarie due operazioni.  
+Il servizio non necessita dei dati della carta di credito originali. Necessita però dello schema per tali dati, incluse informazioni come il numero di colonne presenti e quali colone sono numeriche. Queste informazioni sullo schema sono necessarie per interpretare i dati dell'utente. È necessario lasciare questi componenti collegati in modo che il modulo di punteggio abbia lo schema del set di dati quando il servizio è in esecuzione. I dati non vengono usati, solo lo schema.
 
-Occorre innanzitutto convertire l'esperimento da *esperimento di training* a *esperimento di assegnazione dei punteggi*. Fino a questo punto è stato sperimentato il training da parte del modello, tuttavia il servizio pubblicato non servirà più per il training, ma per assegnare un punteggio all'input dell'utente. Si salverà quindi una copia del modello sottoposto a training e quindi si elimineranno tutti i componenti dell'esperimento relativi al training.  
-
-In secondo luogo, il servizio Web di Azure Machine Learning accetterà l'input dell'utente e restituirà un risultato, quindi è necessario identificare i punti di input e output dell'esperimento.  
-
-###Convertire un esperimento di training in un esperimento di assegnazione dei punteggi
-Si supponga che il modello di albero con boosting sia il modello più indicato. La prima cosa da fare è rimuovere i moduli di training SVM.  
-
-1.	Eliminare la **macchina a vettori di supporto a due classi.**
-2.	Eliminare i moduli **Modello di training** e **Modello di punteggio** a essa collegati.
-3.	Eliminare il modulo **Trasforma dati scalando.**  
-
-Salvare quindi il modello di albero con boosting sottoposto a training. A questo punto è possibile rimuovere i moduli rimanenti dell'esperimento usato per il training e sostituirli con il modello sottoposto a training.  
-
-1.	Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Modello di training** rimanente e selezionare **Salva come modello sottoposto a training**.
-2.	Inserire un nome e una descrizione per il modello sottoposto a training. Per questo esempio si userà il nome "Stima del rischio di credito".
-
-	>**Nota**: una volta salvato, il modello sottoposto a training viene visualizzato nella tavolozza dei moduli ed è disponibile per essere usato in altri esperimenti.
-
-3.	Trovare il modello nella tavolozza dei moduli digitando "rischio di credito" nella casella **Cerca**, quindi trascinare il modello sottoposto a training **Stima del rischio di credito** nell'area di disegno dell'esperimento.
-4.	Eliminare i moduli **Albero delle decisioni con boosting a due classi** e **Modello di training**.
-5.	Collegare l'output del modello **Stima del rischio di credito** all'input a sinistra del modulo **Modello di punteggio**.   
-
-È ora disponibile la versione salvata e sottoposta a training del modello dell'esperimento al posto dei moduli di training originali.  
-
-Ci sono altri componenti dell'esperimento aggiunti solo per il training e per valutare gli algoritmi a due modelli. Si possono rimuovere anche questi:  
-
--	**Dividi**
--	Entrambi i moduli **Esecuzione script R**.
--	**Valuta modello**  
-
-Un'ultima cosa: i dati originali della carta di credito inclusi nella colonna Rischio di credito. Questa colonna è stata passata al modulo **Modello di training** in modo che fosse possibile eseguire il training del modello per stimare tali valori. Ma ora che il modello è stato sottoposto a training non è consigliabile continuare a passare tale colonna. Il modello sottoposto a training stimerà il valore automaticamente. Per rimuovere questa colonna dal flusso di dati, si usa il modulo**Colonne progetto**.  
-
-1.	Trovare e trascinare il modulo **Colonne progetto** nell'area di disegno.
-2.	Collegare il modulo all'output del modulo **Editor metadati** (ora che i moduli **Dividi** ed **Esecuzione script R** sono stati rimossi).
-3.	 Selezionare il modulo **Colonne progetto** e fare clic su **Avvia selettore colonne**.
-4.	Lasciare "Tutte le colonne" nell'elenco a discesa.
-5.	Fare clic sul segno più (+) per creare una nuova riga nell'elenco a discesa.
-6.	Nella nuova riga, selezionare "Escludi nomi colonne" e inserire "Rischio di credito" nel campo di testo. È anche possibile specificare la colonna tramite il relativo numero, ovvero 21.
-7.	Fare clic su **OK**.
-
-	>Suggerimento: il selettore colonne segue la logica degli elenchi a discesa nella sequenza in cui le voci sono elencate. In questo caso, il modulo **Colonne progetto** è stato impostato per eseguire il pass-through di tutte le colonne ad eccezione della colonna "Rischio di credito". Se si fosse tralasciato il primo elenco a discesa, il modulo non avrebbe eseguito il pass-through di alcuna colonna.
-
-8.	Collegare l'output del modulo **Colonne progetto** all'input destro del modulo **Modello di punteggio**.  
-
-L'esperimento dovrebbe risultare simile al seguente:  
-
-![Scoring the trained model][2]  
-
-###Selezionare l'input e l'output del servizio
-Nel modello originale, i dati da valutare venivano passati nella porta di input destra ("Set di dati") del modulo**Modello di punteggio** e il risultato del punteggio veniva inviato alla porta di output ("Set di dati con punteggio"). Quando il servizio è in esecuzione, è consigliabile che i dati dell'utente e i risultati usino la stesse porte.  
-
-1.	Fare clic con il pulsante destro del mouse sulla porta di input destra del modulo**Modello di punteggio** e selezionare **Imposta come input pubblicazione**. I dati dell'utente dovranno includere tutti i dati del vettore delle funzionalità.
-
-	>**Suggerimento:** se occorre modificare i dati dell'utente prima di passarli al modulo di punteggio (come è stato usato un modulo **Trasforma dati scalando** per preparare i dati per il modello SVM), lasciare il modulo nel servizio Web e impostare l'input del servizio sulla porta di input del modulo.
-
-2.	Fare clic con il pulsante destro del mouse sulla porta di output e selezionare **Imposta come input pubblicazione**. L'output del modulo Modello di punteggio verrà restituito dal servizio. È incluso il vettore delle funzionalità, più la stima del rischio di credito e il valore di probabilità del punteggio.
-
-	>**Suggerimento:** se si desidera che il servizio Web restituisca solo parte dei dati, ad esempio se non si vuole restituire l'intero vettore delle funzionalità, è possibile aggiungere un modulo **Colonne progetto** dopo il modulo **Modello di punteggio**, configurarlo in modo da escludere le colonne non desiderate e quindi impostando l'output del modulo **Colonne progetto** in modo che corrisponda a quello del servizio Web.  
-  
-
->**Nota**: ci si chiederà perché il set di dati relativo alle carte di credito tedesche UCI e i moduli a esso associati collegati al modulo **Modello di punteggio** siano stati lasciati. Il servizio userà i dati dell'utente, non il set di dati originale, quindi serve mantenerli collegati?
-
-Il servizio non necessita dei dati della carta di credito originali. Necessita però dello schema per tali dati, incluse informazioni come il numero di colonne presenti e quali colone sono numeriche. Queste informazioni sullo schema sono necessarie per interpretare i dati dell'utente. È necessario lasciare questi componenti collegati in modo che il modulo di punteggio abbia lo schema del set di dati quando il servizio è in esecuzione. I dati non vengono usati, solo lo schema.  
-
-Eseguire l'esperimento ancora una volta, facendo clic su **ESEGUI**. Se si vuole verificare che il modello funzioni ancora, fare clic con il pulsante destro del mouse sull'output del modulo **Modello di punteggio** e selezionare **Visualizza**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").  
+Eseguire l'esperimento ancora una volta, facendo clic su **ESEGUI**. Se si vuole verificare che il modello funzioni ancora, fare clic con il pulsante destro del mouse sull'output del modulo [Modello di punteggio][score-model] e selezionare **Visualizza**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
 ##Pubblicare il servizio Web
-Per pubblicare un servizio Web derivato dall'esperimento, fare clic su **PUBBLICA SERVIZIO WEB** sotto l'area di disegno e quindi su **SÌ** quando richiesto. ML Studio pubblica l'esperimento come servizio Web nel server di gestione temporanea ML e apre il Dashboard servizi.   
 
->**Suggerimento**: è possibile aggiornare il servizio Web dopo averlo pubblicato. Se ad esempio si vuole cambiare il modello, è sufficiente modificare l'esperimento di training salvato in precedenza, modificare i parametri del modello e salvare il modello sottoposto a training (sovrascrivendo quello salvato). Quando si apre di nuovo l'esperimento di assegnazione del punteggio, sarà presente una nota che indica che qualcosa è cambiato (il modello sottoposto a training) e che è possibile aggiornare l'esperimento. Quando si pubblica di nuovo l'esperimento, il servizio Web verrà sostituito con il modello aggiornato.  
+Per pubblicare un servizio Web derivato dall'esperimento, fare clic su **PUBBLICA SERVIZIO WEB** sotto l'area di disegno e quindi su **SÌ** quando richiesto. Machine Learning Studio pubblica l'esperimento come servizio Web nel server di gestione temporanea Machine Learning e apre il dashboard servizi.
 
-È possibile configurare il servizio facendo clic sulla scheda **CONFIGURAZIONE**, dove è possibile modificare il nome del servizio (per impostazione predefinita ha il nome dell'esperimento) e aggiungere una descrizione. È anche possibile inserire etichette più descrittive per le colonne di input e output.  
+> [AZURE.TIP]È possibile aggiornare il servizio Web dopo averlo pubblicato. Se ad esempio si vuole cambiare il modello, è sufficiente modificare l'esperimento di training, modificare i parametri del modello e fare clic su **UPDATE SCORING EXPERIMENT**. Quando si pubblica di nuovo l'esperimento, il servizio Web verrà sostituito con il modello aggiornato.
 
-L'opzione **PASSARE ALL'AMBIENTE DI PRODUZIONE?** verrà descritta più avanti.  
+È possibile configurare il servizio facendo clic sulla scheda **CONFIGURAZIONE**, dove è possibile modificare il nome del servizio (per impostazione predefinita ha il nome dell'esperimento) e aggiungere una descrizione. È anche possibile inserire etichette più descrittive per le colonne di input e output.
 
 ##Testare il servizio Web
-Nella pagina **DASHBOARD** fare clic sul collegamento **Test** in **Servizi di gestione temporanea**. Verrà visualizzata una finestra di dialogo che richiede i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco.  
+Nella pagina **DASHBOARD** fare clic sul collegamento **Test** in **Default Endpoint**. Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco.
 
-Immettere un set di dati e quindi fare clic su **OK**.  
+Immettere un set di dati e quindi fare clic su **OK**.
 
-Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard. Nel modo in cui è configurato il servizio, i risultati visualizzati sono generati dal modulo di punteggio.   
+Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard. Nel modo in cui è configurato il servizio, i risultati visualizzati sono generati dal modulo di punteggio.
 
-##Alzare di livello il servizio Web sul server attivo
-Fino a questo momento il servizio è stato eseguito nel server di gestione temporanea ML. Quando si è pronti per attivarlo, è possibile richiedere di alzarlo di livello sul server attivo.  
-
-Nella scheda **CONFIGURAZIONE** fare clic su "SÌ" accanto a **PASSARE ALL'AMBIENTE DI PRODUZIONE?** Verrà inviato un messaggio all'amministratore IT per informarlo che il servizio Web è pronto per essere pubblicato. L'amministratore può quindi alzarlo di livello sul server attivo.
-
-![Promoting the service to the live environment][3]  
 
 ----------
 
-**Passaggi successivi: [Accedere al servizio Web][access-ws]**
+**Passaggio successivo: [Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+[4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 
-<!--HONumber=46--> 
 
-<!--HONumber=46--> 
+<!-- Module References -->
+[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
+[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
+
+<!---HONumber=July15_HO2-->

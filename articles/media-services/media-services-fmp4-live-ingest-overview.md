@@ -204,4 +204,6 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

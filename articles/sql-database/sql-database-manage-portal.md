@@ -68,5 +68,6 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

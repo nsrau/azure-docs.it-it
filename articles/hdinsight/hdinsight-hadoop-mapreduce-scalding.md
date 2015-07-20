@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # Sviluppare processi MapReduce in Scalding con Apache Hadoop in HDInsight
@@ -168,7 +168,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -288,6 +288,5 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

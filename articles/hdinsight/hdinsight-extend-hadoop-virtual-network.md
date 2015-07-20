@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -173,4 +173,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

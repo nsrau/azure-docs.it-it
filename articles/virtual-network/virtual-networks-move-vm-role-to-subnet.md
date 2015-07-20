@@ -51,4 +51,4 @@ Per spostare un'istanza del ruolo, modificare il file CSCFG. Nell'esempio seguen
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

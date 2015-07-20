@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Panoramica della messagistica del bus di servizio - Azure"
-	description="Messaggistica bus di servizio: Recapito dei dati flessibile nel cloud"
+	description="Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="djrosanova"
 	manager="timlt"
-	editor="mattshel"/>
+	editor=""/>
 
 <tags
 	ms.service="service-bus"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/26/2015"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 
-# Messaggistica bus di servizio: Recapito dei dati flessibile nel cloud
+# Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud
 
-La messaggistica del bus di servizio di Microsoft Azure è un servizio di recapito di informazioni affidabile. Lo scopo di questo servizio è semplificare la comunicazione. Quando due o più parti desiderano scambiarsi informazioni, è necessario un meccanismo di comunicazione. La messaggistica del bus di servizio è un meccanismo di comunicazione negoziata o di terze parti. È simile a un servizio postale nel mondo fisico. I servizi postali semplificano l'invio di diversi tipi di lettere e pacchetti con una serie di garanzie di recapito, in qualsiasi parte del mondo.
+La messaggistica del bus di servizio è un servizio di recapito di informazioni affidabile. Lo scopo di questo servizio è semplificare la comunicazione. Quando due o più parti desiderano scambiarsi informazioni, è necessario un meccanismo di comunicazione. La messaggistica del bus di servizio è un meccanismo di comunicazione negoziata o di terze parti. È simile a un servizio postale nel mondo fisico. I servizi postali semplificano l'invio di diversi tipi di lettere e pacchetti con una serie di garanzie di recapito, in qualsiasi parte del mondo.
 
 La messaggistica del bus di servizio di Azure Service, analogamente al servizio postale di recapito lettere, fornisce flessibilità di recapito delle informazioni sia per il mittente sia per il destinatario. Il servizio di messaggistica garantisce che le informazioni vengano recapitate anche se le due parti non sono mai in linea contemporaneamente o se non sono disponibili nello stesso momento. In questo modo, la messaggistica è simile all'invio di una lettera, mentre la comunicazione non negoziata è simile a una chiamata telefonica del passato, prima dell'introduzione dell'attesa di chiamata e dell'ID chiamate, che la rendono simile alla messaggistica negoziata.
 
@@ -36,6 +36,6 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

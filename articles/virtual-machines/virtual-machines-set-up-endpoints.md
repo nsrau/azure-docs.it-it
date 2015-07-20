@@ -95,4 +95,7 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Informazioni sui gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

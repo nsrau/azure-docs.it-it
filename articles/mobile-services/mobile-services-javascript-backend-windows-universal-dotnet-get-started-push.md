@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="05/05/2015" 
 	ms.author="glenga"/>
 
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 Questo argomento illustra come usare Servizi mobili di Azure con un back-end JavaScript per inviare notifiche push a un'app di Windows universale. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di app di Windows universale. Al termine dell'esercitazione, il servizio mobile invierà una notifica push dal back-end JavaScript a tutte le app Windows Store e Windows Phone Store registrate ogni volta che viene inserita una tabella TodoList. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
@@ -38,7 +38,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ##<a id="register"></a>Registrare l'app per le notifiche push
 
-[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Passare alla cartella di progetto <code>\Services\MobileServices\nome_servizio</code>, aprire i file di codice push.register.cs generato e individuare il metodo <strong>UploadChannel</strong> che registra l'URL del canale del dispositivo con l'hub di notifica.</p></li> 
@@ -53,12 +53,12 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il s
 
 I seguenti passaggi aggiornano lo script insert registrato nella tabella TodoItem. È possibile implementare un codice simile in qualsiasi script del server o in qualsiasi altro punto dei propri servizi di back-end.
 
-[AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
+[AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 
 ##<a id="test"></a> Testare le notifiche push nell'app
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
+[AZURE.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -66,13 +66,13 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 
 + [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Informazioni sull'uso dei tag per inviare notifiche push dal servizio mobile solo agli utenti autenticati.
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori](notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
++ [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
 
-+ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Hub di notifica di Azure - Linee guida sulla diagnostica](notification-hubs/notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
+* [Hub di notifica di Azure - Linee guida sulla diagnostica](../notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -94,8 +94,9 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: notification-hubs/notification-hubs-overview.md
+[Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
+ 
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO2-->

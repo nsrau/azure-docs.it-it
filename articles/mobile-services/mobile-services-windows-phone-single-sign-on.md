@@ -18,7 +18,7 @@
 
 # Autenticare l'app di Windows Phone mediante l'autenticazione gestita da client con account Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 ##Panoramica
 Questo argomento illustra come ottenere un token di autenticazione per account Microsoft usando Live SDK da un'app per Windows Phone 8 o Windows Phone 8.1 Silverlight. È possibile usare questo token per autenticare gli utenti con Servizi mobili di Azure. In questa esercitazione si aggiungerà l'autenticazione con account Microsoft a un progetto esistente usando Live SDK. Dopo l'autenticazione e l'accesso, l'utente visualizza una schermata di benvenuto in cui sono indicati il nome utente e il relativo ID.
 
@@ -40,7 +40,7 @@ Per poter autenticare gli utenti, è necessario registrare l'app presso il centr
 
 È quindi necessario limitare l'accesso a una risorsa, in questo caso la tabella *TodoItems*, per assicurarsi che sia accessibile solo da un utente connesso.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
@@ -140,5 +140,6 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Autorizzazione di utenti con script]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

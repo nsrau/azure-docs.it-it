@@ -88,13 +88,13 @@ Sì, sono supportate singole distribuzioni di SCVMM per entrambi gli scenari: ri
 
 La singola distribuzione di Azure Pack è supportata anche quando si abilita il ripristino di emergenza tra siti del provider di servizi, tuttavia, per questa topologia non è disponibile l’integrazione ASR Runbook.
 
-## Distribuire tra siti Hyper-V e Azure \(senza VMM\)
+## Distribuire tra siti Hyper-V e Azure (senza VMM)
 
 ### ASR richiede l’abilitazione della VPN tra siti?
 No, non è obbligatoria. ASR funziona anche tramite Internet pubblica. Tuttavia, se è stata configurata la VPN da sito a sito, sarà possibile accedere alle macchine virtuali di failover nello stesso modo di prima. Per ulteriori informazioni sulle considerazioni di rete quando si abilita il ripristino di emergenza in Azure, vedere il [blog Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site ](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/).
 
 ### È previsto un costo oltre l'addebito per la protezione di ASR?
-Nello stato stazionario, le modifiche vengono replicate in archiviazione di Azure con ridondanza geografica e non è necessario pagare costi di macchine virtuali IaaS di Azure \(un grande vantaggio\). Quando si esegue un failover in Azure, ASR crea automaticamente le macchine virtuali IaaS di Azure, dopodiché vengono fatturate le risorse di calcolo utilizzate in Azure.
+Nello stato stazionario, le modifiche vengono replicate in archiviazione di Azure con ridondanza geografica e non è necessario pagare costi di macchine virtuali IaaS di Azure (un grande vantaggio). Quando si esegue un failover in Azure, ASR crea automaticamente le macchine virtuali IaaS di Azure, dopodiché vengono fatturate le risorse di calcolo utilizzate in Azure.
 
 ### In una filiale non è installato VMM. È possibile abilitare la protezione dei carichi di lavoro nella filiale in Azure? Quali sono i principali vantaggi dell'utilizzo di ASR per eseguire questa operazione?
 Sì, è possibile utilizzare ASR per proteggere le macchine virtuali in esecuzione negli host Hyper-V non gestiti da SCVMM.
@@ -148,7 +148,7 @@ Lavoriamo con la replica esistente configurata dall'amministratore di archiviazi
 Sì, Sì e Sì.
 
 ### Da rete a rete: cosa è necessario installare in locale perché questa soluzione funzioni?
-Quando si utilizza la replica basata su array \(SAN\) per attivare la replica e la protezione tra siti Hyper-V, è sufficiente che il provider del ripristino di emergenza di ASR sia installato nei server SCVMM. Tenere presente che questo è anche l’*unico* host che richiede la connettività a Internet.
+Quando si utilizza la replica basata su array (SAN) per attivare la replica e la protezione tra siti Hyper-V, è sufficiente che il provider del ripristino di emergenza di ASR sia installato nei server SCVMM. Tenere presente che questo è anche l’*unico* host che richiede la connettività a Internet.
 
 
 Gli array devono essere individuati da SCVMM tramite un provider SMI-S aggiornato reso disponibile dai fornitori delle risorse di archiviazione.
@@ -190,7 +190,7 @@ Non esiste un'opzione per il failover automatico. Per attivare il failover, è p
 
 ## Passaggi successivi
 
-Per avviare la distribuzione di ASR:
+Per avviare la distribuzione  
 
 - [Configurare la protezione tra un sito VMM locale e Azure](site-recovery-vmm-to-azure.md) 
 - [Configurare la protezione tra un sito Hyper-V locale e Azure](site-recovery-hyper-v-site-to-azure.md) 
@@ -200,4 +200,4 @@ Per avviare la distribuzione di ASR:
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

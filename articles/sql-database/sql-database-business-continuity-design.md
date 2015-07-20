@@ -96,4 +96,7 @@ Questa API è asincrona. Dopo la restituzione, usare l'API [Get Database Copy](h
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741328.aspx).
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

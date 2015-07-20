@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Raccolte di connessioni per database SQL e SQL Server"
-	description="In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. Viene fornito un collegamento per le informazioni sulla versione relativamente ai driver rilasciati dalla community invece che da Microsoft."
+	description="In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. È disponibile un collegamento per le informazioni sulla versione relative ai driver rilasciati dalla community anziché da Microsoft."
 	services="sql-database"
 	documentationCenter=""
 	authors="pehteh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
+	ms.date="06/24/2015"
 	ms.author="pehteh"/>
 
 
@@ -37,14 +37,27 @@ L’argomento è suddiviso in due sezioni:
 Nella tabella seguente vengono visualizzate le librerie rilasciate da Microsoft. Nella colonna **Librerie** vengono forniti i collegamenti che è possibile utilizzare per scaricare ciascuna libreria. Nella colonna **Versione** è elencata la versione minima consigliata per l'interazione con database SQL di Azure e Microsoft SQL Server.
 
 
-| Piattaforma | Sist oper | Librerie | Versione | Descrizione |
-| :--- | :--- | :--- | :--- | :--- |
-| .NET | Multipiattaforma (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Provider SQL server per .NET Framework |
-| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/it-it/download/details.aspx?id=20098) | 2.0 + | Driver PHP per SQL Server |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/it-it/download/details.aspx?id=11774) | 2.0 + | Driver JDBC di tipo 4 che offre connettività di database tramite l’API JDBC standard |
-| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/it-it/download/details.aspx?id=36434) | 11.0 + | Driver Microsoft ODBC per SQL Server |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/it-it/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/it-it/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server |
+| Piattaforma | Oper Sys | Librerie<br/>per il download | Versione<br/>del driver | Descrizione<br/>del driver | Ulteriori<br/>informazioni |
+| :--- | :--- | :--- | :--- | :--- | :-- |
+| .NET | Multipiattaforma (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Provider SQL server per .NET Framework | . |
+| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 + | Driver PHP per SQL Server | [Collegamento](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 + | Driver JDBC di tipo 4 che offre connettività di database tramite l’API JDBC standard | [Collegamento](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 + | Driver Microsoft ODBC per SQL Server | [Collegamento](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server | . |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server | . |
+
+
+### OLEDB per DB2 e SQL Server, per la progettazione DRDA
+
+
+Il Provider OLEDB Microsoft per DB2 versione 5.0 (provider di dati) consente di creare applicazioni distribuite destinate ai database IBM DB2. Il provider di dati si avvale dell'architettura di accesso ai dati Microsoft SQL Server unitamente a un client di rete Microsoft per DB2 che svolge la funzione di richiedente dell’applicazione Distributed Relational Database Architecture (DRDA). Il provider di dati converte i comandi OLE DB COM (Component Object Model) di Microsoft e tipi di dati in formati di dati e i punti di codice del protocollo DRDA.
+
+
+Per altre informazioni, vedere:
+
+
+- [Provider Microsoft OLEDB per DB2 versione 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
+- [Provider Microsoft OLEDB per DB2 v4.0 per Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
 
 ## Librerie di terze parti
@@ -69,4 +82,4 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da terze part
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

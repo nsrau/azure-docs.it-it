@@ -1,3 +1,3 @@
 Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. Gli edifici si differenziano in base a 8 caratteristiche specifiche, ad esempio il numero di finestre e la distribuzione e l'orientamento delle finestre.<p> </p><b>Utilizzo:</b> usare la regressione o la classificazione per prevedere il livello di efficienza energetica in base a una delle due risposte con valori reali. Per la classificazione a più classi, la variabile di risposta verrà arrotondata al valore Integer più vicino. <p> </p><b>Ricerca correlata:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

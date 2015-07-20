@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione a Ricerca di Azure in NodeJS" 
-	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando NodeJS come linguaggio di programmazione." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Introduzione a Ricerca di Azure in NodeJS"
+	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando NodeJS come linguaggio di programmazione."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Introduzione a Ricerca di Azure in NodeJS#
@@ -39,24 +39,24 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
- 
+
      ![][1]
 
 3. Configurare il nome del servizio, il livello di prezzo, il gruppo di risorse, la sottoscrizione e la posizione. Queste impostazioni sono necessarie e non possono essere modificate dopo il provisioning del servizio.
 
      ![][2]
 
-	- Il **nome del servizio** deve essere univoco, in lettere minuscole, lungo massimo 15 caratteri e senza spazi. Questo nome diventa parte dell'endpoint del servizio Ricerca di Azure. Vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) per ulteriori informazioni sulle convenzioni di denominazione. 
-	
+	- Il **nome del servizio** deve essere univoco, in lettere minuscole, lungo massimo 15 caratteri e senza spazi. Questo nome diventa parte dell'endpoint del servizio Ricerca di Azure. Vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) per ulteriori informazioni sulle convenzioni di denominazione.
+
 	- Il **livello di prezzo** determina capacità e fatturazione. Entrambi i livelli offrono le stesse funzionalità, ma a livelli diversi di risorse.
-	
+
 		- Il livello **gratuito** viene eseguito in cluster condivisi con altri sottoscrittori. Offre capacità sufficienti per provare le esercitazioni e scrivere codice per i modelli di prova, ma non è consigliato per le applicazioni in ambienti di produzione. La distribuzione di un servizio gratuito in genere richiede solo pochi minuti.
 		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene eseguito il provisioning di un servizio standard con una replica e una partizione, ma è possibile regolare la capacità una volta creato il servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
-	
+
 	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, Siti Web di Azure, il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
-	
+
 	- L’opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
-	
+
 	- La **posizione** è l'area geografica del data center. Attualmente, tutte le risorse devono essere eseguite nello stesso data center. La distribuzione di risorse tra più data center non è supportata.
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
@@ -68,7 +68,7 @@ Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizz
 
 Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio di ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
-1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio. 
+1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
 
 2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -112,7 +112,7 @@ Eseguire i comandi seguenti da una finestra di PowerShell:
 
 ##Compilare l’indice ed eseguire l'applicazione.
 
-1. Digitare `npm run indexDocuments`. 
+1. Digitare `npm run indexDocuments`.
 2. Digitare `npm run build`.
 3. Digitare `npm run start_server`.
 4. Inserire nel browser l'indirizzo `http://localhost:8080/index.html`
@@ -146,4 +146,6 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

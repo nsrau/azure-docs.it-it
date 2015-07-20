@@ -31,7 +31,8 @@ Questo argomento presenta un esempio di codice scritto in Python. L'esempio vien
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
+- [FreeTDS](https://github.com/brianb/FreeTDS)
+- [Pymssql](https://github.com/pymssql/pymssql)
 
 ### Installare i moduli necessari
 
@@ -117,4 +118,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

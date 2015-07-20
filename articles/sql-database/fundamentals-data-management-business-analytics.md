@@ -16,7 +16,13 @@
 	ms.date="09/01/2014" 
 	ms.author="jhubbard"/>
 
-[WACOM.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
 
-<!--HONumber=35.2-->
+
+
+
+
+
+[AZURE.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
  
+
+<!---HONumber=July15_HO2-->

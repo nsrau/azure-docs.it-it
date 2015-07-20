@@ -111,5 +111,6 @@ Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR_APPID/n
 [libreria client ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [integrato ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

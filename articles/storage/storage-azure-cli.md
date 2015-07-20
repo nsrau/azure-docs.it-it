@@ -21,29 +21,29 @@
 
 L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel portale di gestione di Azure, nonché funzionalità di accesso ai dati complessi.
 
-In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure \(Azure CLI\)](../xplat-cli.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
+In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
-> [AZURE.NOTE]La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure \(ASM\). Vedere [tramite la CLI di Azure per Mac, Linux e Windows Azure gestione delle risorse](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure \(ARM\).
+> [AZURE.NOTE]La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Windows Azure gestione delle risorse](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
 
 ## Iniziare a utilizzare archiviazione di Azure e Azure CLI in 5 minuti
 
 In questa guida utilizza Ubuntu per gli esempi, ma altre piattaforme del sistema operativo devono eseguire in modo analogo.
 
-**Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) \(per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft\).
+**Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
 
 Per altre informazioni sugli account [Azure, vedere Gestire account, sottoscrizioni e ruoli amministrativi](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
 1. Scaricare e installare CLI Azure seguendo le istruzioni riportate nel [installare CLI Azure](../xplat-cli-install.md).
-2. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando azure dall'interfaccia della riga di comando \(Bash, terminale, prompt dei comandi\) per accedere ai relativi comandi. Tipo `azure` command e verrà visualizzato l'output seguente.
+2. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando azure dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Tipo `azure` command e verrà visualizzato l'output seguente.
 
     ![Output del comando di esempio:][Image1]
 
-3. Nell'interfaccia della riga di comando, digitare `azure storage` per elencare tutti i comandi di archiviazione di azure e ottenere una prima occhiata delle funzionalità CLI Azure fornisce. È possibile digitare il nome del comando con **-h** parametro \(ad esempio, `azure storage share create -h`\) per visualizzare i dettagli della sintassi del comando.
-4. A questo punto viene fornito uno script semplice che mostra i comandi PowerShell di base per accedere ad Archiviazione di Azure. Lo script prima verrà chiesto di impostare due variabili per l'account di archiviazione e la chiave. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente \(BLOB\) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
+3. Nell'interfaccia della riga di comando, digitare `azure storage` per elencare tutti i comandi di archiviazione di azure e ottenere una prima occhiata delle funzionalità CLI Azure fornisce. È possibile digitare il nome del comando con **-h** parametro (ad esempio, `azure storage share create -h`) per visualizzare i dettagli della sintassi del comando.
+4. A questo punto viene fornito uno script semplice che mostra i comandi PowerShell di base per accedere ad Archiviazione di Azure. Lo script prima verrà chiesto di impostare due variabili per l'account di archiviazione e la chiave. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
 
 		#!/bin/bash
 		# A simple Azure storage example
@@ -70,7 +70,7 @@ Per altre informazioni sugli account [Azure, vedere Gestire account, sottoscrizi
 
 		echo "Done"
 
-5. Nel computer locale, aprire l'editor di testo preferito \(vim ad esempio\). Digitare lo script precedente nell'editor di testo.
+5. Nel computer locale, aprire l'editor di testo preferito (vim ad esempio). Digitare lo script precedente nell'editor di testo.
 
 6. A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione.
 
@@ -159,7 +159,7 @@ Nell'esempio seguente viene illustrato come copiare BLOB da un account di archiv
 
 Nell'esempio viene eseguita una copia asincrona. È possibile monitorare lo stato di ogni operazione di copia eseguendo il `azure storage blob copy show` operazione.
 
-Si noti che l'URL di origine fornito per l'operazione di copia devono essere accessibile pubblicamente o includere un token SAS \(firma di accesso condiviso\).
+Si noti che l'URL di origine fornito per l'operazione di copia devono essere accessibile pubblicamente o includere un token SAS (firma di accesso condiviso).
 
 ### Eliminare un BLOB
 
@@ -189,7 +189,7 @@ Si noti che tale percorso di directory può includere più livelli, *ad esempio*
 
 ### Caricare un file locale nella directory
 
-Nell'esempio seguente viene caricato un file da **\~/temp/samplefile.txt** per il **myDir** directory. Modificare il percorso del file in modo che punti a un file valido nel computer locale:
+Nell'esempio seguente viene caricato un file da **~/temp/samplefile.txt** per il **myDir** directory. Modificare il percorso del file in modo che punti a un file valido nel computer locale:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

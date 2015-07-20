@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Panoramica dell'SDK per app di Windows universali" 
-	description="Panoramica di Azure Mobile Engagement SDK per app di Windows universali" 									
+	pageTitle="Panoramica di Windows Universal SDK" 
+	description="Panoramica di Windows Universal SDK per Azure Mobile Engagement" 									
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,25 +16,25 @@
 	ms.date="04/02/2015" 
 	ms.author="piyushjo" />
 
-#Panoramica di Azure Mobile Engagement SDK per app di Windows universali
+#Panoramica di Windows Universal SDK per Azure Mobile Engagement
 
-Iniziare da qui per ottenere i dettagli su come integrare Azure Mobile Engagement in un'app di Windows universale. Se si vuole fare prima una prova, completare l'[esercitazione di 15 minuti](mobile-engagement-windows-store-dotnet-get-started.md).
+Iniziare da qui per ottenere i dettagli su come integrare Azure Mobile Engagement in un'app universale di Windows. Se si vuole fare prima una prova, completare l'[esercitazione di 15 minuti](mobile-engagement-windows-store-dotnet-get-started.md).
 
 Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-windows-store-sdk-content.md).
 
 ##Procedure di integrazione
 
-1. Iniziare da qui: [Come integrare Mobile Engagement in un'app di Windows universale](mobile-engagement-windows-store-integrate-engagement.md)
+1. Iniziare da qui: [Come integrare Mobile Engagement in un'app universale di Windows](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. Per le notifiche: [Come integrare il servizio Reach (di notifica) in un'app di Windows universale](mobile-engagement-windows-store-integrate-engagement-reach.md)
+2. Per le notifiche: [Come integrare il servizio di copertura (di notifica) in un'app universale di Windows](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. Implementazione del piano di tag: [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app di Windows universale](mobile-engagement-windows-store-use-engagement-api.md)
+3. Implementazione del piano di tag: [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app universale di Windows](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##Note sulla versione
 
-###3.0.1 (29/04/2015)
+###3.1.0 (21/05/2015)
 
--   È stato risolto un bug relativo all'inizializzazione dell'SDK in alcune app per Windows Phone WinRT.
+-   L'ID del dispositivo di Mobile Engagement è ora basato su un GUID generato in fase di installazione
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-windows-store-release-notes.md).
 
@@ -52,4 +52,5 @@ Questo passaggio riguarda solo le risorse personalizzate. Se sono state personal
 ### Eseguire l'aggiornamento da versioni precedenti
 
 Vedere [Procedure di aggiornamento](mobile-engagement-windows-store-upgrade-procedure/).
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

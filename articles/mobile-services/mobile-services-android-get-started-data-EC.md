@@ -100,11 +100,9 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 
 Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 
-* [Introduzione all'autenticazione] 
-	<br/>Informazioni sull'autenticazione degli utenti dell'app.
+* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Introduzione alle notifiche push] 
-  <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
+* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@ Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 [Mobile Services SDK per Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

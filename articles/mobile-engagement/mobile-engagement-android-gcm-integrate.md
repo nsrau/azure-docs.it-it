@@ -99,7 +99,7 @@ Al momento della stesura di questo documento (5 febbraio 2014), la procedura è 
 
 -   Aprire [Google Developers Console].
 -   Selezionare lo stesso progetto usato in precedenza nella procedura (quello con il **numero di progetto** che è stato integrato in `AndroidManifest.xml`).
--   Passare a APIs & auth -> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
+-   Passare a APIs & auth -\\> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
 -   Selezionare "Server key".
 -   Nella schermata successiva lasciare vuoto il campo **(no IP restriction)**, quindi fare clic su Create.
 -   Copiare la **chiave API** generata.
@@ -121,5 +121,6 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [libreria client GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google Developers Console]: https://cloud.google.com/console
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -121,4 +121,6 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

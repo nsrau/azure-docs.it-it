@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire iterazioni dell'esperimento in Azure Machine Learning Studio | Azure" 
+	pageTitle="Gestire iterazioni dell'esperimento in Machine Learning Studio | Microsoft Azure" 
 	description="Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -55,7 +55,7 @@ Fare clic su una di queste esecuzioni per visualizzare uno snapshot dell'esperim
 
 Nell'elenco degli esperimenti nella scheda **EXPERIMENTS** in ML Studio viene visualizzata sempre la versione più recente di un esperimento. Se si apre un'esecuzione precedente dell'esperimento (usando **Prior Run** o **VIEW RUN HISTORY**), è possibile tornare alla versione bozza facendo clic su **VIEW RUN HISTORY** e selezionando l'iterazione il cui **STATE** è **Editable**.
 
-##Iterazione dell'esecuzione precedente 
+##Iterazione dell'esecuzione precedente
 
 Se si fa clic su **Prior Run** o su **VIEW RUN HISTORY** e si apre un'esecuzione precedente, è possibile visualizzare un esperimento completato in modalità di sola lettura.
 
@@ -83,5 +83,6 @@ Si supponga ad esempio di disporre della cronologia delle esecuzioni dell'esperi
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

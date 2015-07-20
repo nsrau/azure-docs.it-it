@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Accesso alle informazioni di Azure Active Directory Graph
@@ -179,4 +179,5 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [GetUser]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog del Team di Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

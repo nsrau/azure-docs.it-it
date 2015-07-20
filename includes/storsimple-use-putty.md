@@ -1,3 +1,4 @@
+
 #### Per connettersi tramite console seriale
 
 1. Collegare il cavo seriale al dispositivo (direttamente o tramite un adattatore seriale USB).
@@ -28,4 +29,4 @@
 7. Fare clic su **Apri** per avviare una sessione seriale.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

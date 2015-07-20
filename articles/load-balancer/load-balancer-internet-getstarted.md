@@ -18,7 +18,7 @@
 
 # Introduzione alla configurazione del bilanciamento del carico Internet
 
-I servizi di bilanciamento del carico in Microsoft Azure funzionano con tutti i tipi di tenant \(IaaS o PaaS\) e tutte le versioni dei sistemi operativi \(Windows o qualsiasi sistema operativo basato su Linux\).
+I servizi di bilanciamento del carico in Microsoft Azure funzionano con tutti i tipi di tenant (IaaS o PaaS) e tutte le versioni dei sistemi operativi (Windows o qualsiasi sistema operativo basato su Linux).
 
 
 ## Configurazione del bilanciamento del carico Internet per le macchine virtuali
@@ -35,7 +35,7 @@ Attenersi alla procedura seguente per configurare un set di bilanciamento del ca
 4.	Nella pagina Specificare i dettagli dell'endpoint eseguire le operazioni seguenti:
 	- In Nome digitare un nome per l'endpoint o selezionarne uno dall'elenco di endpoint predefiniti per i protocolli comuni.
 	-  In Protocollo selezionare il protocollo richiesto dal tipo di endpoint, ossia TCP o UDP.
- 	-  In Porta pubblica e Porta privata digitare il numero di porta da utilizzare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web \(HTTP\), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
+ 	-  In Porta pubblica e Porta privata digitare il numero di porta da utilizzare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
 
 5.	Selezionare Crea un set con carico bilanciato e quindi fare clic sulla freccia destra.
 
@@ -109,9 +109,9 @@ Di seguito è riportato un esempio di probe di integrità:
 
 Il bilanciamento del carico combina le informazioni dell'endpoint e le informazioni del probe per creare un URL nel formato http://{DIP della VM}:80/Probe.aspx, che verrà usato per eseguire una query per l'integrità del servizio.
 
-Il servizio rileverà l'accesso periodico da parte dello stesso IP. Si tratta della richiesta del probe di integrità proveniente dall'host del nodo in cui è in esecuzione la macchina virtuale. Il servizio deve rispondere con un codice di stato HTTP 200 per indicare l'integrità al bilanciamento del carico. Qualsiasi altro codice di stato HTTP \(ad esempio 503\) esclude direttamente la macchina virtuale dalla rotazione.
+Il servizio rileverà l'accesso periodico da parte dello stesso IP. Si tratta della richiesta del probe di integrità proveniente dall'host del nodo in cui è in esecuzione la macchina virtuale. Il servizio deve rispondere con un codice di stato HTTP 200 per indicare l'integrità al bilanciamento del carico. Qualsiasi altro codice di stato HTTP (ad esempio 503) esclude direttamente la macchina virtuale dalla rotazione.
 
-La definizione del probe ne controlla anche la frequenza. Nel caso precedente, il bilanciamento del carico controlla l'endpoint tramite probe ogni 5 secondi. Se non viene ricevuta alcuna risposta positiva per 10 secondi \(due intervalli di probe\), si presuppone che il probe abbia avuto esito negativo e la macchina virtuale viene esclusa dalla rotazione. Analogamente, se il servizio è escluso dalla rotazione e viene ricevuta una risposta positiva, il servizio viene immediatamente inserito di nuovo nella rotazione. Se il servizio passa continuamente da uno stato integro a uno non integro, il bilanciamento del carico può decidere di ritardare la reintroduzione del servizio nella rotazione fino a quando non risulta integro per un determinato numero di probe.
+La definizione del probe ne controlla anche la frequenza. Nel caso precedente, il bilanciamento del carico controlla l'endpoint tramite probe ogni 5 secondi. Se non viene ricevuta alcuna risposta positiva per 10 secondi (due intervalli di probe), si presuppone che il probe abbia avuto esito negativo e la macchina virtuale viene esclusa dalla rotazione. Analogamente, se il servizio è escluso dalla rotazione e viene ricevuta una risposta positiva, il servizio viene immediatamente inserito di nuovo nella rotazione. Se il servizio passa continuamente da uno stato integro a uno non integro, il bilanciamento del carico può decidere di ritardare la reintroduzione del servizio nella rotazione fino a quando non risulta integro per un determinato numero di probe.
 
 Per altre informazioni, fare riferimento allo schema di definizione del servizio per il [probe di integrità](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
@@ -124,4 +124,4 @@ Per altre informazioni, fare riferimento allo schema di definizione del servizio
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

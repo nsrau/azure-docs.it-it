@@ -63,4 +63,4 @@ Ad esempio, l'impostazione configuration nel file di configurazione sarà simile
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

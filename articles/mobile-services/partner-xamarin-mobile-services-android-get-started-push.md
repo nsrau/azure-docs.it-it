@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Aggiungere notifiche push all'app di Servizi mobili - Servizi mobili" 
-	description="Informazioni su come usare le notifiche push in app per Xamarin.Android con Servizi mobili di Azure." 
+	pageTitle="Aggiungere notifiche push all'app Android per Xamarin | Servizi mobili di Azure" 
+	description="Informazioni su come configurare le notifiche push con Google Cloud Messaging per le app Xamarin.Android mediante Servizi mobili di Azure e Hub di notifica di Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -13,29 +13,22 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/19/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##Panoramica
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.Android. In questa esercitazione si userà il servizio Google Cloud Messaging (GCM) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
-
-Questa esercitazione descrive le operazioni di base per abilitare le notifiche push:
-
-1. [Abilitare Google Cloud Messaging](#register)
-2. [Configurare Servizi mobili](#configure)
-4. [Configurare il progetto per le notifiche push](#configure-app)
-5. [Aggiungere il codice delle notifiche push all'app](#add-push)
-6. [Inserire i dati per la ricezione delle notifiche](#test)
 
 Per completare questa esercitazione, è necessario disporre di:
 
 + Account Google attivo
 + [Componente client di Google Cloud Messaging] Questo componente verrà aggiunto durante l'esercitazione.
 
-I componenti [Xamarin.Android] e [Servizi mobili di Azure][Azure Mobile Services Component] dovrebbero già essere installati nel progetto da quando è stata completata l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
+I componenti [Xamarin.Android] e [Servizi mobili di Azure] dovrebbero già essere installati nel progetto da quando è stata completata l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
 
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
@@ -47,7 +40,7 @@ I componenti [Xamarin.Android] e [Servizi mobili di Azure][Azure Mobile Services
 
 ##<a id="update-scripts"></a>Aggiornare lo script insert registrato per l'invio di notifiche
 
->[AZURE.NOTE]Le procedure seguenti descrivono come aggiornare lo script registrato per l'operazione di inserimento nella tabella TodoItem del portale di gestione di Azure. È anche possibile accedere e modificare questo script del servizio mobile direttamente in Visual Studio, nel nodo Azure di Esplora server.
+>[AZURE.TIP]Le procedure seguenti descrivono come aggiornare lo script registrato per l'operazione di inserimento nella tabella TodoItem del portale di gestione di Azure. È anche possibile accedere e modificare questo script del servizio mobile direttamente in Visual Studio, nel nodo Azure di Esplora server.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -62,7 +55,7 @@ I componenti [Xamarin.Android] e [Servizi mobili di Azure][Azure Mobile Services
 
 ##<a id="test"></a>Testare le notifiche push nell'app
 
-È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB oppure utilizzando un dispositivo virtuale nell'emulatore.
+È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB oppure usando un dispositivo virtuale nell'emulatore.
 
 [AZURE.INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
 
@@ -72,7 +65,7 @@ L'esercitazione è stata completata.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Aggiungere Servizi mobili a un'app esistente] <br/>Informazioni su archiviazione ed esecuzione di query sui dati tramite Servizi mobili.
+* [Aggiungere Servizi mobili a un'app esistente] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
 * [Introduzione all'autenticazione](mobile-services-android-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -90,5 +83,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+[Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
+ 
+
+<!---HONumber=July15_HO2-->

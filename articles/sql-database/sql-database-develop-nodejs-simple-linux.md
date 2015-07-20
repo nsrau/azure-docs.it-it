@@ -169,4 +169,6 @@ L'esempio di codice in questa sezione applica parametri a un'istruzione SQL INSE
 		connection.execSql(request);
 	}
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

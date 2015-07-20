@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Esecuzione di query Hive con Hadoop in HDInsight mediante Curl
@@ -24,7 +24,7 @@ In questo documento si apprenderà come usare Curl per l'esecuzione di query Hiv
 
 Curl viene usato per illustrare come sia possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di query Hive. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">Informazioni utili su Hadoop in HDInsight basato su Linux</a>.
+> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -32,17 +32,17 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Hadoop in HDInsight (basato su Linux o su Windows)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Eseguire query Hive usando Curl
 
 > [AZURE.NOTE]Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password dell'amministratore cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI (Uniform Resource Identifier) usato per inviare le richieste al server.
-> 
+>
 > Per i comandi riportati in questa sezione, sostituire **USERNAME** con l'utente da autenticare nel cluster e **PASSWORD** con la password dell'account utente. Sostituire **CLUSTERNAME** con il nome del cluster.
-> 
-> L'API REST viene protetta tramite <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticazione di base</a>. È necessario effettuare sempre le richieste usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
+>
+> L'API REST viene protetta tramite l'[autenticazione di base](http://en.wikipedia.org/wiki/Basic_access_authentication). È necessario effettuare sempre le richieste usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
 1. Da una riga di comando usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
@@ -74,15 +74,15 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **-d**: poiché `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
 
         * **user.name**: l'utente che esegue il comando.
-        
+
         * **execute**: le istruzioni HiveQL da eseguire.
-        
+
         * **statusdir**: la directory in cui verrà scritto lo stato del processo.
 
     Le istruzioni eseguono queste azioni:
 
     * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
-    
+
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.
 
 		> [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
@@ -90,9 +90,9 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 		> L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
     * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
-    
+
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
-    
+
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
     > [AZURE.NOTE]Si noti che gli spazi tra le istruzioni HiveQL vengono sostituiti dal carattere `+` se è in uso Curl. I valori tra virgolette che contengono uno spazio, ad esempio il delimitatore, non devono essere sostituiti da `+`.
@@ -135,7 +135,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
     * **SELECT**: seleziona tutte le righe della nuova tabella **errorLogs**.
 
-7. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **[ERROR]**.
+7. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **ERROR**.
 
 
 ##<a id="summary"></a>Riepilogo
@@ -189,4 +189,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

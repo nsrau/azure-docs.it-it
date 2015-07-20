@@ -171,7 +171,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 1. Aprire Visual Studio 2013.
 
-2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
+2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 
 3. In **Nuovo progetto** digitare o selezionare i valori seguenti:
 	
@@ -281,5 +281,6 @@ Specificare un nome per il cluster e premere INVIO per effettuare il provisionin
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

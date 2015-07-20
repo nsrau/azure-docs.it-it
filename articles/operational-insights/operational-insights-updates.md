@@ -1,82 +1,37 @@
-<properties 
+<properties
    pageTitle="Aggiornare i server con gli aggiornamenti del sistema"
-   description="Informazioni su come usare l'Intelligence Pack System Updates in Microsoft Azure Operational Insights per applicare gli aggiornamenti mancanti ai server nell'infrastruttura."
+   description="Informazioni su come usare la soluzione System Updates in Microsoft Azure Operational Insights per applicare gli aggiornamenti mancanti ai server dell'infrastruttura."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Aggiornare i server con gli aggiornamenti del sistema
 
-È possibile usare l'Intelligence Pack System Updates in Microsoft Azure Operational Insights per applicare gli aggiornamenti mancanti ai server nell'infrastruttura. Installare l'Intelligence Pack per aggiornare l'agente Operations Manager e il modulo di configurazione di base per Operational Insights. Le informazioni di aggiornamento vengono lette sui server monitorati e i dati di aggiornamento vengono quindi inviati al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati di aggiornamento, che vengono quindi registrati dal servizio cloud. Gli eventuali aggiornamenti mancanti rilevati vengono visualizzati nel dashboard **Updates**. È possibile usare il dashboard **Updates** per elaborare gli aggiornamenti mancanti e sviluppare un piano per applicarli ai server su cui sono necessari.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
+
+È possibile usare la soluzione System Updates in Microsoft Azure Operational Insights per applicare gli aggiornamenti mancanti ai server dell'infrastruttura. Installare la soluzione per aggiornare l'agente Operations Manager e il modulo di configurazione di base per Operational Insights. Le informazioni di aggiornamento vengono lette sui server monitorati e i dati di aggiornamento vengono quindi inviati al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati di aggiornamento, che vengono quindi registrati dal servizio cloud. Gli eventuali aggiornamenti mancanti rilevati vengono visualizzati nel dashboard **Updates**. È possibile usare il dashboard **Updates** per elaborare gli aggiornamenti mancanti e sviluppare un piano per applicarli ai server su cui sono necessari.
 
 ## Usare gli aggiornamenti del sistema per aggiornare i server
 
-Prima di poter usare gli aggiornamenti di sistema in Microsoft Azure Operational Insights, è necessario disporre dell'Intelligence Pack installato. Per altre informazioni sull'installazione di Intelligence Pack, vedere [Usare la raccolta per aggiungere o rimuovere Intelligence Pack](../operational-insights-add-intelligence-packs.md). Dopo l'installazione, è possibile visualizzare gli aggiornamenti mancanti nei server monitorati usando il riquadro **System Update Assessment** nella pagina **Overview** in Operational Insights. 
+Prima di poter usare gli aggiornamenti di sistema in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). Dopo l'installazione, è possibile visualizzare gli aggiornamenti mancanti nei server monitorati usando il riquadro **System Update Assessment** nella pagina **Overview** in Operational Insights.
 
-![image of System Update Assessment tile](./media/operational-insights-updates/overview-update.png)
+### Per usare gli aggiornamenti
 
-Il riquadro apre il dashboard **Updates**, in cui è possibile visualizzare un riepilogo generale degli aggiornamenti mancanti. Questa pagina include informazioni dettagliate sulle categorie seguenti:
+1. Nella pagina **Overview** fare clic sul riquadro **System Update Assessment**. ![immagine della pagina Overview](./media/operational-insights-updates/updates01.png)
+2. Nel dashboard **Updates** visualizzare le categorie degli aggiornamenti. ![immagine della pagina Updates](./media/operational-insights-updates/updates02.png)
+3. Scorrere verso destra la pagina per visualizzare il pannello **Type of Updates Missing** e quindi fare clic su **Security Updates**. ![immagine della pagina Updates](./media/operational-insights-updates/updates03.png)
+4. Nella pagina di ricerca, viene visualizzato un elenco di aggiornamenti di sicurezza mancante nei server dell'infrastruttura. Fare clic sull’ID di un articolo della Knowledge Base (KBID) per visualizzare altre informazioni sull'aggiornamento mancante. In questo esempio, *KBID 3032323*. ![immagine della pagina Updates](./media/operational-insights-updates/updates04.png)
+5. Il browser Web apre l’articolo della Knowledge Base che descrive l'aggiornamento. ![immagine della pagina Updates](./media/operational-insights-updates/updates05.png)
+6. Con le informazioni trovate, è possibile creare un piano per applicare gli aggiornamenti mancanti.
 
-- Server a cui mancano aggiornamenti delle sicurezza
-
-- Server non aggiornati di recente
-
-- Aggiornamenti da applicare a server specifici
-
-- Tipo di aggiornamenti mancanti
-
-È possibile fare clic su qualsiasi riquadro o elemento per visualizzarne i dettagli nella pagina **Search** e ottenere altre informazioni sull'aggiornamento mancante. 
-
-![image of Updates dashboard](./media/operational-insights-updates/gallery-sysupdate-01.png)
-
-![image of Updates dashboard](./media/operational-insights-updates/gallery-sysupdate-02.png)
-
-## Risultati di ricerca##
-I risultati della ricerca per gli aggiornamenti comprendono:
-
-- Server
-
-- Titolo dell'aggiornamento
-
-- ID della Knowledge Base
-
-- Prodotto a cui è destinato l'aggiornamento
-
-- Gravità dell'aggiornamento
-
-- Data di pubblicazione
-
-I risultati della ricerca relativa a *Server* includono:
-
-- Nome server
-
-- Nome della versione del sistema operativo
-
-- Metodo di abilitazione degli aggiornamenti automatici
-
-- Giorni trascorsi dall'ultimo aggiornamento
-
-- Versione dell'agente di Windows Update
-
-## Per usare gli aggiornamenti
-
-1. Nella pagina **Overview** fare clic sul riquadro **System Update Assessment**.
-
-2. Nel dashboard **Updates** visualizzare le categorie degli aggiornamenti e scegliere quella da usare.
-
-3. Fare clic su un riquadro o qualsiasi elemento per visualizzarne le informazioni dettagliate nella pagina **Search**.
-
-4. Con le informazioni trovate, è possibile creare un piano per applicare gli aggiornamenti mancanti.
-
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

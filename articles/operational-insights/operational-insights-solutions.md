@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Soluzioni disponibili in Operational Insights
@@ -57,7 +57,7 @@ I dati di configurazione vengono raccolti dai server monitorati e quindi inviati
 ## Malware Assessment
 Se viene rilevata una protezione insufficiente, i server con minacce attive e protezione insufficiente vengono visualizzati nella pagina **Malware**. Usando le informazioni disponibili nella pagina **Malware**, è possibile sviluppare un piano per applicare la protezione ai server che ne hanno necessità.
 
-> [AZURE.IMPORTANT]Malware Assessment supporta attualmente solo i client in tempo reale di Windows Defender e System Center Endpoint Protection \(SCEP\). Se questi client non vengono rilevati, verranno usati i dati forniti da Malicious Software Removal Tool e il server verrà contrassegnato come privo di protezione in tempo reale. Per altre informazioni, leggere [qui](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519202-support-other-antivirus-products-in-malware-assess). Microsoft sta anche verificando [un problema relativo ai computer con Windows 7 e Windows Server 2008 R2](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519211-windows-server-2008-r2-sp1-servers-are-shown-as-n).
+> [AZURE.IMPORTANT]Malware Assessment supporta attualmente solo i client in tempo reale di Windows Defender e System Center Endpoint Protection (SCEP). Se questi client non vengono rilevati, verranno usati i dati forniti da Malicious Software Removal Tool e il server verrà contrassegnato come privo di protezione in tempo reale. Per altre informazioni, leggere [qui](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519202-support-other-antivirus-products-in-malware-assess). Microsoft sta anche verificando [un problema relativo ai computer con Windows 7 e Windows Server 2008 R2](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519211-windows-server-2008-r2-sp1-servers-are-shown-as-n).
 
 
 
@@ -83,7 +83,7 @@ La soluzione Alert Management permette di visualizzare gli avvisi di **Operation
 
 Ad esempio, una proiezione potrebbe identificare quando saranno necessari core aggiuntivi o altra memoria per un determinato server. In questo esempio, la proiezione potrebbe indicare che entro 30 giorni sarà necessario aggiungere memoria al server. Ciò consente di pianificare un aggiornamento di memoria durante la successiva finestra di manutenzione del server, che potrebbe verificarsi una volta ogni due settimane.
 
->[AZURE.IMPORTANT]È possibile abilitare Capacity Management solo quando Operational Insights viene usato insieme a **System Center Operations Manager**. È inoltre necessario abilitare il connettore di Operations Manager con Virtual Machine Manager \(VMM\). Per informazioni aggiuntive sulla connessione tra i sistemi, vedere [Modalità di connessione di VMM con Operations Manager](https://technet.microsoft.com/library/hh882396.aspx).
+>[AZURE.IMPORTANT]È possibile abilitare Capacity Management solo quando Operational Insights viene usato insieme a **System Center Operations Manager**. È inoltre necessario abilitare il connettore di Operations Manager con Virtual Machine Manager (VMM). Per informazioni aggiuntive sulla connessione tra i sistemi, vedere [Modalità di connessione di VMM con Operations Manager](https://technet.microsoft.com/library/hh882396.aspx).
 
 Per altre informazioni sull'uso della soluzione Capacity Management, vedere:
 
@@ -128,6 +128,5 @@ I risultati della ricerca per il server comprendono:
 - Metodo di abilitazione degli aggiornamenti automatici
 - Giorni trascorsi dall'ultimo aggiornamento
 - Versione dell'agente di Windows Update
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

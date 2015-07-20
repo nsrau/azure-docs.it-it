@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Accedere a set di dati da Python con la libreria client Python di Machine Learning | Azure" 
+	pageTitle="Accedere a set di dati mediante la libreria client Python di Azure Machine Learning | Microsoft Azure" 
 	description="Installare e usare la libreria client Python per accedere e gestire i dati di Azure Machine Learning in modo protetto da un ambiente Python locale." 
 	services="machine-learning" 
 	documentationCenter="python" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/07/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -80,7 +80,10 @@ Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di esse
 
 Per ottenere il token di autorizzazione, è possibile eseguire una di queste operazioni:
 
-1. Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** per visualizzare i token primari e secondari. ![](http://i.imgur.com/h33GoZX.jpg) Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
+1. Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
 
 Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori potranno usare il frammento di codice per accedere all'area di lavoro indipendentemente dal proprio ruolo.
@@ -207,7 +210,7 @@ Alcuni valori di metadati vengono assegnati dall'utente in fase di creazione:
     print(ds.family_id)
     print(ds.data_type_id)
 
-Altri valori vengono assegnati da ML di Azure:
+Altri valori vengono assegnati da Azure Machine Learning:
 
     print(ds.id)
     print(ds.created_date)
@@ -362,5 +365,6 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -22,12 +22,45 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 -   **BLOB:** file di qualsiasi tipo e dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per ulteriori informazioni sui BLOB, vedere [Informazioni su BLOB in blocchi e BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
--   **Formato dell’URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente: http://`<storage
-    account>`.blob.core.windows.net/`<container>`/`<blob>`
+## Assegnazione di nome e riferimento a contenitori e BLOB
+
+È possibile indirizzare un BLOB nell'account di archiviazione utilizzando il formato di URL seguente:
+   
+    http://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>  
       
-    Il seguente URL di esempio potrebbe essere utilizzato per fare riferimento a uno dei BLOB nel diagramma sopra riportato: `http://sally.blob.core.windows.net/movies/MOV1.AVI`
+Di seguito viene riportato un esempio di URL che indirizza a uno dei BLOB nel diagramma precedente:
+
+    http://sally.blob.core.windows.net/movies/MOV1.AVI
+
+### Regole di denominazione dei contenitori
+
+Il nome di un contenitore deve essere un nome DNS valido. Inoltre, deve essere conforme alle regole seguenti:
+
+- Il nome di un contenitore deve essere composto solo da minuscole.
+- I nomi dei contenitori devono iniziare con una lettera o un numero e possono contenere solo lettere, numeri e il carattere trattino (-).
+- Ciascun carattere trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero: nei nomi dei contenitori non sono consentiti trattini consecutivi.
+- La lunghezza dei nomi dei contenitori deve essere compresa tra 3 e 63 caratteri.
+
+### Regole di denominazione dei BLOB
+
+Il nome di un BLOB deve essere conforme alle regole seguenti:
+
+- Il nome di un BLOB può contenere qualsiasi combinazione di caratteri.
+- La lunghezza del nome di un BLOB deve essere di almeno un carattere e non può superare 1.024 caratteri.
+- I nomi di BLOB distinguono tra maiuscole e minuscole.
+- I caratteri URL riservati devono essere preceduti da un carattere di escape.
+- Il numero di segmenti di tracciato che comprendono il nome del BLOB non può superare 254. Un segmento di tracciato è la stringa compresa tra caratteri consecutivi di delimitazione (ad esempio, la barra "/") che corrisponde al nome di una directory virtuale.
+
+Il servizio BLOB si basa su uno schema di archiviazione semplice. È possibile creare una gerarchia virtuale specificando un delimitatore di carattere o stringa all'interno del nome del BLOB. Ad esempio, nell'elenco seguente vengono mostrati alcuni nomi di BLOB validi e univoci:
+
+	/a
+	/a.txt
+	/a/b
+	/a/b.txt
+
+È possibile utilizzare il carattere di delimitazione per elencare i BLOB in modo gerarchico.
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

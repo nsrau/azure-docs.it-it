@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement con Android SDK" 
-	description="Ultimi aggiornamenti e procedure per Android SDK per Azure Mobile Engagement"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -17,17 +17,27 @@
 	ms.author="kapiteir" />
 
 
-# Note sulla versione
+#Note sulla versione
 
-## 3.0.0 (02/17/2015)
+##4.0.0 (06/07/2015)
+
+-   Modifiche al protocollo interno per rendere più affidabili le analisi e il push.
+-   Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
+-   Correzione della notifica generale: elementi visualizzati solo 10 secondi dopo il push.
+-   Correzione della selezione di un collegamento in un annuncio Web che include un URL di azione predefinito.
+-   Correzione di un arresto anomalo raro correlato alla gestione dell'archivio locale.
+-   Correzione della gestione delle stringhe di configurazione dinamiche.
+-   Aggiornamento del contratto di licenza.
+
+##3.0.0 (17/02/2015)
 
 -   Versione iniziale di Azure Mobile Engagement
 -   La configurazione di appId è stata sostituita con la configurazione della stringa di connessione.
--   È stata rimossa l'API per inviare e ricevere messaggi XMPP arbitrari da entità XMPP arbitrarie.
--   È stata rimossa l'API per inviare e ricevere messaggi tra dispositivi.
--   Miglioramenti della sicurezza
+-   L'API non invia e non riceve più messaggi XMPP da entità XMPP arbitrarie.
+-   L'API non riceve e non invia più messaggi tra i dispositivi.
+-   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stata rimossa la verifica per Google Play e SmartAd.
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

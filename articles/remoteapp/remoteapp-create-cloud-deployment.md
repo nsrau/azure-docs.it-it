@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
-# Come creare una raccolta RemoteApp nel cloud
+# Come creare una raccolta cloud di Azure RemoteApp
 
-Sono disponibili due tipi di raccolte RemoteApp:
+Sono disponibili due tipi di raccolte Azure RemoteApp:
 
 - Cloud: risiede completamente in Azure e viene creata tramite l'opzione **Creazione rapida** nel portale di gestione di Azure.  
-- Ibrida: include una rete virtuale per l'accesso locale e viene creata con l'opzione **Crea con VPN** nel portale di gestione.
+- Ibrida: include una rete virtuale per l'accesso locale e viene creata con l'opzione **Crea con rete virtuale** nel portale di gestione.
 
 Questa esercitazione illustra il processo di creazione di una raccolta nel cloud. i quattro passaggi della creazione di una distribuzione cloud.
 
@@ -91,5 +91,6 @@ A questo punto, dopo aver creato la raccolta RemoteApp, è necessario aggiungere
 
 La procedura è stata completata e la raccolta RemoteApp nel cloud è stata creata e distribuita. Il passaggio successivo consiste nel chiedere agli utenti di scaricare e installare il client Desktop remoto. L'URL del client è indicato nella pagina Avvio rapido di RemoteApp. Chiedere quindi agli utenti di connettersi al client e di accedere alle app pubblicate.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

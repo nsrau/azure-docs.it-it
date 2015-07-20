@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connessioni al database SQL di Azure: indicazioni principali" 
-	description="Un argomento principale in cui vengono forniti collegamenti ad argomenti più specifici sulle varie unità, come ADO.NET e PHP, per connettersi al database SQL di Azure." 
+	pageTitle="Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione" 
+	description="Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -10,30 +10,21 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/19/2015" 
+	ms.date="05/01/2015" 
 	ms.author="genemi"/>
 
 
-#Connessioni al database SQL: indicazioni principali
+# Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione
 
 
-<!--
-GeneMi , 2015-March-19 Thursday 15:41pm
-sql-database-connect-central-recommendations.md
-sql-database-connect-*.md
-
-Re SqlException, not .HResult, rather .Number.
--->
+Questo argomento è un ottimo strumento per iniziare a utilizzare la connettività dei client al database SQL di Azure. Vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP e molte altre. Vengono fornite indicazioni in genere applicabili indipendentemente dalla tecnologia di connessione specifica o dal linguaggio di programmazione.
 
 
-In questo argomento vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL di Azure. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP. Vengono fornite indicazioni in genere applicabili indipendentemente dalla tecnologia di connessione specifica.
-
-
-##Indicazioni non correlate alla tecnologia
+## Indicazioni non correlate alla tecnologia
 
 
 Le informazioni contenute in questa sezione si applicano indipendentemente dalla tecnologia specifica utilizzata per connettersi al database SQL.
@@ -55,19 +46,13 @@ Indipendentemente dal tipo di tecnologia di connessione utilizzata, determinate 
 - [Firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-###Indicazioni rapide
-
-
-####Connessione
+## Raccomandazioni: connessione
 
 
 - Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi.
  - Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
 - Se si utilizza un [pool di connessioni](http://msdn.microsoft.com/library/8xx3tyca.aspx), chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
- - A meno che la connessione non venga riutilizzata dal programma per un'altra operazione immediatamente, senza pause, si consiglia il modello seguente:
-<br/><br/>Aprire una connessione.
-<br/>Eseguire un'operazione tramite la connessione.
-<br/>Chiudere la connessione.<br/><br/>
+ - A meno che la connessione non venga riutilizzata dal programma per un'altra operazione immediatamente, senza pause, si consiglia il modello seguente: <br/><br/>Aprire una connessione <br/>Eseguire un'operazione tramite la connessione. <br/>Chiudere la connessione.<br/><br/>
 - Usare la logica di ripetizione dei tentativi con la logica di connessione, ma solo per gli errori temporanei. Quando si utilizza il database SQL, è possibile che i tentativi di aprire una connessione o di inviare una query abbiano esito negativo per vari motivi.
  - Un motivo permanente di errore può risiedere nel fatto che la stringa di connessione non sia valida.
  - Un motivo temporaneo di errore può risiedere nel fatto che il sistema del database SQL di Azure necessiti del bilanciamento del carico complessivo. Il motivo temporaneo si risolve autonomamente, ovvero attraverso nuovi tentativi del programma.
@@ -76,11 +61,11 @@ Indipendentemente dal tipo di tecnologia di connessione utilizzata, determinate 
  - È possibile configurare le impostazioni del [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) su un server del database SQL o per un singolo database.
 
 
-####Autenticazione
+## Suggerimento: autenticazione
 
 
 - Usare l'autenticazione del database SQL, non quella di Windows.
-- Specificare un database particolare, invece di usare il  *master* database predefinito.
+- Specificare un database particolare, invece di usare il database predefinito *master*.
 - Talvolta è necessario fornire un nome utente dotato del suffisso *@nomeserver*, altre volte invece è possibile omettere il suffisso. Dipende dal modo in cui l'API o lo strumento in uso sono stati scritti.
  - Verificare i dettagli su ogni singola tecnologia.
 - Effettuare la connessione specificando un utente in un [database indipendente](http://msdn.microsoft.com/library/ff929071.aspx).
@@ -88,60 +73,73 @@ Indipendentemente dal tipo di tecnologia di connessione utilizzata, determinate 
  - Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL.
 
 
-###Errori temporanei
+## Si sono verificati errori temporanei
 
 
-Alcuni errori di connessione del database SQL sono permanenti e non esiste nessun motivo per ritentare immediatamente la connessione. Altri errori sono temporanei e sono consigliati alcuni tentativi automatizzati dal programma. Esempi:
+I servizi cloud come Azure e il relativo servizio SQL Database implicano la sfida infinita di bilanciamento del carico di lavoro e della gestione delle risorse. Se due database trasferiti dallo stesso computer sono coinvolti in un’elaborazione eccezionalmente gravosa in tempi di sovrapposizione, il sistema di gestione potrebbe rilevare la necessità dello spostamento del carico di lavoro di un database a un'altra risorsa che ha capacità in eccesso.
 
 
-- *Permanente:* Se il nome del server del database SQL viene digitato in modo errato quando si tenta di effettuare la connessione, non ha senso ritentare.
-- *Temporaneo:* Se la connessione attiva al database SQL viene interrotta in modo forzato dai sistemi di bilanciamento del carico o di limitazione di Azure, si consiglia di ritentare.
+Durante lo spostamento, il database potrebbe essere temporaneamente non disponibile. Questo potrebbe bloccare le nuove connessioni o causare la perdita di connessione del programma client. Lo spostamento di risorse è temporaneo e potrebbe risolversi in un paio di minuti o in alcuni secondi. Al termine dello spostamento, il programma client può ristabilire la connessione e riprendere il proprio lavoro. La sospensione dell'elaborazione è migliore di un errore evitabile del programma client.
 
 
-La classe [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) generata dalla chiamata al database SQL contiene un codice di errore numerico nella sua proprietà **Number**. Se il codice di errore rientra nell'elenco degli errori temporanei, il programma deve ritentare la chiamata.
+Quando si verifica un errore con il SQL Database, viene generata un'eccezione [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx). L’eccezione SqlException contiene un codice di errore numerico nella relativa proprietà **Numero**. Se il codice di errore identifica un errore temporaneo, il programma deve ritentare la chiamata.
 
 
-- Nella sezione [Messaggi di errore (database SQL di Azure)](http://msdn.microsoft.com/library/azure/ff394106.aspx): **errori di perdita della connessione** è riportato un elenco di errori temporanei per i quali si garantisce un ulteriore tentativo.
- - Ad esempio, ritentare se si verifica il numero errore 40613, che indica<br/>*Database 'mydatabase' sul server 'theserver' è attualmente non disponibile.*
+- Nella sezione [Messaggi di errore (database SQL di Azure)](http://msdn.microsoft.com/library/azure/ff394106.aspx): **errori di perdita della connessione** è riportato un elenco di errori temporanei per i quali si garantisce un ulteriore tentativo automatico.
+ - Ad esempio, riprovare se si verifica il numero di errore 40613, con un testo simile a <br/>*Il database 'miodatabase' nel server 'ilserver' non è attualmente disponibile.*
 
 
-Per ulteriore assistenza quando si riscontra un errore di connessione permanente o temporaneo, vedere:
+Gli *errori* temporanei sono talvolta denominati *guasti* temporanei. In questo argomento si considerano questi due termini come sinonimi.
 
 
-- [Risoluzione dei problemi di connessione nel database SQL di Azure](http://support.microsoft.com/it-it/kb/2980233/it-it)
+Per ulteriore assistenza quando si riscontra un errore di connessione, permanente o temporaneo, vedere:
 
 
-##Tecnologie
+- [Risoluzione dei problemi di connessione nel database SQL di Azure](http://support.microsoft.com/kb/2980233/)
 
 
-Nell'argomento seguente sono riportati collegamenti agli esempi di codice per varie tecnologie di connessione:
+## Tecnologie
 
 
-- [Sviluppo nel database SQL di Azure: Procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+Gli argomenti seguenti contengono collegamenti a esempi di codice per diversi linguaggi e tecnologie di driver che è possibile utilizzare per connettersi al database SQL di Azure dal programma client.
 
 
-Per ADO.NET con Enterprise Library e le classi di gestione degli errori temporanei, vedere:
+Vengono forniti vari esempi di codice per i client che eseguono sia Windows che Linux.
 
 
-- [Procedura: Effettuare una connessione affidabile a un database SQL di Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+**Esempi generali:** sono disponibili esempi di codice per un'ampia gamma di linguaggi di programmazione, tra cui PHP, Python, Node.js e .NET CSharp. Inoltre, sono forniti esempi per i client che eseguono Windows o Linux.
 
 
-Per la funzionalità di scalabilità elastica, vedere:
+- [Sviluppo client ed esempi di codice di avvio rapido per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
+- [Sviluppo per il database SQL di Azure: procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+**Logica di ripetizione tentativi:** sono disponibili esempi di codice progettati con la complessità necessaria per gestire errori temporanei con la logica di ripetizione tentativi automatica.
+
+
+- [Procedura: effettuare una connessione affidabile a un database SQL di Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [Procedura: connettersi al database SQL di Azure utilizzando ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [Procedura: connettersi al database SQL di Azure mediante ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+
+
+**Scalabilità elastica:** per informazioni sulla connettività ai database con scalabilità elastica, vedere:
 
 
 - [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 - [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-##Post incompleti o non aggiornati
+**Librerie driver:** per informazioni sulle librerie dei driver di connessione, incluse le versioni consigliate, vedere:
 
 
-In questa sezione sono riportati collegamenti a post di blog o risorse simili, pertanto possono essere incompleti o non aggiornati. Tuttavia possono fornire informazioni generali.
+- [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
 
-- [Logica di ripetizione tentativi per errori temporanei nel database SQL di Microsoft Azure](http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-windows-azure-sql-database.aspx)
-
-<!-- -->
+## Vedere anche
 
 
-<!--HONumber=49--> 
+- [Creare il primo database SQL di Azure](sql-database-get-started.md)
+
+ 
+
+<!---HONumber=July15_HO2-->

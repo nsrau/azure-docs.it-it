@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # Esempio di calcolo del Pi greco di Hadoop in HDInsight
 
 In questo argomento viene illustrato come eseguire un programma Hadoop MapReduce in Azure HDInsight per il calcolo del valore della costante matematica Pi greco mediante Azure PowerShell. Viene fornito inoltre il codice Java usato nel programma MapReduce per calcolare il valore di Pi greco a scopo di analisi.
+
+> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per informazioni sull'esecuzione di questo e altri esempi con i cluster basati su Linux, vedere [Eseguire gli esempi di Hadoop in HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 Per calcolare il valore di Pi greco, il programma usa un metodo statistico simile al metodo Monte Carlo. I punti posizionati in modo casuale all'interno di un quadrato unitario rientrano anche in un cerchio incluso in tale quadrato con una probabilità uguale all'area del cerchio, Pi greco/4. Il valore di Pi greco può essere stimato in base a valore di 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
 
@@ -471,6 +473,5 @@ Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istru
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

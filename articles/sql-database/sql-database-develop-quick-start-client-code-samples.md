@@ -65,7 +65,7 @@ Questa sezione fornisce collegamenti ad argomenti con esempi di codice per progr
 
 | Linguaggio | Breve | Retry | Relazionale a oggetti |
 | :-- | :-- | :-- | :-- |
-| C\# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Driver ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -85,4 +85,4 @@ Questa sezione fornisce collegamenti ad argomenti con esempi di codice per progr
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

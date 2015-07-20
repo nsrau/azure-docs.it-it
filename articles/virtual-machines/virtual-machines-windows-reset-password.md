@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # Come reimpostare una password o il servizio Desktop remoto per macchine virtuali di Windows
 
 Se non è possibile connettersi a una macchina virtuale di Windows a causa di una password dimenticata o un problema con la configurazione del servizio Desktop remoto, usare il portale di anteprima di Azure o l'estensione VMAccess per reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto.
+
+> [AZURE.NOTE]Questo articolo non è applicabile a macchine virtuali basate su Gestione risorse di Azure.
 
 ## Portale di anteprima di Azure
 
@@ -88,7 +90,7 @@ L'estensione VMAccess esegue i due comandi seguenti sulla macchina virtuale:
 
 	Questo comando abilita il gruppo predefinito Windows Firewall, che consente il traffico in ingresso di Desktop remoto, che usa la porta TCP 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Questo comando imposta il valore fDenyTSConnections del Registro di sistema su 0, abilitando le connessioni a Desktop remoto.
 
@@ -108,4 +110,6 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

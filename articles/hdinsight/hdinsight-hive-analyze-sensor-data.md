@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analizzare i dati dei sensori con Hive e Hadoop | Microsoft Azure" 
-	description="Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analizzare i dati dei sensori con Hive e Hadoop | Microsoft Azure"
+	description="Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
@@ -53,4 +53,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

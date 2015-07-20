@@ -18,6 +18,8 @@
 
 #Registrare le app per l'autenticazione Twitter con Servizi mobili
 
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
 In questo argomento viene illustrato come registrare le proprie app in modo da poter utilizzare Twitter per l'autenticazione con Servizi mobili di Azure.
 
 >[AZURE.NOTE]Questa esercitazione riguarda [Servizi mobili di Azure](http://azure.microsoft.com/services/mobile-services/), una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introduzione all'autenticazione</a> che illustra come consentire agli utenti l'accesso alla propria app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introduzione a Servizi mobili</a>.
@@ -67,5 +69,6 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

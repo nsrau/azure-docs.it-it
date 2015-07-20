@@ -99,5 +99,6 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 4.	Tenere traccia dello stato di ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

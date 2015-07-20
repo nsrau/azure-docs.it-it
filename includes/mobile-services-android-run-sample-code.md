@@ -25,4 +25,4 @@
 
    	Si noti che il testo salvato è archiviato in una raccolta in memoria e visualizzato nell'elenco seguente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

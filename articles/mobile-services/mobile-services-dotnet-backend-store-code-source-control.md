@@ -13,22 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end .NET" class="current">Back-end .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end JavaScript">Back-end JavaScript</a>
-</div>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente
 
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+
 Questo argomento descrive come usare il controllo del codice sorgente fornito da Servizi mobili di Azure per archiviare il progetto di servizio back-end .NET. Per pubblicare il progetto è sufficiente caricarlo nel servizio mobile di produzione dal repository Git locale.
-
-Questa esercitazione descrive le operazioni seguenti:
-
-1. [Abilitare il controllo del codice sorgente nel servizio mobile].
-2. [Installare Git e creare il repository locale].
-3. [Pubblicare il progetto mediante Git].
 
 Per completare l'esercitazione, è necessario avere già creato un servizio mobile in base alle procedure descritte nell'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
 
@@ -93,18 +87,7 @@ Una volta creato il repository locale, è possibile pubblicare il progetto di se
 
 A questo punto, il progetto di servizio mobile viene gestito nel controllo del codice sorgente ed è possibile pubblicare gli aggiornamenti del servizio tramite il semplice push dal repository locale. Per informazioni sulla modifica del modello di dati in un servizio mobile back-end .NET che usa un database SQL, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET].
 
-## <a name="next-steps"> </a>Passaggi successivi
-
-In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sui servizi mobili, vedere:
-
-+ [Come modificare un modello di dati in un servizio mobile back-end .NET] <br/> Illustra come usare Migrazioni Code First di Entity Framework per apportare modifiche al modello di dati in un database SQL esistente di Azure ed evitare la perdita di dati esistenti. 	
-
-+ [Chiamare un'API personalizzata dal client] <br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
-
 <!-- Anchors. -->
-[Abilitare il controllo del codice sorgente nel servizio mobile]: #enable-source-control
-[Installare Git e creare il repository locale]: #clone-repo
-[Pubblicare il progetto mediante Git]: #deploy-scripts
 
 <!-- Images. -->
 
@@ -115,7 +98,8 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Chiamare un'API personalizzata dal client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

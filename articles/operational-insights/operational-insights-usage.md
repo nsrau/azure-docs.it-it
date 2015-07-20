@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Gestire i dati relativi ai server e all'utilizzo"
    description="Informazioni sulla quantità di dati inviata al servizio Operational Insights dal server"
    services="operational-insights"
@@ -6,26 +6,28 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Gestire i dati relativi ai server e all'utilizzo
 
-Operational Insights raccoglie i dati e li invia periodicamente al servizio Operational Insights.  È possibile usare il dashboard **Usage** per visualizzare la quantità di dati inviata al servizio Operational Insights. Il dashboard **Usage** mostra anche la quantità di dati inviata ogni giorno dagli Intelligence Pack e la frequenza dell'invio di dati da parte dei gruppi di gestione.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
->[AZURE.NOTE] Se si dispone di un account gratuito, è possibile inviare solo 500 MB di dati al giorno al servizio Operational Insights. Se si raggiunge il limite giornaliero, l'analisi dei dati verrà interrotta e riprenderà all'inizio del giorno successivo.
+Operational Insights raccoglie i dati e li invia periodicamente al servizio Operational Insights. È possibile usare il dashboard **Usage** per visualizzare la quantità di dati inviata al servizio Operational Insights. Il dashboard **Usage** mostra anche la quantità di dati inviata ogni giorno dalle soluzioni e la frequenza dell'invio di dati da parte dei gruppi di gestione.
+
+>[AZURE.NOTE]Se si dispone di un account gratuito, è possibile inviare solo 500 MB di dati al giorno al servizio Operational Insights. Se si raggiunge il limite giornaliero, l'analisi dei dati verrà interrotta e riprenderà all'inizio del giorno successivo.
 
 È possibile visualizzare l'utilizzo mediante il riquadro **Servers and Usage** nel dashboard **Overview** in Operational Insights.
 
 ![image of Servers and Usage tile](./media/operational-insights-usage/overview-servers-usage.png)
 
-Se è stato superato o si sta per raggiungere il limite di utilizzo giornaliero, facoltativamente è possibile rimuovere un Intelligence Pack per ridurre la quantità di dati inviati al servizio Informazioni operative. Per altre informazioni sulla rimozione di Intelligence Pack, vedere [Usare la raccolta per aggiungere o rimuovere Intelligence Pack](../operational-insights-add-intelligence-packs.md).
+Se è stato superato o si sta per raggiungere il limite di utilizzo giornaliero, facoltativamente è possibile rimuovere una soluzione per ridurre la quantità di dati inviati al servizio Informazioni operative. Per altre informazioni sulla rimozione di soluzioni, vedere [Usare la Solutions Gallery per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md).
 
 In caso di problemi durante l'invio di dati al servizio Operational Insights da parte di un gruppo di gestione di Operations Manager, è possibile risolvere il problema oppure rimuovere il gruppo da Operational Insights, se necessario.
 
@@ -35,7 +37,7 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 - Utilizzo medio al giorno.
 
-- Utilizzo dei dati per ogni Intelligence Pack oggi.
+- Utilizzo dei dati per ogni soluzione odierna
 
 - Frequenza con la quale i server di ogni gruppo di gestione inviano dati al servizio Operational Insights
 
@@ -45,7 +47,7 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 2. Nel dashboard **Usage** visualizzare le categorie di utilizzo con aree che presentano potenziali problemi.
 
-3. In caso di dati relativi a un Intelligence Pack che usa inutilmente una quantità elevata della quota assegnata, è possibile considerarne la rimozione.
+3. In caso di dati relativi a una soluzione che usa inutilmente una quantità elevata della quota assegnata, è possibile considerarne la rimozione.
 
 ## Per risolvere i problemi dei gruppi di gestione o rimuoverli
 
@@ -55,6 +57,4 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 3. Se un gruppo di gestione non invia dati, è possibile fare clic su **Troubleshoot** per ottenere informazioni dettagliate sulla risoluzione dei problemi. Se non si vuole più mantenere un gruppo di gestione e tutti gli agenti che vi fanno riferimento, fare clic su **Remove**.
 
-
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -60,4 +60,9 @@ Per la replica geografica attiva, tutti i database secondari (fino a un massimo 
 
 La funzionalità di replica geografica è basata sulla tecnologia di copia continua. Occorre quindi usare le viste a gestione dinamica (DMV) [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) per ottenere la data e l'ora dell'ultima replica e altre informazioni.
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

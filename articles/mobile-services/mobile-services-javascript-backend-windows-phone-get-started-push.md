@@ -62,11 +62,11 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
                 });
         }
 
-    Questo codice consente di recuperare il valore di ChannelURI per l'app dal Servizio notifica Push Microsoft \(MPNS\) usato da Windows Phone 8.x "Silverlight", quindi di registrarlo per le notifiche push.
+    Questo codice consente di recuperare il valore di ChannelURI per l'app dal Servizio notifica Push Microsoft (MPNS) usato da Windows Phone 8.x "Silverlight", quindi di registrarlo per le notifiche push.
 
 	>[AZURE.NOTE]In questa esercitazione il servizio mobile invia una notifica di tipo avviso popup al dispositivo. Quando si invia una notifica di tipo riquadro, è invece necessario chiamare il metodo **BindToShellTile** sul canale.
 
-4. All'inizio del gestore dell'evento **Application\_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
+4. All'inizio del gestore dell'evento **Application_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -74,7 +74,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 5. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
   
-6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** sia selezionata.
+6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID___CAP___PUSH_NOTIFICATION** sia selezionata.
 
    	![Abilitazione delle notifiche in Visual Studio](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -112,7 +112,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 		        });      
 		}
 
-	Questo script insert invia una notifica push \(con il testo dell'elemento inserito\) a tutte le app per Windows Phone registrate dopo la corretta esecuzione dell'inserimento.
+	Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutte le app per Windows Phone registrate dopo la corretta esecuzione dell'inserimento.
 
 3. Fare clic sulla scheda **Push**, selezionare **Abilita notifiche push non autenticate** e quindi fare clic su **Salva**.
 
@@ -124,7 +124,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 1. In Visual Studio premere F5 per eseguire l'app.
 
-    >[AZURE.NOTE]Durante il test sull'emulatore di Windows Phone è possibile che venga generata un'eccezione RegistrationAuthorizationException e che venga restituita una risposta 401 \(Non autorizzato\). Questa situazione può verificarsi durante la chiamata a `RegisterNativeAsync()` a causa della modalità errata con cui l'orologio dell'emulatore di Windows Phone viene sincronizzato con il PC host. Di conseguenza, è possibile che un token di sicurezza venga rifiutato. Per risolvere questo problema, è sufficiente impostare manualmente l'orologio prima del test.
+    >[AZURE.NOTE]Durante il test sull'emulatore di Windows Phone è possibile che venga generata un'eccezione RegistrationAuthorizationException e che venga restituita una risposta 401 (Non autorizzato). Questa situazione può verificarsi durante la chiamata a `RegisterNativeAsync()` a causa della modalità errata con cui l'orologio dell'emulatore di Windows Phone viene sincronizzato con il PC host. Di conseguenza, è possibile che un token di sicurezza venga rifiutato. Per risolvere questo problema, è sufficiente impostare manualmente l'orologio prima del test.
 
 5. Nell'app immettere il testo "hello push" nella casella di testo, fare clic su **Salva**, quindi fare immediatamente clic sul pulsante Avvia o Indietro per chiudere l'app.
 
@@ -180,4 +180,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

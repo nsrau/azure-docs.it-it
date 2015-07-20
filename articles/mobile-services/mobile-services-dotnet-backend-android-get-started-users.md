@@ -13,30 +13,33 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/13/2015" 
 	ms.author="ricksal"/>
 
-# Aggiungere l'autenticazione all'app di Servizi mobili
+# Aggiungere l'autenticazione all'app Android per Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+
+## Riepilogo
 
 Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione illustra le operazioni di base per abilitare l'autenticazione in un'app.
 
 
+## Prerequisiti
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili].
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 3. Aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili]. 
 
@@ -52,11 +55,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ## <a name="cache-tokens"></a>Memorizzare nella cache i token di autenticazione sul client
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Aggiornare la cache dei token
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 ##<a name="next-steps"></a>Passaggi successivi
 
@@ -81,5 +84,6 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

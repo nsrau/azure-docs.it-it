@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure" 
-	description="Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure"
+	description="Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 
-Questa procedura consente di utilizzare Fiddler, disponibile come [download gratuito da Telerik](http://www.telerik.com/fiddler), per eseguire richieste HTTP a e visualizzare le risposte utilizzando l'API REST di Ricerca di Azure, senza dover scrivere righe di codice. Le API REST del servizio di Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/it-it/library/azure/dn798935.aspx).
+In questo articolo viene illustrato come utilizzare Fiddler, disponibile come un [gratuitamente dal Telerik](http://www.telerik.com/fiddler),, per eseguire richieste HTTP a e visualizzare le risposte utilizzando l'API REST di Ricerca di Azure, senza dover scrivere alcun codice. Le API REST del servizio di Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Nella procedura seguente verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
 
@@ -26,7 +26,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
 
 ## Creare un indice
 
-1. Avviare Fiddler Nel menu File disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente. 
+1. Avviare Fiddler Nel menu File disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente.
 
 3. Nella scheda Composer formulare una richiesta con l'aspetto simile al seguente:
 
@@ -66,7 +66,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	Fare clic su **Execute**.
@@ -183,7 +183,7 @@ Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query 
         api-key: 1111222233334444
 
 Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe avere un aspetto simile a quello dell'immagine seguente.
- 
+
    ![][4]
 
 La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
@@ -206,7 +206,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 2.	Immettere un URL che include l'URL del servizio, seguito da "/indexes/hotels/stats?api-version=2015-02-28":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	Specificare l'intestazione della richiesta sostituendo i valori di host e chiave api con valori validi per il servizio corrente.
 
@@ -234,6 +234,6 @@ I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senz
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

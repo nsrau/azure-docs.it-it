@@ -32,7 +32,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 2. Fare clic su **Consent screen**, selezionare **Email Address**, immettere il nome di un prodotto in **Product Name** e quindi fare clic su **Save**.
 
-3. Fare clic su **API & Auth** \> **Credentials** \> **Create new Client ID**.
+3. Fare clic su **API & Auth** > **Credentials** > **Create new Client ID**.
 
    	![Creare un nuovo ID client](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
 
@@ -62,4 +62,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -75,4 +75,6 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 
 [Operazioni relative a Gestione traffico (riferimento all'API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

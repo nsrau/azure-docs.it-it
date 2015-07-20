@@ -36,7 +36,7 @@ Le raccolte Reliable Collections possono essere considerate l'evoluzione natural
 
 Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta per facilitare la definizione della logica relativa allo stato delle applicazioni. La coerenza assoluta viene ottenuta assicurando che i commit delle transazioni vengano completati solo dopo che l'intera transazione è stata applicata a un quorum di repliche, inclusa quella principale. Per ottenere una coerenza più debole, l'applicazione può rinviare un acknowledgement al client/richiedente prima della restituzione del commit asincrono.
 
-Le API delle raccolte Reliable Collections sono un'evoluzione delle API delle raccolte Concurrent Collections \(disponibili nello spazio dei nomi `System.Collections.Concurrent`\) e sono:
+Le API delle raccolte Reliable Collections sono un'evoluzione delle API delle raccolte Concurrent Collections (disponibili nello spazio dei nomi `System.Collections.Concurrent`) e sono:
 
 1. Asincrone: restituiscono un'attività, dal momento che, a differenza delle raccolte Reliable Collections, le operazioni vengono replicate e rese persistenti.
 2. Senza parametri out: usano `ConditionalResult<T>` per restituire una variabile booleana e un valore anziché parametri out. `ConditionalResult<T>` è simile a `Nullable<T>` ma non necessità di T per essere una struttura.
@@ -45,7 +45,7 @@ Le API delle raccolte Reliable Collections sono un'evoluzione delle API delle ra
 Attualmente `Microsoft.ServiceFabric.Data.Collections` contiene due raccolte:
 
 1. [ReliableDictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): rappresenta una raccolta replicata, transazionale e asincrona di coppie chiave/valore. Simile a `ConcurrentDictionary`, sia la chiave che il valore possono essere di qualsiasi tipo.
-2. [ReliableQueue](https://msdn.microsoft.com/library/azure/dn971527.aspx): rappresenta una coda FIFO \(First-In First-Out\) replicata, transazionale e asincrona. Simile a `ConcurrentQueue`, il valore può essere di qualsiasi tipo.
+2. [ReliableQueue](https://msdn.microsoft.com/library/azure/dn971527.aspx): rappresenta una coda FIFO (First-In First-Out) replicata, transazionale e asincrona. Simile a `ConcurrentQueue`, il valore può essere di qualsiasi tipo.
 
 ## Livelli di isolamento
 Il livello di isolamento è una misura del grado di isolamento raggiunto. Il termine isolamento indica che una transazione si comporta come se si trovasse in un sistema che consente a una sola transazione di essere in corso in un determinato momento.
@@ -54,8 +54,8 @@ Le raccolte Reliable Collections scelgono automaticamente il livello di isolamen
 
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
-- **Repeatable Read**: "Specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, fino al completamento della transazione corrente. \(https://msdn.microsoft.com/it-it/library/ms173763.aspx)".
-- **Snapshot**: "Specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione consistente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi accedere solo alle modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. Con questo livello di isolamento, è come se le istruzioni di una transazione operassero su uno snapshot dei dati di cui è stato eseguito il commit, corrispondente ai dati esistenti al momento dell'avvio della transazione. \(https://msdn.microsoft.com/it-it/library/ms173763.aspx)"
+- **Repeatable Read**: "Specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, fino al completamento della transazione corrente. (https://msdn.microsoft.com/it-it/library/ms173763.aspx)".
+- **Snapshot**: "Specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione consistente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi accedere solo alle modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. Con questo livello di isolamento, è come se le istruzioni di una transazione operassero su uno snapshot dei dati di cui è stato eseguito il commit, corrispondente ai dati esistenti al momento dell'avvio della transazione. (https://msdn.microsoft.com/it-it/library/ms173763.aspx)"
 
 Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
@@ -72,7 +72,7 @@ Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "
 | Enumerazione\\Conteggio | Snapshot | Snapshot |
 
 ## Modello di persistenza
-Reliable State Manager e le raccolte Reliable Collections seguono un modello di persistenza basato su log e checkpoint. Si tratta di un modello in cui ciascuna modifica apportata allo stato viene registrata sul disco e applicata soltanto in memoria. Lo stato completo stesso viene reso persistente solo occasionalmente \(noto anche come Checkpoint\). Questo modello offre il vantaggio seguente:
+Reliable State Manager e le raccolte Reliable Collections seguono un modello di persistenza basato su log e checkpoint. Si tratta di un modello in cui ciascuna modifica apportata allo stato viene registrata sul disco e applicata soltanto in memoria. Lo stato completo stesso viene reso persistente solo occasionalmente (noto anche come Checkpoint). Questo modello offre il vantaggio seguente:
 
 - Per migliorare le prestazioni, le differenze vengono restituite in operazioni di scrittura sequenziali di solo accodamento sul disco.
 
@@ -93,7 +93,7 @@ La matrice di compatibilità dei blocchi è disponibile di seguito:
 | Aggiornamento | Nessun conflitto | Nessun conflitto | Conflitto | Conflitto |
 | Esclusivo | Nessun conflitto | Conflitto | Conflitto | Conflitto |
 
-Si noti che l'argomento timeout delle API delle raccolte Reliable Collections viene usato per il rilevamento dei deadlock. Si supponga, ad esempio, che due transazioni \(T1 e T2\) stiano cercando di leggere e aggiornare K1. È possibile che si verifichi un deadlock, poiché entrambe le transazioni si concludono con il blocco condiviso. In questo caso, potrebbe verificarsi il timeout di una o di entrambe le operazioni.
+Si noti che l'argomento timeout delle API delle raccolte Reliable Collections viene usato per il rilevamento dei deadlock. Si supponga, ad esempio, che due transazioni (T1 e T2) stiano cercando di leggere e aggiornare K1. È possibile che si verifichi un deadlock, poiché entrambe le transazioni si concludono con il blocco condiviso. In questo caso, potrebbe verificarsi il timeout di una o di entrambe le operazioni.
 
 Si noti che lo scenario di deadlock sopra descritto è un perfetto esempio di come il blocco di aggiornamento possa impedire i deadlock.
 
@@ -119,4 +119,4 @@ Occorre tenere presente i concetti seguenti:
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

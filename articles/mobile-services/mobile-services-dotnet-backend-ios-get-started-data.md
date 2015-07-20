@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -87,4 +87,4 @@ Scaricare l'app per iOS [GetStartedWithData]. In Xcode aprire il progetto ed esa
 [Guida introduttiva]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

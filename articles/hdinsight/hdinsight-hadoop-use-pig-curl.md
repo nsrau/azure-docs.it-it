@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig con Hadoop in HDInsight mediante Curl
@@ -24,7 +24,7 @@ In questo documento si apprenderà come usare Curl per l'esecuzione di processi 
 
 Curl viene usato per illustrare come è possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di processi Pig. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">Informazioni utili su Hadoop basato su Linux in HDInsight</a>.
+> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -32,9 +32,9 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Linux o basato su Windows)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Eseguire processi Pig mediante Curl
 
@@ -42,7 +42,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 >
 > Per i comandi riportati in questa sezione, sostituire **USERNAME** con l'utente da autenticare nel cluster e **PASSWORD** con la password dell'account utente. Sostituire **CLUSTERNAME** con il nome del cluster.
 >
-> L'API REST viene protetta tramite l'<a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticazione dell'accesso di base</a>. È necessario effettuare sempre le richieste usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
+> L'API REST viene protetta tramite l'[autenticazione dell'accesso di base](http://en.wikipedia.org/wiki/Basic_access_authentication). È necessario effettuare sempre le richieste usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
 1. Da una riga di comando usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
@@ -97,8 +97,7 @@ Per scaricare un file, usare il comando seguente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY**. Vedere <a href="../hdinsight-upload-data/" target="_blank" per altre informazioni.
-
+> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY**.
 
 ##<a id="summary"></a>Riepilogo
 
@@ -118,4 +117,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

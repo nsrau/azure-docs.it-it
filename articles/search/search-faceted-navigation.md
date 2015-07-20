@@ -13,20 +13,20 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="heidist"/>
 
-#Come implementare l’esplorazione in base a facet in Ricerca di Azure#
+#Come implementare l’esplorazione in base a facet in Ricerca di Azure
 
 L’esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Sebbene il termine esplorazione in base a facet potrebbe essere poco noto, si tratta quasi certamente di una modalità già utilizzata in precedenza. Come illustrato nell'esempio riportato di seguito, l’esplorazione in base a facet non è rappresentata dalle categorie utilizzate per filtrare i risultati.
 
-## Aspetto ##
+## Aspetto
 
  ![][1]
   
 I facet consentono di trovare ciò che si sta cercando con una percentuale di successo accertata. Per gli sviluppatori i facet consentono di esporre i criteri di ricerca più utili per lo spostamento del corpo di ricerca. Nelle applicazioni di vendita online, l’esplorazione in base a facet si basa spesso sulle marche, sui reparti (scarpe per bambini), sulla taglia, sul prezzo, sulla popolarità e sulle classificazioni.
 
-L’implementazione dell’esplorazione in base a facet differisce fra le tecnologie di ricerca e può essere molto complessa. Nella Ricerca di Azure, l’esplorazione in base a facet  viene creata in fase di query utilizzando campi con gli attributi specificati in precedenza nello schema. Le query compilate dall'applicazione devono consentire l’invio dei *parametri di query facet* per ricevere i valori di filtro facet disponibili per il set di risultati dei documenti. Per ridurre effettivamente il set di risultati dei risultati, l'applicazione deve applicare un’espressione `$filter`.
+L’implementazione dell’esplorazione in base a facet differisce fra le tecnologie di ricerca e può essere molto complessa. Nella Ricerca di Azure, l’esplorazione in base a facet viene creata in fase di query utilizzando campi con gli attributi specificati in precedenza nello schema. Le query compilate dall'applicazione devono consentire l’invio dei *parametri di query facet* per ricevere i valori di filtro facet disponibili per il set di risultati dei documenti. Per ridurre effettivamente il set di risultati dei risultati, l'applicazione deve applicare un’espressione `$filter`.
 
 In termini di sviluppo di applicazioni, la scrittura di codice che crea query costituisce la maggior parte del lavoro. Molti dei comportamenti dell'applicazione desiderata dall’esplorazione in base a facet viene fornita dal servizio, incluso il supporto incorporato per l'impostazione degli intervalli e il recupero dei conteggi relativi ai risultati del facet. Il servizio include anche valori predefiniti appropriati che consentono di evitare le strutture di spostamento ingombranti.
 
@@ -46,10 +46,10 @@ In questo articolo sono contenute le sezioni seguenti:
 - [Esplorazione in base a facet basata su GeoPoint](#geofacets)
 - [Provare il servizio](#tryitout)
 
-##Perché utilizzarlo##
+##Perché utilizzarlo
 Le applicazioni di ricerca più efficaci dispongono di più modelli di interazione oltre a una casella di ricerca. L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca, che offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse.
 
-##Conoscere i concetti fondamentali##
+##Conoscere i concetti fondamentali
 
 Per gli utenti che si sono appena approcciati allo sviluppo di funzionalità di ricerca, il modo migliore per concepire l'esplorazione in base a facet è il fatto che mostra le possibilità di ricerca mirata. Si tratta di un tipo di esperienza di ricerca drill-down, basata su filtri predefiniti utilizzati per limitare rapidamente i risultati di ricerca tramite semplici azioni in un solo clic.
 
@@ -57,7 +57,7 @@ Per gli utenti che si sono appena approcciati allo sviluppo di funzionalità di 
 
 L’esperienza di ricerca dell'esplorazione in base a facet è iterativa. Pertanto, è opportuno iniziare con il concepirlo come una sequenza di query create in risposta ad azioni dell’utente.
 
-Il punto di partenza è una pagina dell'applicazione che consente un'esplorazione  in base a facet, in genere sul perimetro. L'esplorazione in base a facet è spesso una struttura ad albero, con caselle di controllo per ogni valore o testo selezionabile.
+Il punto di partenza è una pagina dell'applicazione che consente un'esplorazione in base a facet, in genere sul perimetro. L'esplorazione in base a facet è spesso una struttura ad albero, con caselle di controllo per ogni valore o testo selezionabile.
 
 1.	Una query inviata a Ricerca di Azure specifica la struttura dell'esplorazione in base a facet tramite uno o più parametri di query del facet. Ad esempio, la query potrebbe includere `facet=Rating`, ad esempio con l’opzione `:values` o `:sort` per specificare ulteriormente la presentazione.
 2.	Il livello di presentazione consente di eseguire il rendering di una pagina di ricerca che permette l'esplorazione in base ai facet specificati nella richiesta.
@@ -96,7 +96,7 @@ Anche se entrambe le query sono valide, il secondo è superiore se si sta cercan
 Nelle applicazioni che includono l’esplorazione in base a facet, sarà necessario assicurarsi che ogni azione dell'utente su una struttura di esplorazione in base a facet sia accompagnata da una restrizione dei risultati della ricerca, ottenuta tramite un'espressione di filtro.
 
 <a name="howtobuildit"></a>
-# Come compilare la soluzione #
+##Come compilare la soluzione
 
 L’esplorazione in base a facet nella ricerca di Azure viene implementata nel codice dell'applicazione che crea la richiesta, ma si basa su elementi predefiniti dello schema.
 
@@ -113,7 +113,7 @@ Il livello di presentazione del codice offre l'esperienza dell'utente. Dovrebber
 Nelle sezioni seguenti verrà fornita un’analisi più approfondita su come creare ogni parte a partire dal livello di presentazione.
 
 <a name="presentationlayer"></a>
-# Creare il livello di presentazione #
+##Creare il livello di presentazione
 
 Partire dal livello di presentazione consente di scoprire i requisiti che è possibile non vengano individuati in caso contrario e di comprendere le funzionalità essenziali per l’esperienza di ricerca.
 
@@ -131,7 +131,7 @@ Si noti che ogni facet contiene un'etichetta (colori, categorie, prezzi), un'ass
 > [AZURE.TIP]Quando si progetta la pagina di risultati di ricerca, ricordarsi di aggiungere un meccanismo per la cancellazione dei facet. Se si utilizzano le caselle di controllo, gli utenti possono facilmente intuire come cancellare i filtri. Per altri layout potrebbe essere necessario un modello di navigazione o un altro approccio creativo. Ad esempio, nell'applicazione di esempio AdventureWorks Catalog, è possibile fare clic sul titolo AdventureWorks Catalog per reimpostare la pagina di ricerca.
 
 <a name="buildindex"></a>
-# Compilare l'indice #
+##Compilare l'indice
 
 L’esplorazione in base a facet viene abilitata per ogni campo singolarmente, tramite l'attributo di indice: `"Facetable": true`. Tutti i tipi di campo che potrebbero essere utilizzati eventualmente in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset` e tutti i tipi di campo numerico (essenzialmente, tutti i tipi di campo consentono un’esplorazione in base a facet tranne `Edm.GeographyPoint`, il quale non può essere utilizzato nell’esplorazione in base a facet.
 
@@ -146,9 +146,9 @@ Si noti che `Facetable` è disattivato per i campi stringa che non devono essere
 > [AZURE.TIP]Come procedura consigliata, includere il set completo di attributi dell'indice per ogni campo. Benché `Facetable` sia attivato per impostazione predefinita per quasi tutti i campi, l’impostazione intenzionale di ogni attributo consentono di valutare le implicazioni di ogni decisione di schema.
 
 <a name="checkdata"></a>
-# Controllo della qualità dei dati 
+##Controllo della qualità dei dati 
 
-Durante lo sviluppo di tutte le applicazioni incentrate sui dati, la preparazione dei dati è spesso una delle parti più importanti del processo. Le applicazioni di ricerca non fanno eccezione. La qualità dei dati ha un'incidenza diretta sulla modalità in cui la struttura di esplorazione in base a facet  si prospetta come previsto, nonché l'efficacia permettono di creare filtri che consentono di ridurre il set di risultati.
+Durante lo sviluppo di tutte le applicazioni incentrate sui dati, la preparazione dei dati è spesso una delle parti più importanti del processo. Le applicazioni di ricerca non fanno eccezione. La qualità dei dati ha un'incidenza diretta sulla modalità in cui la struttura di esplorazione in base a facet si prospetta come previsto, nonché l'efficacia permettono di creare filtri che consentono di ridurre il set di risultati.
 
 In Ricerca di Azure, il corpo di ricerca è formato da documenti che popolano un indice. I documenti forniscono i valori utilizzati per calcolare il facet. Se si desidera effettuare un’esplorazione in base a facet per marca o prezzo, ogni documento deve contenere i valori relativi a *BrandName* e *ProductPrice* che sono validi, coerenti e produttivi come opzione di filtro.
 
@@ -162,7 +162,7 @@ Di seguito sono elencati alcuni promemoria di ciò che è necessario eliminare:
 Come si può immaginare, la scrupolosità di preparazione dei dati è un aspetto essenziale dell’esplorazione in base a facet.
 
 <a name="buildquery"></a>
-# Creare la query #
+##Creare la query
 
 Il codice creato per la creazione di query deve specificare tutte le parti di una query valida, tra cui espressioni di ricerca, i facet, i filtri, l'assegnazione dei punteggi dei profili, ovvero qualsiasi elemento che consente di formulare una richiesta. In questa sezione verrà illustrato dove i facet trovano collocazione in una query e come i filtri vengono utilizzati con i facet per fornire un set di risultati ridotto.
 
@@ -178,7 +178,7 @@ Insieme ai facet, la richiesta formulata dall'applicazione deve anche permettere
 
 Quando un utente fa clic su "Red" per indicare che devono essere visualizzati solo i prodotti rossi, la query successiva che l'applicazione invia includerebbe `$filter=Color eq ‘Red’`.
 
-## Procedure consigliate per l'esplorazione in base a facet ##
+## Procedure consigliate per l'esplorazione in base a facet
 
 Nell'elenco seguente vengono riepilogate alcune procedure consigliate.
 
@@ -192,7 +192,7 @@ Nell'elenco seguente vengono riepilogate alcune procedure consigliate.
 
 
 <a name="tips"></a>
-# Suggerimenti su come controllare l'esplorazione in base a facet #
+##Suggerimenti su come controllare l'esplorazione in base a facet
 
 Di seguito è un foglio di suggerimenti con informazioni aggiuntive sui problemi specifici.
 
@@ -257,7 +257,7 @@ I conteggi di facet possono essere inesatti grazie all'architettura di partizion
 Sebbene questo comportamento potrebbe cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente il conteggio:<number> per un numero molto elevato di documenti e applicare il report completo di ogni partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono veramente elevati, si verifica una riduzione delle prestazioni. Si consiglia, pertanto, di utilizzare questa opzione con cautela.
 
 <a name="rangefacets"></a>
-# Esplorazione in base a facet basata sui valori di intervallo #
+##Esplorazione in base a facet basata sui valori di intervallo
 
 L'esplorazione in base a facet su intervalli è un requisito comune delle applicazioni di ricerca. Gli intervalli sono supportati per i dati numerici e i valori DateTime. Per ulteriori informazioni su ogni approccio in [Eseguire ricerche nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -285,7 +285,7 @@ Nell'applicazione di esempio nell'espressione di filtro vengono utilizzati i par
   ![][6]
 
 <a name="geofacets"></a>
-# Esplorazione in base a facet basata su GeoPoint #
+##Esplorazione in base a facet basata su GeoPoint
 
 È comune vedere filtri che consentono di scegliere un negozio, un ristorante o una destinazione in base alla prossimità alla posizione corrente. Questo tipo di filtro potrebbe somigliare all'esplorazione in base a facet, ma è semplicemente un filtro. Viene menzionato per coloro che cercano in particolare consigli di implementazione per tale problema particolare di progettazione.
 
@@ -298,7 +298,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx). Per ulteriori informazioni sulla ricerca geospaziale, vedere [Creare un'applicazione di ricerca geospaziale in Ricerca di Azure](search-create-geospatial.md).
 
 <a name="tryitout"></a>
-# Provare il servizio #
+##Provare il servizio
 
 La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi descritti nel presente articolo. Quando si lavora con i risultati, controllare l'URL per le modifiche nella costruzione delle query. Questa applicazione è casualmente incaricata all'accodamento i facet all'URI a ogni selezione.
 
@@ -327,7 +327,7 @@ La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi desc
 	![][10]
  
 <a name="nextstep"></a>
-# Passaggi successivi #
+##Passaggi successivi
 
 Per verificare le proprie conoscenze, è possibile aggiungere un campo di facet per *modelName*. L'indice è già impostato per il facet, pertanto non è richiesta alcuna modifica all'indice. Sarà, tuttavia, necessario modificare il codice HTML in modo che includa un nuovo facet per i modelli e aggiungere il campo di facet per il costruttore di query.
 
@@ -370,5 +370,6 @@ Per ulteriori informazioni sui principi di progettazione per l'esplorazione in b
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

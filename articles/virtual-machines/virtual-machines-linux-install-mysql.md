@@ -41,8 +41,8 @@ La chiave SSH è necessaria per accedere al portale di Azure.
  
  ![immagine](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p02.png)
 
-- Copiare la chiave pubblica e salvarla in un file denominato  “publicKey.key”. Non fare clic su “Save public key” poiché il formato della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
-- Fare clic su "Save private key"  e salvarla in un file denominato “privateKey.ppk”. 
+- Copiare la chiave pubblica e salvarla in un file denominato “publicKey.key”. Non fare clic su “Save public key” poiché il formato della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
+- Fare clic su "Save private key" e salvarla in un file denominato “privateKey.ppk”. 
 
 ###Accedere al portale di Azure
 
@@ -237,5 +237,6 @@ Verrà utilizzato Ubuntu 14.04 LTS come esempio per questo articolo.
     Per fare in modo che MySQL venga avviato all'avvio del sistema, eseguire il comando seguente:
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usare il portale di gestione per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali" 
-	description="Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usare il portale di gestione per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali"
+	description="Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="get-started-article" 
+	ms.date="04/16/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ In questa esercitazione il portale di gestione di Azure viene usato per eseguire
 1.  Configurare un codificatore live e inserire il flusso live nel canale (in questo passaggio viene usato Wirecast)
 1.  Creare un programma (e un asset).
 1.  Pubblicare l'asset e ottenere gli URL di streaming.  
-1.  Riprodurre i contenuti 
+1.  Riprodurre i contenuti
 2.  + Cleaning up
 
 ##Prerequisiti
@@ -41,7 +41,7 @@ Per completare l'esercitazione è necessario quanto segue.
 - Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
 - Una webcam e un codificatore in grado di inviare un flusso live a più velocità in bit.
 
-	 
+
 ##Configurare l'endpoint di streaming usando il portale
 
 Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
@@ -64,7 +64,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 	L'allocazione di nuove unità richiede circa 20 minuti.
 
-	 
+
 	>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
 	>
 	> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -91,7 +91,7 @@ Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da for
 
 Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori locali per l'invio di un flusso live a più velocità in bit a un canale](../media-services-channels-overview.md).
 
-##Configurare un codificatore live e inserire il flusso live 
+##Configurare un codificatore live e inserire il flusso live
 
 >[AZURE.NOTE]Questo passaggio richiede l'URL di inserimento del canale indicato nel passaggio precedente.
 
@@ -131,11 +131,11 @@ Per avviare l'evento è possibile procedere in due modi:
 1. Nella pagina **CANALE** fare clic su **AGGIUNGI** per aggiungere un nuovo programma.
 
 	Specificare il nome del programma, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
-	
+
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
-	
+
 	Se l'opzione **Pubblica questo programma ora** è stata lasciata selezionata, verranno creati gli URL di pubblicazione.
-	
+
 	Per avviare lo streaming del programma, fare clic su **AVVIA**.
 
 	Dopo avere avviato il programma, fare clic su RIPRODUCI per avviare la riproduzione del contenuto.
@@ -210,5 +210,4 @@ Ottenere altre informazioni sulla compilazione di applicazioni Live Streaming [C
 
 <!-- Images -->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

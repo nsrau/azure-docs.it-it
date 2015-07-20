@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione dell'SDK di Reach per app di Windows universali" 
-	description="Come integrare il servizio Reach di Azure Mobile Engagement con le app di Windows universali"
+	pageTitle="Integrazione di Reach SDK per app universali di Windows" 
+	description="Come integrare il servizio di copertura di Azure Mobile Engagement con le app universali di Windows"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Integrazione dell'SDK di Reach per app di Windows universali
+#Integrazione di Reach SDK per app universali di Windows
 
-Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Mobile Engagement SDK per app di Windows universali](mobile-engagement-windows-store-integrate-engagement.md).
+Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Engagement SDK per app universali di Windows](mobile-engagement-windows-store-integrate-engagement.md).
 
-##Incorporare l'SDK del servizio Reach di Engagement nel progetto di app di Windows universale
+##Incorporare Engagement Reach SDK nel progetto di app universali di Windows
 
 Nessun elemento da aggiungere. Risorse e riferimenti di `EngagementReach` sono già presenti nel progetto.
 
@@ -28,11 +28,11 @@ Nessun elemento da aggiungere. Risorse e riferimenti di `EngagementReach` sono g
 
 ##Abilitare Servizi notifica Push Windows
 
-Per usare **Servizi notifica Push Windows** (indicati come WNS) nel file `Package.appxmanifest` su `Application UI` fare clic su `All Image Assets` nella casella a sinistra. A destra della casella in `Notifications`, modificare il valore di `toast capable` da `(not set)` a `Yes`.
+Per usare **Servizi notifica Push Windows** (indicati come WNS) nel file `Package.appxmanifest` su `Application UI` fare clic su `All Image Assets` nella casella a sinistra. A destra della casella in `Notifications`, modificare il valore di `toast capable` da `(not set)` a `(Yes)`.
 
-È inoltre necessario sincronizzare l'app con il proprio account Microsoft e con la piattaforma di Engagement. Nel front-end di Engagement passare all'impostazione dell'app in `native push` e incollare le credenziali. Dopo questa operazione, fare clic sul progetto, selezionare `store` e `Associate App with the Store...`.
+È inoltre necessario sincronizzare l'app con il proprio account Microsoft e con la piattaforma di Engagement. Sarà necessario creare un account o accedere al [Windows Dev Center](https://dev.windows.com). Creare quindi una nuova applicazione e individuare il SID e la chiave privata. Nel front-end di Engagement passare all'impostazione dell'app in `native push` e incollare le credenziali. Dopo questa operazione, fare clic sul progetto, selezionare `store` e `Associate App with the Store...`. Per sincronizzare l'applicazione creata in precedenza, è sufficiente selezionarla.
 
-##Inizializzare l'SDK del servizio Reach di Engagement
+##Inizializzare Engagement Reach SDK
 
 Modificare il file `App.xaml.cs`:
 
@@ -48,7 +48,7 @@ Modificare il file `App.xaml.cs`:
 		  EngagementReach.Instance.Init(args);
 		}
 
--   Se si vuole avviare il servizio Reach di Engagement quando viene attivata l'app, eseguire l'override del metodo `OnActivated`:
+-   Se si vuole abilitare il servizio di copertura di Engagement quando l'app viene attivata da un comando, un'altra applicazione o uno schema personalizzato, eseguire l'override del metodo `OnActivated`:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
@@ -64,17 +64,17 @@ Modificare il file `App.xaml.cs`:
 
 Engagement fornisce due metodi per implementare il servizio di notifiche e annunci di Reach: l'integrazione di una sovrimpressione e quella di una visualizzazione Web.
 
-L'integrazione di una sovrimpressione (windows-sdk-engagement-overlay-integration) non richiede la scrittura di molto codice nell'applicazione. È sufficiente contrassegnare i file di pagine, xaml e cs con EngagementPageOverlay. Inoltre, se si personalizza la visualizzazione predefinita di Engagement, la personalizzazione viene condivisa con tutte le pagine contrassegnate ed è sufficiente definirla una sola volta. Tuttavia, se le pagine devono ereditare da un oggetto diverso da EngagementPageOverlay, si è costretti a usare l'integrazione di una visualizzazione Web.
+L'integrazione di una sovrimpressione non richiede la scrittura di molto codice nell'applicazione. È sufficiente contrassegnare i file di pagine, xaml e cs con EngagementPageOverlay. Inoltre, se si personalizza la visualizzazione predefinita di Engagement, la personalizzazione viene condivisa con tutte le pagine contrassegnate ed è sufficiente definirla una sola volta. Tuttavia, se le pagine devono ereditare da un oggetto diverso da EngagementPageOverlay, si è costretti a usare l'integrazione di una visualizzazione Web.
 
-L'integrazione di una visualizzazione Web (windows-sdk-engagement-webview-integration) è più complessa da implementare. Tuttavia, se le pagine dell'app devono ereditare da un oggetto diverso da "Page", è necessario integrare la visualizzazione Web e il relativo comportamento.
+L'integrazione di una visualizzazione Web è più complessa da implementare. Tuttavia, se le pagine dell'app devono ereditare da un oggetto diverso da "Page", è necessario integrare la visualizzazione Web e il relativo comportamento.
 
-> [AZURE.TIP]È consigliabile aggiungere un elemento `<Grid></Grid>` di primo livello per racchiudere il contenuto della pagina. Per l'integrazione di una visualizzazione Web, è sufficiente aggiungere Webview come figlio della griglia. Se è necessario impostare il componente Engagement altrove, tenere presente che è necessario gestire manualmente le dimensioni di visualizzazione.
+> [AZURE.TIP]È consigliabile aggiungere un elemento `<Grid></Grid>` radice per racchiudere il contenuto della pagina. Per l'integrazione di una visualizzazione Web, è sufficiente aggiungere Webview come figlio della griglia. Se è necessario impostare il componente Engagement altrove, tenere presente che è necessario gestire manualmente le dimensioni di visualizzazione.
 
 ### Integrazione di una sovrimpressione
 
 Engagement fornisce una sovrimpressione per la visualizzazione di notifiche e annunci.
 
-Se si desidera applicarla, non usare windows-sdk-engagement-webview-integration.
+Se si vuole applicarla, non usare l'integrazione di una visualizzazione Web.
 
 Nel file con estensione xaml modificare il riferimento EngagementPage in EngagementPageOverlay
 
@@ -157,7 +157,7 @@ La sovrimpressione di Engagement usa il primo elemento "Grid" trovato nel file c
 
 ### Integrazione di una visualizzazione Web
 
-Se si desidera applicarla, non usare windows-sdk-engagement-overlay-integration.
+Se si vuole applicarla, non usare l'integrazione di una sovrimpressione.
 
 Per visualizzare il contenuto di Engagement, è necessario integrare i due elementi WebView xaml in ogni pagina in cui devono essere visualizzati annunci e notifiche. Aggiungere quindi questo codice nel file xaml:
 
@@ -408,5 +408,6 @@ Per usare questo protocollo modificare `App.xaml.cs` con il metodo `OnActivated`
 			    }
 			  }
 			  #endregion
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

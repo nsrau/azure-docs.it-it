@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Come usare gli argomenti del bus di servizio (Node.js) - Azure" 
-	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Node.js." 
+	description="Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un’app Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="sethm"/>
+	ms.date="07/02/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -23,13 +23,13 @@
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
-Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Node.js. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi** a un argomento, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per altre informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi][].
+Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Node.js. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi** a un argomento, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per ulteriori informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o Sito Web con WebMatrix.
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
@@ -37,7 +37,7 @@ Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include 
 
 ### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminale** (Mac) o **Bash** (Unix) e passare alla cartella in cui è stata creata l'applicazione di esempio.
+1.  Utilizzare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 
 2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire il seguente output:
 
@@ -57,26 +57,25 @@ Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include 
 
 ### Importare il modulo
 
-Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
+Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
 
     var azure = require('azure');
 
 ### Configurare una stringa di connessione per il bus di servizio
 
-Il modulo azure leggerà le variabili di ambiente AZURE_SERVICEBUS_NAMESPACE e AZURE_SERVICEBUS_ACCESS_KEY per recuperare le informazioni necessarie per la connessione al bus di servizio di Azure. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni dell'account durante la chiamata a **createServiceBusService**.
+Il modulo di Azure leggerà le variabili di ambiente AZURE_SERVICEBUS_NAMESPACE e AZURE_SERVICEBUS_ACCESS_KEY per ottenere le informazioni necessarie per la connessione al bus di servizio di Azure. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
 Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con archiviazione].
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con il servizio tabelle di Azure][Applicazione Web Node.js con archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione]
 
 ## Come creare un argomento
 
-L'oggetto **ServiceBusService** consente di usare gli argomenti. Il seguente codice consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
+L'oggetto **ServiceBusService** consente di utilizzare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
     var serviceBusService = azure.createServiceBusService();
 
-Quando si chiama **createTopicIfNotExists** sull'oggetto **ServiceBusService**, viene restituito l'argomento specificato, se esiste, oppure viene creato un nuovo argomento con il nome specificato. Nel seguente codice viene usato **createTopicIfNotExists** per creare o connettersi all'argomento denominato
-'MyTopic':
+Quando si effettua la chiamata a **createTopicIfNotExists** sull'oggetto **ServiceBusService**, viene restituito l'argomento specificato, se esiste, o viene creato un nuovo argomento con il nome specificato. Nel codice seguente viene utilizzato **createTopicIfNotExists** per creare o connettersi all'argomento denominato 'MyTopic':
 
     serviceBusService.createTopicIfNotExists('MyTopic',function(error){
         if(!error){
@@ -85,7 +84,7 @@ Quando si chiama **createTopicIfNotExists** sull'oggetto **ServiceBusService**, 
         }
     });
 
-**createServiceBusService** supporta anche opzioni aggiuntive che permettono di sostituire le impostazioni degli argomenti predefinite, come ad esempio la durata dei messaggi o la dimensione massima dell'argomento. Il seguente esempio illustra come impostare la dimensione massima dell'argomento su 5 GB e una durata di 1 minuto:
+**createServiceBusService** supporta inoltre opzioni aggiuntive che consentono di sostituire le impostazioni degli argomenti predefinite, come ad esempio la durata dei messaggi o la dimensione massima dell'argomento. Il seguente esempio illustra come impostare la dimensione massima dell'argomento su 5 GB e una durata di 1 minuto:
 
     var topicOptions = {
             MaxSizeInMegabytes: '5120',
@@ -100,7 +99,7 @@ Quando si chiama **createTopicIfNotExists** sull'oggetto **ServiceBusService**, 
 
 ### Filtri
 
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **ServiceBusService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **ServiceBusService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
 		function handle (requestOptions, next)
 
@@ -110,7 +109,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 
 In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
-In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il seguente codice consente di creare un oggetto **ServiceBusService** che usa **ExponentialRetryPolicyFilter**:
+Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **ServiceBusService** che utilizza **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
@@ -119,11 +118,11 @@ In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di r
 
 È possibile creare le sottoscrizioni a un argomento tramite l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi recapitati alla coda virtuale della sottoscrizione.
 
-> [AZURE.NOTE] le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono associate, non vengono eliminate. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già usando il metodo **getSubscription**.
+> [AZURE.NOTE]le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono associate, non vengono eliminate. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già utilizzando il metodo **getSubscription**.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
-Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nel seguente esempio viene creata una sottoscrizione denominata 'AllMessages' e viene usato il filtro predefinito **MatchAll**.
+Il filtro predefinito **MatchAll** viene utilizzato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si utilizza il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata 'AllMessages' e viene utilizzato il filtro predefinito **MatchAll**.
 
     serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
         if(!error){
@@ -135,15 +134,15 @@ Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri 
 
 È anche possibile creare filtri che consentono di specificare i messaggi inviati a un argomento da visualizzare in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altri dettagli sulle espressioni che è possibile usare con un filtro SQL, esaminare la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per ulteriori dettagli sulle espressioni che è possibile utilizzare con un filtro SQL, esaminare la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 È possibile aggiungere i filtri a una sottoscrizione tramite il metodo **createRule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
 > [AZURE.NOTE]
 
-> Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario prima di tutto rimuovere il filtro predefinito, altrimenti <strong>MatchAll</strong> sostituirà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita usando il metodo <strong>deleteRule</strong> dell'oggetto <strong>ServiceBusService</strong> .
+> Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti <strong>MatchAll</strong> sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo <strong>deleteRule</strong> dell'oggetto <strong>ServiceBusService</strong>.
 
-Nel seguente esempio viene creata una sottoscrizione denominata 'HighMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** personalizzata è maggiore di 3:
+Nell'esempio seguente viene creata una sottoscrizione denominata 'HighMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **messagenumber** è maggiore di 3:
 
     serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
         if(!error){
@@ -176,7 +175,7 @@ Nel seguente esempio viene creata una sottoscrizione denominata 'HighMessages' c
         }
     }
 
-Analogamente, nel seguente esempio viene creata una sottoscrizione denominata 'LowMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** è minore o uguale a 3:
+Analogamente, nell'esempio seguente viene creata una sottoscrizione denominata 'LowMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** è minore o uguale a 3:
 
     serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
         if(!error){
@@ -209,14 +208,13 @@ Analogamente, nel seguente esempio viene creata una sottoscrizione denominata 'L
         }
     }
 
-Un messaggio inviato a 'MyTopic' verrà sempre recapitato ai ricevitori con sottoscrizione dell'argomento 'AllMessages' e recapitato selettivamente ai ricevitori con sottoscrizioni degli argomenti 'HighMessages' e 'LowMessages' (a seconda del contenuto del messaggio).
+Un messaggio inviato a 'MyTopic' verrà sempre recapitato ai ricevitori con sottoscrizione all'argomento 'AllMessages' e recapitato selettivamente ai ricevitori con sottoscrizioni agli argomenti 'HighMessages' e 'LowMessages', a seconda del contenuto del messaggio.
 
 ## Come inviare messaggi a un argomento
 
-Per inviare un messaggio a una argomento del bus di servizio, l'applicazione deve usare il metodo **sendTopicMessage** dell'oggetto **ServiceBusService**. I messaggi inviati ad argomenti del bus di servizio sono oggetti **BrokeredMessage**.
-Gli oggetti **BrokeredMessage** includono un set di metodi standard, ad esempio **Label** e **TimeToLive**, un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando un valore stringa a **sendTopicMessage** in modo da popolare le proprietà standard necessarie con valori predefiniti.
+Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve utilizzare il metodo **sendTopicMessage** dell'oggetto **ServiceBusService**. I messaggi inviati ad argomenti del bus di servizio sono oggetti **BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un insieme di proprietà standard, ad esempio **Label** e **TimeToLive**, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati di tipo stringa. Un'applicazione può impostare il corpo del messaggio passando un valore stringa a **sendTopicMessage** in modo da popolare le proprietà standard necessarie con valori predefiniti.
 
-Il seguente esempio illustra come inviare cinque messaggi di test a 'MyTopic'. Si noti che il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
+L'esempio seguente illustra come inviare cinque messaggi di test a 'MyTopic'. Si noti come il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
 
     var message = {
         body: '',
@@ -239,16 +237,13 @@ Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari
 
 ## Come ricevere messaggi da una sottoscrizione
 
-I messaggi vengono ricevuti da una sottoscrizione usando il metodo **receiveSubscriptionMessage** sull'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla sottoscrizione non appena vengono letti. È tuttavia possibile leggere (peek) e bloccare il messaggio senza eliminarlo dalla sottoscrizione, impostando il parametro facoltativo **isPeekLock** su **true**.
+I messaggi vengono ricevuti da una sottoscrizione tramite il metodo **receiveSubscriptionMessage** sull'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla sottoscrizione non appena vengono letti. È tuttavia possibile leggere (peek) e bloccare il messaggio senza eliminarlo dalla sottoscrizione, impostando il parametro facoltativo **isPeekLock** su **true**
 
-Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
+Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
-Se il parametro **isPeekLock** è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
-Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e fornendo il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
+Se il parametro **isPeekLock** è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e fornendo il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come utilizzato e lo rimuove dalla sottoscrizione.
 
-Il seguente esempio illustra come ricevere ed elaborare messaggi usando la modalità **receiveSubscriptionMessage**. Nell'esempio viene prima ricevuto ed eliminato un messaggio dalla sottoscrizione 'LowMessages' e quindi viene ricevuto un messaggio dalla sottoscrizione 'HighMessages' con
-**isPeekLock** impostato su true. Il messaggio viene quindi eliminato usando il metodo
-**deleteMessage**:
+Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi utilizzando la modalità **receiveSubscriptionMessage**. Nell'esempio viene prima ricevuto ed eliminato un messaggio dalla sottoscrizione 'LowMessages' e quindi viene ricevuto un messaggio dalla sottoscrizione 'HighMessages' con **isPeekLock** impostato su true. Il messaggio viene quindi eliminato utilizzando il metodo **deleteMessage**:
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -273,14 +268,13 @@ Il seguente esempio illustra come ricevere ed elaborare messaggi usando la modal
 
 Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlockMessage** sull'oggetto **ServiceBusService**. In questo modo, il bus di servizio sbloccherà il messaggio nella sottoscrizione rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
 
-Al messaggio bloccato nella sottoscrizione è associato anche un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
+Al messaggio bloccato nella sottoscrizione è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata al metodo **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata al metodo **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso utilizzata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## Come eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il portale di gestione di Azure o a livello di codice.
-Il seguente esempio illustra come eliminare l'argomento denominato 'MyTopic':
+Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il portale di gestione di Azure o a livello di codice. Nell'esempio seguente viene illustrato come eliminare l'argomento denominato 'MyTopic':
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -288,7 +282,7 @@ Il seguente esempio illustra come eliminare l'argomento denominato 'MyTopic':
         }
     });
 
-Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. Il seguente codice illustra come eliminare una sottoscrizione denominata 'HighMessages' dall'argomento 'MyTopic':
+Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. Il codice seguente illustra come eliminare una sottoscrizione denominata 'HighMessages' dall'argomento 'MyTopic':
 
     serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
         if(error) {
@@ -301,32 +295,18 @@ Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni reg
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
 -   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][].
--   Informazioni di riferimento sulle API per [SqlFilter][].
--   Visitare il repository per [Azure SDK per Node] su GitHub.
+-   Riferimento sulle API per [SqlFilter][]
+-   Archivio [Azure SDK for Node] su GitHub
 
-  [Azure SDK per Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Passaggi successivi]: #nextsteps
-  [Informazioni su argomenti e sottoscrizioni del bus di servizio]: #what-are-service-bus-topics
-  [Creare uno spazio dei nomi del servizio]: #create-a-service-namespace
-  [Recuperare le credenziali di gestione predefinite per lo spazio dei nomi]: #obtain-default-credentials
-  [Creare un'applicazione Node.js]: #Create_a_Nodejs_Application
-  [Configurare l'applicazione per l'uso del bus di servizio]: #Configure_Your_Application_to_Use_Service_Bus
-  [Procedura: Creare un argomento]: #How_to_Create_a_Topic
-  [Procedura: Creare sottoscrizioni]: #How_to_Create_Subscriptions
-  [Procedura: Inviare messaggi a un argomento]: #How_to_Send_Messages_to_a_Topic
-  [Procedura: Ricevere messaggi da una sottoscrizione]: #How_to_Receive_Messages_from_a_Subscription
-  [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [Procedura: Eliminare argomenti e sottoscrizioni]: #How_to_Delete_Topics_and_Subscriptions
-  [1]: #Next_Steps
-  [Portale di gestione di Azure]: http://manage.windowsazure.com
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Sito Web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Servizio cloud Node.js]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: /develop/nodejs/tutorials/web-app-with-storage/
   [Applicazione Web Node.js con archiviazione]: /develop/nodejs/tutorials/web-site-with-storage/
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

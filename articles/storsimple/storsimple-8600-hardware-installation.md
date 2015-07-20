@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Installare il dispositivo StorSimple 8600
@@ -41,10 +41,10 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. Contattare il Supporto tecnico Microsoft per istruzioni su come verificare il corretto funzionamento del dispositivo.
 
 2. Aprire le due scatole e disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato il dispositivo di archiviazione disimballato.
- 
-    **Figura 1: dispositivo di archiviazione disimballato**
 
     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+ 
+    **Figura 1: dispositivo di archiviazione disimballato**
 
      Etichetta | Descrizione 
      ----- | -------------
@@ -112,9 +112,9 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
 2. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
 
-    **Figura 2: fissaggio delle slitte delle guide ai lati dell'enclosure**
-
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **Figura 2: fissaggio delle slitte delle guide ai lati dello chassis**
 
     Etichetta | Descrizione
     ----- | -----------
@@ -129,9 +129,9 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
 6. Ripetere la procedura per l'altro gruppo guida.
 
-    **Figura 3: fissaggio dei gruppi guida al rack**
-
      ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figura 3: fissaggio dei gruppi guida al rack**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -151,17 +151,17 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
 
 2. Inserire con cura l'enclosure nelle guide e spingerla nell'armadio rack completamente.
 
-    **Figura 4: montaggio dell'enclosure nel rack**
-
     ![Inserimento del dispositivo nel rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figura 4: montaggio dell'enclosure nel rack**
 
 3. Fissare l'enclosure nel rack installando una vite a croce in ciascuna flangia, sinistra e destra.
 
 4. Installare i copriflangia premendoli nella posizione corretta fino a inserirli completamente.
 
-    **Figura 5: installazione dei copriflangia**
-
      ![Installazione dei copriflangia](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+
+    **Figura 5: installazione dei copriflangia**
  
      Etichetta | Descrizione
      ----- | -----------
@@ -208,9 +208,9 @@ Sarà quindi necessario identificare l'enclosure principale e l'enclosure EBOD.
 
 1. Identificare l'enclosure principale e l'enclosure EBOD. Le due enclosure possono essere identificate osservandone il retro. Per indicazioni, vedere la seguente figura.
 
-    **Figura 6: parte posteriore delle enclosure principale ed EBOD**
-
     ![Enclosure principale ed enclosure EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
+
+    **Figura 6: parte posteriore delle enclosure principale ed EBOD**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -220,9 +220,9 @@ Sarà quindi necessario identificare l'enclosure principale e l'enclosure EBOD.
 
 2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. Se non corrispondono, contattare subito il Supporto Tecnico Microsoft. Per individuare i numeri di serie più facilmente, vedere la seguente figura.
 
-    **Figura 7: parte posteriore del dispositivo con la posizione del numero di serie**
-
     ![Posizione del numero di serie](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+
+    **Figura 7: parte posteriore del dispositivo con la posizione del numero di serie**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -235,9 +235,9 @@ Successivamente, usare i cavi SAS forniti per collegare l'enclosure EBOD all'enc
 
 1. Identificare le quattro porte SAS (Serial Attached SCSI) sull'enclosure principale e sull'enclosure EBOD. Le porte SAS sono contrassegnate con la dicitura EBOD sull'enclosure principale e con la dicitura CTRL sull'enclosure EBOD, come illustrato nella figura 8.
 
-    **Figura 8: posizione delle porte SAS sulle enclosure principale ed EBOD**
-
     ![Posizione delle porte SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
+
+    **Figura 8: posizione delle porte SAS sulle enclosure principale ed EBOD**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -284,9 +284,9 @@ Per cablare il dispositivo per l'alimentazione, attenersi alla seguente procedur
 
 > [AZURE.IMPORTANT]Per garantire la disponibilità elevata del sistema, si consiglia di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura.
 
-   **Figura 9: cablaggio di alimentazione per il dispositivo**
-
    ![Figura del cablaggio di alimentazione](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
+
+   **Figura 9: cablaggio di alimentazione per il dispositivo**
 
      Label | Description
      ----- | -----------
@@ -311,9 +311,9 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
 1. Il dispositivo è dotato di sei interfacce di rete su ciascun controller: quattro porte Ethernet da 1 Gbps e due da 10 Gbps. Fare riferimento alla figura seguente per identificare le porte dati nel backplane del dispositivo.
 
-    **Figura 10: parte posteriore del dispositivo con le porte dati**
-
      ![Backplane del dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figura 10: parte posteriore del dispositivo con le porte dati**
  
      Etichetta | Descrizione
      ------- | -----------
@@ -332,9 +332,9 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
 Configurare almeno un'interfaccia di rete per l'accesso cloud e una per iSCSI. Per una disponibilità elevata e prestazioni ottimali, configurare due coppie di interfacce di rete su ciascun controller. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
 
-**Figura 11: cablaggio di rete per il dispositivo**
-
 ![Cablare il dispositivo 4U per la rete](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+
+**Figura 11: cablaggio di rete per il dispositivo**
 
 Etichetta | Descrizione
 ----- | -----------
@@ -382,4 +382,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

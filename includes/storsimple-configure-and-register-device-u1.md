@@ -1,3 +1,5 @@
+
+
 ### Per configurare e registrare il dispositivo
 
 1. Accedere all'interfaccia di Windows PowerShell sulla console seriale del dispositivo StorSimple. Per istruzioni, vedere [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](#use-putty-to-connect-to-the-device-serial-console). **Assicurarsi di seguire la procedura esattamente o non si sarà in grado di accedere alla console.**
@@ -63,4 +65,4 @@
      
        
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

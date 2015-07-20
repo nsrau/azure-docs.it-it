@@ -18,7 +18,7 @@
 
 # Test di prestazioni e scalabilità: da locale a locale
 
-Microsoft Azure Site Recovery orchestra e gestisce la replica del centro dati primario in una seconda posizione in modo che i dati vengano sottoposti a backup e recuperati in caso di interruzioni pianificate e non pianificate. È possibile eseguire il backup di cloud privati locali situati in System Center Virtual Machine Manager \(VMM\) in un'altra posizione locale o in Archiviazione di Microsoft Azure. Per eseguire la replica, VMM utilizza Replica Hyper-V, un meccanismo di replica incorporato in Hyper-V in Windows Server 2012 e Windows Server 2012 R2. Tale meccanismo fornisce la replica asincrona delle macchine virtuali Hyper-V tra due server di hosting. È possibile replicare qualsiasi carico di lavoro del server che possa essere virtualizzato in Hyper-V. La replica funziona su qualsiasi comune rete basata su IP. Replica Hyper-V funziona con server autonomi, cluster di failover o una combinazione di entrambi.
+Microsoft Azure Site Recovery orchestra e gestisce la replica del centro dati primario in una seconda posizione in modo che i dati vengano sottoposti a backup e recuperati in caso di interruzioni pianificate e non pianificate. È possibile eseguire il backup di cloud privati locali situati in System Center Virtual Machine Manager (VMM) in un'altra posizione locale o in Archiviazione di Microsoft Azure. Per eseguire la replica, VMM utilizza Replica Hyper-V, un meccanismo di replica incorporato in Hyper-V in Windows Server 2012 e Windows Server 2012 R2. Tale meccanismo fornisce la replica asincrona delle macchine virtuali Hyper-V tra due server di hosting. È possibile replicare qualsiasi carico di lavoro del server che possa essere virtualizzato in Hyper-V. La replica funziona su qualsiasi comune rete basata su IP. Replica Hyper-V funziona con server autonomi, cluster di failover o una combinazione di entrambi.
 
 In questo argomento viene illustrato il test dell'impatto sulle prestazioni della replica utilizzando Azure Site Recovery in una distribuzione da locale a locale. Vengono fornite informazioni dettagliate sui parametri e le impostazioni di configurazione utilizzate nel test, viene illustrato il passaggio di distribuzione del test e vengono forniti risultati di test dettagliati.
 
@@ -68,7 +68,7 @@ Replica Hyper-V ha un sovraccarico di CPU minimo. Come illustrato nel grafico, i
 
 ![Risultati sito primario](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
-### Prestazioni del server secondario \(ripristino\)
+### Prestazioni del server secondario (ripristino)
 
 Replica Hyper-V utilizza una piccola quantità di memoria nel server di ripristino per ottimizzare il numero di operazioni di archiviazione. Il grafico riepiloga l'utilizzo della memoria nel server di ripristino. Il sovraccarico della memoria mostrato è la percentuale di memoria utilizzata dalla replica rispetto alla memoria totale installata sul server Hyper-V.
 
@@ -86,7 +86,7 @@ La quantità di operazioni di I/O nel sito di ripristino è una funzione del num
 
 ### Effetto della replica sull'uso della rete
 
-Una media di 275 MB al secondo di larghezza di banda è stata utilizzata tra i nodi primario e di ripristino \(con compressione abilitata\) su una larghezza di banda esistente di 5 GB al secondo.
+Una media di 275 MB al secondo di larghezza di banda è stata utilizzata tra i nodi primario e di ripristino (con compressione abilitata) su una larghezza di banda esistente di 5 GB al secondo.
 
 ![Risultati utilizzo rete](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
@@ -116,7 +116,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 - L’archiviazione per il nodo del cluster è fornita da una rete SAN iSCSI. Modello – Hitachi HUS130.
 
-- Ogni server del cluster ha quattro schede di rete \(NIC\) di 1 Gbps ciascuna.
+- Ogni server del cluster ha quattro schede di rete (NIC) di 1 Gbps ciascuna.
 
 - Due delle schede di rete sono connesse a una rete privata iSCSI e due sono connesse a una rete aziendale esterna. Una delle reti esterne è riservata alle comunicazioni del cluster.
 
@@ -124,10 +124,10 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 |Server|RAM|Modello|Processore|Numero di processori|NIC|Software|
 |---|---|---|---|---|---|---|
-|Server Hyper-V nel cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25|128ESTLAB-HOST25 ha 256|Dell ™ PowerEdge ™ R820|CPU Intel\(R\) Xeon\(R\) E5-4620 0 a 2,20 GHz|4|I Gbps x 4|Windows Server Datacenter 2012 R2 \(x64\) + ruolo Hyper-V|
-|Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 \(x64\) + VMM 2012 R2|
+|Server Hyper-V nel cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25|128ESTLAB-HOST25 ha 256|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|4|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
 
-### Sito secondario \(ripristino\)
+### Sito secondario (ripristino)
 
 - Il sito secondario ha un cluster di failover a sei nodi
 
@@ -137,10 +137,10 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 |Server|RAM|Modello|Processore|Numero di processori|NIC|Software|
 |---|---|---|---|---|---|---|
-|Server Hyper-V nel cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10|96|Dell ™ PowerEdge ™ R720|CPU Intel\(R\) Xeon\(R\) E5-2630 0 a 2,30 GHz|2|I Gbps x 4|Windows Server Datacenter 2012 R2 \(x64\) + ruolo Hyper-V|
-|ESTLAB-HOST17|128|Dell ™ PowerEdge ™ R820|CPU Intel\(R\) Xeon\(R\) E5-4620 0 a 2,20 GHz|4||Windows Server Datacenter 2012 R2 \(x64\) + ruolo Hyper-V|
-|ESTLAB-HOST24|256|Dell ™ PowerEdge ™ R820|CPU Intel\(R\) Xeon\(R\) E5-4620 0 a 2,20 GHz|2||Windows Server Datacenter 2012 R2 \(x64\) + ruolo Hyper-V|
-|Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 \(x64\) + VMM 2012 R2|
+|Server Hyper-V nel cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10|96|Dell ™ PowerEdge ™ R720|CPU Intel(R) Xeon(R) E5-2630 0 a 2,30 GHz|2|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|ESTLAB-HOST17|128|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|4||Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|ESTLAB-HOST24|256|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|2||Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
 
 ### Carichi di lavoro server
 
@@ -150,10 +150,10 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 - Tutti i profili IOMeter sono impostati per scrivere byte casuali per simulare modelli di scrittura dei casi peggiori per i carichi di lavoro.
 
-|Carico di lavoro|Dimensioni I/O \(KB\)|% accesso|% lettura|I/O in sospeso|Modello I/O|
+|Carico di lavoro|Dimensioni I/O (KB)|% accesso|% lettura|I/O in sospeso|Modello I/O|
 |---|---|---|---|---|---|
 |File Server|48163264|60%20%5%5%10%|80%80%80%80%80%|88888|Tutti 100% casuale|
-|SQL Server \(volume 1\) SQL Server \(volume 2\)|864|100%100%|70%0%|88|100% casuale 100% sequenziale|
+|SQL Server (volume 1) SQL Server (volume 2)|864|100%100%|70%0%|88|100% casuale 100% sequenziale|
 |Exchange|32|100%|67%|8|100% casuale|
 |Workstation/VDI|464|66%34%|70%95%|11|Entrambi 100% casuale|
 |File Server Web|4864|33%34%33%|95%95%95%|888|Tutti 75% casuale|
@@ -166,7 +166,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 - Macchine virtuali con carichi di lavoro in esecuzione riepilogati nella tabella. Tutti sono stati creati con i modelli VMM.
 
-|Carico di lavoro|N. di VM|RAM minima \(GB\)|RAM massima \(GB\)|Dimensioni disco logico \(GB\) per macchina virtuale|Numero massimo di IOPS|
+|Carico di lavoro|N. di VM|RAM minima (GB)|RAM massima (GB)|Dimensioni disco logico (GB) per macchina virtuale|Numero massimo di IOPS|
 |---|---|---|---|---|---|
 |SQL Server|51|1|4|167|10|
 |Exchange Server|71|1|4|552|10|
@@ -194,18 +194,18 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processor\(\_Totale\)\\% Tempo processore|
+|CPU|\\Processor(_Totale)\% Tempo processore|
 |Memoria disponibile|\\Memoria\\MByte disponibili|
-|IOPS|\\DiscoFisico\(\_Totale\)\\Trasferimenti disco/secondo|
-|Operazioni di lettura VM \(IOPS\) al secondo|\\Dispositivo di archiviazione Hyper-V \(<VHD>\)\\Operazioni di lettura/secondo|
-|Operazioni di scrittura VM \(IOPS\) al secondo|\\Dispositivo di archiviazione virtuale Hyper-V \(<VHD>\)\\Operazioni di scrittura/S|
-|Velocità effettiva lettura VM|\\Dispositivo di archiviazione virtuale Hyper-V \(<VHD>\)\\Byte letti al secondo|
-|Velocità effettiva di scrittura VM|\\Dispositivo di archiviazione virtuale Hyper-V\(<VHD>\)\\Byte scritti al secondo|
+|IOPS|\\DiscoFisico(_Totale)\\Trasferimenti disco/secondo|
+|Operazioni di lettura VM (IOPS) al secondo|\\Dispositivo di archiviazione Hyper-V (<VHD>)\\Operazioni di lettura/secondo|
+|Operazioni di scrittura VM (IOPS) al secondo|\\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\\Operazioni di scrittura/S|
+|Velocità effettiva lettura VM|\\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\\Byte letti al secondo|
+|Velocità effettiva di scrittura VM|\\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\\Byte scritti al secondo|
 
 
 ## Passaggi successivi
 
-Per avviare la distribuzione di ASR:
+Per avviare la distribuzione  
 
 - [Configurare la protezione tra un sito VMM locale e Azure](site-recovery-vmm-to-azure.md)
 - [Configurare la protezione tra un sito Hyper-V locale e Azure](site-recovery-hyper-v-site-to-azure.md)
@@ -214,4 +214,4 @@ Per avviare la distribuzione di ASR:
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure" 
-	description="Informazioni su come compilare un'app per Windows Store mediante Servizi mobili di Azure con un back-end .NET." 
+	pageTitle="Creazione di un'app Leaderboard per Windows Store con un back-end .NET | Servizi mobili di Azure" 
+	description="Informazioni su come compilare un'app Leaderboard per Windows Store mediante Servizi mobili di Azure con un back-end .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -113,7 +113,7 @@ Si noti che entrambe le classi ereditano dalla classe **EntityData**. L'ereditar
 
 La classe `PlayerRank` include una [proprietà di navigazione](http://msdn.microsoft.com/data/jj713564.aspx) che punta all'entità `Player` correlata. L'attributo **[ForeignKey]** indica a EF che la proprietà `Player` rappresenta una chiave esterna.
 
-# Aggiungere controller API Web
+## Aggiungere controller API Web
 
 Successivamente, si aggiungono controller API Web per `Player` e `PlayerRank`. Anziché controller API Web semplici, si aggiungerà un tipo particolare di controller denominato *controller tabella*, progettato espressamente per Servizi mobili di Azure.
 
@@ -760,5 +760,6 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [Aggiungere notifiche push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

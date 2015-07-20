@@ -74,4 +74,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (iOS) | Mobile Dev Center" 
-	description="Informazioni sull'uso di Servizi mobili di Azure per gestire i conflitti durante la sincronizzazione dei dati offline nell'applicazione iOS." 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (iOS) | Mobile Dev Center"
+	description="Informazioni sull'uso di Servizi mobili di Azure per gestire i conflitti durante la sincronizzazione dei dati offline nell'applicazione iOS."
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="07/01/2015" 
 	ms.author="krisragh;donnam"/>
 
 
@@ -129,15 +129,15 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
         {
             if (![parent isEqual:self.parentViewController]) {
                 NSNumber *completeValue = [NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0];
-                
+
                 Boolean changed =
                     [self.item valueForKey:@"text"] != [self.itemText text] ||
                     [self.item valueForKey:@"complete"] != completeValue;
-                
+
                 if (changed) {
                     [self.item setValue:[self.itemText text] forKey:@"text"];
                     [self.item setValue:completeValue forKey:@"complete"];
-                    
+
                     self.editCompleteBlock(self.item);
                 }
             }
@@ -188,7 +188,7 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
         - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
             self.editingItem = [MSCoreDataStore tableItemFromManagedObject:item]; // map from managed object to dictionary
-            
+
             [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
 
@@ -198,7 +198,7 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
                 QSItemViewController *ivc = (QSItemViewController *) [segue destinationViewController];
                 ivc.item = [self.editingItem mutableCopy];
-                
+
                 ivc.editCompleteBlock = ^(NSDictionary *editedValue) {
                     [self.todoService updateItem:editedValue completion:^(NSUInteger index) {
                         self.editingItem = nil;
@@ -219,11 +219,11 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
         {
             // Set the item to be complete (we need a mutable copy)
             NSMutableDictionary *mutable = [item mutableCopy];
-            
+
             // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
             [self.syncTable update:mutable completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-                
+
                 if (completion != nil) {
                     dispatch_async(dispatch_get_main_queue(), completion);
                 }
@@ -472,4 +472,4 @@ Nel corso della procedura, si è aggiunta la classe helper **QSUIAlertViewWithBl
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -71,19 +71,19 @@ Questo scenario consente di proteggere i carichi di lavoro tramite il backup di 
 
 ### Prerequisiti SAN
 
-- La replica SAN consente di replicare macchine virtuali in cluster guest con l'archiviazione iSCSI o Fibre Channel o usando dischi rigidi virtuali condivisi \(vhdx\). Di seguito sono elencati i prerequisiti SAN:
+- La replica SAN consente di replicare macchine virtuali in cluster guest con l'archiviazione iSCSI o Fibre Channel o usando dischi rigidi virtuali condivisi (vhdx). Di seguito sono elencati i prerequisiti SAN:
 	- Sono necessari due array configurati, uno nel sito primario, l'altro nel sito secondario.
 	- L'infrastruttura di rete deve essere configurata tra array. Devono essere configurati processi di peering e di replica. Le licenze di replica devono essere configurate in base ai requisiti dell'array di archiviazione.
 	- Devono essere configurate connessioni di rete tra i server host Hyper-V e l'array di archiviazione, in modo che gli host possano comunicare con le unità logiche di archiviazione tramite ISCSI o Fibre Channel.
 	- Vedere l'elenco degli [array di archiviazione supportati](http://go.microsoft.com/fwlink/?LinkId=518669).
 	- I provider SMI-S, forniti dai produttori degli array di archiviazione, devono essere installati e gli array SAN devono essere gestiti dal provider. Configurare il provider in base alla relativa documentazione.
-	- Accertarsi che il provider SMI-S per l'array si trovi su un server a cui il server VMM può accedere tramite rete con un indirizzo IP o un nome di dominio completo \(FQDN\).
+	- Accertarsi che il provider SMI-S per l'array si trovi su un server a cui il server VMM può accedere tramite rete con un indirizzo IP o un nome di dominio completo (FQDN).
 	- In ogni array SAN devono essere disponibili uno o più pool di archiviazione da utilizzare in questa distribuzione. Il server VMM nel sito primario dovrà gestire l'array primario e il server VMM secondario gestirà l'array secondario.
 	- Il server VMM nel sito primario dovrà gestire l'array primario, mentre il server VMM secondario dovrà gestire l'array secondario.
 
 ### Prerequisiti di rete
 
-È possibile configurare il mapping di rete per verificare che le macchine virtuali di replica siano correttamente posizionate su server host Hyper-V dopo il failover e che possano essere connesse a reti VM appropriate \(facoltativo\). Si noti che:
+È possibile configurare il mapping di rete per verificare che le macchine virtuali di replica siano correttamente posizionate su server host Hyper-V dopo il failover e che possano essere connesse a reti VM appropriate (facoltativo). Si noti che:
 
 - Se è abilitato il mapping di rete, una macchina virtuale presente nella posizione principale verrà connessa a una rete e la replica della macchina virtuale nella posizione di destinazione verrà connessa alla rete mappata.
 - Se invece non si configura il mapping di rete, le macchine virtuali non verranno connesse a reti VM in seguito al processo di failover.
@@ -116,7 +116,7 @@ Site Recovery per orchestra la protezione per le macchine virtuali in server hos
 
 Aggiungere e classificazione SAN nella console VMM:
 
-1. Nell'area di lavoro **Infrastruttura** fare clic su **Archiviazione**. Fare clic su **Home page** \> **Aggiungi risorse** \> **Dispositivi di archiviazione** per avviare l'Aggiunta guidata dispositivi di archiviazione.
+1. Nell'area di lavoro **Infrastruttura** fare clic su **Archiviazione**. Fare clic su **Home page** > **Aggiungi risorse** > **Dispositivi di archiviazione** per avviare l'Aggiunta guidata dispositivi di archiviazione.
 2. Nella pagina **Seleziona un tipo di provider di archiviazione** selezionare **Dispositivi SAN e NAS individuati e gestiti da un provider SMI-S**.
 
 	![Tipo di provider](./media/site-recovery-vmm-san/SRSAN_Providertype.png)
@@ -137,7 +137,7 @@ Aggiungere e classificazione SAN nella console VMM:
 
 ### Creare unità logiche e allocare spazio di archiviazione.
 
-1. Dopo aver integrato l'archiviazione SAN in VMM, eseguire il provisioning di \(ovvero creare\) unità logiche \(LUN\).
+1. Dopo aver integrato l'archiviazione SAN in VMM, eseguire il provisioning di (ovvero creare) unità logiche (LUN).
 
 - [Come selezionare un metodo per la creazione di unità logiche in VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
 - [Come eseguire il provisioning di unità logiche di archiviazione in VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
@@ -172,10 +172,10 @@ Se si desidera configurare il mapping di rete procedere come segue:
 1. Accedere al [portale di gestione](https://portal.azure.com).
 
 
-2. Espandere **Servizi dati** \> **Servizi di ripristino** e fare clic su **Insieme di credenziali di Site Recovery**.
+2. Espandere **Servizi dati** > **Servizi di ripristino** e fare clic su **Insieme di credenziali di Site Recovery**.
 
 
-3. Fare clic su **Crea nuovo** \> **Creazione rapida**.
+3. Fare clic su **Crea nuovo** > **Creazione rapida**.
 	
 4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
 
@@ -217,14 +217,9 @@ Dopo l'installazione del provider, continuare con il programma di installazione 
 
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider.
 	- Gli URL seguenti dovranno essere accessibili dal server VMM
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS \(443\). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali. 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali. 
 	
-	- Se si sceglie di usare un proxy personalizzato, un account RunAs di VMM \(DRAProxyAccount\) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
+	- Se si sceglie di usare un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
 	- Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 	- Verrà eseguito un test per verificare la connessione a Internet. Eventuali errori del proxy vengono visualizzati nella console VMM.
 
@@ -248,7 +243,7 @@ Eseguire il mapping degli array per specificare il pool di archiviazione seconda
 
 Prima di iniziare, verificare che i cloud siano visibili nell'insieme di credenziali. I cloud possono essere identificati scegliendo di sincronizzare tutti i cloud durante l'installazione del provider oppure selezionando la sincronizzazione di un cloud specifico nella scheda **Generale** delle proprietà del cloud nella console VMM. Eseguire quindi il mapping degli array di archiviazione come segue:
 
-1. Fare clic su **Risorse** \> **Archiviazione server** \> **Mappa array di origine e di destinazione**. ![Server registration](./media/site-recovery-vmm-san/SRSAN_StorageMap.png)
+1. Fare clic su **Risorse** > **Archiviazione server** > **Mappa array di origine e di destinazione**. ![Server registration](./media/site-recovery-vmm-san/SRSAN_StorageMap.png)
 2. Selezionare gli array di archiviazione presenti nel sito primario e mapparli agli array di archiviazione del sito secondario.
 3.  Eseguire quindi il mapping dei pool di archiviazione di origine e di archiviazione all'interno degli array. A tale scopo, in **Pool di archiviazione** selezionare un pool di archiviazione di origine e uno di destinazione di cui eseguire il mapping.
 
@@ -317,9 +312,7 @@ Tenere traccia dell'avanzamento dell'azione di abilitazione della protezione, in
 Eseguire il test della distribuzione per verificare che il failover delle macchine virtuali e dei dati venga eseguito correttamente. Per effettuare questa operazione, creare un piano di ripristino selezionando i gruppi di replica, quindi eseguire un failover di test sul piano.
 
 1. Nella scheda **Piani di ripristino** fare clic su **Crea piano di ripristino**.
-2. Specificare un nome per il piano di ripristino e per i server VMM di origine e di destinazione. Sul server di origine devono essere eseguite macchine virtuali abilitate per il failover e il ripristino. Selezionare **SAN** per visualizzare solo i cloud configurati per la replica SAN. 
-3.
-	![Crea piano di ripristino](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
+2. Specificare un nome per il piano di ripristino e per i server VMM di origine e di destinazione. Sul server di origine devono essere eseguite macchine virtuali abilitate per il failover e il ripristino. Selezionare **SAN** per visualizzare solo i cloud configurati per la replica SAN. 3. ![Crea piano di ripristino](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
 4. In **Seleziona macchine virtuali** selezionare i gruppi di replica. Tutte le macchine virtuali associate al gruppo di replica verranno selezionate e aggiunte al piano di ripristino. In questa esercitazione, le macchine virtuali vengono aggiunte al gruppo predefinito del piano di ripristino Gruppo 1. Se necessario, è possibile aggiungere altri gruppi. Al termine della replica, le macchine virtuali verranno avviate in base all'ordine dei gruppi del piano di ripristino.
 
@@ -353,7 +346,7 @@ Eseguire il test della distribuzione per verificare che il failover delle macchi
 
 ## Monitorare l'attività
 
-La scheda **Processi** e il **Dashboard** consentono di visualizzare e monitorare i processi principali eseguiti dall'insieme di credenziali di Azure Site Recovery, tra cui la configurazione della protezione per un cloud, l'abilitazione e la disabilitazione della protezione per una macchina virtuale, l'esecuzione di un failover \(pianificato, non pianificato o di test\) e il commit di un failover non pianificato.
+La scheda **Processi** e il **Dashboard** consentono di visualizzare e monitorare i processi principali eseguiti dall'insieme di credenziali di Azure Site Recovery, tra cui la configurazione della protezione per un cloud, l'abilitazione e la disabilitazione della protezione per una macchina virtuale, l'esecuzione di un failover (pianificato, non pianificato o di test) e il commit di un failover non pianificato.
 
 Nella scheda **Processi** è possibile visualizzare i processi, eseguire il drill-down di dettagli ed errori dei processi, eseguire query sui processi per recuperare i processi che soddisfano specifici criteri, esportare processi in Excel e riavviare i processi non riusciti.
 
@@ -363,4 +356,4 @@ Per altre informazioni sull'interazione con i processi e il dashboard, vedere la
 	
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

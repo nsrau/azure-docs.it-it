@@ -49,7 +49,7 @@ L'interfaccia della riga di comando di Azure fornisce diversi comandi per evitar
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. Questo comando convalida il modello e il parametro di modello prima di usarli. Immettere un modello personalizzato o di una raccolta e i valori dei parametri del modello che si intende usare. Questo cmdlet verifica se il modello è coerente al suo interno e se il valore impostato per il parametro corrisponde al modello.
+- **azure group template validate <resource group>**. Questo comando convalida i modelli e i parametri dei modelli prima di usarli. Immettere un modello personalizzato o di una raccolta e i valori dei parametri del modello che si intende usare.
 
     L'esempio seguente mostra come convalidare un modello e i parametri richiesti. L'interfaccia della riga di comando di Azure richiede i valori del parametro necessari.
 
@@ -115,7 +115,7 @@ L'interfaccia della riga di comando di Azure fornisce diversi comandi per evitar
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+Usare l'opzione **--last-deployment** per recuperare solo il log per la distribuzione più recente. Lo script seguente usa l'opzione **--json** e **jq** per cercare errori di distribuzione nel log.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -213,6 +213,26 @@ Tuttavia, Azure Active Directory consente all'utente o all'amministratore di con
 
 Alcuni problemi potrebbero verificarsi anche quando una distribuzione raggiunge una quota predefinita, per ogni gruppo di risorse, sottoscrizioni, account o per altri ambiti. Confermare di disporre delle risorse necessarie per una corretta distribuzione. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
 
+Per esaminare le quote della sottoscrizione per i core, è necessario usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure e il cmdlet `Get-AzureVMUsage` in PowerShell. Di seguito viene mostrato il comando nell'interfaccia della riga di comando di Azure, che indica che la quota di core per un account di valutazione gratuita è 4:
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+Se si tenta di distribuire un modello che crea più di 4 core nell'area Stati Uniti occidentali per la sottoscrizione precedente, si otterrà un errore di distribuzione che potrebbe essere simile alla seguente (nel portale o esaminando i log di distribuzione):
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+In questi casi, si deve accedere al portale e rivolgersi all'assistenza per richiedere l'aumento della quota per l'area di destinazione della distribuzione.
+
+> [AZURE.NOTE]Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree. <!-- --> Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+     
 
 ## Problemi relativi alla modalità dell'interfaccia della riga di comando di Azure e PowerShell
 
@@ -243,7 +263,7 @@ Per vedere se il provider è registrato per l'uso dell'interfaccia della riga di
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+Anche in questo caso, se si desiderano altre informazioni sui provider, inclusa la loro disponibilità internazionale, digitare `azure provider list --json`. Il codice seguente consente di selezionare soltanto il primo nell'elenco per la visualizzazione:
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ In alcuni casi potrebbe essere necessario unire due modelli o avviare un modello
 
     }
 
-
-
 ## Passaggi successivi
 
 Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) e andare alla sezione [Repository AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) per esempi distribuibili. Un esempio di proprietà **dependsOn** è il [modello Bilanciamento del carico con regola NAT in ingresso](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
@@ -367,6 +385,6 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

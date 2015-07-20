@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Panoramica di Azure Mobile Engagement SDK per iOS" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per iOS"
+	pageTitle="Panoramica di Azure Mobile Engagement iOS SDK" 
+	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,7 +16,7 @@
 	ms.date="05/04/2015" 
 	ms.author="piyushjo" />
 
-#Azure Mobile Engagement SDK per iOS
+#iOS SDK per Azure Mobile Engagement
 
 Da qui, è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app per iOS. Se si vuole fare prima una prova, eseguire l'[esercitazione di 15 minuti](mobile-engagement-ios-get-started.md).
 
@@ -25,19 +25,16 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-ios-sdk-con
 ##Procedure di integrazione
 1. Iniziare da qui: [Come integrare Mobile Engagement in un'app per iOS](mobile-engagement-ios-integrate-engagement.md)
 
-2. Per le notifiche: [Come integrare il servizio Reach (di notifica) in un'app per iOS](mobile-engagement-ios-integrate-engagement-reach.md)
+2. Per le notifiche: [Come integrare il servizio di copertura (di notifica) in un'app per iOS](mobile-engagement-ios-integrate-engagement-reach.md)
 
 3. Implementazione del piano di tag: [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app per iOS](mobile-engagement-ios-use-engagement-api.md)
 
 
 ##Note sulla versione
 
-###2.1.0 (24/04/2015)
+###2.2.0 (21/05/2015)
 
--   È stata aggiunta la compatibilità per Swift.
--   Quando si fa clic su una notifica, l'URL dell'azione viene ora eseguito subito dopo l'apertura dell'applicazione.
--   È stato aggiunto il file di intestazione mancante nel pacchetto dell'SDK.
--   È stato risolto un problema relativo alla disabilitazione del reporter di arresto anomalo di Mobile Engagement.
+-   L'ID del dispositivo di Mobile Engagement per dispositivi < iOS 6 è ora basato su un GUID generato in fase di installazione.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-ios-release-notes.md).
 
@@ -51,5 +48,6 @@ Per ogni nuova versione dell'SDK è necessario innanzitutto sostituire (rimuover
 
 ###Dalla versione 2.0.0 alla 2.1.0
 Nessuna.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

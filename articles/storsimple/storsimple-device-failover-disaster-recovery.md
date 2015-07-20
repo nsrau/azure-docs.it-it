@@ -5,15 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
-
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -58,7 +57,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+		>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
 	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
 
@@ -68,7 +67,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 	1. Selezionare il dispositivo utilizzato come dispositivo di destinazione per il processo di failover.
 
-	1. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi,  insieme ai volumi del dispositivo precedente.
+	1. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
 ## Failover con un solo dispositivo
 
@@ -112,11 +111,13 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 1. Nella procedura guidata visualizzata, sotto **Scegli contenitore di volumi per il failover**, completare le operazioni seguenti:
 													
-	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
+	a. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-1. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+	
+	>[AZURE.NOTE]**Se il dispositivo fisico esegue l'aggiornamento 1, è possibile eseguire il failover solo a un dispositivo virtuale che esegue l'aggiornamento 1. Se il dispositivo virtuale di destinazione esegue una versione precedente del software, verrà visualizzato un errore per segnalare che il software del dispositivo di destinazione deve essere aggiornato.**
 
 1. Infine, esaminare tutte le impostazioni di failover in Conferma failover. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -124,7 +125,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 													
 	a. Selezionare il dispositivo virtuale StorSimple utilizzato come dispositivo di destinazione per il processo di failover.
 	
-	b. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi,  insieme ai volumi del dispositivo precedente.
+	b. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
 
 ## Vedere anche
@@ -137,6 +138,6 @@ Per informazioni su come gestire il dispositivo tramite il servizio StorSimple M
 
 - [Guida dell'amministratore](https://msdn.microsoft.com/library/dn772401.aspx)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

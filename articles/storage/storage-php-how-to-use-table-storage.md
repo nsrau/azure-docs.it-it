@@ -3,7 +3,7 @@
 	description="Informazioni su come usare il Servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -21,15 +21,15 @@
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-## Informazioni generali
+## Panoramica
 
-In questa guida verranno illustrati diversi scenari di uso comuni del Servizio tabelle di Azure. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP ][download]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per altre informazioni sul Servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#NextSteps) .
+In questa guida verranno illustrati diversi scenari di uso comuni del Servizio tabelle di Azure. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP][download]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per ulteriori informazioni sul Servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#NextSteps).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Creare un'applicazione PHP
+## Creazione di un'applicazione PHP
 
 Per creare un'applicazione PHP che accede al Servizio tabelle di Azure, è sufficiente fare riferimento alle classi in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
@@ -46,9 +46,9 @@ Per usare le API del Servizio tabelle di Azure, è necessario:
 1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
-Nel seguente esempio viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
+Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [AZURE.NOTE] In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader <code>WindowsAzure.php</code>.
+> [AZURE.NOTE]In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader <code>WindowsAzure.php</code>.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -72,7 +72,7 @@ Per accedere alla memoria dell'emulatore:
 Per creare un client di servizio di Azure, è necessario usare la classe **ServicesBuilder**. È possibile:
 
 * passare la stringa di connessione direttamente a essa o
-* usare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
+* utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
 	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
 	* è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
@@ -87,7 +87,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 
 ## Procedura: Creare una tabella
 
-Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per altre informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle][table-service-timeouts].
+Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per altre informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle][table-service-timeouts].
 
 	require_once 'vendor\autoload.php';
 
@@ -111,9 +111,9 @@ Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **
 
 Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][table-data-model].
 
-## Procedura: Aggiungere un'entità a una tabella
+## Procedura: aggiungere un’entità a una tabella
 
-Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e passarlo a **TableRestProxy->insertEntity**. Si noti che durante la creazione di un'entità è necessario specificare le chiavi `PartitionKey` e  `RowKey`. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente rispetto ad altre proprietà dell'entità. Il sistema usa `PartitionKey` per distribuire automaticamente le entità della tabella su molti nodi di archiviazione. Le entità con lo stesso oggetto `PartitionKey` vengono archiviate nello stesso nodo. Operazioni su più entità archiviate sullo stesso nodo verranno eseguite più efficacemente che non su entità archiviate in nodi diversi. L'oggetto `RowKey` è l'ID univoco di un'entità all'interno di una partizione.
+Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e passarlo a **TableRestProxy->insertEntity**. Si noti che durante la creazione di un'entità è necessario specificare le chiavi `PartitionKey` e `RowKey`. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente rispetto ad altre proprietà dell'entità. Il sistema usa `PartitionKey` per distribuire automaticamente le entità della tabella su molti nodi di archiviazione. Le entità con lo stesso `PartitionKey` vengono archiviate nello stesso nodo. Operazioni su più entità archiviate sullo stesso nodo verranno eseguite più efficacemente che non su entità archiviate in nodi diversi. `RowKey` è l'ID univoco di un'entità all'interno di una partizione.
 
 	require_once 'vendor\autoload.php';
 
@@ -147,7 +147,7 @@ Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e pa
 
 Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][table-data-model].
 
-La classe **TableRestProxy** offre due metodi alternativi per l'inserimento delle entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per usare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come usare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Se è stata inserita in precedenza (come illustrato nell'esempio precedente), la proprietà `DueDate` verrà aggiornata e verrà aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
+La classe **TableRestProxy** offre due metodi alternativi per l'inserimento di entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per utilizzare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come utilizzare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Se è stata inserita in precedenza (come illustrato nell'esempio precedente), la proprietà `DueDate` verrà aggiornata e verrà aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
 
 	require_once 'vendor\autoload.php';
 
@@ -188,9 +188,9 @@ La classe **TableRestProxy** offre due metodi alternativi per l'inserimento dell
 	}
 	   
 
-## Procedura: Recuperare una singola entità
+## Procedura: recuperare una singola entità
 
-Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entità eseguendo una query su `PartitionKey` e `RowKey`. Nell'esempio seguente, la chiave di partizione `tasksSeattle` e la chiave di riga "1" vengono passate al metodo **getEntity**.
+Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entità eseguendo una query su `PartitionKey` e `RowKey`. Nell'esempio seguente, la chiave di partizione `tasksSeattle` e la chiave di riga `1` vengono passate al metodo **getEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -216,9 +216,9 @@ Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entit
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-## Procedura: Recuperare tutte le entità di una partizione
+## Procedura: recuperare tutte le entità di una partizione
 
-Le query di entità vengono create usando filtri (per altre informazioni, vedere [Query di tabelle ed entità][filtri]). Per recuperare tutte le entità in una partizione, usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
+Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità][filters]). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -248,9 +248,9 @@ Le query di entità vengono create usando filtri (per altre informazioni, vedere
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procedura: Recuperare un subset di entità in una partizione
+## Procedura: recuperare un subset di entità in una partizione
 
-Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro usato (per altre informazioni, vedere [Query di tabelle ed entità][filtri]). L'esempio seguente illustra come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
+Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro usato (per altre informazioni, vedere [Query di tabelle ed entità][filters]). Nell'esempio seguente viene illustrato come usare un filtro per recuperare tutte le entità con un `Location` specifico e `DueDate` precedente a una data specificata.
 
 	require_once 'vendor\autoload.php';
 
@@ -280,9 +280,9 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procedura: Recuperare un subset di proprietà di entità
+## Procedura: recuperare un subset di proprietà di entità
 
-È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *projection*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, usare un filtro come illustrato nelle query precedenti.
+È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, usare un filtro come illustrato nelle query precedenti.
 
 	require_once 'vendor\autoload.php';
 
@@ -318,9 +318,9 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 		echo $description."<br />";
 	}
 
-## Procedura: Aggiornare un'entità
+## Procedura: come aggiornare un'entità
 
-È possibile aggiornare un'entità esistente usando i metodi **Entity->setProperty** e **Entity->addProperty** e sull'entità e quindi chiamando **TableRestProxy->updateEntity**. Nell'esempio seguente viene recuperata un'entità, modificata una proprietà, rimossa un'altra proprietà e aggiunta una nuova proprietà. Si noti che la rimozione di una proprietà è effettuata impostando il suo valore su **null**. 
+È possibile aggiornare un'entità esistente utilizzando i metodi **Entity->setProperty** e **Entity->addProperty** sull'entità e quindi chiamando **TableRestProxy->updateEntity**. Nell'esempio seguente viene recuperata un'entità, modificata una proprietà, rimossa un'altra proprietà e aggiunta una nuova proprietà. Si noti che la rimozione di una proprietà è effettuata impostando il suo valore su **null**.
 
 	require_once 'vendor\autoload.php';
 	
@@ -354,7 +354,7 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedura: Eliminare un'entità
+## Procedura: eliminare un'entità
 
 Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKey` e `RowKey` dell'entità al metodo **TableRestProxy->deleteEntity**.
 
@@ -379,9 +379,9 @@ Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKe
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si noti che per effettuare controlli di concorrenza è possibile impostare il valore Etag per un'entità da eliminare usando il metodo **DeleteEntityOptions->setEtag** e passando l'oggetto **DeleteEntityOptions** a **deleteEntity** come quarto parametro.
+Si noti che per effettuare controlli di concorrenza è possibile impostare il valore Etag per un'entità da eliminare utilizzando il metodo **DeleteEntityOptions->setEtag** e passando l'oggetto **DeleteEntityOptions** a **deleteEntity** come quarto parametro.
 
-## Procedura: Operazioni batch su tabella
+## Procedura: operazioni batch su tabella
 
 Il metodo **TableRestProxy->batch** consente di eseguire più operazioni in una sola richiesta. In questo caso, è necessario aggiungere operazioni all'oggetto **BatchRequest** e quindi passare l'oggetto **BatchRequest** al metodo **TableRestProxy->batch**. Per aggiungere un'operazione all'oggetto **BatchRequest**, è possibile chiamare più volte uno dei metodi seguenti:
 
@@ -437,7 +437,7 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
 
 Per altre informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità][entity-group-transactions].
 
-## Procedura: Eliminare una tabella
+## Procedura: eliminare una tabella
 
 Infine, per eliminare una tabella, passare il nome della tabella al metodo **TableRestProxy->deleteTable**.
 
@@ -466,16 +466,17 @@ Infine, per eliminare una tabella, passare il nome della tabella al metodo **Tab
 
 A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Azure, visitare i collegamenti seguenti per altre informazioni su attività di archiviazione più complesse.
 
-- Vedere le informazioni di riferimento in MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
-[filtri]: http://msdn.microsoft.com/library/azure/dd894031.aspx
+[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

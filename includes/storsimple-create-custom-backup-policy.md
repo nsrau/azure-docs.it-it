@@ -1,3 +1,4 @@
+
 #### Per creare un criterio di backup personalizzato
 
 1. Nella pagina **Dispositivi**, fare clic su **Criteri di backup**, quindi selezionare **Aggiungi**.
@@ -38,4 +39,4 @@
 
     ![Criterio di backup personalizzato](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

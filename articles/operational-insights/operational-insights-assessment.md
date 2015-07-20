@@ -1,25 +1,27 @@
-<properties 
-   pageTitle="Ottimizzare l'ambiente con gli Intelligence Pack per la valutazione"
-   description="È possibile usare gli Intelligence Pack per la valutazione per valutare i rischi e l'integrità degli ambienti server a intervalli regolari"
+<properties
+   pageTitle="Ottimizzare l’ambiente con soluzioni di valutazione"
+   description="Usare la soluzione di valutazione per valutare i rischi e l'integrità degli ambienti server a intervalli regolari"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
-# Ottimizzare l'ambiente con gli Intelligence Pack per la valutazione
+# Ottimizzare l’ambiente con soluzioni di valutazione
 
-È possibile usare gli Intelligence Pack per la valutazione per valutare i rischi e l'integrità degli ambienti server a intervalli regolari e ottenere un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server. Le raccomandazioni vengono classificate in sei aree di interesse che permettono una rapida comprensione del rischio e dell'integrità dell'infrastruttura e consentono di agire rapidamente al fine di ridurre tali rischi e migliorare l'integrità.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Sono attualmente disponibili gli Intelligence Pack per la valutazione seguenti:
+È possibile usare la soluzione Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari e ottenere un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server. Le raccomandazioni vengono classificate in sei aree di interesse che permettono una rapida comprensione del rischio e dell'integrità dell'infrastruttura e consentono di agire rapidamente al fine di ridurre tali rischi e migliorare l'integrità.
+
+Sono attualmente disponibili le soluzioni di valutazione seguenti:
 
 - Active Directory
 
@@ -29,52 +31,41 @@ Le raccomandazioni fornite si basano sulla conoscenza e l'esperienza acquisite d
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
-Installare gli Intelligence Pack per aggiornare l'agente Operations Manager e il modulo di configurazione di base per Operational Insights e aggiungere il file AdvisorAssessment.exe ai server monitorati. I dati di configurazione vengono letti e quindi inviati al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Dopo il completamento delle valutazioni, nel dashboard **Assessment** per l'infrastruttura nell'ambiente verranno visualizzate le informazioni di riepilogo per l'area di interesse. Grazie alle informazioni visualizzate nel dashboard **Assessment** sarà possibile intraprendere le azioni consigliate per l'infrastruttura dei server.
+Installare le soluzioni per aggiornare l'agente Operations Manager e il modulo di configurazione di base per Operational Insights e aggiungere il file AdvisorAssessment.exe ai server monitorati. I dati di configurazione vengono letti e quindi inviati al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Dopo il completamento delle valutazioni, nel dashboard **Assessment ** per l'infrastruttura nell'ambiente verranno visualizzate le informazioni di riepilogo per l'area di interesse. Grazie alle informazioni visualizzate nel dashboard **Assessment** sarà possibile intraprendere le azioni consigliate per l'infrastruttura dei server.
 
-![image of SQL Assessment tile](./media/operational-insights-assessment/overview-sql-assess.png)
+![immagine del riquadro SQL Assessment](./media/operational-insights-assessment/overview-sql-assess.png)
 
-![image of SQL Assessment dashboard](./media/operational-insights-assessment/gallery-ad-01.png)
+![Immagine del dashboard SQL Assessment](./media/operational-insights-assessment/gallery-ad-01.png)
 
 
-## Domande frequenti sugli Intelligence Pack per la valutazione
+## Domande frequenti sulle soluzioni per la valutazione
 
-*Con che frequenza viene eseguita la valutazione??*<br>
-La valutazione viene eseguita ogni 7 giorni.
+*Con che frequenza viene eseguita la valutazione?*<br> La valutazione viene eseguita ogni 7 giorni.
 
-*È possibile configurare la frequenza di esecuzione della valutazione?*<br>
-Attualmente non è possibile.
+*È possibile configurare la frequenza di esecuzione della valutazione?*<br> Attualmente non è possibile.
 
-*Se viene rilevato un altro server dopo l'aggiunta dell'Intelligence Pack per la valutazione, il server verrà valutato?*<br>
-Sì, a partire dal rilevamento verrà valutato ogni 7 giorni.
+*Se viene rilevato un altro server dopo l'aggiunta della soluzione per la valutazione, il server verrà valutato?*<br> Sì, a partire dal rilevamento verrà valutato ogni 7 giorni.
 
-*Se un server viene rimosso, quando sarà rimosso dalla valutazione?*<br>
-Se un server non invia dati per 3 settimane, verrà rimosso.
+*Se un server viene messo fuori servizio, quando sarà rimosso dalla valutazione?*<br> Se un server non invia dati per 3 settimane, verrà rimosso.
 
-*Qual è il nome del processo che esegue la raccolta di dati?*<br>
-AdvisorAssessment.exe
+*Qual è il nome del processo che esegue la raccolta di dati?*<br> AdvisorAssessment.exe
 
-*Quanto tempo occorre per la raccolta di dati?*<br>
-La raccolta di dati effettiva sul server richiede circa 1 ora. È possibile che sia necessario più tempo nei server in cui è presente un numero elevato di server di Active Directory oppure di istanze o database SQL.
+*Quanto tempo occorre per la raccolta di dati?*<br> La raccolta di dati effettiva sul server richiede circa 1 ora. È possibile che sia necessario più tempo nei server in cui è presente un numero elevato di server di Active Directory oppure di istanze o database SQL.
 
-*Quali tipi di dati vengono raccolti?*<br>
-Vengono raccolti i tipi di dati seguenti:
+*Che tipo di dati viene raccolto?*<br> Vengono raccolti i tipi di dati seguenti:
 
 - WMI
 - Registro
 - Contatori delle prestazioni
 - DMV (Dynamic Management View) di SQL.
 
-*È possibile definire l'orario per la raccolta di dati?*<br>
-Attualmente non è possibile.
+*È possibile definire l'orario per la raccolta di dati?*<br> Attualmente non è possibile.
 
-*Perché è necessario configurare un account RunAs?*<br>
-Per un server SQL vengono eseguite alcune SQL. Per permetterne l'esecuzione, è necessario usare un account RunAs con autorizzazioni di tipo VISUALIZZAZIONE STATO DEL SERVER per SQL.  Per eseguire query relative a WMI, sono inoltre necessarie credenziali di amministratore locale.
+*Perché è necessario configurare un account RunAs?*<br> Per un server SQL vengono eseguite alcune SQL. Per permetterne l'esecuzione, è necessario usare un account RunAs con autorizzazioni di tipo VISUALIZZAZIONE STATO DEL SERVER per SQL. Per eseguire query relative a WMI, sono inoltre necessarie credenziali di amministratore locale.
 
-*Perché vengono visualizzate solo le prime 10 raccomandazioni?*<br>
-Invece di esaminare un lunghissimo elenco completo di attività, è consigliabile concentrare l'attenzione sulle raccomandazioni con priorità maggiore. Dopo la verifica delle raccomandazioni principali, verranno rese disponibili raccomandazioni aggiuntive. Se si preferisce visualizzare l'elenco dettagliato, usare la ricerca di Operational Insights per mostrare tutte le raccomandazioni.
+*Perché vengono visualizzate solo le prime 10 raccomandazioni?*<br> Invece di esaminare un lunghissimo elenco completo di attività, è consigliabile concentrare l'attenzione sulle raccomandazioni con priorità maggiore. Dopo la verifica delle raccomandazioni principali, verranno rese disponibili raccomandazioni aggiuntive. Se si preferisce visualizzare l'elenco dettagliato, usare la ricerca di log di Operational Insights per mostrare tutte le raccomandazioni.
 
-*È possibile ignorare una raccomandazione?*<br>
-Attualmente non è possibile.
+*È possibile ignorare una raccomandazione?*<br> Attualmente non è possibile.
 
 ## Informazioni sulla classificazione in ordine di priorità delle raccomandazioni
 
@@ -84,11 +75,11 @@ A ogni raccomandazione generata viene assegnato un valore di ponderazione che id
 
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 
-- La *probabilità* che un problema identificato causi problemi. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
+- La *probabilità* che un problema identificato causi inconvenienti. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
 
-l L'*impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
+- L'*impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
 
-Il *lavoro *  richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
+- Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
 La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Ad esempio, se una raccomandazione nell'area di interesse relativa a sicurezza e conformità ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
 
@@ -100,9 +91,9 @@ La ponderazione per ogni raccomandazione è espressa come percentuale del punteg
 
 **Prestazioni e scalabilità**: favorire la crescita e l'innovazione dell'organizzazione, garantendo che l'ambiente IT sia in grado di soddisfare gli attuali requisiti di prestazioni e di rispondere rapidamente alle mutevoli esigenze aziendali.
 
-** Aggiornamento, migrazione e distribuzione**: mettere il reparto IT in condizione di agire da promotore principale del cambiamento e dell'innovazione, sfruttando appieno le nuove tecnologie per rendere disponibile maggior valore di business per unità organizzative, risorse e clienti.
+**Aggiornamento, migrazione e distribuzione**: mettere il reparto IT in condizione di agire da promotore principale del cambiamento e dell'innovazione, sfruttando appieno le nuove tecnologie per rendere disponibile maggior valore di business per unità organizzative, risorse e clienti.
 
-**Operazioni e monitoraggio**:ridurre il budget per la manutenzione IT semplificando le operazioni IT e implementando un programma di manutenzione preventiva completo per ottimizzare le prestazioni aziendali.
+**Operazioni e monitoraggio**: rdurre il budget per la manutenzione IT semplificando le operazioni IT e implementando un programma di manutenzione preventiva completo per ottimizzare le prestazioni aziendali.
 
 **Gestione dei cambiamenti e della configurazione**: proteggere le attività operative quotidiane dell'organizzazione e assicurare che i cambiamenti non incidano negativamente sul business, mediante la definizione di procedure di controllo modifiche e il rilevamento e controllo delle configurazioni di sistema.
 
@@ -114,7 +105,7 @@ Ogni raccomandazione generata include informazioni aggiuntive sui motivi per cui
 
 ## Usare le raccomandazioni relative all'area di interesse della valutazione
 
-Prima di poter usare l'Intelligence Pack per la valutazione in Microsoft Azure Operational Insights, è necessario disporre dell'Intelligence Pack installato. Per altre informazioni sull'installazione di Intelligence Pack, vedere [Usare la raccolta per aggiungere o rimuovere Intelligence Pack](../operational-insights-add-intelligence-packs.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Assessment della pagina Overview in Operational Insights.
+Prima di poter usare una soluzione antimalware in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Assessment della pagina Overview in Operational Insights.
 
 È possibile riepilogare le valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
@@ -132,5 +123,4 @@ Prima di poter usare l'Intelligence Pack per la valutazione in Microsoft Azure O
 
 4. Effettuare le azioni correttive suggerite in **Suggested Actions**. Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

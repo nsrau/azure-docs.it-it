@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.Android. Questa esercitazione consente usare il servizio Google Cloud Messaging (GCM) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.Android. In questa esercitazione si userà il servizio Google Cloud Messaging (GCM) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 Questa esercitazione descrive le operazioni di base per abilitare le notifiche push:
 
@@ -28,11 +28,11 @@ Questa esercitazione descrive le operazioni di base per abilitare le notifiche p
 2. [Configurare Servizi mobili](#configure)
 3. [Configurare il progetto per le notifiche push](#configure-app)
 4. [Aggiungere il codice delle notifiche push all'app](#add-push)
-5. [Inserire dati per la ricezione di notifiche](#test)
+5. [Inserire i dati per la ricezione delle notifiche](#test)
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ Account Google attivo.
++ Account Google attivo
 + [Componente client di Google Cloud Messaging] Questo componente verrà aggiunto durante l'esercitazione.
 
 Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azure Mobile Services Component] siano già installati nel progetto da quando è stata completata l'esercitazione [Introduzione a Servizi mobili].
@@ -74,4 +74,5 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

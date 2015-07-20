@@ -18,9 +18,9 @@
 
 #Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux#
 
-L'estensione CustomScript di Azure per Linux fornisce un modo per personalizzare le macchine virtuali \(VM\) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale \(ad esempio, Python, Bash e così via\). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
+L'estensione CustomScript di Azure per Linux fornisce un modo per personalizzare le macchine virtuali (VM) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale (ad esempio, Python, Bash e così via). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
 
-È possibile distribuire l'estensione CustomScript tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure \(CLI di Azure\).
+È possibile distribuire l'estensione CustomScript tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure (CLI di Azure).
 
 In questo esempio verrà distribuita una semplice applicazione LAMP su Ubuntu utilizzando l'interfaccia della riga di comando di Azure.
 
@@ -42,7 +42,7 @@ In questo esempio l'estensione CustomScript esegue uno script in una macchina vi
 
 **Lo script**
 
-Questo script consente di installare uno stack LAMP in Ubuntu \(inclusa l'impostazione di un'installazione invisibile all'utente di MySQL\), di scrivere un semplice file PHP e di avviare Apache:
+Questo script consente di installare uno stack LAMP in Ubuntu (inclusa l'impostazione di un'installazione invisibile all'utente di MySQL), di scrivere un semplice file PHP e di avviare Apache:
 
 	#!/bin/bash
 	# set up a silent install of MySQL
@@ -56,19 +56,19 @@ Questo script consente di installare uno stack LAMP in Ubuntu \(inclusa l'impost
 	apt-get -y install apache2 mysql-server php5 php5-mysql  
 
 	# write some PHP
-	echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
-	echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
+	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
 
 **Caricamento**
 
-Salvare lo script come file di testo, ad esempio *lamp\_install.sh*, e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". Nota: se il contenitore non esiste, è necessario prima crearlo.
+Salvare lo script come file di testo, ad esempio *lamp_install.sh*, e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". Nota: se il contenitore non esiste, è necessario prima crearlo.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Creare inoltre un file JSON che descrive la procedura di download dello script dall'archiviazione di Azure. Salvare il file come *public\_config.json* \(sostituendo "mystorage" con il nome dell'account di archiviazione in uso\):
+Creare inoltre un file JSON che descrive la procedura di download dello script dall'archiviazione di Azure. Salvare il file come *public_config.json* (sostituendo "mystorage" con il nome dell'account di archiviazione in uso):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +79,7 @@ A questo punto, è possibile distribuire l'estensione CustomScript di Linux alla
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-In tal modo verrà scaricato ed eseguito lo script *lamp\_install.sh* su una macchina virtuale denominata *lamp-vm*.
+In tal modo verrà scaricato ed eseguito lo script *lamp_install.sh* su una macchina virtuale denominata *lamp-vm*.
 
 Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di ascolto HTTP nella macchina virtuale remota:
 
@@ -92,19 +92,19 @@ Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Al termine dell'esecuzione dell'estensione CustomScript è possibile passare alla pagina PHP creata \(in questo esempio: *http://lamp-vm.cloudapp.net/phpinfo.php*.\).
+Al termine dell'esecuzione dell'estensione CustomScript è possibile passare alla pagina PHP creata (in questo esempio: *http://lamp-vm.cloudapp.net/phpinfo.php*.).
 
 ## Risorse aggiuntive
 
-È possibile utilizzare gli stessi passaggi di base per distribuire applicazioni più complesse. In questo esempio lo script di installazione è stato salvato come blob pubblico in Archiviazione di Azure. Un'opzione più sicura sarebbe archiviare lo script di installazione come blob protetto con una [firma di accesso protetto](https://msdn.microsoft.com/library/azure/ee395415.aspx) \(SAS\).
+È possibile utilizzare gli stessi passaggi di base per distribuire applicazioni più complesse. In questo esempio lo script di installazione è stato salvato come blob pubblico in Archiviazione di Azure. Un'opzione più sicura sarebbe archiviare lo script di installazione come blob protetto con una [firma di accesso protetto](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
 Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della riga di comando di Azure, Linux e l'estensione CustomScript:
 
 [Automatizzare le attività di personalizzazione delle macchine virtuali Linux utilizzando l'estensione CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
-[Estensioni per Linux di Azure \(GitHub\)](https://github.com/Azure/azure-linux-extensions)
+[Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

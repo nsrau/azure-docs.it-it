@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Introduzione a Azure Mobile Engagement per iOS in Objective C" 
-	description="Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per iOS."
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione a Azure Mobile Engagement per iOS in Objective C"
+	description="Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per iOS."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'utilizzo dell'app e inviare notifiche push a utenti segmentati di un'applicazione per iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS). Al termine, si sarà in grado di trasmettere notifiche push a tutti i dispositivi o a utenti specifici in base alle proprietà dei loro dispositivi.
 
@@ -32,7 +33,7 @@ Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobi
 Per completare questa esercitazione, è necessario disporre di:
 
 + Xcode, che è possibile installare da MAC App Store
-+ [Mobile Engagement SDK per iOS]
++ [Mobile Engagement iOS SDK]
 + Certificato per notifiche push (.p12) che è possibile ottenere nell'Apple Dev Center.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app per iOS.
@@ -54,11 +55,11 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
    	![][7]
 
 3. Nella finestra popup che viene visualizzata, immettere le informazioni seguenti:
- 
+
    	![][8]
 
 	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione (**iOS**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma. 
+	- **Piattaforma**: selezionare la piattaforma di destinazione (**iOS**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
 	- **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
 	- **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
 	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
@@ -67,7 +68,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 4. Selezionare l'app appena creata nella scheda **Applicazioni**.
 
 5. Fare clic su **Informazioni di connessione** per visualizzare le impostazioni di connessione da inserire nell'integrazione dell'SDK nell'app per dispositivi mobili.
- 
+
    	![][10]
 
 6. Copiare la **stringa di connessione**, che è necessaria per identificare l'app nel codice dell'applicazione e connettersi a Mobile Engagement dall'app per il telefono.
@@ -76,7 +77,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##<a id="connecting-app"></a>Connessione dell'app al back-end di Mobile Engagement
 
-Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nella [documentazione di Mobile Engagement SDK per iOS].
+Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nella [documentazione di Mobile Engagement iOS SDK].
 
 Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
@@ -98,9 +99,9 @@ Se si ha già un'app e si ha familiarità con lo sviluppo per iOS, è possibile 
 
 Xcode creerà l'app demo in cui si integrerà Mobile Engagement.
 
-###Connettere l'app al back-end di Mobile Engagement 
+###Connettere l'app al back-end di Mobile Engagement
 
-1. Scaricare [Mobile Engagement SDK per iOS].
+1. Scaricare [Mobile Engagement iOS SDK].
 2. Estrarre il file con estensione tar.gz in una cartella nel computer.
 3. Fare clic con il pulsante destro del mouse sul progetto e scegliere "Add files to ..."
 
@@ -181,18 +182,18 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 ### Modificare il delegato dell'applicazione
 
-1. Nella parte superiore del file di implementazione importare il modulo Reach di Engagement:
+1. Nella parte superiore del file di implementazione importare il modulo di copertura di Engagement:
 
 		#import "AEReachModule.h"
-	
-2. In `application:didFinishLaunchingWithOptions` creare un modulo Reach e passarlo alla riga di inizializzazione di Engagement esistente:
+
+2. In `application:didFinishLaunchingWithOptions` creare un modulo di copertura e passarlo alla riga di inizializzazione di Engagement esistente:
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
 			[...]
 			return YES;
-		}	
+		}
 
 ###Abilitare l'app per la ricezione delle notifiche push APNS
 
@@ -208,7 +209,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 		}
 
 2. Aggiungere il metodo `application:didRegisterForRemoteNotificationsWithDeviceToken` come illustrato di seguito:
- 
+
 		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
@@ -247,8 +248,8 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 1. Passare alla scheda Reach nel portale di Mobile Engagement.
 
-2. Fare clic su **Nuovo annuncio** per creare una campagna di push.
-	
+2. Fare clic su **Nuovo annuncio** per creare la campagna push.
+
 	![][35]
 
 3. Configurare il primo campo della campagna:
@@ -272,7 +273,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 7. Nel dispositivo dovrebbe essere visualizzata una notifica push.
 
 <!-- URLs. -->
-[Mobile Engagement SDK per iOS]: http://go.microsoft.com/?linkid=9864553
+[Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->
@@ -298,6 +299,6 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

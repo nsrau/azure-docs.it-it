@@ -1,3 +1,4 @@
+
 ### Per eseguire un backup
 
 1. Nella pagina **Guida introduttiva** del dispositivo, fare clic su **Aggiungi criterio di backup**. L’operazione consentirà di avviare la procedura guidata per aggiungere un criterio di backup. 
@@ -23,4 +24,4 @@
 
 La configurazione del dispositivo è stata completata.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

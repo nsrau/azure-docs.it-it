@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Procedure di aggiornamento dell'SDK per app di Windows universali" 
-	description="Procedure di aggiornamento di Azure Mobile Engagement SDK per app di Windows universali" 					
+	pageTitle="Procedure di aggiornamento di Windows Universal Apps SDK" 
+	description="Procedure di aggiornamento di Windows Universal Apps SDK per Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,7 +16,7 @@
 	ms.date="04/02/2015" 
 	ms.author="piyushjo" />
 
-#Procedure di aggiornamento dell'SDK per app di Windows universali
+#Procedure di aggiornamento di Windows Universal Apps SDK
 
 Se nell'applicazione è già stata integrata una versione precedente dell'SDK, è necessario considerare i seguenti punti quando si aggiorna l'SDK.
 
@@ -45,7 +45,7 @@ L'SDK usa il termine `Engagement`. È necessario aggiornare il progetto per tene
 
 È necessario disinstallare il pacchetto nuget corrente di Capptain. Si consideri che verranno rimosse tutte le modifiche nella cartella Risorse di Capptain. Se si desidera mantenere tali file, eseguirne una copia.
 
-Successivamente, installare il nuovo pacchetto NuGet di Microsoft Azure Engagement nel progetto. È possibile trovarlo direttamente sul [sito Web di NuGet] o qui nell'indice. Questa operazione sostituisce tutti i file di risorse utilizzati da Engagement e aggiunge la nuova DLL di Engagement ai riferimenti del progetto.
+Successivamente, installare il nuovo pacchetto NuGet di Microsoft Azure Engagement nel progetto. È possibile trovarlo direttamente sul [sito Web di NuGet] o qui nell'indice. Questa operazione sostituisce tutti i file di risorse usati da Engagement e aggiunge la nuova DLL di Engagement ai riferimenti del progetto.
 
 È necessario eliminare i riferimenti del progetto rimuovendo i riferimenti DLL di Capptain. Se non si effettua questa operazione, la versione di Capptain creerà un conflitto e si verificheranno errori.
 
@@ -134,7 +134,7 @@ In Package.appxmanifest `File Type Associations` è stato aggiornato da:
 
 ### ID applicazione / chiave SDK
 
-Engagement utilizza una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
+Engagement usa una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
 
 La configurazione di Engagement può essere impostata nel file `Resources\EngagementConfiguration.xml` del progetto.
 
@@ -167,5 +167,6 @@ Esempi di elementi di Capptain di uso comune:
 
 Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

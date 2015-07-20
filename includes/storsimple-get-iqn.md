@@ -1,3 +1,4 @@
+
 #### Per ottenere il nome qualificato iSCSI di un host di Windows
 
 1. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
@@ -8,4 +9,4 @@
 
 3. Salvare la stringa.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

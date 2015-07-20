@@ -13,4 +13,4 @@
 	
 	Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

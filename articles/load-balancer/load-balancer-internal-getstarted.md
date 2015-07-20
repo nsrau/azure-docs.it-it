@@ -85,7 +85,7 @@ Di seguito è fornito un esempio:
 
 ### Passaggio 3: Configurare i server per inviare il traffico al nuovo endpoint ILB
 
-È necessario configurare i server il cui il traffico verrà configurato con carico bilanciato per usare il nuovo indirizzo IP \(indirizzo VIP\) dell'istanza ILB. Si tratta dell'indirizzo su cui è in ascolto l'istanza ILB. Nella maggior parte dei casi, è sufficiente aggiungere o modificare un record DNS per l'indirizzo VIP dell'istanza ILB.
+È necessario configurare i server il cui il traffico verrà configurato con carico bilanciato per usare il nuovo indirizzo IP (indirizzo VIP) dell'istanza ILB. Si tratta dell'indirizzo su cui è in ascolto l'istanza ILB. Nella maggior parte dei casi, è sufficiente aggiungere o modificare un record DNS per l'indirizzo VIP dell'istanza ILB.
 
 Se l'indirizzo IP è stato specificato durante la creazione dell'istanza ILB, l'indirizzo VIP. In caso contrario, è possibile visualizzare l'indirizzo VIP eseguendo i comandi seguenti:
 
@@ -101,6 +101,10 @@ Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è f
 
 
 Dalla visualizzazione del comando Get-AzureInternalLoadBalancer prendere nota dell'indirizzo IP e apportare le modifiche necessarie ai server o ai record DNS per assicurarsi che il traffico venga inviato all'indirizzo VIP.
+
+>[AZURE.IMPORTANT]La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, in quanto potrebbe provocare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se un gruppo di sicurezza di rete viene usato per limitare il traffico a macchine virtuali di Azure in un set con carico internamente bilanciato o viene applicato a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
+
+
 
 ## Esempi end-to-end di bilanciamento del carico interno
 
@@ -148,7 +152,7 @@ Successivamente, Contoso ha determinato l'indirizzo VIP dell'istanza ILB PARTNER
 
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
-Dalla visualizzazione di questo comando, Contoso a preso nota dell'indirizzo VIP 100.64.65.211 e ha configurato il record dell'indirizzo DNS \(A\) in modo che il nome partner-sql.external.contoso.com usi questo nuovo indirizzo.
+Dalla visualizzazione di questo comando, Contoso a preso nota dell'indirizzo VIP 100.64.65.211 e ha configurato il record dell'indirizzo DNS (A) in modo che il nome partner-sql.external.contoso.com usi questo nuovo indirizzo.
 
 ### Applicazione line-of-business ospitata in Azure
 
@@ -282,4 +286,4 @@ Per ottenere altre informazioni sui cmdlet ILB, eseguire i comandi seguenti in u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

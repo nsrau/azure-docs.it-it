@@ -12,4 +12,4 @@ Di seguito è riportato un elenco di altre esercitazioni, che è possibile esami
 
 In questa sezione successiva dell'esercitazione si apprenderà come usare l'[interfaccia REST di Hub di notifica](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) per inviare il messaggio di notifica direttamente nell'applicazione. Tutti i dispositivi registrati ricevono la notifica inviata da qualsiasi dispositivo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

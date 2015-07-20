@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare entità ContentKey mediante REST" 
+	pageTitle="Creazione di entità ContentKey mediante REST" 
 	description="Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
-# Creazione di entità ContentKey mediante REST
+#Creazione di entità ContentKey mediante REST
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
+Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
-Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
+Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**.
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare file](media-services-rest-upload-files.md)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare file](media-services-rest-upload-files.md)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
 
 Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](media-services-rest-configure-asset-delivery-policy.md) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Gli asset crittografati devono essere associati alle entità **ContentKey**. Questo articolo descrive come creare una chiave simmetrica.
 
-Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare. 
+Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare.
 
 1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione). 
 
@@ -37,7 +37,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 2.	Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
 
-	L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
+	L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia. È disponibile un esempio nella funzione [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Creare un valore di checksum (basato sull'algoritmo checksum della chiave AES PlayReady) calcolato usando l'identificatore chiave e la chiave simmetrica. Per altre informazioni, vedere la sezione sull'algoritmo checksum della chiave AES PlayReady nel documento relativo all'oggetto intestazione di PlayReady disponibile [qui](http://www.microsoft.com/playready/documents/).
 
 	Il seguente esempio .NET calcola il checksum usando la parte GUID dell'identificatore chiave e la chiave simmetrica non crittografata.
@@ -65,13 +65,13 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 Si noti che gli esempi che generano una chiave AES, ne eseguono la crittografia e calcolano il checksum sono stati omessi da questo argomento. Sono inclusi solo gli esempi che mostrano come interagire con Servizi multimediali.
 
 
->[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+>Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md). 
+>Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md).
 
-## Recuperare l'entità ProtectionKeyId 
+##Recuperare l'entità ProtectionKeyId 
  
 
 Il seguente esempio mostra come recuperare l'entità ProtectionKeyId, un'identificazione personale del certificato da usare per la crittografia della chiave simmetrica. Eseguire questo passaggio per assicurarsi di avere già il certificato appropriato nel computer.
@@ -107,7 +107,7 @@ Risposta:
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-## Recuperare l'entità ProtectionKey per ProtectionKeyId
+##Recuperare l'entità ProtectionKey per ProtectionKeyId
 
 Il seguente esempio mostra come recuperare il certificato X.509 usando l'entità ProtectionKeyId ricevuta nel passaggio precedente.
 
@@ -144,7 +144,7 @@ Risposta:
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
 	"value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-## Creare l'entità ContentKey 
+##Creare l'entità ContentKey 
 
 Dopo aver recuperato il certificato X.509 e usato la chiave pubblica per crittografare la chiave simmetrica, creare un'entità **ContentKey** e impostare i valori delle proprietà di conseguenza.
 
@@ -170,23 +170,13 @@ Uno dei valori che è necessario impostare quando si crea la chiave simmetrica �
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
 
-Il seguente esempio mostra come creare un'entità **ContentKey** con l'entità **ContentKeyType** impostata per la crittografia di archiviazione ("1") e l'entità **ProtectionKeyType** impostata "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
+Il seguente esempio mostra come creare un'entità **ContentKey** con l'entità **ContentKeyType** impostata per la crittografia di archiviazione ("1") e l'entità **ProtectionKeyType** impostata su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.
 
 
-Richiesta:
+Richiesta
 
 	POST https://media.windows.net/api/ContentKeys HTTP/1.1
 	Content-Type: application/json
@@ -234,7 +224,7 @@ Risposta:
 	"ProtectionKeyType":0,
 	"Checksum":"calculated checksum"}
 
-## Associare l'entità ContentKey a un asset
+##Associare l'entità ContentKey a un asset
 
 Dopo aver creato l'entità ContentKey, associarla all'asset mediante l'operazione $links, come mostrato nel seguente esempio:
 	
@@ -255,7 +245,6 @@ Richiesta:
 
 Risposta:
 
-	HTTP/1.1 204 No Content
+	HTTP/1.1 204 No Content 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

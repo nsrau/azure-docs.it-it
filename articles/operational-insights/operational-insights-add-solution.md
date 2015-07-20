@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Soluzioni di Operational Insights
@@ -42,11 +42,15 @@ I server connessi direttamente a Microsoft Azure Operational Insights tramite Mi
 
 - [SQL and Active Directory Assessment](operational-insights-assessment.md)
 
-Le soluzioni seguenti, invece, *non* sono supportate con Microsoft Monitoring Agent
+Le soluzioni seguenti, tuttavia , *non* sono supportate con Microsoft Monitoring Agent e richiedono System Center Operations Manager (SCOM).
 
 - [Capacity Management](operational-insights-capacity.md)
 
-- [Configuration Assessment](../operational-insights-configuration-assessment.md)
+- [Gestione degli avvisi](operational-insights-alerts.md)
+
+- [Configuration Assessment](operational-insights-solutions.md#configuration-assessment)
+
+Fare riferimento a [Considerazioni su Operations Manager con Operational Insights](operational-insights-operations-manager.md) per istruzioni sull'utilizzo di queste soluzioni con Operations Manager.
 
 La raccolta di log di IIS è supportata nei computer con i sistemi operativi seguenti:
 
@@ -85,6 +89,5 @@ La raccolta di log di IIS è supportata nei computer con i sistemi operativi seg
 
 
 3. Nella pagina di conferma, fare clic su **Yes** per rimuovere la soluzione
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

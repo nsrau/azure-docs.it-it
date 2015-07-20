@@ -40,7 +40,7 @@ Accertarsi che le stringhe di connessione dell'applicazione facciano riferimento
 Per ulteriori informazioni sulla modifica delle stringhe di connessione, vedere [Linee guida per la connessione al database SQL di Azure a livello di programmazione](https://msdn.microsoft.com/library/azure/ee336282.aspx) e [Connessioni al database SQL di Azure: indicazioni principali ](sql-database-connect-central-recommendations.md).
  
 ## Modificare le regole del firewall
-Verificare le regole del firewall a livello di server e a livello di database, quindi assicurarsi che le connessioni tra i computer client o Azure con il server e il database appena ripristinato siano abilitate  Per ulteriori informazioni, vedere [Firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) e [Procedura: configurare le impostazioni de firewall (database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
+Verificare le regole del firewall a livello di server e a livello di database, quindi assicurarsi che le connessioni tra i computer client o Azure con il server e il database appena ripristinato siano abilitate Per ulteriori informazioni, vedere [Firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) e [Procedura: configurare le impostazioni de firewall (database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
 ## Verificare gli account di accesso al server e gli utenti del database
 
@@ -62,5 +62,6 @@ Per ulteriori sulle regole di avviso per il database, vedere [Procedura: ricever
 ## Attivare il controllo
 
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. È necessario un indicatore efficace per controllare che nelle applicazioni client vengano utilizzate stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md). 
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

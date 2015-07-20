@@ -70,4 +70,6 @@ Questo articolo del supporto tecnico fornisce informazioni per i seguenti proble
 
 - Per accedere alle metriche degli eventi di connettività del database, è possibile eseguire query mediante la visualizzazione [**sys.database_connection_stats (database SQL di Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

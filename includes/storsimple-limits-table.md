@@ -6,7 +6,7 @@
 | Numero massimo di volumi | 255 | |
 | Numero massimo di modelli di larghezza di banda | 25 | |
 | Numero massimo di pianificazioni per ogni modello di larghezza di banda | 168 | Una pianificazione per ogni ora, ogni giorno della settimana (24*7). |
-| Dimensioni massime di un volume | 64 TB | Le dimensioni massime consigliate per volumi NTFS sono di 64 TB. |
+| Dimensioni massime di un volume | 64 TB | |
 | Numero massimo di connessioni iSCSI | 512 | |
 | Numero massimo di connessioni iSCSI dagli iniziatori | 512 | |
 | Numero massimo di record di controllo di accesso per dispositivo | 64 | |
@@ -24,4 +24,4 @@
 
 &#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

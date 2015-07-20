@@ -38,9 +38,9 @@ I microservizi senza stato, come ad esempio i gateway di protocollo, i proxy Web
  
 Perché i microservizi con stato sono importanti? Perché non usare semplicemente servizi senza stato per tutti gli scopi? I motivi sono due:
 
-1\) La possibilità di creare servizi OLTP con un'elevata velocità effettiva, una bassa latenza e la tolleranza di errore, come ad esempio vetrine interattive, servizi di ricerca, sistemi IoT, sistemi commerciali, sistemi di elaborazione per carte di credito e di rilevamento delle frodi, servizi di gestione dei record personali e così via, tenendo il codice e i dati vicini nello stesso computer.
+1) La possibilità di creare servizi OLTP con un'elevata velocità effettiva, una bassa latenza e la tolleranza di errore, come ad esempio vetrine interattive, servizi di ricerca, sistemi IoT, sistemi commerciali, sistemi di elaborazione per carte di credito e di rilevamento delle frodi, servizi di gestione dei record personali e così via, tenendo il codice e i dati vicini nello stesso computer.
 
-2\) La semplificazione della progettazione delle applicazioni, in quanto per i microservizi con stato non è più necessario usare le code e le cache aggiuntive necessarie in passato per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme.
+2) La semplificazione della progettazione delle applicazioni, in quanto per i microservizi con stato non è più necessario usare le code e le cache aggiuntive necessarie in passato per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme.
 
 Per altre informazioni sui modelli di applicazione e la progettazione con Service Fabric, vedere l'articolo relativo agli [scenari applicativi](../service-fabric-application-scenarios).
 
@@ -95,4 +95,4 @@ Per altre informazioni, vedere l'articolo relativo alla [panoramica tecnica](../
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

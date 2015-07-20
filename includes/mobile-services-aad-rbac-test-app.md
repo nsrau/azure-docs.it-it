@@ -17,4 +17,4 @@ Le istruzioni e le schermate seguenti si applicano ai test di un client di Windo
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

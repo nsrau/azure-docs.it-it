@@ -9,4 +9,4 @@
 
 4. (Facoltativo) Ripetere i passaggi da 1 a 3 in un dispositivo client diverso e usare un account diverso per eseguire l'accesso. Verificare che la notifica sia ricevuta solo da dispositivi autenticati con lo stesso account utente.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

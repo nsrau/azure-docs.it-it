@@ -1,4 +1,5 @@
 ## Inviare messaggi all'hub eventi
+
 In questa sezione si scriverà un'app di console Windows che invia eventi all'hub eventi.
 
 1. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Sender**.
@@ -63,4 +64,4 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

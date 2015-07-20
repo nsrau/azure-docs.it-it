@@ -5,8 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
-
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +15,7 @@
    ms.date="04/13/2015"
    ms.author="v-sharos" />
 
-# Gestire volumi StorSimple 
+# Gestire volumi StorSimple
 
 ## Panoramica
 
@@ -177,9 +176,9 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
 ## Passaggi successivi
 
-Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md) 
+Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

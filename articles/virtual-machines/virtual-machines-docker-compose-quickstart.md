@@ -112,5 +112,6 @@ Verrà visualizzata la schermata di avvio di WordPress, in cui è possibile comp
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

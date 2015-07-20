@@ -29,7 +29,7 @@
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. Aggiungere la variabile privata seguente alla classe: sostituire{b> <b}_`<PROJECT_NUMBER>`_ con il numero di progetto assegnato da Google all'app nella procedura precedente:
+6. Aggiungere la variabile privata seguente alla classe: sostituire _`<PROJECT_NUMBER>`_ con il numero di progetto assegnato da Google all'app nella procedura precedente:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [Mobile Services SDK per Android]: http://aka.ms/Iajk6q
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

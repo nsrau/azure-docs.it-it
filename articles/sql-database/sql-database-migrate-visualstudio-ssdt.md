@@ -93,4 +93,6 @@ Nel confronto degli schemi sotto Adventure Works 2014, il database SQL V12 di Az
 
 ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

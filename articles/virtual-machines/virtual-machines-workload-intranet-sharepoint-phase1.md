@@ -30,7 +30,7 @@ In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet 
 
 Prima di iniziare la configurazione dei componenti di Azure, è necessario compilare le tabelle seguenti. Per agevolare le procedure per la configurazione di Azure, stampare questa sezione e prendere nota delle informazioni necessarie o copiare questa sezione in un documento e procedere con la compilazione.
 
-Per le impostazioni della rete virtuale (VNet), compilare  la tabella V.
+Per le impostazioni della rete virtuale (VNet), compilare la tabella V.
 
 Item | Elemento di configurazione | Descrizione | Valore 
 --- | --- | --- | --- 
@@ -92,7 +92,7 @@ Creare quindi la connessione VPN da sito a sito tra la nuova rete virtuale e un 
 
 Successivamente, verificare che lo spazio degli indirizzi della rete virtuale sia raggiungibile da una rete locale. Ciò avviene di solito aggiungendo una route corrispondente allo spazio di indirizzi di rete virtuale al dispositivo VPN e annunciando quindi tale route al resto dell'infrastruttura di della rete dell'organizzazione. Collaborare con il reparto IT per stabilire come fare.
 
-Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)  per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 Selezionare innanzitutto la sottoscrizione di Azure corretta con questi comandi. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
@@ -166,4 +166,7 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

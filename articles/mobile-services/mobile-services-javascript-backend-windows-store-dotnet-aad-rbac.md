@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 # Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-#Panoramica
+##Panoramica
 
 Il controllo degli accessi in base al ruolo consiste nell'assegnazione di autorizzazioni ai ruoli degli utenti e definisce in modo chiaro i limiti relativi alle azioni che alcune classi di utenti possono o meno eseguire. Questa esercitazione illustra come aggiungere un controllo degli accessi in base al ruolo di base a Servizi mobili di Azure.
 
@@ -285,4 +285,5 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 [Codici di errore di Graph di AD di Microsoft Azure]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->
