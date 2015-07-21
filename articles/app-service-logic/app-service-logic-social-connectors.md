@@ -147,12 +147,19 @@ Usare i passaggi seguenti per aggiungere un connettore a un'app per la logica:
 I connettori usano OAuth oppure nomi utente e password.
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | 
+[Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Altri connettori
 
-[Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md) | [Connettori Enterprise](app-service-logic-enterprise-connectors.md) | [Connettori Business-to-Business](app-service-logic-b2b-connectors.md)￼ | [Connettori per protocolli](app-service-logic-protocol-connectors.md)￼ | [Connettori per i servizi app e dati](app-service-logic-data-connectors.md)￼ | [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+[Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md) | 
+[Connettori Enterprise](app-service-logic-enterprise-connectors.md) | 
+[Connettori Business-to-Business](app-service-logic-b2b-connectors.md)￼ | 
+[Connettori per protocolli](app-service-logic-protocol-connectors.md)￼ | 
+[Connettori per i servizi app e dati](app-service-logic-data-connectors.md)￼ | 
+[Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> 
+[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
 <!---HONumber=62-->
