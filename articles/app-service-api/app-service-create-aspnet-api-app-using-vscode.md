@@ -460,4 +460,4 @@ Nel portale di anteprima di Azure passare al pannello **HOST APP PER LE API** re
 In questa esercitazione si è appreso come creare un'app per le API in Visual Studio Code. Per altre informazioni su Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/Docs/). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

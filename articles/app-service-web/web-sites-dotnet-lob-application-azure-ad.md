@@ -225,35 +225,36 @@ public class GroupClaimContext : DbContext
 	<pre class="prettyprint">
 ...
 
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
-	...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
 	}</pre>
+
 	Poiché i mapping dei ruoli vengono gestiti nel controller Roles, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
 
 	> [AZURE.NOTE]Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto:
@@ -374,4 +375,4 @@ Dopo avere configurato le autorizzazioni e le funzionalità line-of-business per
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
