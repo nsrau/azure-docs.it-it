@@ -360,8 +360,10 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 		  </property>
 		</configuration>
 
-	* Sostituire tutte le istanze di **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza. 
-	> [AZURE.WARNING]È necessario usare il percorso WASB completo, con l'account di archiviazione e il contenitore come parte del percorso. L'uso del formato breve (wasb:///) impedirà l'esecuzione dell'azione RunHiveScript all'avvio del processo.
+	* Sostituire tutte le istanze di **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza.
+
+
+	> [AZURE.WARNING] È necessario usare il percorso WASB completo, con l'account di archiviazione e il contenitore come parte del percorso. L'uso del formato breve (wasb:///) impedirà l'esecuzione dell'azione RunHiveScript all'avvio del processo.
 
 	* Sostituire **JOBTRACKERADDRESS** con l'indirizzo di JobTracker/ResourceManager ricevuto in precedenza.
 
@@ -725,4 +727,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->
