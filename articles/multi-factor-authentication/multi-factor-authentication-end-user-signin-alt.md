@@ -33,4 +33,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
 <li>Scegliere un metodo alternativo ed effettuare l’accesso.</li>
 
-<!----HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

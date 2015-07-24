@@ -33,4 +33,4 @@ Se si utilizza l'autenticazione a più fattori con Office 365 si potranno gestir
 
 <center>![Installazione](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!----HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

@@ -31,4 +31,4 @@ Se si utilizza l'autenticazione a più fattori con Azure si potranno gestire le 
 
 <center>![Installazione](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!----HONumber=July15_HO2-->
+<!------HONumber=July15_HO2-->

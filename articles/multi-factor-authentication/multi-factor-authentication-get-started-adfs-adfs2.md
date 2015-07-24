@@ -114,4 +114,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 
 <center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

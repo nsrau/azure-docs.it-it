@@ -51,4 +51,4 @@ L’app Azure Authenticator è disponibile per [Windows Phone](http://www.window
 <li>Se si utilizzano queste app, copiare la password dell’app fornita e incollare la password nell'applicazione non basata su browser. Per i passaggi su singole applicazioni, come ad esempio Outlook e Lync, vedere Come modificare la password nell’email con la password dell’app e Come modificare la password dell'applicazione con la password dell’app.</li>
 <li>Fare clic su Done.</li>
 
-<!----HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->
