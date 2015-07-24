@@ -29,8 +29,8 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 <li>Selezionare Utilizza un'opzione di verifica diversa. Verrà offerta una scelta di opzioni differenti. Il numero visualizzato dipenderà da quante opzioni sono state impostate.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-alt/alt.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-signin-alt/alt.png)</center>
 
 <li>Scegliere un metodo alternativo ed effettuare l’accesso.</li>
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

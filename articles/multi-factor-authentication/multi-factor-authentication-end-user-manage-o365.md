@@ -29,16 +29,16 @@ Se si utilizza l'autenticazione a più fattori con Office 365 si potranno gestir
 <li>Nella parte superiore, fare clic sull'icona simile a una piccola ruota dentata. Verrà visualizzato un elenco a discesa con il testo impostazioni di Office 365.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-manage-o365/o365a.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-manage-o365/o365a.png)</center>
 
 <li>Fare clic su Office 365, impostazioni. Verrà aperta la pagina delle Impostazioni.</li>
 <li>A sinistra, fare clic su verifica aggiuntiva di sicurezza.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-manage-o365/o365.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-manage-o365/o365.png)</center>
 
 <li>A destra, fare clic sul collegamento con il testo Aggiorna i numeri di telefono utilizzati per la protezione dell'account. Si verrà reindirizzati a una nuova pagina. Sarà necessario verificare Come si sta utilizzando nuovamente il telefono o l’app per dispositivi mobili</li>
 <li>Una volta completata l’operazione dovrebbe comparire la pagina di registrazione da cui è possibile modificare le impostazioni.</li>
 
-<center>! [Cloud] (. / media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

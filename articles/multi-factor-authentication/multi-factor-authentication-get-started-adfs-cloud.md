@@ -27,7 +27,7 @@ Se l'organizzazione è federata con Azure Active Directory e si dispone di risor
 1. Utilizzare la procedura descritta [attivare l’autenticazione a più fattori](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) per far sì che gli utenti abilitino un account.
 2. Utilizzare la procedura seguente per impostare una regola attestazioni:
 
-<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)</center>
 
 - 	Avviare la console di gestione di ADFS.
 - 	Passare alla Relying Party Trusts e fare clic destro sul Trust della Relying Party. Selezionare Modifica regole attestazione...
@@ -51,4 +51,4 @@ Gli utenti possono quindi completare l'accesso utilizzando il metodo locale (ad 
 
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

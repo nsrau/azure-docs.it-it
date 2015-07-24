@@ -31,7 +31,7 @@ Per proteggere ADFS 2.0 con un proxy, installare il Server Azure multi-Factor Au
 <li>Fare clic sulla scheda basata su Form.</li>
 <li>Fare quindi clic su Add.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 <li>Per rilevare il nome utente, password e dominio variabili automaticamente, immettere l'URL di accesso (ad esempio https://sso.contoso.com/adfs/ls) nella finestra di dialogo Configura automaticamente sito Web e fare clic su OK.</li>
 <li>Selezionare la casella di corrispondenza utente di richiedere Azure multi-Factor Authentication se tutti gli utenti sono già stati o verranno importati nel Server e soggetto a multi-factor authentication. Se un numero significativo di utenti non è ancora stato importato nel Server e/o esenti dall'autenticazione a più fattori, lasciare deselezionata la casella. Vedere il file della Guida per ulteriori informazioni su questa funzionalità.</li>
@@ -41,7 +41,7 @@ Per proteggere ADFS 2.0 con un proxy, installare il Server Azure multi-Factor Au
 <li>Immettere la variabile di nome utente (ctl00$ ContentPlaceHolder1$ UsernameTextBox) e la variabile Password (ctl00$ ContentPlaceHolder1$ PasswordTextBox). Se la pagina di accesso basata su form viene visualizzata una casella di testo di dominio, immettere anche la variabile di dominio. Potrebbe essere necessario passare alla pagina di accesso in un browser web, pulsante destro del mouse sulla pagina e selezionare "HTML" per trovare i nomi delle caselle di input all'interno della pagina di accesso.</li>
 <li>Selezionare la casella di corrispondenza utente di richiedere Azure multi-Factor Authentication se tutti gli utenti sono già stati o verranno importati nel Server e soggetto a multi-factor authentication. Se un numero significativo di utenti non è ancora stato importato nel Server e/o esenti dall'autenticazione a più fattori, lasciare deselezionata la casella.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
 
 <li>Fare clic su Avanzate... pulsante per rivedere le impostazioni avanzate, tra cui la possibilità di selezionare un file di pagina di rifiuto personalizzato per memorizzare nella cache di autenticazioni al sito Web per un periodo di tempo tramite cookie e selezionare la modalità di autenticazione delle credenziali primarie.</li>
 <li>Poiché il server proxy ADFS non è destinato a essere aggiunto al dominio, utilizzerà probabilmente LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo sito Web basato su form avanzato, fare clic sulla scheda autenticazione primaria e selezionare "Binding LDAP" per il tipo di autenticazione pre-autenticazione.</li>
@@ -53,7 +53,7 @@ Per proteggere ADFS 2.0 con un proxy, installare il Server Azure multi-Factor Au
 <li>L'autenticazione di IIS è abilitato. Tuttavia, per eseguire la pre-autenticazione per l'Active Directory (AD) tramite LDAP, è necessario configurare la connessione LDAP al controller di dominio. A tale scopo, fare clic sull'icona integrazione Directory.</li>
 <li>Nella scheda Impostazioni selezionare il pulsante di opzione Usa specifico configurazione LDAP.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
 
 <li>Fare clic su Edit.</li>
 <li>Nella finestra di dialogo Modifica configurazione LDAP, compilare i campi con le informazioni necessarie per connettersi al controller di dominio Active Directory. Nella tabella seguente sono incluse le descrizioni dei campi. Nota: Queste informazioni sono inoltre incluse nel file della Guida del Server Azure multi-Factor Authentication.</li>
@@ -71,14 +71,14 @@ Limite dimensione query|Specificare le dimensioni massime per il numero massimo 
 
 <li>Verificare la connessione LDAP facendo clic sul pulsante Test.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
 <li>Se il test della connessione LDAP ha esito positivo, fare clic sul pulsante OK.</li>
 <li>Successivamente, fare clic sull'icona Impostazioni società e selezionare la scheda Risoluzione nome utente.</li>
 <li>Selezionare l'attributo dell'identificatore univoco utilizza LDAP per il pulsante di opzione nomi utente corrispondenti.</li>
 <li>Se gli utenti immetteranno del nome utente nel modulo di accesso proxy ADFS nel formato "dominio\nomeutente", il Server deve essere in grado di eliminare il dominio dal nome utente durante la creazione di query LDAP. Che può essere eseguita tramite un'impostazione del Registro di sistema.</li>
 <li>Aprire l'editor del Registro di sistema e passare a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/positivo Networks/PhoneFactor su un server a 64 bit. Se si dispone di un server a 32 bit, eseguire "Wow6432Node" dal percorso. Creare una nuova chiave del Registro di sistema DWORD denominata "UsernameCxz_stripPrefixDomain" e impostare il valore su 1. Il proxy ADFS è ora protetta da Azure multi-Factor Authentication. Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Se si desidera whitelist che gli indirizzi IP interni in modo che l'autenticazione a due fattori non è obbligatorio quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
 ## AD FS 2.0 diretto senza un proxy
 
@@ -94,7 +94,7 @@ Per proteggere ADFS quando non viene utilizzato il proxy di ADFS, installare il 
 <li>Selezionare la casella di corrispondenza utente di richiedere Azure multi-Factor Authentication se tutti gli utenti sono già stati o verranno importati nel Server e soggetto a multi-factor authentication. Se un numero significativo di utenti non è ancora stato importato nel Server e/o esenti dall'autenticazione a più fattori, lasciare deselezionata la casella. Vedere il file della Guida per ulteriori informazioni su questa funzionalità.</li>
 <li>Se lo si desidera, selezionare la casella di cache di cookie.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
 <li>Fare clic sul pulsante OK.</li>
 <li>Fare clic sulla scheda modulo nativo e selezionare il server, il sito Web che ADFS è in esecuzione (ad es. "Sito Web predefinito") o l'applicazione ADFS (ad esempio "ls" in "adfs") per abilitare il plug-in di IIS al livello desiderato.</li>
@@ -112,6 +112,6 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 <li>Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet devono essere incluse nell'elenco. Se si immette una subnet, selezionare mask appropriata e fare clic sul pulsante OK. L'elenco whitelist è stato aggiunto.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
 <!---HONumber=July15_HO2-->
