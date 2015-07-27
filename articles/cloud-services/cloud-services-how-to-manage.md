@@ -49,7 +49,7 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 
 	Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
 
-7. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Update even if one or more role contain a single instance** per consentire l'esecuzione dell'aggiornamento.
+7. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Aggiorna anche nel caso in cui uno o più ruoli contengano una sola istanza** per consentire l'esecuzione dell'aggiornamento.
 
 	Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
 
@@ -107,7 +107,7 @@ Nella procedura seguente viene descritto come collegare una nuova istanza di dat
 
 	![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
-4. Fare clic su **Create a new resource** o **Link an existing resource**.
+4. Fare clic su **Crea una nuova risorsa** o **Collega una risorsa esistente**.
 
 5. Scegliere il tipo di risorsa da collegare. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **SQL Database** (il portale di gestione in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
 
@@ -148,7 +148,7 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 	![Menu Delete](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 
-3. Per eliminare una distribuzione, fare clic su **Delete production deployment** o **Delete staging deployment**. Quindi, alla richiesta di conferma fare clic su **Yes**.
+3. Per eliminare una distribuzione, fare clic su **Elimina distribuzione produzione** o **Elimina distribuzione produzione"**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
 4. Se si intende eliminare il servizio cloud, ripetere il passaggio 3, se necessario, per eliminare le altre distribuzioni.
 

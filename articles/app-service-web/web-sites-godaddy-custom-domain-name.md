@@ -64,7 +64,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 	![aggiungere un record di zona](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
-	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su ****@**** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** sull'indirizzo IP dell'app Web di Azure.
+	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** sull'indirizzo IP dell'app Web di Azure.
 
 		> [AZURE.NOTE]Quando si usa un record A (host), è anche necessario aggiungere un record CNAME con la configurazione seguente:
 		>
@@ -89,4 +89,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

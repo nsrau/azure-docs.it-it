@@ -17,6 +17,9 @@
 	ms.author="huvalo"/>
 
 
+
+
+
 # IPython Notebook in Azure
 
 Il [progetto IPython](http://ipython.org) rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.
@@ -273,4 +276,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

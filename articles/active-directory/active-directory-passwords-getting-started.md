@@ -194,7 +194,8 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Per verificare la versione di Azure AD Sync
-1.	Passare a **%Programmi%\\Azure Active Directory Sync**. 2.	Trovare il file eseguibile **ConfigWizard.exe**.
+1.	Passare a **%Programmi%\Azure Active Directory Sync**. 
+2.	Trovare il file eseguibile **ConfigWizard.exe**.
 3.	Fare clic con il pulsante destro del mouse sul file eseguibile e scegliere **Proprietà** dal menu di scelta rapida.
 4.	Fare clic sulla scheda **Dettagli**.
 5.	Trovare il campo **Versione file**.
@@ -269,7 +270,9 @@ L'impostazione di queste autorizzazioni consentirà all'account del servizio del
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimposta password**, **Modifica password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -342,4 +345,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

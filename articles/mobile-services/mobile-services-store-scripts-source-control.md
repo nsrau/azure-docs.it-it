@@ -36,7 +36,8 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-	> [AZURE.NOTE]In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+	> [AZURE.NOTE]
+	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -132,9 +133,11 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 
 In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sugli script del server e sulle API personalizzate, vedere:
 
-+ [Utilizzo degli script del server in Servizi mobili] <br/>Altre informazioni su come usare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
++ [Utilizzo degli script del server in Servizi mobili] 
+	<br/>Altre informazioni su come usare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
 
-+ [Chiamare un'API personalizzata dal client] <br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
++ [Chiamare un'API personalizzata dal client] 
+	<br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -155,6 +158,7 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-ios-get-started-data.md
 [Utilizzo degli script del server in Servizi mobili]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+portale di gestione di Azure]: https://manage.windowsazure.com/
 [Chiamare un'API personalizzata dal client]: mobile-services-ios-call-custom-api.md
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

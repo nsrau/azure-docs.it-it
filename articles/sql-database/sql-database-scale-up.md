@@ -41,9 +41,11 @@ Quando si passa da un livello di servizio a un altro, tenere presente quanto seg
 
 - Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
-Tenere presente quanto segue: i livelli di servizio Business e Web verranno ritirati dal mercato nel settembre del 2015. Per ulteriori informazioni, vedere [Domande frequenti sull'interruzione delle edizioni Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
+Tenere presente quanto segue: 
+- i livelli di servizio Business e Web verranno ritirati dal mercato nel settembre del 2015. Per ulteriori informazioni, vedere [Domande frequenti sull'interruzione delle edizioni Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-<note included> È importante tenere presente che l'implementazione corrente delle [federazioni verrà ritirata insieme ai livelli di servizio Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). È consigliabile utilizzare la funzione di [Scalabilità elastica per database SQL di Azure](sql-database-elastic-scale-get-started.md) per creare una soluzione partizionata a scalabilità orizzontale nel database SQL di Azure. Per provarla, vedere Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)
+<note included> 
+- È importante tenere presente che l'implementazione corrente delle [federazioni verrà ritirata insieme ai livelli di servizio Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). È consigliabile utilizzare la funzione di [Scalabilità elastica per database SQL di Azure](sql-database-elastic-scale-get-started.md) per creare una soluzione partizionata a scalabilità orizzontale nel database SQL di Azure. Per provarla, vedere Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)
 
 ## Eseguire l'aggiornamento a un livello di servizio superiore
 Per aggiornare un database, utilizzare uno dei metodi seguenti. I passaggi sono specifici per l'aggiornamento a un livello di servizio Premium, ma si applicano a tutti gli aggiornamenti.
@@ -64,7 +66,11 @@ Per aggiornare un database, utilizzare uno dei metodi seguenti. I passaggi sono 
 2. Impostare il contesto server con il cmdlet New-AzureSqlDatabaseServerContext. La sintassi di esempio è disponibile nella sezione relativa all'uso dei comandi PowerShell di Azure.
 3. Individuare un handle per il database e il livello di prestazioni di destinazione. Specificare il livello di prestazioni utilizzando Set-AzureSqlDatabase – ServiceObjective
 
-**Esempio di utilizzo**: in questo esempio viene illustrato l'aggiornamento a un livello di servizio Premium. Vengono creati l'handle $db che fa riferimento al nome di database "somedb"e l'handle $P1 che fa riferimento al livello di prestazioni 1 del livello di servizio Premium. Il livello di prestazioni del database $db viene, quindi, impostato su $P1.
+**Esempio di utilizzo**: 
+- in questo esempio viene illustrato l'aggiornamento a un livello di servizio Premium. 
+- Vengono creati l'handle $db che fa riferimento al nome di database "somedb"e 
+- l'handle $P1 che fa riferimento al livello di prestazioni 1 del livello di servizio Premium. 
+- Il livello di prestazioni del database $db viene, quindi, impostato su $P1.
 
 		Windows PowerShell:
 
@@ -120,7 +126,8 @@ In questo esempio viene illustrato come effettuare il downgrade da un database c
 
 Se si modifica il livello di prestazioni di un database Premium con relazioni di replica geografica attive configurate, procedere nel seguente ordine per il database primario e i database attivi secondari:
 
-Infatti, i database secondari attivi devono disporre di un livello di prestazioni uguale o maggiore rispetto a quello primario. Se si passa da un livello di prestazioni superiore a un livello di prestazioni inferiore, iniziare prima con il database primario seguito da uno o più database secondari attivi.
+Infatti, i database secondari attivi devono disporre di un livello di prestazioni uguale o maggiore rispetto a quello primario. 
+- Se si passa da un livello di prestazioni superiore a un livello di prestazioni inferiore, iniziare prima con il database primario seguito da uno o più database secondari attivi.
 
 - Se si passa da un livello di prestazioni inferiore a un livello di prestazioni superiore, iniziare con i database secondari attivi, quindi con il database primario.
 
@@ -199,11 +206,13 @@ In questa sezione vengono indicati i prerequisiti per l'utilizzo dei comandi Azu
 
 **Prerequisiti**
 
-Per utilizzare i cmdlet Azure PowerShell descritti in questo argomento, è necessario che il seguente software sia installato nel computer in cui viene eseguito PowerShell. 1. Scaricare una versione di Windows PowerShell almeno 3.0, livello http://www.microsoft.com/it-it/download/details.aspx?id=34595.
+Per utilizzare i cmdlet Azure PowerShell descritti in questo argomento, è necessario che il seguente software sia installato nel computer in cui viene eseguito PowerShell. 
+1. Scaricare una versione di Windows PowerShell almeno 3.0, livello http://www.microsoft.com/it-it/download/details.aspx?id=34595.
 
 2. Scaricare Azure PowerShell dalla sezione relativa allo strumento da riga di comando in [Azure SDK and Tool Downloads](http://azure.microsoft.com/downloads/).
 
-Effettuare quanto segue: dalla schermata **Start** o dal **relativo** menu, individuare e avviare Azure PowerShell.
+Effettuare quanto segue: 
+dalla schermata **Start** o dal **relativo** menu, individuare e avviare Azure PowerShell.
 
 Digitare il nome utente e la password relativi al server.
 
@@ -229,4 +238,4 @@ Impostare il contesto server con il cmdlet **New-AzureSqlDatabaseServerContext**
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

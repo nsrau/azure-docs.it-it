@@ -85,9 +85,9 @@ La sincronizzazione offline del servizio per app per dispositivi mobili consente
 
     In questo esempio vengono recuperati tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync()` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
+<!--     >[AZURE.NOTE] Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, abilitare [Eliminazione temporanea]. Altrimenti l'app chiamerà periodicamente `IMobileServiceSyncTable.PurgeAsync()` per pulire l'archivio locale.
 
-    Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
+    Nota: `MobileServicePushFailedException` può avvenire sia per operazioni push che pull. L'esercitazione seguente, [Gestire conflitti con il supporto offline per servizi mobili], mostra come gestire eccezioni correlate alla sincronizzazione.
 -->
 
 5. Nella classe `QSTodoService` il metodo `SyncAsync()` viene chiamato dopo le operazioni che modificano i dati, `InsertTodoItemAsync()` e `CompleteItemAsync`. Viene anche chiamato da `RefreshDataAsync()`, in modo che l'utente ottenga i dati più recenti ogni volta che esegue il movimento di aggiornamento. L'app esegue anche una sincronizzazione all'avvio, in quanto `QSTodoListViewController.ViewDidLoad()` chiama `RefreshDataAsync()`.

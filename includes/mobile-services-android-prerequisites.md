@@ -6,6 +6,8 @@ Questa esercitazione è basata sul codice scaricato nella guida introduttiva per
 <!-- URLs. 
 [Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
 [Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[Introduzione a Servizi mobili]: ../articles/mobile-services-android-get-started.md
+[Aggiungere Servizi mobili a un'app esistente]: ../articles/mobile-services-android-get-started-data.md
 -->
 
 <!---HONumber=July15_HO3-->
