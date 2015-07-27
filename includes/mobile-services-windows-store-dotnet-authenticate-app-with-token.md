@@ -91,4 +91,4 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

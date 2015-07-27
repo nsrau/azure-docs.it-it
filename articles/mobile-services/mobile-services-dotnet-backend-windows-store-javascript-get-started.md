@@ -121,4 +121,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -207,7 +207,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -332,7 +332,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
 
 ### Passaggio 3: Distribuire l'applicazione
 1.	Fare clic con il pulsante destro del mouse sul progetto **WadExampleVM** in **Esplora soluzioni** e scegliere **Apri cartella in Esplora file**.
-2.	Passare alla cartella *bin\Debug* e copiare tutti i file (WadExampleVM.*).
+2.	Passare alla cartella *bin\\Debug* e copiare tutti i file (WadExampleVM.*).
 3.	In **Esplora server** fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Connessione tramite desktop remoto**.
 4.	Una volta connessi alla macchina virtuale, creare una cartella denominata WadExampleVM e incollare i file dell'applicazione nella cartella.
 5.	Avviare l'applicazione WadExampleVM.exe. Verrà visualizzata una finestra della console vuota.
@@ -351,7 +351,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@ Il file di configurazione di Diagnostica definisce i valori usati per inizializz
 ### Mancato avvio di Diagnostica Azure
 La diagnostica è costituita da due componenti: un plug-in agente guest e l'agente di monitoraggio. I file di log del plug-in dell'agente guest si trovano nel file seguente:
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\\CommandExecution.log
 
 Il plug-in restituisce i seguenti codici di errore:
 
@@ -777,4 +777,4 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # Uso del connettore Box nell'app per la logica
 
@@ -43,7 +43,7 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
     <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
     <td>Sì</td>
   </tr>
-</table>>[AZURE.NOTE]Non restituisce i contenuti dei file.
+</table>>[AZURE.NOTE]non restituisce i contenuti dei file.
 
 
 
@@ -65,11 +65,11 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
     <td>Specifica se il file è di testo o binario.</td>
     <td>No</td>
   </tr>
-</table>>[AZURE.NOTE]Questa operazione non eliminerà il file dopo la lettura.
+</table>>[AZURE.NOTE]questa operazione non eliminerà il file dopo averlo letto.
 
 
 
-    c. Carica file: come indicato dal nome, l'azione carica il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+    c. Upload file: questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
   <tr>
@@ -112,7 +112,7 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
 
 ## Creazione di un connettore Box per l'app per la logica
 
-Per usare il connettore Box, prima è necessario creare un'istanza dell'app per le API del connettore Box. È possibile eseguire questa operazione all'interno dell'area di progettazione dell'app per la logica o all'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
+Per usare il connettore Box, prima è necessario creare un'istanza dell'app per le API Box Connector. È possibile eseguire questa operazione all'interno dell'area di progettazione dell'app per la logica o all'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
 
 1. Aprire Azure Marketplace dalla home page del portale di Azure.
 
@@ -127,14 +127,14 @@ Per usare il connettore Box, prima è necessario creare un'istanza dell'app per 
 
 ## Uso del connettore Box nell'app per la logica
 
-Dopo aver creato l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A questo scopo, è necessario:
+Una volta creata l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A questo scopo, è necessario:
 
 
 1. Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore Box.
 
 2. Aprire "Trigger e azioni" per aprire la finestra di progettazione delle app per la logica e configurare il flusso. Il connettore Box apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
 
-3. Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, sarebbe possibile eseguire azioni sull'account Box con il connettore. Si noti che il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
+3. Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possibile eseguire azioni sull'account Box con il connettore. Si noti che il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
 
 4. Il primo passaggio prevede l'autenticazione e l'autorizzazione delle app per la logica in modo che eseguano operazioni per conto dell'utente. Per avviare l'autorizzazione, fare clic su Autorizza in Box Connector.
 
@@ -148,7 +148,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Box come azi
 
 	![][4]
 
-7. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione appropriata da eseguire.
+7. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire.
 
 	![][5]
 
@@ -160,4 +160,4 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

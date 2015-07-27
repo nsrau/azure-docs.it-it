@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # Informazioni sul servizio app di Azure
-Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma distribuita come servizio (PaaS) interamente gestita, con avanzate funzionalità quali l'integrazione di DevOps, l'integrazione continua con Visual Studio Online e GitHub, il supporto per gestione temporanea e produzione e l'applicazione automatica delle patch.
+Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma interamente gestita con funzionalità avanzate, ad esempio l'integrazione di DevOps, l'integrazione continua con Visual Studio Online e GitHub, il supporto per la gestione temporanea e la produzione e l'applicazione automatica delle patch.
 
 Il servizio app di Azure è un singolo servizio che riunisce tutte le funzionalità esistenti di Siti Web di Azure, Servizi mobili di Azure e Servizi BizTalk di Azure e aggiunge inoltre nuove funzionalità. [Altre informazioni](http://azure.microsoft.com/documentation/services/app-service/) sulla relazione tra il servizio app e tali servizi esistenti.
 
 ## Perché un servizio app?
 Incentrato sullo sviluppo rapido di app Web e mobili e sull'automazione dei processi aziendali, il servizio app di Azure offre un set integrato di funzionalità di livello enterprise in una singola soluzione di sviluppo e gestione che offre i vantaggi seguenti:
 
-- **Creazione rapida di app Web e per dispositivi mobili**: Creazione, distribuzione e gestione rapida di applicazioni Web e per dispositivi mobili per dipendenti o clienti che usano un singolo back-end. Uso del know-how sui linguaggi conosciuti: .NET, Java, NodeJS, PHP o Python. Possibilità di accelerare lo sviluppo grazie all'accesso a una raccolta completa di API, connettori e logica, disponibile in Azure Marketplace.
+- **Creazione rapida di app Web e per dispositivi mobili**: Creazione, distribuzione e gestione rapida di applicazioni Web e per dispositivi mobili per dipendenti o clienti che usano un singolo back-end. Uso delle competenze esistenti sui linguaggi: .NET, Java, NodeJS, PHP o Python. Possibilità di accelerare lo sviluppo grazie all'accesso a una raccolta completa di API, connettori e logica, disponibile in Azure Marketplace.
 
 - **Possibilità di connettersi a qualsiasi servizio e sbloccare i dati**: connessione dell'app Web o per dispositivi mobili a sistemi aziendali o SaaS in pochi minuti grazie ai connettori predefiniti. È possibile scegliere tra oltre 50 connettori per sistemi aziendali quali SAP, Siebel e Oracle ai servizi aziendali SaaS più diffusi, quali Salesforce e Office 365 e ai più popolari servizi Internet, come Facebook, Twitter and Dropbox.
 
@@ -59,4 +59,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app Web](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

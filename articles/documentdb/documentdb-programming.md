@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programmazione con DocumentDB: stored procedure, trigger e funzioni definite dall'utente | Azure" 
+	pageTitle="Programmazione di DocumentDB: Stored procedure, trigger e funzioni definite dall'utente | Azure" 
 	description="Informazioni su come usare Microsoft Azure DocumentDB per scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) in modo nativo in JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="06/10/2015" 
 	ms.author="mimig"/>
 
-# Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente
+# Programmazione sul lato server DocumentDB: stored, procedure, trigger e funzioni definite dall'utente
 
-Informazioni su come l'esecuzione integrata e transazionale di JavaScript con il linguaggio di DocumentDB consenta agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in JavaScript. Ciò consente di scrivere la logica dell'applicazione che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
+Informazioni su come l'esecuzione integrata e transazionale di JavaScript con il linguaggio di DocumentDB consenta agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in JavaScript. Ciò consente di scrivere la logica dell'applicazione che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database.
 
-Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione lato server di DocumentDB. 
+Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione lato server di DocumentDB.
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
-Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
+Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:
 
 - Come è possibile scrivere un una stored procedure, un trigger o una funzione definita dall'utente usando JavaScript?
 - In che modo DocumentDB garantisce proprietà ACID?
@@ -33,25 +33,27 @@ Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:
 - Come si registra e si esegue una stored procedure, un trigger o una funzione definita dall'utente in modalità RESTful usando HTTP?
 - Quali SDK di DocumentDB sono disponibili per la creazione e l'esecuzione di stored procedure, trigger e funzioni definite dall'utente?
 
-##Introduzione
+## Introduzione
 
-Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:  
+Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:
 
--	**Logica procedurale:** JavaScript, come linguaggio di programmazione di alto livello, fornisce un'interfaccia avanzata e familiare per esprimere la logica di business. È possibile eseguire complesse sequenze di operazioni più vicino ai dati.
+-	**Logica procedurale:** in qualità di linguaggio di programmazione di alto livello, JavaScript offre un'interfaccia completa e familiare per esprimere la logica di business. È possibile eseguire sequenze complesse di operazioni a ridosso dei dati.
 
--	**Transazioni atomiche:** DocumentDB garantisce che le operazioni di database eseguite all'interno di una singola stored procedure o di un singolo trigger siano atomiche. In questo modo, un'applicazione combina le operazioni correlate in un singolo batch in modo che abbiano tutte, o nessuna, esito positivo. 
+-	**Transazioni atomiche:** DocumentDB garantisce che l'esecuzione di operazioni eseguite all'interno di una singola stored procedure o un trigger di database siano atomiche. Di conseguenza, un'applicazione potrà combinare le operazioni correlate in unico batch, in modo che o tutte o nessuna di esse avranno esito positivo.
 
--	**Prestazioni:** il fatto che JSON sia intrinsecamente mappato al sistema di tipi del linguaggio JavaScript e rappresenti anche l'unità di archiviazione di base in DocumentDB consente numerose ottimizzazioni, come la materializzazione differita di documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi in termini di prestazioni associati all'integrazione della logica di business nel database:
+-	**Prestazioni:** il fatto che JSON sia intrinsecamente mappato al sistema di tipi in linguaggio JavaScript e rappresenti anche l'unità di base di archiviazione in DocumentDB permette di eseguire una serie di ottimizzazioni, tra cui la materializzazione differita dei documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi associati all'integrazione della logica di business nel database:
 	-	Invio in batch: gli sviluppatori possono raggruppare le operazioni, come gli inserimenti, e inviarle in blocco. Ciò comporta una drastica riduzione del costo legato alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate. 
 	-	Precompilazione: DocumentDB precompila stored procedure, trigger e funzioni definite dall'utente (UDF) per evitare il costo della compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
 	-	Sequenziazione: molte operazioni necessitano di un effetto collaterale ("trigger") che implica potenzialmente l'esecuzione di una o più operazioni di archiviazione secondarie. Atomicità a parte, offre prestazioni migliori quando viene passata al server. 
--	**Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un'unica posizione. Ciò comporta due vantaggi:
+-	**Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un solo posto. Ciò comporta due vantaggi:
 	-	Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Si tratta di una caratteristica particolarmente vantaggiosa quando i dati sono privi di schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
 	-	Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
-La creazione e l'esecuzione di trigger, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK client](https://msdn.microsoft.com/library/azure/dn781482.aspx) in molte piattaforme, tra cui .NET, Node.js e JavaScript. **Questa esercitazione usa [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** per illustrare la sintassi e l'utilizzo di stored procedure, trigger e funzioni definite dall'utente.   
+La creazione e l'esecuzione di trigger, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK client](https://msdn.microsoft.com/library/azure/dn781482.aspx) in molte piattaforme, tra cui .NET, Node.js e JavaScript. **Questa esercitazione usa [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** per illustrare la sintassi e l'utilizzo di stored procedure, trigger e funzioni definite dall'utente.
 
-##Esempio: Scrivere una stored procedure semplice 
+## Stored procedure
+
+### Esempio: scrivere una stored procedure semplice 
 Per cominciare, si analizzerà una semplice stored procedure che restituisce una risposta "Hello World".
 
 	var helloWorldStoredProc = {
@@ -65,7 +67,7 @@ Per cominciare, si analizzerà una semplice stored procedure che restituisce una
 	}
 
 
-Le stored procedure vengono registrate per ogni raccolta e funzionano in qualsiasi documento e allegato presente nella raccolta. Nel seguente frammento viene spiegato come registrare la stored procedure helloWorld con una raccolta. 
+Le stored procedure vengono registrate per ogni raccolta e funzionano in qualsiasi documento e allegato presente nella raccolta. Nel seguente frammento viene spiegato come registrare la stored procedure helloWorld con una raccolta.
 
 	// register the stored procedure
 	var createdStoredProcedure;
@@ -78,7 +80,7 @@ Le stored procedure vengono registrate per ogni raccolta e funzionano in qualsia
 		});
 
 
-Dopo aver registrato la stored procedure è possibile eseguirla a fronte della raccolta e leggere i risultati sul client. 
+Dopo aver registrato la stored procedure è possibile eseguirla a fronte della raccolta e leggere i risultati sul client.
 
 	// execute the stored procedure
 	client.executeStoredProcedureAsync(createdStoredProcedure._self)
@@ -89,11 +91,11 @@ Dopo aver registrato la stored procedure è possibile eseguirla a fronte della r
 		});
 
 
-L'oggetto contesto offre l'accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di DocumentDB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).  
+L'oggetto contesto offre l'accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di DocumentDB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).
 
-Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, eseguire query ed eliminare documenti e allegati all'interno della raccolta.    
+Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, eseguire query ed eliminare documenti e allegati all'interno della raccolta.
 
-##Esempio: Scrivere una stored procedure per creare un documento 
+### Esempio: scrivere una stored procedure per creare un documento 
 Il frammento successivo mostra come usare l'oggetto context per interagire con le risorse di DocumentDB.
 
 	var createDocumentStoredProc = {
@@ -113,7 +115,7 @@ Il frammento successivo mostra come usare l'oggetto context per interagire con l
 	}
 
 
-Questa stored procedure accetta come input documentToCreate, il corpo di un documento da creare nella raccolta corrente. Tutte queste operazioni sono asincrone e dipendono dai callback della funzione JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per l'oggetto creato. All'interno del callback, gli utenti possono gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di DocumentDB genera un errore.   
+Questa stored procedure accetta come input documentToCreate, il corpo di un documento da creare nella raccolta corrente. Tutte queste operazioni sono asincrone e dipendono dai callback della funzione JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per l'oggetto creato. All'interno del callback, gli utenti possono gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di DocumentDB genera un errore.
 
 Nell'esempio precedente il callback genera un errore se l'operazione non è riuscita. In caso contrario, viene impostato l'ID del documento creato come corpo della risposta al client. Ecco come viene eseguita questa stored procedure con i parametri di input.
 
@@ -125,7 +127,7 @@ Nell'esempio precedente il callback genera un errore se l'operazione non è rius
 		    // run stored procedure to create a document
 		    var docToCreate = {
 		        id: "DocFromSproc",
-		        book: "The Hitchhiker's Guide to the Galaxy",
+		        book: "The Hitchhiker’s Guide to the Galaxy",
 		        author: "Douglas Adams"
 		    };
 	
@@ -141,17 +143,14 @@ Nell'esempio precedente il callback genera un errore se l'operazione non è rius
 	});
 
 	
-Notare che è possibile modificare questa stored procedure in modo che accetti una matrice di corpi di documenti come input e possa crearli tutti nell'esecuzione della stessa stored procedure, invece di inviare più richieste di rete per crearle individualmente. Ciò permette di implementare un'efficiente utilità di importazione in blocco per DocumentDB (di cui si discuterà più avanti in questa esercitazione).   
+Notare che è possibile modificare questa stored procedure in modo che accetti una matrice di corpi di documenti come input e possa crearli tutti nell'esecuzione della stessa stored procedure, invece di inviare più richieste di rete per crearle individualmente. Ciò permette di implementare un'efficiente utilità di importazione in blocco per DocumentDB (di cui si discuterà più avanti in questa esercitazione).
 
-L'esempio descritto ha dimostrato come usare le stored procedure. I trigger e le funzioni definite dall'utente (UDF) saranno trattati più avanti in questa esercitazione. In primo luogo, saranno analizzate le caratteristiche generali del supporto di scripting in DocumentDB.  
+L'esempio descritto ha dimostrato come usare le stored procedure. I trigger e le funzioni definite dall'utente (UDF) saranno trattati più avanti in questa esercitazione.
 
-##Supporto di runtime
-L' [SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](documentdb-interactions-with-resources.md).
- 
-##Transazioni
-Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione fornisce **garanzie ACID**. ACID è un acronimo noto che riassume quattro proprietà: Atomicità, Coerenza, Isolamento e Durabilità.  
+## Transazioni
+Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie ACID**. ACID è un acronimo noto che riassume quattro proprietà: Atomicità, Coerenza, Isolamento e Durabilità.
 
-In breve, l'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna. La coerenza garantisce che i dati siano sempre in ottimo stato interno in tutte le transazioni. L'isolamento garantisce che non vi siano transazioni conflittuali; in generale, la maggior parte dei sistemi commerciali offre più livelli di isolamento utilizzabili in base alle esigenze dell'applicazione. La durabilità assicura che qualsiasi modifica di cui sia stato eseguito il commit nel database sia sempre presente.   
+In breve, l'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna. La coerenza garantisce che i dati siano sempre in ottimo stato interno in tutte le transazioni. L'isolamento garantisce che non vi siano transazioni conflittuali; in generale, la maggior parte dei sistemi commerciali offre più livelli di isolamento utilizzabili in base alle esigenze dell'applicazione. La durabilità assicura che qualsiasi modifica di cui sia stato eseguito il commit nel database sia sempre presente.
 
 In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del database. Di conseguenza, le richieste effettuate nell'ambito delle stored procedure e dei trigger vengono eseguite nello stesso ambito di una sessione di database. Ciò consente a DocumentDB di garantire proprietà ACID per tutte le transazioni che fanno parte di una singola stored procedure o un unico trigger. Considerare la definizione della stored procedure seguente:
 
@@ -188,7 +187,7 @@ In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del databas
 	
 	        if (!accept) throw "Unable to read player details, abort ";
 	
-	        // swap the two players' items
+	        // swap the two players’ items
 	        function swapItems(player1, player2) {
 	            var player1ItemSave = player1.item;
 	            player1.item = player2.item;
@@ -219,24 +218,76 @@ In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del databas
 	);
 
 Questa stored procedure usa le transazioni in un'applicazione di gioco per scambiare elementi tra due giocatori in un'unica operazione. La stored procedure prova a leggere due documenti, ciascuno corrispondente all'ID del giocatore passato come argomento. Se vengono trovati i documenti di entrambi i giocatori, la stored procedure aggiorna i documenti scambiando gli elementi. Se si verificano errori lungo il percorso, viene generata un'eccezione JavaScript che interrompe implicitamente la transazione.
-	
 
-##Commit e rollback
-Le transazioni sono integrate in maniera approfondita e nativa nel modello di programmazione JavaScript di DocumentDB. All'interno di una funzione JavaScript, viene eseguito il wrapping di tutte le operazioni in un'unica transazione. Se la funzione JavaScript viene completata senza eccezioni, viene eseguito il commit delle operazioni nel database. In effetti, le istruzioni "BEGIN TRANSACTION" e "COMMIT TRANSACTION" nei database relazionali sono implicite in DocumentDB.  
+### Commit e rollback
+Le transazioni sono integrate in maniera approfondita e nativa nel modello di programmazione JavaScript di DocumentDB. All'interno di una funzione JavaScript, viene eseguito il wrapping di tutte le operazioni in un'unica transazione. Se la funzione JavaScript viene completata senza eccezioni, viene eseguito il commit delle operazioni nel database. In effetti, le istruzioni "BEGIN TRANSACTION" e "COMMIT TRANSACTION" nei database relazionali sono implicite in DocumentDB.
  
-Se si verifica un'eccezione qualsiasi che viene propagata dallo script, il runtime JavaScript di DocumentDB eseguirà il rollback dell'intera transazione. Come illustrato in un esempio precedente, la generazione di un'eccezione equivale effettivamente a una "ROLLBACK TRANSACTION" in DocumentDB. 
-
-###Coerenza dei dati
+Se si verifica un'eccezione qualsiasi che viene propagata dallo script, il runtime JavaScript di DocumentDB eseguirà il rollback dell'intera transazione. Come illustrato in un esempio precedente, la generazione di un'eccezione equivale effettivamente a una "ROLLBACK TRANSACTION" in DocumentDB.
+ 
+### Coerenza dei dati
 Le stored procedure e i trigger vengono sempre eseguiti sulla cartella di replica principale della raccolta di DocumentDB. In tal modo si garantisce la coerenza assoluta delle letture all'interno delle stored procedure. È possibile eseguire le query che usano funzioni definite dall'utente sulla replica principale o in qualsiasi replica secondaria, ma è necessario assicurarsi di soddisfare il livello di coerenza richiesto scegliendo la replica appropriata.
 
-##Sicurezza
-Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
+## Esecuzione vincolata
+È necessario che tutte le operazioni di DocumentDB siano completate entro la scadenza specificata dal server. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione. Le funzioni JavaScript devono terminare entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch.
 
-##Precompilazione
-Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
+Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nell'oggetto raccolta (per creare, leggere, sostituire ed eliminare i documenti e gli allegati) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è falso, sarà indice che il tempo limite sta per scadere e che è necessario concludere l'esecuzione della procedura. Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste.
 
-##<a id="trigger"></a> Trigger
-###Pre-trigger
+Anche le funzioni JavaScript sono vincolate al consumo di risorse. DocumentDB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un utilizzo elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.
+
+### Esempio: importazione Bulk di dati
+Di seguito è riportato un esempio di stored procedure scritta per importare in blocco i documenti in una raccolta. Da notare il modo in cui la stored procedure gestisce l'esecuzione vincolata verificando il valore booleano restituito da createDocument e quindi usa il numero di documenti inseriti in ogni chiamata della stored procedure per tracciare e riprendere l'avanzamento nei vari batch.
+
+	function bulkImport(docs) {
+	    var collection = getContext().getCollection();
+	    var collectionLink = collection.getSelfLink();
+	
+	    // The count of imported docs, also used as current doc index.
+	    var count = 0;
+	
+	    // Validate input.
+	    if (!docs) throw new Error("The array is undefined or null.");
+	
+	    var docsLength = docs.length;
+	    if (docsLength == 0) {
+	        getContext().getResponse().setBody(0);
+	    }
+	
+	    // Call the create API to create a document.
+	    tryCreate(docs[count], callback);
+	
+	    // Note that there are 2 exit conditions:
+	    // 1) The createDocument request was not accepted. 
+	    //    In this case the callback will not be called, we just call setBody and we are done.
+	    // 2) The callback was called docs.length times.
+	    //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
+	    function tryCreate(doc, callback) {
+	        var isAccepted = collection.createDocument(collectionLink, doc, callback);
+	
+	        // If the request was accepted, callback will be called.
+	        // Otherwise report current count back to the client, 
+	        // which will call the script again with remaining set of docs.
+	        if (!isAccepted) getContext().getResponse().setBody(count);
+	    }
+	
+	    // This is called when collection.createDocument is done in order to process the result.
+	    function callback(err, doc, options) {
+	        if (err) throw err;
+	
+	        // One more document has been inserted, increment the count.
+	        count++;
+	
+	        if (count >= docsLength) {
+	            // If we created all documents, we are done. Just set the response.
+	            getContext().getResponse().setBody(count);
+	        } else {
+	            // Create next document.
+	            tryCreate(docs[count], callback);
+	        }
+	    }
+	}
+
+## <a id="trigger"></a> Trigger
+### Pre-trigger
 DocumentDB fornisce trigger che vengono eseguiti o attivati da un'operazione su un documento. Ad esempio, quando si crea un documento è possibile specificare un pre-trigger, che verrà eseguito prima della creazione. Di seguito è riportato un esempio di come è possibile usare i pre-trigger per convalidare le proprietà di un documento in corso di creazione:
 
 	var validateDocumentContentsTrigger = {
@@ -289,7 +340,7 @@ E il corrispondente codice di registrazione lato client di Node.js per il trigge
 	});
 
 
-I pre-trigger non possono avere parametri di input. L'oggetto richiesta può essere usato per gestire il messaggio di richiesta associato all'operazione. In questo caso, si esegue il pre-trigger preliminare contemporaneamente alla creazione di un documento e il corpo del messaggio di richiesta contiene il documento da creare in formato JSON.   
+I pre-trigger non possono avere parametri di input. L'oggetto richiesta può essere usato per gestire il messaggio di richiesta associato all'operazione. In questo caso, si esegue il pre-trigger preliminare contemporaneamente alla creazione di un documento e il corpo del messaggio di richiesta contiene il documento da creare in formato JSON.
 
 Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Questo trigger è stato creato con TriggerOperation.Create, quindi quanto riportato di seguito non è consentito.
 
@@ -303,10 +354,10 @@ Quando i trigger vengono registrati, gli utenti possono specificare le operazion
 	    console.log("Error", error);
 	});
 	
-	// Fails, can't use a create trigger in a replace operation
+	// Fails, can’t use a create trigger in a replace operation
 
-###Post-trigger
-I post-trigger, come i pre-trigger, sono associati a un'operazione su un documento e non accettano parametri di input. Vengono eseguiti **dopo** il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client.   
+### Post-trigger
+I post-trigger, come i pre-trigger, sono associati a un'operazione su un documento e non accettano parametri di input. Vengono eseguiti **dopo** il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client.
 
 Nell'esempio seguente vengono illustrati i post-trigger in azione:
 
@@ -374,12 +425,12 @@ Nell'esempio seguente vengono illustrati i post-trigger in azione:
 	});
 
 
-Il trigger esegue query sul documento dei metadati, aggiornandolo con le informazioni relative al documento appena creato.  
+Il trigger esegue query sul documento dei metadati, aggiornandolo con le informazioni relative al documento appena creato.
 
-Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei trigger in DocumentDB. Questo post-trigger viene eseguito come parte della stessa transazione relativa alla creazione del documento originale. Pertanto, se si genera un'eccezione dal post-trigger (ad esempio se non è possibile aggiornare il documento dei metadati), l'intera transazione avrà esito negativo e verrà ripristinata allo stato precedente. Non verrà creato alcun documento e verrà restituita un'eccezione.  
+Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei trigger in DocumentDB. Questo post-trigger viene eseguito come parte della stessa transazione relativa alla creazione del documento originale. Pertanto, se si genera un'eccezione dal post-trigger (ad esempio se non è possibile aggiornare il documento dei metadati), l'intera transazione avrà esito negativo e verrà ripristinata allo stato precedente. Non verrà creato alcun documento e verrà restituita un'eccezione.
 
 ##<a id="udf"></a>Funzioni definite dall'utente
-Le funzioni definite dall'utente, o UDF, consentono di estendere la grammatica del linguaggio di query SQL di DocumentDB e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le UDF su repliche secondarie del servizio DocumentDB.  
+Le funzioni definite dall'utente, o UDF, consentono di estendere la grammatica del linguaggio di query SQL di DocumentDB e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le UDF su repliche secondarie del servizio DocumentDB.
  
 L'esempio seguente consente di creare una funzione definita dall'utente per calcolare l'imposta sul reddito in base ai tassi relativi a varie fasce di reddito. La funzione viene quindi usata all'interno di una query per trovare tutte le persone che hanno pagato oltre 20.000 dollari di imposte.
 
@@ -420,138 +471,17 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 	    console.log("Error" , error);
 	});
 
-##Esecuzione vincolata
-È necessario che tutte le operazioni di DocumentDB siano completate entro la scadenza specificata dal server. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione. Le funzioni JavaScript devono terminare entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch.  
+## Supporto di runtime
+L'[ SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](documentdb-interactions-with-resources.md).
 
-Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nell'oggetto raccolta (per creare, leggere, sostituire ed eliminare i documenti e gli allegati) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è falso, sarà indice che il tempo limite sta per scadere e che è necessario concludere l'esecuzione della procedura.  Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste.  
+### Sicurezza
+Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
 
-Anche le funzioni JavaScript sono vincolate al consumo di risorse. DocumentDB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un utilizzo elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.  
+### Precompilazione
+Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
 
-##Importazione in blocco dei dati
-Di seguito è riportato un esempio di stored procedure scritta per importare in blocco i documenti in una raccolta. Da notare il modo in cui la stored procedure gestisce l'esecuzione vincolata verificando il valore booleano restituito da createDocument e quindi usa il numero di documenti inseriti in ogni chiamata della stored procedure per tracciare e riprendere l'avanzamento nei vari batch.
-
-	function bulkImport(docs) {
-	    var collection = getContext().getCollection();
-	    var collectionLink = collection.getSelfLink();
-	
-	    // The count of imported docs, also used as current doc index.
-	    var count = 0;
-	
-	    // Validate input.
-	    if (!docs) throw new Error("The array is undefined or null.");
-	
-	    var docsLength = docs.length;
-	    if (docsLength == 0) {
-	        getContext().getResponse().setBody(0);
-	    }
-	
-	    // Call the create API to create a document.
-	    tryCreate(docs[count], callback);
-	
-	    // Note that there are 2 exit conditions:
-	    // 1) The createDocument request was not accepted. 
-	    //    In this case the callback will not be called, we just call setBody and we are done.
-	    // 2) The callback was called docs.length times.
-	    //    In this case all documents were created and we don't need to call tryCreate anymore. Just call setBody and we are done.
-	    function tryCreate(doc, callback) {
-	        var isAccepted = collection.createDocument(collectionLink, doc, callback);
-	
-	        // If the request was accepted, callback will be called.
-	        // Otherwise report current count back to the client, 
-	        // which will call the script again with remaining set of docs.
-	        if (!isAccepted) getContext().getResponse().setBody(count);
-	    }
-	
-	    // This is called when collection.createDocument is done in order to process the result.
-	    function callback(err, doc, options) {
-	        if (err) throw err;
-	
-	        // One more document has been inserted, increment the count.
-	        count++;
-	
-	        if (count >= docsLength) {
-	            // If we created all documents, we are done. Just set the response.
-	            getContext().getResponse().setBody(count);
-	        } else {
-	            // Create next document.
-	            tryCreate(docs[count], callback);
-	        }
-	    }
-	}
-
-
-##Eseguire operazioni in modalità RESTful
-Tutte le operazioni di DocumentDB possono essere eseguite in modalità RESTful. È possibile registrare stored procedure, trigger e funzioni definite dall'utente in una raccolta usando il verbo HTTP POST. Di seguito è riportato un esempio di come registrare una stored procedure:
-
-	POST https://<url>/sprocs/ HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
-	
-	
-	var x = {
-	  "name": "createAndAddProperty",
-	  "body": function (docToCreate, addedPropertyName, addedPropertyValue) {
-	            var collectionManager = getContext().getCollection();
-	            collectionManager.createDocument(
-	                collectionManager.getSelfLink(),
-	                docToCreate,
-	                function(err, docCreated) {
-	                  if(err) throw new Error('Error:  ' + err.message);
-	                  docCreated[addedPropertyName] = addedPropertyValue;
-	                  getContext().getResponse().setBody(docCreated);
-	                });
-	        }
-	}
-
-
-La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs.
-Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
-
-	POST https://<url>/sprocs/<sproc> HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:20 GMT
-	
-	
-	[ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
-
-
-In questo caso, l'input nella stored procedure viene passato al corpo della richiesta. Notare che l'input viene passato come matrice JSON dei parametri di input. La stored procedure accetta il primo input come documento che rappresenta il corpo della risposta. Il formato della risposta ricevuta è il seguente:
-
-	HTTP/1.1 200 OK
-	 
-	{ 
-	  name: 'TestDocument',
-	  book: 'Autumn of the Patriarch',
-	  id: 'V7tQANV3rAkDAAAAAAAAAA==',
-	  ts: 1407830727,
-	  self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
-	  etag: '6c006596-0000-0000-0000-53e9cac70000',
-	  attachments: 'attachments/',
-	  Price: 200
-	}
-
-
-A differenza delle stored procedure, non è possibile eseguire direttamente i trigger, che vengono però eseguiti come parte di un'operazione o di un documento. È possibile specificare i trigger da eseguire con una richiesta usando le intestazioni HTTP. Di seguito è riportata una richiesta per creare un documento.
-
-	POST https://<url>/docs/ HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
-	x-ms-documentdb-pre-trigger-include: validateDocumentContents 
-	x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
-	
-	
-	{
-	   "name": "newDocument",
-	   "title": "The Wizard of Oz",
-	   "author": "Frank Baum",
-	   "pages": 92
-	}
-
-
-In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'intestazione x-ms-documentdb-pre-trigger-include. Di conseguenza, qualsiasi post-trigger viene indicato nell'intestazione x-ms-documentdb-post-trigger-include. Notare che è possibile specificare sia pre-trigger sia post-trigger per una determinata richiesta.
-
-##Supporto SDK
-Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB supporta gli SDK di [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+## Supporto di client SDK
+Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB supporta gli [SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) di [.NET](http://dl.windowsazure.com/documentdb/javadoc/), [Java](http://dl.windowsazure.com/documentDB/jsclientdocs/), [JavaScript](http://dl.windowsazure.com/documentDB/pythondocs/) e Python. È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -584,7 +514,7 @@ Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), Docu
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) per creare un pre-trigger e quindi un documento con il trigger attivato. 
+Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) per creare un pre-trigger e quindi un documento con il trigger attivato.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -621,18 +551,94 @@ L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) 
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
-##Passaggi successivi
 
-Fare riferimento agli [SDK di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) per creare altri trigger, stored procedure e funzioni definite dall'utente.
+## API REST
+Tutte le operazioni di DocumentDB possono essere eseguite in modalità RESTful. È possibile registrare stored procedure, trigger e funzioni definite dall'utente in una raccolta usando il verbo HTTP POST. Di seguito è riportato un esempio di come registrare una stored procedure:
+
+	POST https://<url>/sprocs/ HTTP/1.1
+	authorization: <<auth>>
+	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
+	
+	
+	var x = {
+	  "name": "createAndAddProperty",
+	  "body": function (docToCreate, addedPropertyName, addedPropertyValue) {
+	            var collectionManager = getContext().getCollection();
+	            collectionManager.createDocument(
+	                collectionManager.getSelfLink(),
+	                docToCreate,
+	                function(err, docCreated) {
+	                  if(err) throw new Error('Error:  ' + err.message);
+	                  docCreated[addedPropertyName] = addedPropertyValue;
+	                  getContext().getResponse().setBody(docCreated);
+	                });
+	        }
+	}
 
 
-##Riferimenti
+La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs. Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
 
-- JSON [http://www.json.org/](http://www.json.org/) 
-- JavaScript ECMA-262 [http://www.ecma-international.org/publications/standards/Ecma-262.htm ](http://www.ecma-international.org/publications/standards/Ecma-262.htm )
--	JavaScript - Sistema di tipi JSON [http://www.json.org/js.html](http://www.json.org/js.html) 
--	Estendibilità dei database sicura e portatile - [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) 
--	Architettura di database orientata ai servizi - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	Hosting del runtime .NET in Microsoft SQL Server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
+	POST https://<url>/sprocs/<sproc> HTTP/1.1
+	authorization: <<auth>>
+	x-ms-date: Thu, 07 Aug 2014 03:43:20 GMT
+	
+	
+	[ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
-<!--HONumber=49--> 
+
+In questo caso, l'input nella stored procedure viene passato al corpo della richiesta. Notare che l'input viene passato come matrice JSON dei parametri di input. La stored procedure accetta il primo input come documento che rappresenta il corpo della risposta. Il formato della risposta ricevuta è il seguente:
+
+	HTTP/1.1 200 OK
+	 
+	{ 
+	  name: 'TestDocument',
+	  book: ‘Autumn of the Patriarch’,
+	  id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+	  ts: 1407830727,
+	  self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
+	  etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
+	  attachments: ‘attachments/’,
+	  Price: 200
+	}
+
+
+A differenza delle stored procedure, non è possibile eseguire direttamente i trigger, che vengono però eseguiti come parte di un'operazione o di un documento. È possibile specificare i trigger da eseguire con una richiesta usando le intestazioni HTTP. Di seguito è riportata una richiesta per creare un documento.
+
+	POST https://<url>/docs/ HTTP/1.1
+	authorization: <<auth>>
+	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
+	x-ms-documentdb-pre-trigger-include: validateDocumentContents 
+	x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
+	
+	
+	{
+	   "name": "newDocument",
+	   “title”: “The Wizard of Oz”,
+	   “author”: “Frank Baum”,
+	   “pages”: 92
+	}
+
+
+In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'intestazione x-ms-documentdb-pre-trigger-include. Di conseguenza, qualsiasi post-trigger viene indicato nell'intestazione x-ms-documentdb-post-trigger-include. Notare che è possibile specificare sia pre-trigger sia post-trigger per una determinata richiesta.
+
+## Codice di esempio
+
+È possibile trovare ulteriori esempi di codice lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) sul nostro [archivio Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+
+Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull!
+
+## Passaggi successivi
+
+Quando si dispone di uno o più stored procedure, trigger e funzioni definite dall'utente create, è possibile caricarli e visualizzarli nel portale di anteprima di Azure utilizzando Esplora Script. Per maggiori informazioni, vedere [Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB](documentdb-view-scripts.md).
+
+È inoltre possibile trovare i seguenti riferimenti e risorse utili per il percorso per ulteriori informazioni sulla programmazione sul lato server DocumentDB:
+
+- [Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [JSON](http://www.json.org/) 
+- [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+-	[JavaScript - sistema di tipi JSON](http://www.json.org/js.html) 
+-	[Estensibilità di Database protette e portatile](http://dl.acm.org/citation.cfm?id=276339) 
+-	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+-	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
+
+<!---HONumber=July15_HO3-->

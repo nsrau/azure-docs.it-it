@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app per le API con un nuovo gateway
@@ -24,7 +24,7 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 
 Per ulteriori informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Per il modello completo, vedere il [modello di app per le API con un nuovo gateway](../../templates/app-service-api-arm-new-gateway-provision/).
+Per il modello completo, vedere il [modello di app per le API con un nuovo gateway](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## Elementi distribuiti
 
@@ -34,11 +34,30 @@ In questo modello verrà distribuito quanto segue:
 - nuovo gateway
 - nuovo piano di servizio app
 
+Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
+
+[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
+
 ## Parametri
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+Impostazioni per il nuovo piano di hosting.
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
-## Variables
+## Variabili
 
 Questo modello consente di definire una variabile usata durante la distribuzione delle risorse.
 
@@ -72,7 +91,7 @@ Consente di creare il piano di hosting del servizio per l'app per le API.
 
 Consente di creare un'app Web che ospita il gateway.
 
-Si noti che **kind** è impostato su **gateway** in modo da indicare al portale di Azure che questa app Web ospita un gateway. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. Viene definito un collegamento tra l'app di hosting e il gateway. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API.
+Si noti che **kind** è impostato su **gateway** in modo da indicare al portale di Azure che questa app Web ospita un gateway. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. Viene definito un collegamento tra l'app Web di hosting e il gateway. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API.
 
 
     {
@@ -159,7 +178,7 @@ L'app Web di hosting viene definita come una proprietà del gateway.
 
 Consente di creare un'app Web che ospita l'app per le API.
 
-Si noti che **kind** è impostato su **apiApp** in modo da indicare al portale di Azure che questa app Web ospita un gateway. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. L'app include un'estensione per installare il pacchetto dell'app per le API vuoto predefinito. Viene definito un collegamento tra l'app per le API e l'app Web di hosting. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API.
+Si noti che **kind** è impostato su **apiApp** in modo da indicare al portale di Azure che questa app Web ospita un'app per le API. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. L'app include un'estensione per installare il pacchetto dell'app per le API vuoto predefinito. Viene definito un collegamento tra l'app per le API e l'app Web di hosting. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -272,13 +291,13 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Interfaccia della riga di comando di Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights per app Web JavaScript
@@ -44,7 +44,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
-* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared_Layout.cshtml
+* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\_Layout.cshtml
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
@@ -135,11 +135,15 @@ Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Selezionare qualsiasi evento per visualizzare altri dettagli.
+Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
 > [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
 
 > [Altre informazioni sulla ricerca diagnostica][diagnostic]
+
+### Proprietà delle visualizzazioni di pagina
+
+* **Durata della visualizzazione di pagina:** tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso. 
 
 ## Traccia dell'utilizzo personalizzato
 
@@ -177,4 +181,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

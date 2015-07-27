@@ -86,7 +86,7 @@ Nel portale è possibile gestire le funzionalità specifiche delle app per le AP
 
 	![][deployment-credentials]
 
-1. Nel pannello **Host app per le API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
+1. Nel pannello **Host app API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
 
 2. Copiare l'URL. Questa informazione sarà necessaria in uno dei passaggi successivi dell'esercitazione.
 
@@ -270,4 +270,4 @@ Per provare questa app per le API di esempio, usare il servizio di [prova del se
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

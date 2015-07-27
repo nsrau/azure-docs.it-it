@@ -98,18 +98,18 @@ L'eventuale presenza di tipi non supportati nel database in uso non costituisce 
 
 Invece di:
 
-- **geometry**, usare un tipo varbinary
+- **geometry**, usare un tipo varbinary.
 - **geography**, usare un tipo varbinary
 - **hierarchyid**, tipo CLR non nativo
 - **image**, **text**, **ntext**, quando è basato su testo, usare varchar/nvarchar (il valore inferiore offre prestazioni migliori)
 - **nvarchar(max)**, usare varchar(4000) o un valore inferiore per prestazioni migliori
-- **numeric**, usare decimal
-- **sql_variant**, dividere la colonna in più colonne fortemente tipizzate
-- **sysname**, usare nvarchar(128)
-- **table**, convertire in tabelle temporanee
+- **numeric**, usare decimal.
+- **sql_variant**, dividere la colonna in più colonne fortemente tipizzate.
+- **sysname**, usare nvarchar(128).
+- **table**, convertire in tabelle temporanee.
 - **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare BINARY(8) o VARBINARY(8) per i valori di versione di riga NOT NULL o NULL.
 - **varchar(max)**, usare varchar(8000) o un valore inferiore per prestazioni migliori
-- **uniqueidentifier**, usare varbinary(8)
+- **uniqueidentifier**, usare varbinary(8).
 - **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile
 - **xml**, usare varchar(8000) o un valore inferiore per prestazioni migliori; dividere tra più colonne se necessario
 
@@ -295,7 +295,7 @@ SQL Data Warehouse non usa o non supporta le funzionalità seguenti:
 
 
 ## Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -306,4 +306,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

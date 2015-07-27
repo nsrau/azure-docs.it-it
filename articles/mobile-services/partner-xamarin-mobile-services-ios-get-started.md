@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
@@ -98,6 +98,8 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
+* [iniziare a usare i dati]<br/>informazioni su come aggiungere una nuova tabella a un servizio mobile, quindi leggere e scrivere in tale tabella.
+
 * [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
@@ -122,15 +124,14 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Introduzione alla sincronizzazione dei dati offline]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[iniziare a usare i dati]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Introduzione alla sincronizzazione dei dati offline]: mobile-services-xamarin-ios-get-started-offline-data.md
+[Introduzione all'autenticazione]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Introduzione alle notifiche push]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

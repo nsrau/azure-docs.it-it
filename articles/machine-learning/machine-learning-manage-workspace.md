@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -51,10 +51,10 @@ Fare clic sulla scheda **DASHBOARD**.
 Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavoro e ottenere un riepilogo rapido delle informazioni dell'area di lavoro.
 
 - Il grafico **COMPUTE** mostra le risorse di calcolo in uso nell'area di lavoro. È possibile modificare la visualizzazione per mostrare i valori relativi o assoluti, nonché cambiare l'intervallo di tempo visualizzato nel grafico.
-- **Usage overview** mostra l'archiviazione di Azure attualmente in uso nell'area di lavoro. Nota: il monitoraggio dell'archiviazione non è disponibile durante l'anteprima pubblica di Azure Machine Learning.
+- **Usage overview** mostra l'archiviazione di Azure attualmente in uso nell'area di lavoro.
 - **Quick glance** visualizza un riepilogo delle informazioni dell'area di lavoro e collegamenti utili.
 
-> [AZURE.NOTE]Il collegamento **APRI IN STUDIO** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
+> [AZURE.NOTE]Il link all’**Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
 
 
 ## Per concedere o sospendere l'accesso agli utenti ##
@@ -66,7 +66,7 @@ Dalla scheda di configurazione è possibile:
 - Sospendere l'accesso all'area di lavoro di Machine Learning facendo clic su DENY. Gli utenti non saranno più in grado di aprire l'area di lavoro in Machine Learning Studio. Per ripristinare l'accesso, fare clic su ALLOW.
 - Modificare il proprietario dell'area di lavoro specificando un account Microsoft diverso. 
 
-Per gestire chi può accedere all'area di lavoro in Machine Learning Studio, fare clic su **APRI IN STUDIO** (vedere la nota che riguarda **APRI IN STUDIO**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
+Per gestire utenti che hanno accesso all'area di lavoro in Machine Learning Studio, fare clic su **Accesso a ML Studio** nella scheda **DASHBOARD** (vedere la nota sopra relativa a **Accesso a ML Studio**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
 
 
 ## Per gestire i servizi Web in questa area di lavoro
@@ -94,4 +94,4 @@ Da questa pagina è anche possibile pubblicare il servizio Web nel Marketplace d
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

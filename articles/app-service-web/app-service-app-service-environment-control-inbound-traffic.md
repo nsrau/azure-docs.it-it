@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
@@ -41,6 +41,13 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 - 4016: porta usata per il debug remoto con Visual Studio 2012. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4018: porta usata per il debug remoto con Visual Studio 2013. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
+
+## Requisiti per DNS e connettività in uscita ##
+Si noti che per il corretto funzionamento di un ambiente del servizio app, è anche necessario l'accesso in uscita ad Archiviazione di Azure oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+
+Il cliente potrebbe anche avere configurato server DNS personalizzati nella rete virtuale. Gli ambienti del servizio app devono poter risolvere gli endpoint di Azure in *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net. 
+
+È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo.
 
 ## Creazione di un gruppo di sicurezza di rete ##
 Per i dettagli sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups] seguenti. Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
@@ -123,4 +130,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -32,9 +32,25 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-start-monito
 * Confrontare ApplicationInsights.config con la copia precedente. La maggior parte delle modifiche visualizzate è dovuta al fatto che alcuni moduli sono stati rimossi e altri sono stati resi parametrizzabili. Ripristinare eventuali personalizzazioni apportate al file precedente.
 * Ricompilare la soluzione.
 
+## Versione 1.1
+
+- È stato aggiunto il nuovo tipo di telemetria `DependencyTelemetry`, che può essere usato per inviare informazioni sulle chiamate di dipendenza dall'applicazione, ad esempio chiamate di tipo SQL, HTTP e così via.
+- È stato aggiunto un nuovo metodo di overload `TelemetryClient.TrackDependency` che permette di inviare informazioni sulle chiamate di dipendenza.
+- È stata corretta l'eccezione NullReferenceException generata dal modulo di diagnostica quando si usa TelemetryConfiguration.CreateDefault.
+
+## Versione 1.0
+
+- Gli inizializzatori e i moduli di telemetria sono stati spostati da spazi dei nomi secondari separati allo spazio dei nomi radice `Microsoft.ApplicationInsights.Extensibility.Web`.
+- Il prefisso "Web" è stato rimosso dai nomi degli inizializzatori e dei moduli di telemetria, poiché è già incluso nel nome dello spazio dei nomi `Microsoft.ApplicationInsights.Extensibility.Web`.
+- `DeviceContextInitializer` è stato spostato dall'assembly `Microsoft.ApplicationInsights` all'assembly `Microsoft.ApplicationInsights.Extensibility.Web` ed è stato convertito in un `ITelemetryInitializer`.
+- Cambiare i nomi dello spazio dei nomi e dell'assembly da `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` a `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` per coerenza con il nome del pacchetto NuGet.
+- Rinominare `RemoteDependencyModule` in `DependencyTrackingTelemetryModule`.
+- Rinominare `CustomPerformanceCounterCollectionRequest` in `PerformanceCounterCollectionRequest`.
+
 ## Versione 0.17
 - Rimozione dipendenza EventSource NuGet per le applicazioni del framework 4.5.
-- I cookie di utente e sessione anonimi non verranno generati sul lato server. I moduli di telemetria ```WebSessionTrackingTelemetryModule``` e ```WebUserTrackingTelemetryModule``` non sono più supportati e sono stati rimossi dal file ApplicationInsights.config. Verranno rispettati i cookie provenienti da JavaScript SDK.
+- I cookie di utente e sessione anonimi non verranno generati sul lato server. Per implementare il rilevamento di utenti e sessioni per le app Web, è ora necessaria la strumentazione con JS SDK. I cookie da JavaScript SDK verranno comunque rispettati. I moduli di telemetria ```WebSessionTrackingTelemetryModule``` e ```WebUserTrackingTelemetryModule``` non sono più supportati e sono stati rimossi dal file ApplicationInsights.config. Si noti che questa modifica potrebbe provocare una rideterminazione significativa dei conteggi relativi a utenti e sessioni, poiché vengono ora contate solo le sessioni originate dagli utenti.
+- Il valore OSVersion non viene più popolato dall'SDK per impostazione predefinita. Se vuoti, i valori per OS e OSVersion vengono calcolati dalla pipeline di Application Insights, in base all'agente utente. 
 - Il canale di persistenza ottimizzato per scenari di carico elevato viene usato per l'SDK Web. Problema "spirale della morte" risolto. La "spirale della morte" è una condizione in cui il picco nel numero di elementi di telemetria, che supera in misura significativa la soglia di limitazione sull'endpoint, conduce a nuovi tentativi dopo un determinato periodo di tempo e sarà limitato nuovamente durante i nuovi tentativi.
 - La modalità di sviluppo è ottimizzata per la produzione. Se attivata per errore non causa un sovraccarico importante come in precedenza nel provare a dare un output di informazioni aggiuntive.
 - Per impostazione predefinita, la modalità di sviluppo verrà attivata solo quando l'applicazione è nel debugger. È possibile eseguirne l'override usando la proprietà ```DeveloperMode``` dell'interfaccia ```ITelemetryChannel```.
@@ -58,4 +74,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

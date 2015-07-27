@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="White paper su DocumentDB di David Chappell | Azure" 
+	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Azure" 
 	description="Scaricare un whitepaper di David Chappell relativo a DocumentDB, un database NoSQL gestito in Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# White paper su DocumentDB di David Chappell 
+# Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
 
-**Riepilogo:** informazioni su DocumentDB, un database NoSQL gestito in Microsoft Azure. DocumentDB è la soluzione tecnologica ideale per i database nelle situazioni seguenti:
+Non sono sicuro se DocumentDB è adatto per l'applicazione o i dati? Se si desidera avere informazioni sulle modalità di archiviazione e accesso in DocumentDB dati JSON. In tal caso, questo white paper introduttivo di David Chappell è un buon punto di partenza. Viene illustrato come è possibile usufruire della massima flessibilità che forniscono i dati JSON senza schema, consentendo di gestire facilmente le modifiche alla struttura di dati.
 
-* L'applicazione in uso può trarre beneficio da un modello di dati senza schema.
-* Le dimensioni del database devono essere scalabili per offrire spazio per grandi quantità di memoria e livelli di velocità effettiva elevati.
-* Si vuole usare un linguaggio di query e una piattaforma di sviluppo familiari.
+Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 
-Questo documento affronta inoltre i seguenti concetti fondamentali:
+ - Utilizzare il modello di dati DocumentDB per archiviare i dati JSON in documenti e raccolte all'interno di un database. 
+ - Lavorare sui dati utilizzando le librerie client, i metodi di accesso RESTful o DocumentDB SQL. 
+ - Esecuzione della regola dal database stesso scrivendo stored procedure (sprocs), trigger o funzioni definite dall'utente (UDF) e memorizzandoli nella raccolta.
+ - Scegliendo un'opzione di coerenza per soddisfare le esigenze di affidabilità e prestazioni dell'applicazione.
+ - Se si seleziona un'opzione di pagamento in base ai requisiti di velocità effettiva.
 
-* Il modello di dati di DocumentDB.
-* Le modalità d'uso dei dati da parte delle applicazioni.
-* Le opzioni che permettono alle applicazioni di mantenere un equilibrio tra prestazioni e coerenza.
+**Download PDF:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
+ 
 
-
-**Data di pubblicazione:** 10 settembre 2014
-
-**Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

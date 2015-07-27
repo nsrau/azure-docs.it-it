@@ -26,6 +26,7 @@ In breve, la funzionalità Ambiente del servizio app distribuisce il servizio ap
 
 - Una rete virtuale regionale con oltre 512 (/23) o più indirizzi
 - Una subnet all'interno della rete virtuale con oltre 256 (24) più indirizzi
+- La subnet**non deve contenere altre risorse di calcolo**. In una subnet può essere distribuito un solo ambiente di servizi app. Il tentativo di creazione non riesce se sono presenti altre risorse di calcolo che si trovano già nella subnet.
 
 Se non si ha già una rete virtuale da usare per ospitare l'ambiente del servizio app, è possibile crearne una al momento della creazione dell'ambiente del servizio app.
 
@@ -142,4 +143,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

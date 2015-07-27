@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,17 @@ Per informazioni sugli obiettivi di capacità e prestazioni dell'account di arch
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. In **URL** immettere un nome per l'account di archiviazione. I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure.
+3. In **URL** immettere un nome per l'account di archiviazione.
+	
+	> [AZURE.NOTE]I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole.
+	>  
+	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale indica se il nome di account di archiviazione selezionato è già in uso.
+
+	Vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure.
 
 4. In **Località/gruppo di affinità** selezionare una località per l'account di archiviazione vicina all'utente o ai clienti. Se i dati di un account di archiviazione saranno accessibili da un altro servizio di Azure, come una macchina virtuale o un servizio cloud di Azure, potrebbe essere necessario selezionare un gruppo di affinità nell'elenco per raggruppare l'account di archiviazione nello stesso data center con altri servizi di Azure usati per migliorare le prestazioni e ridurre i costi.
 
-	> [AZURE.NOTE]Tenere presente che è necessario selezionare un gruppo di affinità quando l'account di archiviazione viene creato. Non è possibile spostare un account esistente in un gruppo di affinità.
-
-	Per informazioni dettagliate sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
+	Tenere presente che è necessario selezionare un gruppo di affinità quando l'account di archiviazione viene creato. Non è possibile spostare un account esistente in un gruppo di affinità. Per informazioni dettagliate sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
 
 5. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione. È possibile creare fino a cinque account di archiviazione per una sottoscrizione.
 
@@ -163,4 +167,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

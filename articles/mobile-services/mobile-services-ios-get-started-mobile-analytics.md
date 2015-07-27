@@ -102,4 +102,4 @@ Per altre informazioni sui vantaggi offerti da Capptain per la propria app, visi
 [Livello standard di Servizi mobili]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

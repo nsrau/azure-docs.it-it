@@ -117,4 +117,4 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
  [Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

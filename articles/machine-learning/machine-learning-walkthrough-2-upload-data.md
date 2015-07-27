@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -62,7 +62,7 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine L
 2.	Fare clic su **+NEW** nella parte inferiore della finestra.
 3.	Selezionare **DATASET**.
 4.	Selezionare **FROM LOCAL FILE**.
-5.	Nell'area **Upload a new dataset dialog** fare clic su **Browse** e trovare il file **german.csv** creato.
+5.	Nella **finestra di dialogo Carica un nuovo set di dati** fare clic su **Sfoglia** e individuare il file **german.csv** creato
 6.	Immettere un nome per il set di dati. Per questo esempio il nome sarà "UCI German Credit Card Data".
 7.	Come tipo di dati selezionare **Generic CSV File With no header (.nh.csv)**.
 8.	Aggiungere un'eventuale descrizione.
@@ -80,4 +80,4 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

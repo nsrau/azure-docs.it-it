@@ -192,4 +192,4 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
   [Configurazione di SSL per un'applicazione Node.js in un ruolo di lavoro di Azure]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

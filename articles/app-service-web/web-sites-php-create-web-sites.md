@@ -89,7 +89,7 @@ Dopo aver creato un'app Web PHP nel servizio app di Azure, è possibile eseguirv
 Per le esercitazioni complete, visitare la pagina delle [esercitazioni nel Centro per sviluppatori di PHP](/develop/php/tutorials/).
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al portale di anteprima, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
@@ -103,4 +103,4 @@ Per le esercitazioni complete, visitare la pagina delle [esercitazioni nel Centr
 [Scalare un'app Web nel servizio app di Azure]: web-sites-scale.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

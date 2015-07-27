@@ -106,7 +106,7 @@ Per altre informazioni sui dati che vengono usati per la reimpostazione delle pa
 
     ![][008]
 
-3.	Dopo aver specificato queste informazioni, la pagina (offuscata nella figura seguente) verrà aggiornata indicando che le informazioni sono valide. Quando l'utente fa clic sul pulsante **Fine** o **Annulla**, viene visualizzato il pannello di accesso.
+3.	Dopo aver specificato queste informazioni, la pagina (offuscata nella figura seguente) verrà aggiornata indicando che le informazioni sono valide. Quando l'utente fa clic sui pulsanti **Fine** o **Annulla**, viene visualizzato il pannello di accesso.
 
     ![][009]
 
@@ -134,7 +134,7 @@ A questo punto, dopo aver configurato i criteri di reimpostazione della password
 
     ![][014]
 
-5.	Dopo la conferma del numero di telefono, quando l'utente fa clic sul pannello di chiamata verrà visualizzato un indicatore di avanzamento e il telefono dell'utente inizierà a squillare. Quando l'utente risponde al telefono, verrà riprodotto un messaggio in cui si invita a **premere "#"** per verificare l'account. Premendo questo tasto si verificherà che l'utente ha superato il primo test e può passare all'interfaccia utente per eseguire il secondo passaggio di verifica.
+5.	Dopo la conferma del numero di telefono, quando l'utente fa clic sul pannello di chiamata verrà visualizzato un indicatore di avanzamento e il telefono dell'utente inizierà a squillare. Quando l'utente risponde al telefono, verrà riprodotto un messaggio in cui si invita l’utente a **premere "#"** per verificare l'account. Premendo questo tasto si verificherà che l'utente ha superato il primo test e può passare all'interfaccia utente per eseguire il secondo passaggio di verifica.
 
     ![][015]
 
@@ -194,7 +194,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Per verificare la versione di Azure AD Sync
-1.	Passare a **%Programmi%\Azure Active Directory Sync**. 2.	Trovare il file eseguibile **ConfigWizard.exe**.
+1.	Passare a **%Programmi%\\Azure Active Directory Sync**. 2.	Trovare il file eseguibile **ConfigWizard.exe**.
 3.	Fare clic con il pulsante destro del mouse sul file eseguibile e scegliere **Proprietà** dal menu di scelta rapida.
 4.	Fare clic sulla scheda **Dettagli**.
 5.	Trovare il campo **Versione file**.
@@ -342,4 +342,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -29,4 +29,4 @@ Tutti i controller del progetto sono dotati dell'attributo **Authorize**. Questo
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

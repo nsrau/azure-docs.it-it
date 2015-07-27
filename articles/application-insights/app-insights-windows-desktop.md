@@ -26,7 +26,7 @@ Application Insights consente di monitorare un'applicazione distribuita in base 
 Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di base di Application Insights. Tale SDK fornisce il supporto API completo per tutti i dati di telemetria ma non offre la funzionalità di raccolta automatica di questi dati.
 
 
-## <a name="add"></a> Creare una risorsa Application Insights
+## <a name="add"></a> Creare una risorsa di Application Insights
 
 
 1.  Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Come tipo di applicazione scegliere l'app di Windows Store. 
@@ -37,31 +37,26 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
 2.  Eseguire una copia della chiave di strumentazione.
 
-    ![Fare clic su Proprietà, selezionare il tasto e premere Ctrl+C](./media/app-insights-windows-desktop/02-props.png)
+    ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>Installare SDK nell'applicazione
 
 
-1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop. ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti Nuget](./media/app-insights-windows-desktop/03-nuget.png)
+1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop. ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Installare il pacchetto di Application Insights SDK.
 
     ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
+3. Impostare il valore InstrumentationKey nel codice tramite l'oggetto `TelemetryConfiguration.Active`.
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    In alternativa è possibile ottenere lo stesso effetto con il codice seguente:
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>Inserire le chiamate di telemetria
 
 Creare un'`TelemetryClient` istanza e quindi [usarla per inviare dati di telemetria][api].
 
-Usare `TelemetryClient.Flush()` per inviare messaggi prima di chiudere l'app L’SDK di base utilizza un buffer in memoria. Il metodo flush garantisce che questo buffer venga svuotato e che non si verifichi alcuna perdita di dati all'arresto del processo. (Non è consigliato per altri tipi di app. Gli SDK delle piattaforme implementano questo comportamento automaticamente).
+Usare `TelemetryClient.Flush()` per inviare messaggi prima di chiudere l'app L’SDK di base usa un buffer in memoria. Il metodo flush garantisce che questo buffer venga svuotato e che non si verifichi alcuna perdita di dati all'arresto del processo. (Non è consigliato per altri tipi di app. Gli SDK delle piattaforme implementano questo comportamento automaticamente).
 
 Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
@@ -178,4 +173,4 @@ Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire l'[
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

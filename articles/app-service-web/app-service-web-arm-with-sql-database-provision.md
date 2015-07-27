@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app Web con un database SQL
@@ -24,7 +24,7 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 
 Per altre informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
 
-Per il modello completo, vedere [Modello di app Web con database SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
+Per il modello completo, vedere [Modello di app Web con database SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 ## Elementi distribuiti
 
@@ -36,6 +36,10 @@ In questo modello, verrà distribuito quanto segue:
 - Impostazioni di scalabilità automatica
 - Regole di avviso
 - Informazioni sull'app
+
+Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
+
+[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parametri da specificare
 
@@ -101,12 +105,16 @@ Il tipo di database da creare.
 
 ### maxSizeBytes
 
+Dimensione massima, in byte, per il database.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+GUID corrispondente al livello di prestazioni per l'edizione. Per un elenco di valori disponibili, vedere [Create database](https://msdn.microsoft.com/library/azure/dn505701.aspx). Il valore predefinito corrisponde al livello di prestazioni Web.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
 ### App Web
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Interfaccia della riga di comando di Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

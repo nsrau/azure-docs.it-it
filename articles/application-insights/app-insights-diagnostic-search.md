@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
@@ -81,6 +81,12 @@ In questo esempio è evidente che la richiesta `Reports/Employees` produce la ma
 
 Se si vuole vedere anche quali altri eventi si sono verificati durante questo periodo, è possibile controllare **Includi eventi con proprietà non definite**.
 
+## Rimuovere il traffico di bot e test Web
+
+Usare il filtro **Traffico reale o sintetico** e selezionare **Reale**.
+
+È possibile anche filtrare in base a **Origine del traffico sintetico**.
+
 ## Esaminare le singole occorrenze
 
 Aggiungere il nome della richiesta al filtro impostato e quindi è possibile esaminare le singole occorrenze dell'evento.
@@ -89,7 +95,7 @@ Aggiungere il nome della richiesta al filtro impostato e quindi è possibile esa
 
 Per gli eventi di richiesta i dettagli mostrano le eccezioni che si sono verificate durante l'elaborazione della richiesta.
 
-Fare clic su un'eccezione per visualizzare i relativi dettagli.
+Fare clic su un'eccezione per visualizzare i relativi dettagli, inclusa l'analisi dello stack.
 
 ![Fare clic su un'eccezione](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -192,4 +198,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

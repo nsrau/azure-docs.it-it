@@ -71,4 +71,4 @@ Tenere presente che in questo momento non sono supportate alcune distribuzioni d
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio. 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

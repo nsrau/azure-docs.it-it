@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="07/01/2015"
 	ms.author="stepsic"/>
 
 #Monitorare le app per la logica
@@ -37,17 +37,23 @@ Il pannello dei dettagli mostra un grafico con l'ora e la sequenza di esecuzione
 
 ![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
-Infine, su una particolare azione, è possibile ottenere tutti i dati passati all'azione e ricevuti dall'azione nelle sezioni **Input** e **Output**.
+Infine, su una particolare azione, è possibile ottenere tutti i dati passati all'azione e ricevuti dall'azione nelle sezioni **Input** e **Output**. Fare clic sui collegamenti per visualizzare il contenuto completo (è anche possibile copiare i collegamenti per scaricare il contenuto).
 
 Un'altra informazione importante è l'**ID di traccia**. Questo identificatore viene passato alle intestazioni di tutte le chiamate delle azioni. Se all'interno del proprio servizio è prevista la registrazione, è consigliabile registrare l'ID di traccia, quindi eseguire un controllo incrociato dei propri log con questo identificatore.
 
-##Cronologia e controllo delle versioni dei trigger
+##Cronologia di attivazione 
 
-Vi sono poi due ulteriori funzionalità, non ancora disponibili nell'interfaccia utente, ma disponibili tramite l'[API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+I trigger di polling verificano l'API in base a un determinato intervallo, ma non avviano necessariamente un'esecuzione, a seconda della risposta (ad esempio, `200` indica di avviare l'esecuzione e `202` di non avviarla). La cronologia di attivazione consente di visualizzare tutte le chiamate eseguite, ma che non eseguono l'app per la logica (le risposte `202`).
 
-1. **Cronologia di attivazione**: i trigger di polling verificano l'API in base a un determinato intervallo, ma non avviano necessariamente un'esecuzione, a seconda della risposta (ad esempio, `200` significa che è necessario avviare l'esecuzione, mentre`202` che non è necessario). La cronologia di attivazione consente di visualizzare tutte le chiamate eseguite, ma che non eseguono l'app per la logica (le risposte `202`).
+![Cronologia di attivazione](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
-2. **Versioni precedenti**: quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Ciò avviene perché se un'esecuzione è già in corso farà riferimento alla versione dell'app per la logica che esisteva all'avvio dell'esecuzione. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
+Per ogni trigger è possibile vedere se è stato **Attivato**, se non è stato attivato o se si è verificato un errore (**Non riuscito**). Per esaminare il motivo per cui il trigger non è riuscito , è possibile fare clic sul collegamento **Output**. Se è stato attivato, fare clic sul collegamento **Esecuzione** per visualizzarne i dettagli.
+
+Si noti che per i trigger *Push* *non* sarà possibile vedere quante volte sono state avviate le esecuzioni. Saranno invece visibili le chiamate di *registrazione del callback*, ovvero la registrazione effettuata dall'app per la logica per essere richiamata. Se il trigger di push non funziona, potrebbe trattarsi di un problema di registrazione (visibile in Output). Diversamente, potrebbe essere necessario esaminare l'API in modo specifico.
+
+##Controllo delle versioni
+
+È disponibile una funzionalità aggiuntiva, non ancora utilizzabile nell'interfaccia utente ma disponibile tramite l'[API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Ciò avviene perché se un'esecuzione è già in corso farà riferimento alla versione dell'app per la logica che esisteva all'avvio dell'esecuzione. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

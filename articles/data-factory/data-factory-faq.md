@@ -107,16 +107,14 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 ## Attività di copia - Domande frequenti
 ### D: Quali aree sono supportate dall'attività di copia?
 
-L'attività di copia supporta la copia di dati nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale e Asia sudorientale.
+Supporta Attività di Copia che permette di copiare dati nelle aree seguenti: Stati Uniti orientali, 2 Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centrale, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Asia Sud orientale, Giappone orientale e Brasile meridionale.
 
 È supportata anche la copia di dati in altre aree, purché venga usata una delle aree sopra indicate per il routing dei dati. Il consumo dell'operazione di copia viene misurato in base all'area geografica attraverso la quale i dati vengono reindirizzati.
 
 Area di destinazione della copia | Area usata per il routing
 -------------------------- | -----------------------
 Asia orientale | Asia sudorientale
-Giappone orientale | Stati Uniti occidentali
-Giappone occidentale | Stati Uniti occidentali
-Brasile meridionale | Stati Uniti orientali 2
+Giappone occidentale | Giappone orientale
 
 ### In che modo è possibile eseguire la copia in più tabelle di output?
 È possibile avere più tabelle di output in una pipeline, come illustrato nell'esempio seguente:
@@ -217,4 +215,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

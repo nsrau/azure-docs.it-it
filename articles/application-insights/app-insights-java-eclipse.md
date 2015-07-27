@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Introduzione ad Application Insights con Java in Eclipse
@@ -100,9 +100,17 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
 ## Telemetria sul lato client
 
-Dal riquadro Avvio rapido nel pannello Panoramica, è possibile ottenere uno script da aggiungere alle pagine Web.
+Dal pannello Avvio rapido fare clic su Recupera codice per monitorare le pagine Web:
 
-Le metriche di visualizzazioni pagine, utenti e sessioni verranno visualizzate nel pannello Panoramica:
+![Nel pannello di panoramica delle app, scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web. Copiate lo script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Inserire il frammento di codice nella parte iniziale dei file HTML.
+
+#### Visualizzare i dati lato client
+
+Aprire le pagine Web aggiornate e usarle. Attendere uno o due minuti, quindi tornare ad Application Insights e aggiornare il pannello Utilizzo.
+
+Le metriche di visualizzazioni pagine, utenti e sessioni verranno visualizzate nel pannello Utilizzo:
 
 ![Sessioni, utenti e visualizzazioni pagina](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ Le metriche di visualizzazioni pagine, utenti e sessioni verranno visualizzate n
 
 ## Test Web di disponibilità
 
-Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. Selezionare il grafico del test Web vuoto nel pannello Panoramica e fornire l'URL pubblico.
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. Per eseguire la configurazione, selezionare il grafico del test Web vuoto nel pannello Panoramica e fornire l'URL pubblico.
 
 Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché notifiche di posta elettronica.
 
@@ -156,9 +164,9 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

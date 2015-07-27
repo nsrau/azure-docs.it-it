@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2015"
+   ms.date="06/30/2015"
    ms.author="bwren" />
 
 # Pianificazione di un runbook in Automazione di Azure
@@ -96,4 +96,4 @@ I comandi di esempio seguenti mostrano come disabilitare una pianificazione.
 - [Asset di tipo pianificazione in Automazione di Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

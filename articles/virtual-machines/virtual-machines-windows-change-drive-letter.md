@@ -67,4 +67,4 @@ Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

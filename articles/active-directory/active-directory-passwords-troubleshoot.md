@@ -19,7 +19,7 @@
 # Come risolvere i problemi relativi alla gestione delle password
 Questo articolo fornisce informazioni su come risolvere i problemi relativi alla gestione delle password. È possibile risolvere la maggior parte dei problemi che potrebbero verificarsi con i pochi semplici passaggi illustrati di seguito, che spiegano come risolvere i problemi della distribuzione:
 
-* [**Informazioni da includere quando è necessaria assistenza**](#information-to-include-when-you-need-help)
+* [**Informazioni da includere quando è necessaria l’assistenza**](#information-to-include-when-you-need-help)
 * [**Problemi relativi alla configurazione di gestione delle password nel portale di gestione di Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
 * [**Problemi relativi ai report di gestione delle password nel portale di gestione di Azure**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
 * [**Problemi relativi al portale di registrazione per la reimpostazione della password**](#troubleshoot-the-password-reset-registration-portal)
@@ -28,22 +28,22 @@ Questo articolo fornisce informazioni su come risolvere i problemi relativi alla
   - [Codici errore del registro eventi di writeback della password](#password-writeback-event-log-error-codes)
   - [Problemi relativi alla connettività di writeback della password](#troubleshoot-password-writeback-connectivity)
 
-Se dopo aver eseguito il passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o contattare il personale del supporto tecnico che analizzerà il problema il prima possibile.
+Se dopo aver eseguito i passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o contattare il personale del supporto tecnico che analizzerà il problema il prima possibile.
 
 ## Informazioni da includere quando è necessaria assistenza
 
-Se non è possibile risolvere il problema con le indicazioni fornite di seguito, contattare il personale del supporto tecnico. In questo caso, è consigliabile includere le informazioni seguenti:
+Se non è possibile risolvere il problema con le indicazioni fornite di seguito, è possibile contattare il personale del supporto tecnico. Al momento di contattarli, è consigliabile includere le informazioni seguenti:
 
- - **Descrizione generale dell'errore**: qual è stato il messaggio di errore visualizzato? Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
+ - **Descrizione generale dell'errore**: qual è esattamente il messaggio di errore visualizzato? Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
  - **Pagina**: in quale pagina ci si trovava quando è stato visualizzato l'errore? (Includere l'URL)
- - **Data/ora/fuso orario**: quando (ora e data) è stato visualizzato l'errore? (Includere il fuso orario)
- - **Codice di supporto**: qual è stato il codice di supporto generato quando è stato visualizzato l'errore? (Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermata e inviare al personale del supporto tecnico il GUID risultante). 
-   - Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca per SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
+ - **Data /Ora/ Fuso orario** - quando (ora e data) è stato visualizzato l'errore? (Includere il fuso orario)
+ - **Codice di supporto** - qual è stato il codice di supporto generato quando è stato visualizzato l'errore? (Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermata e inviare al personale del supporto tecnico il GUID risultante). 
+   - Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
 
     ![][001]
 
- - **ID utente**: qual è l'ID dell'utente che ha visualizzato l'errore (ad esempio user@contoso.com)?
- - **Informazioni sull'utente**: si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud? All'utente è assegnata una licenza AAD Premium o AAD Basic?
+ - **ID utente** - qual è l'ID dell'utente che ha visualizzato l'errore (ad esempio user@contoso.com)?
+ - **Informazioni sull'utente** - si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud? All'utente è assegnata una licenza AAD Premium o AAD Basic?
  - **Registro eventi dell'applicazione**: se si usa il writeback della password e l'errore si verifica nell'infrastruttura locale, comprimere una copia del registro eventi dell'applicazione dal server Azure AD Connect e inviarla insieme alla richiesta.
 
 Queste informazioni consentiranno di risolvere il problema nel più breve tempo possibile.
@@ -305,7 +305,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password.</p>
             </td>
             <td>
-              <p>Prima di procedere verificare che per l'utente siano disponibili almeno due metodi di contatto configurati correttamente, ad esempio Cellulare e Telefono ufficio. Vedere <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a> per informazioni su come configurare le informazioni di autenticazione nella directory in modo che non venga visualizzato questo errore.</p>
+              <p>Prima di procedere verificare che per l'utente siano disponibili almeno due metodi di contatto configurati correttamente, (ad esempio Cellulare e Telefono ufficio). Vedere <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a> per informazioni su come configurare le informazioni di autenticazione nella directory in modo che non venga visualizzato questo errore.</p>
             </td>
           </tr>
           <tr>
@@ -316,7 +316,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Errore imprevisto durante il tentativo di contattare l'utente.</p>
             </td>
             <td>
-              <p>Questo errore può essere causato da un problema temporaneo del servizio o da dati di contatto configurati in modo errato che non sono stati rilevati correttamente. Se l'utente attende 10 secondi, verrà visualizzato un messaggio in cui si chiede di riprovare, con un collegamento per contattare l'amministratore. Facendo clic sull'opzione per riprovare, la chiamata verrà nuovamente inviata, mentre facendo clic sul collegamento per contattare l'amministratore verrà inviato tramite posta elettronica agli amministratori utenti, password o globali (in tale ordine di precedenza) un modulo per richiedere la reimpostazione della password per tale account utente.</p>
+              <p>Questo errore può essere causato da un problema temporaneo del servizio o da dati di contatto configurati in modo errato che non sono stati rilevati correttamente. Se l'utente attende 10 secondi, verrà visualizzato un messaggio in cui si chiede di riprovare, con un collegamento per «contattare l'amministratore». Facendo clic sull'opzione per riprovare, la chiamata verrà nuovamente inviata, mentre facendo clic sul collegamento per «contattare l'amministratore» verrà inviato tramite posta elettronica agli amministratori utenti, password o globali (in tale ordine di precedenza) un modulo per richiedere la reimpostazione della password per tale account utente.</p>
             </td>
           </tr>
           <tr>
@@ -333,7 +333,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
           </tr>
           <tr>
             <td>
-              <p>L'utente non riceve il messaggio di posta elettronica relativo alla reimpostazione della password</p>
+              <p>L'utente non riceve mai il messaggio di posta elettronica relativo alla reimpostazione della password</p>
             </td>
             <td>
               <p>L'utente fa clic su "Invia messaggio di posta elettronica all'utente", ma non riceve mai il messaggio.</p>
@@ -372,11 +372,11 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Per impedire agli utenti di provare a reimpostare le password troppe volte in un breve intervallo di tempo, viene applicato un meccanismo di limitazione automatico. Il meccanismo viene applicato quando:</p>
               <ol class="ordered">
                 <li>
-										L'utente tenta di convalidare un numero di telefono cinque volte in un'ora.&lt;br>&lt;br></li>
+										L'utente tenta di convalidare un numero di telefono 5 volte in un'ora.&lt;br>&lt;br></li>
                 <li>
-										L'utente tenta di usare il controllo per le domande di sicurezza cinque volte in un'ora.&lt;br>&lt;br></li>
+										L'utente tenta di usare il controllo per le domande di sicurezza 5 volte in un'ora.&lt;br>&lt;br></li>
                 <li>
-										L'utente tenta di reimpostare una password per lo stesso account utente cinque volte in un'ora.&lt;br>&lt;br></li>
+										L'utente tenta di reimpostare una password per lo stesso account utente 5 volte in un'ora.&lt;br>&lt;br></li>
               </ol>
               <p>Per correggere l'errore, chiedere all'utente di attendere 24 ore dopo l'ultimo tentativo, dopodiché sarà in grado di reimpostare la password.</p>
             </td>
@@ -551,7 +551,7 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Errore durante la configurazione del writeback della password dalla configurazione guidata di Azure AD Connect </p>
             </td>
             <td>
-              <p>Errore relativo all'impossibilità di individuare l'agente di gestione nella procedura guidata durante l'abilitazione/disabilitazione del writeback della password.</p>
+              <p>Errore relativo all’«impossibilità di individuare l'agente di gestione» nella procedura guidata durante l'abilitazione/disabilitazione del writeback della password.</p>
             </td>
             <td>
               <p>C'è un bug noto nella versione rilasciata di Azure AD Connect che si manifesta nella situazione seguente:</p>
@@ -1212,7 +1212,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Per monitorare l'integrità del servizio di writeback della password, vengono inviati dati heartbeat al servizio Web di reimpostazione della password ogni cinque minuti. Questo evento indica che si è verificato un errore durante l'invio delle informazioni sull'integrità al servizio Web cloud. Le informazioni sull'integrità non includono dati OII o PII. Sono semplicemente un heartbeat e statistiche di base del servizio per poter fornire informazioni sullo stato del servizio nel cloud.</p>
+              <p>Per monitorare l'integrità del servizio di writeback della password, vengono inviati dati heartbeat al servizio Web di reimpostazione della password ogni 5 minuti. Questo evento indica che si è verificato un errore durante l'invio delle informazioni sull'integrità al servizio Web cloud. Le informazioni sull'integrità non includono dati OII o PII. Sono semplicemente un heartbeat e statistiche di base del servizio per poter fornire informazioni sullo stato del servizio nel cloud.</p>
             </td>
           </tr>
           <tr>
@@ -1485,4 +1485,4 @@ Se anche in questo modo il problema non si risolve, vedere [Risolvere i problemi
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

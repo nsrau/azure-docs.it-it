@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -74,7 +74,7 @@ La data e ora sono UTC e lo sono quando i dati di telemetria sono stati deposita
 
 ## <a name="format"></a> Formato dati
 
-* Ogni BLOB è un file di testo che contiene più righe separate da '\n'.
+* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
 * Ogni riga è un documento JSON non formattato. Se si vuole stare seduti e esaminali, usare un visualizzatore, ad esempio Blocco note++ con il plug-in JSON:
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
@@ -160,6 +160,12 @@ L'esportazione continua verrà riavviata.
 
     No. L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.
 
+* *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
+
+ * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.
+ * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso ogni unità crea un BLOB ogni minuto.
+
+
 * *La chiave per la risorsa di archiviazione è stata rigenerata o il nome del contenitore è stato modificato, ma l'esportazione non funziona.*
 
     Modificare l'esportazione e aprire il pannello di destinazione dell'esportazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
@@ -177,4 +183,4 @@ L'esportazione continua verrà riavviata.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

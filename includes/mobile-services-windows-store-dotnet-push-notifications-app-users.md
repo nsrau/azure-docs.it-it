@@ -69,4 +69,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 	
 	Ciò garantisce che l'autenticazione si verifichi prima che venga tentata la registrazione push.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

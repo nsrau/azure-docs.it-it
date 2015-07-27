@@ -3,7 +3,7 @@
    description="Questo argomento illustra il rilevamento dell'elaborazione B2B" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/27/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # Tracciare i messaggi B2B
@@ -45,4 +45,4 @@ X12 e EDIFACT hanno visualizzazioni di rilevamento simili.
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

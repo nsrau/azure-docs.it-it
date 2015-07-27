@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # Come ottenere un tenant di Azure Active Directory
@@ -64,6 +64,5 @@ Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio a
 Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi. Passare a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account aziendale. Al termine della procedura verrà creato il proprio tenant di Azure AD con il nome di dominio scelto durante l'iscrizione. Per trovare il tenant nel [portale di gestione di Azure](https://manage.windowsazure.com), passare ad "Active Directory" nella barra di spostamento a sinistra.
 
 Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito. Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

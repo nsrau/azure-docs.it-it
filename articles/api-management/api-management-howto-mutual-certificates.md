@@ -96,7 +96,7 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il video seguente.
+Per altre informazioni, vedere il video seguente:
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -141,4 +141,4 @@ Per altre informazioni, vedere il video seguente.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,7 @@
 	pageTitle="Configurare una macchina virtuale SQL Server come server IPython Notebook | Microsoft Azure"
 	description="Configurazione di una macchina virtuale per l'analisi scientifica dei dati con SQL Server e IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
+	documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
@@ -137,7 +137,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
 
-2.  All'apertura verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare ***nome_macchina_virtuale*\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
+2.  All'apertura verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare ***nome_macchina_virtuale*\\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
 
     ![Connetti al server][6]
 
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

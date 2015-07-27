@@ -31,22 +31,22 @@ In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma
 
 ## Aggiungere Application Insights SDK
 
-Per monitorare l'applicazione, [aggiungervi un Application Insights SDK][start]. Esistono SDK e strumenti di supporto diversi per piattaforme, IDE e linguaggi diversi. È possibile monitorare le pagine Web, i server Web ASP.NET o Java e i dispositivi mobili di diversi tipi. Tutti gli SDK inviano dati di telemetria al [portale di Application Insights][portal], dove è possibile usare potenti strumenti di analisi e diagnostica ed esportare i dati nell'archivio.
+Per monitorare l'applicazione, [aggiungere un Application Insights SDK][start] all'applicazione. Esistono diversi SDK e strumenti di supporto per diverse piattaforme, linguaggi e IDE. È possibile monitorare le pagine Web, i server Web ASP.NET o Java e i dispositivi mobili di diversi tipi. Tutti gli SDK inviano dati di telemetria al [portale di Application Insights][portal], dove è possibile usare potenti strumenti di analisi e diagnostica ed esportare i dati nell'archivio.
 
 Attività iniziali
 
 1. Ottenere un [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
 2. Nel [portale di Azure][portal] aggiungere una nuova risorsa di Application Insights per la propria app:
 
-    ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights e infine il tipo di applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+    ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights e scegliere il tipo di applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
 
 
-    Il tipo di app e la sottoscrizione di cui si dispone potrebbero essere diversi.
+    Il tipo di app e la sottoscrizione potrebbero essere diversi.
 3. Aprire Avvio rapido per scoprire come configurare l'SDK per il proprio tipo di app.
 
     ![Scegliere Avvio rapido e seguire le istruzioni](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
 
-    Se il tipo di app di cui si dispone non è elencato, dare uno sguardo alla pagina [Introduzione][start].
+    Se il tipo di app non è elencato, dare uno sguardo alla pagina [Introduzione][start].
 
 4. In questo esempio viene eseguito il monitoraggio di un'app Web, quindi è possibile usare gli strumenti di Azure in Visual Studio per installare l'SDK. A questo punto, specificare il nome della risorsa di Application Insights:
 
@@ -63,7 +63,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
-2. Creare un contenitore.
+2. Creare un contenitore
 
     ![Nel nuovo archivio selezionare Contenitori e quindi Aggiungi](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
@@ -73,7 +73,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Avviare l'esportazione continua in Archiviazione di Azure
+## Avviare l'esportazione continua nell'archiviazione di Azure
 
 1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
 
@@ -94,21 +94,21 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
 Attendere ora che gli utenti usino l'applicazione per qualche tempo. Quando verranno restituiti i dati di telemetria, sarà possibile esaminare i grafici statistici in [Esplora metriche][metrics] e i singoli eventi in [Ricerca diagnostica][diagnostic].
 
-I dati saranno esportati anche nell'archivio, dove sarà possibile esaminarne il contenuto. Ad esempio, in Visual Studio è presente uno strumento di esplorazione delle informazioni archiviate:
+I dati saranno esportati anche nell'archiviazione, dove sarà possibile esaminarne il contenuto. Ad esempio, in Visual Studio è presente un browser di archiviazione:
 
 
 ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-Gli eventi vengono scritti in file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
+Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
 ## Creare un database SQL di Azure
 
-Sempre partendo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
+Dalla sottoscrizione nel [portale di Azure][portal] creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
 
 ![Nuovo, Dati, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
 
-Verificare che il server di database consenta di accedere ai servizi di Azure:
+Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
 
 
 ![Sfoglia, Server, il proprio server, Impostazioni, Firewall, Consenti l'accesso a Servizi di Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
@@ -291,7 +291,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 ## Articoli correlati
 
-* [Eseguire l'esportazione in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Esportazione continua in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -305,4 +305,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

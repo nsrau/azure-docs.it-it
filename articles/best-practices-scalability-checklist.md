@@ -66,4 +66,4 @@
 - **Considerare la possibilità di ridurre al minimo il numero degli account del servizio**. Ad esempio, usare un account specifico per accedere alle risorse o ai servizi che impongono un limite per le connessioni o che vengono eseguiti in modo più efficiente dove vengono mantenute meno connessioni. Questo approccio è comune per i servizi, come ad esempio i database, ma può compromettere la possibilità di controllare accuratamente le operazioni a causa della rappresentazione dell'utente originale.
 - **Effettuare la profilatura delle prestazioni e il testing del carico** durante lo sviluppo come parte delle routine di test e prima del rilascio della versione finale per assicurarsi che l'applicazione venga eseguita e scalata come richiesto. Questo testing deve essere eseguito sullo stesso tipo di hardware disponibile nella piattaforma di produzione e con gli stessi tipi e quantità di dati e carico utente che si riscontreranno in produzione. Per altre informazioni, vedere la pagina [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx) nel sito Web Microsoft.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

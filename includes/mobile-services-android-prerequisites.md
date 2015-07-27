@@ -8,4 +8,4 @@ Questa esercitazione è basata sul codice scaricato nella guida introduttiva per
 [Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

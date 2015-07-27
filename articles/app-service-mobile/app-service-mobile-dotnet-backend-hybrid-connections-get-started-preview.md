@@ -19,9 +19,9 @@
   
 # Connettersi a un'istanza di SQL Server locale dalle app per dispositivi mobili mediante Connessioni ibride 
 
-Quando un'azienda passa al cloud, potrebbe non essere possibile eseguire subito la migrazione di tutte le risorse in Azure. La funzionalità Connessioni ibride consente alle app per dispositivi mobili del servizio app di Azure di connettersi in modo sicuro alle risorse locali. In questo modo, è possibile rendere accessibili i dati locali ai client mobili mediante Azure. Sono supportate tutte le risorse che usano una porta TCP statica, compresi Microsoft SQL Server, MySQL, le API Web HTTP e la maggior parte dei servizi Web personalizzati. La funzionalità Connessioni ibride usa l'autorizzazione con firma di accesso condiviso per proteggere le connessioni tra il servizio mobile e Gestione connessione ibrida locale. Per altre informazioni, vedere [Panoramica delle connessioni ibride](../integration-hybrid-connection-overview.md).
+Quando un'azienda passa al cloud, potrebbe non essere possibile eseguire subito la migrazione di tutte le risorse in Azure. La funzionalità Connessioni ibride consente alle app per dispositivi mobili di Azure App Service di connettersi in modo sicuro alle risorse locali. In questo modo, è possibile rendere accessibili i dati locali ai client mobili mediante Azure. Sono supportate tutte le risorse che usano una porta TCP statica, compresi Microsoft SQL Server, MySQL, le API Web HTTP e la maggior parte dei servizi Web personalizzati. La funzionalità Connessioni ibride usa l'autorizzazione con firma di accesso condiviso per proteggere le connessioni tra il servizio mobile e Gestione connessione ibrida locale. Per altre informazioni, vedere [Panoramica delle connessioni ibride](../integration-hybrid-connection-overview.md).
 
-In questa esercitazione si apprenderà come modificare un back-end .NET dell'app per dispositivi mobili in modo da usare un database SQL Server locale anziché il database SQL di Azure predefinito di cui viene eseguito il provisioning con il servizio.
+In questa esercitazione si apprenderà come modificare un back-end .NET dell'app per dispositivi mobili in modo da usare un database SQL Server locale anziché il database SQL di Azure di cui viene effettuato il provisioning con il servizio.
 
 ##Prerequisiti##
 
@@ -71,13 +71,13 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 
 ## Configurare il progetto di back-end dell'app per dispositivi mobili per la connessione al database di SQL Server
 
-In questo passaggio si definisce una stringa di connessione per il database locale e si modifica il back-end dell'app per dispositivi mobili per l'uso di questa connessione.
+In questo passaggio definire una stringa di connessione per il database locale e modificare il back-end dell'app per dispositivi mobili per l'uso di questa connessione.
 
 1. In Visual Studio 2013 aprire il progetto che definisce il back-end dell'app per dispositivi mobili. 
 
 	Per informazioni su come scaricare il progetto di back-end .NET, vedere l'[esercitazione con guida rapida](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
-2. In Esplora soluzioni aprire il file Web.config, individuare la sezione **connectionStrings** e aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
+2. In Esplora soluzioni aprire il file Web.config, individuare la sezione **connectionStrings**, aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
 	
 	    <add name="OnPremisesDBConnection" 
          connectionString="Data Source=OnPremisesServer,1433;
@@ -87,7 +87,7 @@ In questo passaggio si definisce una stringa di connessione per il database loca
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-	Ricordarsi di sostituire `<**secure_password**>` in questa stringa con la password creata per *HbyridConnectionLogin*.
+	Ricordare di sostituire `<**secure_password**>` in questa stringa con la password creata per *HbyridConnectionLogin*.
 	
 3. Fare clic su **Salva** in Visual Studio per salvare il file Web.config.
 
@@ -109,13 +109,13 @@ In questo passaggio si definisce una stringa di connessione per il database loca
  
 ##Testare la connessione al database in locale
 
-Prima di eseguire la pubblicazione in Azure e usare la connessione ibrida, è consigliabile verificare che la connessione al database funzioni durante l'esecuzione in locale. In questo modo è più semplice diagnosticare e correggere eventuali problemi di connessione prima di eseguire una nuova pubblicazione e di iniziare a usare la connessione ibrida.
+Prima di eseguire la pubblicazione in Azure e di usare la connessione ibrida, è consigliabile verificare che la connessione al database funzioni durante l'esecuzione in locale. In questo modo è più semplice potere diagnosticare e correggere eventuali problemi di connessione prima di eseguire una nuova pubblicazione e di iniziare a usare la connessione ibrida.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
 
 ## Aggiornare Azure in modo da usare la stringa di connessione locale
 
-Dopo aver verificato la connessione al database, è necessario aggiungere un'impostazione dell'app per la nuova stringa di connessione in modo che possa essere usata da Azure.
+Dopo aver verificato la connessione al database, è necessario aggiungere un'impostazione dell'app per la nuova stringa di connessione in modo da poter essere usata da Azure.
 
 1. Nel codice back-end dell'app Web per l'app per dispositivi mobili all'interno del [portale di Azure] fare clic su **Tutte le impostazioni**, quindi su **Impostazioni applicazione**. 
 
@@ -131,7 +131,7 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 
 Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in Azure e verificare che venga usata la connessione ibrida per archiviare i dati nel database locale.
 
-3. In Visual Studio fare clic con il pulsante destro del mouse sul progetto, scegliere **Pubblica** e quindi in **Pubblica sul Web** fare clic su **Siti Web di Microsoft Azure**. 
+3. In Visual Studio fare clic con il pulsante destro del mouse sul progetto, scegliere **Pubblica**, quindi in **Pubblica sul Web** fare clic su **Siti Web di Microsoft Azure**. 
 
 	Invece di usare Visual Studio, è anche possibile [usare Git per pubblicare il back-end](mobile-services-dotnet-backend-store-code-source-control.md).
 
@@ -143,7 +143,7 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 
 	Al termine della pubblicazione, il servizio viene riavviato e viene visualizzata la pagina iniziale del back-end.
 
-4. Richiamare alcune operazioni che generano modifiche al database usando il pulsante **Prova adesso** nella pagina iniziale, come già eseguito in precedenza o usando un'app client connessa all'app per dispositivi mobili.
+4. Richiamare alcune operazioni che generano modifiche al database usando il pulsante **Prova adesso** nella pagina iniziale come già eseguito in precedenza o usando un'app client connessa all'app per dispositivi mobili.
 
 	>[AZURE.NOTE]Quando si usa il pulsante**Prova adesso** per avviare le pagine delle API della Guida, specificare la chiave dell'applicazione come password (con un nome utente vuoto).
 
@@ -168,4 +168,4 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

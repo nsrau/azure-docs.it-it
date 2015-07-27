@@ -176,7 +176,7 @@ Il seguente frammento di file Web.config nella directory radice di un’applicaz
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -219,4 +219,4 @@ La creazione di bundle e la minimizzazione possono essere gestite da ASP.NET. In
 + [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 + [Procedure consigliate per la rete di distribuzione dei contenuti di Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

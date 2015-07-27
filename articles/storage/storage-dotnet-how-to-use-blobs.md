@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come usare l'archiviazione BLOB da .NET | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione BLOB di Microsoft Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in C#."
+	description="Informazioni su archiviazione BLOB di Azure e come creare un contenitore e per caricare, scaricare, elencare ed eliminare contenuto di BLOB."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

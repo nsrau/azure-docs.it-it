@@ -261,6 +261,8 @@ App Service SDK dipende dalle definizioni delle API di Swagger per generare le c
 Questo articolo ha illustrato come usare un'app per le API interna da un client .NET. Per informazioni su come usare le app per le API impostare sui livelli di accesso **Pubblico (anonimo)** e **Pubblico (autenticato)**, vedere [Usare un'app per le API nel servizio app di Azure da un client .NET](app-service-api-dotnet-consume.md).
 
 Per altri esempi di codice per chiamare app per le API dai client .NET, scaricare l'applicazione di esempio [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+
+Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

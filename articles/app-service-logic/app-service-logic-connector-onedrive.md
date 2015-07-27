@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/09/2015"
+	ms.date="07/02/2015"
 	ms.author="andalmia"/>
 
 # Uso di OneDrive Connector nell'app per la logica #
@@ -29,13 +29,7 @@ Per usare OneDrive Connector, è necessario innanzitutto creare un'istanza dell'
 2.	In "Tutto" cercare "OneDrive Connector".
 3.	Configurare OneDrive Connector nel modo seguente:
 
-	![][1]
-	- **Nome**: assegnare un nome al connettore
-	- **Piano di servizio app**: selezionare o creare un piano di servizio app
-	- **Piano tariffario**: scegliere un piano tariffario per il connettore
-	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
-	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
-	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
+	![][1] - **Nome**: assegnare un nome al connettore OneDrive - **Piano di servizio app**: selezionare o creare un piano di servizio app - **Piano tariffario**: scegliere un piano tariffario per il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Crea. Verrà creato un nuovo OneDrive Connector.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare OneDrive Connector.
@@ -52,8 +46,7 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 	![][2]
 4.	È possibile trascinare l'app per le API OneDrive Connector nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	È ora possibile usare OneDrive Connector nel flusso. Attualmente in OneDrive Connector non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
 
@@ -91,4 +84,4 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione dell'API OneDrive]: https://msdn.microsoft.com/it-it/library/dn974227.aspx
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

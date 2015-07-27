@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="06/30/2015" 
 	ms.author="erikre"/>
 
 
@@ -41,20 +41,18 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su Web For
 
 ![Pagina Contatti - Modifica](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a> in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Azure prima di iscriversi per ottenere un account, vedere la pagina di [prova del servizio app](https://tryappservice.azure.com/) in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Configurare l'ambiente di sviluppo 
 Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare l'ambiente di sviluppo.
 
 1. Installare [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566) se non è già stato installato.  
-2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013.  
-
-	>[AZURE.NOTE]in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
+2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013. in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.  
 
 3. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
 4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
-	>[AZURE.NOTE]Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.
+      Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.
 
 5. Se **Visual Studio Update 2** non è installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versione successiva.
 
@@ -93,7 +91,7 @@ Il **portale di gestione di Azure** torna alla pagina **Siti Web** e nella colon
 3. Scegliere il modello **Applicazione Web ASP.NET** nella colonna centrale.
 4. Assegnare all'applicazione il nome *ContactManager* e fare clic su **OK**. ![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms02.png)  
 
-	>[AZURE.NOTE]Il nome del progetto in questa serie di esercitazioni è **ContactManager**. È consigliabile usare questo nome di progetto esatto in modo che il codice fornito nel corso di tutta la serie di esercitazioni funzioni come previsto.
+      Il nome del progetto in questa serie di esercitazioni è **ContactManager**. È consigliabile usare questo nome di progetto esatto in modo che il codice fornito nel corso di tutta la serie di esercitazioni funzioni come previsto.
 
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **Web Form**. Deselezionare la casella di controllo **Ospita nel cloud** se è selezionata e fare clic su **OK**. ![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png) Verrà creata l'applicazione Web Form.
 ###Aggiornare la pagina master
@@ -203,7 +201,8 @@ Dopo avere creato ed eseguito l'applicazione in locale, è possibile distribuirl
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida. ![Select publish](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms05.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata.  
 
-2. Nella scheda **Profilo** della finestra di dialogo **Pubblica sito Web** fare clic su **App Web di Azure**. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms06.png)
+2. Nella scheda **Profilo** della finestra di dialogo **Pubblica sito Web** fare clic su **App Web di Azure**.
+	  
 3. Se non è stato effettuato l'accesso, fare clic sul pulsante **Accedi** nella finestra di dialogo **Selezione sito Web esistente**. Una volta effettuato l'accesso, selezionare il sito Web creato nella prima parte di questa esercitazione. Fare clic su **OK** per continuare. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio scaricherà le impostazioni di pubblicazione.
 4. Nella finestra di dialogo **Pubblica sito Web** fare clic su **Pubblica**. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png) Si vedrà lo stato di pubblicazione generale nella finestra **Attività di pubblicazione sito Web** di Visual Studio: ![Attività di pubblicazione sul Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
 
@@ -257,11 +256,11 @@ La procedura seguente consente di usare l'utilità di scaffolding per Web Form.
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nome del *progetto* e quindi scegliere **Aggiungi** -> **New Scaffolded Item**. La finestra di dialogo **Add Scaffold** viene visualizzata.
 7. Selezionare **Web Form** nel riquadro sinistro e quindi **Pagine Web Form che usano Entity Framework** dal riquadro centrale. Fare quindi clic su **Aggiungi**. ![Finestra di dialogo Add Scaffold dell'API Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png) La finestra di dialogo **Aggiungi pagine Web Form** viene visualizzata.  
 
-8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su `Contact (ContactManager.Models)` Impostare **Classe contesto di dati** su `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
+8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su `Contacts (ContactManager.Models)` Impostare **Classe contesto di dati** su `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
 
 L'utilità di scaffolding per Web Form aggiunge una nuova cartella contenente le pagine *Default.aspx*, *Delete.aspx*, *Edit.aspx* e *Insert.aspx*. L'utilità di scaffolding per Web Form crea inoltre una cartella *DynamicData* che contiene le cartelle *EntityTemplates* e *FieldTemplates*. La classe`ApplicationDbContext` verrà usata per il database di appartenenza e per i dati relativi ai contatti.
 
-###Configurare l'applicazione per l'utilizzo del modello di dati 
+###Configurare l'applicazione per l'uso del modello di dati 
 L'attività successiva consiste nell'abilitare la funzionalità Migrazioni Code First, in modo da creare il database basato sul modello di dati creato. Verranno anche aggiunti dati di esempio e un inizializzatore di dati.
 
 1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di gestione pacchetti**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
@@ -273,7 +272,7 @@ enable-migrations
 	<pre class="prettyprint">
 add-migration Initial
 </pre>Il comando `add-migration Initial` consente di generare un file denominato <date_stamp>Initial nella cartella *Migrations* che crea il database. Il primo parametro (Initial ) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe `Initial` il metodo `Up` consente di creare la tabella `Contact` e il metodo `Down`, che viene usato per tornare allo stato precedente, consente di rimuoverla.  
-4. Aprire il file *Migrations\Configuration.cs*. 
+4. Aprire il file *Migrations\\Configuration.cs*. 
 5. Aggiungere lo spazio dei nomi seguente:  
 	<pre class="prettyprint">
 using ContactManager.Models;
@@ -376,7 +375,7 @@ Oltre all'autenticazione, nell'esercitazione verranno utilizzati anche i ruoli p
 
 La procedura seguente consente di aggiungere un provider di autenticazione Google.
 
-1. Aprire il file *App_Start\Startup.Auth.cs*. 
+1. Aprire il file *App_Start\\Startup.Auth.cs*. 
 2. Rimuovere i caratteri di commento dal metodo `app.UseGoogleAuthentication()` in modo da ottenere il codice seguente:  
 	<pre class="prettyprint">
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
@@ -672,13 +671,10 @@ Per evitare che altre persone registrino e usino questa applicazione di esempio,
 ###Esaminare il database SQL di Azure 
 1. In Visual Studio aprire **Esplora server** e passare a **ContactDB**.
 2. Fare clic con il pulsante destro del mouse su **ContactDB**, quindi scegliere **Apri in Esplora oggetti di SQL Server**. ![Apri nella voce di menu di Esplora oggetti di SQL Server](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
-3. Nella finestra di dialogo **Aggiungi regola firewall** selezionare **Aggiungi regola firewall**.  
+3. Nella finestra di dialogo **Aggiungi regola firewall** selezionare **Aggiungi regola firewall**. Se non è possibile espandere **Database SQL** e non è possibile visualizzare **ContactDB** da Visual Studio, è possibile seguire le istruzioni per aprire una porta del firewall o un intervallo di porte. A questo scopo, seguire le istruzioni fornite in **Configurazione delle regole del firewall per Azure** verso la fine dell'[esercitazione per MVC](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). In alternativa, per verificare i dati del database locale è anche possibile compilare, eseguire e aggiungere i dati all'applicazione in locale (**CTRL+F5** da Visual Studio).  
 
-	>[AZURE.NOTE]Se non è possibile espandere **Database SQL** e non è possibile visualizzare **ContactDB** da Visual Studio, è possibile seguire le istruzioni per aprire una porta del firewall o un intervallo di porte. A questo scopo, seguire le istruzioni fornite in **Configurazione delle regole del firewall per Azure** verso la fine dell'[esercitazione per MVC](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). In alternativa, per verificare i dati del database locale è anche possibile compilare, eseguire e aggiungere i dati all'applicazione in locale (**CTRL+F5** da Visual Studio).
+4. Se viene visualizzata la finestra di dialogo **Connetti al server**, immettere la **password** creata all'inizio di questa esercitazione e fare clic sul pulsante **Connetti**. Se non si ricorda la password, aprire il file del progetto locale per recuperarla. In **Esplocar soluzioni** espandere la cartella *Properties* e quindi la cartella *PublishProfiles*. Aprire il file *contactmanager.pubxml* (il nome del file dell'utente potrebbe essere diverso). Eseguire una ricerca all'interno del file per trovare la password di pubblicazione.
 
-4. Se viene visualizzata la finestra di dialogo **Connetti al server**, immettere la **password** creata all'inizio di questa esercitazione e fare clic sul pulsante **Connetti**.
-
-	>[AZURE.NOTE]**Esplora soluzioni***Proprietà**PublishProfiles**ContactManager.pubxml*
 5. Espandere il database **contactDB**, quindi espandere **Tabelle**.
 6. Fare clic con il pulsante destro del mouse sulla tabella **dbo.AspNetUsers** quindi scegliere **Visualizza dati**. ![Voce di menu Visualizza dati](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms34.png) È possibile visualizzare i dati associati il canEditUser@contoso.com utente. ![Finestra ContactManager](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms35.png)  
 
@@ -701,4 +697,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -351,4 +351,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Pyth
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

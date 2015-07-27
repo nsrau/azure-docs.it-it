@@ -28,4 +28,4 @@ Una parte essenziale del provisioning dichiarativo è il linguaggio delle espres
 
 Per altre informazioni sul linguaggio delle espressioni, vedere [Informazioni sulle espressioni di provisioning dichiarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

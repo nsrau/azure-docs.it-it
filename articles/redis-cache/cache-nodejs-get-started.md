@@ -91,4 +91,4 @@ Output:
 
 [Creare un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

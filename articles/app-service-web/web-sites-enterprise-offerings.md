@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -17,7 +16,7 @@
 	ms.date="04/21/2015" 
 	ms.author="apwestgarth"/>
 
-# White paper sulle offerte per app Web del servizio app di Azure per le aziende #
+# Servizio di applicazione Azure Web App offerte per white paper aziendali #
 
 La necessità di ridurre i costi e fornire soluzioni IT più velocemente in un ambiente in rapida evoluzione crea nuove sfide per gli sviluppatori, i professionisti IT e i responsabili. Gli utenti richiedono sempre più applicazioni Web Line of Business (LOB) che siano veloci, reattive e disponibili da qualsiasi dispositivo. Allo stesso tempo, le aziende stanno provando a trarre vantaggio dalla maggiore produttività ed efficienza che proviene dall'integrazione con servizi mobili e cloud: ciò potrebbe essere qualcosa di semplice, come l'accesso single sign-on tra dispositivi usando Active Directory, fino alla collaborazione in Office365 usando i dati estratti da un'applicazione LOB interna che a sua volta effettua il pull dei dati dall'applicazione aziendale di Salesforce. Il [Servizio app per app Web di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) è un servizio cloud di livello aziendale per lo sviluppo, il test e l'esecuzione di applicazioni Web e mobili, API Web e siti Web generici. Può essere usato per eseguire siti Web aziendali, applicazioni commerciali e campagne di marketing digitale su una rete globale di datacenter ottimizzata per la scalabilità e disponibilità, oltre al supporto per l'integrazione continuata e moderne procedure DevOps.
 
@@ -81,9 +80,9 @@ Siti Web di Azure rappresenta una piattaforma stabile e affidabile che ha già d
 
 La piattaforma Microsoft Azure consente il controllo degli accessi in base al ruolo, per controllare le risorse a livello aziendale in Siti Web di Azure. Il controllo degli accessi in base al ruolo offre alle aziende il potere di implementare i propri criteri di gestione degli accessi nell'ambiente Azure, assegnando gli utenti a gruppi e quindi assegnando a loro volta le autorizzazioni necessarie a tali gruppi per accedere alla risorsa, ad esempio un sito Web di Azure. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [http://aka.ms/azurerbac](../role-based-access-control-configure/). Grazie all'utilizzo di Siti Web di Azure è possibile garantire che le applicazioni Web vengano distribuite in un ambiente sicuro e protetto e di avere il controllo totale nel territorio in cui vengono distribuite le risorse.
 
-Per di più, Siti Web di Azure è anche in grado di sfruttare completamente gli investimenti operati in locale, offrendo la possibilità di riconnettersi alle risorse interne, ad esempio il data warehouse o un ambiente SharePoint. Come discusso in [Soluzione di alto livello], è possibile usare le connessioni ibride e la connettività di rete virtuale per stabilire connessioni a infrastrutture e servizi locali.
+App Web è anche in grado di sfruttare completamente gli investimenti locali, offrendo la possibilità di riconnettersi alle risorse interne, ad esempio il data warehouse o un ambiente SharePoint. Come discusso in [Soluzione di alto livello], è possibile usare le connessioni ibride e la connettività di rete virtuale per stabilire connessioni a infrastrutture e servizi locali.
 
-### Scalabilità globale ### ###
+### Scalabilità globale ###
 
 Siti Web di Azure è una piattaforma scalabile e globale, che consente alle applicazioni Web di crescere e adattarsi rapidamente alle esigenze delle aziende in espansione, con pianificazione e costi a lungo termine ridotti al minimo. Nei tipici scenari di infrastruttura locale, l'espansione e l'aumento della domanda a livello locale e geografico richiederebbe di dedicare più tempo alla gestione e alla pianificazione e un maggior dispendio per eseguire il provisioning e la gestione di un'infrastruttura aggiuntiva. Siti Web di Azure offre la possibilità di scalare le applicazioni Web di pari passo con gli alti e bassi dei propri requisiti. Ad esempio, usando l'applicazione per le spese come modello, per gran parte del mese gli utenti faranno un uso modico dell'applicazione, ma con l'avvicinarsi della scadenza mensile per l'invio del resoconto delle spese e l'aumento dell'uso dell'applicazione, Siti Web di Azure può eseguire il provisioning automatico di altre infrastrutture per l'applicazione. Quando poi l'uso si sarà nuovamente ridotto, potrà annullare la scalabilità in modo da tornare all'infrastruttura di base definita dall'utente.
 
@@ -154,4 +153,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

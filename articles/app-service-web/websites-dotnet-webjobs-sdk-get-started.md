@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creazione di processi Web .NET nel servizio app di Azure" 
+	pageTitle="Creare un processo Web .NET nel servizio app di Azure" 
 	description="Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. Il front-end viene eseguito in un'app Web nel servizio app di Azure e il back-end viene eseguito come processo Web. L'app usa Entity Framework, il database SQL e i BLOB e le code di archiviazione di Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Creare un processo Web .NET nel servizio app di Azure
@@ -116,7 +116,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/#replication-options).
 
-5. Fare clic su **Create**.
+5. Fare clic su **Crea**.
 
 	![Nuovo account di archiviazione](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
@@ -165,7 +165,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 4. Aprire il file *App.config* nel progetto ContosoAdsWebJob.
 
-	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. In questa esercitazione sarà usato lo stesso account per entrambe. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. In questa esercitazione sarà usato lo stesso account per entrambe. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -238,6 +238,14 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	L'URL completo sarà costituito da quanto immesso in questa casella e da .azurewebsites.net (come mostrato accanto alla casella di testo **Nome app Web**). Se, ad esempio, il nome dell'app Web è ContosoAds, l'URL sarà ContosoAds.azurewebsites.net.
 
+9. Nell'elenco a discesa [Piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) , selezionare **Crea nuovo piano di servizio app**.
+
+11. Immettere un nome per il piano di servizio app, ad esempio ContosoAdsPlan.
+
+9. Nell'elenco a discesa [Gruppo di risorse](../resource-group-overview.md), selezionare **Crea nuovo gruppo di risorse**.
+
+11. Immettere un nome per il gruppo di risorse, ad esempio ContosoAdsGroup.
+
 9. Nell'elenco a discesa **Regione** scegliere la stessa area scelta per l'account di archiviazione.
 
 	Questa impostazione consente di specificare il data center di Azure in cui verrà eseguito il sito Web. Mantenere l'account di archiviazione e di applicazione web nello stesso datacenter riduce al minimo i costi di uscita di latenza e dati.
@@ -246,11 +254,13 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	In alternativa, se la sottoscrizione è già associata a un server, sarà possibile selezionare quel server dall'elenco a discesa.
 
+1. Immettere un nome per il server di database, ad esempio ContosoAdsServer.
+
 1. Immettere un **Nome utente database** e una **Password database** di amministratore.
 
 	Se è stata selezionata l'opzione **Nuovo server di database SQL**, in questo passaggio non sarà necessario immettere un nome e una password esistenti, ma un nuovo nome e una nuova password, definiti ora e da usare in seguito per l'accesso al database. Se è stato selezionato un server creato in precedenza, sarà richiesta la password dell'account utente di amministrazione già creato.
 
-1. Fare clic su **Create**.
+1. Fare clic su **Crea**.
 
 	![Creare applicazione web nella finestra di dialogo di Microsoft Azure](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)
 
@@ -280,7 +290,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	È possibile ignorare l'avviso che informa che non ci sono database da pubblicare. Code First di Entity Framework creerà il database che non è necessario pubblicare.
 
-	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto processo Web verranno copiati nella cartella *app_data\jobs\continuous* del sito Web.
+	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto processo Web verranno copiati nella cartella *app_data\\jobs\\continuous* del sito Web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -306,9 +316,9 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 	Queste stringhe di connessione vengono usate da WebJobs SDK, una per i dati dell'applicazione e l'altra per la registrazione. Come illustrato in precedenza, quella per i dati dell'applicazione viene usata anche dal codice front-end Web.
 	
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
-	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Stringhe di connessione nel portale di Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web, quindi scegliere **Arresta app Web**.
 
@@ -331,7 +341,7 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 ### Visualizzare il dashboard di WebJobs SDK
 
-1. Nel portale di Azure selezionare l'app Web.
+1. Nel [portale di Azure](https://manage.windowsazure.com) selezionare l'app Web.
 
 2. Fare clic sulla scheda **Processi Web**.
 
@@ -349,7 +359,7 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 	Facendo clic sul pulsante **Riproduci funzione** di questa pagina, il framework WebJobs SDK chiama nuovamente la funzione ed è possibile modificare i dati passati prima alla funzione.
 
->[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di gestione di Azure passare alla scheda **Dashboard** per l'app Web, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di Azure passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ### Abilitare AlwaysOn per processi a esecuzione prolungata
 
@@ -469,9 +479,9 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs* 
-	- Nel *Views\Shared* cartella: <em>cshtml</em> file. 
-	- Nel *Views\Home* cartella: *index. cshtml*. 
-	- Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
+	- Nel *Views\\Shared* cartella: <em>cshtml</em> file. 
+	- Nel *Views\\Home* cartella: *index. cshtml*. 
+	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
 
@@ -483,7 +493,9 @@ Ora è possibile compilare, eseguire e implementare l'applicazione come indicato
 
 ## <a id="code"></a>Verificare il codice dell'applicazione
 
-Le sezioni seguenti illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure. Per il codice specifico di WebJobs SDK, vedere la [sezione Program.cs](#programcs).
+Le sezioni seguenti illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure.
+
+> **Nota:** per il codice specifico di WebJobs SDK, vedere [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -604,9 +616,9 @@ Tramite codice analogo si ottiene un riferimento alla coda *blobnamerequest* e s
 
 Il file *__Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-Il file *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
+Il file *Views\\Home\\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -695,7 +707,7 @@ Di seguito è riportato il codice per l'eliminazione dei BLOB in caso di elimina
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
 
 Il file *Index.cshtml* mostra le anteprime insieme agli altri dati delle inserzioni:
 
@@ -705,7 +717,7 @@ Il file *Details.cshtml* mostra l'immagine con dimensioni normali:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml ed Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml ed Edit.cshtml
 
 I file *Create.cshtml* e *Edit.cshtml* specificano la codifica di moduli che permettere al controller di ottenere l'oggetto `HttpPostedFileBase`.
 
@@ -773,7 +785,7 @@ Per altre informazioni su come scrivere funzioni che usano attributi di WebJobs 
 * [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [How to use Azure Service Bus with the WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
+* [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
 
 >[AZURE.NOTE]* Se l'app Web viene eseguita su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. In alcuni scenari che può comportare alcune funzioni di elaborazione degli stessi dati due volte, quindi funzioni devono essere idempotenti (scritto in modo che la chiamata più volte con gli stessi dati di input non produce risultati duplicati). * Per informazioni sull'implementazione di arresto normale, vedere [arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * il codice il `ConvertImageToThumbnailJPG` metodo (non mostrato) utilizza le classi nel `System.Drawing` dello spazio dei nomi per motivi di semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
@@ -785,7 +797,7 @@ Nella versione dell'applicazione per i servizi cloud, l'ID record è l'unica inf
 
 ### Uso di WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard, è necessario connettere l'app Web all'account di archiviazione in uso impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale di gestione. Sarà quindi possibile andare al dashboard tramite il seguente URL:
+Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard, è necessario connettere l'app Web all'account di archiviazione in uso, impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale di Azure. Sarà quindi possibile andare al dashboard tramite il seguente URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -799,7 +811,6 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

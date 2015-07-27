@@ -350,17 +350,17 @@ Pertanto è possibile vedere che la coerenza del tipo e le proprietà di gestion
 Fare riferimento a MSDN per ulteriori informazioni sull'utilizzo di [CTAS][]. È una delle istruzioni più importanti di SQL Data Warehouse di Azure. Assicurarsi di averla compresa completamente.
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CTAS]: https://msdnstage.redmond.corp.microsoft.com/it-it/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

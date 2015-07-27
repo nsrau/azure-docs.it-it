@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Come gestire un servizio cloud - Azure" 
-	description="Informazioni su come gestire i servizi cloud nel portale di gestione di Azure." 
+	description="Informazioni su come gestire i servizi cloud nel portale di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # Come gestire i servizi cloud
 
-Nell'area **Cloud Services** del portale di gestione di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+Nell'area **Servizi cloud** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
 
 ## Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud
 
 Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, usare **Update** nel dashboard, la pagina **Cloud services** o la pagina **Instances**. È possibile aggiornare un singolo ruolo o tutti i ruoli. Sarà necessario caricare un nuovo pacchetto del servizio e un nuovo file di configurazione del servizio.
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) fare clic su **Update** nel dashboard, nella pagina **Cloud Services** o nella pagina **Instances**.
+1. Nel dashboard [portale di Azure](https://manage.windowsazure.com/) fare clic su **Aggiorna** nella pagina **Servizi cloud** o nella pagina **Istanze**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -154,4 +158,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

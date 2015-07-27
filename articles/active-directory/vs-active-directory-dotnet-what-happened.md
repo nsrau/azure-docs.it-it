@@ -24,7 +24,7 @@
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
  
-Sono stati aggiunti dei riferimenti.
+Sono stati aggiunti riferimenti.
 
 #####Riferimenti al pacchetto NuGet
 
@@ -72,7 +72,7 @@ Sono state aggiunte le voci di configurazione seguenti. <pre> `<appSettings>
 Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD.
 
 ###Quali modifiche aggiuntive sono state apportate al progetto dopo aver selezionato *Leggi i dati della directory*?
-Sono stati aggiunti riferimenti aggiuntivi.
+Sono stati aggiunti altri riferimenti.
 
 #####Riferimenti al pacchetto NuGet aggiuntivi
 
@@ -135,4 +135,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

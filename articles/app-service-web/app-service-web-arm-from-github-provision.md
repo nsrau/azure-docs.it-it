@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Distribuire un'app Web collegata a un repository GitHub
@@ -22,15 +22,37 @@ In questo argomento si apprenderà come creare un modello di gestione risorse di
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per il modello completo, vedere [App Web collegata al modello GitHub](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
+Per il modello completo, vedere [App Web collegata al modello GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 ## Elementi distribuiti
 
 Con questo modello verrà distribuita un'app Web che contiene il codice da un progetto in GitHub.
 
+Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
+
+[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+
 ## Parametri
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+
+### repoURL
+
+L'URL del repository GitHub che contiene il progetto da distribuire. Questo parametro contiene un valore predefinito, ma questo valore è destinato solo a illustrare come specificare l'URL del repository. È possibile usare questo valore quando si esegue il test del modello, ma è possibile specificare l'URL del proprio repository quando si utilizza il modello.
+
+    "repoURL": {
+        "type": "string",
+        "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
+    }
+
+### ramo
+
+Ramo dell'archivio da usare per la distribuzione dell'applicazione. Il valore predefinito è il database master, ma è possibile specificare il nome di un ramo nel repository da distribuire.
+
+    "branch": {
+        "type": "string",
+        "defaultValue": "master"
+    }
     
 ## Risorse da distribuire
 
@@ -77,13 +99,13 @@ L'app Web dispone anche di una risorsa figlio che viene definita nella sezione d
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Interfaccia della riga di comando di Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

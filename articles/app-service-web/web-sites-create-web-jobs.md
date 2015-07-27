@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Eseguire attività in background con processi Web
@@ -166,21 +165,21 @@ I processi pianificati possono essere ulteriormente configurati mediante l'Utili
 
 ## <a name="WHPNotes"></a>Note
 	
-- A partire da marzo 2014, le app Web in modalità gratuita possono scadere dopo 20 minuti, se non vengono inviate richieste al sito scm (distribuzione) e se il portale dell'app Web non è aperto in Azure. Le richieste al sito effettivo non comportano la reimpostazione del timeout.
+- Le app Web in modalità gratuita possono scadere dopo 20 minuti, se non vengono inviate richieste al sito scm (distribuzione) e se il portale dell'app Web non è aperto in Azure. Le richieste al sito effettivo non comportano la reimpostazione del timeout.
 - Il codice per un processo continuo deve essere scritto per l'esecuzione in un ciclo infinito.
 - I processi continui vengono eseguiti in modo continuo solo quando l'app è attiva.
 - Le modalità di base e standard offrono la funzionalità Sempre attivata che, se abilitata, impedisce alle app Web di diventare inattive.
 - È possibile solo eseguire il debug di processi Web con esecuzione continua. Il debug di processi Web pianificati o su richiesta non è supportato.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## <a name="NextSteps"></a>Passaggi successivi
  
 Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure][WebJobsRecommendedResources].
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -210,4 +209,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -172,4 +172,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

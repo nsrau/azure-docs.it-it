@@ -147,4 +147,4 @@ I servizi cloud dovrebbero essere stati aggiunti al controller di dominio person
 Ci auguriamo che questa guida sia risultata utile.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

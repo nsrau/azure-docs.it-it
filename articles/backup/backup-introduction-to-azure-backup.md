@@ -66,4 +66,4 @@ In associazione a SCDPM, Backup di Azure può eseguire il backup di:
 + Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

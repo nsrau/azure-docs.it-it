@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>Installare il client di archiviazione nel progetto di servizio mobile
+##Installare il client di archiviazione nel progetto di servizio mobile
 
 Per poter usare una firma di accesso condiviso per caricare immagini nel servizio di archiviazione BLOB, è necessario innanzitutto aggiungere il pacchetto NuGet che consente di installare la libreria client di archiviazione nel progetto di servizio mobile.
 
@@ -11,7 +11,7 @@ Per poter usare una firma di accesso condiviso per caricare immagini nel servizi
 
   	La libreria client per i servizi di archiviazione di Azure verrà aggiunta al progetto di servizio mobile.
 
-##<a name="update-data-model"></a>Aggiornare la definizione di TodoItem nel modello di dati
+##Aggiornare la definizione di TodoItem nel modello di dati
 
 La classe TodoItem definisce l'oggetto dati ed è necessario aggiungere a questa classe le stesse proprietà aggiunte per il client.
 
@@ -28,7 +28,7 @@ La classe TodoItem definisce l'oggetto dati ed è necessario aggiungere a questa
 
 	>[AZURE.NOTE]Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Aggiornare il controller TodoItem per generare una firma di accesso condiviso 
+##Aggiornamento del controller TodoItem per generare una firma di accesso condiviso 
 
 L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostTodoItem** generi una firma di accesso condiviso quando viene inserito un nuovo elemento TodoItem. Inoltre:
 
@@ -132,4 +132,4 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 [Come creare un account di archiviazione]: ../articles/storage/storage-create-storage-account.md
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

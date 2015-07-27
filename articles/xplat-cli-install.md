@@ -125,7 +125,7 @@ In un host Docker, eseguire: ```
 ## Esecuzione dei comandi dell'interfaccia della riga di comando di Azure
 
 Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, cmd.exe e così via) per accedere ai relativi comandi. Ad esempio per eseguire il comando help in Windows, aprire un prompt dei comandi (cmd.exe) con privilegi di amministratore: ```
-	C:\> azure help
+	c:> azure help
 ```
 
 È ora possibile iniziare la distribuzione. Successivamente è possibile [connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) e iniziare a utilizzare i comandi **azure**.
@@ -153,4 +153,4 @@ Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà poss
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

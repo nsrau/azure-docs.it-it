@@ -118,7 +118,7 @@ Caricare i file usando il **portale di gestione di Azure**, **.NET** o **API RES
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###Creazione di processi \ attività
+###Creazione di processi \\ attività
 
 Un processo è un'entità contenente i metadati relativi a un set di attività, ad esempio la codifica o l'indicizzazione. Ogni attività esegue in modo atomico un'operazione sugli asset di input. Per un esempio su come creare processi di codifica, vedere:
 
@@ -220,4 +220,4 @@ Per altre informazioni, vedere l'articolo relativo alla [riproduzione di contenu
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

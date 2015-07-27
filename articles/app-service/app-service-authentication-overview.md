@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
-# Autenticazione per le app per API e dispositivi mobili nel servizio app di Azure
+# Autenticazione per app per le API e per dispositivi mobili nel servizio app di Azure
 
 ## Panoramica
 
@@ -94,17 +94,17 @@ In altri scenari il flusso server può rappresentare una scelta migliore:
 
 È possibile scrivere codice per eseguire chiamate in uscita a piattaforme Software-as-a-Service (SaaS) per conto dell'utente connesso oppure è possibile usare un'[app per le API del connettore](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md). Ad esempio, per pubblicare un tweet dall'account Twitter dell'utente è possibile usare [un SDK Twitter](https://dev.twitter.com/overview/api/twitter-libraries) o eseguire il provisioning di un [connettore Twitter](../app-service-mobile/app-service-logic-connector-twitter.md) nella sottoscrizione di Azure e chiamarlo. Questa sezione si occupa dell'accesso a una piattaforma SaaS dal codice eseguito in un'app per API o dispositivi mobili.
 
-### Uso del token del provider di identità 
+### <a id="obotoidprovider"></a> Uso del token del provider di identità 
 
 Il gateway gestisce un *archivio token* in cui si associa un token Zumo a uno o più token di accesso e token di aggiornamento del provider di identità. Quando si riceve una richiesta HTTP con un token Zumo valido, il gateway sa quali token del provider di identità sono relativi a tale utente.
   
-Quando il codice in esecuzione nell'app per API o dispositivi mobili deve eseguire una chiamata a una risorsa protetta per conto dell'utente connesso, può recuperare e usare il token del provider di identità dall'archivio di token del gateway, come illustrato nel diagramma seguente.
+Quando il codice in esecuzione nell'app per API o dispositivi mobili deve eseguire una chiamata a una risorsa protetta per conto dell'utente connesso, può recuperare e usare il token del provider di identità dall'archivio di token del gateway, come illustrato nel diagramma seguente. Nel diagramma si presuppone che il client sia già stato autenticato con il gateway e disponga del token Zumo.
 
 ![](./media/app-service-authentication-overview/idprovidertoken.png)
 
 Si supponga, ad esempio, che il provider di identità sia Azure Active Directory (AAD) e che l'app per le API desideri usare il token di accesso AAD per chiamare l'API Graph di AAD o richiedere l'accesso a un sito SharePoint per il quale l'utente dispone di autorizzazioni. È possibile inviare una richiesta al gateway per recuperare il token AAD, quindi usare il token AAD per chiamare l'API Graph o ottenere un token di accesso per il sito SharePoint.
 
-### Ottenere il consenso dell'utente per accedere ad altre risorse
+### <a id="obotosaas"></a>Ottenere il consenso dell'utente per accedere ad altre risorse
 
 Il gateway dispone anche di funzionalità incorporate per ottenere il consenso dell'utente quando si desidera accedere a risorse protette da un provider diverso dal provider di identità originale. Ad esempio, per un utente che accede mediante Azure Active Directory, è possibile accedere ai file nell'account Dropbox dell'utente.
 
@@ -121,8 +121,10 @@ Il gateway del servizio app include supporto incorporato per ottenere il consens
 * SharePointOnline
 * Twitter
 * Yammer
+* Azure Active Directory
+* Account Microsoft
 
-Per tali provider, il gateway conserva i token di accesso e li associa al token Zumo, come avviene per il token di accesso del provider di identità. Il diagramma seguente illustra il processo tramite il quale si ottiene il consenso dell'utente e la chiamata a una piattaforma SaaS.
+Per tali provider, il gateway conserva i token di accesso e li associa al token Zumo, come avviene per il token di accesso del provider di identità. Il diagramma seguente illustra il processo tramite il quale si ottiene il consenso dell'utente e la chiamata a una piattaforma SaaS. Nel diagramma si presuppone che il client sia già stato autenticato con il gateway e disponga del token Zumo.
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 
@@ -185,16 +187,17 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 ### <a id="apiaclient"></a>Flusso client delle app per le API
 
 * [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte relativa alla configurazione dell'app per le API è valida sia per il flusso client sia per il flusso server, ma la parte relativa al test nel browser illustra il flusso server.
+* [Utilizzare un'app per le API nel servizio app di Azure da un client .NET](../app-service-api/app-service-api-dotnet-consume.md): l'app di esempio per una chiamata autenticata illustra il flusso server, ma è seguita da una sezione di [flusso client](../app-service-api/app-service-api-dotnet-consume.md#client-flow) con il codice di esempio.
 
 ### <a id="apiaserver"></a>Flusso server delle app per le API
 
-* [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte relativa alla configurazione dell'app per le API è valida sia per il flusso client sia per il flusso server, ma la parte relativa al test nel browser illustra il flusso server.
+* [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte relativa alla configurazione dell'app per le API è valida sia per il flusso client sia per il flusso server e la parte relativa al test nel browser illustra il flusso server.
 * [Usare un'app per le API nel servizio app di Azure da un client .NET](../app-service-api/app-service-api-dotnet-consume.md): il codice di esempio per una chiamata autenticata illustra il flusso server. 
 
-### <a id="apiaobo"></a>Chiamate "on-behalf-of" delle API a risorse protette
+### <a id="apiaobo"></a>Chiamate "on-behalf-of" delle app per le API
 
 * [Distribuire e configurare un'app per le API di un connettore SaaS nel servizio app di Azure](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md): illustra come eseguire il provisioning di un'app per le API del connettore predefinita, come configurarla e come chiamarla tramite gli strumenti del browser.
-* È in fase di sviluppo un'esercitazione che illustra come scrivere il proprio connettore, ovvero eseguire il provisioning e configurare un'app per le API personalizzata che esegue chiamate "on-behalf-of" alle risorse protette.
+* [Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md): illustra come scrivere il connettore, ovvero come effettuare il provisioning, configurare e scrivere il codice per un'app per le API personalizzata che esegue chiamate "on-behalf-of" a un provider SaaS.
 
 ### <a id="maclient"></a>Flusso client delle app per dispositivi mobili
 
@@ -211,4 +214,4 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 
 * [Ottenere un token di accesso e chiamare l'API SharePoint in un'app per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

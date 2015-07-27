@@ -36,4 +36,4 @@ Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**](http
 * [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

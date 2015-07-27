@@ -403,4 +403,4 @@ Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagi
 
 [Plug-in di streaming adattivo Microsoft per aggiornamento OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

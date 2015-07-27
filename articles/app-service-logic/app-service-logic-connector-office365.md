@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connettore Office 365" 
-   description="Come usare il connettore Office 365" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connettore Office 365"
+   description="Come usare il connettore Office 365"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Uso del connettore Office 365 nell'app per la logica#
@@ -80,7 +80,7 @@ Per creare l'app per le API del connettore O365, eseguire la procedura seguente:
 	![][9]
 
 11. Il trigger 'Nuovo messaggio di posta elettronica' di Office 365 viene configurato ed è possibile visualizzare anche i parametri di output.
-	
+
 	![][10]
 
 12.	Selezionare "Office 365 Connector" nella sezione "Usati di recente" della raccolta. Verrà aggiunta una nuova azione "Office 365".
@@ -157,7 +157,4 @@ Per creare l'app per le API del connettore O365, eseguire la procedura seguente:
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

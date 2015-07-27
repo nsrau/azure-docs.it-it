@@ -106,7 +106,7 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 
 	![Impostazioni certificato][upload_cert1]
 
-4. Individuare il file C:\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di spunta.
+4. Individuare il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di spunta.
 
 	![Caricamento del certificato][install_hpc10]
 
@@ -347,4 +347,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -241,4 +241,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

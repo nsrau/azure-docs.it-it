@@ -235,4 +235,4 @@ Per le app per le API che usano metadati dinamici, è possibile usare attributi 
 In questo articolo si è appreso come migliorare l'esperienza utente dell'app per le API quando questa viene usata nella finestra di progettazione delle app per la logica. In genere è consigliabile fornire nomi descrittivi appropriati per tutte le operazioni (azioni e trigger), i parametri e le proprietà. È anche consigliabile fornire non più di 5 operazioni di base. Per i parametri di input è consigliabile limitare il numero di proprietà di base a un massimo di 4, mentre per le proprietà il numero massimo consigliato è 5. Le rimanenti operazioni e proprietà dovrebbero essere contrassegnate come avanzate.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

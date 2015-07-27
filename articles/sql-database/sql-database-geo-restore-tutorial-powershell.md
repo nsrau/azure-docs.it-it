@@ -39,13 +39,13 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 1. Ottenere l'elenco dei database recuperabili mediante il cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Specificare il seguente parametro:
 	* **ServerName** dove si trova il database.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`PS C:>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Scegliere il database che si desidera ripristinare mediante il cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Specificare i seguenti parametri:
 	* **ServerName** dove si trova il database.
 	* **DatabaseName** del database da cui si esegue il ripristino.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. Avviare il ripristino mediante il cmdlet [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Specificare i seguenti parametri:
 	* **SourceDatabase** che si desidera ripristinare.
@@ -54,14 +54,14 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 
 	Archiviare il risultato restituito in una variabile denominata **$RestoreRequest**. La variabile contiene l'ID della richiesta di ripristino utilizzato per il monitoraggio dello stato di un ripristino.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`PS C:>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 Il completamento di un ripristino di database può richiedere tempo. Per monitorare lo stato del ripristino, utilizzare il cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e specificare i seguenti parametri:
 
 * **ServerName** del database in cui si sta effettuando il ripristino.
 * **OperationGuid** vale a dire l'ID richiesta di ripristino archiviata nella variabile **$RecoveryRequest** nel passaggio 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`PS C:>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 Lo stato del ripristino viene mostrato nei campi **State** e **PercentComplete**.
 
@@ -82,4 +82,4 @@ Per altre informazioni, vedere quanto segue:
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

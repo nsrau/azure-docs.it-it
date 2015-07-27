@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Ruotare le credenziali di input/output
@@ -56,7 +56,8 @@ Per altri input/output, andare alla Parte 2.
 11. Continuare con la Parte 2.  
 
 ###Database SQL
-[AZURE.NOTE]Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di gestione di Azure. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
+
+>[AZURE.NOTE]Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di gestione di Azure. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
 
 1.  Andare all’estensione di Database SQL sul portale di gestione di Azure: ![graphic14][graphic14]
 2.  Individuare il Database SQL usato dal processo e **fare clic sul collegamento al server** sulla stessa riga: ![graphic15][graphic15]
@@ -136,7 +137,7 @@ Si dovrebbe ottenere la conferma seguente:
 	Command(s) completed successfully.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -192,4 +193,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

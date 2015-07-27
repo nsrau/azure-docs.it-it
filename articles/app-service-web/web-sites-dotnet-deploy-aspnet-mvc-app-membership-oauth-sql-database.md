@@ -6,7 +6,7 @@
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 
@@ -78,7 +78,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\Shared*.
+1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
@@ -275,7 +275,7 @@ L'attività successiva consiste nell'abilitare la caratteristica [Migrazioni Cod
 
 
 	Il comando **add-migration Initial** consente di generare un file con nome **&lt;indicatore_data&gt;Initial** nella cartella *Migrations* che crea il database. Il primo parametro (**Initial**) è arbitrario e viene utilizzato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
-3. Aprire il file *Migrations\Configuration.cs*. 
+3. Aprire il file *Migrations\\Configuration.cs*. 
 4. Aggiungere lo spazio dei nomi seguente. 
 
     	 using ContactManager.Models;
@@ -365,7 +365,7 @@ Seguire le istruzioni fornite nell'esercitazione sulla creazione di un'[app MVC 
 ## Utilizzo dell'API di appartenenza
 In questa sezione verranno aggiunti al database di appartenenza un utente locale e il ruolo *canEdit*. Solo gli utenti con ruolo *canEdit* saranno in grado di modificare i dati. È consigliabile assegnare ai ruoli un nome corrispondente alle azioni che consentono di eseguire, quindi il nome *canEdit* è preferibile rispetto ad *admin*. Nel corso dell'evolversi dell'applicazione, sarà possibile aggiungere nuovi ruoli quali *canDeleteMembers*, invece di ruoli con nomi meno descrittivi quali *superAdmin*.
 
-1. Aprire il file *migrations\configuration.cs* e aggiungere le istruzioni `using` seguenti:
+1. Aprire il file *migrations\\configuration.cs* e aggiungere le istruzioni `using` seguenti:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -408,9 +408,9 @@ In questa sezione verranno aggiunti al database di appartenenza un utente locale
    Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale *user1@contoso.com* e infine di aggiungere *user1@contoso.com* al ruolo *canEdit*. Per ulteriori informazioni, consultare le esercitazioni su [ASP.NET Identity](http://www.asp.net/identity/overview/features-api).
 
 ## Utilizzo di codice temporaneo per aggiungere al ruolo canEdit nuovi utenti di accesso a social networking  ##
-In questa sezione sarà possibile modificare temporaneamente il metodo **ExternalLoginConfirmation** nel controller Account per aggiungere nuovi utenti che eseguono l'autenticazione con un provider OAuth oppure OpenID al ruolo *canEdit*. Il metodo **ExternalLoginConfirmation** verrà modificato temporaneamente per aggiungere automaticamente nuovi utenti a un ruolo amministrativo. Il codice temporaneo di registrazione automatica verrà utilizzato fino a quando non sarà disponibile uno strumento per l'aggiunta e la gestione dei ruoli. Ci auguriamo di riuscire a rendere disponibile in futuro uno strumento simile a [WSAT](http://msdn.microsoft.com/it-it/library/ms228053.aspx) per consentire di creare e modificare account utente e ruoli.
+In questa sezione sarà possibile modificare temporaneamente il metodo **ExternalLoginConfirmation** nel controller Account per aggiungere nuovi utenti che eseguono l'autenticazione con un provider OAuth oppure OpenID al ruolo *canEdit*. Il metodo **ExternalLoginConfirmation** verrà modificato temporaneamente per aggiungere automaticamente nuovi utenti a un ruolo amministrativo. Il codice temporaneo di registrazione automatica verrà utilizzato fino a quando non sarà disponibile uno strumento per l'aggiunta e la gestione dei ruoli. Ci auguriamo di riuscire a rendere disponibile in futuro uno strumento simile a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) per consentire di creare e modificare account utente e ruoli.
 
-1. Aprire il file **Controllers\AccountController.cs** e passare al metodo **ExternalLoginConfirmation**.
+1. Aprire il file **Controllers\\AccountController.cs** e passare al metodo **ExternalLoginConfirmation**.
 1. Aggiungere la chiamata seguente a **AddToRoleAsync** immediatamente prima della chiamata **SignInAsync**.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -429,7 +429,7 @@ Eseguire il comando **Update-Database**, che consente di eseguire il metodo **Se
 
 In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) per limitare l'accesso ai metodi di azione. Gli utenti anonimi saranno in grado di visualizzare il metodo di azione **Index** solo per il controller Home. Gli utenti registrati saranno in grado di visualizzare i dati sui contatti (pagine **Index** e **Details** del controller Cm) e le pagine About e Contact. Solo gli utenti appartenenti al ruolo *canEdit* saranno in grado di accedere ai metodi di azione e di modificare i dati.
 
-1. Aggiungere il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) all'applicazione. Un approccio alternativo consiste nell'aggiungere l'attributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e l'attributo [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a ogni controller, ma è consigliabile applicarli all'intera applicazione, per assicurare una protezione migliore. Grazie all'aggiunta a livello globale, ogni nuovo controller e ogni metodo di azione aggiunti saranno protetti automaticamente e non sarà necessario ricordarsi di applicare gli attributi. Per ulteriori informazioni, vedere la pagina relativa alla [protezione dell'app ASP.NET MVC e al nuovo attributo AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Aprire *App_Start\FilterConfig.cs* file e sostituire il metodo *RegisterGlobalFilters* metodo con il codice seguente (che aggiunge due filtri): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. Aggiungere il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) all'applicazione. Un approccio alternativo consiste nell'aggiungere l'attributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e l'attributo [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a ogni controller, ma è consigliabile applicarli all'intera applicazione, per assicurare una protezione migliore. Grazie all'aggiunta a livello globale, ogni nuovo controller e ogni metodo di azione aggiunti saranno protetti automaticamente e non sarà necessario ricordarsi di applicare gli attributi. Per ulteriori informazioni, vedere la pagina relativa alla [protezione dell'app ASP.NET MVC e al nuovo attributo AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Aprire *App_Start\\FilterConfig.cs* file e sostituire il metodo *RegisterGlobalFilters* metodo con il codice seguente (che aggiunge due filtri): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
@@ -565,7 +565,7 @@ Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick And
 Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. È inoltre possibile richiedere nuovi argomenti e votare gli argomenti esistenti alla pagina [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
@@ -627,4 +627,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

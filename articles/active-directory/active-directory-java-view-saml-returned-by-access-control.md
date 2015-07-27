@@ -195,4 +195,4 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

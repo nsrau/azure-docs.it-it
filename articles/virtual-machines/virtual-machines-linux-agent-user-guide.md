@@ -317,4 +317,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

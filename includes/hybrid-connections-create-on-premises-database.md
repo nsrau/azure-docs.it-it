@@ -78,4 +78,4 @@ Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni 
 
 4. **Eseguire** la query per creare il nuovo account di accesso e concedere le autorizzazioni necessarie nel database locale.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

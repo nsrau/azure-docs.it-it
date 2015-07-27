@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. Indicare al server che si usa l'autenticazione
+### 2\. Indicare al server che si usa l'autenticazione
 
 Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti informazioni **sotto il metodo server.get()**, in cui sono state definite le route, ma sopra il metodo **server.listen()**.
 
@@ -1043,7 +1043,7 @@ Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti inform
 ```
 
 
-### 3. Aggiungere il modulo OAuth2 di Passport al codice
+### 3\. Aggiungere il modulo OAuth2 di Passport al codice
 
 Qui si usano i parametri specifici di OAuth2 aggiunti al file config.js. Se il file `aadutils.js` ha analizzato correttamente il documento Federation Metadata, tutti questi valori verranno popolati automaticamente, anche se sono vuoti nel file config.js.
 
@@ -1178,4 +1178,4 @@ Sarà sufficiente clonarli nel computer di sviluppo e configurarli come spiegato
 [ADAL per .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -29,18 +29,7 @@ Alcuni grafici sono segmentati: l'altezza totale del grafico in qualsiasi punto 
 
 Le linee tratteggiate indicano il valore della metrica di una settimana precedente.
 
-## Valori dei punti
 
-Posizionare il mouse sul grafico per visualizzare i valori delle metriche in quel punto.
-
-
-![Posizionare il mouse su un grafico](./media/app-insights-metrics-explorer/02-focus.png)
-
-Il valore della metrica in un punto particolare è aggregato al sopra dell'intervallo di campionamento precedente. Può variare a seconda dell'intervallo di tempo dell'intero grafico.
-
-L'intervallo di campionamento o il "livello di dettaglio" viene visualizzato nella parte superiore del pannello.
-
-![L'intestazione di un pannello.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Intervallo di tempo
 
@@ -56,6 +45,23 @@ Nel pannello Panoramica eseguire il trascinamento su una parte del grafico per i
 
 ![Eseguire il trascinamento della parte di un grafico.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## Livello di dettaglio e valori dei punti
+
+Posizionare il mouse sul grafico per visualizzare i valori delle metriche in quel punto.
+
+![Posizionare il mouse su un grafico](./media/app-insights-metrics-explorer/02-focus.png)
+
+Il valore della metrica in un punto particolare è aggregato al sopra dell'intervallo di campionamento precedente.
+
+L'intervallo di campionamento o il "livello di dettaglio" viene visualizzato nella parte superiore del pannello.
+
+![L'intestazione di un pannello.](./media/app-insights-metrics-explorer/11-grain.png)
+
+È possibile modificare il livello di dettaglio nel pannello Intervallo di tempo:
+
+![L'intestazione di un pannello.](./media/app-insights-metrics-explorer/grain.png)
+
+I livelli di dettaglio disponibili dipendono dall'intervallo di tempo selezionato. I livelli di dettaglio espliciti costituiscono alternative al livello di dettaglio "automatico" per l'intervallo di tempo.
 
 ## Esplora metriche
 
@@ -190,4 +196,4 @@ Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

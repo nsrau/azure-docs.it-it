@@ -9,4 +9,4 @@
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

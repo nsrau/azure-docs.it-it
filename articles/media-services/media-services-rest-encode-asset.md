@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/28/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,13 +26,19 @@ Per distribuire un video digitale tramite Internet è necessario comprimere il f
 
 I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Set di impostazioni di attività per Servizi multimediali di Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Tramite l'API REST è possibile creare processi e le attività correlate in due modi: le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. L'SDK di Servizi multimediali usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo argomento le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all'[elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/). È anche possibile trovare un esempio di elaborazione batch nell'argomento [Processo](https://msdn.microsoft.com/library/azure/hh974289.aspx).
+
+Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi.
+
+- Le Attività possono essere definite in linea mediante la proprietà di navigazione attività lavoro, o 
+- tramite l'elaborazione batch OData.
+  
 
 È consigliabile codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/library/azure/jj889436.aspx). Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
 
+>[AZURE.NOTE]Prima di iniziare a fare riferimento ai supporti multimediali, verificare di avere il corretto processore ID del supporto. Per ulteriori informazioni, vedere[ottenere processori dei supporti](media-services-rest-get-media-processor.md).
 
 ##Creare un processo con una singola attività di codifica 
 
@@ -58,13 +64,19 @@ Richiesta:
 	Host: media.windows.net
 
 	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:70bdc2c3-ebf4-42a9-8542-5afc1e55d217",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Risposta:
 	
 	HTTP/1.1 201 Created
 
 	. . . 
+
+###Impostare il nome dell'asset di output
+
+Il seguente esempio mostra impostare l'attributo assetName:
+
+	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ##Considerazioni
 
@@ -77,11 +89,6 @@ Risposta:
 - Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
 - La proprietà InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
 - Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob". 
-
-Il seguente esempio mostra impostare l'attributo assetName:
-
-	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
-
 
 
 ##Creare un processo con attività concatenate
@@ -112,16 +119,17 @@ In molti scenari di applicazione, gli sviluppatori desiderano creare una serie d
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      },
 	      {  
 	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-16"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
 	      }
 	   ]
 	}
+
 
 ###Considerazioni
 
@@ -129,6 +137,67 @@ Per abilitare il concatenamento di attività:
 
 - Un processo deve avere almeno due attività.
 - Deve essere presente almeno un'attività il cui input viene usato come output di un'altra attività nel processo.
+
+## Utilizzare l'elaborazione batch OData 
+
+Nell'esempio seguente viene illustrato come utilizzare l'elaborazione batch OData per creare un processo e un’attività. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all'[elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+ 
+	POST https://media.windows.net/api/$batch HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Accept: multipart/mixed
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	Host: media.windows.net
+	
+	
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/Jobs HTTP/1.1
+	Content-ID: 1
+	Content-Type: application/json
+	Accept: application/json
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/$1/Tasks HTTP/1.1
+	Content-ID: 2
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{  
+	   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+	   "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	   "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="Custom output name">JobOutputAsset(0)</outputAsset></taskBody>"
+	}
+
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d--
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
+ 
 
 
 ## Creare un processo tramite JobTemplate
@@ -184,63 +253,13 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	. . . 
 
 
-##Controllo dei nomi file di output del codificatore di Servizi multimediali 
-
-Per impostazione predefinita, Codificatore multimediale di Azure crea nomi di file di output combinando diversi attributi dell'asset di input e al processo di codifica. Ogni attributo viene identificato mediante una macro come descritto di seguito.
-
-Di seguito è riportato un elenco completo delle macro disponibili per la denominazione dei file di output: Velocità in bit audio: velocità in bit usata per la codifica audio, specificata in kbps
-
-- Codec audio: codec usato per la codifica audio; i valori consentiti sono AAC, WMA e DDP
-- Conteggio canali: numero di canali audio codificati; i valori consentiti sono: 1, 2 o 6
-- Estensione predefinita: estensione del file predefinita 
-- Lingua: codice della lingua BCP-47 che rappresenta la lingua usata nel file audio. Il valore predefinito per questa impostazione è "und". 
-- Nome file originale: nome del file caricato in Archiviazione di Azure
-- StreamId – StreamId: ID flusso come definito dall'attributo streamID dell'elemento <StreamInfo> nel file del set di impostazioni 
-- Codec video: codec usato per la codifica video; i valori consentiti sono H264 e VC1
-- Velocità in bit video: velocità in bit usata per la codifica video, specificata in kbps
-
-Queste macro possono essere combinate in qualsiasi permutazione per controllare il nome dei file generati dal Codificatore di Servizi multimediali. Ad esempio, la convenzione di denominazione predefinita è:
-
-	{Original File Name}_{Video Codec}{Video Bitrate}{Audio Codec}{Language}{Channel Count}{Audio Bitrate}.{Default Extension}
-
-La convenzione di denominazione dei file viene specificata mediante l'attributo DefaultMediaOutputFileName dell'elemento [Set di impostazioni](https://msdn.microsoft.com/library/azure/dn554334.aspx). Ad esempio:
-
-	<Preset DefaultMediaOutputFileName="{Original file name}{StreamId}_LongOutputFileName{Bit Rate}{Video Codec}{Video Bitrate}{Audio Codec}{Audio Bitrate}{Language}{Channel Count}.{Default extension}"
-	  Version="5.0">
-	<MediaFile …>
-	   <OutputFormat>
-	      <MP4OutputFormat StreamCompatibility="Standard">
-	         <VideoProfile>
-	            <MainH264VideoProfile … >
-	               <Streams  AutoSize="False"
-	                         FreezeSort="False">
-	                  <StreamInfo StreamId="1"
-	                              Size="1280, 720">
-	                     <Bitrate>
-	                       <ConstantBitrate Bitrate="3400"
-	                                        IsTwoPass="False"
-	                                        BufferWindow="00:00:05" />
-	                     </Bitrate>
-	                   </StreamInfo>
-	                  </Streams>
-	               </MainH264VideoProfile>
-	            </VideoProfile>
-	         </MP4OutputFormat>
-	   </OutputFormat>
-	</MediaFile>
-
-Il codificatore inserisce caratteri di sottolineatura tra una macro e l'altra, ad esempio la configurazione sopra darebbe come risultato un nome file simile al seguente: MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
 
 ##Passaggi successivi
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-rest-check-job-progress.md).
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
- 
 
-<!---HONumber=62-->
+ ##See Also
+
+[Ottenere i processori per supporti](media-services-rest-get-media-processor.md)
+
+<!---HONumber=July15_HO3-->

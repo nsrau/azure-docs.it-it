@@ -88,7 +88,7 @@ Nel portale è possibile gestire le funzionalità specifiche delle app per le AP
 
 	![][deployment-credentials]
 
-1. Nel pannello **Host app per le API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
+1. Nel pannello **Host app API** fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in "URL GIT".
 
 2. Copiare l'URL. Questa informazione sarà necessaria in uno dei passaggi successivi dell'esercitazione.
 
@@ -245,4 +245,4 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

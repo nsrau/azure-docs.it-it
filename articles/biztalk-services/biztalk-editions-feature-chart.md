@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -229,7 +229,7 @@ Il costo della connessione ibrida per unità dipende dall'edizione di Servizi Bi
 
 #### Quando si crea un contratto in Servizi BizTalk, perché il numero di bridge aumenta di due anziché di uno?
 
-Ogni contratto include sue bridge diversi, uno per la comunicazione sul lato di invio e l'altro sul lato di ricezione.
+Ogni contratto include due bridge diversi: uno per la comunicazione sul lato di trasmissione e l'altro sul lato di ricezione.
 
 ####  Che cosa succede se si raggiunge il limite di quota o il numero massimo di bridge o contratti?
 
@@ -237,7 +237,7 @@ Non è possibile distribuire nuovi bridge o creare nuovi contratti. Per distribu
 
 #### Come si esegue la migrazione da un livello di Servizi BizTalk a un altro?
 
-Usare il flusso di backup e ripristino per eseguire la migrazione da un livello a un altro. Sono supportati solo alcuni percorsi di migrazione. Per informazioni più dettagliate sui percorsi di migrazione supportati, vedere [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873).
+Usare il flusso di backup e ripristino per eseguire la migrazione da un livello a un altro. Sono supportati solo alcuni percorsi di migrazione. Per informazioni più dettagliate sui percorsi di migrazione supportati, vedere [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md).
 
 #### Il servizio Adapter BizTalk è incluso nel servizio? Come è possibile ricevere il software?
 
@@ -245,16 +245,16 @@ Sì, il servizio Adapter BizTalk e BizTalk Adapter Pack sono inclusi in nel [dow
 
 ## Avanti
 
-Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Creare un servizio BizTalk mediante il portale di gestione di Azure](biztalk-provision-services.md). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Vedere anche
-- [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [Creare un servizio BizTalk mediante il portale di gestione di Azure](biztalk-provision-services.md)<br/>
+- [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)<br/>
+- [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)<br/>
+- [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)<br/>
+- [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

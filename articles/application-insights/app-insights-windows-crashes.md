@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Rilevare e diagnosticare gli arresti anomali nelle app Windows Store e Phone con Application Insights
@@ -21,7 +21,7 @@
 
 Se gli utenti incontrano arresti anomali nell'app, si desidera avere rapidamente informazioni e dettagli su cosa è successo. Con Application Insights è possibile monitorare la frequenza con cui si verificano arresti anomali, ricevere avvisi quando si verificano e analizzare i report di singoli incidenti imprevisti.
 
-"Arresto anomalo" significa che l'applicazione viene terminata a causa di un'eccezione non rilevata. Se l'applicazione rileva un'eccezione, è possibile creare un report con l'API TrackException(), ma continuare l'esecuzione. In tal caso, non verrà registrata come arresto anomalo.
+"Arresto anomalo" significa che l'applicazione viene terminata a causa di un'eccezione non rilevata. Se l'app rileva un'eccezione, è possibile creare un report con l'[API TrackException][apiexceptions], ma continuare l'esecuzione. In tal caso, non verrà registrata come arresto anomalo.
 
 
 ## Monitorare la frequenza di arresti anomali
@@ -80,6 +80,8 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 
 [Rilevare, valutare e diagnosticare problemi con Application Insights][detect]
 
+[API Application Insights][api]
+
 [Acquisire i log di diagnostica][trace]
 
 [Risoluzione dei problemi](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

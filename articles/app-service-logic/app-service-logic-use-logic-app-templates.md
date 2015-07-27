@@ -40,4 +40,4 @@ Vengono forniti semplici modelli che si integrano con le applicazioni di social 
 Dopo aver selezionato uno dei modelli, completare la distribuzione. La procedura è analoga a quella per la distribuzione di una app per la logica creata dall'utente. Vedere [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

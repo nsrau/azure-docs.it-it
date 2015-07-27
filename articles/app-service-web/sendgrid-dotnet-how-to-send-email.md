@@ -240,4 +240,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

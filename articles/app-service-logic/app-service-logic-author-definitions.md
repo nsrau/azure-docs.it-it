@@ -25,13 +25,13 @@ Un modello comune consiste nell'usare un solo passaggio per ottenere un elenco d
 
 ![Ripetere in elenchi](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-In questo esempio vengono eseguite tre azioni:
+In questo esempio vengono eseguite 3 azioni:
 
-1. Un'azione ottiene un elenco di articoli e restituisce un oggetto che contiene una matrice.
+1. Un'azione ottiene un elenco di articoli. Restituisce un oggetto che contiene una matrice.
 
-2. Un'azione passa a una proprietà di collegamento di ogni articolo e restituisce la posizione effettiva dell'articolo.
+2. Un'azione passa alla proprietà del collegamento di ogni articolo e restituisce la posizione effettiva dell'articolo.
 
-3. Un'azione esegue l'iterazione di tutti i risultati della seconda azione per scaricare gli articoli effettivi.
+3. Un'azione scorre tutti i risultati della seconda azione per scaricare gli articoli effettivi.
 
 ```
 {
@@ -73,13 +73,13 @@ In questo esempio vengono eseguite tre azioni:
 }
 ```
 
-Come descritto nell'articolo [Usare le funzionalità delle app per la logica](app-service-logic-use-logic-app-features.md), eseguire l'iterazione del primo elenco usando la proprietà `repeat:` nella seconda azione. Per la terza azione è tuttavia necessario selezionare la proprietà `@actions('readLinks').outputs.repeatItems`, perché la seconda viene eseguita per ogni articolo.
+Come descritto nell'articolo [Usare le funzionalità delle app per la logica](app-service-logic-use-logic-app-features.md), scorrere il primo elenco usando la proprietà `repeat:` nella seconda azione. Per la terza azione è tuttavia necessario selezionare la proprietà `@actions('readLinks').outputs.repeatItems`, perché la seconda viene eseguita per ogni articolo.
 
-All'interno dell'azione è possibile usare la funzione [`repeatItem()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatItem), [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) o [`repeatBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatBody). In questo esempio si vuole ottenere l'intestazione `location`, quindi si userà la funzione [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) per ottenere gli output dell'esecuzione della seconda azione di cui si sta eseguendo l'iterazione.
+All'interno dell'azione è possibile usare la funzione [`repeatItem()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatItem), [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) o [`repeatBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatBody). In questo esempio si vuole ottenere l'intestazione `location`, quindi si userà la funzione [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) per ottenere gli output dell'esecuzione della seconda azione che si sta scorrendo.
 
 ## Mapping degli elementi di un elenco a una configurazione diversa
 
-A questo punto, si vuole ottenere un contenuto completamente diverso in base al valore di una proprietà. È possibile creare una mappa tra valori e destinazioni come parametro.
+A questo punto, si vuole ottenere un contenuto completamente diverso in base al valore di una proprietà. È possibile creare una mappa di valori a destinazioni come parametro.
 
 ```
 {
@@ -136,11 +136,11 @@ A questo punto, si vuole ottenere un contenuto completamente diverso in base al 
 
 In questo caso, si ottiene prima di tutto un elenco di articoli e poi nel secondo passaggio si cerca in una mappa l'URL dal quale ottenere il contenuto, in base alla categoria definita come parametro.
 
-Qui è necessario prestare attenzione a due elementi: la funzione [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) viene usata per verificare se la categoria corrisponde a una delle categorie note definite. Dopo avere ottenuto la categoria, è possibile quindi estrarre l'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
+Qui occorre prestare attenzione a due elementi: la funzione [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) viene usata per verificare se la categoria corrisponde a una delle categorie note definite. Secondo, dopo avere ottenuto la categoria è possibile estrarre l'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
 
 ## Concatenare/annidare le app per la logica durante la ripetizione in un elenco
 
-Spesso è più facile gestire le app per la logica se sono più discrete. A questo scopo, è possibile effettuare il factoring della logica in più definizioni e chiamarle dalla stessa definizione padre. In questo esempio si userà un'app per la logica padre che riceve gli ordini e un'app per la logica figlio che esegue alcuni passaggi per ogni ordine.
+Spesso è più facile gestire le app per la logica se sono più discrete. A questo scopo, è possibile effettuare il factoring della logica in più definizioni e chiamarle dalla stessa definizione padre. In questo esempio, si userà un'app per la logica padre che riceve gli ordini e un'app per la logica figlio che esegue alcuni passaggi per ogni ordine.
 
 Nell'app per la logica padre:
 
@@ -234,14 +234,14 @@ Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](htt
 }
 ```
 
-Altre informazioni sull'[azione di tipo app per la logica sono disponibili su MSDN](https://msdn.microsoft.com/it-it/library/azure/dn948511.aspx).
+Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
 
->[AZURE.NOTE]Poiché la finestra di progettazione di app per la logica non supporta le azioni di tipo app per la logica, sarà necessario modificare la definizione manualmente.
+>[AZURE.NOTE]La finestra di progettazione di app per la logica non supporta le azioni di tipo app per la logica, quindi sarà necessario modificare la definizione manualmente.
 
 
 ## Passaggio di gestione degli errori in caso di problemi
 
-È opportuno in genere scrivere una *procedura di correzione*, ovvero la logica che viene eseguita se, **e solo se**, una o più chiamate non riescono. In questo esempio i dati vengono recuperati da diverse posizioni, ma se la chiamata non riesce, è opportuno INSERIRE un messaggio in qualche punto, in modo da poter ricostruire l'errore in seguito.
+In genere, è opportuno poter scrivere una *procedura di correzione*, cioè la logica che viene eseguita se, **e solo se**, una o più chiamate non riescono. In questo esempio, i dati vengono recuperati da diverse posizioni, ma se la chiamata non riesce, è opportuno INSERIRE un messaggio in qualche punto, in modo da poter ricostruire l'errore in seguito.
 
 ```
 {
@@ -287,11 +287,11 @@ Altre informazioni sull'[azione di tipo app per la logica sono disponibili su MS
 }
 ```
 
-In questo caso si usano due condizioni, perché nel primo passaggio l'azione viene ripetuta in un elenco. Se fosse disponibile una singola azione, sarebbe necessaria una sola condizione (la prima). Tenere presente che nella procedura di correzione è anche possibile usare gli *input* dell'azione non riuscita. In questo caso l'URL non riuscito viene passato al secondo passaggio.
+In questo caso si usano due condizioni, perché nel primo passaggio l'azione viene ripetuta in un elenco. Se fosse disponibile una singola azione, sarebbe necessaria una sola condizione (la prima). Tenere presente che nella procedura di correzione è anche possibile usare gli *input* dell'azione non riuscita. In questo caso, l'URL non riuscito viene passato al secondo passaggio.
 
 ![Correzione](./media/app-service-logic-author-definitions/remediation.png)
 
-Poiché infine l'errore è stato gestito, l'esecuzione non viene più contrassegnata come **Non riuscita**. Come è possibile osservare, questa esecuzione risulta **Riuscita** anche se un passaggio non è riuscito, perché è stato scritto un passaggio per gestire l'errore.
+Infine, poiché l'errore è stato gestito, l'esecuzione non viene più contrassegnata come **Non riuscita**. Come si può vedere, questa esecuzione risulta **Riuscita** anche se un passaggio non è riuscito, perché è stato scritto un passaggio per gestire l'errore.
 
 ## Due o più passaggi eseguiti in parallelo
 
@@ -343,15 +343,15 @@ Per eseguire più azioni in parallelo, invece che in sequenza, è necessario rim
 }
 ```
 
-Come è possibile osservare nell'esempio precedente, branch1 e branch2 dipendono semplicemente dal contenuto di readData. Di conseguenza, entrambi i rami (branch) saranno eseguiti in parallelo:
+Come si può vedere nell'esempio precedente, branch1 e branch2 dipendono semplicemente dal contenuto di readData. Di conseguenza, entrambi i rami (branch) saranno eseguiti in parallelo:
 
-![In parallelo](./media/app-service-logic-author-definitions/parallel.png)
+![Parallelo](./media/app-service-logic-author-definitions/parallel.png)
 
-Come è possibile osservare, il timestamp è identico per entrambi i rami.
+Come si può vedere, il timestamp è identico per entrambi i rami.
 
-## Unire due rami condizionali di logica
+## Unire due diramazioni condizionali di logica
 
-È possibile combinare due flussi condizionali di logica (che siano stati eseguiti o meno) mediante una singola azione che accetta dati da entrambi i rami.
+È possibile combinare due flussi condizionali di logica (che siano stati eseguiti o meno) mediante una singola azione che accetta i dati da entrambi i rami.
 
 La strategia per questa operazione varia a seconda che venga gestito un elemento o una raccolta di elementi. Nel caso di un singolo elemento, si userà la funzione [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce):
 
@@ -411,7 +411,7 @@ La strategia per questa operazione varia a seconda che venga gestito un elemento
 }
 ```
  
-In alternativa, se i primi due rami agiscono, ad esempio, in un elenco di ordini, si userà la funzione [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) per combinare i dati di entrambi i rami.
+In alternativa se i primi due rami agiscono, ad esempio, in un elenco di ordini, si userà la funzione [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) per combinare i dati di entrambi i rami.
 
 ```
 {
@@ -483,9 +483,9 @@ In alternativa, se i primi due rami agiscono, ad esempio, in un elenco di ordini
 ```
 ## Uso delle stringhe
 
-Sono disponibili molte funzioni che è possibile usare per modificare le stringhe. Se consideri ad esempio di voler passare una stringa a un sistema, ma di non essere certi che la codifica dei caratteri venga gestita correttamente. Per questa stringa è possibile usare, ad esempio, la codifica Base64. Per evitare tuttavia di usare caratteri di escape in un URL, verranno sostituiti alcuni caratteri.
+Sono disponibili molte funzioni che è possibile usare per modificare le stringhe. Se consideri ad esempio di voler passare una stringa a un sistema, ma di non essere certi che la codifica dei caratteri venga gestita correttamente. Per questa stringa è possibile usare, ad esempio, la codifica Base64. Tuttavia, per evitare di eseguire l'escape in un URL, verranno sostituiti alcuni caratteri.
 
-Si vuole anche ottenere una sottostringa del nome dell'ordine, perché i primi cinque caratteri non vengono usati.
+Si vuole anche ottenere una sottostringa del nome dell'ordine, perché i primi 5 caratteri non vengono usati.
 
 ```
 {
@@ -517,19 +517,19 @@ Si vuole anche ottenere una sottostringa del nome dell'ordine, perché i primi c
 
 Descrizione della stringa di codice:
 
-1. Ottiene l'elemento [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length) del nome dell'autore dell'ordine e restituisce il numero totale di caratteri
+1. Ottiene l'elemento [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length) del nome dell'autore dell'ordine e restituisce il numero totale di caratteri.
 
-2. Sottrae 5 (si vuole ottenere una stringa più breve)
+2. Sottrae 5 (si vuole ottenere una stringa più breve).
 
-3. Accetta in effetti l'elemento [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring) Inizia dall'indice `5` e procede con la parte rimanente della stringa
+3. Accetta in effetti l'elemento [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring). Inizia dall'indice `5` e procede alla parte rimanente della stringa.
 
-4. Converte la sottostringa in una stringa [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64)
+4. Converte la sottostringa in una stringa [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64).
 
 5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) sostituisce tutti i caratteri `+` con `-`
 
 6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) sostituisce tutti i caratteri `/` con `_`
 
-## Uso di date e ore
+## Utilizzo di date e ore
 
 Date e ore possono risultare utili, specialmente quando si tenta di eseguire il pull dei dati da un'origine dati che non supporta **trigger** in modo naturale. È anche possibile usare date e ore per prevedere la durata di diversi passaggi.
 
@@ -572,9 +572,9 @@ Date e ore possono risultare utili, specialmente quando si tenta di eseguire il 
 }
 ```
 
-In questo esempio viene estratto l'elemento `startTime` del passaggio precedente. Si otterrà quindi l'ora corrente sottraendo un secondo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (è anche possibile usare altre unità di tempo come `minutes` o `hours`). Sarà possibile infine confrontare questi due valori. Se il primo è minore del secondo, significa che è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
+In questo esempio viene estratto l'elemento `startTime` del passaggio precedente. Si otterrà quindi l'ora corrente sottraendo un secondo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (è anche possibile usare altre unità di tempo come `minutes` o `hours`). Infine si potranno confrontare questi due valori. Se il primo è minore del secondo, significa che è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
 
-Si noti anche che è possibile usare formattatori di stringa per formattare le date: nella stringa di query viene usato [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) per ottenere RFC1123. Tutta la formattazione delle date [è documentata in MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+Notare che è possibile usare formattatori di stringa per formattare le date: nella stringa di query viene usato [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) per ottenere RFC1123. Tutta la formattazione delle date [è documentata in MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
 
 ## Passaggio di valori in fase di esecuzione per modificare il comportamento
 
@@ -629,13 +629,13 @@ Il payload è il seguente. Si noti che sono stati forniti all'app per la logica 
 }
 ``` 
 
-Quando viene eseguita, l'app per la logica chiama l'URI passato ed esegue il passaggio aggiuntivo, perché nella chiamata è stato passato `true`. Per modificare i parametri solo al momento della distribuzione (non per *ogni esecuzione*), usare `parameters` come indicato di seguito.
+Quando l'app per la logica viene eseguita, chiamerà l'URI passato ed eseguirà il passaggio aggiuntivo, perché nella chiamata è stato passato `true`. Per modificare solo i parametri al momento della distribuzione (non per *ogni esecuzione*), usare `parameters` come indicato di seguito.
 
 ## Uso di parametri al momento della distribuzione per diversi ambienti
 
-Un ciclo di vita di distribuzione prevede in genere un ambiente di sviluppo, un ambiente di gestione temporanea e quindi un ambiente di produzione. In tutti questi ambienti è possibile avere la stessa definizione, ma usare ad esempio database diversi. In modo analogo, è possibile usare la stessa definizione in molte aree diverse ai fini della disponibilità elevata, ma fare in modo che ogni istanza dell'app per la logica comunichi con il database di quell'area.
+In genere, un ciclo di vita di distribuzione prevede un ambiente di sviluppo, un ambiente di gestione temporanea e quindi un ambiente di produzione. In tutti questi ambienti è possibile avere la stessa definizione, ma usare, ad esempio, diversi database. In modo analogo, è possibile usare la stessa definizione in molte aree diverse ai fini della disponibilità elevata, ma fare in modo che ogni istanza dell'app per la logica comunichi con il database di quell'area.
 
-Questo approccio è diverso dall'accettare parametri diversi in *fase di esecuzione*. In quel caso è necessario usare la funzione `trigger()` descritta precedentemente.
+Questo approccio è diverso dall'accettare diversi parametri in *fase di esecuzione*. In quel caso è necessario usare la funzione `trigger()` descritta sopra.
 
 È possibile iniziare con una definizione molto semplicistica, come questa:
 
@@ -686,6 +686,6 @@ Quindi, nella richiesta `PUT` effettiva per l'app per la logica è possibile for
 }
 ``` 
 
-In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`. Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere l'articolo relativo alla [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`. Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

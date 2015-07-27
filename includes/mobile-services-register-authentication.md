@@ -19,4 +19,4 @@ Dopo aver configurato l'applicazione e il servizio mobile per supportare un prov
 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

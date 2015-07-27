@@ -53,7 +53,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 1. Accedere al sistema operativo.
 
-2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\\system32\\sysprep**, quindi eseguire `sysprep.exe`.
 
 	![Apertura della finestra del Prompt dei comandi](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Passaggio 4: caricare il file VHD]: #upload
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

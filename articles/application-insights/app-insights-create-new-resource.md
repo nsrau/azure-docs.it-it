@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # Creare una nuova risorsa di Application Insights
@@ -57,18 +57,18 @@ Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, cercar
 
 ## Eseguire una copia della chiave di strumentazione
 
+La chiave di strumentazione identifica la risorsa creata. Sarà necessario fornirla all'SDK.
 
-Sarà necessaria a breve per indirizzare i dati dall'SDK nell'app alla risorsa appena creata.
+![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-create-new-resource/02-props.png)
 
-![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+## Installare l’SDK nell'app
 
-## Configurare l'SDK
+Installare Application Insights SDK nell'app. Questo passaggio dipende dal tipo di applicazione.
 
 Usare la chiave di strumentazione per configurare l'[SDK installato nell'applicazione][start].
 
-Questo passaggio dipende dal tipo di applicazione che si sta usando.
+L'SDK include i moduli standard che inviano dati di telemetria senza che occorra scrivere codice. Per rilevare le azioni degli utenti o diagnosticare i problemi in modo più dettagliato, [usare l'API][api] per inviare dati di telemetria personalizzati.
 
-In alcuni casi è necessario installare i moduli standard che inviano dati di telemetria senza che occorra scrivere codice. In ogni caso, è possibile [usare l'API][api] per inviare i propri dati di telemetria.
 
 ## <a name="monitor"></a>Visualizzare i dati di telemetria
 
@@ -92,4 +92,4 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

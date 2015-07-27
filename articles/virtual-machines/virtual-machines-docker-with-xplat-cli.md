@@ -139,4 +139,4 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

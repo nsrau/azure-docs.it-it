@@ -45,7 +45,7 @@ Per eseguire il provisioning di un account di database DocumentDB in Azure:
 1. Se non si ha già un account di database, crearne uno seguendo le istruzioni in [Creazione di un account di database](documentdb-create-account.md). Se si ha già un account, procedere al passaggio 2.
 2. Usando il pannello **Chiavi** mostrato nell'illustrazione seguente, copiare l'**URI** dell'endpoint e la **CHIAVE PRIMARIA** negli Appunti e tenerli a portata di mano, poiché questi valori verranno usati nell'applicazione Web creata in seguito.
 
-![Schermata del portale di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato,  il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][1]
+![Schermata del portale di anteprima di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][1]
 
 
 ##<a id="CreateJSP"></a>Passaggio 2: Creare l'applicazione JSP ##
@@ -777,6 +777,6 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 22. Per distribuire il progetto in un sito web di Azure, vedere il [passaggio 6. Distribuire l'applicazione in Siti Web di Azure](#Deploy). 
 
 [1]: media/documentdb-java-application/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

@@ -26,4 +26,4 @@ Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è nece
 
 A questo punto sarà possibile immettere il nome di dominio di Gestione traffico (contoso.trafficmanager.net) nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

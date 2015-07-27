@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Connessione a input e output
@@ -90,8 +90,7 @@ Sono presenti alcuni parametri per i clienti devono configurare per i flussi di 
 3. Nome criterio Hub eventi: il nome del criterio di accesso condiviso per l'accesso all'Hub eventi. Per un Hub eventi nella scheda Configura è possibile configurare criteri di accesso condiviso. Ogni criterio di accesso condiviso dispone di un nome, delle autorizzazioni impostate, e di tasti di scelta.
 4. Chiave di criterio Hub eventi: la chiave principale o secondaria del criterio di accesso condiviso per l'accesso all'Hub eventi.  
 5. Gruppo di utenti dell'Hub eventi: parametro facoltativo per gli input di Hub eventi. Il gruppo di utenti per acquisire dati dall'Hub eventi. Se non specificato, i processi di analisi del flusso utilizzano il gruppo di utenti predefinito per acquisire dati dall'Hub eventi. È consigliabile utilizzare un gruppo di utenti distinto per ogni processo di analisi del flusso.
-
-Colonna chiave di partizione: parametro facoltativo per gli output dell'Hub eventi. La colonna di attributo di dati utilizzata come chiave di partizione per l'output dell'Hub eventi.
+6. Colonna chiave di partizione: parametro facoltativo per gli output dell'Hub eventi. La colonna di attributo di dati utilizzata come chiave di partizione per l'output dell'Hub eventi. 
 
 ##Utilizzo dell'output della tabelle di Azure
 
@@ -126,8 +125,7 @@ Scegliere "Archivio tabelle" come output.
 Nella pagina successiva, immettere le informazioni della tabella di Azure. L'alias di output è il nome che è possibile utilizzare nella query per indirizzare la query di output su questa tabella.
 
 
-![graphic14][graphic14]
-![graphic15][graphic15]
+![graphic14][graphic14] ![graphic15][graphic15]
 
 La dimensione del batch rappresenta il numero di record per un'operazione batch. Se non si dispone di sufficiente familiarità, lasciare il valore invariato oppure fare riferimento a [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) per ulteriori dettagli
 
@@ -151,7 +149,7 @@ In questo esempio, le credenziali fornite non sono corrette. È possibile correg
 ![graphic19][graphic19]
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -185,4 +183,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

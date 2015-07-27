@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # Configurazione di SSL per un'applicazione in Azure
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
 > [AZURE.NOTE]Le procedure descritte in questa attività si applicano a Servizi cloud di Azure. Per Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../web-sites-configure-ssl-certificate.md).
 
 In questa attività viene utilizzata una distribuzione di produzione. In fondo a questo argomento vengono fornite informazioni sull'utilizzo di una distribuzione di gestione temporanea.
+
+Leggere [questo articolo](cloud-services-how-to-create-deploy.md) se non è stato ancora creato un servizio cloud.
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
 
 ## Passaggio 1: Ottenere un certificato SSL
 
@@ -105,27 +112,22 @@ Nell'esempio precedente viene usato **sha1** come algoritmo di identificazione p
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si utilizza **cspack**, assicurarsi di non utilizzare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
-## Passaggio 3: Caricare il pacchetto di distribuzione e il certificato
+## Passaggio 3: caricare un certificato
 
 Il pacchetto di distribuzione è stato aggiornato per utilizzare il certificato ed è stato aggiunto un endpoint HTTPS. Ora è possibile caricare il pacchetto e il certificato in Azure tramite il portale di gestione.
 
 1. Accedere al [portale di gestione di Azure][]. 
-2. Fare clic su **New**, quindi su **Cloud Service** e infine su **Custom Create**.
-3. Nella finestra di dialogo **Create a cloud service** immettere i valori per URL, area/gruppo di affinità e sottoscrizione. Assicurarsi che l'opzione **Deploy a cloud service package now** sia selezionata, quindi scegliere **Next**.
-3. Nella finestra di dialogo **Publish your cloud service** immettere le informazioni relative al servizio cloud, selezionare **Production** per l'ambiente, quindi assicurarsi che l'opzione **Add certificates now** sia selezionata. Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Deploy even if one or more roles contain a single instance** sia selezionata. 
+2. Fare clic su **Servizi cloud** nel riquadro di spostamento a sinistra.
+3. Fare clic sul servizio cloud desiderato.
+4. Fare clic sulla scheda **Certificati**.
 
-    ![Pubblicare il servizio cloud][0]
+    ![Fare clic sulla scheda Certificati](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  Fare clic sue **Next**.
-5.  Nella finestra di dialogo **Add Certificate** immettere il percorso del file PFX del certificato SSL, la password per il certificato, quindi fare clic su **attach certificate**.  
+5. Fare clic sul pulsante **Upload**.
 
-    ![Add certificate][1]
-
-6.  Assicurarsi che il certificato sia elencato nella sezione **Attached Certificates**.
-
-    ![Attached certificates][4]
-
-7.  Fare clic su **Complete** per creare il servizio cloud. Quando la distribuzione ha raggiunto lo stato **Ready**, è possibile procedere con i passaggi successivi.
+    ![Caricamento](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. Fornire il **file**, la **password** e quindi fare clic su **Completato** (segno di spunta).
 
 ## Passaggio 4: Connettersi all'istanza del ruolo usando HTTPS
 
@@ -160,4 +162,4 @@ Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anzic
   [Come configurare un certificato SSL su un endpoint HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

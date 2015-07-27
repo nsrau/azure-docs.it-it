@@ -150,4 +150,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
   [Come creare un processo di Blitline]: #createjob
   [Come salvare un'immagine nell'archiviazione di Azure]: #saveazure
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -60,4 +60,4 @@ I comandi di esempio seguenti illustrano come impostare le proprietà di un runb
 - [Messaggi e output del runbook](../automation-runbook-output-and-messages) 
 - [Creazione o importazione di un runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

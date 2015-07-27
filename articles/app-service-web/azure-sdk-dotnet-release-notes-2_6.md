@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/29/2015"
+   ms.date="07/08/2015"
    ms.author="juliako"/>
 
 
@@ -103,4 +103,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 	Se i problemi illustrati persistono, installare la versione più recente di Azure SDK 2.6 per [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

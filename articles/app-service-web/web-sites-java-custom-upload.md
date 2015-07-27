@@ -30,7 +30,7 @@ Di seguito sono descritte le impostazioni previste per i siti Web Java personali
 - Tutte le porte di ascolto diverse dal listener HTTP devono essere disabilitate. In Tomcat questo include le porte di arresto, HTTPS e AJP.
 - Il contenitore deve essere configurato solo per il traffico IPv4.
 - Il comando **startup** per l'applicazione deve essere impostato nella configurazione.
-- Le applicazioni che richiedono directory con autorizzazioni di scrittura devono essere situate nella directory del contenuto del sito Web di Azure, ovvero **D:\home**. La variabile di ambiente `HOME` fa riferimento a D:\home.  
+- Le applicazioni che richiedono directory con autorizzazioni di scrittura devono essere situate nella directory del contenuto del sito Web di Azure, ovvero **D:\\home**. La variabile di ambiente `HOME` fa riferimento a D:\\home.  
 
 Le variabili di ambiente possono essere impostate come richiesto nel file web.config.
 
@@ -46,7 +46,7 @@ Esempi (con **processPath** incluso):
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
 **processPath**: percorso dell'eseguibile o dello script che avvierà un processo in ascolto delle richieste HTTP.
@@ -71,7 +71,7 @@ Esempi:
                                                                                       
 **stdoutLogEnabled** (impostazione predefinita "true"): se è impostato su true, **stdout** e **stderr** per il processo specificato nell'impostazione **processPath** verranno reindirizzati al file specificato in **stdoutLogFile** (vedere la sezione relativa a **stdoutLogFile**).
                                     
-**stdoutLogFile** (impostazione predefinita "d:\home\LogFiles\httpPlatformStdout.log"): percorso file assoluto per cui verranno registrati **stdout** e **stderr** dal processo specificato in **processPath**.
+**stdoutLogFile** (impostazione predefinita "d:\\home\\LogFiles\\httpPlatformStdout.log"): percorso file assoluto per cui verranno registrati **stdout** e **stderr** dal processo specificato in **processPath**.
                                     
 > [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` è un segnaposto speciale che deve essere specificato come parte di **arguments** o dell'elenco **httpPlatform** **environmentVariables**. Verranno sostituiti da una porta generata internamente da **HttpPlatformHandler** affinché il processo specificato in **processPath** possa restare in ascolto su questa porta.
 
@@ -125,7 +125,7 @@ Come nel caso di Tomcat, i clienti possono caricare istanze personalizzate per J
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -139,9 +139,9 @@ La configurazione Jetty deve essere modificata in start.ini per impostare `java.
 
 Nel test sono stati utilizzati il file WAR di Hudson 3.1.2 e l'istanza predefinita di Tomcat 7.0.50, senza utilizzare l'interfaccia utente per la configurazione. Poiché Hudson è uno strumento per la compilazione di software, è consigliabile installarlo su istanze dedicate nelle quali sia possibile impostare il flag **AlwaysOn** sul sito.
 
-1. Nella radice del sito Web di Azure, ad esempio **d:\home\site\wwwroot**, creare una directory **webapps**, se non è già presente, quindi inserire Hudson.war in **d:\home\site\wwwroot\webapps**.
-2. Scaricare apache maven 3.0.5 (compatibile con Hudson) e posizionarlo in **d:\home\site\wwwroot**.
-3. Creare il file web.config in **d:\home\site\wwwroot** e incollarvi il contenuto seguente:
+1. Nella radice del sito Web di Azure, ad esempio **d:\\home\\site\\wwwroot**, creare una directory **webapps**, se non è già presente, quindi inserire Hudson.war in **d:\\home\\site\\wwwroot\\webapps**.
+2. Scaricare apache maven 3.0.5 (compatibile con Hudson) e posizionarlo in **d:\\home\\site\\wwwroot**.
+3. Creare il file web.config in **d:\\home\\site\\wwwroot** e incollarvi il contenuto seguente:
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -194,7 +194,7 @@ Mediante Liferay 6.1.2 Community Edition GA3 in bundle con Tomcat sono stati mod
 - Impostare il connettore HTTP su `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 - Impostare come commento il connettore AJP.
 
-Nella cartella **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** creare un file denominato **portal-ext.properties**. Il file deve contenere una riga, come illustrato di seguito:
+Nella cartella **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes** creare un file denominato **portal-ext.properties**. Il file deve contenere una riga, come illustrato di seguito:
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -236,4 +236,4 @@ Per ulteriori informazioni su Liferay, vedere [http://www.liferay.com](http://ww
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

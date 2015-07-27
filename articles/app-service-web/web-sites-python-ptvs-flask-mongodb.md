@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio" 
-	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Flask che archivia i dati in un'istanza di database MongoDB e per distribuirla in App Web di Azure App Service." 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Flask che archivia i dati in un'istanza di database MongoDB e per distribuirla in App Web del servizio app di Azure." 
 	services="app-service\web" 
 	tags="python"
 	documentationCenter="python" 
@@ -27,9 +27,9 @@ In questa esercitazione si userà [Python Tools per Visual Studio] al fine di cr
 
 L'app Web per sondaggi definisce un'astrazione per il proprio repository; in questo modo, è possibile passare facilmente tra diversi tipi di repository (in memoria, archiviazione tabelle di Azure, MongoDB).
 
-Durante l'esercitazione si apprenderà come usare uno dei servizi MongoDB ospitati in Azure, come configurare l'app Web per l'uso di MongoDB e come pubblicare l'app Web in [App Web di Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Durante l'esercitazione si apprenderà come usare uno dei servizi MongoDB ospitati in Azure, come configurare l'app Web per l'uso di MongoDB e come pubblicare l'app Web in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Vedere il [Centro per sviluppatori Python] per consultare altri articoli che trattano lo sviluppo di app Web di Azure App Service con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
+Vedere il [Centro per sviluppatori Python] per consultare altri articoli che trattano lo sviluppo di app Web del servizio app di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
 
 ## Prerequisiti
 
@@ -148,9 +148,9 @@ In questa sezione verrà configurata l'applicazione per usare il database MongoD
 
   	![Risultati della query di RoboMongo](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-## Pubblicare l'app Web in Azure App Service
+## Pubblicare l'app Web nel servizio app di Azure
 
-PTVS offre un modo semplice di distribuire l'app Web in Azure App Service.
+PTVS offre un modo semplice di distribuire l'app Web nel servizio app di Azure.
 
 1.  In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Pubblica**.
 
@@ -240,4 +240,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

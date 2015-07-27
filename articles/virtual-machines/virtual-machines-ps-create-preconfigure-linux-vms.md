@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,22 +14,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-machines-linux-tutorial.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-Questi passaggi mostrano come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Linux mediante un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Linux ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
+In questi passaggi viene mostrato come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Linux in Gestione servizi utilizzando un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Linux ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
-Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
+Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di Azure PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di Azure PowerShell possono utilizzare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Windows, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Windows, vedere [Utilizzo di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
-## Passaggio 1: installare Azure PowerShell
+## Passaggio 1: Installare Azure PowerShell
 
 Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
@@ -257,8 +258,8 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Utilizzo di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

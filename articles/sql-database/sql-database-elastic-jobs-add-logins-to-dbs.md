@@ -1,8 +1,6 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Come aggiungere un utente a un pool elastico di database" 
 	description="È necessario aggiungere un utente con privilegi a ogni database del pool" 
-	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -16,9 +14,9 @@
 	ms.date="04/20/2015" 
 	ms.author="sidneyh" />
 
-# Come aggiungere utenti a un pool elastico di database
+# Come aggiungere utenti a un pool di database elastici
 
-I processi elastici di database consentono di eseguire lo stesso script su ogni database di un [pool elastico di database](sql-database-elastic-pool.md). Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database del pool. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+**I processi di database elastici** consentono di eseguire lo stesso script su ogni database di un [pool di database elastici](sql-database-elastic-pool.md). Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database del pool. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisiti
 * [Creare un pool elastico di database (anteprima)](sql-database-elastic-pool-portal.md)
@@ -38,7 +36,7 @@ I processi elastici di database consentono di eseguire lo stesso script su ogni 
 
 ## Passaggi successivi
 
-Eseguire un processo sul pool di database. Vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
+Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -46,4 +44,4 @@ Eseguire un processo sul pool di database. Vedere [Creazione e gestione di proce
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

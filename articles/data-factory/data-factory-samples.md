@@ -52,8 +52,8 @@ Nome esempio | description
 Profilatura dei clienti dei giochi | Contoso è una società di giochi online che crea giochi per più piattaforme: console di gioco, dispositivi palmari e personal computer (PC). Ognuno di questi giochi genera grandi quantità di log. L'obiettivo di Contoso è raccogliere e analizzare i log generati da questi giochi per ottenere informazioni sull'utilizzo, identificare opportunità di upselling e cross-selling, sviluppare nuove accattivanti funzionalità e così via, per migliorare il business e offrire una migliore esperienza ai clienti. In questo esempio, si raccoglieranno log di esempio, li si elaborerà e arricchirà con dati di riferimento e si trasformeranno i dati per valutare l'efficacia di una campagna di marketing lanciata di recente da Contoso.
  
 ## Esempi in GitHub
-Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Data factory di Azure (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\JSON include frammenti di codice JSON per scenari comuni.
+Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Data factory di Azure (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\\JSON include frammenti di codice JSON per scenari comuni.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

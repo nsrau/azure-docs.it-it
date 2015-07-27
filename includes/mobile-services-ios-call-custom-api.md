@@ -34,4 +34,4 @@ Ad esempio, per inviare una richiesta JSON a un'API personalizzata denominata "s
 	     completion:completion ];
 		
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

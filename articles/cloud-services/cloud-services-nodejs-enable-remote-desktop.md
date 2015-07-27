@@ -116,4 +116,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
   [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

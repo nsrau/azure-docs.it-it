@@ -1,10 +1,9 @@
 <properties 
 	pageTitle="Ripristinare un'app Web in Azure App Service" 
-	description="description=&quot;Informazioni su come ripristinare l'app Web da un backup.&quot;" 
+	description="description=";Informazioni su come ripristinare l'app Web da un backup.";" 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Ripristinare un'app Web in Azure App Service
@@ -23,7 +22,7 @@ In questo articolo viene illustrato come ripristinare un'app Web in precedenza s
 
 La funzionalità di ripristino delle app Web consente di ripristinare su richiesta lo stato precedente dell'app Web o di creare una nuova app Web in base ai backup dell'app Web originale. Creare un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
-La funzionalità di ripristino delle app Web, disponibile nel pannello **Backup** del [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è disponibile solo nelle modalità Standard e Premium. Per informazioni su come ridimensionare l'app in modalità Standard o Premium, vedere [Scalare un'app Web in Azure App Service](web-sites-scale.md). Si noti che la modalità Premium consente di eseguire un maggior numero di backup giornalieri rispetto alla modalità Standard.
+La funzionalità di ripristino di App Web, presente nel pannello **Backup** del [portale di anteprima di Azure](http://portal.azure.com), è disponibile solo nelle modalità Standard e Premium. Per informazioni su come ridimensionare l'app in modalità Standard o Premium, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md). Si noti che la modalità Premium consente di eseguire un maggior numero di backup giornalieri rispetto alla modalità Standard.
 
 <a name="PreviousBackup"></a>
 ## Per ripristinare un'app Web da un backup eseguito in precedenza
@@ -76,7 +75,7 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 	
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
@@ -97,4 +96,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

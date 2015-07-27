@@ -107,4 +107,4 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
 
 > [AZURE.NOTE]Nel codice sopra viene usata una finestra in uscita pari a 1 per imporre un invio dei messaggi il più rapido possibile. In generale l'applicazione dovrebbe cercare di riunire i messaggi in batch per migliorare la velocità effettiva. Vedere la [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) per altre informazioni sull'uso della libreria Qpid Proton in questo e in altri ambienti e anche nelle piattaforme per le quali sono fornite associazioni (al momento Perl, PHP, Python e Ruby).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

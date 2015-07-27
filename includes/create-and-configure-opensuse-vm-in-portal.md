@@ -28,13 +28,13 @@
 ##Connettersi alla macchina virtuale
 Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sistema operativo in esecuzione nel computer:
 
-- Se si usa Linux, connettersi alla macchina virtuale tramite SSH. Al prompt dei comandi eseguire: 
+- Se si usa Linux, connettersi alla macchina virtuale tramite SSH. Al prompt dei comandi eseguire:
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
-	
+
 	Digitare la password dell'utente.
 
-- Se si usa un computer Windows, connettersi alla macchina virtuale tramite PuTTY. È possibile scaricare PuTTY dalla [pagina di download PuTTY][PuTTYDownLoad].
+- Se si usa un computer Windows, connettersi alla macchina virtuale tramite PuTTY. È possibile scaricare PuTTY dalla [pagina di download PuTTY][PuTTYDownload].
 
 	Scaricare e salvare il file **putty.exe** in una directory del computer. Aprire un prompt dei comandi, passare a questa cartella ed eseguire **putty.exe**.
 
@@ -58,4 +58,4 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

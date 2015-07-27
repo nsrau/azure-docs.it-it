@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite FTP" 
-	description="Esercitazione che illustra come creare un'app Web PHP che archivia i dati in MySQL e come usare la distribuzione FTP in Azure.&quot;" 
+	description="Esercitazione che illustra come creare un'app Web PHP che archivia i dati in MySQL e come usare la distribuzione FTP in Azure.";" 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -289,4 +289,4 @@ Dopo aver caricato i file `index.php` e `createtable.php`, passare a **http://[s
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

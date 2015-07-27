@@ -35,27 +35,9 @@ Per eseguire questa esercitazione, è necessario installare Azure SDK per .NET v
 
 ## Creare un progetto app per le API
 
-1. Aprire Visual Studio 2013.
+Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicare *ContactsList*.
 
-2. Selezionare **File > nuovo progetto**.
-
-3. Selezionare il modello **Applicazione Web ASP.NET**.
-
-4. Assicurarsi che la casella di controllo **Aggiungi Application Insights al progetto** sia deselezionata.
-
-4. Assegnare al progetto il nome *ContactsList*
-
-	![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
-
-5. Fare clic su **OK**.
-
-6. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello di progetto **App per le API di Azure**.
-
-	![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
-
-7. Fare clic su **OK** per generare il progetto.
-
-Visual Studio create un progetto API Web configurato per la distribuzione come app per le API.
+[AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../../includes/app-service-api-review-metadata.md)]
 
@@ -68,4 +50,4 @@ Visual Studio create un progetto API Web configurato per la distribuzione come a
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

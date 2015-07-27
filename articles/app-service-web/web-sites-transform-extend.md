@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione avanzata ed estensioni dell'app Web di Servizio app di Azure"
-	description="Utilizzare le dichiarazioni XMDT (XML Document Transformation) per trasformare il file ApplicationHost.config nell'app Web di Servizio Web di Azure e per aggiungere estensioni provate per abilitare azioni di amministrazione personalizzate.&quot;"
+	description="Utilizzare le dichiarazioni XMDT (XML Document Transformation) per trasformare il file ApplicationHost.config nell'app Web di Servizio Web di Azure e per aggiungere estensioni provate per abilitare azioni di amministrazione personalizzate.";"
 	authors="cephalin"
 	writer="cephalin"
 	editor="mollybos"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/06/2015"
 	ms.author="cephalin"/>
 
 # Configurazione avanzata ed estensioni dell'app Web di Servizio app di Azure
@@ -42,7 +42,7 @@ Il seguente esempio di applicationHost.xdt mostra come aggiungere una nuova vari
 	</configuration>
 
 
-Un file di log che include lo stato e i dettagli relativi alla trasformazione è disponibile nella radice FTP in LogFiles\Transform.
+Un file di log che include lo stato e i dettagli relativi alla trasformazione è disponibile nella radice FTP in LogFiles\\Transform.
 
 Per esempi aggiuntivi, vedere [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -81,7 +81,7 @@ L'estensione PHP Manager è stata creata mediante il modello di applicazione Web
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-L'unica logica speciale necessaria per l'I/O file consente di indicare la posizione della directory wwwroot dell'app Web. Come illustrato nell'esempio seguente, la variabile di ambiente "HOME" indica il percorso della radice dell'app Web e il percorso wwwroot può essere creato mediante l'aggiunta di "site\wwwroot":
+L'unica logica speciale necessaria per l'I/O file consente di indicare la posizione della directory wwwroot dell'app Web. Come illustrato nell'esempio seguente, la variabile di ambiente "HOME" indica il percorso della radice dell'app Web e il percorso wwwroot può essere creato mediante l'aggiunta di "site\\wwwroot":
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +93,7 @@ L'unica logica speciale necessaria per l'I/O file consente di indicare la posizi
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +112,7 @@ In alternativa è possibile usare solo percorsi relativi nell'applicazione Web o
 
 ####<a id="XDT"></a> File applicationHost.xdt
 
-Il codice per l'estensione di app Web va sotto %HOME%\SiteExtensions\your-extension-name. Questa sarà la radice dell'estensione.
+Il codice per l'estensione di app Web va sotto %HOME%\\SiteExtensions\\your-extension-name. Questa sarà la radice dell'estensione.
 
 Per registrare l'estensione dell'app Web con il file applicationHost.config, sarà necessario inserire un file denominato ApplicationHost.xdt nella radice dell'estensione. Il contenuto del file ApplicationHost.xdt deve essere analogo al seguente:
 
@@ -172,7 +172,7 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
@@ -180,4 +180,4 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

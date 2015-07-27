@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connettore SAP" 
-   description="Come usare il connettore SAP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connettore SAP"
+   description="Come usare il connettore SAP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
-# Connettore SAP #
+# SAP Connector #
 
-I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. Esistono scenari in cui può essere necessario lavorare con un sistema SAP installato in locale e protetto da un firewall. Inserendo il connettore SAP nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:
+I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. Esistono scenari in cui può essere necessario usare un sistema SAP installato in locale e protetto da un firewall. Inserendo SAP Connector nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:
 
 1.	Esporre una sezione dei dati presenti nell'ambiente SAP tramite un front-end utente mobile o Web.
 2.	Pubblicare i dati in SAP dopo l'elaborazione
@@ -39,7 +39,9 @@ Per usare il connettore SAP è necessario creare un'istanza dell'app per le API 
 2. Andare a "Web e dispositivi mobili > App per le API" e cercare "SAP Connector".
 3. Configurare l'app come segue:
 	1. Inserire i dettagli generici, come nome, piano di servizio app e così via nel primo pannello
-	2. In Impostazioni pacchetto inserire le credenziali SAP. Fornire inoltre una stringa di connessione per il bus di servizio di Azure, che verrà usata per stabilire la connettività ibrida con il sistema SAP locale. 
+
+	2. In Impostazioni pacchetto inserire le credenziali SAP. Fornire inoltre una stringa di connessione per il bus di servizio di Azure, che verrà usata per stabilire la connettività ibrida con il sistema SAP locale.
+
 	3. RFC, TRFC, BAPI e IDOC vanno configurati in base allo scenario desiderato. Se è necessario specificare più valori, separarli con virgole
 
 ![][1]
@@ -92,7 +94,4 @@ Completare l'app per la logica per definire il processo aziendale e quindi esegu
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

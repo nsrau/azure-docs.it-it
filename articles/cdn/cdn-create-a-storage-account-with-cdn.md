@@ -121,4 +121,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

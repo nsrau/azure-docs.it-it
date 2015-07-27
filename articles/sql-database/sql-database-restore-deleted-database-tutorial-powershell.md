@@ -42,13 +42,13 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 	* Utilizzare l'opzione **RestorableDropped** e specificare **ServerName** del server da cui è stato eliminato il database.
 	* Se si esegue il comando indicato di seguito, i risultati vengono archiviati in una variabile denominata **$RecoverableDBs**.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
+	`PS C:>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
 
 2. Scegliere il database eliminato che si desidera ripristinare dall'elenco dei database eliminati.
 
 	* Digitare il numero del database eliminato dall'elenco **$RecoverableDBs**.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`PS C:>$Database = $RecoverableDBs[<deleted database number>]`
 
 	* Per altre informazioni su come ottenere un database oggetto di database eliminato ripristinabile, vedere [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
@@ -58,14 +58,14 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 
 	Archiviare il risultato restituito in una variabile denominata **$RestoreRequest**. La variabile contiene l'ID della richiesta di ripristino utilizzato per il monitoraggio dello stato di un ripristino.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
 
 Il completamento di un ripristino può richiedere del tempo. Per monitorare lo stato del ripristino, utilizzare il cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e specificare i seguenti parametri:
 
 * **ServerName** del database in cui si sta effettuando il ripristino.
 * **OperationGuid**, vale a dire l'ID richiesta di ripristino archiviato nella variabile **$RestoreRequest** nel passaggio 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Lo stato del ripristino viene mostrato nei campi **State** e **PercentComplete**.
 
@@ -79,4 +79,4 @@ Per altre informazioni, vedere quanto segue:
 
 [Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

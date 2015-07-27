@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Diagnosticare errori ed eccezioni nelle app ASP.NET con Application Insights  
@@ -31,9 +31,8 @@ Fare clic su uno dei tipi di richieste non riuscite nell'elenco per visualizzare
 
 ![Selezionare un'istanza di una richiesta non riuscita e nei dettagli dell'eccezione visualizzare le istanze dell'eccezione.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*Se non vengono visualizzate eccezioni, vedere la sezione relativa all'[acquisizione delle eccezioni](#exceptions).*
 
-In alternativa, è possibile iniziare dall'elenco di eccezioni visualizzato più in basso nel pannello Errori. Continuare a fare clic finché non verranno visualizzate le singole eccezioni.
+**In alternativa**, è possibile iniziare dall'elenco di eccezioni visualizzato più in basso nel pannello Errori. Continuare a fare clic finché non verranno visualizzate le singole eccezioni.
 
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -57,7 +56,25 @@ Le chiamate non riuscite alle dipendenze sono elencate nel pannello Errori ma so
 
 *Se non vengono visualizzati errori di dipendenze, è una cosa positiva. Tuttavia, per verificare la ricezione dei dati sulle dipendenze, aprire il pannello Prestazioni ed esaminare il grafico Durata della dipendenza.*
 
-## Come visualizzare un POST di richiesta e altri dati di log
+ 
+
+## Dati di traccia e di log personalizzati
+
+Per ottenere dati di diagnostica specifici per l'app, è possibile inserire codice per l'invio di dati di telemetria personalizzati. Questi dati vengono visualizzati nella ricerca diagnostica insieme alla richiesta, alla visualizzazione di pagina e ad altri dati raccolti automaticamente.
+
+Sono disponibili diverse opzioni:
+
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) viene usato in genere per il monitoraggio dei modelli di utilizzo, ma i dati inviati vengono visualizzati anche in Eventi personalizzati nella ricerca diagnostica. Gli eventi sono denominati e possono includere proprietà di stringa e metriche numeriche, in base alle quali è possibile [filtrare le ricerche diagnostiche][diagnostic].
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permette di inviare dati più lunghi, ad esempio informazioni POST.
+* [TrackException()](#exceptions) invia analisi dello stack. [Altre informazioni sulle eccezioni](#exceptions).
+* Se si usa già un framework di registrazione come Log4Net o NLog, è possibile [acquisire tali log][netlogs] e visualizzarli nella ricerca diagnostica insieme ai dati relativi alle richieste e alle eccezioni.
+
+Per visualizzare questi eventi, aprire [Cerca][diagnostic], quindi Filtro e infine scegliere Evento personalizzato, Traccia o Eccezione.
+
+
+![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+### Come visualizzare i dati POST di una richiesta
 
 I dettagli della richiesta non includono i dati inviati all'app in una chiamata POST. Per poter ottenere questi dati:
 
@@ -66,10 +83,6 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 * Quando si esamina una richiesta non riuscita, trovare le tracce associate.  
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
-
-Se si usa già un framework di registrazione come Log4Net o NLog, è possibile [acquisire tali log][netlogs] e visualizzarli nello stesso modo.
-
-Gli [eventi personalizzati][api] vengono in genere usati per il monitoraggio dell'utilizzo, ma sono disponibili anche in "Tutti gli eventi di telemetria per questa richiesta".
 
 
 ## <a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
@@ -428,4 +441,4 @@ Aggiungere l'attributo alle implementazioni del servizio:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

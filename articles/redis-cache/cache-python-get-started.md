@@ -59,4 +59,4 @@ Sostituire *&lt;name&gt;* con il nome della cache e *&lt;key&gt;* con la chiave 
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -47,4 +46,4 @@ Account aziendale o dell'istituto di istruzione | Un account utente assegnato da
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

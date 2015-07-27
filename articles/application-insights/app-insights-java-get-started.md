@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
 # Introduzione ad Application Insights in un progetto Web Java
@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Mediante l'aggiunta di Application Insights per Visual Studio al progetto, è possibile rilevare e diagnosticare i problemi di prestazioni e le eccezioni.
-
+Application Insights è un servizio di analisi estendibile che semplifica la comprensione delle prestazioni e dell'utilizzo dell'applicazione live. È possibile usarlo per rilevare e diagnosticare i problemi di prestazioni e le eccezioni e per [scrivere codice][api] per rilevare l'interazione degli utenti con l'app.
 
 ![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
-È possibile inoltre impostare i [test Web][availability] per monitorare la disponibilità dell'applicazione e inserire [codice nelle pagine Web][api] per comprendere i modelli di uso.
+I [test Web di Application Insights][availability] monitorano la disponibilità dell'applicazione.
 
 Sono necessari gli elementi seguenti:
 
@@ -34,7 +33,7 @@ Sono necessari gli elementi seguenti:
 * Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
-## 1. Ottenere una chiave di strumentazione di Application Insights
+## 1\. Ottenere una chiave di strumentazione di Application Insights
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com)
 2. Creare una nuova risorsa di Application Insights
@@ -47,7 +46,7 @@ Sono necessari gli elementi seguenti:
 
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Aggiungere SDK per Java di Application Insights al progetto
+## 2\. Aggiungere SDK per Java di Application Insights al progetto
 
 *Scegliere il modo più appropriato per il progetto.*
 
@@ -74,13 +73,12 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
 
-* *Errori di convalida checksum o compilazione?*
- * Provare a usare una versione specifica, come * `<version>0.9.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Per eseguire l'aggiornamento a un nuovo SDK*
  * Aggiornare le dipendenze del progetto.
 
@@ -95,11 +93,11 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
 
-* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'0.9.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).* 
+* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'1.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).* 
 * *Per eseguire l'aggiornamento a un nuovo SDK*
  * Aggiornare le dipendenze del progetto.
 
@@ -107,34 +105,23 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 
 Aggiungere manualmente SDK:
 
-1. Scaricare le [librerie di Azure per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
-2. Estrarre i file binari seguenti dal file ZIP e aggiungerli al progetto:
- * applicationinsights-core
- * applicationinsights-web
- * annotation-detector
- * commons-codec
- * commons-io
- * commons-lang
- * commons-logging
- * guava
- * httpclient
- * httpcore
- * jsr305
+1. Scaricare [Application Insights SDK per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
+2. Estrarre i file binari dal file ZIP e aggiungerli al progetto.
 
 Domande...
 
-* *Qual è la relazione tra i componenti `-core` e `-web`?*
+* *Qual è la relazione tra i componenti `-core` e `-web` nel file ZIP?*
 
- * `applicationinsights-core` fornisce la versione base dell'API senza telemetria automatica.
- * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. 
+ * `applicationinsights-core` fornisce semplicemente l'API. Sarà sempre necessario.
+ * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. È possibile escluderlo se non si vuole che questi dati di telemetria vengano raccolti automaticamente, ad esempio se si preferisce scrivere dati personalizzati.
 
 * *Per aggiornare l'SDK*
- * Scaricare la versione più recente delle [librerie di Azure per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire quelle precedenti.
+ * Scaricare la versione più recente di [Application Insights SDK per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire le versioni precedenti.
  * Le modifiche sono descritte nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).
 
 
 
-## 3. Aggiungere un file XML di Application Insights
+## 3\. Aggiungere un file XML di Application Insights
 
 Aggiungere ApplicationInsights.xml alla cartella resources del progetto oppure verificare che sia stato aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
 
@@ -175,7 +162,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
 
-## 4. Aggiungere un filtro HTTP
+## 4\. Aggiungere un filtro HTTP
 
 L'ultimo passaggio di configurazione consente al componente delle richieste HTTP di registrare ogni richiesta Web. Non necessario se si desidera l'API.
 
@@ -218,18 +205,19 @@ Aggiungere questa voce al file di configurazione Struts (in genere denominato st
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
+## 5\. Eseguire l'installazione nel server
 
-## 5. Abilitare la raccolta del contatore delle prestazioni
-
-Se il computer server è di tipo Windows, installare
+Nei server Windows installare:
 
 * [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
 
-## 6. Eseguire l'applicazione
+Ciò abilita i contatori delle prestazioni.
+
+## 6\. Eseguire l'applicazione
 
 Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure pubblicarla nel server.
 
-## 7. Visualizzare i dati di telemetria in Application Insights
+## 7\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -261,12 +249,21 @@ Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home
 
 In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
-## Eccezioni non gestite e richieste non eseguite
+## Eccezioni e richieste non eseguite
 
+Vengono raccolte le eccezioni non gestite:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
-Per raccogliere dati relativi ad altre eccezioni, [inserire le chiamate a TrackException nel codice][apiexceptions].
+Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
+
+* [Inserire chiamate a TrackException nel codice][apiexceptions].
+* [Installare l'agente Java sul server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
+
+
+## Monitorare le chiamate al metodo e le dipendenze esterne
+
+[Installare l'agente Java](app-insights-java-agent.md) per registrare i metodi interni specificati e le chiamate effettuate tramite JDBC, con i dati relativi alle durate.
 
 
 ## Contatori delle prestazioni
@@ -307,7 +304,7 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
 
 
 
-#### Contatori delle prestazioni Windows (a 64 bit) 
+#### Contatori delle prestazioni di Windows 
 
 Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) è un membro di una categoria (nello stesso modo in cui un campo è un membro di una classe). Le categorie possono essere globali o possono disporre di istanze numerate o denominate.
 
@@ -327,6 +324,10 @@ I contatori delle prestazioni sono visibili come metriche personalizzate in [Esp
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
+
+### Contatori delle prestazioni Unix
+
+* [Installare collectd con il plug-in di Application Insights](app-insights-java-collectd.md) per ottenere una vasta gamma di dati di sistema e di rete.
 
 ## Ottenere i dati relativi a utenti e sessioni
 
@@ -370,4 +371,4 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

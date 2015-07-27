@@ -1,45 +1,95 @@
 <properties 
-	pageTitle="Gestire gruppi in Azure AD" 
-	description="Argomento che illustra come gestire i gruppi in Azure AD." 
+	pageTitle="Gestione dell'accesso alle risorse con Azure Active Directory groups| Microsoft Azure" 
+	description="Un argomento che illustra come utilizzare i gruppi per la gestione degli accessi in Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+	authors="femila" 
+	manager="swadhwa" 
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/13/2015" 
+	ms.author="femila"/>
 
-# Gestire gruppi in Azure AD
 
-Un gruppo è una raccolta di utenti e gruppi che possono essere gestiti come una singola unità. Gli utenti e i gruppi che appartengono a un determinato gruppo vengono definiti membri del gruppo. L'uso dei gruppi può semplificare l'amministrazione perché si assegna un set comune di autorizzazioni e diritti a più account in una volta, invece di assegnare le autorizzazioni e i diritti a ogni singolo account.
+# Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory
 
-Ora in Azure AD, è possibile creare solo gruppi di sicurezza.
+Azure Active Directory è una soluzione completa di gestione dell’identità e dell’accesso che fornisce una gamma affidabile di funzionalità per gestire l'accesso alle applicazioni cloud e locali e delle risorse tra cui servizi online di Microsoft quali Office 365 e un mondo di applicazioni non Microsoft SaaS.
 
-È possibile usare i gruppi per assegnare facilmente agli utenti l'accesso alle applicazioni nei casi in cui è necessario assegnare più utenti alla stessa applicazione. È possibile usare i gruppi anche quando si configura la gestione dell'accesso di altri servizi online che controllano l'accesso alle risorse, ad esempio, SharePoint Online.
 
-Se è stata configurata la sincronizzazione directory, è possibile visualizzare i gruppi sincronizzati da Windows Server Active Directory locale, la cui proprietà "Originato da" è impostata sul valore "Active Directory locale". È necessario continuare a gestire questi gruppi in Active Directory locale, perché non possono essere gestiti o eliminati nel portale di gestione di Azure.
+> [AZURE.NOTE]Per usare Azure Active Directory, è necessario un account Azure. Se non si dispone di un account, è possibile [iscriversi per un account Azure gratuito](http://azure.microsoft.com/pricing/free-trial/).
 
-Se si dispone di Office 365, è possibile visualizzare i gruppi di distribuzione e gruppi di protezione abilitati alla posta creati e gestiti nell'interfaccia di amministrazione di Exchange in Office 365. Questi gruppi hanno la proprietà "Originato da" impostata sul valore "Office 365" e devono continuare a essere gestiti nell'interfaccia di amministrazione di Exchange.
 
-È anche possibile creare gruppi unificati tramite il Pannello di accesso. Nella scheda Configura, in Gestione gruppo impostare il widget **Gli utenti possono creare gruppi di O365** su **Sì**. Se sono presenti gruppi unificati di Office 365 creati nel Pannello di accesso o in Office 365, questi gruppi avranno la proprietà "Originato da" impostata su "Azure Active Directory" e possono essere gestiti dal Pannello di accesso.
+All'interno di Azure Active Directory, una delle caratteristiche principali è la possibilità di gestire l'accesso alle risorse. Queste risorse possono far parte della directory, come nel caso delle autorizzazioni per gestire oggetti tramite i ruoli nella directory, o risorse che sono esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure e i siti di SharePoint o in risorse locali. Esistono 4 modalità con le quali possono assegnare a un utente i diritti di accesso a una risorsa:
 
-Se la gestione gruppo self-service è abilitata per gli utenti (per altre informazioni, vedere Gestione dei gruppi in modalità self-service per gli utenti in Azure AD), l'amministratore del tenant può gestire anche questi gruppi dal portale di gestione di Azure. È possibile aggiungere e rimuovere i membri di un gruppo, aggiungere e rimuovere i proprietari dei gruppi, modificare le proprietà di un gruppo e visualizzare un rapporto attività cronologico dei gruppi che indica l'azione eseguita nel gruppo, chi ha eseguito l'azione e a che ora.
 
-> [AZURE.NOTE]Per poter assegnare un gruppo a un'applicazione, è necessario usare Azure AD Premium. Se si dispone di Azure AD Premium, è inoltre possibile usare i gruppi per assegnare l'accesso alle applicazioni SaaS integrate con Azure AD. Per altre informazioni, vedere Assegnare a un gruppo l'accesso a un'applicazione SaaS in Azure AD.
+1\. Assegnazione diretta
 
-## Passaggi successivi
+Agli utenti può essere assegnata direttamente una risorsa dal proprietario della risorsa.
 
-- [Amministrazione di Azure AD](active-directory-administer.md)
-- [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
-- [Gestire password in Azure AD](active-directory-manage-passwords.md)
- 
+2\. Appartenenza al gruppo
 
-<!---HONumber=62-->
+Un gruppo può essere assegnato a una risorsa dal proprietario della risorsa, così facendo, si garantisce ai membri di quel gruppo l'accesso alla risorsa. L’appartenenza al gruppo può quindi essere gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
+
+3\. Basato sulla regola
+
+Il proprietario della risorsa può utilizzare una regola per esprimere a quali utenti deve essere assegnato l'accesso a una risorsa. Il risultato della regola dipende dagli attributi utilizzati nella regola e, dai relativi valori per utenti specifici, così facendo, il proprietario della risorsa delega in modo efficiente il diritto di gestire l'accesso alle sue risorse alla fonte autorevole per le attribuzioni utilizzate nella regola. Si noti che il proprietario della risorsa gestisce ancora la regola stessa e determina quali attributi e valori forniscono l'accesso alle risorse.
+
+4\. Autorità esterna
+
+L'accesso a una risorsa è derivato da un'origine esterna, ad esempio, un gruppo che è sincronizzato da un'origine attendibile come ad esempio una directory locale o da un'applicazione SaaS, ad esempio WorkDay. Il proprietario della risorsa assegna al gruppo il compito di fornire l'accesso alla risorsa, e la fonte esterna gestisce i membri del gruppo.
+
+  ![](./media/active-directory-access-management-groups/access-management-overview.png)
+
+
+###Guarda un video che illustra la gestione dell’accesso.
+
+È possibile guardare un breve video che fornisce ulteriori spiegazioni su questo [qui](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups).
+
+##Come funziona la gestione dell'accesso in Azure Active Directory?
+Al centro della soluzione per la gestione dell’accesso alla Azure Active Directory c’è il gruppo di sicurezza. L’utilizzo di un gruppo di sicurezza per gestire l'accesso alle risorse è un paradigma noto, che consente un modo flessibile e facilmente comprensibile di fornire l'accesso a una risorsa per il gruppo di utenti previsto. Il proprietario della risorsa (o l'amministratore della directory) può assegnare ad un gruppo il compito di fornire un determinato diritto di accesso per le risorse che possiede. Ai membri del gruppo verrà fornito l'accesso, e il proprietario della risorsa può delegare il diritto di gestire l'elenco di membri di un gruppo a un utente, ad esempio un responsabile del reparto o un amministratore dell'helpdesk.
+
+![](./media/active-directory-access-management-groups/active-directory-access-management-works.png)Il proprietario di un gruppo può inoltre rendere tale gruppo disponibile per le richieste self-service. In questo modo, un utente finale può cercare e trovare il gruppo e chiedere di partecipare, richiedendo in modo efficace l'autorizzazione ad accedere alle risorse gestite tramite il gruppo. Il proprietario del gruppo può impostare il gruppo in modo che le richieste di adesione vengano approvate automaticamente oppure richiedano l'approvazione da parte del proprietario del gruppo. Quando un utente effettua una richiesta di adesione a un gruppo, la richiesta di adesione viene inoltrata ai proprietari del gruppo. Se uno dei proprietari approva la richiesta, l'utente richiedente viene informato e viene poi aggiunto al gruppo. Se uno dei proprietari rifiuta la richiesta, l'utente richiedente riceve una notifica, ma non viene aggiunto al gruppo.
+
+
+## Introduzione alla gestione dell’accesso
+Informazioni introduttive È consigliabile provare alcune delle attività di base che è possibile eseguire con i gruppi di Windows Azure AD. Utilizzare queste funzionalità per fornire accesso specializzato a diversi gruppi di utenti per diverse risorse all'interno dell'organizzazione. Un elenco di passaggi di base sono elencati di seguito.
+
+
+* [Creazione di una regola semplice per configurare l’appartenenza dinamica per un gruppo](active-directory-accessmanagement-simplerulegroup.md)
+
+* [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](active-directory-accessmanagement-group-saasapps.md)
+
+* [Rendere la modalità self-service disponibile a un gruppo di utenti](active-directory-accessmanagement-self-service-group-management.md)
+
+* [Sincronizzare un gruppo locale in Azure utilizzando AD Azure Connect](active-directory-aadconnect.md)
+
+* [Gestione dei proprietari di un gruppo](active-directory-accessmanagement-managing-group-owners.md)
+
+
+## Passaggi successivi per la gestione degli accessi
+Ora che si sono comprese le nozioni di base di gestione degli accessi, ecco alcune funzionalità avanzate aggiuntive disponibili in Azure Active Directory per gestire l'accesso alle applicazioni e alle risorse.
+
+* [Utilizzo di una regola semplice per creare un gruppo](active-directory-accessmanagement-simplerulegroup.md) 
+
+* [Utilizzo di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md)
+
+* [Gestione dei gruppi di sicurezza in Azure Active Directory](active-directory-accessmanagement-manage-groups.md)
+
+* [Impostazione dei gruppi dedicati in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md)
+
+
+## Ulteriori informazioni
+Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su Azure Active Directory
+
+* [Informazioni su Azure Active Directory](active-directory-whatis.md)
+
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=July15_HO3-->

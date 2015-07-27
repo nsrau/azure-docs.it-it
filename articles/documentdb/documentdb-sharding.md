@@ -18,7 +18,7 @@
 
 # Come partizionare i dati in DocumentDB con .NET SDK
 
-Azure DocumentDB è un servizio di database di documenti che consente di scalare facilmente l'account attraverso il provisioning di raccolte usando gli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) e le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) \(detto anche **partizionamento orizzontale**\). Per facilitare lo sviluppo di applicazioni partizionate e ridurre la quantità di codice boilerplate per il partizionamento delle attività, in .NET SDK è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni scalate orizzontalmente in più partizioni.
+Azure DocumentDB è un servizio di database di documenti che consente di scalare facilmente l'account attraverso il provisioning di raccolte usando gli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) e le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (detto anche **partizionamento orizzontale**). Per facilitare lo sviluppo di applicazioni partizionate e ridurre la quantità di codice boilerplate per il partizionamento delle attività, in .NET SDK è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni scalate orizzontalmente in più partizioni.
 
 In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e verrà spiegato come usarle per sviluppare le applicazioni partizionate.
 
@@ -96,11 +96,11 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## Resolver della partizione hash
-Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT \("Internet of Things"\).
+Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things").
 
 **Partizionamento hash:** ![Diagramma che illustra come il partizionamento hash distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-hash.png "Partizionamento hash")
 
-Un semplice schema di partizionamento hash in *N* raccolte consiste nel prendere un documento e nel calcolare *hash\(d\) mod N* per determinare in quale raccolta si trova. Questa semplice tecnica però non funziona bene quando si aggiungono nuove raccolte o si rimuovono le raccolte perché in questo caso sarebbe necessario riprodurre con sequenza casuale quasi tutti i dati. L'[hashing coerente](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) è un noto algoritmo che risolve questo problema implementando uno schema di hashing che riduce al minimo la quantità di dati da spostare durante l'aggiunta o la rimozione di raccolte.
+Un semplice schema di partizionamento hash in *N* raccolte consiste nel prendere un documento e nel calcolare *hash(d) mod N* per determinare in quale raccolta si trova. Questa semplice tecnica però non funziona bene quando si aggiungono nuove raccolte o si rimuovono le raccolte perché in questo caso sarebbe necessario riprodurre con sequenza casuale quasi tutti i dati. L'[hashing coerente](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) è un noto algoritmo che risolve questo problema implementando uno schema di hashing che riduce al minimo la quantità di dati da spostare durante l'aggiunta o la rimozione di raccolte.
 
 La classe [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) implementa la logica per compilare una sequenza di hash coerenti sulla funzione hash specificata nell'interfaccia [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx). Per impostazione predefinita, HashPartitionResolver usa una funzione hash MD5, ma è possibile sostituirla con la propria implementazione di hashing. HashPartitionResolver crea internamente 16 hash o "nodi virtuali" nella sequenza di hash per ogni raccolta per ottenere una distribuzione più uniforme dei documenti nelle raccolte, ma è possibile variare questo numero in modo compensare l'asimmetria dei dati con la quantità di calcoli lato client.
 
@@ -108,15 +108,15 @@ La classe [HashPartitionResolver](https://msdn.microsoft.com/library/azure/micro
 
 ## Resolver della partizione a intervalli
 
-Nel partizionamento per intervalli le partizioni vengono assegnate in base alla presenza della chiave di partizione in un determinato intervallo. Questo approccio viene in genere usato per il partizionamento con proprietà di tipo timestamp, \(ad esempio, eventTime tra 1 aprile 2015 e 14 aprile 2015\). La classe [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx) aiuta a mantenere un mapping tra Range\<T\> e il collegamento automatico della raccolta.
+Nel partizionamento per intervalli le partizioni vengono assegnate in base alla presenza della chiave di partizione in un determinato intervallo. Questo approccio viene in genere usato per il partizionamento con proprietà di tipo timestamp, (ad esempio, eventTime tra 1 aprile 2015 e 14 aprile 2015). La classe [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx) aiuta a mantenere un mapping tra Range<T> e il collegamento automatico della raccolta.
 
-[Range\<T\>](https://msdn.microsoft.com/library/azure/mt126048.aspx) è una semplice classe che gestisce gli intervalli dei tipi che implementano stringhe o numeri di tipo IComparable\<T\> e IEquatable\<T\>. Per le operazioni di lettura e di creazione, è possibile passare qualsiasi intervallo arbitrario e il resolver identifica tutte le raccolte candidate identificando gli intervalli delle partizioni che intersecano l'intervallo richiesto. Questa funzionalità può essere utile quando si eseguono query di intervallo sui dati di una serie temporale.
+[Range<T>](https://msdn.microsoft.com/library/azure/mt126048.aspx) è una semplice classe che gestisce gli intervalli dei tipi che implementano stringhe o numeri di tipo IComparable<T> e IEquatable<T>. Per le operazioni di lettura e di creazione, è possibile passare qualsiasi intervallo arbitrario e il resolver identifica tutte le raccolte candidate identificando gli intervalli delle partizioni che intersecano l'intervallo richiesto. Questa funzionalità può essere utile quando si eseguono query di intervallo sui dati di una serie temporale.
 
 **Partizionamento per intervalli:**
 
 ![Diagramma che illustra come il partizionamento per intervalli distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-range.png "Partizionamento per intervalli")
 
-Un caso speciale di partizionamento per intervalli si ha quando l'intervallo è un solo valore discreto, denominato a volte "partizionamento basato su ricerca". Questo approccio viene in genere usato per il partizionamento in base all'area \(ad esempio, la partizione per la Scandinavia contiene Norvegia, Danimarca e Svezia\) o per il partizionamento di tenant in un'applicazione multi-tenant.
+Un caso speciale di partizionamento per intervalli si ha quando l'intervallo è un solo valore discreto, denominato a volte "partizionamento basato su ricerca". Questo approccio viene in genere usato per il partizionamento in base all'area (ad esempio, la partizione per la Scandinavia contiene Norvegia, Danimarca e Svezia) o per il partizionamento di tenant in un'applicazione multi-tenant.
 
 ## Esempi 
 
@@ -127,7 +127,7 @@ Esaminare il [progetto Github degli esempi di partizionamento di DocumentDB](htt
 * Come creare un oggetto [ManagedPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Partitioners/ManagedHashPartitionResolver.cs) che crea automaticamente raccolte basate su un modello che definisce uno schema di denominazione, IndexingPolicy e le stored procedure da registrare nelle nuove raccolte.
 * Come creare un oggetto [SpilloverPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Partitioners/SpilloverPartitionResolver.cs) senza schema che crea semplicemente nuove raccolte quando le vecchie raccolte sono piene.
 * Come serializzare e deserializzare lo stato di PartitionResolver come JSON, in modo da poter eseguire una condivisione tra processi e negli arresti. È possibile renderli persistenti nei file config o anche in una raccolta DocumentDB.
-* Una classe [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) per l'aggiunta e la rimozione dinamiche di partizioni in un database partizionato in base all'hashing coerente. Usa internamente [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) per instradare le operazioni di lettura e di scrittura durante la migrazione usando una di queste quattro modalità: lettura dal vecchio schema di partizionamento \(ReadCurrent\), da quello nuovo \(ReadNext\), unione dei risultati da entrambi \(ReadBoth\) o mancata disponibilità durante la migrazione \(None\).
+* Una classe [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) per l'aggiunta e la rimozione dinamiche di partizioni in un database partizionato in base all'hashing coerente. Usa internamente [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) per instradare le operazioni di lettura e di scrittura durante la migrazione usando una di queste quattro modalità: lettura dal vecchio schema di partizionamento (ReadCurrent), da quello nuovo (ReadNext), unione dei risultati da entrambi (ReadBoth) o mancata disponibilità durante la migrazione (None).
 
 Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
@@ -141,7 +141,7 @@ DocumentDB supporta il partizionamento lato client per due motivi:
 - È veramente difficile per gli sviluppatori prescindere dal concetto di raccolta senza compromettere l'indicizzazione/esecuzione di query coerente, la disponibilità elevata o le garanzie delle transazioni ACID. 
 - I database di documenti spesso richiedono flessibilità in termini di definizione di strategie di partizionamento, cosa che un approccio lato server non potrebbe assicurare. 
 
-**Perché il partizionamento non è supportato in altre piattaforme \(Node.js, Java o Python\)?**
+**Perché il partizionamento non è supportato in altre piattaforme (Node.js, Java o Python)?**
 
 Il supporto per il partizionamento verrà gradualmente implementato in altre piattaforme in base al feedback dei clienti di .NET SDK.
 
@@ -167,4 +167,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

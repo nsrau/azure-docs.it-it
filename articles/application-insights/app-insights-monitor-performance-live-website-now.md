@@ -38,14 +38,14 @@ Application Insights Status Monitor di Visual Studio consente di diagnosticare l
  * Diagnostica standard e telemetria relativa all'utilizzo.
  * Diagnostica delle dipendenze.
  * Scrittura di dati di telemetria personalizzati usando l'API.
- * Risoluzione di eventuali problemi dell'SDK e di telemetria.
+ * Risolvere eventuali problemi dell'SDK e di telemetria.
 
 
 
-> [AZURE.TIP]Nel caso si tratti di un'[app Web del servizio app di Azure](../app-service-web/websites-learning-map.md), [aggiungere Application Insights SDK][greenbrown] e quindi [aggiungere l'estensione di Application Insights](../insights-perf-analytics.md) dal pannello di controllo dell'app in Azure.
+> [AZURE.TIP]Nel caso si tratti di un'[app Web del servizio app di Azure](../app-service-web/websites-learning-map.md), [aggiungere Application Insights SDK][greenbrown] quindi [aggiungere l'estensione di Application Insights](../insights-perf-analytics.md) dal pannello di controllo dell'app in Azure.
 
 
-## Installare Application Insights Status Monitor nel proprio server Web IIS
+## Installare Application Insights Status Monitor sul proprio server Web IIS
 
 1. È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com). 
 
@@ -56,7 +56,7 @@ Application Insights Status Monitor di Visual Studio consente di diagnosticare l
 
     ![Accedere ad Azure con le credenziali dell'account Microsoft](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
-5. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare la risorsa in cui visualizzare i risultati nel portale di Application Insights.
+5. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare la risorsa in cui visualizzare i risultati nel portale Application Insights.
 
     ![Scegliere un'applicazione e una risorsa.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -111,7 +111,7 @@ Fare clic su qualsiasi contatore delle prestazioni per modificare la visualizzaz
 
 ![Fare clic nel grafico di eccezioni del server](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
-È possibile eseguire il drill-down di eccezioni specifiche (degli ultimi sette giorni) e ottenere le analisi dello stack e i dati di contesto.
+È possibile eseguire il drill down di eccezioni specifiche (degli ultimi sette giorni) e ottenere le analisi dello stack e i dati di contesto.
 
 
 ### Nessun dato di telemetria?
@@ -125,8 +125,8 @@ Fare clic su qualsiasi contatore delle prestazioni per modificare la visualizzaz
 
   * Assicurarsi che il firewall del server consenta il traffico in uscita sulla porta 443 a dc.services.visualstudio.com. 
   * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti:
-  * In Gestione IIS selezionare il pool di applicazioni, aprire Impostazioni avanzate e prendere nota dell'identità in Modello di processo.
-  * Nel pannello di controllo Gestione computer aggiungere questa identità al gruppo Utenti di Performance Monitor.
+  * In Gestione IIS, selezionare il pool di applicazioni, aprire Impostazioni avanzate e prendere nota dell'identità in Modello di processo.
+  * Nel pannello di controllo Gestione computer, aggiungere questa identità al gruppo Utenti di Performance Monitor.
   * Vedere [Risoluzione dei problemi][qna].
 
 ## Requisiti di sistema
@@ -138,7 +138,7 @@ Supporto del sistema operativo per Application Insights Status Monitor sul serve
 - Windows Server 2012
 - Windows Server 2012 R2
 
-con Service Pack più recente e .NET Framework 4.0 e 4.5
+con la Service Pack più recente e .NET Framework 4.0 e 4.5
 
 Sul lato client Windows 7, 8 e 8.1, con .NET Framework 4.0 e 4.5
 
@@ -170,4 +170,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

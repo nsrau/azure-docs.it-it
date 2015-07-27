@@ -165,7 +165,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	- In **Porta** immettere 1433 (la porta predefinita per SQL Server).
 	- Fare clic su **servizio parlare Biz** e immettere un nome per il servizio BizTalk.
 	
-	![Create a hybrid connection][TwinCreateHCBlades]
+	![Creare una connessione ibrida][TwinCreateHCBlades]
 		
 5. Fare clic su **OK** due volte.
 
@@ -218,7 +218,7 @@ In questo passaggio verrà modificata la stringa di connessione che comunica all
 	
 	Quando si compone la stringa di connessione, tenere presente quanto segue:
 	
-	- Se si effettua la connessione a un'istanza denominata invece che a un'istanza predefinita (ad esempio, Server\SQLEXPRESS), è necessario configurare l'istanza di SQL Server in modo che usi le porte statiche. Per informazioni sulla configurazione di porte statiche, vedere [Come configurare SQL Server per l'ascolto su una porta specifica](http://support.microsoft.com/kb/823938). Per impostazione predefinita le istanze denominate usano UDP e le porte dinamiche, che non sono supportate dalle connessioni ibride. 
+	- Se si effettua la connessione a un'istanza denominata invece che a un'istanza predefinita (ad esempio, Server\\SQLEXPRESS), è necessario configurare l'istanza di SQL Server in modo che usi le porte statiche. Per informazioni sulla configurazione di porte statiche, vedere [Come configurare SQL Server per l'ascolto su una porta specifica](http://support.microsoft.com/kb/823938). Per impostazione predefinita le istanze denominate usano UDP e le porte dinamiche, che non sono supportate dalle connessioni ibride. 
 	
 	- Si consiglia di specificare la porta (1433 per impostazione predefinita, come mostrato nell'esempio) nella stringa di connessione in modo da assicurarsi che TCP sia abilitato sull'istanza di SQL Server locale e usi la porta corretta.
 	
@@ -378,4 +378,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

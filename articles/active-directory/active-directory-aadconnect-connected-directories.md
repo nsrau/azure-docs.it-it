@@ -46,4 +46,4 @@ Single Sign-On e AD FS| Autorizzazioni di amministratore di dominio nel dominio 
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

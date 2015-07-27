@@ -20,4 +20,4 @@
 
 L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle stringhe di connessione per registrare l'app in modo da ricevere e inviare le notifiche push.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # Come disinstallare i componenti del processo di database elastico
@@ -52,10 +52,10 @@ In alternativa, utilizzare questo script di PowerShell:
 
 Per reinstallare i processi di database elastici, vedere [Installazione del servizio processo di database elastico](sql-database-elastic-jobs-service-installation.md)
 
-Per una panoramica del servizio processo elastico, vedere [Panoramica dei processi elastici](sql-database-elastic-jobs-overview.md).
+Per una panoramica del processo di database elastico, vedere [Panoramica dei processi elastici](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
@@ -76,8 +76,7 @@ Contattare Microsoft tramite il [forum dei commenti di Azure Active Directory](h
 Azure AD esegue il provisioning degli utenti nelle app SaaS connettendosi agli endpoint di provisioning forniti dal produttore dell'applicazione. Questi endpoint consentono ad Azure AD di creare, aggiornare e rimuovere gli utenti a livello di programmazione. Di seguito è riportata una breve panoramica dei vari passaggi eseguiti da Azure AD per automatizzare il provisioning.
 
 1. Quando si abilita per la prima volta il provisioning per un'applicazione, vengono eseguite le operazioni seguenti:
- - Azure AD tenterà di ottenere una corrispondenza tra gli utenti esistenti nell'app SaaS e le identità corrispondenti nella directory.
- - Quando viene rilevata una corrispondenza, agli utenti viene assegnato automaticamente l'accesso all'applicazione, che consente di abilitarli per l'accesso Single Sign-On.
+ - Azure AD tenterà di ottenere una corrispondenza tra gli utenti esistenti nell'app SaaS e le identità corrispondenti nella directory. Quando c’è una corrispondenza per un utente è una corrispondenza, *non* è automaticamente abilitato per il servizio di single sign-on. Affinché un utente possa accedere all'applicazione, deve essere esplicitamente assegnato all'applicazione in Azure AD, direttamente o tramite l'appartenenza al gruppo.
  - Se si è già specificato quali utenti devono essere assegnati all'applicazione e Azure AD non riesce a trovare account esistenti per tali utenti, Azure AD eseguirà il provisioning di nuovi account nell'applicazione.
 2. Dopo aver completato la sincronizzazione iniziale come descritto in precedenza, Azure AD verificherà ogni 10 minuti la presenza delle modifiche seguenti:
  - Se sono stati assegnati nuovi utenti all'applicazione, direttamente o tramite l'appartenenza al gruppo, ne verrà eseguito il provisioning in un nuovo account nell'app SaaS.
@@ -107,4 +106,4 @@ Affinché un'applicazione supporti il provisioning utenti automatizzato, deve in
 
 Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

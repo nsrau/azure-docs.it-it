@@ -3,7 +3,7 @@
 	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Come collegare un disco dati a una macchina virtuale Linux
 
@@ -140,6 +140,5 @@
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -33,4 +33,4 @@ Per visualizzare **Esplora Server** in Visual Studio, nella barra dei menu scegl
 Ora che si dispone di un contenitore del servizio cloud, è possibile [creare e distribuire](cloud-services-how-to-create-deploy.md) un servizio cloud.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

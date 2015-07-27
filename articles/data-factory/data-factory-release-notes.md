@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Data factory di Azure
@@ -112,4 +112,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

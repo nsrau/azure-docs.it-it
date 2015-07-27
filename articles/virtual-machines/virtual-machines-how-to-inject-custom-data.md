@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management" />
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="07/14/2015"
 	ms.author="rasquill"/>
 
 
@@ -27,11 +28,11 @@ L'inserimento di uno script o di altri dati in una macchina virtuale di Azure du
 
 - Usare strumenti speciali disponibili in alcuni sistemi per rilevare e gestire automaticamente i dati personalizzati.
 
-> [AZURE.NOTE]Questo argomento viene trattato anche in [questo post del blog di Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/), che viene mantenuto aggiornato man mano che vengono aggiunte nuove funzionalità.
+> [AZURE.NOTE]In questo articolo viene descritto in che modo i dati personalizzati possono essere inseriti utilizzando una macchina virtuale creata con lo stack di calcolo di Gestione dei servizi di Azure. Per scoprire come utilizzare lo stack di calcolo di Gestione delle risorse di Azure, vedere [il modello di esempio qui](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 ## Inserimento di dati personalizzati nella macchina virtuale di Azure
 
-Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat). È possibile usare una delle numerose opzioni per il comando `azure vm create`, ma si è scelto di descrivere un approccio molto semplice nell'esempio seguente.
+Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli). È possibile usare una delle numerose opzioni per il comando `azure vm create`, ma si è scelto di descrivere un approccio molto semplice nell'esempio seguente.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -63,7 +64,7 @@ Se la macchina virtuale di Azure proviene da un'immagine Ubuntu o CoreOS, è pos
 
 Nella maggior parte delle immagini Linux di Azure occorre modificare "/ /etc/waagent.conf" per configurare disco temporaneo di risorse e file di scambio. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md).
 
-Tuttavia, nelle immagini Ubuntu Cloud è necessario utilizzare cloud-init per configurare il risorsa disco (noto anche come disco "temporaneo") e la partizione di scambio. Per ulteriori informazioni, vedere la pagina seguente del wiki di Ubuntu:
+Tuttavia, nelle immagini di Ubuntu Cloud è necessario utilizzare cloud-init per configurare il disco delle risorse (noto anche come disco "temporaneo") e la partizione di scambio. Per ulteriori informazioni, vedere la pagina seguente del wiki di Ubuntu:
 
  - [Ubuntu Wiki: Configurare partizioni di scambio](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
@@ -79,4 +80,4 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@ Di seguito viene fornita la descrizione di ogni parametro del modello.
 
 ### gatewayName
 
-Nome del gateway da creare. Si tratta del gateway usato per la registrazione dell'app per le API.
+Nome del gateway. Si tratta del gateway usato per la registrazione dell'app per le API.
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@ Nome del gateway da creare. Si tratta del gateway usato per la registrazione del
 
 ### apiAppName
 
-Nome dell'app per le API da creare.
+Nome dell'app per le API da creare. Il nome deve contenere almeno 8 caratteri e non più di 50 caratteri.
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ Percorso della nuova app per le API.
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

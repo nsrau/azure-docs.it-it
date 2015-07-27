@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.topic="article"
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Integrazione dell'SDK di Reach per Windows Phone Silverlight
@@ -113,15 +113,15 @@ L'oggetto EngagementReach fornisce due metodi per gestire il consenso/rifiuto, `
 
 È inoltre possibile decidere di disattivare MPNS tramite la configurazione di Engagement <windows-phone-sdk-reach-configuration>.
 
-> 2.9.1) L'applicazione deve descrivere innanzitutto le notifiche da fornire e **ottenere l'autorizzazione esplicita dell'utente (consenso)** e inoltre **deve fornire un meccanismo attraverso il quale l'utente può rifiutare esplicitamente la ricezione di notifiche push**. Tutte le notifiche fornite tramite il Servizio notifica push Microsoft devono essere coerenti con la descrizione fornita all'utente e conformi a tutti i [criteri relativi alle applicazioni][Content Policies] e ai [requisiti aggiuntivi per tipi specifici di applicazioni] applicabili.
+> 2\.9.1) L'applicazione deve descrivere innanzitutto le notifiche da fornire e **ottenere l'autorizzazione esplicita dell'utente (consenso)** e inoltre **deve fornire un meccanismo attraverso il quale l'utente può rifiutare esplicitamente la ricezione di notifiche push**. Tutte le notifiche fornite tramite il Servizio notifica push Microsoft devono essere coerenti con la descrizione fornita all'utente e conformi a tutti i [criteri relativi alle applicazioni][Content Policies] e ai [requisiti aggiuntivi per tipi specifici di applicazioni] applicabili.
 
 2) Non fare un uso eccessivo delle notifiche push. Engagement gestisce le notifiche in modo automatico.
 
-> 2.9.2) L'applicazione che usa il Servizio notifica push Microsoft non deve sfruttare in modo eccessivo la capacità di rete o la larghezza di banda del Servizio notifica push Microsoft o sovraccaricare inutilmente un dispositivo Windows Phone o altro dispositivo o servizio Microsoft con un numero eccessivo di notifiche push, come stabilito da Microsoft a sua ragionevole discrezione, e non deve danneggiare o interferire con le reti o i server Microsoft o i server e le reti di terze parti connesse al Servizio notifica push Microsoft.
+> 2\.9.2) L'applicazione che usa il Servizio notifica push Microsoft non deve sfruttare in modo eccessivo la capacità di rete o la larghezza di banda del Servizio notifica push Microsoft o sovraccaricare inutilmente un dispositivo Windows Phone o altro dispositivo o servizio Microsoft con un numero eccessivo di notifiche push, come stabilito da Microsoft a sua ragionevole discrezione, e non deve danneggiare o interferire con le reti o i server Microsoft o i server e le reti di terze parti connesse al Servizio notifica push Microsoft.
 
 3) Non fare affidamento su MPNS per inviare informazioni critiche. Engagement usa MPNS, pertanto questa regola è valida anche per le campagne create all'interno del front-end di Engagement.
 
-> 2.9.3) Il Servizio notifica push Microsoft non può essere usato per inviare notifiche di importanza cruciale o che possono influire su questioni di vita o di morte, incluse, senza alcuna limitazione, notifiche correlate a una condizione o a un dispositivo medico. MICROSOFT RIFIUTA ESPRESSAMENTE QUALSIASI GARANZIA CHE L'UTILIZZO DEL SERVIZIO DI NOTIFICA PUSH DI MICROSOFT O CHE IL RECAPITO DELLE NOTIFICHE DEL SERVIZIO NOTIFICA PUSH MICROSOFT SARÀ ININTERROTTO, PRIVO DI ERRORI O CHE SARÀ ESEGUITO IN TEMPO REALE.
+> 2\.9.3) Il Servizio notifica push Microsoft non può essere usato per inviare notifiche di importanza cruciale o che possono influire su questioni di vita o di morte, incluse, senza alcuna limitazione, notifiche correlate a una condizione o a un dispositivo medico. MICROSOFT RIFIUTA ESPRESSAMENTE QUALSIASI GARANZIA CHE L'UTILIZZO DEL SERVIZIO DI NOTIFICA PUSH DI MICROSOFT O CHE IL RECAPITO DELLE NOTIFICHE DEL SERVIZIO NOTIFICA PUSH MICROSOFT SARÀ ININTERROTTO, PRIVO DI ERRORI O CHE SARÀ ESEGUITO IN TEMPO REALE.
 
 **Non è possibile garantire che l'applicazione supererà il processo di convalida se non si rispettano queste indicazioni.**
 
@@ -266,4 +266,4 @@ Per implementare il callback:
 [requisiti aggiuntivi per tipi specifici di applicazioni]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

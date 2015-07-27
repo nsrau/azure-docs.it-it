@@ -57,7 +57,7 @@ L'aggiornamento di un database Web o Business a un nuovo livello di servizio pre
 
 
 
-## 1. Determinare il livello di servizio in base alla funzionalità
+## 1\. Determinare il livello di servizio in base alla funzionalità
 
 I livelli di servizio Basic, Standard e Premium offrono set di funzionalità diversi. Pertanto, per scegliere un livello appropriato, è innanzitutto necessario determinare il livello di servizio in grado di garantire il livello minimo di funzionalità necessario per l'applicazione e la propria azienda.
 
@@ -86,7 +86,7 @@ Dopo la selezione del livello di servizio adatto a soddisfare i requisiti del da
 
 
 
-## 2. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
+## 2\. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
 
 Il servizio database SQL di Azure espone informazioni nel portale di gestione e in viste di sistema per fornire il nuovo livello di servizio e di prestazioni comparabile suggerito per il database Web o Business esistente.
 
@@ -203,7 +203,7 @@ Il grafico rappresenta la tendenza del consumo percentuale medio di DTU nel cors
 
 
 
-## 3. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
+## 3\. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
 
 Per i singoli database Web e Business non viene riservata alcuna quantità specifica di capacità delle risorse. Inoltre, non è disponibile alcun meccanismo mediante il quale i clienti possano aumentare o ridurre le prestazioni per un database Web o Business. Le prestazioni dei database Web e Business possono pertanto essere molto variabili, passando inaspettatamente da un livello minimo a un livello Premium. Questa variabilità delle prestazioni dipende *parzialmente* dal livello generale di consumo delle risorse in un determinato momento da parte degli altri database dell'ambiente multi-tenant che condividono le risorse.
 
@@ -216,7 +216,7 @@ Per comprendere più chiaramente le differenze tra i livelli Web/Business e i li
 Se la percentuale di DTU complessiva è particolarmente elevata, iniziare a studiare le metriche dettagliate che costituiscono le DTU, ad esempio esaminando specificamente i dettagli del log di I/O e uso della memoria del database. Questa analisi può essere utile per individuare potenziali aree in cui ottimizzare e ridurre il consumo di DTU.
 
 
-## 4. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
+## 4\. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
 Se l'analisi della cronologia relativa all'uso delle risorse del database indica la necessità di effettuare l'aggiornamento a un livello di prestazioni più costoso del previsto, è possibile esaminare aree in cui può essere utile ottimizzare ulteriormente le prestazioni.
 
 Sulla base della propria conoscenza dei dettagli dell'applicazione, se l'uso delle risorse risulta notevolmente elevato rispetto al tipico carico di lavoro previsto, l'applicazione può ancora trarre vantaggio in qualche misura dall'ottimizzazione delle prestazioni.
@@ -235,7 +235,7 @@ Oltre alle consuete attività di manutenzione volte all'ottimizzazione, tra cui 
 
 
 
-## 5. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
+## 5\. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
 Dopo aver determinato il livello di servizio e il livello di prestazioni appropriati per il database Web o Business, è possibile aggiornare il database al nuovo livello in diversi modi:
 
 | Strumento di gestione | Per cambiare il livello di servizio e il livello di prestazioni di un database|
@@ -248,7 +248,7 @@ Dopo aver determinato il livello di servizio e il livello di prestazioni appropr
 Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
+## 6\. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
 Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gestione (come CREATE, ALTER, DROP) eseguite su un database nella vista DMV sys.dm_operation_status nel database master del server logico in cui si trova il database corrente. Vedere la documentazione su sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Usare la DMV con lo stato delle operazioni per determinare l'avanzamento dell'operazione di aggiornamento per un database. Questa query di esempio mostra tutte le operazioni di gestione eseguite su un database:
 
     SELECT o.operation, o.state_desc, o.percent_complete
@@ -265,7 +265,7 @@ Se per l'aggiornamento è stato usato il portale di gestione, nel portale è dis
 I livelli di prestazioni vengono calibrati e gestiti per poter fornire le risorse necessarie per eseguire il carico di lavoro del database fino ai limiti massimi consentiti per il livello di servizio/livello di prestazioni selezionato (consumo delle risorse al 100%). Se il carico di lavoro raggiunge uno dei limiti di CPU/IO dati/IO di log, si continuerà a ricevere le risorse al massimo livello consentito, ma probabilmente si noterà un aumento delle latenze per le query. Se viene raggiunto uno di questi limiti, non si verificheranno errori, ma solo un rallentamento nel carico di lavoro, a meno che il rallentamento non diventi così grave da provocare il timeout delle query. Se si raggiungono i limiti relativi al numero massimo di richieste o di sessioni utente simultanee (thread di lavoro), verrà visualizzato l'[errore 10928 o 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
 
-## 7. Monitorare il database dopo l'aggiornamento
+## 7\. Monitorare il database dopo l'aggiornamento
 Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabile monitorare attivamente il database per verificare che le applicazioni siano in esecuzione con le prestazioni desiderate e ottimizzare l'utilizzo in base alle esigenze. Per monitorare il database, è consigliata la seguente procedura aggiuntiva.
 
 
@@ -309,4 +309,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

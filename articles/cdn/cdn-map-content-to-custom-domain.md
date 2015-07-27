@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)
@@ -83,11 +83,11 @@ Le procedure disponibili in questo argomento descrivono come:
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#Vedere anche
+##Vedere anche
 
 
-[Come abilitare la rete per la distribuzione di contenuti (CDN) per Azure](./cdn-create-new-endpoint.md) **Panoramica della rete CDN di Azure**
+[Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

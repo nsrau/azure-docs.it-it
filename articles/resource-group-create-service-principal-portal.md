@@ -1,19 +1,19 @@
 <properties
    pageTitle="Creare una nuova entità servizio di Azure usando il portale di Azure"
    description="Descrive come creare una nuova entità servizio di Azure che è possibile usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Creare una nuova entità servizio di Azure usando il portale di Azure
@@ -134,4 +134,4 @@ Gestione e controllo dell'accesso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

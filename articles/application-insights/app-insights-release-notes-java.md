@@ -37,16 +37,21 @@ Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apport
  
 Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modifiche visibili sono dovute all'aggiunta e alla rimozione di moduli. Ripristinare eventuali personalizzazioni apportate.
 
+## Versione 1.0.0
+- Aggiunta di supporto per il plug-in di scrittura di Application Insights per CollectD.
+- Aggiunta di supporto per l'agente Java di Application Insights.
+- Correzione per un problema di compatibilità relativo al supporto delle versioni HttpClient 4.2 e successive.
+
 ## Versione 0.9.6
-- Rendere l'SDK Java compatibile con servlet v2.5 e HttpClient pre-v4.3
-- Aggiunta del supporto per gli intercettori di Java EE
-- Rimozione di dipendenze ridondanti dall'appender Logback
+- Rendere Java SDK compatibile con servlet v2.5 e HttpClient pre-v4.3.
+- Aggiunta del supporto per gli intercettori di Java EE.
+- Rimozione di dipendenze ridondanti dall'appender Logback.
 
 ## Versione 0.9.5  
 
 - Correzione di un problema per cui gli eventi personalizzati non sono correlati con utenti/sessioni a causa di errori di analisi dei cookie.  
 - Migliorata la logica per risolvere il percorso del file di configurazione ApplicationInsights.xml.
-- Rimosso il rilevamento di sessioni e utenti (che verrà eseguito soltanto dagli SDK lato client).
+- I cookie di utente e sessione anonimi non verranno generati sul lato server. Per implementare il rilevamento di utenti e sessioni per le app Web, è ora necessaria la strumentazione con JavaScript SDK. I cookie da JavaScript SDK verranno comunque rispettati. Si noti che questa modifica potrebbe provocare una rideterminazione significativa dei conteggi relativi a utenti e sessioni, poiché vengono ora contate solo le sessioni originate dagli utenti.
 
 ## Versione 0.9.4
 
@@ -55,4 +60,4 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

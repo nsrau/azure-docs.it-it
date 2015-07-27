@@ -13,89 +13,91 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="05/11/2015"
+   ms.date="06/30/2015"
    ms.author="rajram"/>
    
-#Connettore BLOB di Archiviazione di Azure
+# Azure Storage Blob Connector
+Connette il BLOB di archiviazione di Azure per caricare, scaricare ed eliminare i BLOB da un contenitore BLOB. I connettori possono essere usati nelle app per la logica come parte di un "flusso di lavoro".
 
-##Panoramica
-Il connettore BLOB di Archiviazione di Azure consente di caricare, scaricare ed eliminare i BLOB da un contenitore BLOB.
+## Trigger e azioni
+I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
-##Creare un nuovo connettore BLOB di Archiviazione di Azure
-Per creare un nuovo connettore di Archiviazione di Azure, attenersi alla procedura riportata di seguito. <ul> <li>Avviare il portale di Azure <li>Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace </ul>
+Storage Blob Connector può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per Storage Blob Connector.
 
-![Avviare Azure Marketplace][1]<br> <ul> <li>Fare clic su App per le API <li>Cercare <i>BLOB</i>, quindi selezionare Connettore BLOB di Archiviazione di Azure </ul>
+Per Storage Blob Connector sono disponibili i trigger e le azioni seguenti:
 
-![Selezionare il connettore BLOB Archiviazione di Azure][2] <br> <ul> <li>Fare clic su Crea <li>Nel pannello del connettore BLOB di Archiviazione di Azure che si apre specificare i dati seguenti. </ul>
-
-![Creare il connettore BLOB Archiviazione di Azure][3]
-
-- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
-- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-- **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
-- **Piano tariffario**: scegliere un piano tariffario per il connettore
-- **Nome**: assegnare un nome al connettore BLOB di Archiviazione
-- **Impostazioni pacchetto** 
-	- **URI SAS/contenitore**: specificare l'URI del contenitore BLOB. L'URI può includere anche il token SAS. Ad esempio http://storageaccountname.blob.core.windows.net/containername o http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
-	- **Chiave di accesso**: specificare una chiave di accesso valida dell'account di archiviazione primario/secondario. Lasciare vuoto questo campo se si sta usando un token SAS per l'autenticazione.
-- Fare clic su Crea. Verrà creato un nuovo connettore BLOB di Archiviazione di Azure.
-
-##Usare il connettore BLOB di Archiviazione di Azure in un'app per la logica
-Il connettore BLOB di Archiviazione di Azure, una volta creato, può essere usato dal flusso.
-
-Creare un nuovo flusso con +Nuovo -> Web e dispositivi mobili -> App per la logica. Specificare i metadati per il flusso, incluso il gruppo di risorse
-
-![Creare un'app per la logica][4]
-
-Fare clic su *Trigger e azioni*. Si apre la finestra di progettazione del flusso
-
-![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
-
-Il connettore BLOB di Archiviazione di Azure può essere usato come azione.
-
-###Azioni
-Fare clic su Azure Storage Blob Connector nel riquadro destro. Il connettore elenca le azioni supportate.
-
-![Elenco di azioni del BLOB di Archiviazione di Azure][10]
-
-Il connettore BLOB di Archiviazione di Azure supporta sei azioni, ovvero
-
-- **Get Blob**: ottiene un BLOB specifico dal contenitore.
-- **Upload Blob**: carica un nuovo BLOB o aggiorna un BLOB esistente.
-- **Delete Blob**: elimina un BLOB specifico da un contenitore.
-- **List Blobs**: elenca tutti i BLOB in una directory.
-- **Snapshot Blob**: crea una snapshot di sola lettura di un BLOB specifico.
-- **Copy Blob**: crea un nuovo BLOB copiandolo da un altro BLOB. Il BLOB di origine può essere nello stesso account o in un altro account.
-
-Si consideri come esempio l'azione Upload Blob. Fare clic su Upload Blob
-
-![Input dell'azione Carica BLOB][11]
+Trigger | Azioni
+--- | ---
+Nessuno | <ul><li>Get Blob: ottiene un BLOB specifico dal contenitore</li><li>Upload Blob: carica un nuovo BLOB o ne aggiorna uno esistente</li><li>Delete Blob: elimina un BLOB specifico da un contenitore</li><li>List Blobs: elenca tutti i BLOB in una directory</li><li>Snapshot Blob: crea uno snapshot di sola lettura di un BLOB specifico</li><li>Copy Blob: crea un nuovo BLOB copiandolo da un altro BLOB. Il BLOB di origine può trovarsi nello stesso account o in un altro account.</li></ul>
 
 
-- **Blob Path**: specifica il percorso del BLOB da caricare. Il percorso viene interpretato come relativo al percorso del contenitore configurato.
-- **Blob Write Content**: specificare il contenuto e le proprietà del BLOB da caricare.
-- **Content Transfer Encoding**: specificare none o base64.
-- **Overwrite**: se impostato su true, il BLOB esistente verrà sovrascritto. In caso contrario, restituirà un errore se esiste già un BLOB nello stesso percorso.
+## Creare Azure Storage Blob Connector
 
-Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input.
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
+2. Selezionare **App per le API** e cercare "BLOB": <br/> ![Selezionare il connettore BLOB Archiviazione di Azure][2]
+
+3. **Creare** il connettore.
+4. Immettere il nome, il piano di servizio app e altre proprietà.
+5. Immettere le impostazioni pacchetto seguenti:
+
+	Nome | Obbligatorio | Descrizione
+--- | --- | ---
+Container/SAS URI | Sì | Immettere l'URI del contenitore BLOB. L'URI può includere anche il token SAS. Ad esempio, immettere: http://*storageaccountname*.blob.core.windows.net/containername o http://*storageaccountname*.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
+Access Key | No | Immettere una chiave di accesso valida dell'account di archiviazione primario o secondario. Se si sta usando un token di firma di accesso condiviso per l'autenticazione, lasciare vuoto questo campo.
+
+	![Creare il connettore BLOB Archiviazione di Azure][3]
+
+6. Fare clic su **Crea**.
+
+## Usare il connettore BLOB di Archiviazione di Azure in un'app per la logica
+Dopo aver creato Azure Storage Blob Connector, è possibile aggiungerlo al flusso di lavoro.
+
+1. Creare una nuova app per la logica con +Nuovo -> Web e dispositivi mobili -> App per la logica. Immettere le proprietà dell'app per la logica.
+
+	![Creare un'app per la logica][4]
+
+2. Fare clic su **Trigger e azioni**. Viene aperta la finestra di progettazione del flusso di lavoro:
+
+	![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
+
+3. Selezionare Azure Storage Blob Connector nel riquadro destro. Il connettore elenca le azioni disponibili:
+
+	![Elenco di azioni del BLOB di Archiviazione di Azure][10]
+
+4. In questo scenario si userà l'azione **Upload Blob**:
+
+	![Input dell'azione Carica BLOB][11]
+
+5. Immettere i valori di input e selezionare il segno di spunta per completare la configurazione:
+
+	Input | Descrizione
+--- | ---
+Blob Path | Determina il percorso del BLOB da caricare. Il percorso viene interpretato come relativo al percorso del contenitore configurato.
+Blob Write Content | Immettere il contenuto e le proprietà del BLOB da caricare.
+Content Transfer Encoding | Immettere None o Base64.
+Overwrite | Quando il valore è impostato su true, il BLOB esistente viene sovrascritto. Quando è impostato su false, restituirà un errore se esiste già un BLOB nello stesso percorso.
 
 Si noti che l'azione Carica BLOB del BLOB di Archiviazione di Azure configurata mostra sia i parametri di input che i parametri di output.
 
-####Uso degli output delle azioni precedenti come input delle azioni del BLOB di Archiviazione di Azure
-Si noti che nella schermata configurata il valore del contenuto è impostato su un'espressione.
+#### Uso degli output delle azioni precedenti come input delle azioni del BLOB di Archiviazione di Azure
+Nella schermata precedente il valore **Content** può essere un'espressione:
 
 	@triggers().outputs.body.Content
 
-
-È possibile impostarlo su qualsiasi valore. Questo è solo un esempio. L'espressione accetta l'output del trigger dell'app per la logica e lo usa come contenuto del file da caricare. Si supponga di voler usare l'output di un'azione precedente, ad esempio un'azione di trasformazione. In questo caso, l'espressione sarà
+È possibile impostarlo su qualsiasi valore. L'espressione accetta l'output del trigger dell'app per la logica e lo usa come contenuto del file da caricare. Ad esempio, si vuole usare l'output di una trasformazione. In questo scenario l'espressione sarà:
 
 	@actions('transformservice').outputs.body.OutputXML
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-azurestorageblob/LaunchAzureMarketplace.PNG
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
 [3]: ./media/app-service-logic-connector-azurestorageblob/CreateAzureStorageBlobConnector.PNG
 [4]: ./media/app-service-logic-connector-azurestorageblob/CreateLogicApp.PNG
@@ -108,4 +110,4 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

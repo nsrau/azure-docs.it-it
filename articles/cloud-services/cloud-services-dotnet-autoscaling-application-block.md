@@ -236,7 +236,7 @@ Nel codice seguente è illustrato un set di regole di esempio in un file **rules
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -380,4 +380,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

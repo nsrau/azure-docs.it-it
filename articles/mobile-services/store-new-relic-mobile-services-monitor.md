@@ -3,7 +3,7 @@
 	description="Informazioni sull'uso del componente aggiuntivo New Relic per monitorare il servizio mobile." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

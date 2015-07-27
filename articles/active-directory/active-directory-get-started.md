@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/02/2015"
+	ms.topic="article"
+	ms.date="07/02/2015"
 	ms.author="curtand"/>
 
 # Introduzione all'uso di Azure AD
@@ -43,6 +43,5 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

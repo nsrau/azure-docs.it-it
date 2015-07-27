@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Monitoraggio prestazioni applicazione" 
+	pageTitle="Monitoraggio delle prestazioni dell'applicazione web di Azure" 
 	description="Tempo di caricamento e risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni." 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# Monitoraggio prestazioni applicazione
+# Monitoraggio delle prestazioni dell'applicazione web di Azure
 
-Nel [portale di Azure](http://portal.azure.com) è possibile configurare il monitoraggio per raccogliere statistiche e informazioni sulle dipendenze delle applicazioni nelle app Web o nelle macchine virtuali.
+Nel[portale Azure](http://portal.azure.com)è possibile impostare il monitoraggio per raccogliere le statistiche e informazioni dettagliate sulle dipendenze delle applicazioni nel[applicazioni web di Azure](../app-service-web/app-service-web-overview.md)o di[macchine virtuali](../virtual-machines/virtual-machines-about.md).
 
 Azure supporta il Monitoraggio prestazioni applicazione (o *APM*, Application Performance Monitoring) sfruttando le *estensioni*. Le estensioni vengono installate nell'applicazione e raccolgono i dati e li riferiscono ai servizi di monitoraggio.
+
+Application Insights e New Relic sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzare New Relic, è necessario installare un agente in fase di esecuzione. Per utilizzare Application Insights, è necessario ricompilare il codice con un SDK; ed è inoltre possibile installare un'estensione che consente l'accesso ai dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
 
 ## Abilitare un'estensione
 
 1. Fare clic su **Sfoglia** e selezionare l'app Web o la macchina virtuale da instrumentare.
 
-2. Fare clic sul riquadro **Monitoraggio applicazioni** in **Monitoraggio**.
+2. Aggiungere Application Insights o l'estensione di New Relic. Se si sta strumentalizzando un'applicazione web:
 
-3. Scegliere il provider di estensione che si vuole utilizzare, ad esempio **Application Insights** o **New Relic**.
-
-![APM dell'app Web](./media/insights-perf-analytics/05-extend.png)
+![Impostazioni, Estensioni, Aggiungere, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 Oppure, se si usa una macchina virtuale:
 
-![Macchine virtuali](./media/insights-perf-analytics/10-vm1.png)
+![Fare clic sul riquadro di analisi](./media/insights-perf-analytics/10-vm1.png)
 
 ### Per Application Insights: ricompilare con l'SDK
 
-New Relic può essere installato automaticamente senza alcuna strumentazione aggiuntiva, ma Application Insights presenta un requisito aggiuntivo.
+Application Insights funziona installando un SDK nell'applicazione.
 
 In Visual Studio, aggiungere Application Insights SDK al progetto.
 
@@ -81,4 +81,4 @@ Dopo aver visualizzato il pannello, per Application Insights, ad esempio, è pos
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

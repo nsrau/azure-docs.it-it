@@ -23,12 +23,12 @@ Nella procedura seguente viene illustrato come aggiungere un certificato dell'Au
 
 ## Per aggiungere un certificato all'archivio cacerts
 
-1. Al prompt dei comandi impostato sulla cartella **jdk\jre\lib\security** del JDK eseguire il comando seguente per verificare quali certificati sono installati:
+1. Al prompt dei comandi impostato sulla cartella **jdk\\jre\\lib\\security** del JDK eseguire il comando seguente per verificare quali certificati sono installati:
 
 	`keytool -list -keystore cacerts`
 
 	Verrà richiesto di immettere la password dell'archivio. La password predefinita è **changeit**. Se si desidera cambiarla, vedere la documentazione dello strumento Keytool all'indirizzo <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>. In questo esempio si presuppone che il certificato con ID digitale MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 non sia presente nell'elenco e che si desideri importarlo. Questo specifico certificato è necessario per il servizio API Twilio.
-2. Ottenere il certificato dall'elenco di [certificati radice GeoTrust](http://www.geotrust.com/resources/root-certificates/). Fare clic con il pulsante destro del mouse sul collegamento relativo al certificato con numero di serie 35:DE:F4:CF e salvarlo nella cartella **jdk\jre\lib\security**. Ai fini di questo esempio, è stato salvato in un file denominato **Equifax_Secure_Certificate_Authority.cer**.
+2. Ottenere il certificato dall'elenco di [certificati radice GeoTrust](http://www.geotrust.com/resources/root-certificates/). Fare clic con il pulsante destro del mouse sul collegamento relativo al certificato con numero di serie 35:DE:F4:CF e salvarlo nella cartella **jdk\\jre\\lib\\security**. Ai fini di questo esempio, è stato salvato in un file denominato **Equifax_Secure_Certificate_Authority.cer**.
 3. Importare il certificato tramite il comando seguente:
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -52,4 +52,4 @@ Se è necessario aggiungere Baltimore CyberTrust Root, in numero di serie è 02:
 
 Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo relativo alla [migrazione dei certificati radice di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

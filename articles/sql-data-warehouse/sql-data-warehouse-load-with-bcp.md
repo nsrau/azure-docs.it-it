@@ -71,7 +71,7 @@ Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file.
 20150101,1,3
 ```
 
-Salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt.
+Salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
 
 ### Passaggio 3: Connettersi e importare i dati
 bcp permette di connettersi e importare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
@@ -150,4 +150,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

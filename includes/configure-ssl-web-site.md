@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE]Acquista velocità: usa il NUOVO [percorso guidato](http://support.microsoft.com/kb/2990804) di Azure È facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i servizi cloud o il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) di Azure.
 
-È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. Questo articolo illustra come configurare HTTPS per un'app Web nel servizio app di Azure.
+È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. Questo articolo illustra come configurare HTTPS per un'app Web nel servizio app di Azure. Questo articolo non comprende l'autenticazione del certificato client. Per informazioni, vedere [Come configurare l’autenticazione reciproca TLS per le applicazioni Web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio *.azurewebsites.net
 
@@ -517,7 +517,7 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
@@ -541,4 +541,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

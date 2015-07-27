@@ -3,7 +3,7 @@
 	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure che esegue Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015" 
-	ms.author="kathydav"/>
+	ms.date="06/11/2015"
+	ms.author="dkshir"/>
 
 
 # Come acquisire una macchina virtuale Linux da usare come modello##
@@ -88,6 +88,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [Come creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
 
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

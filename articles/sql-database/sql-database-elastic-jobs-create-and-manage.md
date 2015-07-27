@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
-# Creazione e gestione di processi elastici di database
+# Creazione e gestione di processi di database elastici
 
-I **pool elastici di database** offrono un modello prevedibile per la distribuzione di un elevato numero di database. È possibile impostare unità di velocità effettiva (DTU, Database Throughput Unit) per ciascun database a un costo prefissato. In questi database la gestione di oggetti comuni può essere eseguita in modo più semplice usando **processi elastici di database**. Il servizio consente di eseguire script T-SQL su tutti i database del pool in una singola operazione. Ad esempio, è possibile impostare criteri su ogni database in modo da consentire l'accesso ai dati sensibili a una sola persona in possesso delle credenziali corrette.
+I **pool di database elastici** offrono un modello prevedibile per la distribuzione di un elevato numero di database. È possibile impostare unità di velocità effettiva (DTU, Database Throughput Unit) per ciascun database a un costo prefissato. In questi database la gestione di oggetti comuni può essere eseguita in modo più semplice usando **processi di database elastici**. Il servizio consente di eseguire script T-SQL su tutti i database del pool in una singola operazione. Ad esempio, è possibile impostare criteri su ogni database in modo da consentire l'accesso ai dati sensibili a una sola persona in possesso delle credenziali corrette.
 
 ## Prerequisiti
 
@@ -110,4 +110,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

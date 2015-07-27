@@ -72,7 +72,7 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati in
 
 ## <a name="monitor"></a> 4. Visualizzare i dati di telemetria
 
-Tornare al [portale di Azure][portal] e passare alla risorsa Application Insights.
+Tornare al [portale di Azure][portal] e passare alla risorsa di Application Insights.
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
 
@@ -125,4 +125,4 @@ Ora che è in corso l'invio di dati dal lato server dell'app, verranno fornite a
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

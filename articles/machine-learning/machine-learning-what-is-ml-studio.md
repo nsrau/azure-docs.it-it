@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Cos'è Azure Machine Learning Studio? | Microsoft Azure" 
 	description="Panoramica di Azure ML Studio, uno strumento di trascinamento per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l'uso." 
-	keywords="azure machine learning,azure ml, ml studio"	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 # Informazioni su Azure Machine Learning Studio
@@ -92,4 +91,4 @@ Un modulo può avere un set di parametri che è possibile usare per configurare 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

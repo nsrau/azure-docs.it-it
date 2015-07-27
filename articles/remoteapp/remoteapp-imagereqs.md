@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Requisiti delle immagini RemoteApp"
-    description="Informazioni sui requisiti per la creazione di immagini da usare con RemoteApp" 
+    pageTitle="Requisiti delle immagini di Azure RemoteApp"
+    description="Informazioni sui requisiti per la creazione di immagini da usare con Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# Requisiti per le immagini di RemoteApp
-RemoteApp usa un'immagine di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un’immagine di RemoteApp personalizzata, è possibile iniziare con un’immagine esistente oppure [crearne una nuova](remoteapp-create-custom-image.md).
+# Requisiti per le immagini di Azure RemoteApp
+Azure RemoteApp usa un'immagine di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un’immagine personalizzata, è possibile iniziare con un’immagine esistente oppure [crearne una nuova](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]Non tutti sanno che la sottoscrizione di Azure RemoteApp consente di accedere a un'immagine di Windows Server 2012 R2 di pre-compilazione nella raccolta di macchine Virtuali di Azure che è possibile utilizzare per creare la propria immagine modello [Provare](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]Non tutti sanno che la sottoscrizione di Azure RemoteApp consente di accedere a un'immagine di Windows Server 2012 R2 nella raccolta di macchine Virtuali di Azure che è possibile utilizzare per creare la propria immagine modello [Provare](remoteapp-image-on-azurevm.md).
 
 
 I requisiti per l'immagine che possono essere caricati e usati con l'app Azure RemoteApp sono i seguenti:
@@ -43,4 +43,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Autorizzazione sul lato servizio degli utenti in Servizi mobili con back-end .NET | Mobile Developer Center"
-	description="Informazioni su come autorizzare gli utenti nel back-end .NET di Servizi mobili di Azure."
+	pageTitle="Autorizzazione sul lato servizio degli utenti su un servizio mobile back-end di .NET | Servizi mobili di Azure"
+	description="Informazioni su come limitare l'accesso per autorizzare gli utenti in un servizio mobile back-end di .NET"
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="05/10/2015"
+	ms.date="07/02/2015"
 	ms.author="krisragh"/>
 
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
@@ -34,20 +34,28 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 
 	>[AZURE.NOTE]Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare [Migrazioni Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. In Visual Studio espandere la cartella Controller e aprire **TodoItemController.cs**. Individuare il metodo **PostTodoItem** e aggiungere il codice seguente all'inizio del metodo. Questo codice aggiunge l'ID utente dell'utente autenticato all'elemento, prima che venga inserito nella tabella TodoItem.
+2. In Visual Studio, espandere la cartella Controllers, aprire**TodoItemController.cs**e aggiungere la seguente istruzione per l’utilizzo:
 
-			// Get the logged in user
-			var currentUser = User as ServiceUser;
+		using Microsoft.Azure.Mobile.Server.Security;
 
-			// Set the user ID on the item
-			item.UserId = currentUser.Id;
+3. Individuare il metodo **PostTodoItem** e aggiungere il codice seguente all'inizio del metodo.
 
-3. Individuare il metodo **GetAllTodoItems** e sostituire l'istruzione **return** esistente con la riga di codice seguente: Questa query filtra gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+	
+		// Set the user ID on the item
+		item.UserId = currentUser.Id;
+	
+	Questo codice aggiunge l'ID utente dell'utente autenticato all'elemento, prima che venga inserito nella tabella TodoItem.
 
-				// Get the logged in user
-				var currentUser = User as ServiceUser;
+3. Individuare il metodo **GetAllTodoItems** e sostituire l'istruzione **return** esistente con la riga di codice seguente:
 
-				return Query().Where(todo => todo.UserId == currentUser.Id);
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+
+		return Query().Where(todo => todo.UserId == currentUser.Id);
+		
+	Questa query filtra gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
 
 4. Ripubblicare il progetto di servizio mobile in Azure.
 
@@ -72,4 +80,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

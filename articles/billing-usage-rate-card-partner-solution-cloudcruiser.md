@@ -116,8 +116,8 @@ Nel grafico inferiore vengono illustrati gli stessi dati ma suddivisi per repart
 
 + Per istruzioni dettagliate sulla creazione di cartelle di lavoro e report Cloud Cruiser, fare riferimento alla [documentazione](http://docs.cloudcruiser.com/) online di Cloud Cruiser (è necessario un account di accesso valido). Per ulteriori informazioni su Cloud Cruiser, contattare [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 + Per una panoramica sulle API di utilizzo delle risorse e sulle API RateCard di Azure, vedere [Ottenere informazioni significative sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md). 
-+ Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all’API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Se si desidera approfondire il codice di esempio, vedere gli [esempi di codice dell’API di fatturazione di Microsoft Azure in Github](https://github.com/Azure/BillingCodeSamples).
++ Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all'API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
++ Se si desidera approfondire il codice di esempio, vedere gli [esempi di codice dell'API di fatturazione di Microsoft Azure in Github](https://github.com/Azure/BillingCodeSamples).
 
 ## Ulteriori informazioni
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
@@ -133,4 +133,4 @@ Nel grafico inferiore vengono illustrati gli stessi dati ma suddivisi per repart
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 - Pianificazione della cartella di lavoro"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Report di esempio per lo scenario di confronto dei costi del carico di lavoro"
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

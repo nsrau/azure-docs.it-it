@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Configurare l'area di lavoro e gestire le impostazioni
@@ -34,7 +34,7 @@ A ogni area di lavoro possono essere associati più account utente, ciascuno dei
 
 ## Collegare un'area di lavoro esistente a una sottoscrizione di Azure
 
-È possibile creare un'area di lavoro da [opinsights.azure.com](http://opinsights.azure.com). Per le aree di lavoro, tuttavia, esistono determinate limitazioni. La principale è il limite di 500 MB al giorno di caricamento dati se si usa un account gratuito. Per apportare modifiche a questa area di lavoro, è necessario **collegare l'area di lavoro esistente a una sottoscrizione di Azure**.
+È possibile creare un'area di lavoro da[microsoft.com/oms](https://microsoft.com/oms). Per le aree di lavoro, tuttavia, esistono determinate limitazioni. La principale è il limite di 500 MB al giorno di caricamento dati se si usa un account gratuito. Per apportare modifiche a questa area di lavoro, è necessario **collegare l'area di lavoro esistente a una sottoscrizione di Azure**.
 
 >[AZURE.IMPORTANT]Per collegare un'area di lavoro, è necessario che l'account di Azure abbia già accesso a tale area. In altri termini, è necessario che l'account usato per accedere al portale di Azure sia **lo stesso** account usato per accedere all'area di lavoro di Operational Insights. Se non si tratta dello stesso account, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
@@ -179,6 +179,5 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 2. Selezionare uno dei motivi per la chiusura dell'area di lavoro o immettere un motivo diverso nella casella di testo.
 
 3. Fare clic su **Close workspace**.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

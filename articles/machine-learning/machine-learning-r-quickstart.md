@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Azure"
 	description="Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -1117,4 +1116,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

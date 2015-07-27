@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # API REST di Ricerca di Azure: versione 2015-02-28-Preview
@@ -795,7 +795,7 @@ Di seguito è riportato l'elenco di analizzatori supportati con una breve descri
 	</tr>
   	<tr>
 		<td>Coreano</td>
-		<td>ko.microsfot</td>
+		<td>ko.Microsoft</td>
 		<td>
 		<ul>
 			<li>Stemmer riduttivo (lemmatizzazione)</li>
@@ -2107,4 +2107,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

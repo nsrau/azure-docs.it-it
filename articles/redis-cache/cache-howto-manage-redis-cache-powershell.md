@@ -4,7 +4,6 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -87,12 +86,13 @@ Lo script seguente illustra come creare, aggiornare ed eliminare Cache Redis di 
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## Passaggi successivi
-Per altre informazioni sull'uso di Microsoft Azure PowerShell:
+
+Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere le risorse seguenti:
  
-- [Cmdlet di Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): informazioni sull'uso dei cmdlet nel modulo AzureResourceManager.
-- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
+- [Cmdlet di Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkID=394765): informazioni sull'uso dei cmdlet nel modulo AzureResourceManager.
+- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](../azure-portal/resource-group-portal): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
 - [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

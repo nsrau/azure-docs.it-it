@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Creare un connettore SharePoint da usare nell'app per la logica" 
-   description="Creare un connettore SharePoint; Uso del connettore SharePoint nell'app per la logica" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Creare un connettore SharePoint da usare nell'app per la logica"
+   description="Creare un connettore SharePoint; Uso del connettore SharePoint nell'app per la logica"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 # Uso del connettore SharePoint nell'app per la logica
 
@@ -35,9 +35,7 @@ L'app della raccolta di connettori SharePoint Online e SharePoint Server fornisc
 --- | --- | ---
 Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, documenti condivisi*.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
-<br/>
-![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Online.
 
@@ -58,9 +56,7 @@ Password | No | Immettere una password valida per la connessione al sito di Shar
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
-<br/>
-![][2]
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][2]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Server.
 
@@ -75,27 +71,13 @@ Una volta creata l'app per le API, è possibile usare il connettore SharePoint c
 
 3. Se viene selezionato all'avvio dell'app per la logica, il connettore SharePoint agisce come trigger, in caso contrario sarebbe possibile eseguire azioni sull'account SharePoint con il connettore.
 
-4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per conto dell'utente è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Autorizza** nel connettore SharePoint:
-<br/>
-![][3]
+4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Autorizza** nel connettore SharePoint: <br/> ![][3]
 
-5. Facendo clic su Autorizza verrà visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:
-<br/>
-![][4]
+5. Facendo clic su Autorizza verrà visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni: <br/> ![][4]
 
-6. Concedere alle app per la logica l'accesso all'account utente per eseguire le operazioni per conto dell'utente:
-<br/>
-![][5]
+6. Concedere alle app per la logica l'accesso al proprio account utente per eseguire l'operazione per proprio conto: <br/> ![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/>
-![][6]
-<br/>
-**URL relativo configurato per la libreria di documenti**
-<br/>
-![][7]
-<br/>
-**URL relativo configurato per l'elenco di documenti**
-<br/>
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato un elenco di azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/> ![][6] <br/> **URL relativo configurato per la libreria di documenti** <br/> ![][7] <br/> **URL relativo configurato per l'elenco di documenti**
 
 > [AZURE.NOTE]Per i trigger seguenti si presuppone che l'utente abbia immesso "Documenti condivisi, Elenchi/attività" nelle impostazioni pacchetto del connettore, dove "Documenti condivisi" è una raccolta documenti ed "Elenchi/attività" è un elenco.
 
@@ -104,14 +86,14 @@ Usare i trigger se si vuole avviare un'app per la logica.
 
 > [AZURE.NOTE]I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
 
-### 1. Nuovo documento in documenti condivisi (JSON)
+### 1\. Nuovo documento in documenti condivisi (JSON)
 Questo trigger viene attivato quando un nuovo documento è disponibile in 'Documenti condivisi'.
 
 #### Input
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo. 
+Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare i documenti elaborati.
 Sovrascrivi in archivio | No | Selezionare questa opzione per sovrascrivere un file nel percorso di archiviazione, se esiste già.
 Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -119,7 +101,7 @@ Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i docum
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Nome | Nome del documento.
 Contenuto | Contenuto del documento.
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
@@ -127,25 +109,25 @@ ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("no
 **Nota** Tutte le colonne dell'elemento documento vengono riportate nelle proprietà di output Avanzate.
 
 
-### 2. Nuovo elemento in attività (JSON)
+### 2\. Nuovo elemento in attività (JSON)
 Questo trigger viene attivato quando viene aggiunto un nuovo elemento all'elenco 'Attività'.
 
 #### Input
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo. 
+Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare gli elementi elenco elaborati.
 Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Le colonne nell'elenco vengono popolate in modo dinamico e mostrate nei parametri di output. | & nbsp;
 
 
-### 3. Nuovo documento in documenti condivisi (XML)
+### 3\. Nuovo documento in documenti condivisi (XML)
 
 Questo trigger viene attivato quando un nuovo documento è disponibile in 'Documenti condivisi'. Il nuovo documento viene restituito come messaggio XML.
 
@@ -153,7 +135,7 @@ Questo trigger viene attivato quando un nuovo documento è disponibile in 'Docum
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo. 
+Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
 Percorso archiviazione | No | Specificare un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare i documenti di elenco elaborati.
 Sovrascrivi in archivio | No | Selezionare questa opzione per sovrascrivere un file nel percorso di archiviazione, se esiste già.
 Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -161,12 +143,12 @@ Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i docum
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Contenuto | Contenuto del documento.
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
 
 
-### 4. Nuovo elemento in attività (XML)
+### 4\. Nuovo elemento in attività (XML)
 
 Questo trigger viene attivato quando viene aggiunto un nuovo elemento all'elenco 'Attività'. Il nuovo elemento elenco viene restituito come messaggio XML.
 
@@ -174,14 +156,14 @@ Questo trigger viene attivato quando viene aggiunto un nuovo elemento all'elenco
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio: 'Approved Orders'. Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo. 
+Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio: 'Approved Orders'. Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare gli elementi elenco elaborati.
 Query Caml | No, avanzate | Immettere una query Caml valida per filtrare gli elementi elenco. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Contenuto | Contenuto del documento.
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
 
@@ -189,7 +171,7 @@ ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("no
 ##  Azioni
 Per le azioni seguenti si presuppone che l'utente abbia immesso "Documenti condivisi, Elenchi/attività" nelle impostazioni pacchetto del connettore, dove "Documenti condivisi" è una raccolta documenti ed "Elenchi/attività" è un elenco.
 
-### 1. Carica in documenti condivisi (JSON)
+### 1\. Carica in documenti condivisi (JSON)
 
 Questa azione carica un nuovo documento in 'Documenti condivisi'. L'input è un oggetto JSON fortemente tipizzato con tutti i campi di colonna della raccolta documenti.
 
@@ -211,27 +193,27 @@ OptionalParam2* | No. Avanzate | Uno dei parametri facoltativi per aggiungere un
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 ItemId | ID del documento aggiunto nella raccolta documenti.
 Stato | Un caricamento corretto del documento restituisce il codice di stato 200 (OK).
 
 
  
 
-### 2. Recupera da documenti condivisi (JSON)
+### 2\. Recupera da documenti condivisi (JSON)
 Questa azione recupera il documento dalla raccolta documenti in base all'URL relativo (struttura di cartelle) del documento.
 
 #### Input
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-URI relativo documento | No | Immettere l'URL del documento, relativo a "Documenti condivisi". Ad esempio, immettere: *myspec1, myfolder/orders*.
+URI relativo documento | No | Immettere l'URL del documento, relativo a 'Documenti condivisi'. Ad esempio, immettere: *myspec1, myfolder/orders*.
 
 #### Output
 
 Nome | Descrizione
---- | --- 
-Contenuto | Contenuto del documento 
+--- | ---
+Contenuto | Contenuto del documento
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
 Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
 Param1* | Uno dei parametri di un documento nella raccolta documenti.
@@ -241,7 +223,7 @@ Param2* | Uno dei parametri di un documento nella raccolta documenti.
 
  
 
-### 3. Elimina da documenti condivisi
+### 3\. Elimina da documenti condivisi
 
 Questa azione elimina il documento dalla raccolta documenti in base all'URL relativo (struttura di cartelle) del documento.
 
@@ -249,16 +231,16 @@ Questa azione elimina il documento dalla raccolta documenti in base all'URL rela
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-URI relativo documento | No | Immettere l'URL del documento, relativo a "Documenti condivisi". Ad esempio, immettere: *myspec1, myfolder/orders*.
+URI relativo documento | No | Immettere l'URL del documento, relativo a 'Documenti condivisi'. Ad esempio, immettere: *myspec1, myfolder/orders*.
 
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
 
 
-### 4. Inserisci in attività (JSON)
+### 4\. Inserisci in attività (JSON)
 
 Questa azione aggiunge un elemento nell'elenco elementi.
 
@@ -276,12 +258,12 @@ OptionalParam2* | No. Avanzate | Uno dei parametri obbligatori per aggiungere un
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 ItemId | ID dell'elemento elenco aggiunto.
 Stato | Un corretto inserimento dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 5. Aggiorna attività (JSON)
+### 5\. Aggiorna attività (JSON)
 
 Questa azione aggiorna un elemento nell'elenco elementi.
 
@@ -300,11 +282,11 @@ OptionalParam2* | No. Avanzate | Uno dei parametri obbligatori per aggiungere un
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Stato | Un aggiornamento corretto dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 6. Recupera elemento da attività (JSON)
+### 6\. Recupera elemento da attività (JSON)
 
 Questa azione recupera un elemento dall'elenco elementi.
 
@@ -317,7 +299,7 @@ ItemId | Sì | ID dell'elemento elenco.
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Colonna 1* | Uno dei parametri nell'elenco.
 Colonna 2* | Uno dei parametri nell'elenco.
 Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
@@ -325,7 +307,7 @@ Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (O
 **Nota** Le colonne nell'elenco vengono popolate in modo dinamico e mostrate nei parametri di output.
 
 
-### 7. Elimina elemento da attività
+### 7\. Elimina elemento da attività
 
 Questa azione elimina un elemento dall'elenco elementi.
 
@@ -338,11 +320,11 @@ ItemId | Sì | ID dell'elemento elenco.
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Stato | Un'eliminazione corretta dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 8. Elenca documenti condivisi (JSON)
+### 8\. Elenca documenti condivisi (JSON)
 
 Questa azione elenca tutti i documenti in una raccolta documenti. È possibile usare una visualizzazione o una query Caml per filtrare i documenti.
 
@@ -350,18 +332,18 @@ Questa azione elenca tutti i documenti in una raccolta documenti. È possibile u
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo. 
+Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
 Query Caml | No | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 Documenti | Matrice di tutti i documenti. Ogni documento contiene i campi seguenti: <ul><li>Documenti </li><li>Nome</li><li>ID elemento</li><li>URL completo elemento</li><li>Avanzate</li><li>URL modifica elemento</li><li>Nome elenco</li><li>URL completo elenco</li></ul>
 Stato | Un corretto inserimento dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 9. Carica in documenti condivisi (XML)
+### 9\. Carica in documenti condivisi (XML)
 
 Questa azione carica un nuovo documento in 'Documenti condivisi'. Il documento di input deve essere un payload XML. La risposta dell'azione sarà un payload XML.
  
@@ -377,11 +359,11 @@ Forza sovrascrittura | Sì | Se è impostato su TRUE ed esiste già un documento
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 XML di output | Risposta dell'azione di caricamento in formato XML.
 Stato | Un caricamento corretto del documento restituisce il codice di stato 200 (OK).
 
-### 10. Recupera da documenti condivisi (XML)
+### 10\. Recupera da documenti condivisi (XML)
 
 Questa azione recupera il documento dalla raccolta documenti in base all'URL relativo (struttura di cartelle) del documento.
 
@@ -389,18 +371,18 @@ Questa azione recupera il documento dalla raccolta documenti in base all'URL rel
 
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
-URI relativo documento | No | Immettere l'URL del documento, relativo a "Documenti condivisi". Ad esempio, immettere: *myspec1, myfolder/orders*.
+URI relativo documento | No | Immettere l'URL del documento, relativo a 'Documenti condivisi'. Ad esempio, immettere: *myspec1, myfolder/orders*.
 Tipo file | Sì | Specificare se il file è un file binario o un file di testo.
 
 #### Output
 
 Nome | Descrizione
---- | --- 
+--- | ---
 XML di output | Contenuto del documento
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
 Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
 
-### 11. Inserisci in attività (XML)
+### 11\. Inserisci in attività (XML)
 
 Questa azione aggiunge un elemento nell'elenco elementi. L'input previsto è un payload XML.
 
@@ -420,7 +402,7 @@ ItemId | ID dell'elemento elenco aggiunto.
 Stato | Un corretto inserimento dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 12. Aggiorna attività (XML)
+### 12\. Aggiorna attività (XML)
 
 Questa azione aggiorna un elemento nell'elenco elementi. L'input previsto è un payload XML.
 
@@ -440,7 +422,7 @@ Nome | Descrizione
 Stato | Un aggiornamento corretto dell'elemento elenco restituisce il codice di stato 200 (OK).
 
 
-### 13. Recupera elemento da attività (XML)
+### 13\. Recupera elemento da attività (XML)
 
 Questa azione recupera un elemento dall'elenco elementi.
 
@@ -479,6 +461,5 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro a
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
- 
 
-<!-----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -11,4 +11,4 @@ Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

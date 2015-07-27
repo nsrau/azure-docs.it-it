@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -36,7 +36,7 @@ Per ricevere un messaggio di posta elettronica quando una metrica supera una sog
 
 ![Nel pannello Regole avvisi scegliere Aggiungi avviso. Impostare l'app come risorsa per misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Impostare la risorsa prima delle altre proprietà. Non scegliere le risorse webtest se si desidera impostare avvisi sulle metriche relative a prestazioni o utilizzo.
+Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
 
 Prendere nota delle unità in cui viene chiesto di immettere il valore soglia.
 
@@ -80,4 +80,4 @@ Tra gli avvisi più diffusi sono compresi:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

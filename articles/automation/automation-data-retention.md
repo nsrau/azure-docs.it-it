@@ -36,4 +36,4 @@ I criteri di conservazione sono applicabili a tutti gli utenti e non è attualme
 ## Articoli correlati
 - [Backup di Automazione di Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

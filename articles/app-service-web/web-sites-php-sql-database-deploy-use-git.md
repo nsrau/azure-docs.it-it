@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git" 
-	description="Un'esercitazione che illustra come creare un'app Web PHP che archivia i dati nel database SQL di Azure e come usare la distribuzione Git in Azure App Service." 
+	description="Un'esercitazione che illustra come creare un'app Web PHP che archivia i dati nel database SQL di Azure e come usare la distribuzione Git nel servizio app di Azure." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -18,7 +18,7 @@
 
 # Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
 
-Questa esercitazione illustra come creare in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) un'app Web PHP che si connette al database SQL di Azure e come distribuirla tramite Git. In questa esercitazione si presuppone che nel computer siano installati [PHP][install-php], [SQL Server Express][install-SQLExpress], i [driver Microsoft per SQL Server per PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un server Web e [Git][install-git]. Dopo aver completato questa guida, si disporrà di un'app Web PHP-MySQL in esecuzione in Azure.
+Questa esercitazione illustra come creare nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) un'app Web PHP che si connette al database SQL di Azure e come distribuirla tramite Git. In questa esercitazione si presuppone che nel computer siano installati [PHP][install-php], [SQL Server Express][install-SQLExpress], i [driver Microsoft per SQL Server per PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un server Web e [Git][install-git]. Dopo aver completato questa guida, si disporrà di un'app Web PHP-MySQL in esecuzione in Azure.
 
 > [AZURE.NOTE]Per installare e configurare PHP, SQL Server Express, i driver Microsoft per SQL Server per PHP e Internet Information Services (IIS), è possibile usare l'[Installazione guidata piattaforma Web Microsoft](http://www.microsoft.com/web/downloads/platform.aspx).
 
@@ -85,7 +85,7 @@ Per connettersi all'istanza del database SQL collegata all'app Web, saranno nece
 
 	![Visualizzazione delle proprietà database](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
-3. Nella sezione **PHP** della finestra di dialogo risultante prendere nota dei valori per `Server`, `SQL Database` e `User Name`. Si useranno questi valori successivamente, al momento di pubblicare l'app Web PHP in Azure App Service.
+3. Nella sezione **PHP** della finestra di dialogo risultante prendere nota dei valori per `Server`, `SQL Database` e `User Name`. Si useranno questi valori successivamente, al momento di pubblicare l'app Web PHP nel servizio app di Azure.
 
 ##Creazione e test dell'applicazione in locale
 
@@ -292,4 +292,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

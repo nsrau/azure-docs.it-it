@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Integrazione con un server SAP locale nel servizio app di Microsoft Azure"
 	description="Informazioni su come eseguire l'integrazione con un server SAP locale"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Integrazione con un server SAP locale
 Usando il connettore SAP è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. È possibile richiamare RFC, BAPI, TRFC oltre che inviare IDOC al server SAP.
-	
+
 Il server SAP può persino essere protetto dal firewall locale. In caso di server locale, la connettività viene stabilita attraverso un listener ibrido, come illustrato:
 
 ![Flusso di connettività ibrida][1]
@@ -40,12 +40,12 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui �
 
 
 ## Creare un nuovo adapter per SAP
-1. Accedere al portale di gestione di Microsoft Azure. 
+1. Accedere al portale di gestione di Microsoft Azure.
 2. Selezionare **Nuovo**.
 3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
 4. Nel pannello Marketplace, selezionare **App per le API**, quindi cercare SAP nella barra di ricerca:
-	
-	![App per le API del connettore SAP][2]	
+
+	![App per le API del connettore SAP][2]
 5. Selezionare il **connettore SAP** pubblicato da Microsoft.
 6. Nel pannello Connettore SAP selezionare **Crea**.
 7. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
@@ -125,8 +125,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

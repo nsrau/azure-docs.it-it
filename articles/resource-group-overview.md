@@ -1,19 +1,19 @@
 <properties
    pageTitle="Panoramica di Gestione risorse di Microsoft Azure"
    description="Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -67,6 +67,8 @@ Quando si crea una soluzione da Marketplace, la soluzione include automaticament
 Infine, il modello diventa parte del codice sorgente per l'applicazione. È possibile archiviarlo nel repository del codice sorgente e aggiornarlo con l'evoluzione dell'applicazione. È possibile modificare il modello tramite Visual Studio.
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
+
+Per gli schemi del modello, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 Per informazioni sull'utilizzo di un modello per la distribuzione, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md) e [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@ Creazione e distribuzione delle applicazioni
 - [Distribuire le risorse usando le librerie .NET e un modello](virtual-machines/arm-template-deployment.md)
 - [Funzioni di modello](./resource-group-template-functions.md)
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
+- [Schemi del modello](https://github.com/Azure/azure-resource-manager-schemas)
 
 Organizzazione delle risorse
 
@@ -136,4 +139,4 @@ Gestione e controllo dell'accesso
 - [Autenticazione di un'entità servizio](./resource-group-authenticate-service-principal.md)
 - [Creare una nuova entità servizio utilizzando il portale di Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

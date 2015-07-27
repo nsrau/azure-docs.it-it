@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # Monitorare un sito di SharePoint con Application Insights
@@ -23,7 +23,7 @@
 Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
 
 
-## Creare una risorsa Application Insights
+## Creare una risorsa di Application Insights
 
 
 Nel [portale di Azure](http://portal.azure.com) creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
@@ -41,7 +41,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared_Layout.cshtml
+Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared_Layout.cshtml
 
 Lo script contiene la chiave di strumentazione che indirizza i dati di telemetria alla risorsa di Application Insights.
 
@@ -73,6 +73,8 @@ Inserire una Web part e incorporarvi il frammento di codice.
 
 ## Visualizza i dati sull'app
 
+Ridistribuire l'app.
+
 Tornare al pannello dell'applicazione nel [portale di Azure](http://portal.azure.com).
 
 I primi eventi verranno visualizzati in Ricerca diagnostica.
@@ -81,11 +83,11 @@ I primi eventi verranno visualizzati in Ricerca diagnostica.
 
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
-L'**analisi di utilizzo** fornisce una panoramica immediata degli utenti, delle sessioni e delle visualizzazioni pagina:
+Le **analisi di utilizzo** si collegano a grafici di utenti, sessioni e visualizzazioni di pagina:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Fare clic su Visualizzazioni pagina per visualizzare altri dettagli:
+Ad esempio, fare clic su Visualizzazioni pagina per visualizzare altri dettagli:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -106,4 +108,4 @@ Fare clic su Utenti per visualizzare i dettagli relativi a nuovi utenti e ai rel
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

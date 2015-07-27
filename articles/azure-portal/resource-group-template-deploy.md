@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distribuire un'applicazione con un modello di Gestione risorse di Azure"
-   services="azure-portal"
+   services="azure-resource-manager"
    description="Usare Gestione risorse di Azure per distribuire un’applicazione in Azure. Un modello è un file JSON e può essere usato dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure per Mac, Linux e Windows o REST."
    documentationCenter="na"
    authors="tfitzmac"
@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -58,7 +58,7 @@ Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, veder
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +66,15 @@ Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, veder
 
 2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Passare al modulo Gestione risorse di Azure.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 4. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +92,16 @@ Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, veder
    
      - Usare i parametri inline.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Usare un oggetto parametro.
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Usare un file di parametri. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Quando il gruppo di risorse è stato distribuito, verrà visualizzato un riepilogo della distribuzione.
 
@@ -114,11 +114,11 @@ Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, veder
 
 6. Per ottenere informazioni sugli errori di distribuzione.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. Per ottenere informazioni dettagliate sugli errori di distribuzione.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Distribuire con l'interfaccia della riga di comando di Azure per Mac, Linux e Windows
 
@@ -256,4 +256,4 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

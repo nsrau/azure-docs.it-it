@@ -37,11 +37,11 @@ Per eseguire questa esercitazione, è necessario:
 Creare prima gli oggetti richiesti da PolyBase per la connessione ai dati nell'archiviazione BLOB di Azure e l'esecuzione di query su di essi.
 
 ## Creare la chiave master del database
-Connettersi al database master nel server per creare una chiave master del database. Questa chiave viene usata per crittografare il segreto della credenziale nel passaggio successivo.
+Connettersi al database utente nel server per creare una chiave master del database. Questa chiave viene usata per crittografare il segreto della credenziale nel passaggio successivo.
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 Argomento di riferimento: [CREATE MASTER KEY (Transact-SQL)][].
@@ -49,8 +49,13 @@ Argomento di riferimento: [CREATE MASTER KEY (Transact-SQL)][].
 ## Creare una credenziale con ambito di database
 Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenziale con ambito di database che archivia informazioni di autenticazione per l'account di archiviazione Azure. Connettersi al database del data warehouse e creare una credenziale con ambito di database per ogni account di archiviazione Azure a cui si vuole accedere. Specificare un nome di identità e la chiave dell'account di archiviazione Azure come segreto. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure.
 
+Per verificare l'esistenza di una credenziale con ambito database, utilizzare sys.database_credentials, non sys.credentials che mostra solo le credenziali del server.
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```
@@ -176,7 +181,7 @@ Vedere [CREATE TABLE AS SELECT (Transact-SQL)][].
 Il caricamento con PolyBase supporta solo lo stile di codifica UTF-8. Per altri stili di codifica, ad esempio UTF-16, è possibile usare utilità bcp, SSIS o Data factory di Azure per caricare dati nel database di SQL Data Warehouse.
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -184,7 +189,7 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
 [Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -202,4 +207,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189450.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
@@ -210,4 +210,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

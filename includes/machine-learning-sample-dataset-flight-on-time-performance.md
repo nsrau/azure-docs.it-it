@@ -1,3 +1,3 @@
 Record degli arrivi e delle partenze dei voli all'interno degli Stati Uniti da ottobre 2011.<p> </p><b>Utilizzo:</b>: prevedere i ritardi dei voli. <p> </p><b>Ricerca correlata:</b> Dai dati del Dipartimento dei trasporti degli Stati Uniti <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

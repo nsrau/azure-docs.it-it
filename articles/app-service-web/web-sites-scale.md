@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/08/2015" 
 	ms.author="cephalin"/>
 
 # Scalare un'app Web in Servizio app di Azure #
@@ -28,8 +28,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 
 > [AZURE.NOTE]Prima di passare un'app Web dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione per Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Passaggio alla modalità Condivisa o Base
 <!-- ===================================== -->
 
@@ -49,8 +48,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 	
 	Dopo il completamento dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Passaggio alla modalità Standard o Premium
 <!-- ================================= -->
 
@@ -173,7 +171,7 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 	- [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
@@ -199,4 +197,4 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

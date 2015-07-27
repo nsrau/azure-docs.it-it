@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
 
@@ -27,7 +27,8 @@ La procedura guidata Azure AD Connect offre due percorsi diversi con requisiti d
 
 * In Impostazioni personalizzate viene offerto un maggior numero di scelte e opzioni, ma esistono alcune situazioni in cui è necessario assicurarsi manualmente di disporre delle autorizzazioni corrette.
 
-Nella tabella seguente viene fornito un riepilogo delle credenziali che vengono raccolte e delle operazioni per le quali sono utilizzate nell’ambito di un'installazione rapida.
+
+## Credenziali che vengono raccolte e operazioni per le quali sono usate nell'ambito di un'installazione rapida
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo 
 ------------- | ------------- |------------- |------------- |
@@ -37,16 +38,8 @@ ND|Credenziali di accesso dell'utente che esegue la procedura guidata| Amministr
 
 <br> <br>
 
-Nella tabella seguente viene fornito un riepilogo delle credenziali che vengono raccolte e delle operazioni per le quali sono utilizzate nell’ambito di un'installazione rapida.
 
-
-Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo 
-------------- | ------------- |------------- |------------- |
-Connettersi ad Azure AD| Credenziali di directory di Azure AD | Ruolo di amministratore in Azure AD | <li>Abilitazione della sincronizzazione nella directory di Azure AD.</li> <li>Creazione dell'account Azure AD che verrà utilizzato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li>
-Connettersi ad AD DS | Credenziali Active Directory locali | Membro del gruppo Enterprise Admins (EA) in Active Directory| <li>Creazione dell’account di Active Directory locale che verrà utilizzato per la lettura di oggetti e attributi da Active Directory locale per l'operazione di sincronizzazione ricorrente.</li> <li> Assegnazione delle autorizzazioni e delle impostazioni di controllo di accesso corrette per la sincronizzazione e la sincronizzazione delle password con l'account precedente e Active Directory.</li> 
-ND|Credenziali di accesso dell'utente che esegue la procedura guidata| Amministratore del server locale|Mediante la procedura guidata viene creato l'account di Active Directory che verrà utilizzato come account di accesso del servizio di sincronizzazione nel computer locale.
-
-<br> <br> Nella tabella seguente viene fornito un riepilogo delle credenziali che vengono raccolte e delle operazioni per le quali sono utilizzate nell’ambito di un'installazione rapida.
+## Credenziali che vengono raccolte e operazioni per le quali sono usate nell'ambito di un'installazione personalizzata
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo 
 ------------- | ------------- |------------- |------------- |
@@ -61,7 +54,8 @@ Pagina Account del servizio ADFS, "Utilizzare un'opzione account utente di domin
 
 
 
-<br> <br> Nella tabella seguente viene fornito un riepilogo delle autorizzazioni necessarie per scenari specifici.
+<br> <br>
+## Autorizzazioni necessarie per lo specifico scenario
 
 Scenario |Autorizzazione
 ------------- | ------------- |
@@ -71,7 +65,8 @@ Writeback delle password | <li>Cambia password</li><li>Reimposta password</li>
 Writeback di utenti, gruppi e dispositivi|Autorizzazioni di scrittura per gli oggetti di directory e gli attributi di cui si desidera eseguire il "writeback"
 Single Sign-On e AD FS| Autorizzazioni di amministratore di dominio nel dominio in cui si trovano i server federati.
 
-<br> <br> Nella tabella seguente viene fornito un riepilogo degli account creati da Azure AD Connect.
+<br> <br>
+## Riepilogo degli account creati da Azure AD Connect
 
 
 
@@ -95,4 +90,4 @@ Account AD FS:GMSA (aadcsvc$)|Utente di dominio|Account di accesso al servizio F
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

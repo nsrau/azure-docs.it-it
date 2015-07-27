@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # Installazione dei componenti del processo di database elastico
 
-Il [pool di database elastico (anteprima)](sql-database-elastic-pool-portal.md) fornisce un modello stimabile per la distribuzione di un numero elevato di database. Dopo aver creato un pool di database elastico, è possibile utilizzare **processi database elastici** per eseguire attività amministrative in ogni database nel pool di database elastico. Ad esempio, è possibile distribuire il nuovo schema, come l'impostazione di un criterio RLS su ciascun database per limitare i dati unicamente all'utente con le credenziali corrette per visualizzare i dati riservati. Di seguito viene illustrato come installare i **processi di database elastici**.
+Il [pool di database elastici (anteprima)](sql-database-elastic-pool-portal.md) fornisce un modello stimabile per la distribuzione di un numero elevato di database. Dopo aver creato un pool di database elastici, è possibile utilizzare **processi di database elastici** per eseguire attività amministrative in ogni database nel pool di database elastico. Ad esempio, è possibile distribuire il nuovo schema, come l'impostazione di un criterio RLS su ciascun database per limitare i dati unicamente all'utente con le credenziali corrette per visualizzare i dati riservati. Di seguito viene illustrato come installare i **processi di database elastici**.
 
 **Tempo previsto per il completamento:** 10 minuti
 
 ## Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
-* Un pool di database elastico Vedere [Creare un pool elastico di database SQL di Azure (anteprima)](sql-database-elastic-pool-portal.md).
+* Un pool elastico di database. Vedere [Creare un pool di database elastici di database SQL di Azure (anteprima)](sql-database-elastic-pool-portal.md).
 
 ## Installare i componenti del servizio
 Innanzitutto, accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/#).
@@ -63,4 +63,4 @@ Se durante l’installazione dei processi di database elastici viene fornita una
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

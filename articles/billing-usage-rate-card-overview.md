@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="07/7/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure 
@@ -29,7 +29,7 @@ L'API di utilizzo delle risorse di Azure e l’API RateCard vengono implementate
 ### API di utilizzo delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure per ottenere una stima dei dati di consumo di Azure. Le funzionalità includono:
 	
-- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](https://azure.microsoft.com/it-it/documentation/articles/powershell-install-configure/) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
+- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
 
 - **Aggregazioni orarie o giornaliere**: i chiamanti possono specificare se desiderano i dati di utilizzo di Azure in intervalli orari o giornalieri. L’impostazione predefinita è rappresentata dagli intervalli giornalieri.
 
@@ -42,7 +42,7 @@ Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure pe
 ### API RateCard delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API RateCard delle risorse di Azure per ottenere l'elenco delle risorse di Azure disponibili, insieme a una stima delle informazioni di prezzo di ognuna di esse. Le funzionalità includono:
 
-- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](https://azure.microsoft.com/it-it/documentation/articles/powershell-install-configure/) per specificare quali utenti o applicazioni possono avere accesso ai dati RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
+- **Controllo dell’accesso basato sui ruoli di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [Portale di anteprima di Azure](https://portal.azure.com) o tramite i cmdlet [Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve inoltre essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione Azure.
 	
 - **Supporto delle offerte di pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA non supportato)**: questa API fornisce informazioni sulle tariffe a livello di offerta di Azure, piuttosto che a livello di sottoscrizione. Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse. Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA.
 
@@ -78,4 +78,4 @@ In [Cloud Cruiser e integrazione dell’API di fatturazione di Microsoft Azure](
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,6 +40,6 @@ Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a inf
 
 La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C# e Python.
 
-<!-- Add link to Derrick's articles on web services -->
+Per ulteriori informazioni su come accedere e utilizzare il servizio web, vedere[Come utilizzare un servizio web di Azure Machine Learning che è stato pubblicato da un esperimento di apprendimento automatico](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

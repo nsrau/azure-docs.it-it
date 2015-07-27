@@ -59,7 +59,7 @@ PurgeBackupBizTalkService | Operazione di cancellazione dei backup del servizio 
 - [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
 - [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 - [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-- [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scala](http://go.microsoft.com/fwlink/p/?LinkID=302281)
+- [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operazione di cancellazione dei backup del servizio 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

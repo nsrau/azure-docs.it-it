@@ -2,4 +2,4 @@ L'impostazione di un nome di dominio personalizzato in un'app Web del Servizio a
 
 Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come applicare la scalabilità ai siti Web](../article/app-service-web/web-sites-scale.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

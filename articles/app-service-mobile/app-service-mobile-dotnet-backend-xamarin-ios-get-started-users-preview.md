@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="06/30/2015" 
 	ms.author="mahender"/>
 
 # Aggiungere l'autenticazione all'app per Xamarin.iOS
@@ -109,4 +109,4 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

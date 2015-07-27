@@ -82,4 +82,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

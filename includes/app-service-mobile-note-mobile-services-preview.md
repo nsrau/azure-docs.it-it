@@ -1,0 +1,3 @@
+>[AZURE.NOTE]Si tratta di un argomento **applicazioni per dispositivi mobili Azure**. Ricerca di [documentazione di servizi mobili](/documentation/services/mobile-services/)? <br/><br/>Applicazioni per dispositivi mobili è attualmente in anteprima e non è ancora consigliata per la produzione. I contratti SDK e API sono soggetti a modifiche anche per le versioni secondarie. Per le applicazioni di produzione, considerare invece i servizi mobili.
+
+<!---HONumber=July15_HO3-->

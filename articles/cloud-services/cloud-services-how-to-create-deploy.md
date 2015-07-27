@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,9 +21,13 @@
 
 # Come creare e distribuire un servizio Cloud
 
-Nel portale di gestione di Azure sono disponibili due modi per creare e distribuire un servizio cloud: **Creazione rapida** e **Creazione personalizzata**.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-create-deploy.md)
+- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di gestione di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando **Creazione personalizzata**.
+Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: **Creazione rapida** e **Creazione personalizzata**.
+
+In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando **Creazione personalizzata**.
 
 > [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Online (VSO), usare Creazione rapida, quindi configurare la pubblicazione VSO da **Creazione rapida** o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Online][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
 
@@ -117,7 +121,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 5. Se il servizio cloud includerà ruoli con una sola istanza, selezionare la casella di controllo **Deploy even if one or more roles contain a single instance** per abilitare la distribuzione.
 
- Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio cloud solo al 99,95% in fase di manutenzione e aggiornamento del servizio. Se necessario, è possibile aggiungere istanze del ruolo aggiuntive alla pagina **Scale** dopo aver distribuito il servizio cloud. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+    Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio cloud solo al 99,95% in fase di manutenzione e aggiornamento del servizio. Se necessario, è possibile aggiungere istanze del ruolo aggiuntive alla pagina **Scale** dopo aver distribuito il servizio cloud. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
 
 6. Fare clic su **OK** (segno di spunta) per iniziare la distribuzione del servizio cloud.
 
@@ -135,9 +139,10 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 2. In **quick glance** fare clic sull'URL del sito per aprire il servizio cloud in un Web browser.
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

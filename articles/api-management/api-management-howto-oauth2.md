@@ -18,7 +18,7 @@
 
 # Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure
 
-Molte API supportano [OAuth 2.0](http://oauth.net/2/) per proteggere l'API e assicurare che solo gli utenti validi siano autorizzati all'accesso e possano accedere solo alle risorse a cui hanno diritto. Per usare la console per sviluppatori interattiva di Gestione API di Azure con queste API, il servizio permette di configurare l'istanza del servizio per l'uso delle API abilitate per OAuth 2.0.
+Molte API supportano [OAuth 2.0](http://oauth.net/2/) per proteggere l'API e assicurare che solo gli utenti validi siano autorizzati all'accesso e che possano accedere solo alle risorse a cui hanno diritto. Per usare la console per sviluppatori interattiva di Gestione API di Azure con queste API, il servizio permette di configurare l'istanza del servizio per l'uso delle API abilitate per OAuth 2.0.
 
 ## <a name="prerequisites"> </a>Prerequisiti
 
@@ -160,4 +160,4 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

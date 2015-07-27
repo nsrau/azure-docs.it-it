@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Informazioni su Puppet e macchine virtuali di Azure" 
-	description="Descrive come installare e configurare Puppet in una macchina virtuale in Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Informazioni su Puppet e sulle macchine virtuali di Azure | Microsoft Azure"
+	description="Viene descritta l'installazione e la configurazione di Puppet su una macchina virtuale in Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/20/2015"
 	ms.author="kathydav"/>
 
-#Informazioni su Puppet e macchine virtuali di Azure
+#Informazioni su Puppet e sulle macchine virtuali di Azure
 
-<p>Puppet Enterprise è un software di automazione per compilare, distribuire e gestire l'infrastruttura. Può essere usato per gestire il ciclo di vita dell'infrastruttura IT, ad esempio per il rilevamento, il provisioning, la gestione della configurazione di sistema operativo e applicazioni, l'orchestrazione e la creazione di report.
+<p>Puppet Enterprise è un software di automazione per compilare, distribuire e gestire l'infrastruttura. Può essere usato per gestire il ciclo di vita dell'infrastruttura IT, tra cui il rilevamento, il provisioning, la gestione della configurazione del sistema operativo e delle applicazioni, l'orchestrazione e la creazione di report.
 
-Puppet è un sistema client-server. Puppet Master e Puppet Enterprise Agent sono entrambi disponibili per l'installazione tramite Azure:
+Puppet è un sistema client-server. Puppet Master e Puppet Enterprise Agent sono entrambi disponibili per l'installazione tramite Microsoft Azure:
 
-- Puppet Master è disponibile come immagine preconfigurata, installata in un server Ubuntu. È anche possibile installare Puppet Enterprise in un server esistente, ma l'immagine rappresenta il modo più semplice per iniziare. Per configurare l'agente, sono necessarie le informazioni sul server. 
+- Puppet Master è disponibile come immagine preconfigurata, installata su un server Ubuntu. È anche possibile installare Puppet Enterprise in un server esistente, ma l'immagine rappresenta il modo più semplice per iniziare. Per configurare l'agente, sono necessarie le informazioni sul server.
 - Puppet Enterprise Agent è disponibile come estensione della macchina virtuale che può essere installata durante la creazione di una macchina virtuale oppure in una macchina virtuale esistente.
 
-Per le istruzioni, scaricare la Guida introduttiva disponibile nella pagina [Microsoft Windows e Azure](http://puppetlabs.com/solutions/microsoft).
+Per istruzioni, scaricare la "Guida introduttiva" disponibile nella pagina [Microsoft Windows e Azure](http://puppetlabs.com/solutions/microsoft).
 
 
 ##Risorse aggiuntive
@@ -43,7 +43,4 @@ Per le istruzioni, scaricare la Guida introduttiva disponibile nella pagina [Mic
 [Come accedere a una macchina virtuale che esegue Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

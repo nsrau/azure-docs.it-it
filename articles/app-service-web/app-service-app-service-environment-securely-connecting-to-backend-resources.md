@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # Connessione sicura alle risorse back-end da un ambiente del servizio app #
@@ -27,6 +27,12 @@ Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere co
 
 Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse. Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale. Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
 
+## Requisiti per DNS e connettività in uscita ##
+Si noti che per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+
+Il cliente potrebbe anche avere configurato server DNS personalizzati nella rete virtuale. Gli ambienti del servizio app devono poter risolvere gli endpoint di Azure in *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net. 
+
+È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo.
 
 ## Connessione a un'istanza di SQL Server
 Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla porta 1433:
@@ -104,4 +110,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -40,4 +40,4 @@ Il servizio si basa su Gestione risorse di Azure. I domini e i record possono es
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

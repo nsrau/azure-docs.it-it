@@ -40,18 +40,13 @@ Se si dispone già di un'app Web in Servizio app di Azure che si desidera usare 
 1. Aprire Azure Marketplace facendo clic su **Nuovo** > **Markeplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Acquistare il componente aggiuntivo MongoLab.  
-	![MongoLab][entry-mongolab]
+1. Acquistare il componente aggiuntivo MongoLab. ![MongoLab][entry-mongolab]
 
-1. Fare clic sul componente aggiuntivo MongoLab nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**.  
-	![ConnectionInfoButton][button-connectioninfo]
+1. Fare clic sul componente aggiuntivo MongoLab nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**.![ConnectionInfoButton][button-connectioninfo]
 
-1. Copiare MONGOLAB_URI negli Appunti.  
-	![ConnectionInfoScreen][screen-connectioninfo]
-	**Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.**
+1. Copiare MONGOLAB_URI negli Appunti. ![ConnectionInfoScreen][screen-connectioninfo] **Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.**
 
-1. Aggiungere il valore all'elenco Stringhe di connessione nel menu Configurazione dell'applicazione Web di Azure:  
-	![WebSiteConnectionStrings][focus-website-connectinfo]
+1. Aggiungere il valore all'elenco Stringhe di connessione nel menu Configurazione dell'applicazione Web di Azure: ![WebSiteConnectionStrings][focus-website-connectinfo]
 
 1. In **Nome** digitare MONGOLAB_URI.
 
@@ -89,8 +84,7 @@ L'attività di sviluppo verrà eseguita in Visual Studio Express 2013 per il Web
 ### Creare il progetto
 Per iniziare, verrà utilizzato un modello di Visual Studio per questa app di esempio. Assicurarsi di usare .NET Framework 4.5.
 
-1. Selezionare **File > nuovo progetto**. Viene visualizzata la finestra di dialogo Nuovo progetto:
-	![NewProject][dialog-mongolab-csharp-newproject]
+1. Selezionare **File > nuovo progetto**. Viene visualizzata la finestra di dialogo Nuovo progetto: ![NewProject][dialog-mongolab-csharp-newproject]
 
 1. Selezionare **Installati > Modelli > Visual C# > Web**.
 
@@ -100,9 +94,7 @@ Per iniziare, verrà utilizzato un modello di Visual Studio per questa app di es
 
 1. Digitare _mongoNotes_ come **Nome progetto**. Se si sceglie un nome diverso, sarà necessario modificare il codice fornito in tutto il presente tutorial.
 
-1. Scegliere **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**.
-	![PMConsole][focus-mongolab-csharp-pmconsole]
-	Il driver MongoDB C# è integrato con il progetto e la riga seguente viene aggiunta automaticamente al file _packages.config_:
+1. Scegliere **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**. ![PMConsole][focus-mongolab-csharp-pmconsole] Il driver MongoDB C# è integrato con il progetto e la riga seguente viene aggiunta automaticamente al file _packages.config_:
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -429,8 +421,7 @@ Ora che l'applicazione è stata sviluppata, è possibile creare un'app Web in Se
 ### Creare una nuova app Web e ottenere il file di impostazioni di pubblicazione
 La creazione di un'app Web in Servizio app di Azure è molto facile, in particolare grazie al fatto che Azure genera automaticamente un profilo di pubblicazione per Visual Studio.
 
-1. Nel portale di Azure fare clic su **Nuovo**.  
-	![Nuovo][button-new]
+1. Nel portale di Azure fare clic su **Nuovo**. ![Nuovo][button-new]
 
 1. Selezionare **Calcolo > App Web > Creazione rapida**.
 	<!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
@@ -439,11 +430,9 @@ La creazione di un'app Web in Servizio app di Azure è molto facile, in particol
 
 1. Fare clic su **Crea app Web**.
 
-1. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Viene visualizzato il dashboard dell'app Web. 
-	![WebAppDashboard][screen-mongolab-websitedashboard]
+1. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Viene visualizzato il dashboard dell'app Web. ![WebAppDashboard][screen-mongolab-websitedashboard]
 
-1. Fare clic su **Scarica profilo di pubblicazione** in **riepilogo rapido** e quindi salvare il file .PublishSettings in una directory di propria scelta.
-	![DownloadPublishProfile][button-website-downloadpublishprofile]
+1. Fare clic su **Scarica profilo di pubblicazione** in **riepilogo rapido** e quindi salvare il file .PublishSettings in una directory di propria scelta.![DownloadPublishProfile][button-website-downloadpublishprofile]
 
 In alternativa, è anche possibile configurare l'app Web direttamente da Visual Studio. Quando si collega l'account Azure a Visual Studio, seguire le istruzioni per configurare un'app Web da tale applicazione. Al termine, è sufficiente fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni per distribuirlo in Azure. Sarà comunque necessario configurare la stringa di connessione di MongoLab, come descritto in dettaglio nella procedura seguente.
 
@@ -465,8 +454,7 @@ In alternativa, è anche possibile configurare l'app Web direttamente da Visual 
 
 1. Dopo l'esito positivo della convalida, fare clic su **Pubblica**. Dopo il completamento della pubblicazione, viene aperta una nuova scheda del browser e viene visualizzata l'app Web.
 
-1. Immettere un testo per la nota, fare clic su **Crea** e osservare i risultati.
-	![HelloMongoAzure][screen-mongolab-sampleapp]
+1. Immettere un testo per la nota, fare clic su **Crea** e osservare i risultati. ![HelloMongoAzure][screen-mongolab-sampleapp]
 
 <a name="manage"></a>
 ## Gestire il database
@@ -500,4 +488,4 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
 
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

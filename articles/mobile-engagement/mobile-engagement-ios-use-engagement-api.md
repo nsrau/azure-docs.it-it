@@ -3,7 +3,7 @@
 	description="iOS SDK più recente: come usare l'API di Engagement in iOS"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
+	authors="kpiteira" 
 	manager="dwrede" 
 	editor="" />
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
 
@@ -240,7 +240,7 @@ Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguen
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -273,7 +273,7 @@ Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguen
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -285,4 +285,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

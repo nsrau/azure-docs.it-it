@@ -73,4 +73,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

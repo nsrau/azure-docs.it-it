@@ -79,4 +79,4 @@ La loro struttura è simile a quella degli oggetti JSON: sono costituiti da un a
 L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tuttavia, solo il primo livello di chiavi/valori viene scomposto per essere direttamente accessibile per alcune funzioni avanzate come i segmenti (ad esempio, è possibile definire in modo semplice un segmento "SciFi fans" costituito da tutti gli utenti che hanno inviato almeno 10 volte l'evento denominato "content_viewed" con la chiave aggiuntiva "content_type" impostata sul valore "scifi" nell'ultimo mese). È pertanto consigliabile inviare solo dati aggiuntivi costituiti da semplici elenchi di coppie chiave/valore con valori scalari (ad esempio stringhe, date, numeri interi o valori booleani).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -81,4 +81,4 @@ A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e ca
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

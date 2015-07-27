@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="06/24/2015"
 	ms.author="kenhoff;Justinha"/>
 
 # Visualizzare i report di accesso e utilizzo
@@ -33,26 +33,30 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 - Alcuni report di utilizzo di anomalie e risorse avanzati sono disponibili solo quando si abilita [Azure Active Directory Premium](active-directory-get-started-premium.md). I report avanzati consentono di migliorare la sicurezza dell'accesso, di rispondere a potenziali rischi e ottenere l'accesso alle analisi sull'accesso al dispositivo e l'utilizzo delle applicazioni.
 - Azure Active Directory Premium e le edizioni Basic sono disponibili per i clienti in Cina usando l'istanza a livello mondiale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Descrizioni dei report
+## Report
 
 |	Report |	Descrizione |
 |	------												|	-----																						|
-|	Accessi da origini sconosciute |	Può indicare un tentativo di accedere senza tracciamento. |
-|	Accessi dopo più errori |	Può indicare un attacco di forza bruta riuscito. |
-|	Accessi da più aree geografiche |	Può indicare che più utenti stanno accedendo con lo stesso account. |
-|	Accessi da indirizzi IP con attività sospetta |	Può indicare un accesso riuscito in seguito a un prolungato tentativo di intrusione. |
-|	Accessi da dispositivi potenzialmente infetti |	Può indicare un tentativo di accesso da dispositivi probabilmente infetti. |
-|	Attività di accesso irregolare |	Può indicare eventi anomali nei modelli di utilizzo dell'accesso da parte degli utenti. |
-|	Utenti con anomalie dell'attività di accesso |	Indica utenti i cui account sono stati compromessi. |
+|	**Report Anomalie dell'attività**
+|	[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Può indicare un tentativo di accedere senza tracciamento. |
+|	[Accessi dopo più errori](active-directory-sign-ins-after-multiple-failures.md) |	Può indicare un attacco di forza bruta riuscito. |
+|	[Accessi da più aree geografiche](active-directory-sign-ins-from-multiple-geographies.md) |	Può indicare che più utenti stanno accedendo con lo stesso account. |
+|	[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Può indicare un accesso riuscito in seguito a un prolungato tentativo di intrusione. |
+|	[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Può indicare un tentativo di accesso da dispositivi probabilmente infetti. |
+|	[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md) |	Può indicare eventi anomali nei modelli di utilizzo dell'accesso da parte degli utenti. |
+|	[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |	Indica utenti i cui account sono stati compromessi. |
 |	Utenti con credenziali perse |	Utenti con credenziali perse |
+|	**Log attività**
 |	Report di controllo |	Eventi controllati nella directory |
 |	Attività di reimpostazione password |	Fornisce una visualizzazione dettagliata delle reimpostazioni della password all'interno dell'organizzazione. |
 |	Attività di registrazione reimpostazione password |	Fornisce una visualizzazione dettagliata delle registrazioni di reimpostazione della password all'interno dell'organizzazione. |
 |	Attività dei gruppi self-service |	Fornisce un log attività per tutte le attività self-service del gruppo nella directory |
+|	**Applicazioni integrate**
 |	Utilizzo applicazioni |	Fornisce un riepilogo di utilizzo per tutte le applicazioni SaaS integrate con la directory. |
 |	Attività di provisioning dell'account |	Fornisce una cronologia dei tentativi di provisioning degli account nelle applicazioni esterne. |
 |	Stato rollover della password |	Fornisce una panoramica dettagliata dello stato di rollover automatico delle password di applicazioni SaaS. |
 |	Errori di provisioning dell'account |	Indica un impatto sull'accesso degli utenti alle applicazioni esterne. |
+|	**Rights Management**
 |	Utilizzo di RMS |	Fornisce un riepilogo dell'utilizzo di Rights Management |
 |	Utenti RMS più attivi |	Visualizza l'elenco dei primi 1000 utenti attivi che hanno eseguito l'accesso ai file protetti con RMS |
 |	Utilizzo dispositivi RMS |	Visualizza l'elenco dei dispositivi usati per accedere ai file protetti con RMS |
@@ -62,6 +66,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 
 |	Report |	Free |	Basic |	Premium |
 |	------												|	----	|	-----	|	--------	|
+|	**Report Anomalie dell'attività**
 |	Accessi da origini sconosciute |	✓ |	✓ |	✓ |
 |	Accessi dopo più errori |	✓ |	✓ |	✓ |
 |	Accessi da più aree geografiche |	✓ |	✓ |	✓ |
@@ -70,83 +75,115 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 |	Attività di accesso irregolare | | |	✓ |
 |	Utenti con anomalie dell'attività di accesso | | |	✓ |
 |	Utenti con credenziali perse | | |	✓ |
+|	**Log attività**
 |	Report di controllo | | |	✓ |
 |	Attività di reimpostazione password | | |	✓ |
 |	Attività di registrazione reimpostazione password | | |	✓ |
 |	Attività dei gruppi self-service | | |	✓ |
+|	**Applicazioni integrate**
 |	Utilizzo applicazioni | | |	✓ |
 |	Attività di provisioning dell'account |	✓ |	✓ |	✓ |
 |	Stato rollover della password | | |	✓ |
 |	Errori di provisioning dell'account |	✓ |	✓ |	✓ |
+|	**Rights Management**
 |	Utilizzo di RMS | | |	Solo RMS |
 |	Utenti RMS più attivi | | |	Solo RMS |
 |	Utilizzo dispositivi RMS | | |	Solo RMS |
 |	Utilizzo applicazioni abilitate per RMS | | |	Solo RMS |
 
-## Dettagli sui report
+
+
+
+
+
+
+
+
+## Report Anomalie dell'attività
 
 ### Accessi da origini sconosciute
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report indica gli utenti che hanno effettuato correttamente l'accesso alla directory mentre gli era assegnato un indirizzo IP riconosciuto da Microsoft come un indirizzo IP proxy anonimo. Questi proxy vengono spesso usati dagli utenti che vogliono nascondere l'indirizzo IP del computer e possono essere usati per attacchi dannosi, talvolta pirati informatici usano questi proxy. </p><p> I risultati del report mostreranno il numero di volte in cui un utente ha effettuato correttamente l'accesso alla directory da quell'indirizzo e l'indirizzo IP del proxy.</p> | Scheda Directory > Report |
-
-![Accessi da origini sconosciute](./media/active-directory-view-access-usage-reports/signInsFromUnknownSources.PNG)]
+Per informazioni dettagliate su questo report, vedere [Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).
 
 ### Accessi dopo più errori
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| Questo report indica gli utenti che hanno eseguito correttamente l'accesso dopo più tentativi di accesso consecutivi non riusciti. Le possibili cause includono: <ul><li>L'utente ha dimenticato la password</li><li>L'utente è vittima di un attacco di forza bruta che ha portato all'individuazione della password</li></ul><p>Nei risultati del report verranno mostrati il numero di accesso consecutivi non riusciti eseguiti prima dell'accesso riuscito e un timestamp associato al primo accesso riuscito.</p><p><b>Impostazioni report</b>: è possibile configurare il numero minimo di tentativi di accesso non riusciti consecutivi eseguiti prima della visualizzazione del report. Quando si apportano modifiche a questa impostazione si noti che le modifiche non si applicano a eventuali accessi non riusciti attualmente visualizzati nel report. Verranno tuttavia applicati a tutti gli accessi successivi. Le modifiche a questo report possono essere apportate solo dagli amministratori autorizzati. | Scheda Directory > Report |
-
-![Accessi dopo più errori](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
-
+Per informazioni dettagliate su questo report, vedere [Accessi dopo più errori](active-directory-sign-ins-after-multiple-failures.md).
 
 ### Accessi da più aree geografiche
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report include attività di accesso completate da un utente laddove due accessi sembrano provenire da diverse aree, ma dato il tempo intercorso tra gli accessi non è possibile che l'utente si sia spostato da un'area all'altra. Le possibili cause includono:</p><ul><li>L'utente sta condividendo la password</li><li>L'utente usa un desktop remoto per avviare un Web browser per l'accesso</li><li>Un pirata informatico ha effettuato l'accesso all'account di un utente da un altro paese.</li></ul><p>Nei risultati del report verranno mostrati gli eventi di accesso riuscito, nonché il tempo tra gli accessi, le aree da cui sembrano provenire gli accessi e il tempo di spostamento stimato tra tali aree.</p><p>Il tempo di spostamento mostrato è solo una stima e può essere diverso da quello effettivo necessario per spostarsi tra le posizioni. Non viene inoltre generato alcun evento per gli accessi tra aree adiacenti.</p> | Scheda Directory > Report |
-
-![Accessi da più aree geografiche](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
-
+Per informazioni dettagliate su questo report, vedere [Accessi da più aree geografiche](active-directory-sign-ins-from-multiple-geographies.md).
 
 ### Accessi da indirizzi IP con attività sospetta
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report include tentativi di accesso eseguiti da indirizzi IP in cui è stata notata un'attività sospetta. Un'attività sospetta include molti tentativi di accesso non riusciti dallo stesso indirizzo IP in un breve periodo di tempo e altre attività ritenute sospette. È possibile che un pirata informatico abbia tentato l'accesso da questo indirizzo IP.</p><p>I risultati di questo report mostreranno che i tentativi originati da un indirizzo IP in cui è stata notata un'attività sospetta, insieme al timestamp associato all'accesso.</p> | Scheda Directory > Report |
+Per informazioni dettagliate su questo report, vedere [Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
 
-![Accessi da indirizzi IP con attività sospetta](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
+### Attività di accesso irregolare
 
-
-### Attività di accesso con anomalie
-
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report include accessi identificati come "anomali" dagli algoritmi di apprendimento automatico. I motivi per contrassegnare un tentativo di accesso come irregolare prevedono posizioni di accesso imprevisto, ora del giorno e posizioni o una combinazione di queste. È possibile che un pirata informatico abbia tentato di accedere con questo account. L'algoritmo di apprendimento automatico classifica gli eventi come "anomali" o "sospetti", laddove "sospetti" indica una maggiore probabilità di una violazione della sicurezza.</p><p>Nei Risultati del report verranno mostrati questi accessi, insieme alla classificazione, alla posizione e a un timestamp associato a ogni accesso.</p><p>Se in un periodo di 30 giorni o meno verranno rilevati 10 o più eventi di accesso anomalo, Microsoft invierà agli amministratori globali una notifica tramite posta elettronica. Assicurarsi di includere aad-alerts-noreply@mail.windowsazure.com nell'elenco dei mittenti attendibili.</p> | Scheda Directory > Report |
-
-
+Per informazioni dettagliate su questo report, vedere [Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).
 
 ### Accessi da dispositivi potenzialmente infetti
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Usare questo report per visualizzare accessi eseguiti da dispositivi in cui è possibile sia presente malware. Gli indirizzi IP degli accessi vengono messi in correlazione con gli indirizzi IP dai quali si è tentato di contattare un server con malware.</p><p>Consiglio: poiché in questo report si presuppone che un indirizzo IP sia associato allo stesso dispositivo in entrambi i casi, si consiglia di contattare l'utente e analizzare il dispositivo dell'utente per verificare.</p><p>Per altre informazioni su come impedire la diffusione di malware, vedere il sito Web [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Scheda Directory > Report |
-
-![Accessi da dispositivi potenzialmente infetti](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
-
+Per informazioni dettagliate su questo report, vedere [Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 
 ### Utenti con anomalie dell'attività di accesso
 
+Per informazioni dettagliate su questo report, vedere [Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
+
+<!-- Users with leaked credentials goes here -->
+
+
+
+
+
+
+
+
+
+## Log attività
+
+### Report di controllo
+
 | Descrizione | Percorso report |
 | :-------------     | :-------        |
-| <p>Usare questo report per visualizzare tutti gli account utente per i quali è stata individuata un'attività anomala. Nel report sono inclusi i dati provenienti da tutti gli altri report relativi ad attività anomale. I risultati del report conterranno i dettagli relativi all'utente, il motivo per cui l'evento di accesso è stato identificato come anomalo, data e ora e altre informazioni rilevanti sull'evento.</p> | Scheda Directory > Report |
+| Mostra un record di tutti gli eventi controllati entro le ultime 24 ore, gli ultimi 7 giorni o gli ultimi 30 giorni. <br /> Per altre informazioni, vedere [Eventi del report di controllo di Azure Active Directory](active-directory-reporting-audit-events.md) | Scheda Directory > Report |
 
-![Utenti con anomalie dell'attività di accesso](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
+![Report di controllo](./media/active-directory-view-access-usage-reports/auditReport.PNG)
+
+### Attività di reimpostazione password
+
+| Descrizione | Percorso report |
+| :-------------     | :-------        |
+| Vengono illustrati tutti i tentativi di reimpostazione della password che si sono verificati nell'organizzazione. | Scheda Directory > Report |
+
+![Attività di reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
+
+### Attività di registrazione reimpostazione password
+
+| Descrizione | Percorso report |
+| :-------------     | :-------        |
+| Vengono illustrate tutte le registrazioni per la reimpostazione della password che si sono verificate nell'organizzazione | Scheda Directory > Report |
+
+![Attività di registrazione reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
+
+### Attività dei gruppi self-service
+
+| Descrizione | Percorso report |
+| :-------------     | :-------        |
+| Mostra tutte le attività per i gruppi gestiti in modalità self-service nella directory. | Scheda Directory > Utenti > <i>Utente</i> > Dispositivi |
+
+![Attività dei gruppi self-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
 
-## Report applicazioni integrate
+
+
+
+
+
+
+
+
+
+## Report Applicazioni integrate
 
 ### Utilizzo dell'applicazione: riepilogo
 
@@ -154,7 +191,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 | :-------------     | :-------        |
 | Usare questo report per visualizzare l'utilizzo di tutte le applicazioni SaaS presenti nella directory. Questo report si basa sul numero di selezioni dell'applicazione eseguite nel Pannello di accesso. | Scheda Directory > Report |
 
-![Riepilogo utilizzo applicazione](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
+![Riepilogo utilizzo applicazione](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
 ### Utilizzo dell'applicazione: dettagliato
@@ -177,7 +214,14 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 | :-------------     | :-------        |
 | Usare questo report per monitorare gli errori che si verificano durante la sincronizzazione degli account da applicazioni SaaS ad Azure Active Directory. | Scheda Directory > Report |
 
-![Errori di provisioning dell'account](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
+![Errori di provisioning dell'account](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
+
+
+
+
+
+
+
 
 
 ## Report specifici degli utenti
@@ -212,42 +256,13 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 
 > Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'app nativa [Lync/Skype per Business](http://products.office.com/it-it/skype-for-business/online-meetings) ed eseguiti dall'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-it/w/sso/534.aspx).
 
-## Log attività
-
-### Report di controllo
-
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| Mostra un record di tutti gli eventi controllati entro le ultime 24 ore, gli ultimi 7 giorni o gli ultimi 30 giorni. <br /> Per altre informazioni, vedere [Eventi del report di controllo di Azure Active Directory](active-directory-reporting-audit-events.md) | Scheda Directory > Report |
-
-![Report di controllo](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
 
 
-### Report attività dei gruppi
-
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| Mostra tutte le attività per i gruppi gestiti in modalità self-service nella directory. | Scheda Directory > Utenti > <i>Utente</i> > Dispositivi |
-
-![Attività dei gruppi self-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
 
 
-### Report attività di registrazione per la reimpostazione password
-
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| Vengono illustrate tutte le registrazioni per la reimpostazione della password che si sono verificate nell'organizzazione | Scheda Directory > Report |
-
-![Attività di registrazione reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
 
 
-### Attività di reimpostazione password
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| Vengono illustrati tutti i tentativi di reimpostazione della password che si sono verificati nell'organizzazione. | Scheda Directory > Report |
-
-![Attività di reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
 
 
 ## Aspetti da considerare quando si sospetta la violazione della sicurezza
@@ -262,8 +277,8 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 
 1. Nel portale di gestione di Azure, fare clic su **Active Directory**, fare clic sul nome della directory dell'organizzazione e quindi fare clic su **Report**.
 2. Nella pagina Report, fare clic sul report che si desidera visualizzare e/o scaricare.
-    >
-    > [AZURE.NOTE]
+
+    > [AZURE.NOTE]Se questa è la prima volta che si usa la funzionalità di creazione di report di Azure Active Directory, verrà visualizzato un messaggio relativo al consenso esplicito. Se si accetta, fare clic sull'icona del segno di spunta per continuare.
 
 3. Fare clic sul menu a discesa accanto a Intervallo e quindi selezionare uno degli intervalli di tempo che devono essere usati durante la generazione di questo report:
     - Ultime 24 ore
@@ -280,53 +295,11 @@ Se si stanno visualizzando tutti i report anomalie, si noterà che è possibile 
 
 ## Notifiche automatiche tramite posta elettronica
 
-### Quali report generano notifiche tramite posta elettronica
-
-A questo punto, solo il rapporto Attività di accesso con anomalie e Utenti con anomalie dell'attività di accesso usano il sistema di notifica tramite posta elettronica.
-
-### Che cosa attiva l'invio della notifica tramite posta elettronica?
-
-Per impostazione predefinita, Azure Active Directory è impostato per l'invio automatico delle notifiche tramite posta elettronica a tutti gli amministratori globali. Il messaggio viene inviato quando si verificano le condizioni seguenti per ogni report.
-
-Per il report Utenti con anomalie dell'attività di accesso:
-
-- Origini sconosciute: 10 eventi
-- Più errori: 10 eventi
-- Accessi da indirizzi IP con attività sospetta: 10 eventi
-- Dispositivi infetti: 10 eventi
-
-Report Utenti con anomalie dell'attività di accesso
-
-- Origini sconosciute: 10 eventi
-- Più errori: 10 eventi
-- Accessi da indirizzi IP con attività sospetta: 10 eventi
-- Dispositivi infetti: 5 eventi
-- Report accessi anomali: 15 eventi
-
-Il messaggio di posta elettronica viene inviato se una delle condizioni precedenti viene soddisfatta entro 30 giorni o poiché l'ultimo messaggio di posta elettronica è stato inviato se è inferiore a 30 giorni.
-
-Per accessi anomali si intendono quelli che sono stati identificati come "anomali" dagli algoritmi di Machine Learning, sulla base di posizioni di accesso impreviste, ora del giorno e posizioni impreviste o una combinazione di questi fattori. È possibile che un pirata informatico abbia tentato di accedere con questo account. Per altre informazioni su questo report, vedere la tabella riportata in precedenza.
-
-### A chi vengono inviate le notifiche tramite posta elettronica?
-
-Il messaggio di posta elettronica viene inviato a tutti gli amministratori globali ai quali è stata assegnata una licenza di Active Directory Premium. Per garantire il recapito, il messaggio viene inviato anche all'indirizzo di posta elettronica alternativo degli amministratori . Per essere certi di ricevere il messaggio, gli amministratori devono aggiungere aad-alerts-noreply@mail.windowsazure.com nei rispettivi elenchi di mittenti attendibili.
-
-### Con quale frequenza vengono inviati i messaggi di posta elettronica?
-
-Dopo l'invio di un messaggio di posta elettronica, quello successivo verrà inviato solo se entro 30 giorni dall'invio si verificano almeno 10 o nuovi eventi di accesso anomalo. Come si accede al report indicato nel messaggio di posta elettronica?
-
-Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di gestione di Azure. Per accedere al report, è necessario essere:
-
-- Un amministratore o un coamministratore della sottoscrizioni di Azure
-- Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere Informazioni su Azure Active Directory.
-
-### È possibile disattivare questi messaggi di posta elettronica?
-
-Sì, per disattivare le notifiche correlate a anomali accessi all'interno del portale di gestione di Azure, fare clic su **Configura** e quindi selezionare **Disabilitato** sotto la sezione **Notifiche**.
+Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche relative alla funzionalità di creazione di report di Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Passaggi successivi
 
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

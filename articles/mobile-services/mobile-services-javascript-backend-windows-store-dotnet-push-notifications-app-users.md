@@ -36,7 +36,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 + [Aggiungere l'autenticazione all'app]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
 
-+ [Aggiungere notifiche push all’app]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
++ [Aggiungere notifiche push all'app]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
 
 Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utenti non autenticati di effettuare la registrazione per le notifiche push dal servizio mobile.
 
@@ -91,9 +91,10 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: ../mobile-services-windows-store-dotnet-get-started-users.md
+[Aggiungere notifiche push all'app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Aggiungere notifiche push all’app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

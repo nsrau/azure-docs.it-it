@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Uso di Gestione connessione ibrida nel servizio app di Azure
@@ -133,4 +133,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

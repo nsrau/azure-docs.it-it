@@ -125,4 +125,4 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

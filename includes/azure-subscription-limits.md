@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Account <a href="http://azure.microsoft.com/services/batch/">anteprima batch</a> per regione per sottoscrizione</p></td>
+   <td valign="middle"><p>Account <a href="http://azure.microsoft.com/services/batch/">Batch</a> per area per sottoscrizione</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

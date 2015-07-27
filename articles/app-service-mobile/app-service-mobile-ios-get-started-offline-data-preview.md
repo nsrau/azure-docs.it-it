@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Abilitare la sincronizzazione offline per l'app mobile per iOS
@@ -48,7 +48,7 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline nell'e
 
     Per ottenere un riferimento a una tabella di sincronizzazione, usare il metodo `syncTableWithName`. Per rimuovere la funzionalità di sincronizzazione offline, usare invece `tableWithName`.
 
-3. Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Questo è il codice pertinente nel metodo `QSTodoService.init`:
+2. Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Questo è il codice pertinente nel metodo `QSTodoService.init`:
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline nell'e
 
     Il primo parametro di `initWithDelegate` consente di specificare un gestore di conflitto. Poiché è stato passato `nil`, si otterrà il gestore di conflitti predefinito, che non consente l'esecuzione di operazioni in caso di conflitto.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. I metodi `pullData` e `syncData` eseguono l'effettiva operazione di sincronizzazione: `syncData` inserisce innanzitutto le nuove modifiche, quindi chiama `pullData` per ottenere dati dal servizio remoto.
+3. I metodi `pullData` e `syncData` eseguono l'effettiva operazione di sincronizzazione: `syncData` inserisce innanzitutto le nuove modifiche, quindi chiama `pullData` per ottenere dati dal servizio remoto.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline nell'e
 
     Il secondo parametro di `pullWithQuery` è un ID di query usato per la *sincronizzazione incrementale*. La sincronizzazione incrementale recupera solo i record modificati dopo l'ultima sincronizzazione, usando il timestamp del record `UpdatedAt` (denominato `ms_updatedAt` nell'archivio locale). L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `nil` come ID di query. Si noti che questa è una scelta potenzialmente inefficiente, perché in ogni operazione pull verranno recuperati tutti i record.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. Nella classe `QSTodoService` il metodo `syncData` viene chiamato dopo le operazioni che modificano i dati, `addItem` e `completeItem`. Viene anche chiamato da `QSTodoListViewController.refresh`, in modo che l'utente ottenga i dati più recenti ogni volta che esegue il movimento di aggiornamento. L'app esegue anche una sincronizzazione all'avvio, in quanto `QSTodoListViewController.init` chiama `refresh`.
@@ -212,13 +212,13 @@ In questa sezione si disattiverà il Wi-Fi nel simulatore per creare uno scenari
 
 Per supportare la funzionalità di sincronizzazione offline è stata usata l'interfaccia `MSSyncTable` ed è stato inizializzato `MSClient.syncContext` in un archivio locale. In questo caso l'archivio locale era un database basato su Core Data.
 
-Quando si usa un archivio locale Core Data, è necessario definire svariate tabelle con le [proprietà di sistema corrette][Esaminare il modello di Core Data].
+Quando si usa un archivio locale Core Data, è necessario definire svariate tabelle con le [proprietà di sistema corrette](#review-core-data).
 
 Le normali operazioni CRUD per il servizio per app per dispositivi mobili funzionano come se l'app fosse ancora connessa, ma tutte le operazioni si verificano nell'archivio locale.
 
 Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSSyncTable.pullWithQuery` e `MSClient.syncContext.pushWithCompletion`.
 
-*  Per eseguire il push delle modifiche al server, è stata effettuata la chiamata a `Review the Core Data model`. Questo metodo fa parte di `MSSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle.
+*  Per eseguire il push delle modifiche al server, è stata effettuata la chiamata a `pushWithCompletion`. Questo metodo fa parte di `MSSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle.
 
     Solo i record che sono stati in qualche modo modificati localmente (tramite le operazioni CUD) verranno inviati al server.
 
@@ -275,7 +275,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/it-it/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

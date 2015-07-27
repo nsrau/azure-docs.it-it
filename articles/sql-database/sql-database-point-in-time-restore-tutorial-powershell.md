@@ -42,7 +42,7 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 	* **ServerName** dove si trova il database.
 	* **DatabaseName** del database che si desidera ripristinare.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Avviare il ripristino utilizzando il cmdlet [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Specificare i seguenti parametri:
 	* **SourceDatabase** da cui si desidera effettuare il ripristino.
@@ -51,14 +51,14 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 
 	Archiviare il risultato restituito in una variabile denominata **$RestoreRequest**. La variabile contiene l'ID della richiesta di ripristino utilizzato per il monitoraggio dello stato di un ripristino.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Il completamento di un ripristino può richiedere del tempo. Per monitorare lo stato del ripristino, utilizzare il cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e specificare i seguenti parametri:
 
 * **ServerName** del database in cui si sta effettuando il ripristino.
 * **OperationGuid**, vale a dire l'ID richiesta di ripristino archiviato nella variabile **$RestoreRequest** nel passaggio 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Lo stato del ripristino viene mostrato nei campi **State** e **PercentComplete**.
 
@@ -75,4 +75,4 @@ Per altre informazioni, vedere quanto segue:
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

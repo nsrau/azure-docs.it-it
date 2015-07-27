@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -29,9 +29,7 @@ Microsoft ha creato pool di database elastici specifici per risolvere questo pro
 
 Un pool di database elastico è una raccolta di risorse disponibili condivise dai database elastici nel pool. È possibile aggiungere database al pool o rimuoverli in qualsiasi momento. I database nel pool condividono le risorse (espresse in unità di velocità effettiva dei database elastici o eDTU) e la capacità di archiviazione del pool, ma ogni database usa solo le risorse necessarie nel momento in cui ne necessita, lasciando risorse disponibili per altri database che ne necessitano. Invece di fornire un provisioning eccessivo ai singoli database pagando per delle risorse inattive, si allocano risorse del pool in aggregazione, pagando un prezzo stimabile. In tal modo il costo viene spalmato, per cui è possibile ottenere un modello di business competitivo, e ogni database ottiene l’adattabilità delle prestazioni.
 
-I database maggiormente candidati per i pool di database elastici in genere sono attivi per un periodo inferiore al 50% del tempo. Un tipico modello di attività consiste nel fatto che i database restano inattivi per un periodo, sono attivi in caso di piccole richieste di risorse e attivi in caso di richieste di risorse elevate.
-
-Non tutti i database seguono questo modello. Alcuni database hanno una richiesta di risorse più costante. Questi database sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente.
+I database maggiormente candidati per i pool di database elastici in genere sono attivi per un periodo inferiore al 50% del tempo. Un tipico modello di attività consiste nel fatto che i database restano inattivi per un periodo, sono attivi in caso di piccole richieste di risorse e attivi in caso di richieste di risorse elevate. Non tutti i database seguono questo modello. Alcuni database hanno una richiesta di risorse più costante. Questi database sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 È possibile creare un pool di database elastici in pochi minuti usando il portale di Microsoft Azure o PowerShell. Per i dettagli, vedere [Creare e gestire un pool elastico](sql-database-elastic-pool-portal.md). Per informazioni dettagliate sui pool di database elastici, inclusi i dettagli relativi ad API ed errori, vedere [Riferimento ai database elastici](sql-database-elastic-pool-reference.md).
 
@@ -65,4 +63,4 @@ I database per i quali è già abilitata la replica geografica possono essere sp
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

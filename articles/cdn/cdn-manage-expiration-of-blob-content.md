@@ -23,7 +23,7 @@ I BLOB per cui è più utile la memorizzazione nella cache della rete CDN di Azu
 Per controllare il TTL, sono disponibili due opzioni.
 
 1.	Evitare di impostare i valori della cache in modo da usare il TTL predefinito di 7 giorni. 
-2.	Impostare in modo esplicito la proprietà *x-ms-blob-cache-control* su una richiesta **Put Blob**, **Put Block List** o **Set Blob Properties** oppure usare la libreria gestita di Azure per impostare la proprietà [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx). Impostando questa proprietà, si imposta il valore dell'intestazione *Cache-Control* per il BLOB. Il valore dell'intestazione o della proprietà deve specificare il valore appropriato in secondi. Ad esempio, per impostare il periodo massimo di memorizzazione nella cache su un anno, è possibile specificare l'intestazione della richiesta come `x-ms-blob-cache-control: public, max-age=31556926`. Per informazioni dettagliate sull'impostazione delle intestazioni di memorizzazione nella cache, vedere la [specifica HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Impostare in modo esplicito la proprietà *x-ms-blob-cache-control* su una richiesta **Put Blob**, **Put Block List** o **Set Blob Properties** oppure usare la libreria gestita di Azure per impostare la proprietà [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). Impostando questa proprietà, si imposta il valore dell'intestazione *Cache-Control* per il BLOB. Il valore dell'intestazione o della proprietà deve specificare il valore appropriato in secondi. Ad esempio, per impostare il periodo massimo di memorizzazione nella cache su un anno, è possibile specificare l'intestazione della richiesta come `x-ms-blob-cache-control: public, max-age=31556926`. Per informazioni dettagliate sull'impostazione delle intestazioni di memorizzazione nella cache, vedere la [specifica HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Qualsiasi contenuto che si vuole memorizzare nella cache tramite la rete CDN deve essere archiviato nell'account di archiviazione di Azure come BLOB accessibile pubblicamente. Per altre informazioni dettagliate sul servizio BLOB di Azure, vedere **Concetti relativi al servizio BLOB**.
 
@@ -96,4 +96,4 @@ Verificare che il BLOB sia disponibile tramite l'URL specifico della rete CDN. P
 
 [Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

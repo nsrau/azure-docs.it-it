@@ -47,4 +47,4 @@ Per installare il client Chef in una macchina virtuale di Azure, sono disponibil
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

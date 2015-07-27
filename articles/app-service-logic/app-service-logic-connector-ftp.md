@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Connettore FTP"
 	description="Introduzione al connettore FTP"
-	authors="anuragdalmia"
+	authors="rajram"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/05/2015"
-	ms.author="rajeshramabathiran"/>
+	ms.date="07/01/2015"
+	ms.author="rajram"/>
 
 #Connettore FTP
 
@@ -77,7 +77,7 @@ Nella finestra di progettazione del flusso vuota fare clic su FTP Connector nel 
 
 ![Scegliere un trigger FTP][6]
 
-Il connettore include un trigger - 'File Available (Read then Delete)'. Questo trigger
+Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Questo trigger
 
 - Esegue il polling della cartella percorso per i nuovi file
 - Crea un'istanza del flusso logico in qualsiasi momento per ogni nuovo file
@@ -178,4 +178,4 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

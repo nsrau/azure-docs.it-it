@@ -146,11 +146,11 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 	
 8. Al termine dell'installazione fare clic su **Chiudi**.
 	
-	![Clic su Chiudi][HCMInstallComplete]
+	![Fare clic su Chiudi][HCMInstallComplete]
 	
 	Nel pannello **Connessioni ibride** la colonna **Stato** ora visualizza **Connesso**.
 	
-	![Connected Status][HCStatusConnected]
+	![Stato connesso][HCStatusConnected]
 
 Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile creata un'applicazione Web che la usa.
 
@@ -207,4 +207,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -303,4 +303,4 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

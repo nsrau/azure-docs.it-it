@@ -3,7 +3,7 @@
     pageTitle="Risolvere i problemi delle raccolte cloud RemoteApp - creazione"
     description="Informazioni su come risolvere i problemi relativi agli errori di creazione delle raccolte cloud di RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -38,4 +38,4 @@ Se si usa una delle immagini Microsoft incluse nella sottoscrizione, provare a c
 Se viene visualizzato questo errore in genere significa che è stato effettuato l'aggiornamento a un account a pagamento, ma si sta tentando di usare un'immagine fornita da Microsoft che è valida solo durante la modalità di valutazione del servizio. In questo caso, provare a creare nuovamente la raccolta cloud, ma assicurarsi di specificare l'immagine corretta.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
 
-> [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](../search-api-2015-02-28-preview.md). Attualmente l'unica differenza tra la versione `2015-02-28` documentata in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta in questo articolo è che l'anteprima fornisce *fieldMappings*, come descritto in [Creare un indicizzatore](#CreateIndexer).
+> [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente l'unica differenza tra la versione `2015-02-28` documentata in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta in questo articolo è che l'anteprima fornisce *fieldMappings*, come descritto in [Creare un indicizzatore](#CreateIndexer).
 
 ## Panoramica
 
@@ -775,4 +775,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

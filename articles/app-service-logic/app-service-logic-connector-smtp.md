@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="App per le API SMTP Connector" 
-   description="Come usare SMTP Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="App per le API SMTP Connector"
+   description="Come usare SMTP Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,73 +12,84 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="07/01/2015"
+   ms.author="andalmia"/>
 
 
-# Uso di SMTP Connector nell'app per la logica #
+# SMTP Connector
 
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte di un flusso di lavoro.
 
 SMTP Connector consente di connettersi a un server SMTP e di eseguire un'azione per inviare e-mail con allegati. L'azione "Send Email" di SMTP Connector consente di inviare e-mail a indirizzi specificati.
 
-## Creare SMTP Connector per l'app per la logica ##
-Per usare SMTP Connector, è necessario innanzitutto creare un'istanza dell'app per le API SMTP Connector. Attenersi alla procedura riportata di seguito:
+## Trigger e azioni
+I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Ad esempio, quando si aggiorna un ordine o si aggiunge un nuovo cliente, viene inviato un messaggio di posta elettronica al nuovo cliente
 
-1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
-2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "SMTP Connector".
-3.	Configurare SMTP Connector nel modo seguente:
- 
-	![][1]
-	- **Località**: scegliere la località geografica in cui verrà distribuito il connettore
-	- **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore
-	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore
-	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
-	- **Piano tariffario**: scegliere il piano tariffario per il connettore
-	- **Nome**: assegnare un nome al connettore
-	- **Impostazioni pacchetto**
-		- **Nome utente**: specificare il nome utente per la connessione al server SMTP
-		- **Password**: specificare la password per la connessione al server SMTP
-		- **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server SMTP
-		- **Porta del server**: specificare il numero di porta del server SMTP
-		- **Abilita SSL**: specificare true per usare il protocollo SMTP tramite un canale SSL/TLS sicuro
-4.	Fare clic su Crea. Verrà creato un nuovo SMTP Connector.
-5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare SMTP Connector. 
+SMTP Connector può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per questo connettore.
 
-## Uso di SMTP Connector nell'app per la logica ##
-Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
+Per SMTP Connector sono disponibili i trigger e le azioni seguenti:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di SMTP Connector.
- 
+Trigger | Azioni
+--- | ---
+Nessuno | Send email
+
+
+## Creare SMTP Connector
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
+
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
+2. Selezionare **App per le API** e cercare "SMTP Connector".
+3. **Creare** il connettore.
+4. Immettere il nome, il piano di servizio app e altre proprietà.
+5. Immettere le impostazioni pacchetto seguenti:
+
+	Nome | Obbligatorio | Descrizione
+	--- | --- | ---
+	User Name | Sì | Immettere un nome utente in grado di connettersi al server SMTP.
+	Password | Sì | Immettere il nome utente e la password.
+	Server Address | Sì | Immettere il nome o l'indirizzo IP del server SMTP.
+	Server Port | Sì | Immettere il numero di porta del server SMTP.
+	Enable SSL | No | Immettere *true* per usare SMTP su un canale SSL/TLS sicuro.
+
+6. Selezionare **Crea**.
+
+## Uso di SMTP Connector nell'app per la logica
+Dopo aver creato il connettore, è possibile usare SMTP Connector come azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
+
+1.	Creare una nuova app per la logica:
+
 	![][2]
-2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
- 
+2.	Aprire **Trigger e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro:
+
 	![][3]
-3.	SMTP Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra. Selezionarlo.
- 
+3.	SMTP Connector viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo:
+
 	![][4]
-4.	È possibile trascinare l'app per le API SMTP Connector nell'editor facendo clic su "SMTP Connector". 
-	
-7.	È ora possibile usare SMTP Connector nel flusso. Selezionare l'azione "Send Email" e configurare le proprietà di input come segue:
-	- **To**: indirizzo di posta elettronica dei destinatari. Separare più indirizzi e-mail con un punto e virgola (;). Ad esempio: recipient1@domain.com;recipient2@domain.com.
-	- **Cc**: indirizzo di posta elettronica dei destinatari della copia per conoscenza. Separare più indirizzi e-mail con un punto e virgola (;). Ad esempio: recipient1@domain.com;recipient2@domain.com.
-	- **Subject**: oggetto del messaggio di posta elettronica.
-	- **Body**: corpo del messaggio di posta elettronica.
-	- **Is HTML**: quando questa proprietà è impostata su true, il contenuto del corpo viene inviato in formato HTML.
-	- **Bcc**: indirizzo di posta elettronica dei destinatari in copia per conoscenza nascosta. Separare più indirizzi e-mail con un punto e virgola (;). Ad esempio: recipient1@domain.com;recipient2@domain.com.
-	- **Importance**: importanza del messaggio di posta elettronica. Le opzioni sono Normal, Low e High.
-	- **Attachments**: allegati da inviare insieme al messaggio di posta elettronica. Un allegato contiene i seguenti campi:
-		- Content (stringa)
-		- Content transfer Encoding (Enum) ("none"|"base64")
-		- Content Type (stringa)
-		- Content ID (stringa)
-		- File Name (stringa)
-	 
-	
+4.	Selezionare SMTP Connector per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
+
+È ora possibile configurare SMTP Connector per usarlo nel flusso di lavoro. Selezionare l'azione **Send Email** e configurare le proprietà di input:
+
+	Property | Description
+	--- | ---
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+
 	![][5]
 	![][6]
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -87,6 +98,5 @@ Dopo aver creato l'app per le API, è possibile usare SMTP Connector come trigge
 [4]: ./media/app-service-logic-connector-smtp/img4.PNG
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin Android con il servizio app per dispositivi mobili di Azure. In questa esercitazione verranno creati un nuovo servizio .NET e una semplice app _To do list_ che archivia i dati dell'app nel back-end .NET.
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin Android con il servizio App per dispositivi mobili di Azure. In questa esercitazione verranno creati un nuovo servizio .NET e una semplice app _To do list_ che archivia i dati dell'app nel back-end .NET.
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -110,4 +110,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

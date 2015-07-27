@@ -68,7 +68,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. Il servizio collegato StorageLinkedService collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure alla data factory **ADFTutorialDataFactoryPSH**. Più avanti in questa esercitazione si creerà una pipeline che copia i dati da un contenitore BLOB di StorageLinkedService e li inserisce in una tabella SQL di AzureSqlLinkedService.
 
 ### Creare un servizio collegato per un account di archiviazione di Azure
-1.	Creare un file JSON denominato **StorageLinkedService.json** in **C:\ADFGetStartedPSH** con i contenuti seguenti. Creare la cartella ADFGetStartedPSH, se non esiste già.
+1.	Creare un file JSON denominato **StorageLinkedService.json** in **C:\\ADFGetStartedPSH** con i contenuti seguenti. Creare la cartella ADFGetStartedPSH, se non esiste già.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,7 +133,7 @@ Se è stata eseguita l'esercitazione disponibile nell'articolo [Introduzione ad 
 * Creare una tabella denominata **emp** nel database SQL di Azure a cui fa riferimento **AzureSqlLinkedService**.
 
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStartedPSH** sul disco rigido. 
+1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\\ADFGetStartedPSH** sul disco rigido. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +161,7 @@ Se è stata eseguita l'esercitazione disponibile nell'articolo [Introduzione ad 
 ### Creare la tabella di input 
 Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **StorageLinkedService**. Questo contenitore BLOB (**adftutorial**) contiene i dati di input nel file **emp.txt**.
 
-1.	Creare un file JSON denominato **EmpBlobTable.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti:
+1.	Creare un file JSON denominato **EmpBlobTable.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti:
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +226,7 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 ### Creare la tabella di output
 In questa parte del passaggio si creerà una tabella di output denominata **EmpSQLTable** che punta a una tabella SQL (**emp**) nel database SQL di Azure rappresentata dal servizio collegato **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
 
-1.	Creare un file JSON denominato **EmpSQLTable.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti.
+1.	Creare un file JSON denominato **EmpSQLTable.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -267,7 +267,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 ## <a name="CreateAndRunAPipeline"></a>Passaggio 4: Creare ed eseguire una pipeline
 In questo passaggio è possibile creare una pipeline con un'**attività di copia** che usa **EmpTableFromBlob** come input e **EmpSQLTable** come output.
 
-1.	Creare un file JSON denominato **ADFTutorialPipeline.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti: 
+1.	Creare un file JSON denominato **ADFTutorialPipeline.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti: 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +428,4 @@ Articolo | Descrizione
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

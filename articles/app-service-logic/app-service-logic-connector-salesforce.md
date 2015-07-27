@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connettore Salesforce" 
-   description="Come usare il connettore Salesforce" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connettore Salesforce"
+   description="Come usare il connettore Salesforce"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,23 +12,23 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Uso del connettore Salesforce nell'app per la logica#
 
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. Il connettore Salesforce permette di creare e modificare diverse entità, ad esempio account, lead e così via. Di seguito sono riportati gli scenari di integrazione tipici relativi a Salesforce.
 
-- Sincronizzazione degli account tra Salesforce e i sistemi ERP, ad esempio SAP e QuickBooks	
+- Sincronizzazione degli account tra Salesforce e i sistemi ERP, ad esempio SAP e QuickBooks
 
 - Flusso dall'ordine all'incasso da Salesforce ai sistemi ERP
 
 
 Tra le impostazioni del pacchetto del connettore, l'utente può specificare le entità che il connettore può gestire e le azioni e i parametri di input e di output vengono popolati in modo dinamico. Di seguito sono elencate le diverse azioni disponibili nel connettore Salesforce.
- 
-- Crea entità: usare questa azione per creare una nuova entità Salesforce, ad esempio un account, un caso o un oggetto personalizzato
+
+- Create Entity: usare questa azione per creare una nuova entità Salesforce, ad esempio un account, un case o un oggetto personalizzato
 
 - Aggiorna entità: usare questa azione per aggiornare un'entità Salesforce esistente
 
@@ -133,7 +133,4 @@ A questo punto è possibile creare un'app per le API per il connettore SalesForc
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

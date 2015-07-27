@@ -217,8 +217,8 @@ Se il database di rilevamento viene eliminato ed è necessario ripristinarlo, è
 Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Vedere anche
-- [Backup dei servizi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-- [Ripristino dei servizi BizTalk di Azure da un backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
+- [Backup del servizio BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
+- [Ripristino del servizio BizTalk da un backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 - [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
 - [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 - [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)
@@ -233,4 +233,4 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Cr
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

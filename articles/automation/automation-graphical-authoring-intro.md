@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Creazione grafica in Automazione di Azure
@@ -115,11 +115,11 @@ Quando si specifica un valore per un parametro, è necessario selezionare un'ori
 |:---|:---|
 |Constant Value|Digitare un valore per il parametro. Disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, Switch. |
 |Activity Output|Output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Selezionare l'attività per usare il relativo output per il valore del parametro. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome della proprietà dopo aver selezionato l'attività.|
-|Parametro Input di Runbook<br>*(Presto disponibile)*|Selezionare un parametro input di Runbook come input per il parametro dell'attività.|  
-|Asset di tipo variabile di Automazione<br>*(Presto disponibile)*|Selezionare una variabile di Automazione come input.|  
-|Asset credenziali di Automazione<br>*(Presto disponibile)*|Selezionare una credenziale di Automazione come input.|  
-|Asset di certificato di Automazione<br>*(Presto disponibile)*|Selezionare un certificato di Automazione come input.|  
-|Asset di connessione di Automazione<br>*(Presto disponibile)*|Selezionare una connessione di Automazione come input.| 
+|Parametro di Input di Runbook|Selezionare un parametro input di Runbook come input per il parametro dell'attività.|  
+|Asset di tipo variabile di Automazione|Selezionare una variabile di Automazione come input.|  
+|Asset credenziali di Automazione|Selezionare una credenziale di Automazione come input.|  
+|Asset di certificato di Automazione|Selezionare un certificato di Automazione come input.|  
+|Asset di connessione di Automazione|Selezionare una connessione di Automazione come input.| 
 |PowerShell Expression|Specificare un'espressione di PowerShell semplice. L'espressione verrà valutata prima dell'attività e il risultato verrà usato per il valore del parametro. È possibile usare variabili per fare riferimento all'output di un'attività o un parametro di input di Runbook.|
 |Empty String|Valore di stringa vuota.|
 |Null|Valore Null.|
@@ -228,7 +228,7 @@ I dati vengono scritti nel bus di dati secondo il tipo di collegamento dell'atti
 
 ### Checkpoint
 
-Per i Runbook grafici sono valide le stesse linee guida applicate per l'impostazione di [checkpoint](automation-runbook-concepts/#checkpoints) in un Runbook. È possibile aggiungere un'attività per il cmdlet Checkpoint-Workflow nel punto in cui si vuole impostare un checkpoint. Far seguire quindi a questa attività Add-AzureAccount nel caso in cui il Runbook inizi da questo checkpoint in un computer di lavoro diverso.
+Per i Runbook grafici sono valide le stesse linee guida applicate per l'impostazione di [checkpoint](automation-powershell-workflow/#checkpoints) in un Runbook. È possibile aggiungere un'attività per il cmdlet Checkpoint-Workflow nel punto in cui si vuole impostare un checkpoint. Far seguire quindi a questa attività Add-AzureAccount nel caso in cui il Runbook inizi da questo checkpoint in un computer di lavoro diverso.
 
 ## Autenticazione per le risorse di Azure
 
@@ -276,8 +276,8 @@ I dati creati da un'attività che non dispone di un collegamento in uscita verra
 
 ## Articoli correlati
 
-- [Concetti relativi ai Runbook di Automazione di Azure](automation-runbook-concepts.md)
+- [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
 - [Asset di automazione](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

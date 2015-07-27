@@ -61,4 +61,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

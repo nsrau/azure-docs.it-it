@@ -3,7 +3,7 @@
 	description="Come creare e caricare un disco rigido virtuale Azure (VHD) che contiene il sistema operativo Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/15/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 
@@ -140,6 +140,5 @@ Per altre informazioni, vedere [Add-AzureVhd]((https://msdn.microsoft.com/librar
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
    description="Panoramica sulla creazione di un processo Business to Business" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/22/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # Creazione di un processo B2B
@@ -73,4 +73,4 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

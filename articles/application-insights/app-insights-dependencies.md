@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Diagnosi dei problemi relativi alle dipendenze in Application Insights" 
-	description="Trovare gli errori e i rallentamenti delle prestazioni causati dalle dipendenze" 
+	pageTitle="Diagnosticare i problemi delle dipendenze in Application Insights" 
+	description="Trovare gli errori i e rallentamenti delle prestazioni causati dalle dipendenze" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,26 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
-# Diagnosi dei problemi relativi alle dipendenze in Application Insights
+# Diagnosticare i problemi delle dipendenze in Application Insights
 
 
-Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP oppure un database o un file system. In Application Insights di Visual Studio è possibile vedere facilmente per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce.
+Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. In Application Insights di Visual Studio, è possibile vedere facilmente per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce.
 
 ## Dove è possibile usarlo
 
 Il monitoraggio predefinito delle dipendenze è attualmente disponibile per:
 
-* Servizi e app Web di ASP.NET in esecuzione in un server IIS oppure in Azure
+* App Web e servizi di ASP.NET in esecuzione su un server IIS oppure su Azure
 
-Per altri tipi, ad esempio app per dispositivi o app Web Java, è possibile scrivere il proprio monitor usando l'API TrackDependency.
+Per altri tipi, ad esempio app Web Java o applicazioni per dispositivi, è possibile scrivere il proprio codice di monitoraggio usando l'API TrackDependency.
 
-Il monitor predefinito delle dipendenze attualmente segnala le chiamate ai tipi di dipendenze seguenti:
+Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seguenti tipi di dipendenze:
 
 * Database SQL
-* Servizi WCF e Web di ASP.NET
+* Servizi Web ASP.NET e WCF che usano i binding basati su HTTP
 * Chiamate HTTP locali o remote
 * Azure DocumentDB, tabelle, archivio BLOB e coda
 
@@ -41,10 +41,10 @@ Anche in questo caso, è possibile scrivere le proprie chiamate SDK per monitora
 
 Per ottenere il monitoraggio delle dipendenze, è necessario:
 
-* Usare [Status Monitor](app-insights-monitor-performance-live-website-now.md) nel server IIS per abilitare il monitoraggio.
-* Aggiungere l'[estensione Application Insights](../insights-perf-analytics.md) all'app Web o alla macchina virtuale di Azure.
+* Usare [Status Monitor](app-insights-monitor-performance-live-website-now.md) sul server IIS per abilitare il monitoraggio
+* Aggiungere l'[estensione Application Insights](../insights-perf-analytics.md) all'app Web o alla VM di Azure
 
-Per una macchina virtuale di Azure, è possibile installare l'estensione dal pannello di controllo di Azure oppure installare Status Monitor proprio come si farebbe in qualsiasi computer.
+(per una VM di Azure, è possibile installare l'estensione dal pannello di controllo di Azure oppure installare Status Monitor proprio come si farebbe su qualsiasi computer).
 
 È possibile eseguire i passaggi precedenti per un'app Web già distribuita. Per ottenere il monitoraggio delle dipendenze standard non è necessario aggiungere Application Insights al progetto di origine.
 
@@ -54,26 +54,26 @@ Per valutare le prestazioni delle richieste al server:
 
 ![Nella pagina Panoramica dell'applicazione in Application Insights fare clic sul riquadro Prestazioni](./media/app-insights-dependencies/01-performance.png)
 
-Scorrere verso il basso per esaminare la griglia delle richieste:
+Scorrere fino a esaminare la griglia di richieste:
 
-![Elenco di richieste con medie e conteggi](./media/app-insights-dependencies/02-reqs.png)
+![Elenco di richieste con conteggi e medie](./media/app-insights-dependencies/02-reqs.png)
 
-Quella elencata per prima richiede molto tempo. È necessario indagare per scoprire in che modo viene impiegato il tempo.
+Quella superiore impiega molto tempo. È necessario indagare per scoprire in che modo viene impiegato il tempo.
 
-Fare clic su tale riga per visualizzare i singoli eventi relativi alla richiesta:
+Fare clic su tale riga per visualizzare gli eventi di richiesta singola:
 
 
-![Elenco di occorrenze della richiesta](./media/app-insights-dependencies/03-instances.png)
+![Elenco di occorrenze di richiesta](./media/app-insights-dependencies/03-instances.png)
 
 Fare clic su qualsiasi istanza con esecuzione prolungata per esaminarla ulteriormente.
 
-> [AZURE.NOTE]Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le prime istanze sono incompleti.
+> [AZURE.NOTE]Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
 
 Scorrere in basso fino alle chiamate alle dipendenze remote correlate a questa richiesta:
 
 ![Trovare le chiamate alle dipendenze remote, identificare una durata insolita](./media/app-insights-dependencies/04-dependencies.png)
 
-Sembra che la maggior parte del tempo dedicato a questa richiesta sia stata impiegata in una chiamata a un servizio locale.
+Sembra che gran parte del tempo dedicato a questa richiesta sia stato impiegato in una chiamata a un servizio locale.
 
 Selezionare la riga per ottenere altre informazioni:
 
@@ -96,6 +96,32 @@ Fare clic in un tipo di richiesta e un'istanza di richiesta per trovare una chia
 ![Fare clic su un tipo di richiesta, fare clic sull'istanza per ottenere una vista diversa della stessa istanza, fare clic su di essa per ottenere informazioni dettagliate sull'eccezione.](./media/app-insights-dependencies/07-faildetail.png)
 
 
+## Rilevamento personalizzato delle dipendenze
+
+Il modulo standard per il rilevamento delle dipendenze rileva automaticamente le dipendenze esterne, ad esempio database e API REST. È tuttavia possibile che si vogliano gestire allo stesso modo altri componenti.
+
+È possibile scrivere codice che invia informazioni sulle dipendenze, mediante la stessa [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usata dai moduli standard.
+
+Ad esempio, se si compila il codice con un assembly non scritto personalmente, sarà possibile misurare il tempo necessario per tutte le chiamate all'assembly, per individuare il contributo dell'assembly ai tempi di risposta. Per visualizzare i dati nei grafici relativi alle dipendenze in Application Insights, inviarli mediante `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

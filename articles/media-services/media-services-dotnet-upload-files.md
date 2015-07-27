@@ -214,7 +214,7 @@ Il seguente esempio illustra come aggiungere due nuove entità IngestManifestAss
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('');
+	        string[] splitfilename = filename.Split('\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -306,4 +306,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Abilitazione della registrazione diagnostica per app Web nel servizio app di Azure"
+	pageTitle="Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure"
 	description="Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione e su come accedere alle informazioni registrate da Azure."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
 
-# Abilitare la registrazione diagnostica per app Web nel servizio app di Azure
+# Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 
 ## Panoramica
 
-Azure offre diagnostica integrata per agevolare il debug di un'app Web ospitata in un [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
+Azure offre diagnostica integrata per facilitare il debug di un'[app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
 
-> [AZURE.NOTE]L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnostica del server Web e diagnostica dell'applicazione
 
-Il [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in **diagnostica del server Web** e **diagnostica dell'applicazione**.
+App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in **diagnostica del server Web** e **diagnostica dell'applicazione**.
 
 ### Diagnostica del server Web
 
@@ -38,44 +38,43 @@ Il [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714) off
 
 ### Diagnostica applicazioni
 
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/it-it/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-La diagnostica applicazioni consente di risolvere i problemi dell'applicazione in esecuzione mediante il rilascio di informazioni quando vengono utilizzati determinati frammenti di codice. Si tratta di una funzione piuttosto utile quando si tenta di determinare il motivo per cui il codice intraprende un percorso specifico e, di solito, quando tale percorso produce un errore o un altro comportamento indesiderato.
+È possibile recuperare i registri in fase di esecuzione per facilitare la risoluzione dei problemi. Per altre informazioni, vedere [Risoluzione dei problemi delle app Web di Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
 
-Per informazioni sull'utilizzo della diagnostica applicazioni in Visual Studio vedere [Risoluzione dei problemi di app Web di Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
-
-> [AZURE.NOTE]Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
-
-Le app Web di Azure registrano anche le informazioni di distribuzione di log quando si pubblicano contenuti in un'app Web. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
+Le app Web del servizio app registrano anche le informazioni di distribuzione dei log quando si pubblicano contenuti in un'app Web. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
 
 ## <a name="enablediag"></a>Come abilitare la diagnostica
 
-Per abilitare la diagnostica nel [portale di gestione di Azure](https://portal.azure.com), andare al pannello dell'app Web e fare clic su **Tutte le impostazioni > Registri di diagnostica**.
+Per abilitare la diagnostica nel [portale di anteprima di Azure](https://portal.azure.com), passare al pannello dell'app Web e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte del log](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Quando si abilita **Registrazione applicazioni** è inoltre necessario selezionare il **livello di registrazione** e se è necessario abilitare la registrazione sul **file system**, l'**archivio tabelle** oppure l'**archivio BLOB**. Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni di base per gli eventi registrati, l'**archiviazione tabelle** e l'**archiviazione BLOB** consentono di registrare informazioni aggiuntive come l'ID istanza, l'ID di thread e un timestamp maggiormente granulare (formato tick) rispetto alla registrazione sul **file system**.
+Quando si abilita**Diagnostica applicazioni** è anche possibile scegliere il **Livello**. Questa impostazione consente di filtrare le informazioni acquisite come **informativa**, **avviso** o **errore**. Impostando il filtro su **Dettagliato** è possibile registrare tutte le informazioni generate dall'applicazione.
 
-Quando si abilita la **diagnostica del sito** è necessario selezionare **storage** o **file system** per **web server logging**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
+> [AZURE.NOTE]Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
+
+Nel [portale di Azure](https://manage.windowsazure.com), scheda **Configura** dell'app Web, è possibile selezionare **Archiviazione** o **File system** per **Registrazione server Web**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
+
+Nel [portale di Azure ](https://manage.windowsazure.com) la scheda **Configura** dell'app Web include anche altre impostazioni per la Diagnostica applicazioni:
+
+* **File system**: consente di archiviare le informazioni di diagnostica applicazioni sul file system dell'app Web. È possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
+* **Archivio tabelle**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel nome tabella specificati.
+* **Archivio BLOB**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel contenitore BLOB specificati.
+* **Periodo di conservazione**: per impostazione predefinita, i log non vengono eliminati automaticamente dall'**archiviazione BLOB**. Selezionare **imposta mantenimento** e immettere il numero di giorni per cui conservare i log, se si desidera eliminarli automaticamente.
+
+È possibile abilitare contemporaneamente qualsiasi combinazione di file system, archiviazione tabelle e archiviazione BLOB e disporre di singole configurazioni del livello di log. Ad esempio, può essere opportuno registrare gli errori e gli avvisi nell'archiviazione BLOB come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato.
+
+Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni di base per gli eventi registrati, l'**archiviazione tabelle** e l'**archiviazione BLOB** consentono di registrare informazioni aggiuntive come l'ID istanza, l'ID di thread e un timestamp maggiormente granulare (formato tick) rispetto alla registrazione sul **file system**.
 
 > [AZURE.NOTE]Le informazioni memorizzate nell'**archivio tabelle** o **nell'archivio BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](/downloads/#).
 
-Le impostazioni seguenti sono disponibili quando si abilita la **diagnostica applicazioni**:
-
-* **Logging level**: consente di filtrare le informazioni acquisite come **informazioni**, **avvisi** o **errori**. Impostando il filtro su **verbose** è possibile registrare tutte le informazioni generate dall'applicazione. È possibile impostare l'opzione **Logging level** in maniera diversa per la registrazione su **file system**, **archiviazione tabelle** e **archiviazione BLOB**.
-* **File system**: consente di archiviare le informazioni di diagnostica applicazioni sul file system dell'app Web. È possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
-* **Table storage**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel nome tabella specificati.
-* **Blob storage**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel contenitore BLOB specificati.
-* **Retention period**: per impostazione predefinita, i log non vengono eliminati automaticamente dall'**archiviazione BLOB**. Selezionare **set retention** e immettere il numero di giorni per cui conservare i log, se si desidera eliminarli automaticamente.
-
-> [AZURE.NOTE]È possibile abilitare contemporaneamente qualsiasi combinazione di file system, archiviazione tabelle e archiviazione BLOB e disporre di singole configurazioni del livello di log. Ad esempio, può essere opportuno registrare gli errori e gli avvisi nell'archiviazione BLOB come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato.
-
 > [AZURE.NOTE]È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-##<a name="download"></a> Procedura: scaricare i log
+##<a name="download"></a> Procedura: Scaricare i log
 
 Le informazioni diagnostiche memorizzate nel file system dell'app Web sono accessibili direttamente tramite FTP. È inoltre possibile scaricarle come archivio zip mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -93,7 +92,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 
 ### FTP
 
-Per accedere alle informazioni diagnostiche tramite FTP, andare a la scheda **Dashboard** della propria app Web nel portale di gestione di Azure. Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
+Per accedere alle informazioni diagnostiche tramite FTP, passare alla scheda **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
 
 > [AZURE.NOTE]Se la voce **Utente FTP/distribuzione** non è impostata oppure se è stata dimenticata la password per questo utente, è possibile creare un nuovo utente con relativa password mediante il collegamento **Reimpostare le credenziali** di distribuzione nella sezione **Riepilogo rapido** del **Dashboard**.
 
@@ -117,26 +116,26 @@ In tal modo, i log dell'app Web denominata "nomeappWeb" verranno salvati in un f
 
 > [AZURE.NOTE]Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
 
-## Procedura: visualizza i registri in Application Insights
+## Procedura: Visualizzare i log in Application Insights
 
-Visual Studio Application Insights fornisce strumenti per il filtro e ricerca dei registri e per correlare i registri con le richieste e altri eventi.
+Visual Studio Application Insights fornisce strumenti per il filtro e la ricerca di log e per correlare i log con richieste e altri eventi.
 
 1. Aggiungere Application Insights al progetto in Visual Studio
  * Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggiungi Application Insights. Informazioni dettagliate dei passaggi che includono la creazione di una risorsa di Application Insights. [Altre informazioni](../application-insights/app-insights-start-monitoring-app-health-usage.md)
 2. Aggiungere il pacchetto di Listener di traccia al progetto.
  * In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. Selezionare `Microsoft.ApplicationInsights.TraceListener` [ulteriori](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Caricare il progetto ed eseguire la generazione di dati del log.
-4. Nel [portale Azure preview](http://portal.azure.com/), individuare la nuova risorsa di Application Insights e aprire **ricerca**. Si noterà che i dati di registro, insieme a richiesta, l'utilizzo e altri dati di telemetria. Alcuni dati di telemetria potrebbe richiedere alcuni minuti per arrivare: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
+4. Nel [portale di anteprima di Azure](http://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Per la visualizzazione di alcuni dati di telemetria potrebbero essere necessari alcuni minuti: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
 
 [Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../insights-perf-analytics.md)
 
-##<a name="streamlogs"></a> Procedura: streaming dei log
+##<a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 
 Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. A tale scopo, eseguire lo streaming delle informazioni di registrazione nel proprio ambiente di sviluppo mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 > [AZURE.NOTE]Alcuni tipi di buffer di registrazione scrivono nel file di log, producendo nel caso eventi di "fuori servizio" nel flusso. Ad esempio, una voce del log di applicazione che si verifica quando un utente visita una pagina può essere visualizzata nel flusso prima della corrispondente voce di log HTTP per la richiesta della pagina.
 
-> [AZURE.NOTE]Lo streaming del log trasmetterà inoltre le informazioni scritte in qualsiasi file di testo memorizzato nella cartella **D:\home\LogFiles**
+> [AZURE.NOTE]Lo streaming del log trasmetterà inoltre le informazioni scritte in qualsiasi file di testo memorizzato nella cartella **D:\\home\\LogFiles\**
 
 ### Streaming con Azure PowerShell
 
@@ -323,18 +322,17 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 
 > [AZURE.NOTE]I log prodotti dalle app Web di Azure non supportano i campi __s-computername__, __s-ip__ o __cs-version__.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
 ##<a name="nextsteps"></a> Passaggi successivi
 
 - [Come monitorare le app Web](/it-it/manage/services/web-sites/how-to-monitor-websites/)
-- [Esercitazione - Risoluzione dei problemi relativi alle app Web di Azure](/it-it/develop/net/best-practices/troubleshooting-web-sites/)
 - [Risoluzione dei problemi di app Web di Azure in Visual Studio](/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
+> [AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

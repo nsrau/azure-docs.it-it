@@ -22,11 +22,11 @@ Durante il rilevamento di codice di autenticazione precedente, la procedura guid
 
 ###Elementi verificati
 
-**Nota:** per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia compilato. Se si è verificato questo errore e non si dispone del precedente codice di autenticazione del progetto, ricompilare e riprovare.
+**Nota:** per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia compilato. Se si è verificato questo errore e non si ha il precedente codice di autenticazione del progetto, ricompilare e riprovare.
 
 ####Tipi di progetto
 
-La procedura guidata verifica il tipo di progetto di cui è in corso lo sviluppo in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva da `ApiController`, verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, verrà considerato come un progetto MVC. Qualsiasi altro elemento verrà considerato come non supportato dalla procedura guidata. I progetti WebForms non sono al momento supportati.
+La procedura guidata verifica il tipo di progetto di cui è in corso lo sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva da `ApiController`, verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, verrà considerato come un progetto MVC. Qualsiasi altro elemento verrà considerato come non supportato dalla procedura guidata. I progetti WebForms non sono al momento supportati.
 
 #####Codice di autenticazione compatibile
 
@@ -47,7 +47,7 @@ La procedura guidata cerca inoltre le impostazioni seguenti di un progetto API W
 
 #####Codice di autenticazione incompatibile
 
-La procedura guidata prova infine a rilevare le versioni del codice di autenticazione configurate con le versioni precedenti di Visual Studio. Se si riceve questo errore, significa che il progetto contiene un tipo di autenticazione non compatibile. La procedura guidata rileva i tipi seguenti di autenticazione dalle versioni precedenti di Visual Studio:
+La procedura guidata prova infine a rilevare le versioni del codice di autenticazione configurate con le versioni precedenti di Visual Studio. Se viene visualizzato questo errore, significa che il progetto contiene un tipo di autenticazione non compatibile. La procedura guidata rileva i tipi seguenti di autenticazione dalle versioni precedenti di Visual Studio:
 
 * Autenticazione di Windows 
 * Account utente singoli 
@@ -74,7 +74,7 @@ Per individuare Autenticazione di Windows in un progetto API Web, la procedura g
 	&lt;/Project&gt;
 </PRE>
 
-Per individuare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package dal file **Packages.config**.
+Per individuare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package nel file **Packages.config**.
 
 <PRE class="prettyprint">
 	&lt;packages&gt;
@@ -82,7 +82,7 @@ Per individuare l'autenticazione per singoli account utente, la procedura guidat
 	&lt;/packages&gt;
 </PRE>
 
-Per individuare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento dal file **web.config**:
+Per individuare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento nel file **web.config**:
 
 <PRE class="prettyprint">
 	&lt;configuration&gt;
@@ -97,4 +97,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

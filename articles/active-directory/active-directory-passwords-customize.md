@@ -719,14 +719,14 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 **Risorse aggiuntive**
 
 
-* [Informazioni su Gestione delle password](active-directory-passwords.md)
-* [Funzionamento di Gestione delle password](active-directory-passwords-how-it-works.md)
+* [Informazioni sulla gestione delle password](active-directory-passwords.md)
+* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione a Gestione delle password](active-directory-passwords-getting-started.md)
 * [Procedure consigliate per Gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere Operational Insights con i report di Gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti su Gestione delle password](active-directory-passwords-faq.md)
-* [Risoluzione dei problemi di Gestione delle password](active-directory-passwords-troubleshoot.md)
+* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
+* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
+* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 * [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

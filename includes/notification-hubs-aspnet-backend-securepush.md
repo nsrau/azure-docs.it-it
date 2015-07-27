@@ -84,4 +84,4 @@ Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma 
 
 24. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a quest'URL come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

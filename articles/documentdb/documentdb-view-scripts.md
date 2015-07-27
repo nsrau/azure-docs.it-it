@@ -82,4 +82,4 @@ Esplora script consente di visualizzare facilmente gli elementi di programmazion
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

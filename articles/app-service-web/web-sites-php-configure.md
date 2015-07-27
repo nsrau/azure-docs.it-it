@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di PHP nelle app Web di Servizio app di Azure"
-	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.&quot;"
+	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.";"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -176,4 +176,4 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

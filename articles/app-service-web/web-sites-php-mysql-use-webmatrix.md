@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -175,9 +175,7 @@ Prima di pubblicare l'applicazione in Siti Web di Azure, è necessario aggiornar
 
 	![WebMatrix - Opzione Publish][edit_publish]
 
-3. Fare clic su **sito esistente da Windows Azure e scegliere**.
-
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
+3. Fare clic su **scegliere un sito esistente di Microsoft Azure**.
 
 3. Selezionare l'applicazione web di App servizio creato in precedenza.
 
@@ -208,7 +206,7 @@ Per modificare facilmente l'applicazione apportare le modifiche alla copia local
 * [Sito Web di WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -263,4 +261,4 @@ Per modificare facilmente l'applicazione apportare le modifiche alla copia local
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

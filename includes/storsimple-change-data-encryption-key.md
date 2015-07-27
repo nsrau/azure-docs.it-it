@@ -1,4 +1,3 @@
-
 ### Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK nel portale di gestione
 
 In genere, l'amministratore dei dispositivi richiede all'amministratore del servizio di autorizzare un dispositivo a modificare le chiavi DEK del servizio. L'amministratore del servizio autorizza quindi il dispositivo a modificare la chiave.
@@ -73,4 +72,4 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -76,4 +76,4 @@ Una volta imparato a usare i moduli Node.js con Azure, per altre informazioni ve
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [script di distribuzione di un sito Web personalizzato con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

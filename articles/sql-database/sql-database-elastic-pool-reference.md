@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,26 +21,26 @@
 
 Per gli sviluppatori di SaaS che dispongono di decine, centinaia o persino di migliaia di database, un pool di database elastico semplifica il processo di creazione, manutenzione e gestione delle prestazioni e dei costi dell'intero gruppo di database.
 
-In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool elastici e informazioni di programmabilità.
+In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità.
 
 ## Panoramica
 
-Un pool elastico è una raccolta di unità di velocità effettiva database (DTU) e di risorse di archiviazione (GB) che sono condivisi da più database. I database elastici possono essere aggiunti al pool o rimossi da questo in qualsiasi momento. I database elastici nel pool utilizzano solo le risorse richieste dal pool, liberando le risorse disponibili solo per i database attivi che ne hanno bisogno.
+Un pool di database elastici è una raccolta di unità di database (DTU) e di risorse di archiviazione (GB) che sono condivise da più database. I database elastici possono essere aggiunti al pool o rimossi da questo in qualsiasi momento. I database elastici nel pool utilizzano solo le risorse richieste dal pool, liberando le risorse disponibili solo per i database attivi che ne hanno bisogno. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 
 
-## Prerequisiti per la creazione e la gestione dei pool elastici
+## Prerequisiti per la creazione e la gestione dei pool di database elastici
 
 
-- I pool elastici sono disponibili unicamente nei server database SQL V12 di Azure.   
-- PowerShell e l’API REST per i pool elastici sono supportati unicamente in Azure Resource Manager (ARM). I comandi di gestione del servizio (RDFE) non sono supportati. 
-- La creazione e la gestione dei pool elastici sono supportate unicamente nel [portale di Microsoft Azure](https:portal.azure.com). 
+- I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure.   
+- La creazione e gestione di pool di database elastici è supportata tramite il [portale di Microsoft Azure](https://portal.azure.com) PowerShell e API REST in Azure Resource Manager (ARM), solo il [portale classico](https://manage.windowsazure.com/) e comandi di gestione del servizio (RDFE) non sono supportati. 
 
 
 ## Restrizioni per l'anteprima corrente
 
-- Il livello di prezzo per un pool elastico nell'anteprima corrente è Standard.  
+- Il livello di prezzo per un database di pool elastici nell'anteprima corrente è Standard.  
 - L’importazione di un database direttamente in un pool elastico non è supportata. È possibile eseguire l’importazione in un database autonomo e quindi spostare il database in un pool. L’esportazione di un database dall’interno di un pool è supportata.
+- Ogni pool può avere un massimo di 100 database.
 
 
 ## Elenco di articoli
@@ -49,9 +49,9 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 
 | Articolo | Descrizione |
 | :-- | :-- |
-| [Pool elastici di Database SQL](sql-database-elastic-pool.md) | Panoramica dei pool elastici |
-| [Creare e gestire un pool elastico di database SQL con il portale di Azure](sql-database-elastic-pool-portal.md) | Come creare e gestire un pool elastico tramite il portale di Azure |
-| [Creare e gestire un pool elastico di database SQL con PowerShell](sql-database-elastic-pool-powershell.md) | Come creare e gestire un pool elastico tramite i cmdlet PowerShell |
+| [Pool di database elastici SQL](sql-database-elastic-pool.md) | Panoramica dei pool elastici |
+| [Creare e gestire un database di pool elastici di database SQL con il portale di Azure](sql-database-elastic-pool-portal.md) | Come creare e gestire un pool elastico tramite il portale di Azure |
+| [Creare e gestire un database di pool elastici di database SQL tramite PowerShell](sql-database-elastic-pool-powershell.md) | Come creare e gestire un pool elastico tramite i cmdlet PowerShell |
 | [Panoramica dei processi dei database elastici](sql-database-elastic-jobs-overview.md) | Panoramica del servizio dei processi elastici, che consente l'esecuzione di script T-SQL in tutti i database elastici in un pool |
 | [Installazione del componente del processo di database elastico](sql-database-elastic-jobs-service-installation.md) | Come installare il servizio del processo di database elastico |
 | [Creazione dell'utente richiesto per il servizio dei processi elastici](sql-database-elastic-jobs-add-logins-to-dbs.md) | Per eseguire uno script del processo di database elastico, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database nel pool. |
@@ -102,20 +102,19 @@ Il numero massimo di thread di lavoro simultanei e di sessioni simultanee suppor
 
 | DTU | Numero massimo di thread di lavoro simultanei | Numero massimo di sessioni simultanee |
 | :-- | :-- | :-- |
-| 100 | 200 | 2.400 |
-| 200 | 400 | 4.800 |
-| 400 | 800 | 9.600 |
-| 800 | 1.600 | 19.200 |
-| 1.200 | 2.400 | 28.800 |
+| 100 | 200 | 2\.400 |
+| 200 | 400 | 4\.800 |
+| 400 | 800 | 9\.600 |
+| 800 | 1\.600 | 19\.200 |
+| 1\.200 | 2\.400 | 28\.800 |
 
 
 ## Limiti di Gestione risorse di Azure
 
-Un pool elastico richiede un server di Database SQL V12 di Azure. I server si trovano all'interno di un gruppo di risorse.
+Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 
 - Ciascun gruppo di risorse può avere un massimo di 800 server.
 - Ogni server può avere al massimo 800 pool elastici.
-- Ogni pool elastico può avere un massimo di 100 database.
 
 
 ## Latenza delle operazioni dei pool elastici
@@ -192,4 +191,4 @@ Il prezzo unitario delle DTU per un pool elastico è superiore al prezzo unitari
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

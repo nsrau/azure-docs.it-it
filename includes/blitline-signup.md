@@ -46,4 +46,4 @@ Per utilizzare Blitline, è necessario disporre di un ID applicazione.
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
 [blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpeg
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

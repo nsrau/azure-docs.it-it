@@ -171,13 +171,13 @@ Suddividendo il codice in sezioni e generando un costrutto di ciclo il codice di
 
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica dello sviluppo][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/it-it/library/ms177673.aspx
@@ -185,4 +185,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica dello svilu
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

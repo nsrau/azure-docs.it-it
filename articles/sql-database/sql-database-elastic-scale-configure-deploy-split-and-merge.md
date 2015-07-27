@@ -1,8 +1,6 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Esercitazione relativa allo strumento divisione-unione del database elastico | Microsoft Azure"
 	description="Suddivisione e unione con gli strumenti di database elastico"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -13,7 +11,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # Esercitazione relativa allo strumento divisione-unione del database elastico
@@ -23,19 +21,19 @@
 2. Aprire un prompt dei comandi e passare alla directory in cui si è scaricato il file nuget.exe.
 3. Scaricare il pacchetto di divisione e unione più recente nella directory corrente usando il seguente comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-I passaggi precedenti consentono di scaricare i file di divisione e unione nella directory corrente. I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. Trovare i file del servizio di divisione e unione nella sottodirectory **content\splitmerge\service** e gli script di PowerShell di divisione e unione (compresi i file DLL client necessari) nella sottodirectory **content\splitmerge\powershell**.
+I passaggi precedenti consentono di scaricare i file di divisione e unione nella directory corrente. I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. Trovare i file del servizio di divisione e unione nella sottodirectory **content\\splitmerge\\service** e gli script di PowerShell di divisione e unione (compresi i file DLL client necessari) nella sottodirectory **content\\splitmerge\\powershell**.
 
 ## Prerequisiti
 
-1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Passare al [portale di anteprima di Azure](https://ms.portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Compilare il nome del database e creare un nuovo utente e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
+1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://ms.portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Compilare il nome del database e creare un nuovo utente e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 
-2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel [portale di anteprima](https://ms.portal.azure.com), accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso ai servizi di Azure** sia impostata su **Attivo**. Fare clic sull'icona "Salva".
+2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale, accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso ai servizi di Azure** sia impostata su **Attivo**. Fare clic sull'icona "Salva".
 
     ![Servizi consentiti][1]
 
-3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). In basso a sinistra fare clic su **Nuovo**, scegliere **Servizi dati**, **Archiviazione**, quindi **Creazione rapida**.
+3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Passare al portale di anteprima di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi fare clic su **Dati + Archiviazione**, quindi **Archiviazione**.
 
-4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). In basso a sinistra fare clic su **Nuovo**, scegliere **Calcolo**, **Servizio cloud**, quindi **Creazione rapida**.
+4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione. Passare al portale di anteprima di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi su **Calcolo**, **Servizio Cloud** e **Crea**.
 
 
 ## Configurare il servizio di divisione e unione
@@ -54,13 +52,13 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 5.    Per il ruolo **SplitMergeWorker**, immettere una stringa di connessione valida nell'archiviazione di Azure per l'impostazione **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
 ### Configurazione della sicurezza
-Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo [Configurazione di sicurezza per suddivisione-unione](../sql-database-elastic-scale-configure-security.md)
+Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo [Configurazione di sicurezza per suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 
 Ai fini di una semplice distribuzione di prova utile per il completamento di questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente il computer/l'account che li esegue alla comunicazione con il servizio.
 
 ### Creazione di un certificato autofirmato
 
-Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](http://msdn.microsoft.com/it-it/library/ms229859.aspx):
+Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx):
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -87,7 +85,7 @@ Eseguire il seguente comando dalla stessa finestra in cui è stato eseguito make
 
 ### Caricare il file PFX nel servizio cloud
 
-Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
+Passare al [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Selezionare **Servizi cloud**.
 2. Selezionare il servizio cloud creato precedentemente per il servizio di divisione e unione.
@@ -113,10 +111,11 @@ Per il ruolo di lavoro:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](../sql-database-elastic-scale-configure-security.md).
+Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Distribuzione del servizio di divisione e unione
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
+
+1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic sulla scheda **Servizi cloud** a sinistra, quindi selezionare il servizio cloud creato precedentemente.
 3. Fare clic su **Dashboard**.
 4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica una nuova distribuzione di gestione temporanea**.
@@ -131,6 +130,7 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 
 
 ## Risoluzione dei problemi relativi alla distribuzione
+
 Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratti di un problema relativo alla configurazione della sicurezza. Verificare che SSL sia configurato come descritto sopra.
 
 Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del ruolo Web, è probabile che si tratti di un problema con la connessione al database per lo stato creato in precedenza.
@@ -145,6 +145,7 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 * Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Per eseguire questa operazione, aprire https://manage.windowsazure.com, fare clic su "Database SQL" a sinistra, fare clic su "Server" in alto, quindi selezionare il proprio server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'opzione **Servizi di Azure** sia impostata su "Sì" (vedere la sezione Prerequisiti all'inizio di questo articolo).
 
 ## Test della distribuzione del servizio di divisione e unione
+
 ### Connessione a un Web browser
 
 Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di gestione di Azure accedendo al **dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire **http://** con **https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
@@ -327,4 +328,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

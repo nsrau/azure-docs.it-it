@@ -314,7 +314,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 5. Nel pannello **Set di dati** fare clic su **EmpTableFromBlob**. Questa è la tabella di input per **ADFTutorialPipeline**.
 
 	![Set di dati con tabella EmpTableFromBlob selezionata][image-data-factory-get-started-datasets-emptable-selected]   
-5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
+5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
 
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
     
@@ -506,4 +506,4 @@ Articolo | Descrizione
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

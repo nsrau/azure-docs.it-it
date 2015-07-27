@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="SFTP Connector"
 	description="Introduzione a SFTP Connector"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="adgoda"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 # Uso di SFTP Connector nell'app per la logica #
 
@@ -28,7 +28,7 @@ Per usare SFTP Connector, è necessario innanzitutto creare un'istanza dell'app 
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "SFTP Connector".
 3.	Configurare SFTP Connector nel modo seguente:
- 
+
 	![][1] - **Location**: scegliere la località geografica in cui deve essere distribuito il connettore - **Subscription**: scegliere una sottoscrizione in cui creare questo connettore - **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore - **Web hosting plan**: selezionare o creare un piano di hosting Web - **pricing tier**: scegliere il piano tariffario per il connettore - **Name**: assegnare un nome al connettore - **Package settings** - **Server Address**: specificare il nome o l'indirizzo IP del server SFTP - **Accept Any SSH Server HostKey**: determina se devono essere accettate le impronte digitali di chiavi host pubbliche SSH del server. Se è impostato false, la chiave host verrà confrontata con la chiave specificata nella proprietà "SSH Server Host Key Finger Print" - **SSH Server HostKey**: specificare l'impronta digitale della chiave host pubblica del server SSH - **Root Folder**: specificare un percorso di cartella radice - **Encrypt Cipher**: specificare la crittografia. - **Server Port**: specificare il numero di porta del server SFTP
 4. Fare clic su Crea. Verrà creato un nuovo SFTP Connector.
 
@@ -38,23 +38,23 @@ Per usare SFTP Connector, è necessario innanzitutto creare un'istanza dell'app 
 6. Fare clic sul componente "Security" per configurarlo per SFTP Connector. A tale scopo, indicare il nome utente, la password, la chiave privata e la password del file PPK. Nell'area Security selezionare la scheda di autorizzazione "Password", "Privatekey" o "MutliFactor" e fornire le proprietà richieste.
 
 	![][3] ![][4] ![][5]
-6. Una volta salvata la configurazione, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare SFTP Connector. 
+6. Una volta salvata la configurazione, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare SFTP Connector.
 
 ## Uso di SFTP Connector nell'app per la logica ##
 Dopo aver creato l'app per le API, è possibile usare SFTP Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di SFTP Connector.
- 	
+
 	![][6]
-2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
- 	
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+
 	![][7]
 3.	SFTP Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
- 
+
 	![][8]
 4.	È possibile trascinare l'app per le API SFTP Connector nell'editor facendo clic su "SFTP Connector"
- 
-	
+
+
 6.	È ora possibile usare SFTP Connector nel flusso. È possibile usare il file recuperato dal trigger SFTP ("TriggerOnFileAvailable") in altre azioni del flusso.
 
 	**Nota:** dopo aver elaborato il file recuperato, il trigger SFTP "TriggerOnFileAvailable" lo eliminerà.
@@ -66,7 +66,7 @@ Dopo aver creato l'app per le API, è possibile usare SFTP Connector come trigge
 	- **File Mask**: specificare il filtro file da applicare per recuperare i file. '*' recupera tutti i file contenuti nella cartella specificata.
 	- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
 
- 
+
 	![][9] ![][10]
 
 7.	È possibile usare le azioni SFTP nel flusso in modo analogo. È possibile usare l'azione "Upload File" per caricare un file nel server SFTP. Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
@@ -96,6 +96,5 @@ Dopo aver creato l'app per le API, è possibile usare SFTP Connector come trigge
 [10]: ./media/app-service-logic-connector-sftp/img10.PNG
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
-# Creare un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure
+# Creazione di un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure
 
 In questa esercitazione viene illustrato come distribuire un'app Web ASP.NET in un [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web.
 
@@ -37,7 +36,8 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 ![schermata del sito web][intro001]
 
-<a name="bkmk_setupdevenv"></a> <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### Creare il progetto
 
@@ -75,10 +75,10 @@ Se si dispone di un server di database, usarlo per creare un nuovo database. I s
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** espandere la cartella *Views\Shared* e aprire il file *_Layout.cshtml*. 
+1. In **Esplora soluzioni** espandere la cartella *Views\\Shared* e aprire il file *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Sostituire il contenuto del file *Views\Shared_Layout.cshtml* con il codice seguente.
+1. Sostituire il contenuto del file *Views\\Shared_Layout.cshtml* con il codice seguente.
 
 
 		<!DOCTYPE html>
@@ -125,7 +125,7 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Distribuzione dell'applicazione in Azure</h2>
+## Distribuzione dell'applicazione in Azure
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.
 
@@ -145,7 +145,7 @@ In Visual Studio verrà avviato il processo di copia dei file nel server Azure. 
 	
 	![Pagina iniziale Elenco azioni in esecuzione in Azure][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>Aggiunta di un database all'applicazione</h2>
+## Aggiunta di un database all'applicazione
 
 Si passerà quindi all'aggiornamento dell'applicazione MVC, in modo da aggiungere la possibilità di visualizzare e aggiornare i contatti e di archiviare i dati in un database. L'applicazione utilizzerà Entity Framework per creare il database e per leggere e aggiornare i dati nel database.
 
@@ -191,7 +191,7 @@ La classe **Contatti** consente di definire i dati che verranno archiviati per o
 
 La caratteristica scaffolding di ASP.NET MVC consente di generare automaticamente codice per l'esecuzione di azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
-<h2><a name="bkmk_addcontroller"></a>Aggiunta di un controller e di una visualizzazione per i dati</h2>
+## Aggiunta di un controller e di una visualizzazione per i dati
 
 1. In **Esplora soluzioni** espandere la cartella Controllers.
 
@@ -235,7 +235,7 @@ L'attività successiva consiste nell'abilitare la caratteristica [Migrazioni Cod
 
 	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
 
-3. Aprire il file *Migrations\Configuration.cs*.
+3. Aprire il file *Migrations\\Configuration.cs*.
 
 4. Aggiungere gli spazi dei nomi seguenti.
 
@@ -316,9 +316,9 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 ![Visualizzazione MVC dei dati][rxz3]
 
-<h2><a name="bkmk_addview"></a>Modifica della visualizzazione</h2>
+## Modifica della visualizzazione
 
-1. Aprire il file *Views\Home\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
+1. Aprire il file *Views\\Home\\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
 
 
 2. Sostituire il contenuto del file con il codice seguente.
@@ -475,7 +475,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 	Questo foglio di stile verrà utilizzato per il layout, i colori e gli stili nell'app Contact Manager.
 
-6. Aprire il file *App_Start\BundleConfig.cs*.
+6. Aprire il file *App_Start\\BundleConfig.cs*.
 
 
 7. Aggiungere il codice seguente per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
@@ -499,10 +499,9 @@ Con:
 1. Nella finestra Console di Gestione pacchetti eseguire il comando seguente per installare Knockout.
 
 	Install-Package knockoutjs
+## Aggiunta di un controller per l'interfaccia dell'API Web RESTful
 
-<h2><a name="bkmk_addwebapi"></a>Aggiunta di un controller per l'interfaccia dell'API Web RESTful</h2>
-
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller...**. 
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller...**.
 
 1. Nella finestra di dialogo **Add Scaffold** immettere **Web API 2 Controller with actions, using Entity Framework**, quindi fare clic su **Aggiungi**.
 
@@ -541,14 +540,13 @@ Con:
 	![Finestra di dialogo Salva dell'API Web][addwebapi007]
 
 	**Avviso di sicurezza**: a questo punto, l'applicazione non è sicura ed è vulnerabile agli attacchi di richiesta intersito falsa (Cross-Site Request Forgery, CSRF). Questa vulnerabilità verrà rimossa più avanti nell'esercitazione. Per ulteriori informazioni, vedere l'articolo che descrive come [prevenire gli attacchi di richiesta intersito falsa (CSRF)][prevent-csrf-attacks].
-
-<h2><a name="xsrf"></a>Aggiunta della protezione XSRF</h2>
+## Aggiunta della protezione XSRF
 
 La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro applicazioni ospitate sul Web in base al quale un sito Web dannoso può influenzare l'interazione tra un browser client e un sito Web considerato attendibile da tale browser. Questi attacchi sono possibili in quanto i Web browser inviano automaticamente token di autenticazione con ogni richiesta a un sito Web. Un classico esempio è un cookie di autenticazione, ad esempio un ticket di autenticazione basata su form di ASP.NET. Tuttavia, i siti Web che usano un meccanismo di autenticazione persistente, ad esempio Autenticazione di Windows, autenticazione di base e così via, possono essere presi di mira da questi attacchi.
 
-Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
+Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'autore dell'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
 
-Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Per altre informazioni, vedere il sito [Web Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ContactManager**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 
@@ -630,7 +628,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
+1. Aggiornare la sezione *Scripts* del file *Views\\Home\\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -685,7 +683,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Pubblicazione dell'aggiornamento dell'applicazione in Azure e nel database SQL</h2>
+## Pubblicazione dell'aggiornamento dell'applicazione in Azure e nel database SQL
 
 Per pubblicare l'applicazione, ripetere la procedura seguita in precedenza.
 
@@ -722,7 +720,7 @@ L'applicazione è ora in esecuzione nel cloud e utilizza il database SQL per arc
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<h2><a name="nextsteps"></a>Passaggi successivi</h2>
+## Passaggi successivi
 
 Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe utilizzato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MCV sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
 
@@ -739,7 +737,7 @@ Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick And
 Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti relativi all'interesse in merito a un'ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
@@ -811,4 +809,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

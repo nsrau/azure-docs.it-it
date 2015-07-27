@@ -58,7 +58,7 @@ Nella schermata Connetti ad Azure AD, immettere un account di amministratore glo
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### Connessione delle directory
-Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richiede le credenziali di un account con autorizzazioni sufficienti. Questo account può essere un account utente normale, perché richiede solo autorizzazioni di lettura predefinite. Tuttavia, a seconda dello scenario, potrebbero essere necessarie autorizzazioni aggiuntive. Per ulteriori informazioni, vedere [Riepilogo dell’account Azure AD Connect](active-directory-addconnect-account-summary)
+Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richiede le credenziali di un account con autorizzazioni sufficienti. Questo account può essere un account utente normale, perché richiede solo autorizzazioni di lettura predefinite. Tuttavia, a seconda dello scenario, potrebbero essere necessarie autorizzazioni aggiuntive. Per ulteriori informazioni, vedere [Riepilogo dell’account Azure AD Connect](active-directory-aadconnect-account-summary.md)
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -125,6 +125,9 @@ Questi attributi ora saranno disponibili tramite Graph:
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## Writeback utenti (anteprima)
+
+> [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect
+
 Il writeback utenti consente di riscrivere un utente creato in Azure AD (tramite portale, Graph, PowerShell o qualsiasi altro metodo) nell’ADDS locale. Per abilitare la funzionalità, selezionare "Writeback utenti"nella pagina delle funzionalità facoltative. Verrà ora visualizzato con il percorso in cui si desidera creare tali utenti. Tramite la configurazione predefinita tutti gli utenti verranno creati in una sola posizione in AD DS.
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -133,6 +136,9 @@ Gli utenti verranno creati con una password casuale, pertanto è necessario reim
 >[AZURE.NOTE]La sincronizzazione delle password e il writeback delle password non sono compatibili con questa funzionalità di anteprima.
 
 ## Writeback gruppi (anteprima)
+
+> [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect
+
 L'opzione per il writeback dei gruppi nelle funzionalità facoltative consentirà il writeback dei "gruppi in Office 365" a una foresta in cui è installato Exchange. Si tratta di un nuovo tipo di gruppo che viene sempre utilizzato nel cloud. È disponibile in outlook.office365.com o su myapps.microsoft.com, come illustrato di seguito:
 
 
@@ -152,7 +158,16 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 Ulteriori informazioni sono disponibili [qui](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/).
 
 ## Writeback dei gruppi (anteprima)
-La funzionalità di writeback dei dispositivi consentirà di utilizzare n dispositivo registrato nel cloud, ad esempio in Intune, in AD DS per l'accesso condizionale. Per abilitare la funzionalità, è necessario preparare AD DS. Se si installano ADFS e DRS (device registration service), quest’ultimo fornisce i cmdlet di PowerShell per preparare Active Directory per il writeback dei dispositivi. Se DRS non è installato, è possibile eseguire C:\Programmi\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 come amministratore dell'organizzazione.
+
+> [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect.
+
+La funzionalità di writeback dei dispositivi consentirà di utilizzare n dispositivo registrato nel cloud, ad esempio in Intune, in AD DS per l'accesso condizionale. Per abilitare la funzionalità, è necessario preparare AD DS. Se si installano ADFS e DRS (device registration service), quest’ultimo fornisce i cmdlet di PowerShell per preparare Active Directory per il writeback dei dispositivi. Se DRS non è installato, è possibile eseguire C:\\Programmi\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 come amministratore dell'organizzazione.
+
+Il cmdlet di PowerShell, prima di poter essere eseguito, deve essere importato.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+A tale scopo, sarà necessario installare localmente Active Directory e MSOnline PowerShell.
 
 
 
@@ -258,4 +273,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 * [Altre informazioni](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

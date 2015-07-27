@@ -66,4 +66,4 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108) [Configurare le dimensioni dei servizi cloud](https://msdn.microsoft.com/library/ee814754)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

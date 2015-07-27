@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Distribuzione di SharePoint 2010 in Macchine virtuali di Azure"
+	pageTitle="Distribuzione di SharePoint 2010 su Macchine virtuali di Azure"
 	description="Informazioni sugli scenari supportati per l'uso di SharePoint 2010 in macchine virtuali di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 
-# Distribuzione di SharePoint 2010 in Macchine virtuali di Azure
+# Distribuzione di SharePoint 2010 su Macchine virtuali di Azure
 
 Microsoft SharePoint Server 2010 offre ampia flessibilità nella distribuzione, consentendo alle organizzazioni di identificare gli scenari appropriati e di allinearli alle esigenze e agli obiettivi aziendali. Il servizio Macchine virtuali di Azure, ospitato e gestito nel cloud, offre un'infrastruttura completa, affidabile e disponibile per supportare vari carichi di lavoro su richiesta di applicazioni e database, ad esempio le distribuzione di Microsoft SQL Server e SharePoint.
 
@@ -92,7 +93,7 @@ Per connettersi alla macchina virtuale, vedere [Come accedere a una macchina vir
 Creare la macchina virtuale di SQL Server con una delle opzioni seguenti:
 
 - Creare una macchina virtuale di SQL Server 2012 eseguendo i passaggi da 1 a 7 descritti in precedenza, tuttavia, nel passaggio 3, usare l'immagine di SQL Server 2012 anziché quella di Windows Server 2008 R2 SP1. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-provision-sql-server.md).
-	- Se si sceglie questa opzione, tramite il processo di provisioning viene mantenuta una copia dei file del programma di installazione di SQL Server 2012 nel percorso della directory C:\SQLServer_11.0_Full, in modo che sia possibile personalizzare l'installazione. È ad esempio possibile convertire l'installazione di valutazione di SQL Server 2012 in una versione con licenza usando il codice di licenza.
+	- Se si sceglie questa opzione, tramite il processo di provisioning viene mantenuta una copia dei file del programma di installazione di SQL Server 2012 nel percorso della directory C:\\SQLServer_11.0_Full, in modo che sia possibile personalizzare l'installazione. È ad esempio possibile convertire l'installazione di valutazione di SQL Server 2012 in una versione con licenza usando il codice di licenza.
 
 - Utilizzare l'Utilità preparazione sistema (SysPrep) di SQL Server per installare SQL Server nella macchina virtuale con il sistema operativo di base, come illustrato in precedenza nei passaggi da 1 a 7. Per ulteriori informazioni, vedere [Installare SQL Server 2012 tramite SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -106,7 +107,7 @@ Passaggio 1. Configurare la sottoscrizione di Azure usando i file di script.
 
 Passaggio 2. Eseguire il provisioning dei server SharePoint creando un'altra macchina virtuale con il sistema operativo di base, come illustrato in precedenza nei passaggi da 1 a 6. Per creare un server SharePoint nella macchina virtuale corrente, scegliere una delle opzioni seguenti:
 
-- Provisioning tramite l'interfaccia utente grafica di SharePoint:
+- Eseguire il provisioning tramite l'interfaccia utente grafica di SharePoint:
 	- Per creare una farm di SharePoint ed eseguirne il provisioning, vedere [Creare una farm di Microsoft SharePoint Server](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure).
 	- Per aggiungere un server Web o un server applicazioni alla farm, vedere [Aggiungere un server Web o un server applicazioni alla farm](http://technet.microsoft.com/library/cc261752.aspx).
 	- Per aggiungere un server di database a una farm esistente, vedere [Aggiungere un server di database a una farm esistente in SharePoint 2013](http://technet.microsoft.com/library/cc262781).
@@ -274,14 +275,14 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 
 ## Risorse aggiuntive
 
-[SharePoint in Macchine virtuali di Azure](http://msdn.microsoft.com/library/dn275955.aspx)
+[SharePoint su Macchine virtuali di Azure](http://msdn.microsoft.com/library/dn275955.aspx)
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Carico di lavoro dei servizi dell'infrastruttura di Azure: farm di SharePoint Intranet](virtual-machines-workload-intranet-sharepoint-farm)
+[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -101,7 +101,7 @@ Questo codice aggiunge un metodo **Post** che consente di registrare nuove istan
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
-![Menu contestuale per la pubblicazione del progetto](./media/app-service-dotnet-publish-api-app/31-publish-gesture-v3.png)
+![Menu di scelta rapida per la pubblicazione del progetto](./media/app-service-dotnet-publish-api-app/31-publish-gesture-v3.png)
 
 Selezionare la configurazione **Debug** dall'elenco a discesa **Configurazione** e fare clic su **Pubblica** per ridistribuire l'app per le API.
 
@@ -122,4 +122,4 @@ Si è appreso come le funzionalità di distribuzione diretta in Visual Studio co
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]Per aggiungere nuove proprietà all'oggetto TodoItem, è necessario che lo schema dinamico sia abilitato nel servizio mobile. Quando lo schema dinamico è abilitato, nella tabella TodoItem vengono automaticamente aggiunte nuove colonne mappate a queste nuove proprietà.
+   	>[AZURE.NOTE]Per aggiungere nuove proprietà all'oggetto TodoItem in un servizio mobile back-end di JavaScript, è necessario lo Schema dinamico abilitato nel servizio mobile. Quando lo schema dinamico è abilitato, nella tabella TodoItem vengono automaticamente aggiunte nuove colonne mappate a queste nuove proprietà. Per un servizio mobile back-end di .NET, vedere l'argomento[Come apportare modifiche al modello dati a un servizio mobile back-end di .NET](../articles/mobile-services/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 5. Nella classe MainPage aggiungere il codice seguente:
 
@@ -142,4 +142,4 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 
    	>[AZURE.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento è associata al controllo <strong>Image</strong>.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

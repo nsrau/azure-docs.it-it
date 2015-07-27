@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="" 
-	description="Vengono descritte le modifiche apportate al progetto di Visual Studio dopo l'esecuzione della procedura guidata di Azure Active Directory" 
+	description="Descrive le modifiche apportate al progetto di Visual Studio dopo l'esecuzione della procedura guidata di Azure Active Directory" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -24,7 +24,7 @@
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
 
-Sono stati aggiunti dei riferimenti.
+Sono stati aggiunti riferimenti.
 
 #####Riferimenti al pacchetto NuGet 
 
@@ -73,4 +73,4 @@ Nella directory selezionata nella procedura guidata è stata creata un'app Azure
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -80,4 +80,4 @@ Prossimamente verranno fornite le informazioni di utilizzo e gli esempi di Scrip
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="WordPress di livello aziendale in Azure App Service"
-	description="Informazioni su come ospitare un sito WordPress aziendale in Azure App Service"
+	pageTitle="WordPress di livello aziendale nel servizio app di Azure"
+	description="Informazioni su come ospitare un sito WordPress aziendale nel servizio app di Azure"
 	services="app-service\web"
 	documentationCenter=""
 	authors="tfitzmac"
@@ -16,9 +16,9 @@
 	ms.date="04/29/2015"
 	ms.author="tomfitz"/>
 
-#WordPress di livello aziendale in Azure App Service
+#WordPress di livello aziendale nel servizio app di Azure
 
-Azure App Service fornisce un ambiente scalabile, sicuro e facile da usare per siti [WordPress][wordpress] di importanza critica e su vasta scala. Anche Microsoft gestisce siti di livello aziendale come i blog di [Office][officeblog] e [Bing][bingblog]. Questo documento illustra come usare App Web di Azure App Service per creare e mantenere un sito WordPress di livello aziendale, basato sul cloud, in grado di gestire un numero elevato di visitatori.
+Il servizio app di Azure rende disponibile un ambiente scalabile, sicuro e facile da usare per siti [WordPress][wordpress] di importanza critica e su vasta scala. Anche Microsoft gestisce siti di livello aziendale come i blog di [Office][officeblog] e [Bing][bingblog]. Questo documento illustra come usare App Web del servizio app di Azure per stabilire e mantenere un sito WordPress di livello aziendale, basato sul cloud, in grado di gestire un numero elevato di visitatori.
 
 ## Architettura e pianificazione
 
@@ -28,7 +28,7 @@ Un'installazione di base di WordPress prevede solo due requisiti.
 
     > [AZURE.NOTE]ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte fornite tramite Azure Store, vedere [Azure Store][cdbnstore] oppure per le offerte fornite direttamente da ClearDB, vedere la pagina dei [prezzi di ClearDB](http://www.cleardb.com/pricing.view).
 
-* **PHP 5.2.4 o versioni successive**: Azure App Service attualmente fornisce le [versioni PHP 5.3, 5.4 e 5.5][phpwebsite].
+* **PHP 5.2.4 o versioni successive**: il servizio app di Azure attualmente fornisce le [versioni PHP 5.3, 5.4 e 5.5][phpwebsite].
 
 	> [AZURE.NOTE]È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
 
@@ -67,18 +67,18 @@ Per | Opzione
 ------------------------|-----------
 **Caricare o archiviare file di grandi dimensioni** | [Plug-in di WordPress per l'uso dell'archiviazione BLOB][storageplugin]
 **Inviare posta elettronica** | [SendGrid][storesendgrid] e il [plug-in di WordPress per l'uso di SendGrid][sendgridplugin]
-**Nomi di dominio personalizzati** | [Configurare un nome di dominio personalizzato in Azure App Service][customdomain]
-**HTTPS** | [Abilitare HTTPS per un'app Web in Azure App Service][httpscustomdomain]
-**Convalida di preproduzione** | [Configurare ambienti di gestione temporanea per le app Web in Azure App Service][staging] <p>Si noti che con il passaggio di un'app Web dalla gestione temporanea alla produzione viene trasferita anche la configurazione di WordPress. Assicurarsi che tutte le impostazioni siano aggiornate in base ai requisiti dell'app di produzione prima di passare dalla gestione temporanea alla produzione.</p>
-**Monitoraggio e risoluzione dei problemi** | [Abilitare la registrazione diagnostica per le app Web in Azure App Service][log] e [Monitorare le app Web in Azure App Service][monitor]
-**Distribuire il sito** | [Distribuire un'app Web in Azure App Service][deploy]
+**Nomi di dominio personalizzati** | [Configurare un nome di dominio personalizzato nel servizio app di Azure][customdomain]
+**HTTPS** | [Abilitare HTTPS per un'app Web nel servizio app di Azure][httpscustomdomain]
+**Convalida di preproduzione** | [Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure][staging] <p>Si noti che con il passaggio di un'app Web dalla gestione temporanea alla produzione viene trasferita anche la configurazione di WordPress. Assicurarsi che tutte le impostazioni siano aggiornate in base ai requisiti dell'app di produzione prima di passare dalla gestione temporanea alla produzione.</p>
+**Monitoraggio e risoluzione dei problemi** | [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure][log] e [Monitorare le app Web nel servizio app di Azure][monitor]
+**Distribuire il sito** | [Distribuire un'app Web nel servizio app di Azure][deploy]
 
 ####Disponibilità e ripristino di emergenza
 
 Per | Opzione
 ------------------------|-----------
 **Bilanciamento del carico** o **distribuzione geografica dei siti** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]
-**Backup e ripristino** | [Eseguire il backup di un'app Web in Azure App Service][backup] e [Ripristinare un'app Web in Azure App Service][restore]
+**Backup e ripristino** | [Eseguire il backup di un'app Web nel servizio app di Azure][backup] e [Ripristinare un'app Web nel servizio app di Azure][restore]
 
 ####Prestazioni
 
@@ -88,17 +88,17 @@ Per | Opzione
 ------------------------|-----------
 **Identificare le funzionalità delle istanze del servizio app** | [Dettagli dei prezzi, incluse le funzionalità dei livelli del servizio app][websitepricing]
 **Memorizzare risorse nella cache** | [Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) o una delle altre offerte di memorizzazione nella cache disponibili in [Azure Store](/gallery/store/)
-**Scalare l'applicazione** | [Scalare un'app Web in Azure App Service][websitescale] e [Routing ClearDB a disponibilità elevata][cleardbscale]. Se si sceglie di ospitare e gestire un'installazione personalizzata di MySQL, tenere presente [MySQL Cluster CGE][cge] per la scalabilità orizzontale
+**Scalare l'applicazione** | [Scalare un'app Web nel servizio app di Azure][websitescale] e [Routing ClearDB a disponibilità elevata][cleardbscale]. Se si sceglie di ospitare e gestire un'installazione personalizzata di MySQL, tenere presente [MySQL Cluster CGE][cge] per la scalabilità orizzontale
 
 ####Migrazione
 
-Sono disponibili due metodi per eseguire la migrazione di un sito WordPress esistente in Azure App Service.
+Sono disponibili due metodi per eseguire la migrazione di un sito WordPress esistente nel servizio app di Azure.
 
-* **[Esportazione di WordPress][export]**: viene esportato il contenuto del blog, che può quindi essere importato in un nuovo sito WordPress in Azure App Service tramite il [plug-in di importazione di WordPress][import].
+* **[Esportazione di WordPress][export]**: viene esportato il contenuto del blog, che può quindi essere importato in un nuovo sito WordPress nel servizio app di Azure tramite il [plug-in di importazione di WordPress][import].
 
 	> [AZURE.NOTE]Questa procedura consente di eseguire la migrazione del contenuto, ma non di eventuali plug-in, temi o altre personalizzazioni, che sarà necessario installare di nuovo manualmente.
 
-* **Migrazione manuale**: [eseguire il backup del sito][wordpressbackup] e del [database][wordpressdbbackup], quindi ripristinarli manualmente in un'app Web in Azure App Service e nel database MySQL associato per eseguire la migrazione di siti con un elevato livello di personalizzazione, senza doversi preoccupare di installare manualmente plug-in, temi e altre personalizzazioni.
+* **Migrazione manuale**: [eseguire il backup del sito][wordpressbackup] e del [database][wordpressdbbackup], quindi ripristinarli manualmente in un'app Web nel servizio app di Azure e nel database MySQL associato per eseguire la migrazione di siti con un elevato livello di personalizzazione, senza doversi preoccupare di installare manualmente plug-in, temi e altre personalizzazioni.
 
 ## Istruzioni dettagliate
 
@@ -106,7 +106,7 @@ Sono disponibili due metodi per eseguire la migrazione di un sito WordPress esis
 
 1. Usare [Azure Marketplace][cdbnstore] per creare un database MySQL delle dimensioni identificate nella sezione [Architettura e pianificazione](#planning), nell'area o nelle aree in cui si ospiterà il sito.
 
-2. Seguire la procedura descritta in [Creare un'app Web WordPress in Azure App Service][createwordpress] per creare una nuova app Web WordPress. Durante la creazione dell'app Web, selezionare **Utilizzare un database MySQL esistente** e scegliere il database creato nel passaggio 1.
+2. Seguire la procedura descritta in [Creare un'app Web WordPress nel servizio app di Azure][createwordpress] per creare una nuova app Web WordPress. Durante la creazione dell'app Web, selezionare **Utilizzare un database MySQL esistente** e scegliere il database creato nel passaggio 1.
 
 Se si esegue la migrazione di un sito WordPress esistente, vedere [Eseguire la migrazione di un sito WordPress esistente in Azure](#Migrate-an-existing-WordPress-site-to-Azure) dopo aver creato una nuova app Web.
 
@@ -157,7 +157,7 @@ Se si usano... | Effettuare l'operazione seguente:
 
 	2. Usando un client MySQL come [MySQL Workbench][workbench], connettersi al nuovo database e importare il database WordPress.
 
-	3. Aggiornare il database per cambiare le voci di dominio in base al nuovo dominio di Azure App Service, ad esempio mywordpress.azurewebsites.net. Usare lo [script di ricerca e sostituzione per database WordPress][searchandreplace] per cambiare in modo sicuro tutte le istanze.
+	3. Aggiornare il database per cambiare le voci di dominio in base al nuovo dominio del servizio app di Azure, ad esempio mywordpress.azurewebsites.net. Usare lo [script di ricerca e sostituzione per database WordPress][searchandreplace] per cambiare in modo sicuro tutte le istanze.
 
 4. Creare una nuova app Web nel portale di Azure e pubblicare il backup di WordPress.
 
@@ -173,7 +173,7 @@ Se si usano... | Effettuare l'operazione seguente:
 
 		Dopo aver cambiato queste voci, salvare e chiudere il file **wp-config.php**.
 
-	3. Fare riferimento alle informazioni disponibili in [Distribuire un'app Web in Azure App Service][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web in Azure App Service.
+	3. Fare riferimento alle informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
 
 5. Dopo la distribuzione del sito WordPress, dovrebbe essere possibile accedere al nuovo sito (come app Web del servizio app) usando l'URL *.azurewebsite.net.
 
@@ -185,24 +185,24 @@ Per | Opzione
 ------------- | -----------
 **Impostare la modalità del piano e le dimensioni del servizio app e abilitare la scalabilità** | [Scalare un'app Web in Azure App Service][websitescale]
 **Abilitare connessioni di database permanenti** <p>Per impostazione predefinita, WordPress non usa connessioni di database permanenti, che potrebbero causare rallentamenti dopo numerose connessioni.</p> | <ol><li><p>Modificare il file <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); </code></li><li><p>Salvare il file <strong>wp-includes/wp-db.php</strong> e ridistribuire il sito.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Queste modifiche possono essere sovrascritte all'aggiornamento di WordPress.</p><p>Per impostazioni predefinita, WordPress usa gli aggiornamenti automatici, che possono essere disattivati modificando il file <strong>wp-config.php</strong> e aggiungendo <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Un altro modo di gestire gli aggiornamenti consiste nell'usare un processo Web che esegue il monitoraggio del file <strong>wp-db.php</strong> ed esegue le modifiche precedenti ogni volta che il file viene aggiornato. Per altre informazioni, vedere <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Introduzione ai processi Web</a>.</p></div>
-**Migliorare le prestazioni** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Disabilitare il cookie ARR</a>. In questo modo è possibile migliorare le prestazioni quando si esegue WordPress in più istanze delle app Web</p></li><li><p>Abilitare la memorizzazione nella cache. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">La cache Redis</a> (anteprima) può essere usata con il <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress della cache di oggetti Redis</a>. In alternativa, usare una delle altre opzioni di memorizzazione nella cache disponibili da <a href="/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Aumentare la velocità di WordPress con Wincache</a> Wincache è abilitata per impostazione predefinita per le app Web</p></li><li><p><a href="../web-sites-scale/">Scalare un'app web in Azure App Service</a> e usare il <a href="http://www.cleardb.com/developers/cdbr/introduction">routing ClearDB a disponibilità elevata</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
+**Migliorare le prestazioni** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Disabilitare il cookie ARR</a>. In questo modo è possibile migliorare le prestazioni quando si esegue WordPress in più istanze delle app Web</p></li><li><p>Abilitare la memorizzazione nella cache. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">La cache Redis</a> (anteprima) può essere usata con il <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress della cache di oggetti Redis</a>. In alternativa, usare una delle altre opzioni di memorizzazione nella cache disponibili da <a href="/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Aumentare la velocità di WordPress con Wincache</a> Wincache è abilitata per impostazione predefinita per le app Web</p></li><li><p><a href="../web-sites-scale/">Scalare un'app web nel servizio app di Azure</a> e usare il <a href="http://www.cleardb.com/developers/cdbr/introduction">routing ClearDB a disponibilità elevata</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
 **Usare i BLOB per l'archiviazione** | <ol><li><p><a href="../storage-create-storage-account/">Creare un account di archiviazione di Azure</a></p></li><li><p>Informazioni su come <a href="../cdn-how-to-use/">usare la rete di distribuzione contenuti (CDN)</a> per distribuire geograficamente i dati archiviati in BLOB.</p></li><li><p>Installare e configurare l'<a href="https://wordpress.org/plugins/windows-azure-storage/">archiviazione di Azure per il plug-in WordPress</a>.</p><p>Per informazioni dettagliate sull'installazione e sulla configurazione del plug-in, vedere il <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">manuale dell'utente</a>.</p> </li></ol>
 **Abilitare la posta elettronica** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Abilitare SendGrid usando Azure Store</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Installare il plug-in SendGrid per WordPress</a></p></li></ol>
-**Configurare un nome di dominio personalizzato** | [Configurare un nome di dominio personalizzato in Azure App Service][customdomain]
-**Abilitare HTTPS per un nome di dominio personalizzato** | [Abilitare HTTPS per un'app Web in Azure App Service][httpscustomdomain]
-**Bilanciare il carico o distribuire geograficamente il sito** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]. Se si usa un dominio personalizzato, vedere [Configurare un nome di dominio personalizzato in Azure App Service][customdomain] per informazioni sull'uso di Gestione traffico con nomi di dominio personalizzati
-**Abilitare i backup automatici** | [Eseguire il backup di un'app Web in Azure App Service][backup]
-**Abilitare la registrazione diagnostica** | [Abilitare la registrazione diagnostica per app Web in Azure App Service][log]
+**Configurare un nome di dominio personalizzato** | [Configurare un nome di dominio personalizzato nel servizio app di Azure][customdomain]
+**Abilitare HTTPS per un nome di dominio personalizzato** | [Abilitare HTTPS per un'app Web nel servizio app di Azure][httpscustomdomain]
+**Bilanciare il carico o distribuire geograficamente il sito** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]. Se si usa un dominio personalizzato, vedere [Configurare un nome di dominio personalizzato nel servizio app di Azure][customdomain] per informazioni sull'uso di Gestione traffico con nomi di dominio personalizzati
+**Abilitare i backup automatici** | [Eseguire il backup di un'app Web nel servizio app di Azure][backup]
+**Abilitare la registrazione diagnostica** | [Abilitare la registrazione diagnostica per app Web nel servizio app di Azure][log]
 
 ## Passaggi successivi
 
 * [Ottimizzazione di WordPress](http://codex.wordpress.org/WordPress_Optimization)
 
-* [Conversione di WordPress in un multisito in Azure App Service](web-sites-php-convert-wordpress-multisite.md)
+* [Conversione di WordPress in un multisito nel servizio app di Azure](web-sites-php-convert-wordpress-multisite.md)
 
 * [Aggiornamento guidato di ClearDB per Azure](http://www.cleardb.com/store/azure/upgrade)
 
-* [Hosting di WordPress in una sottocartella dell'app Web in Azure App Service](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
+* [Hosting di WordPress in una sottocartella dell'app Web nel servizio app di Azure](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 
 * [Procedura dettagliata: Creare un sito WordPress con Azure](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
 
@@ -210,9 +210,9 @@ Per | Opzione
 
 * [Abilitare collegamenti permanenti efficaci in WordPress](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 
-* [Come eseguire la migrazione e gestire il blog WordPress in Azure App Service](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
+* [Come eseguire la migrazione e gestire il blog WordPress nel servizio app di Azure](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 
-* [Come eseguire gratuitamente WordPress in Azure App Service](http://architects.dzone.com/articles/how-run-wordpress-azure)
+* [Come eseguire gratuitamente WordPress nel servizio app di Azure](http://architects.dzone.com/articles/how-run-wordpress-azure)
 
 * [WordPress in Azure in un massimo di 2 minuti](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 
@@ -232,7 +232,7 @@ Per | Opzione
 
 * [Suggerimenti per WordPress in Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, andare a [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -283,4 +283,4 @@ Per | Opzione
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

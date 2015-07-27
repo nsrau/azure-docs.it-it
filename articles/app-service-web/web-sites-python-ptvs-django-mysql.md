@@ -67,7 +67,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
   	![Finestra della console di gestione di Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  Verificare che l'applicazione funzioni, premendo <kbd>F5</kbd>.
+1.  Verificare che l'applicazione funzioni premendo <kbd>F5</kbd>.
 
 1.  Fare clic su **Log in** sulla barra di spostamento in alto.
 
@@ -187,7 +187,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 - [MySQL]
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -211,4 +211,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

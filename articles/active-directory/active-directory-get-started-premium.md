@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -125,4 +124,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

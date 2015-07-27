@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creazione e caricamento di un file VHD Linux in Azure" 
-	description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Creazione e caricamento di un file VHD Linux in Azure"
+	description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per converti
 		echo "Rounded Size = $rounded_size"
 
  3. Ridimensionare il disco RAW usando $rounded_size, come impostato nello script precedente:
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. A questo punto, convertire nuovamente il disco RAW in un disco rigido virtuale a dimensione fissa:
@@ -189,7 +189,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

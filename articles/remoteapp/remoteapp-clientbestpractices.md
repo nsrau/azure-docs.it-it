@@ -3,7 +3,7 @@
     pageTitle="Procedure consigliate per i client RemoteApp di Azure "
     description="Informazioni sulle procedure consigliate per l'uso dei client RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@ Le informazioni seguenti possono essere utili per l'uso dei client RemoteApp:
 - RemoteApp esegue automaticamente la disconnessione dopo un determinato periodo di inattività. Per evitare perdite di dati, è consigliabile chiudere le applicazioni dopo aver terminato di usare il servizio.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -78,7 +78,7 @@ Le attività di avvio consentono di eseguire operazioni prima dell'avvio di un r
 
 	> [AZURE.NOTE]Usare un semplice editor di testo, come il blocco note, per creare questo file. Se si usa Visual Studio per creare un file di testo e quindi lo si rinomina con estensione "cmd", il file potrebbe continuare a contenere un BOM UTF-8 e verrà generato un errore eseguendo la prima riga dello script. Se si prevede di usare Visual Studio per creare il file, aggiungere un REM (commento) nella prima riga del file in modo che venga ignorato durante l'esecuzione.
       
-3. Aggiungere il file install.cmd a tutti i ruoli facendo clic con il pulsante destro del mouse sul{b> <b}ruolo e selezionando **Aggiungi>Elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
+3. Aggiungere il file install.cmd a tutti i ruoli facendo clic con il pulsante destro del mouse sul ruolo e selezionando **Aggiungi>Elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
 	
 	![Contenuto ruolo con tutti i file][2]
 
@@ -117,4 +117,4 @@ Quando si distribuisce il servizio, le attività di avvio eseguiranno e installe
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

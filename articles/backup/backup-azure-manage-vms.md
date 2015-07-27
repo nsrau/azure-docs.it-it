@@ -95,7 +95,7 @@ Per arrestare la protezione per una macchina virtuale:
 
     ![Arresta protezione](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Se non è stata selezionata l'opzione **Elimina i dati di backup associati** durante la procedura guidata **Arresta protezione**, dopo il completamento del processo lo stato della protezione verrà cambiato in **Protezione arrestata**. I dati rimangono in Backup di Azure finché non vengono eliminati esplicitamente. È comunque possibile eliminare i dati selezionando la macchina virtuale nella pagina **Elementi protetti** e facendo clic su **Elimina**.
+    Se non è stata selezionata l'opzione **Elimina i dati di backup associati** durante la procedura guidata **Arresta protezione**, dopo il completamento del processo lo stato della protezione verrà cambiato in **Protezione arrestata**. I dati rimangono in Azure Backup finché non vengono eliminati esplicitamente. È comunque possibile eliminare i dati selezionando la macchina virtuale nella pagina **Elementi protetti** e facendo clic su **Elimina**.
 
     ![Protezione arrestata](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
@@ -160,4 +160,4 @@ Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

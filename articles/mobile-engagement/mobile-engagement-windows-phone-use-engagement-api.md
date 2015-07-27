@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in Windows Phone Silverlight
@@ -334,7 +334,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -368,7 +368,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -379,4 +379,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

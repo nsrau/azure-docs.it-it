@@ -37,4 +37,4 @@
 
 <sup>3</sup>L'elenco di controllo di accesso (ACL) è supportato negli endpoint di input per le macchine virtuali. Per i ruoli di lavoro/Web è supportato negli endpoint di input e di input dell'istanza.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

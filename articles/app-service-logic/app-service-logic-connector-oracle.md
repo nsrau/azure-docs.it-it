@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Uso del connettore Oracle nel servizio app di Microsoft Azure" 
-   description="Come usare Oracle Database Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Uso del connettore Oracle nel servizio app di Microsoft Azure"
+   description="Come usare Oracle Database Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Oracle Database Connector
@@ -23,7 +23,7 @@ Connettersi a un server di database Oracle in locale per creare e modificare le 
 
 - Esporre una sezione dei dati presenti nel database Oracle usando un'applicazione Web o per dispositivi mobili.
 - Inserire dati nella tabella del database Oracle per l'archiviazione. È ad esempio possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
-- Ottenere dati da Oracle per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce. 
+- Ottenere dati da Oracle per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce.
 
 
 ## Trigger e azioni
@@ -69,7 +69,7 @@ Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, a
 In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
 ### Aggiungere il trigger
-1. Quando si crea o modifica un'app per la logica, selezionare il connettore Oracle creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/> ![][5] 
+1. Quando si crea o modifica un'app per la logica, selezionare il connettore Oracle creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/> ![][5]
 
 2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓: <br/> ![][6]
 
@@ -80,7 +80,7 @@ Usando una semplice app per la logica che esegue il polling dei dati da una tabe
 
 Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o le stored procedure immesse durante la creazione del connettore Oracle:
 
-1. Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8] 
+1. Selezionare lo stesso connettore Oracle dalla raccolta come azione. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: <br/> ![][8]
 
 2. Immettere i valori di input del record da inserire e fare clic su ✓: <br/> ![][9]
 
@@ -115,8 +115,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro a
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

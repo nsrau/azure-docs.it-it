@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 #Data Factory di Azure - Terminologia
@@ -113,4 +113,4 @@ Una caratteristica importante dell'hub riguarda il fatto che una pipeline viene 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

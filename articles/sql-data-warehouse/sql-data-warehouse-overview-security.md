@@ -59,12 +59,12 @@ La gestione di database e server logici dal portale di gestione di Azure o media
 
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--Other Web references-->
 [controllo degli accessi in base al ruolo nel portale di anteprima di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -17,7 +17,7 @@
 	ms.author="terrylan"/>
 
 
-# Dati fondamentali sulla gestione delle identità di Azure
+# Nozioni fondamentali sulla gestione delle identità di Azure
 
 
 
@@ -26,4 +26,4 @@
 [AZURE.INCLUDE [identità](../../includes/identity.md)]
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

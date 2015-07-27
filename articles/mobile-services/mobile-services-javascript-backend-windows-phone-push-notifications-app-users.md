@@ -70,7 +70,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 ##<a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Testare l'app
@@ -91,4 +91,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

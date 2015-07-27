@@ -1,24 +1,26 @@
 <properties
    pageTitle="Creazione di modelli di Gestione risorse di Azure"
    description="Creare modelli di Gestione risorse di Azure usando la sintassi dichiarativa JSON per distribuire applicazioni ad Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
 
 Le applicazioni Azure richiedono in genere una combinazione di risorse (ad esempio un server di database, un database o un sito Web) per raggiungere gli obiettivi desiderati. Anziché distribuire e gestire separatamente ogni risorsa, è possibile creare un modello di Gestione risorse di Azure che distribuisce e fornisce tutte le risorse per l'applicazione in un'unica operazione coordinata. Nel modello vengono definite le risorse necessarie per l'applicazione e vengono specificati i parametri di distribuzione per immettere valori nei diversi ambienti di distribuzione. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
+
+In questo argomento vengono descritte le sezioni del modello. Per gli schemi effettivi, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Formato del modello
 
@@ -401,5 +403,6 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
 - [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
+- [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

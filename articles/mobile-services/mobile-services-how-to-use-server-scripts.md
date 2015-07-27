@@ -96,7 +96,7 @@ Gli script del server registrati per un'operazione su tabella possono essere def
 	
 	Per informazioni su come effettuare questa operazione, vedere [Convalida e modifica dei dati in Servizi mobili mediante script del server].
 
-+ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<table>`</em>.<em>`<operation>`</em>.js nella sottocartella .\service\table dell'archivio Git, dove <em>`<table>`</em> è il nome della tabella e <em>`<operation>`</em> è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
++ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<table>`</em>.<em>`<operation>`</em>.js nella sottocartella .\\service\\table dell'archivio Git, dove <em>`<table>`</em> è il nome della tabella e <em>`<operation>`</em> è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
@@ -228,7 +228,7 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
 + Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per ulteriori informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
++  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
 È inoltre possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](../virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -343,7 +343,7 @@ Gli script del server registrati nei metodi HTTP in un endpoint API personalizza
 	
 	Le autorizzazioni di accesso ai metodi delle API personalizzate vengono assegnate nella scheda Autorizzazioni. Per informazioni su come è stata creata questa API personalizzata, vedere [Chiamata di un'API personalizzata dal client].
 
-+ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<custom_api>`</em>.js nella sottocartella .\service\api dell'archivio Git, dove <em>`<custom_api>`</em> è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione _esportata_ per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
++ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<custom_api>`</em>.js nella sottocartella .\\service\\api dell'archivio Git, dove <em>`<custom_api>`</em> è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione _esportata_ per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
@@ -462,7 +462,7 @@ Per definire processi pianificati è possibile procedere in uno dei modi seguent
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
->[AZURE.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\service\scheduler del repository Git. Per altre informazioni, vedere [Procedura: Condividere il codice usando il controllo del codice sorgente].
+>[AZURE.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\\service\\scheduler del repository Git. Per altre informazioni, vedere [Procedura: Condividere il codice usando il controllo del codice sorgente].
 
 ##<a name="shared-code"></a>Controllo del codice sorgente, codice condiviso e funzioni di supporto
 
@@ -1074,4 +1074,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

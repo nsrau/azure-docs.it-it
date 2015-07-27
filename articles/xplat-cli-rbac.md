@@ -16,7 +16,7 @@
 	ms.date="04/26/2015"
 	ms.author="tomfitz"/>
 
-# Gestione del controllo di accesso basato sui ruoli con l’interfaccia della riga di comando di Azure (Azure CLI)#
+# Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI)#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Interfaccia della riga di comando di Azure">Interfaccia della riga di comando di Azure</a></div>
 
@@ -118,7 +118,7 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
 - In questo modo verrà creata un'assegnazione di ruolo a livello di gruppo di risorse
 
-    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - In questo modo verrà creata un'assegnazione di ruolo a livello di risorsa
 
@@ -128,8 +128,8 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
 Dopo aver controllato che l'account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni accordate da tali assegnazioni di ruoli eseguendo
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si dispone dell'autorizzazione di lettura. Inoltre, verranno visualizzate anche le autorizzazioni di cui si dispone.
 
@@ -143,4 +143,4 @@ Per altre informazioni sulla gestione del controllo degli accessi in base al ruo
 - [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
 - [Uso dei gruppi di risorse per la gestione delle risorse di Azure](resource-groups-overview.md): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

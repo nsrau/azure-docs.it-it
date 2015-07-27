@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Proteggere un'app Web in Azure App Service"
-	description="Informazioni su come proteggere un'app Web di Azure.&quot;"
+	pageTitle="Proteggere un'app Web nel servizio app di Azure"
+	description="Informazioni su come proteggere un'app Web di Azure."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
-#Proteggere un'app Web in Azure App Service
+#Proteggere un'app Web nel servizio app di Azure
 
-Una delle sfide relative allo sviluppo di un'app Web riguarda l'offerta di un servizio sicuro e protetto ai clienti. In questo articolo vengono presentate le funzionalità di [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) in grado di proteggere l'app Web.
+Una delle sfide relative allo sviluppo di un'app Web riguarda l'offerta di un servizio sicuro e protetto ai clienti. In questo articolo vengono presentate le funzionalità del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) in grado di proteggere l'app Web.
 
 > [AZURE.NOTE]Una discussione completa sulle considerazioni relative alla sicurezza delle applicazioni basate su Web non rientra negli obiettivi di questo documento. Come punto di partenza per ulteriori informazioni sulla protezione delle applicazioni Web, vedere il sito [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) e, in particolare, la sezione relativa al [progetto Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) che elenca i 10 più gravi difetti di sicurezza correnti delle applicazioni Web individuati dai membri di OWASP.
 
@@ -50,32 +50,40 @@ Inoltre, assicurarsi che le credenziali importate siano protette. Ad esempio, **
 ### Impostazioni di configurazione e stringhe di connessione
 Di solito le stringhe di connessione, le credenziali di autenticazione e altre informazioni riservate vengono archiviate nei file di configurazione. Purtroppo questi file possono essere esposti nel sito Web o inseriti in un repository pubblico che ne espone le informazioni.
 
-Azure App Service consente di archiviare le informazioni di configurazione come parte dell'ambiente di runtime delle app Web come **impostazioni app** e **stringhe di connessione**. I valori vengono esposti nell'applicazione al runtime mediante *variabili di ambiente* per la maggior parte dei linguaggi di programmazione. Per le applicazioni .NET questi valori vengono inseriti nella configurazione .NET al runtime.
+Il servizio app di Azure consente di archiviare le informazioni di configurazione come parte dell'ambiente di runtime delle app Web come **impostazioni app** e **stringhe di connessione**. I valori vengono esposti nell'applicazione al runtime mediante *variabili di ambiente* per la maggior parte dei linguaggi di programmazione. Per le applicazioni .NET questi valori vengono inseriti nella configurazione .NET al runtime.
 
-Le **impostazioni app** e le **stringhe di connessione** possono essere configurate mediante il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) o con utilità quali PowerShell o l'interfaccia della riga di comando di Azure.
+**Impostazioni app** e **Stringhe di connessione** possono essere configurate nel [portale di Azure](http://portal.azure.com) o con utilità come PowerShell o l'interfaccia della riga di comando di Azure.
 
 Per ulteriori informazioni sulle impostazioni delle app e sulle stringhe di connessione, vedere [Come configurare le app Web](web-sites-configure.md).
 
 ### FTPS
 
-Azure fornisce un accesso FTP sicuro al file system per l'app Web mediante **FTPS**. Ciò consente di accedere in modo sicuro al codice dell'applicazione nell'app Web e ai log di diagnostica. Il collegamento FTPS per l'app Web è disponibile nella pagina **Dashboard** del [portale di gestione di Azure](https://manage.windowsazure.com).
+Azure fornisce un accesso FTP sicuro al file system per l'app Web mediante **FTPS**. Ciò consente di accedere in modo sicuro al codice dell'applicazione nell'app Web e ai log di diagnostica. È possibile trovare il collegamento FTPS dell'app Web con la procedura seguente:
+
+1. Aprire il [Portale di anteprima di Azure](http://portal.azure.com).
+2. Selezionare **Esplora tutto**.
+3. Nel pannello **Sfoglia** selezionare **App Web**.
+4. Nel pannello **App Web** selezionare un'app Web.
+5. Nel pannello dell'app Web selezionare **Tutte le impostazioni**.
+6. Nel pannello **Impostazioni** selezionare **Proprietà**.
+7. Il collegamenti FTP e FTPS sono disponibili nel pannello **Impostazioni**. 
 
 Per altre informazioni su FTPS, vedere [File Transfer Protocol](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
 Per altre informazioni sulla sicurezza della piattaforma Azure, informazioni su come segnalare un **uso improprio o un problema di sicurezza** o per segnalare a Microsoft che si sta per eseguire un **test di penetrazione** del sito, vedere la sezione sulla sicurezza del [Centro protezione Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
-Per ulteriori informazioni sui file **web.config** o **applicationhost.config** nelle app Web, vedere [opzioni di configurazione sbloccate nelle app Web in Azure App Service](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Per ulteriori informazioni sui file **web.config** o **applicationhost.config** nelle app Web, vedere [opzioni di configurazione sbloccate nelle app Web del servizio app di Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Per informazioni sulla registrazione per le app Web, utili per rilevare gli attacchi, vedere [Abilitare la registrazione diagnostica](web-sites-enable-diagnostic-log.md).
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

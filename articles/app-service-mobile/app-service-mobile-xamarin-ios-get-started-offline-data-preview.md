@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="03/26/2015"
+	ms.date="07/01/2015"
     ms.author="donnam"/>
 
 # Abilitare la sincronizzazione offline per l'app mobile per Xamarin iOS
@@ -166,4 +166,4 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [Estensione Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

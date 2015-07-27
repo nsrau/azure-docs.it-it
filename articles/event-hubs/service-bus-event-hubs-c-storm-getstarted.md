@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'Hub eventi" 
-	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con C e ricevendoli in un cluster di Apache Storm" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata"   
-	manager="timlt" 
+<properties
+	pageTitle="Introduzione all'Hub eventi"
+	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con C e ricevendoli in un cluster di Apache Storm"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="c" 
-	ms.devlang="java" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="c"
+	ms.devlang="java"
+	ms.topic="article" 
+	ms.date="07/06/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -22,19 +22,19 @@
 
 ## Introduzione
 
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'Hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
+Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
-Per altre informazioni, vedere [Panoramica di Hub eventi].
+Per ulteriori informazioni, vedere [Panoramica di Hub eventi].
 
 Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C e come recuperarli in parallelo usando Apache Storm.
 
 Per completare questa esercitazione, sono necessari i seguenti elementi:
 
-+ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux in Azure](../virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
++ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l’uso di uno stack gcc in una [VM Linux in Azure ](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
 
 + Un ambiente di sviluppo Java configurato per l'esecuzione di [Maven](http://maven.apache.org/). Per questa esercitazione si presuppone l'uso di [Eclipse](https://www.eclipse.org/).
 
-+ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Creare un hub eventi
 
@@ -44,7 +44,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][1]
 
-3. Digitare un nome per l'hub di notifica, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub di notifica**.
+3. Digitare un nome per l'hub eventi, selezionare la regione desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
 
    	![][2]
 
@@ -56,7 +56,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][4]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Listen* e quindi fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti di *Invio*, aggiungere un'altra regola denominata **ReceiveRule** con diritti di *Ascolto*, quindi fare clic su **Salva**.
 
    	![][5]
 
@@ -67,7 +67,6 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
@@ -81,7 +80,7 @@ A questo punto è possibile eseguire le applicazioni.
 
    	![][23]
 
-> [AZURE.NOTE] In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm] e la documentazione ufficiale su [Apache Storm].
+> [AZURE.NOTE]In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm] e la documentazione ufficiale su [Apache Storm].
 
 ## Passaggi successivi
 
@@ -102,14 +101,14 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [23]: ./media/service-bus-event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Panoramica di Hub eventi]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Panoramica di HDinsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Analisi dei dati dei sensori con Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Panoramica di HDinsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
+[Analisi dei dati dei sensori con Storm e HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

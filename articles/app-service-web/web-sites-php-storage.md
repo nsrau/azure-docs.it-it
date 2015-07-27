@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creazione di un'app Web PHP in Servizio app di Azure tramite Archiviazione di Azure" 
-	description="Questa esercitazione illustra come creare un'app Web PHP in Servizio app di Azure e usare il servizio di archiviazione tabelle di Azure nel back-end." 
+	pageTitle="Creare un'app Web PHP nel servizio app di Azure tramite Archiviazione di Azure" 
+	description="Questa esercitazione illustra come creare un'app Web PHP nel servizio app di Azure e usare il servizio di archiviazione tabelle di Azure nel back-end." 
 	services="app-service\web, storage" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
-# Creazione di un'app Web PHP in Servizio app di Azure tramite Archiviazione di Azure
+# Creare un'app Web PHP nel servizio app di Azure tramite Archiviazione di Azure
 
 Questa esercitazione illustra come creare un'app Web PHP nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e usare il servizio di archiviazione tabelle di Azure nel back-end. A tale scopo, si presuppone che [PHP][install-php] e un server Web siano stati installati nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà di un'app Web PHP in esecuzione in Azure e in grado di accedere al servizio di archiviazione tabelle.
  
@@ -41,23 +41,24 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
 
 1. [Installare Git][install-git]
 
-	> [AZURE.NOTE]
-	> In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+	> [AZURE.NOTE]In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+         {
+             "repositories": [
+                 {
+                     "type": "pear",
+                     "url": "http://pear.php.net"
+                 }
+             ],
+             "require": {
+                 "pear-pear.php.net/mail_mime" : "*",
+                 "pear-pear.php.net/http_request2" : "*",
+                 "pear-pear.php.net/mail_mimedecode" : "*",
+                 "microsoft/windowsazure": "*"
+             }
+         }
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 
@@ -323,7 +324,7 @@ L'eliminazione di un elemento si ottiene con un'unica chiamata a `deleteItem`. I
 
 Per trasferire i dati dell'account dell'archivio applicazione nel cloud è necessario prima creare un account di archiviazione in Azure e poi passare le corrette informazioni di autenticazione alla classe *Configuration*.
 
-1. Eseguire l'accesso al [portale Azure][management-portal].
+1. Eseguire l'accesso al [portale di Azure][management-portal].
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
@@ -341,7 +342,7 @@ Per trasferire i dati dell'account dell'archivio applicazione nel cloud è neces
 
 Per creare un'app Web di Azure, seguire questa procedura:
 
-1. Eseguire l'accesso al [portale Azure][management-portal].
+1. Eseguire l'accesso al [portale di Azure][management-portal].
 
 2. Creare un'app Web vuota con le istruzioni fornite in [Procedura: Creare un'app Web tramite il portale di Azure](../web-sites-create-deploy.md#createawebsiteportal). Assicurarsi di creare un nuovo [piano del servizio app](azure-web-sites-web-hosting-plans-in-depth-overview) e selezionare il gruppo di risorse creato in precedenza per l'account di archiviazione.
 
@@ -405,7 +406,7 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 3. Passare a **http://[your web app domain]/index.php** per visualizzare le modifiche.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -429,4 +430,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

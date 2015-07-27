@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creazione di un'app Web ASP.NET nel servizio app di Azure"
+	pageTitle="Creare un'app Web ASP.NET nel servizio app di Azure"
 	description="In questa esercitazione viene illustrato come creare un progetto Web ASP.NET in Visual Studio 2013 e distribuirlo in un'app Web nel servizio app di Azure. Consente di creare ed eseguire un'app nel cloud in meno di 15 minuti."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
-# Creazione di un'app Web ASP.NET nel servizio app di Azure
+# Creare un'app Web ASP.NET nel servizio app di Azure
 
 ## Panoramica
 
-In questa esercitazione viene illustrato come creare un'applicazione Web ASP.NET e distribuirla nel [Servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Visual Studio 2013 o Visual Studio 2013 Express per Web. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET. Al termine dell'esercitazione, si avrà un'applicazione Web semplice in esecuzione nel cloud.
+In questa esercitazione viene illustrato come creare un'applicazione Web ASP.NET e distribuirla in [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Visual Studio 2013 o Visual Studio 2013 Express per Web. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET. Al termine dell'esercitazione, si avrà un'applicazione Web semplice in esecuzione nel cloud.
 
 Si apprenderà come:
 
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
-* Come creare un progetto Web ASP.NET di Visual Studio e distribuirlo in un'app Web di Azure.
+* Creare un progetto Web ASP.NET di Visual Studio e distribuirlo in un'app Web di Azure.
 * Apportare una modifica al progetto Web e ridistribuire l'applicazione.
-* Come usare il [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per monitorare e gestire la propria app Web.
+* Usare il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per monitorare e gestire la propria app Web.
 
 Per completare l'esercitazione, è necessario un account Azure.
 
-* È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) . Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio il servizio app per app Web.
+* È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) . Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web del servizio app.
 * È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.</li>
 
 Nella figura seguente è illustrata l'applicazione completata:
 
-![!Home page dell'app Web](./media/web-sites-dotnet-get-started/deployedandazure.png)
+![Home page dell'app Web](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
 ##<a name="video"></a>Iscrizione a Microsoft Azure (video)
 
@@ -58,7 +58,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 3. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
 
-4. Cancella il **aggiungere Application Insights al progetto** casella di controllo.
+4.  [Application Insights](app-insights-overview.md) monitora disponibilità, prestazioni e utilizzo delle app Web. Deselezionare la casella di controllo **Aggiungi Application Insights al progetto** se non si vuole provarlo.
 
 4. Assegnare all'applicazione il nome **Esempio** e fare clic su **OK**.
 
@@ -76,7 +76,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	![No Authentication](./media/web-sites-dotnet-get-started/GS13noauth.png)
 
-	L'applicazione di esempio che verrà creata non consente agli utenti di effettuare l'accesso. Nella sezione [Passaggi successivi](#next-steps) sono riportati collegamenti a un'esercitazione che consente di implementare l'autenticazione e l'autorizzazione.
+	L'applicazione di esempio che verrà creata non consente agli utenti di effettuare l'accesso. Nella sezione [Passaggi successivi](#next-steps) sono riportati dei collegamenti a un'esercitazione che consente di implementare l'autenticazione e l'autorizzazione.
 
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET**, lasciare invariate le impostazioni in **MicrosoftAzure**, quindi fare clic su **OK**.
 
@@ -98,7 +98,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 4. Nel **piano di servizio App** elenco a discesa, selezionare **Crea nuovo piano di servizio App**.
 
-	Il [passaggi successivi](#next-steps) alla fine dell'esercitazione include collegamenti a informazioni sui piani di servizio dell'applicazione.
+	La sezione [Passaggi successivi](#next-steps) alla fine dell'esercitazione include collegamenti a informazioni sui piani di servizio dell'applicazione.
 
 5. Immettere *MyExamplePlan*, o un altro nome se si preferisce, il nome del piano.
 
@@ -134,7 +134,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	![Applicazione Web creata](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Distribuzione dell'applicazione in Azure
+## Distribuire l'applicazione in Azure
 
 7. Nella finestra **Attività di pubblicazione sito Web** fare clic su **Pubblica MyExample in questa app Web ora**.
 
@@ -244,7 +244,7 @@ Il [portale di gestione di Azure](/services/management-portal/) è un'interfacci
 
 	Nel pannello **App Web** dell'app Web viene visualizzata una panoramica delle statistiche di utilizzo e dei collegamenti per le funzioni di gestione dell'app Web utilizzate.
 
-	![Blade app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
+	![Pannello dell'app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
 
 	A questo punto il traffico dell'app Web è poco rilevante ed è quindi possibile che il grafico non visualizzi nulla. Se si passa all'applicazione, si aggiorna la pagina alcune volte; pertanto si aggiorna la pagina del portale e vengono visualizzate alcune statistiche.
 
@@ -262,7 +262,7 @@ Il [portale di gestione di Azure](/services/management-portal/) è un'interfacci
 
 Queste sono solo alcune delle funzionalità del portale di gestione. È possibile creare nuove app Web, eliminare app Web esistenti, arrestare e riavviare app Web, nonché gestire altri tipi di servizi di Azure, come database e macchine virtuali.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
@@ -295,7 +295,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come evitare tempi di attesa per la riattivazione dopo timeout di inattività
 
-	Per impostazione predefinita, le app Web vengono scaricate se sono rimaste inattive per un determinato periodo di tempo. La prima richiesta dopo tale periodo deve attendere il ricaricamento dell'app Web. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare un'app Web](web-sites-configure.md).
+	Per impostazione predefinita, le app Web vengono scaricate se sono rimaste inattive per un determinato periodo di tempo. La prima richiesta dopo tale periodo deve attendere il ricaricamento dell'app Web. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare le app Web](web-sites-configure.md).
 
 * Come aggiungere funzionalità in tempo reale come la chat
 
@@ -303,7 +303,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud e Macchine virtuali per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web nel servizio app per app Web come descritto in questa esercitazione oppure in Servizi cloud o Macchine virtuali. Per ulteriori informazioni, vedere [Modelli di esecuzione di Azure](/develop/net/fundamentals/compute/) e [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in App Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per ulteriori informazioni, vedere [Modelli di esecuzione di Azure](/develop/net/fundamentals/compute/) e [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
 * [Come scegliere o creare un piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -312,8 +312,8 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

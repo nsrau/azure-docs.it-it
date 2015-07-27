@@ -109,4 +109,4 @@ distribuire il servizio in produzione.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

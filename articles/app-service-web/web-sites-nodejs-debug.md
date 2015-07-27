@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creazione di un'app Web Node.js in Servizio app di Azure"
-	description="Informazioni su come eseguire il debug di un'applicazione web di Node. js in servizio di applicazione Azure."
+	pageTitle="Come eseguire il debug di un'app Web Node.js nel servizio app di Azure"
+	description="Informazioni su come eseguire il debug di un'app Web Node.js nel servizio app di Azure."
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
@@ -17,9 +17,9 @@
 	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
-# Creazione di un'app Web Node.js in Servizio app di Azure
+# Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
 
-Azure offre diagnostica integrata per agevolare il debug di applicazioni Node.js ospitate in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) App Web. In questo articolo verrà illustrato come abilitare la registrazione di stdout e stderr, visualizzare informazioni sugli errori nel browser, nonché come scaricare e visualizzare i file di log.
+Azure offre diagnostica integrata per agevolare il debug di applicazioni Node.js ospitate in App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo verrà illustrato come abilitare la registrazione di stdout e stderr, visualizzare informazioni sugli errori nel browser, nonché come scaricare e visualizzare i file di log.
 
 La diagnostica per le applicazioni Node.js ospitate in Azure viene fornita da [IISNode]. In questo articolo vengono illustrate le impostazioni più comuni per la raccolta delle informazioni di diagnostica; non sono invece incluse informazioni dettagliate sull'utilizzo di IISNode. Per ulteriori informazioni sull'utilizzo di IISNode, vedere il [file Readme di IISNode] su GitHub.
 
@@ -46,7 +46,7 @@ Se il **IISNode.yml** non esisteva già nell'applicazione, sarà necessario riav
 
 > [AZURE.NOTE]Se il sito Web è stato creato con gli strumenti da riga di comando di Azure o i cmdlet di Azure PowerShell, verrà creato automaticamente un file **IISNode.yml** predefinito.
 
-Per riavviare l'applicazione web, selezionare l'applicazione web nel [portale Azure preview](https://portal.azure.com), quindi fare clic su **riavviare** pulsante:
+Per riavviare l'app Web, selezionarla nel [portale di anteprima di Azure](https://portal.azure.com) e quindi fare clic sul pulsante **RIAVVIA**:
 
 ![Pulsante Restart][restart-button]
 
@@ -111,7 +111,7 @@ Per informazioni sull'uso di moduli in Azure, vedere [Uso di moduli Node.js con 
 Per informazioni sulla specifica di una versione di Node.js per l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure].
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -125,4 +125,4 @@ Per informazioni sulla specifica di una versione di Node.js per l'applicazione, 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conversione di WordPress in un multisito in Servizio app di Azure" 
-	description="Informazioni su come accedere a un'app Web WordPress esistente creata tramite la raccolta in Azure e convertirla in un multisito WordPress&quot;" 
+	description="Informazioni su come accedere a un'app Web WordPress esistente creata tramite la raccolta in Azure e convertirla in un multisito WordPress";" 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -154,4 +154,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

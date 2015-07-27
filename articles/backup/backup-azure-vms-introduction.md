@@ -77,7 +77,7 @@ In questo caso, le dimensioni *effettive* della macchina virtuale sono 17 GB + 3
 La fatturazione inizia solo dopo il completamento del primo backup corretto. A questo punto inizierà la fatturazione sia per le istanze di archiviazione sia per quelle protette. La fatturazione continua fino a quando per la macchina virtuale sono presenti *dati di backup archiviati con Backup di Azure*. Se i dati di backup vengono mantenuti, l'esecuzione dell'operazione Arresta protezione non interrompe la fatturazione. La fatturazione relativa a una macchina virtuale specificata verrà interrotta solo se la protezione viene arrestata *e* i dati di backup vengono eliminati. Quando non sono presenti processi di backup attivi (quando la protezione è stata interrotta), le dimensioni della macchina virtuale al momento dell'ultimo backup corretto diventano le dimensioni dell'istanza protetta su cui è basata la fattura mensile.
 
 ## Prerequisiti
-### 1. Insieme di credenziali per il backup
+### 1\. Insieme di credenziali per il backup
 Per avviare il backup delle macchine virtuali di Azure è prima necessario creare un insieme di credenziali per il backup. L'insieme di credenziali per il backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali contiene inoltre i criteri di backup che verranno applicati alle macchine virtuali di cui viene eseguito il backup.
 
 La figura seguente mostra le relazioni tra le diverse entità di backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
@@ -102,7 +102,7 @@ La figura seguente mostra le relazioni tra le diverse entità di backup di Azure
 
     >[AZURE.NOTE]Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup[vault-archiviazione-ridondanza].
 
-### 2. Agente di macchine virtuali
+### 2\. Agente di macchine virtuali
 Prima di iniziare ad eseguire il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure (agente VM) sia installato correttamente nella macchina virtuale. Per eseguire il backup della macchina virtuale, il servizio Backup di Azure installa un'estensione nell'agente di macchine virtuali. Poiché al momento della creazione della macchina virtuale l'agente VM è un componente opzionale, è necessario assicurarsi che la relativa casella di controllo sia selezionata prima di eseguire il provisioning della macchina virtuale.
 
 Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -136,4 +136,4 @@ Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

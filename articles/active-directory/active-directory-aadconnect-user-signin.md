@@ -64,4 +64,4 @@ Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare
 	- Accesso condizionale alle risorse sia locali che nel cloud mediante la registrazione del dispositivo, il join Azure AD o i criteri Intune MDM
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

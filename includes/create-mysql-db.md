@@ -73,4 +73,4 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

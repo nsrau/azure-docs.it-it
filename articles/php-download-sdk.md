@@ -136,4 +136,4 @@ Per informazioni su come usare l'interfaccia della riga di comando di Azure, ved
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

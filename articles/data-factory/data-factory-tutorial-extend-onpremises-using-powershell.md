@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 
@@ -72,14 +72,14 @@ In questo passaggio prima si creano il database e la tabella necessari nel compu
 
 Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi definiti dall'utente e le stored procedure. Questi verranno usati per spostare i risultati di **MarketingCampaignEffectiveness** dal BLOB di Azure al database SQL Server.
 
-1.	In **Esplora risorse** passare alla sottocartella **OnPremises** in **C:\ADFWalkthrough** (o il percorso in cui sono stati estratti gli esempi).
+1.	In **Esplora risorse** passare alla sottocartella **OnPremises** in **C:\\ADFWalkthrough** (o il percorso in cui sono stati estratti gli esempi).
 2.	Aprire **prepareOnPremDatabase&Table.ps1** nell'editor preferito, sostituire le informazioni evidenziate con quelle di SQL Server e salvare il file (fornire i dettagli dell'**autenticazione SQL**). Ai fini dell'esercitazione, abilitare l'autenticazione SQL per il database. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. In **Azure PowerShell** passare alla cartella **C:\ADFWalkthrough\OnPremises**.
+3. In **Azure PowerShell** passare alla cartella **C:\\ADFWalkthrough\\OnPremises**.
 4.	Eseguire **prepareOnPremDatabase&Table.ps1** **(& tra virgolette o come mostrato di seguito)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 
 ### Creare la tabella logica locale
 
-1.	In **Azure PowerShell** passare alla cartella **C:\ADFWalkthrough\OnPremises**. 
+1.	In **Azure PowerShell** passare alla cartella **C:\\ADFWalkthrough\\OnPremises**. 
 2.	Usare il cmdlet **New-AzureDataFactoryTable** per creare le tabelle nel modo seguente per **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
@@ -170,4 +170,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

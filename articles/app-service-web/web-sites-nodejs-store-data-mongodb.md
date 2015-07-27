@@ -113,7 +113,7 @@ In questa sezione verrà creata una nuova applicazione Node nell'ambiente di svi
 
 1. Dalla riga di comando passare alla directory **tasklist**. Se la directory **tasklist** non esiste, crearla.
 
-	> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\node\tasklist**
+	> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\\node\\tasklist**
 
 2. Immettere il comando seguente per installare il comando express.
 
@@ -532,7 +532,7 @@ Per ulteriori informazioni su come proteggere MongoDB, vedere l'articolo relativ
 [Strumento da riga di comando di azure per Mac e Linux][Build and deploy a Node.js web app in Azure App Service] [la distribuzione continua utilizzando GIT nel servizio di Azure App]
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [mongosecurity]: http://docs.mongodb.org/manual/security/
@@ -571,4 +571,4 @@ Per ulteriori informazioni su come proteggere MongoDB, vedere l'articolo relativ
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

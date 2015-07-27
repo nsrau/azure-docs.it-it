@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -38,7 +38,7 @@ Di seguito è riportato un esempio di un'applicazione line-of-business in esecuz
 
 È possibile trasferire nelle app Web di Servizio app di Azure gli asset Web esistenti creati con una vasta gamma di linguaggi e framework.
 
-Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. Le app Web supportano la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
+Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. App Web supporta la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
 ## Proteggere gli asset
 
@@ -124,4 +124,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

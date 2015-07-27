@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Aggiungere il rilevamento delle dipendenze
+
+L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
+
+#### Se l'app è in esecuzione nel server IIS
+
+Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+
+È anche possibile usare Status Monitor per [instrumentare un'app già in esecuzione](app-insights-monitor-performance-live-website-now.md), anche se non è stata compilata con l'SDK.
+
+#### Se l'app è un'app Web di Azure
+
+Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Application Insights.
+
+![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+Questa estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+
+## Aggiungere il monitoraggio sul lato client
+
+È stato installato l'SDK che invia i dati di telemetria dal lato server dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel client.
+
+Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
+
+#### Se i client sono Web browser
+
+Se l'app visualizza pagine Web, aggiungere un frammento di codice JavaScript in ogni pagina. Ottenere il codice dalla risorsa di Application Insights:
+
+![Nell'app Web scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+Si noti che il codice contiene la chiave di strumentazione che identifica la risorsa dell'applicazione.
+
+[Altre informazioni sul rilevamento delle pagine Web.](app-insights-web-track-usage.md)
+
+#### Se i client sono app per dispositivi
+
+Se l'applicazione soddisfa le richieste di client quali telefono o altri dispositivi, aggiungere l'[SDK appropriato](app-insights-platforms.md) all'app per dispositivi.
+
+Se si configura l'SDK client con la stessa chiave di strumentazione dell'SDK del server, i due flussi verranno integrati e sarà possibile visualizzarli insieme.
+
 
 ## Completare l'installazione
 
 Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario eseguire ancora alcune operazioni:
 
-
-* [Aggiungere l'SDK per JavaScript alle pagine Web][client] per ottenere dati di telemetria basati su browser quali l'utente, la sessione, i conteggi delle visualizzazioni delle pagine, i tempi di caricamento delle pagina e le eccezioni di script e per consentire la scrittura dei dati di telemetria negli script delle pagine.
-* Aggiungere il rilevamento delle dipendenze per diagnosticare i problemi causati da database o da altri componenti usati dall'app:
- * [Nell'app Web o nella macchina virtuale di Azure][azure]
- * [Nel server IIS locale][redfield]
+* [Configurare i test Web][availability] in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
 * [Acquisire le tracce dei log][netlogs] dal framework di registrazione preferito
 * [Tenere traccia di eventi personalizzati e metriche][api] nei client, nel server o in entrambi per altre informazioni sulle modalità di uso dell'applicazione.
-* [Configurare i test Web][availability] in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
 
 ## <a name="ide"></a> Il metodo automatico
 
@@ -136,10 +171,10 @@ Saranno necessari [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?
 
 #### Se è un nuovo progetto...
 
-Quando si crea un nuovo progetto in Visual Studio, assicuarsi che Application Insights sia selezionato.
+Quando si crea un nuovo progetto in Visual Studio, assicurarsi che Application Insights sia selezionato.
 
 
-![Creare un progetto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
+![Creazione di un progetto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
 
 Visual Studio crea una risorsa in Application Insights, aggiunge l'SDK al progetto e posiziona la chiave nel file `.config`.
 
@@ -196,4 +231,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

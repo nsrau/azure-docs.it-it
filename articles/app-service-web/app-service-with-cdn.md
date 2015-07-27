@@ -16,8 +16,8 @@
 	ms.date="03/04/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
 # Integrare un'app Web di Azure con la rete CDN di Azure #
+<a name="intro"></a>
 
 Il servizio app di Azure può essere integrato con la [rete CDN di Azure](http://azure.microsoft.com/services/cdn/), migliorando in tal modo le funzionalità di scalabilità globali inerenti nell'app Web del servizio app tramite la pubblicazione del contenuto dell'app Web a livello globale da nodi server vicini ai clienti (l'elenco aggiornato di tutti i percorsi dei nodi correnti è disponibile [in questa pagina](http://msdn.microsoft.com/library/azure/gg680302.aspx)). Questa integrazione aumenta notevolmente le prestazioni dell'app Web del servizio app di Azure nonché l'esperienza utente dell'app Web in ogni parte del mondo.
 
@@ -39,9 +39,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Un [account Microsoft Azure](http://azure.microsoft.com/account/) attivo
 -	Visual Studio 2013 con [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure.
-> + È possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web.
-> + È possibile [attivare i benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="deploy"></a>
 ## Distribuire un'app Web di Azure con un endpoint della rete CDN integrato ##
@@ -127,17 +125,9 @@ L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla
 <a name="caching"></a>
 ## Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure ##
 
-Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il codice XML riportato di seguito consente di configurare la cache in modo che scada dopo 3 giorni.
-<pre class="prettyprint">
-&lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
-    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
-  ...
-&lt;/system.webServer&gt;
-</pre>
+Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il codice XML riportato di seguito consente di configurare la cache in modo che scada dopo 3 giorni. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-A questo punto, tutti i file statici nell'app Web di Azure osserveranno la stessa regola nella cache della rete CDN. Per un controllo più granulare delle impostazioni della cache, aggiungere un file *Web.config* in una cartella e quindi aggiungervi le impostazioni. Ad esempio, aggiungere un file *Web.config* alla cartella *\Content* e sostituire il contenuto con il seguente linguaggio XML:
+A questo punto, tutti i file statici nell'app Web di Azure osserveranno la stessa regola nella cache della rete CDN. Per un controllo più granulare delle impostazioni della cache, aggiungere un file *Web.config* in una cartella e quindi aggiungervi le impostazioni. Ad esempio, aggiungere un file *Web.config* alla cartella *\\Content* e sostituire il contenuto con il seguente linguaggio XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -148,7 +138,7 @@ A questo punto, tutti i file statici nell'app Web di Azure osserveranno la stess
 	  </system.webServer>
 	</configuration>
 
-Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\Content* per 15 giorni.
+Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\\Content* per 15 giorni.
 
 Per altre informazioni su come configurare l'elemento `<clientCache>`, vedere l'argomento relativo alla [cache client &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -167,104 +157,104 @@ Si usa una semplice azione `Index` che consente ai clienti di specificare i supe
 
 Seguire i passaggi precedenti per configurare questa azione del controller:
 
-1. Nella cartella *\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Assicurarsi di sostituire la parte evidenziata con il percorso file e il nome della propria rete CDN.
+1. Nella cartella *\\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Assicurarsi di sostituire la parte evidenziata con il percorso file e il nome della propria rete CDN.
 	<pre class="prettyprint">
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Web.Hosting;
+using System.Web.Mvc;
+using System.Web.UI;
 
-	namespace cdnwebapp.Controllers
-	{
-	    public class MemeGeneratorController : Controller
-	    {
-	        static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
+namespace cdnwebapp.Controllers
+{
+    public class MemeGeneratorController : Controller
+    {
+        static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
 
-	        public ActionResult Index()
-	        {
-	            return View();
-	        }
-	
-	        [HttpPost, ActionName("Index")]
-	    	public ActionResult Index_Post(string top, string bottom)
-	        {
-	            var identifier = Guid.NewGuid().ToString();
-	            if (!Memes.ContainsKey(identifier))
-	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
-	            }
-	
-	            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
-	        }
-	
-	        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Show(string id)
-	        {
-	            Tuple&lt;string, string> data = null;
-	            if (!Memes.TryGetValue(id, out data))
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	            }
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-	            if (Debugger.IsAttached) // Preserve the debug experience
-	            {
-	                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
-	            }
-	            else // Get content from Azure CDN
-	            {
-	                return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
-	            }
-	        }
+        [HttpPost, ActionName("Index")]
+    	public ActionResult Index_Post(string top, string bottom)
+        {
+            var identifier = Guid.NewGuid().ToString();
+            if (!Memes.ContainsKey(identifier))
+            {
+                Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
+            }
 
-	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Generate(string top, string bottom)
-	        {
-	            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
-	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-	
-	            using (Graphics graphics = Graphics.FromImage(bitmap))
-	            {
-	                SizeF size = new SizeF();
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
-	                }
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
-	                }
-	            }
-	
-	            MemoryStream ms = new MemoryStream();
-	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), "image/png");
-	        }
-	
-	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-	        {
-	            // Compute actual size, shrink if needed
-	            while (true)
-	            {
-	                size = g.MeasureString(text, font);
-	
-	                // It fits, back out
-	                if (size.Height &lt; i.Height &amp;&amp;
-	                     size.Width &lt; i.Width) { return font; }
-	
-	                // Try a smaller font (90% of old size)
-	                Font oldFont = font;
-	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-	                oldFont.Dispose();
-	            }
-	        }
-	    }
-	}
-	</pre>
+            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
+        }
+
+        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Show(string id)
+        {
+            Tuple&lt;string, string> data = null;
+            if (!Memes.TryGetValue(id, out data))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            if (Debugger.IsAttached) // Preserve the debug experience
+            {
+                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+            }
+            else // Get content from Azure CDN
+            {
+                return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+            }
+        }
+
+        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Generate(string top, string bottom)
+        {
+            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
+            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                SizeF size = new SizeF();
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+                }
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+                }
+            }
+
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return File(ms.ToArray(), "image/png");
+        }
+
+        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
+        {
+            // Compute actual size, shrink if needed
+            while (true)
+            {
+                size = g.MeasureString(text, font);
+
+                // It fits, back out
+                if (size.Height &lt; i.Height &amp;&amp;
+                     size.Width &lt; i.Width) { return font; }
+
+                // Try a smaller font (90% of old size)
+                Font oldFont = font;
+                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+                oldFont.Dispose();
+            }
+        }
+    }
+}
+</pre>
 
 2. Fare clic con il pulsante destro del mouse sull'azione `Index()` predefinita e selezionare **Aggiungi visualizzazione**.
 
@@ -274,7 +264,7 @@ Seguire i passaggi precedenti per configurare questa azione del controller:
 
 	![](media/app-service-with-cdn/cdn-7-configureview.PNG)
 
-4. Aprire il nuovo file *Views\MemeGenerator\Index.cshtml* e sostituire il contenuto con il semplice HTML seguente per inviare i superlativi:
+4. Aprire il nuovo file *Views\\MemeGenerator\\Index.cshtml* e sostituire il contenuto con il semplice HTML seguente per inviare i superlativi:
 
 		<h2>Meme Generator</h2>
 		
@@ -288,26 +278,17 @@ Seguire i passaggi precedenti per configurare questa azione del controller:
 
 5. Pubblicare di nuovo l'app Web di Azure e passare a **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** nel browser.
 
-Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azione `Index_Post` restituisce un collegamento al metodo di azione `Show` con il rispettivo identificatore di input. Facendo clic sul collegamento, si raggiunge il codice seguente:
-<pre class="prettyprint">
-[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) 
-{
-     Tuple&lt;string, string&gt; data = null;
-     if (!Memes.TryGetValue(id, out data))
-     {
-        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-     }
+Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azione `Index_Post` restituisce un collegamento al metodo di azione `Show` con il rispettivo identificatore di input. Facendo clic sul collegamento, si raggiunge il codice seguente: <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
-        return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
+        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
+        return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-}
-</pre>
+} </pre>
 
 Se il debugger locale è collegato, si avrà una normale esperienza di debug con un reindirizzamento locale. Se viene eseguito nell'app Web di Azure, si viene reindirizzati a:
 
@@ -340,7 +321,7 @@ Gli script e i fogli di stile CSS cambiano in maniera non frequente e sono i pri
 -	Meccanismo di fallback in caso di errore dell'endpoint della rete CDN
 -	Riduzione delle modifiche del codice
 
-Nel progetto ASP.NET creato in [Integrare un endpoint della rete CDN di Azure con l'app Web di Azure e rendere disponibile contenuto statico nelle pagine Web dalla rete CDN di Azure](#deploy), aprire *App_Start\BundleConfig.cs* e osservare le chiamate del metodo `bundles.Add()`.
+Nel progetto ASP.NET creato in [Integrare un endpoint della rete CDN di Azure con l'app Web di Azure e rendere disponibile contenuto statico nelle pagine Web dalla rete CDN di Azure](#deploy), aprire *App_Start\\BundleConfig.cs* e osservare le chiamate del metodo `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -349,7 +330,7 @@ Nel progetto ASP.NET creato in [Integrare un endpoint della rete CDN di Azure co
 		...
     }
 
-La prima istruzione `bundles.Add()` aggiunge un'aggregazione di script alla directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\Shared_Layout.cshtml* per vedere come viene eseguito il rendering del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
+La prima istruzione `bundles.Add()` aggiunge un'aggregazione di script alla directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\\Shared_Layout.cshtml* per vedere come viene eseguito il rendering del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -365,37 +346,35 @@ Ciò consente di eseguire il debug del codice JavaScript nell'ambiente di svilup
 
 Attenersi alla procedura seguente per integrare la creazione di bundle e la minimizzazione ASP.NET con l'endpoint della rete CDN.
 
-1. Tornando a *App_Start\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A tale scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
+1. Tornando a *App_Start\\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A questo scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
 	<pre class="prettyprint">
-	public static void RegisterBundles(BundleCollection bundles)
-	{
-	    <mark>bundles.UseCdn = true;
-	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-	        .GetName().Version.ToString();
-	    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
-	
-	    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
-	                "~/Scripts/jquery-{version}.js"));
-	
-	    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
-	                "~/Scripts/jquery.validate*"));
-	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you're
-	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
-	                "~/Scripts/modernizr-*"));
-	
-	    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
-	                "~/Scripts/bootstrap.js",
-	                "~/Scripts/respond.js"));
-	
-	    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
-	                "~/Content/bootstrap.css",
-	                "~/Content/site.css"));
-	}
-	</pre>
+public static void RegisterBundles(BundleCollection bundles)
+{
+    <mark>bundles.UseCdn = true;
+    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+        .GetName().Version.ToString();
+    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
 
-	Assicurarsi di sostituire `<yourCDNName>` con il nome della rete CDN.
+    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
+                "~/Scripts/jquery-{version}.js"));
+
+    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
+                "~/Scripts/jquery.validate*"));
+
+    // Use the development version of Modernizr to develop with and learn from. Then, when you're
+    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
+                "~/Scripts/modernizr-*"));
+
+    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+}
+</pre>Assicurarsi di sostituire `<yourCDNName>` con il nome della rete CDN.
 
 	In altri termini, si imposta `bundles.UseCdn = true` e si aggiunge un URL della rete CDN definito con precisione a ogni aggregazione. Ad esempio, il primo costruttore nel codice:
 
@@ -409,7 +388,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 	
 	-	L'origine per questo URL della rete CDN è `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale dell'aggregazione di script nell'applicazione Web.
 	-	Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
-	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
+	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -419,39 +398,40 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
  
 4. Visualizzare il codice HTML relativo alla pagina. Dovrebbe essere possibile visualizzare l'URL della rete CDN di cui è stato eseguito il rendering, con una stringa di versione univoca ogni volta che si ripubblicano le modifiche all'app Web di Azure. Ad esempio:
 	<pre class="prettyprint">
-	...
+...
 
-	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
 
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
+&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
 
-	...	
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
+...
 
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
+&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
 
-	...</pre>
+&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
+
+...</pre>
 
 5. In Visual Studio eseguire il debug l'applicazione ASP.NET in Visual Studio digitando `F5`.,
 
 6. Visualizzare il codice HTML relativo alla pagina. Sarà ancora possibile visualizzare ciascun file di script di cui sia stato eseguito il rendering, in modo che l'esperienza di debug sia coerente in Visual Studio.
 	<pre class="prettyprint">
-	...
+...
 
-	    &lt;link href="/Content/bootstrap.css" rel="stylesheet"/>
-	&lt;link href="/Content/site.css" rel="stylesheet"/>
+    &lt;link href="/Content/bootstrap.css" rel="stylesheet"/>
+&lt;link href="/Content/site.css" rel="stylesheet"/>
 
-	    &lt;script src="/Scripts/modernizr-2.6.2.js">&lt;/script>
+    &lt;script src="/Scripts/modernizr-2.6.2.js">&lt;/script>
 
-	...
+...
 
-	    &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
+    &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
 
-	    &lt;script src="/Scripts/bootstrap.js">&lt;/script>
-	&lt;script src="/Scripts/respond.js">&lt;/script>
+    &lt;script src="/Scripts/bootstrap.js">&lt;/script>
+&lt;script src="/Scripts/respond.js">&lt;/script>
 
-	...    
-	</pre>
+...    
+</pre>
 
 <a name="fallback"></a>
 ## Meccanismo di fallback per gli URL della rete CDN ##
@@ -460,43 +440,39 @@ Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qua
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
 
-1. Nel progetto ASP.NE, aprire *App_Start\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
+1. Nel progetto ASP.NE, aprire *App_Start\\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
 	<pre class="prettyprint">
-	public static void RegisterBundles(BundleCollection bundles)
-	{
-	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
-	        .GetName().Version.ToString();
-	    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
-	    bundles.UseCdn = true;
-	
-	    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-					<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
-	                .Include("~/Scripts/jquery-{version}.js"));
-	
-	    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-					<mark>{ CdnFallbackExpression = "$.validator" }</mark>
-	            	.Include("~/Scripts/jquery.validate*"));
-	
-	    // Use the development version of Modernizr to develop with and learn from. Then, when you're
-	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-	    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-					<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
-					.Include("~/Scripts/modernizr-*"));
-	
-	    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
-					<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
-	        		.Include(
-		              		&quot;~/Scripts/bootstrap.js",
-		              		&quot;~/Scripts/respond.js"));
-	
-	    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
-	                &quot;~/Content/bootstrap.css",
-	                &quot;~/Content/site.css"));
-	}
+public static void RegisterBundles(BundleCollection bundles)
+{
+    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+        .GetName().Version.ToString();
+    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+    bundles.UseCdn = true;
 
-	</pre>
+    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+				<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
+                .Include("~/Scripts/jquery-{version}.js"));
 
-	Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
+    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
+            	.Include("~/Scripts/jquery.validate*"));
+
+    // Use the development version of Modernizr to develop with and learn from. Then, when you're
+    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
+				.Include("~/Scripts/modernizr-*"));
+
+    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
+				<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
+        		.Include(
+	              		"~/Scripts/bootstrap.js",
+	              		"~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+}</pre>Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
 	
 	-	`window.jquery` viene definito nel file jquery-{version}.js
 	-	`$.validator` viene definito nel file jquery.validate.js
@@ -509,58 +485,54 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 2. Per usare questa soluzione alternativa, creare un nuovo file con estensione CS nella cartella *App_Start* del progetto ASP.NET, denominata *StyleBundleExtensions.cs* e sostituirne il contenuto con il [codice di GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. In *App_Start\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
+4. In *App_Start\\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
 
-3. Tornare a `App_Start\BundleConfig.cs` e modificare l'ultima istruzione `bundles.Add` con il codice evidenziato seguente:
+3. Tornare a `App_Start\BundleConfig.cs` e modificare l'ultima istruzione `bundles.Add` con il seguente codice evidenziato:
 	<pre class="prettyprint">
-	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
-	    .Include(
-	          "~/Content/bootstrap.css",
-	          "~/Content/site.css"));
-	</pre>
-
-	Questo nuovo metodo di estensione si basa sulla stessa idea di inserire lo script nel linguaggio HTML per cercare in DOM il nome di classe, il nome di regola e il valore di regola corrispondenti definiti nel bundle CSS, eseguendo il fallback sul server Web in caso non riesca a trovare la corrispondenza.
+bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+    .Include(
+          "~/Content/bootstrap.css",
+          "~/Content/site.css"));
+</pre>Questo nuovo metodo di estensione si basa sulla stessa idea di inserire lo script nel linguaggio HTML per cercare in DOM il nome di classe, il nome di regola e il valore di regola corrispondenti definiti nel bundle CSS, eseguendo il fallback sul server Web in caso non riesca a trovare la corrispondenza.
 
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
 	<pre class="prettyprint">...
-	
-		&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<mark>&lt;script>(function() {
-	                var loadFallback,
-	                    len = document.styleSheets.length;
-	                for (var i = 0; i &lt; len; i++) {
-	                    var sheet = document.styleSheets[i];
-	                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-	                        var meta = document.createElement('meta');
-	                        meta.className = 'sr-only';
-	                        document.head.appendChild(meta);
-	                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-	                        document.head.removeChild(meta);
-	                        if (value !== '1px') {
-	                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
-	                        }
-	                    }
-	                }
-	                return true;
-	            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
-	
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
-	
-	...	
-	
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
 
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
+	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<mark>&lt;script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i &lt; len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
 
-	...
-	</pre>
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
 
-	Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+...	
+
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
+
+    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
+<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
+
+...
+</pre>Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -572,7 +544,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 7. Aggiornare la finestra del browser per l'app Web di Azure. Si noterà ora che tutti gli script e i fogli di stile vengono caricati correttamente.
 
-# Altre informazioni #
+## Altre informazioni ##
 - [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](../cdn-cloud-service-with-cdn.md)
@@ -580,4 +552,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Uso della rete CDN per Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

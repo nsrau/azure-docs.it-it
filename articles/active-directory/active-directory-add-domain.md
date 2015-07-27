@@ -72,7 +72,7 @@ Se si prevede di usare la funzionalità Single Sign-On con il servizio cloud, è
 
 ### Modificare i record DNS per i servizi cloud
 
-> [AZURE.NOTE]Se si usa Microsoft Intune, Non è necessario modificare i record DNS per il servizio cloud Microsoft Intune.
+> [AZURE.NOTE]Se si usa Microsoft Intune, non è necessario modificare i record DNS per il servizio cloud Microsoft Intune.
 
 Dopo aver aggiunto e verificato il nome di dominio personalizzato, il passaggio successivo consiste nel modificare, presso il registrar o il provider di hosting DNS, i record DNS che indirizzano il traffico al servizio cloud. Azure AD fornisce le informazioni DNS necessarie.
 
@@ -211,4 +211,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

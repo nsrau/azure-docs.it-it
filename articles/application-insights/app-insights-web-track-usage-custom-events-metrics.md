@@ -23,7 +23,7 @@ Inserire alcune righe di codice nell'applicazione per scoprire come viene usato 
 
 Gli agenti di raccolta dati di Application Insights usano questa API per inviare dati di telemetria standard come visualizzazioni pagina e report di eccezioni, ma è possibile usarli anche per inviare i propri dati di telemetria personalizzati.
 
-## API summary
+## Riepilogo dell'API
 
 L'API è uniforme in tutte le piattaforme, a parte alcune variazioni di lieve entità.
 
@@ -573,14 +573,14 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
  * **SyntheticSource**: se non è null o vuota, questa stringa indica che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita verranno esclusi dai calcoli in Esplora metriche.
 * **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace*.
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo.
-* **Utente** consente agli utenti di essere conteggiati. In un'app Web l'ID utente viene preso da un cookie, se esiste. Se non c'è, ne viene generato uno nuovo. Se gli utenti devono accedere all'app, è possibile impostare l'ID dal quello autenticato, in modo da fornire un conteggio più affidabile che sia corretto anche se l'utente accede da un computer diverso. 
+* **Utente** consente agli utenti di essere conteggiati. In un'app Web l'ID utente viene preso da un cookie, se esiste. Se non c'è, ne viene generato uno nuovo. Se gli utenti devono accedere all'app, è possibile impostare l'ID da quello autenticato, in modo da fornire un conteggio più affidabile che sia corretto anche se l'utente accede da un computer diverso. 
 
 ## Limiti
 
 Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione.
 
 1. Fino a 500 punti dati di telemetria al secondo per chiave di strumentazione (ovvero, per ogni applicazione). Sono inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice.
-1.	200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione al massimo. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le metriche e nomi di proprietà sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
+1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le metriche e nomi di proprietà sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
 2.	Le proprietà possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
 3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
 
@@ -630,4 +630,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

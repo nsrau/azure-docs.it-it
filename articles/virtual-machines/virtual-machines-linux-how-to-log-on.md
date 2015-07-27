@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Accedere a una macchina virtuale che esegue Linux in Azure" 
-	description="Informazioni su come accedere a una macchina virtuale di Azure che esegue Linux tramite un client SSH (Secure Shell)." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Accedere a una macchina virtuale che esegue Linux in Azure"
+	description="Informazioni su come accedere a una macchina virtuale di Azure che esegue Linux tramite un client SSH (Secure Shell)."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 	![Accesso alla macchina virtuale](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]Se si dimentica la chiave o la password SSH, è possibile reimpostarla mediante l'estensione VMAccess. Se si dimentica il nome utente, è possibile usare l'estensione per crearne uno nuovo con privilegi sudo. Per istruzioni, vedere [Come reimpostare una password o SSH per le macchine virtuali Linux].
-	
+
 È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

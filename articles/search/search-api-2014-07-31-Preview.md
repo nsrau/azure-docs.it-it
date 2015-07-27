@@ -1,6 +1,6 @@
 <properties pageTitle="API REST di Ricerca di Azure versione 2014-07-31-Preview" description="API REST di Ricerca di Azure: versione 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # API REST di Ricerca di Azure versione 2014-07-31-Preview
 
@@ -10,7 +10,7 @@ Se si utilizza una versione di anteprima dell'API nel codice dell'applicazione, 
 
 Alla versione **2014-07-31-Preview** è correlato anche il contenuto API seguente:
 
-- [Profili di punteggio (API REST di Ricerca di Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
+- [Profili di punteggio (API REST di Ricerca di Azure: 2014-07-31-Preview)](search-api-scoring-profiles-2014-07-31-preview.md)
 
 
 ##Informazioni sull'API REST del servizio
@@ -170,7 +170,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per 
 - per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 <a name="RequestData"></a> **Sintassi del corpo della richiesta**
 
@@ -647,7 +647,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiornamento dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Sintassi del corpo della richiesta**
 
@@ -739,7 +739,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **elencare gli indici** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -806,7 +806,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -840,7 +840,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **eliminazione di un indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -872,7 +872,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
  
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere le statistiche di un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -931,7 +931,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiunta di documenti** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1104,7 +1104,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1238,7 +1238,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca di un documento** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1286,7 +1286,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Accept`: questo valore deve essere impostato su `text/plain`.
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **conteggio dei documenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1340,7 +1340,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di recupero dei **suggerimenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](../search-create-service.portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service.portal.md).
 
 **Corpo della richiesta**
 
@@ -1384,4 +1384,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

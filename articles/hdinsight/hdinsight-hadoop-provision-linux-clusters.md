@@ -106,21 +106,19 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 		<td>Selezionare <b>Ubuntu 12.04 LTS Preview</b> per effettuare il provisioning del cluster HDInsight in Linux. Per effettuare il provisioning di un cluster Windows, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Effettuare il provisioning di cluster Hadoop in Windows in HDInsight</a>.</td></tr>
 	<tr><td>Versione HDInsight</td>
 		<td>Scegliere la versione. Per HDInsight in Linux l'impostazione predefinita è HDInsight versione 3.2, che usa Hadoop 2.6.</td></tr>
-	</table>
-	Immettere o selezionare i valori come illustrato nella tabella, quindi fare clic sulla freccia destra.
+	</table>Immettere o selezionare i valori come illustrato nella tabella, quindi fare clic sulla freccia destra.
 
 4. Nella pagina **Configura cluster** immettere o selezionare i valori seguenti:
 
 	![Fornire dettagli del cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nome</th><th>Valore</th></tr>
-	<tr><td>Nodi di dati</td><td>Numero di nodi di dati che si vuole distribuire. Ai fini di test, creare un cluster a singolo nodo. <br />Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione di Azure.</td></tr>
-	<tr><td>Area/Rete virtuale</td><td><p>Selezionare la stessa area geografica specificata per l'account di archiviazione creato in precedenza. HDInsight richiede che l'account di archiviazione si trovi nella stessa area geografica. Più avanti nella configurazione sarà possibile selezionare un account di archiviazione situato nella stessa area geografica specificata qui.</p></td></tr>
-	<tr><td>Dimensioni nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
-	<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
-	</table>
-	>[AZURE.NOTE]Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+<tr><th>Nome</th><th>Valore</th></tr>
+<tr><td>Nodi di dati</td><td>Numero di nodi di dati che si vuole distribuire. Ai fini di test, creare un cluster a singolo nodo. <br />Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione di Azure.</td></tr>
+<tr><td>Area/Rete virtuale</td><td><p>Selezionare la stessa area geografica specificata per l'account di archiviazione creato in precedenza. HDInsight richiede che l'account di archiviazione si trovi nella stessa area geografica. Più avanti nella configurazione sarà possibile selezionare un account di archiviazione situato nella stessa area geografica specificata qui.</p></td></tr>
+<tr><td>Dimensioni nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
+<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
+</table>>[AZURE.NOTE]Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 
 5. Nella pagina **Configura utente cluster** digitare o scegliere il valore seguente:
@@ -144,8 +142,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 	<tr><td>Immettere metastore Hive/Oozie</td>
 		<td>Selezionare questa casella di controllo per specificare un database SQL nello stesso data center del cluster, da usare come metastore Hive/Oozie. Se si seleziona questa casella di controllo, è necessario specificare i dettagli relativi al database SQL di Azure nelle pagine successive della procedura guidata. Ciò risulta utile se si vogliono conservare i metadati sui progetti Hive/Oozie anche dopo aver eliminato un cluster.</td></tr>
 	</td></tr>
-	</table>
-	> [AZURE.NOTE]È consigliabile usare l'autenticazione tramite chiave pubblica SSH con SSH, perché è più sicura rispetto all'autenticazione tramite password.
+	</table>> [AZURE.NOTE]È consigliabile usare l'autenticazione tramite chiave pubblica SSH con SSH, perché è più sicura rispetto all'autenticazione tramite password.
 
 	Fare clic sulla freccia destra.
 
@@ -188,8 +185,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
     </td></tr>
 	<tr><td>Account di archiviazione aggiuntivi</td>
 		<td>HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni account di archiviazione aggiuntivo specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, è selezionato un account di archiviazione aggiuntivo, per cui viene aggiunta la pagina 5 alla finestra di dialogo.</td></tr>
-	</table>
-	Fare clic sulla freccia destra.
+</table>Fare clic sulla freccia destra.
 
 7. Se si è scelto di configurare un account di archiviazione aggiuntivo per il cluster, nella pagina **Account di archiviazione** immettere le informazioni relative all'account aggiuntivo:
 
@@ -285,7 +281,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente **PATH**: <i>C:\Programmi (x86)\nodejs;C:\Utenti[nomeutente]\AppData\Roaming\npm</i> or <i>C:\Programmi\nodejs;C:\Utenti[nomeutente]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE]Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente **PATH**: <i>C:\\Programmi (x86)\\nodejs;C:\\Utenti[nomeutente]\\AppData\\Roaming\\npm</i> or <i>C:\\Programmi\\nodejs;C:\\Utenti[nomeutente]\\AppData\\Roaming\\npm</i>
 
 
 5.	Eseguire il comando seguente per verificare l'installazione:
@@ -301,8 +297,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 **Per installare l'interfaccia della riga di comando di Azure tramite Windows Installer**
 
-1.	Passare a **http://azure.microsoft.com/downloads/**. 
-2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
+1.	Passare a **http://azure.microsoft.com/downloads/**. 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
 
@@ -763,4 +758,4 @@ In questo articolo si sono appresi diversi modi per effettuare il provisioning d
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

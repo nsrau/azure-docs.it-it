@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -35,6 +35,7 @@ Metodo | Usato per
 [`TrackException`](#track-exception)|Registrare le eccezioni per la diagnosi. Tracciare dove si verificano in relazione ad altri eventi ed esaminare le analisi dello stack.
 [`TrackRequest`](#track-request)| Registrare la frequenza e la durata delle richieste del server per l'analisi delle prestazioni.
 [`TrackTrace`](#track-trace)|Messaggi nei log di diagnostica. È anche possibile acquisire i log di terze parti.
+[`TrackDependency`](#track-dependency)|Registrare la durata e la frequenza delle chiamate ai componenti esterni da cui dipende l'app.
 
 È possibile [associare proprietà e metriche](#properties) alla maggior parte di queste chiamate di telemetria.
 
@@ -231,6 +232,7 @@ Se è più pratico, è possibile raccogliere i parametri di un evento in un ogge
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> Temporizzazione degli eventi
 
 A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un'azione. Ad esempio, si potrebbe voler sapere quanto tempo occorre agli utenti per scegliere tra le opzioni disponibili in un gioco. Questo è un esempio utile dell'uso del parametro di misurazione.
@@ -367,7 +369,7 @@ Questo metodo viene usato dal server SDK per registrare le richieste HTTP.
 
 ## Tenere traccia di un'eccezione
 
-Inviare le eccezioni ad Application Insights: per [contarle][metrics], come un'indicazione della frequenza di un problema e per [esaminare le singole occorrenze][diagnostic].
+Inviare le eccezioni ad Application Insights: per [contarle][metrics], come un'indicazione della frequenza di un problema e per [esaminare le singole occorrenze][diagnostic]. I report includono le analisi dello stack.
 
 *C#*
 
@@ -397,6 +399,30 @@ Gli [adattatori di log][trace] usano questa API per inviare i log di terze parti
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 Il limite delle dimensioni in `message` è molto superiore al limite per le proprietà. È possibile eseguire ricerche nel contenuto del messaggio, ma (a differenza dei valori di proprietà) non è possibile filtrarlo.
+
+## Rilevamento delle dipendenze
+
+Il modulo standard per il rilevamento delle dipendenze usa questa API per registrare le chiamate alle dipendenze esterne, quali database o le API REST. Il modulo rileva automaticamente alcune dipendenze esterne, ma è possibile che si vogliano gestire allo stesso modo altri componenti.
+
+Ad esempio, se si compila il codice con un assembly non scritto personalmente, sarà possibile misurare il tempo necessario per tutte le chiamate all'assembly, per individuare il contributo dell'assembly ai tempi di risposta. Per visualizzare i dati nei grafici relativi alle dipendenze in Application Insights, inviarli mediante `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Per disattivare il modulo standard per il rilevamento delle dipendenze, modificare il file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) ed eliminare il riferimento a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Impostare i valori predefiniti per i dati di telemetria personalizzati selezionati
 
@@ -435,6 +461,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 
 
+
 ## <a name="ikey"></a> Impostare la chiave di strumentazione per la telemetria personalizzata selezionata
 
 *C#*
@@ -448,7 +475,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 È possibile impostare un inizializzatore universale in modo che tutti i nuovi TelemetryClient usino automaticamente il contesto. Sono inclusi i dati di telemetria standard inviati dai moduli di telemetria specifici della piattaforma, ad esempio la traccia delle richieste del server Web.
 
-Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale è possibile filtrare o raggruppare i risultati in base alla proprietà "Versione dell'applicazione".
+Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale, è possibile filtrare o raggruppare i risultati in base alla proprietà "Application Version".
 
 **Definire l'inizializzatore**
 
@@ -532,9 +559,9 @@ Nel client Web JavaScript non è attualmente possibile impostare proprietà pred
 
 Usare gli inizializzatori di telemetria per eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
 
-Ad esempio, il pacchetto Application Insights for Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta >= 400. Se tuttavia si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
+Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
 
-In tal modo, verrà chiamato ogni volta che viene chiamato un metodo Track*(). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
+In tal modo, verrà chiamato ogni volta che viene chiamato il metodo Track*(). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
 
 **Definire l'inizializzatore**
 
@@ -692,6 +719,9 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo.
 * **Utente** consente agli utenti di essere conteggiati. In un'app Web l'ID utente viene preso da un cookie, se esiste. Se non c'è, ne viene generato uno nuovo. Se gli utenti devono accedere all'app, è possibile impostare l'ID da quello autenticato, in modo da fornire un conteggio più affidabile che sia corretto anche se l'utente accede da un computer diverso. 
 
+
+
+
 ## Limiti
 
 Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione.
@@ -704,6 +734,7 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 * *D: per quanto tempo vengono conservati i dati?*
 
     Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
+
 
 ## Documentazione di riferimento
 
@@ -747,4 +778,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

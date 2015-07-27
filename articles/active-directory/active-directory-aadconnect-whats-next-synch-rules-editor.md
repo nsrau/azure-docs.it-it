@@ -74,4 +74,4 @@ Per contestualizzare, in una distribuzione con una foresta di account e una di r
 Quello delle trasformazioni è un argomento molto vasto e riguarda in larga misura le configurazioni personalizzate che è possibile implementare con Azure AD Connect. Le configurazioni personalizzate non vengono discusse in questo argomento di panoramica. Nel corso del documento, tuttavia, verranno presi in esame alcuni flussi di attributi aggiuntivi.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

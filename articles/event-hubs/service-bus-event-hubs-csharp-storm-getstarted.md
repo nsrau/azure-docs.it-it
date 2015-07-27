@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'Hub eventi" 
-	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con C# e ricevendoli in un cluster di Apache Storm" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Introduzione all'Hub eventi"
+	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con C# e ricevendoli in un cluster di Apache Storm"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="article" 
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -22,25 +22,25 @@
 
 ## Introduzione
 
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'Hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
+Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
 Per altre informazioni, vedere [Panoramica di Hub eventi].
 
 Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# e come recuperarli in parallelo usando Apache Storm.
 
-Per completare questa esercitazione, sono necessari i seguenti elementi:
+Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio Express 2013 per Windows
 
 + Un ambiente di sviluppo Java configurato per l'esecuzione di [Maven](http://maven.apache.org/). Per questa esercitazione si presuppone l'uso di [Eclipse](https://www.eclipse.org/)
 
-+ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ## Creare un hub eventi
 
 1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
-2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub eventi** e infine **Creazione rapida**.
+2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub eventi** e infine **Creazione rapida**.
 
    	![][1]
 
@@ -56,7 +56,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][4]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regol denominata **ReceiveRule** con diritti *Listenn* e quindi fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore, aggiungere una regola denominata **SendRule** con diritti di *Invio*, aggiungere un'altra regola denominata **ReceiveRule** con diritti di *Ascolto*, quindi fare clic su **Salva**.
 
    	![][5]
 
@@ -64,7 +64,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][6c]
 
-8. Fare clic sulla scheda **Dashboard** nella parte superiore, quindi su **Informazioni di connessione**. Prendere nota delle due stringhe di connessione.
+8. Fare clic sulla scheda **Dashboard** nella parte superiore e quindi su **Connection Information**. Prendere nota delle due stringhe di connessione.
 
    	![][6]
 
@@ -81,7 +81,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 1.	Eseguire la classe **LogTopology** da Eclipse, quindi attendere l'avvio dei ricevitori per tutte le partizioni.
 
-2.	Eseguire il progetto **Sender** e premere **Invio** nella finestra della console. Gli eventi verranno visualizzati nella finestra del ricevitore.
+2.	Eseguire il progetto **Sender** e scegliere **Invio** nella finestra della console. Gli eventi verranno visualizzati nella finestra del ricevitore.
 
    	![][22]
 
@@ -97,9 +97,9 @@ A questo punto è possibile eseguire le applicazioni.
 [22]: ./media/service-bus-event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Panoramica di Hub eventi]: event-hubs-overview.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

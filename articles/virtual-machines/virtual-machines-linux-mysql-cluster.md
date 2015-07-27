@@ -348,4 +348,4 @@ Si applicano le limitazioni seguenti:
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

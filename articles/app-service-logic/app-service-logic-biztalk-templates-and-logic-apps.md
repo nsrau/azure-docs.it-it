@@ -3,7 +3,7 @@
 	description="Informazioni su come creare API, operazioni e prodotti in Gestione API." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="jtwist" 
+	authors="joshtwist" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jtwist"/>
 
-##Modelli di BizTalk e app di logica
+# Modelli di BizTalk e app di logica
 
-###Questa documentazione sarà disponibile a breve.
+### Questa documentazione sarà disponibile a breve.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="07/05/2015"
    ms.author="bwren" />
 
 # Webhook di Automazione di Azure
@@ -92,6 +92,7 @@ Il client riceverà uno dei codici restituiti seguenti dalla richiesta POST.
 |:---|:----|:---|
 | 202 | Accepted | La richiesta è stata accettata e il Runbook è stato accodato. |
 | 400 | Bad Request | La richiesta non è stata accettata per uno dei motivi seguenti. <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li> </ul>|
+| 404 | Non trovato | La richiesta non è stata accettata per uno dei motivi seguenti. <ul><li>Il webhook non è stato trovato.</li> <li>Il Runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li></ul> |
 | 500 | Internal Server Error | L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 
 Presupponendo che la richiesta riesca, la risposta del webhook conterrà l'ID processo in formato JSON come indicato di seguito. Conterrà un singolo ID processo, ma il formato JSON consente potenziali miglioramenti futuri.
@@ -117,7 +118,7 @@ Il Runbook prevede un elenco di macchine virtuali in formato JSON nel corpo dell
 	$jobid = ConvertFrom-Json $response 
 
 
-L'immagine seguente illustra le informazioni di intestazione (usando una traccia di [Fiddler](http://www.telerik.com/fiddler)) dalla richiesta. Sono incluse le intestazioni standard di una richiesta HTTP, oltre alla data personalizzata e le intestazioni DA aggiunte. Ognuno di questi valori è disponibile per il Runbook nella proprietà **RequestHeaders** di **WebhookData**.
+L'immagine seguente illustra le informazioni di intestazione (usando una traccia di [ Fiddler](http://www.telerik.com/fiddler)) dalla richiesta. Sono incluse le intestazioni standard di una richiesta HTTP, oltre alla data personalizzata e le intestazioni DA aggiunte. Ognuno di questi valori è disponibile per il Runbook nella proprietà **RequestHeaders** di **WebhookData**.
 
 ![Pulsante Webhooks](media/automation-webhooks/webhook-request-headers.png)
 
@@ -173,4 +174,4 @@ Il Runbook di esempio seguente accetta la richiesta di esempio precedente e avvi
 - [Avvio di un Runbook](automation-starting-a-runbook.md)
 - [Visualizzazione dello stato di un processo di Runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

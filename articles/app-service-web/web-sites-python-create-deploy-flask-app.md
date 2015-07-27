@@ -21,7 +21,7 @@
 
 # Creazione di app Web con Flask in Azure
 
-Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python in [App Web di Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). App Web offre hosting gratuito limitato e capacità di distribuzione rapida, oltre alla possibilità di utilizzare Python! Se la crescita dell'applicazione lo richiede, è possibile passare all'hosting a pagamento e avvalersi dell'integrazione con tutti gli altri servizi di Azure.
+Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Le app Web di Azure offrono hosting gratuito limitato e capacità di distribuzione rapida, oltre alla possibilità di utilizzare Python! Se la crescita dell'applicazione lo richiede, è possibile passare all'hosting a pagamento e avvalersi dell'integrazione con tutti gli altri servizi di Azure.
 
 Verrà creata un'applicazione usando il framework Web di Flask (vedere le versioni alternative di questa esercitazione per [Django](web-sites-python-create-deploy-django-app.md) e [Bottle](web-sites-python-create-deploy-bottle-app.md)). Verrà creato il sito Web dalla raccolta di Azure, sarà configurata la distribuzione Git e si procederà alla clonazione locale del repository. Quindi verrà eseguita l'applicazione localmente, si apporteranno le modifiche, e queste verranno successivamente sottoposte al commit e al push in Azure. Nell'esercitazione viene illustrato come eseguire queste operazioni da Windows o Mac/Linux.
 
@@ -373,13 +373,13 @@ Visitare i seguenti collegamenti per altre informazioni su Flask e Python Tools 
 - [Documentazione di Flask]
 - [Documentazione di Python Tools per Visual Studio]
 
-Per informazioni sull'uso dell’archiviazione tabelle di Azure e MongoDB:
+Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
 - [Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio]
 - [Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -401,4 +401,4 @@ Per informazioni sull'uso dell’archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

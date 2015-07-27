@@ -1,13 +1,10 @@
 <properties 
-	pageTitle="Guida: processo di analisi scientifica dei dati cloud per l'apprendimento automatico | Azure" 
+	pageTitle="Creazione di soluzioni di analisi avanzata in Azure | Microsoft Azure" 
 	description="Utilizzare questa guida per comprendere i passaggi per l'utilizzo di Azure per l'analisi scientifica dei dati e l'apprendimento automatico nel cloud." 
-	services="machine-learning" 
-	solutions="" 
+	services="machine-learning,hdinsight" 
 	documentationCenter="" 
-	authors="sidneyh;sachouks" 
-	videoId="" 
-	scriptId="" 
-	manager="jhubbard" />
+	authors="bradsev" 
+	manager="paulettm" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,15 +12,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
-	ms.date="02/18/2015" 
-	ms.author="sidneyh" />
-# Processo di analisi scientifica dei dati cloud per Machine Learning
+	ms.date="06/03/2015" 
+	ms.author="bradsev;sachouks" />
 
-In questa guida sul processo di analisi scientifica dei dati cloud viene illustrato l'utilizzo della piattaforma Azure per l'analisi scientifica dei dati e la creazione di modelli operativi utilizzando Azure Machine Learning. La mappa illustra all'utente le attività tipiche dell'analisi scientifica dei dati, quali l'inserimento di dati da diverse origini, la preparazione per l'utilizzo in Azure Machine Learning e l'utilizzo di Azure Machine Learning per creare modelli operativi che possono essere utilizzati dalle applicazioni dell'utente finale (a livello di codice o diversamente). Mentre la mappa mostra i passaggi fondamentali previsti in un tipico esercizio di analisi scientifica de dati end-to-end, non tutti i passaggi sono necessari e la sequenza può variare a seconda della posizione, dimensione e complessità dei dati.
+# Creazione di soluzioni di analisi avanzata in Azure
 
-Il passaggio **Elaborazione avanzata dei dati in Azure** collega a una seconda mappa. S si esce da tale mappa, continuare da tale punto per inserire i dati elaborati in Azure Machine Learning e creare e distribuire modelli.
+Nella guida di ADAPT (Advanced Analytics Process and Technology) sono illustrate le attività di analisi scientifica dei dati generalmente previste dalla creazione e dalla distribuzione di modelli predittivi con Azure Machine Learning. La guida illustra come la piattaforma di Azure consente attività quali l'inserimento di dati da diverse origini, la preparazione per l'utilizzo in Azure Machine Learning e la creazione di modelli operativi con Azure Machine Learning che possono essere utilizzati dalle applicazioni dell'utente finale, a livello di codice o diversamente. Mentre la mappa mostra i passaggi fondamentali previsti in un tipico esercizio di analisi scientifica dei dati end-to-end, non tutti i passaggi sono necessari e la sequenza precisa può variare a seconda della posizione, dimensione e complessità dei dati.
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%">
-</object>
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!--HONumber=49--> 
+Il passaggio dal titolo **Elaborazione dati avanzata in Azure** collega a una seconda guida che illustra il processo di preparazione dei dati da usare in un esperimento di Azure Machine Learning. Se si esce da tale guida, continuare dal passaggio successivo in questa guida per inserire i dati elaborati in Azure Machine Learning fino al passaggio finale per l’utilizzo del modello.
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
+ 
+
+<!---HONumber=July15_HO3-->

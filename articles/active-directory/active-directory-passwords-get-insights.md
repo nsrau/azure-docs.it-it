@@ -181,27 +181,27 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
               <td>
                 <ul>
                   <li class="unordered">
-                    <strong>Operazione abbandonata</strong>: l'utente ha iniziato l'operazione di reimpostazione delle password, ma l'ha interrotta senza completarla<br><br></li>
+                    <strong>Operazione abbandonata</strong> - l'utente ha iniziato l'operazione di reimpostazione delle password, ma l'ha interrotta senza completarla<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    <strong>Bloccato</strong>: all'account utente è stato impedito l'uso della reimpostazione delle password per aver provato a usare la pagina di reimpostazione delle password o un singolo controllo di reimpostazione delle password troppe volte in un periodo di 24 ore<br><br></li>
+                    <strong>Bloccato</strong> - all'account utente è stato impedito l'uso della reimpostazione delle password per aver provato a usare la pagina di reimpostazione delle password o un singolo controllo di reimpostazione delle password troppe volte in un periodo di 24 ore<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    <strong>Operazione annullata</strong>: l'utente ha iniziato l'operazione di reimpostazione delle password, ma poi ha fatto clic sul pulsante Annulla per annullare la sessione mentre era in corso <br><br></li>
+                    <strong>Operazione annullata</strong> - l'utente ha iniziato l'operazione di reimpostazione delle password, ma poi ha fatto clic sul pulsante Annulla per annullare la sessione mentre era in corso <br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    <strong>Amministratore contattato</strong>: l'utente ha riscontrato un problema durante la sessione che non è riuscito a risolvere e ha quindi selezionato il collegamento "Contattare l'amministratore" invece di portare a termine il flusso di reimpostazione delle password<br><br></li>
+                    <strong>Amministratore contattato</strong> - l'utente ha riscontrato un problema durante la sessione che non è riuscito a risolvere e ha quindi selezionato il collegamento "Contattare l'amministratore" invece di portare a termine il flusso di reimpostazione delle password<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    <strong>Operazione non riuscita</strong>: l'utente non è stato in grado di reimpostare una password, probabilmente perché non è stato configurato per usare questa funzionalità (ad esempio, non dispone di licenza, non sono presenti informazioni di autenticazione, la password è gestita in locale, ma il writeback non è attivo).<br><br></li>
+                    <strong>Operazione non riuscita</strong> - l'utente non è stato in grado di reimpostare una password, probabilmente perché non è stato configurato per usare questa funzionalità (ad esempio, non dispone di licenza, non sono presenti informazioni di autenticazione, la password è gestita in locale, ma il writeback non è attivo).<br><br></li>
                 </ul>
                 <ul>
                   <li class="unordered">
-                    <strong>Operazione completata</strong>: l'operazione di reimpostazione delle password è stata eseguita correttamente.<br><br></li>
+                    <strong>Operazione completata</strong> - l'operazione di reimpostazione delle password è stata eseguita correttamente.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -543,4 +543,4 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

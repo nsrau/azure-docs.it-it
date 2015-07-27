@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Application Insights: piattaforme
@@ -40,7 +40,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [App Web e macchine virtuali di Azure](../insights-perf-analytics.md)
-+ [Servizi cloud di Azure](app-insights-cloudservices.md)
++ [Servizi cloud di Azure](app-insights-cloudservices.md) che includono sia i ruoli Web che i ruoli di lavoro
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
@@ -58,7 +58,7 @@
 
 +	[Log4Net, NLog o System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J o Logback](app-insights-java-trace-logs.md)
-
++   [Registrazione semantica](https://github.com/fidmor89/SLAB_AppInsights): si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
 
 ## <a name="projects"></a> Creare un SDK personalizzato
 
@@ -73,4 +73,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

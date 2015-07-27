@@ -42,7 +42,7 @@ Configurazione | Locale | Rete virtuale di Azure
 ------------- | -------------  | ------------
 **Indirizzo IP del controller di dominio** | Assegnare un indirizzo IP statico nelle proprietà della scheda di rete | Eseguire il cmdlet Set-AzureStaticVNetIP per assegnare un indirizzo IP statico
 **Resolver del client DNS** | Impostare l'indirizzo del server DNS preferito e quello alternativo nelle proprietà della scheda di rete dei membri del dominio | Impostare l'indirizzo del server DNS nelle proprietà della rete virtuale
-**Archiviazione del database di Active Directory** | Modificare facoltativamente il percorso di archiviazione predefinito da C:\ | È necessario modificare il percorso di archiviazione predefinito da C:\
+**Archiviazione del database di Active Directory** | Modificare facoltativamente il percorso di archiviazione predefinito da C:\\ | È necessario modificare il percorso di archiviazione predefinito da C:\\
 
 
 
@@ -139,4 +139,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

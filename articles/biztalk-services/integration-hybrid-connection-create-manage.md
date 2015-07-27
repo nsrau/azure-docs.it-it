@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- La risorsa locale viene configurata automaticamente per usare la stringa di connessione locale primaria.
 
 - Gestione connessioni ibride deve usare una stringa di connessione locale valida per le autorizzazioni. In App Web o in App per dispositivi mobili di Azure deve essere usata una stringa di connessione dell'applicazione valida per le autorizzazioni.
+- È possibile ridimensionare le connessioni ibride installando un'altra istanza di Hybrid Connection Manager in un altro server. Configurare il listener locale per utilizzare lo stesso indirizzo come il primo listener locale. In questo caso, il traffico è (round robin) distribuito in modo casuale tra i listener locale attivo. 
 
 
 ## <a name="ManageHybridConnection"></a>Gestire le connessioni ibride
@@ -123,8 +124,8 @@ Per gestire le connessioni ibride è possibile:
 2. Estrarre i file.
 3. Nel computer che modifica i Criteri di gruppo eseguire le operazioni seguenti: 
 
-	- Copiare i file .ADMX nella cartella *%WINROOT%\PolicyDefinitions*.
-	- Copiare i file .ADML nella cartella *%WINROOT%\PolicyDefinitions\it-it*.
+	- Copiare i file .ADMX nella cartella *%WINROOT%\\PolicyDefinitions*.
+	- Copiare i file .ADML nella cartella *%WINROOT%\\PolicyDefinitions\\it-it*.
 
 Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criteri.
 
@@ -145,4 +146,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

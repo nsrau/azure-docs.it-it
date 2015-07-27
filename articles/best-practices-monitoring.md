@@ -612,4 +612,4 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - La pagina [informazioni sugli avvisi di monitoraggio e notifiche in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started/) del sito Web Microsoft.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@ questo argomento illustra come usare il servizio Cache Redis di Azure per lo sta
 
 Se l'app Web ASP.NET usa lo stato della sessione, sarà necessario usare un provider di stato della sessione esterno (il provider del servizio Cache Redis o un provider di stato della sessione SQL Server). Se si usa lo stato della sessione, e non un provider esterno, verrà applicato il limite di una sola istanza dell'app Web. Il servizio Cache Redis può essere abilitato con la massima rapidità e semplicità.
 
-<h2><a id="createcache"></a>Creazione della cache</h2>
+##<a id="createcache"></a>Creare la cache
 Per creare la cache, attenersi a [queste istruzioni](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
-<h2><a id="configureproject"></a>Aggiungere il pacchetto NuGet package RedisSessionStateProvider all'app Web</h2>
+##<a id="configureproject"></a>Aggiungere il pacchetto NuGet RedisSessionStateProvider all'app Web
 Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@ Per effettuare l'installazione da **Strumenti** > **Gestione pacchetti NuGet** >
 
 Per altre informazioni, vedere la pagina relativa a [RedisSessionStateProvider di NuGet](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) e la pagina [Configurare il client cache](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modifica del file web.config</h2>
+##<a id="configurewebconfig"></a>Modificare il file Web.Config
 Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge voci stub nel file *web.config*.
 
 1. Aprire *web.config* e trovare l'elemento **sessionState**.
@@ -74,8 +74,7 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Utilizzo dell'oggetto Session nel codice</h2>
-Il passaggio finale consiste nell'iniziare a utilizzare l'oggetto Session nel proprio codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
+<a id="usesessionobject"></a>Usare l'oggetto Session nel codice Il passaggio finale consiste nell'iniziare a usare l'oggetto Session nel codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** Tale metodo usa coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -91,7 +90,7 @@ Il codice seguente recupera questo valore dallo stato sessione.
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   *Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)*
@@ -109,4 +108,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

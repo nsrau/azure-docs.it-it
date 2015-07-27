@@ -420,4 +420,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

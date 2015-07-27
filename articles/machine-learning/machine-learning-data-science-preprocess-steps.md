@@ -104,4 +104,4 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 >_Data Mining: Concepts and Techniques_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

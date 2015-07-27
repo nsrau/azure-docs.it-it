@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Analisi dei sentimenti di Twitter in tempo reale con Analisi di flusso | Microsoft Azure"
 	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +29,7 @@ Un sito Web di notizie è interessato a superare la concorrenza offrendo contenu
 
 ## Prerequisiti
 1.	Per questa esercitazione è necessario un account Twitter.  
-2.	In questa procedura dettagliata si utilizza un generatore di eventi che si trova su GitHub. Scaricarlo da [qui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e attenersi alla procedura seguente per configurare la soluzione.
+2.	Per questa procedura dettagliata viene utilizzata un'applicazione client Twitter disponibile su GitHub. Scaricarlo da [qui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) e attenersi alla procedura seguente per configurare la soluzione.
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
@@ -38,7 +37,7 @@ L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell�
 
 Attenersi alla procedura seguente per creare un hub eventi.
 
-1.	Nel portale di Azure fare clic **Nuovo** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e fornire un nome, uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
+1.	Nel portale di Azure fare clic su **NUOVO** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e fornire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
 2.	Come procedura consigliata, ogni processo di analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer riportata di seguito e ulteriori informazioni. Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **GRUPPI DI CONSUMER**, fare clic su **CREA** nella parte inferiore della pagina, quindi fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **CONFIGURA** dell'Hub eventi.
 4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di **gestione** delle autorizzazioni.
@@ -49,9 +48,9 @@ Attenersi alla procedura seguente per creare un hub eventi.
 5.	Fare clic su **SAVE** nella parte inferiore della pagina.
 6.	Per eseguire questa operazione, fare clic su **DASHBOARD**, quindi su **INFORMAZIONI DI CONNESSIONE** nella parte inferiore della pagina e infine salvare la stringa di connessione. Utilizzare l'icona di copia visualizzata sotto l'icona di ricerca.
 
-## Configurare e avviare l'applicazione di generazione di eventi
+## Configurazione e avvio dell'applicazione client Twitter
 
-Microsoft ha fornito un'applicazione client che interagirà con i dati di Twitter tramite [API REST di Twitter](https://dev.twitter.com/rest/public) per raccogliere gli eventi di Tweet relativa a un set di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet (0: negativo 2: neutro, 4: positivo) e gli eventi di Tweet vengono indirizzati all'hub eventi.
+Abbiamo fornito un'applicazione client che interagirà con i dati di Twitter tramite le [API di streaming di Twitter](https://dev.twitter.com/streaming/overview) per raccogliere gli eventi Tweet relativi a un insieme di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet (0: negativo 2: neutro, 4: positivo) e gli eventi di Tweet vengono indirizzati all'hub eventi.
 
 Attenersi alla seguente procedura per configurare l'applicazione:
 
@@ -74,7 +73,7 @@ Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possib
 
 ### Eseguire il provisioning di un processo di Analisi di flusso
 
-1.	Nel [portale di Microsoft Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DEI FLUSSI** > **CREAZIONE RAPIDA**.
+1.	Nel [portale di Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
 
 	* **NOME PROCESSO**: immettere un nome del processo.
@@ -153,7 +152,7 @@ Per confrontare il numero di riferimenti tra gli argomenti, è possibile sfrutta
 
 #### Identificazione degli argomenti di tendenza: finestra scorrevole
 
-Per identificare argomenti di tendenza si cercheranno argomenti che superano un valore soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti indicati più di 20 volte entro 5 secondi mediante una [finestra scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Per identificare argomenti di tendenza si cercheranno argomenti che superano un valore soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti menzionati più di 20 volte negli ultimi 5 secondi utilizzando una [finestra scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
@@ -183,7 +182,7 @@ Nella query finale testata viene utilizzata una finestra a cascata per ottenere 
 
 ## Creare un sink di output
 
-Ora che è stato definito un flusso di eventi, un input dell’hub eventi per acquisire gli eventi e una query per eseguire una trasformazione nel flusso, l'ultimo passaggio consiste nel definire un sink di output per il processo. Gli eventi tweet aggregati tweet dalla query del processo verranno scritti in un blob di Microsoft Azure. È inoltre possibile propagare i risultati al database SQL, all’archivio di tabelle o all’hub eventi in base alle esigenze dell'applicazione.
+Ora che è stato definito un flusso di eventi, un input dell’hub eventi per acquisire gli eventi e una query per eseguire una trasformazione nel flusso, l'ultimo passaggio consiste nel definire un sink di output per il processo. Gli eventi tweet aggregati tweet dalla query del processo verranno scritti in un blob di Microsoft Azure. È inoltre possibile effettuare il push dei risultati al database SQL, all’archivio tabelle o all’hub eventi, a seconda delle esigenze specifiche dell'applicazione.
 
 Se non se ne dispone, attenersi alla procedura seguente per creare un contenitore per l'archiviazione BLOB:
 
@@ -224,7 +223,7 @@ Una volta che il processo è in esecuzione ed elabora il flusso di Twitter in te
 ![Analisi di social media: output dell’analisi dei sentimenti (opinion mining) di Analisi di flusso in un dashboard di Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -236,4 +235,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

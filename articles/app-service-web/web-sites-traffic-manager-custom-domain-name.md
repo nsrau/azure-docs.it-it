@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurazione di un nome di dominio personalizzato per un'app Web in Azure App Service che usa Gestione traffico" 
-	description="Usare un nome di dominio personalizzato per un'app Web in Azure App Service che usa Gestione traffico per il bilanciamento del carico." 
+	pageTitle="Configurare un nome di dominio personalizzato per un'app Web nel servizio app di Azure che usa Gestione traffico" 
+	description="Usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure che usa Gestione traffico per il bilanciamento del carico." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
@@ -16,13 +16,13 @@
 	ms.date="05/12/2015" 
 	ms.author="mwasson"/>
 
-#Configurazione di un nome di dominio personalizzato per un'app Web in Azure App Service con Gestione traffico
+#Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato con Azure App Service in cui viene usato Gestione traffico per il bilanciamento del carico.
+Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato con il servizio app di Azure in cui viene usato Gestione traffico per il bilanciamento del carico.
 
 [AZURE.INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -42,10 +42,10 @@ Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio per
 ## Aggiungere un record DNS per il dominio personalizzato
 
 
-> [AZURE.NOTE]Se si è acquistato un dominio tramite App Web di Azure App Service, ignorare i passaggi seguenti e fare riferimento all'ultimo passaggio dell'articolo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acquistare un dominio per app Web</a>.
+> [AZURE.NOTE]Se si è acquistato un dominio tramite App Web del servizio app di Azure, ignorare i passaggi seguenti e fare riferimento all'ultimo passaggio dell'articolo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acquistare un dominio per app Web</a>.
 
 
-Per associare il dominio personalizzato a un'app Web in Azure App Service, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti dal registrar da cui è stato acquistato il nome di dominio. Per individuare e usare gli strumenti DNS, attenersi alla procedura seguente.
+Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti dal registrar da cui è stato acquistato il nome di dominio. Per individuare e usare gli strumenti DNS, attenersi alla procedura seguente.
 
 1. Accedere all'account presso il registrar e cercare la pagina in cui gestire i record DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**. Un collegamento a questa pagina è spesso disponibile nelle informazioni dell'account, cercando una voce simile a **My domains**.
 
@@ -70,4 +70,4 @@ Per associare il dominio personalizzato a un'app Web in Azure App Service, è ne
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

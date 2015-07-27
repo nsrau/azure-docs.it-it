@@ -3,7 +3,7 @@
    description="Questo argomento descrive l'archiviazione dei messaggi AS2" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 #Archiviare messaggi AS2
@@ -41,4 +41,4 @@ Usare l'URL recuperato sopra per recuperare il messaggio archiviato dall'archivi
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

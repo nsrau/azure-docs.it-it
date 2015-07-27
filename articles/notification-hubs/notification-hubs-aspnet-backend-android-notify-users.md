@@ -434,4 +434,4 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -24,7 +24,7 @@
 
 Di seguito è riportato un elenco di risorse aggiuntive per l'uso di Azure AD Connect e l'integrazione delle directory locali con Azure AD.
 
->[AZURE.NOTE]Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non sono più rilasciati singolarmente e tutti i futuri miglioramenti verranno inclusi negli aggiornamenti ad Azure AD Connect, in modo sia sempre noto dove ottenere la funzionalità più recente.
+>[AZURE.NOTE]Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 
 ## Documentazione
 
@@ -35,7 +35,7 @@ Di seguito è riportato un elenco di risorse aggiuntive per l'uso di Azure AD Co
 
 ## Video
 
-Presentazione Ignite 2015 sull’estensione delle directory locali al cloud.
+Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
@@ -47,4 +47,4 @@ Questo video spiega come estendere facilmente le istanze locali di Active Direct
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

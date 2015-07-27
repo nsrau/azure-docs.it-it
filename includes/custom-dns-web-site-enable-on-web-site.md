@@ -24,4 +24,4 @@ Dopo aver propagato i record per il nome di dominio, è necessario associarli al
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

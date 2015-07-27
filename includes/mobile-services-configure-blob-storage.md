@@ -1,6 +1,6 @@
 Viene registrato un nuovo script insert che genera una firma di accesso condiviso quando viene inserito un nuovo elemento Todo.
 
-0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione].
+0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md).
 
 1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
@@ -16,6 +16,8 @@ Viene registrato un nuovo script insert che genera una firma di accesso condivis
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
 	La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per altre informazioni, vedere [Impostazioni app].
+
+4. Nella scheda Configura, accertarsi che[lo schema dinamico](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)sia abilitato. È necessario che lo schema dinamico sia abilitato per poter aggiungere nuove colonne nella tabella TodoItem. Lo schema dinamico non dovrebbe essere abilitato in qualsiasi servizio di produzione.
 
 4. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
@@ -76,7 +78,9 @@ Viene registrato un nuovo script insert che genera una firma di accesso condivis
 
    	La funzione richiamata quando si verifica un inserimento nella tabella TodoItem verrà sostituita da un nuovo script. Il nuovo script genera una nuova firma di accesso condiviso per l'inserimento, valida per 5 minuti, quindi assegna il valore della firma generata alla proprietà `sasQueryString` dell'elemento restituito. La proprietà `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-	>[AZURE.NOTE]Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il metodo <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il metodo [generateSharedAccessSignature con un nome risorse](http://go.microsoft.com/fwlink/?LinkId=390455)</a> BLOB vuoto, ad esempio:
+	>                 
+	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
 In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funzionalità di caricamento delle immagini mediante la firma di accesso condiviso generata per l'inserimento.
  
@@ -85,7 +89,6 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 <!-- Images. -->
 
 <!-- URLs. -->
-[Come creare un account di archiviazione]: /manage/services/storage/how-to-create-a-storage-account
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

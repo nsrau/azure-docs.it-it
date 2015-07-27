@@ -143,4 +143,4 @@ Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 - [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

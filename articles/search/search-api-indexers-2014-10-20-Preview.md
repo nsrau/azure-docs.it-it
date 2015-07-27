@@ -1,10 +1,23 @@
-<properties title="" pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)"
+	description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)"
+	services="search"
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article"  
+	ms.tgt_pltfrm="na" 
+	ms.date="07/08/2015" 
+	ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)
 
-> [AZURE.NOTE]Questo articolo descrive un prototipo di nuove funzionalità non presenti nella versione rilasciata dell'API. Altre informazioni sulle versioni e sul supporto sono disponibili in [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx) su MSDN. Per altre informazioni sulle funzionalità disponibili in questa API di anteprima, vedere [Versione dell'API REST di Ricerca di Azure: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
+> [AZURE.NOTE]Questo articolo descrive un prototipo di nuove funzionalità non presenti nella versione rilasciata dell'API. Altre informazioni sulle versioni e sul supporto sono disponibili in [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx) su MSDN. Per altre informazioni sulle funzionalità disponibili in questa API di anteprima, vedere [Versione dell'API REST di Ricerca di Azure: 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 ## Panoramica
 
@@ -80,7 +93,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio sia `api-key` dal dashboard servizi nel portale di anteprima di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintassi del corpo della richiesta**
 
@@ -135,7 +148,7 @@ Questi criteri possono essere specificati come indicato di seguito:
 
 ***Criteri di rilevamento delle modifiche integrati di SQL***
 
-Se il database SQL supporta i [criteri di rilevamento delle modifiche integrati di SQL] http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), è consigliabile usarli. Questi criteri favoriscono il rilevamento delle modifiche più efficiente e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
+Se il databse SQL è compatibile con [il rilevamento di modifiche integrato su SQL ](http://technet.microsoft.com/library/cc280462.aspx), raccomandiamo di fare riferimento alle politica del rilevamento di modifiche integrato su SQL. Questi criteri favoriscono il rilevamento delle modifiche più efficiente e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
 
 I criteri di rilevamento delle modifiche integrati di SQL sono supportati a partire dalle versioni del database SQL seguenti: - SQL Server 2008 R2, se si usano macchine virtuali di IaaS per SQL - Versione 12 del database SQL di Azure, se si usa SQL Azure.
 
@@ -657,4 +670,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

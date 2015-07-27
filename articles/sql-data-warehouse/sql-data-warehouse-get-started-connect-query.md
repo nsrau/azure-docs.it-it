@@ -141,13 +141,13 @@ Per connettersi a un'istanza specifica di SQL DW quando si usa sqlcmd, sarà nec
 Per connettersi a un'istanza di SQL DW, è quindi necessario immettere quanto segue:
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza. Ad esempio, l'istruzione seguente usa l'istruzione [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) per creare una nuova tabella.
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +183,4 @@ Dopo avere registrato il server, è possibile scrivere una query.
 ## Passaggi successivi ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

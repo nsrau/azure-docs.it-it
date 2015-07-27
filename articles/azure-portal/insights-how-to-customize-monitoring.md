@@ -73,4 +73,4 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

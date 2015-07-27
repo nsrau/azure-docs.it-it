@@ -35,7 +35,7 @@ Per iniziare, [scaricare la struttura dell'app](https://github.com/AzureADQuickS
 
 ## *1. Determinare quale sarà l'URI di reindirizzamento per iOS*
 
-Per avviare in modo sicuro le applicazioni in determinati scenari SSO, è necessario creare un **URI di reindirizzamento** in un formato particolare. Un URI di reindirizzamento viene usato per assicurarsi che i token vengano restituiti all'applicazione corretta che li aveva richiesti.
+Per avviare in modo sicuro le applicazioni in determinati scenari SSO è necessario creare un **URI di reindirizzamento** in un formato particolare. Un URI di reindirizzamento viene usato per assicurarsi che i token vengano restituiti all'applicazione corretta che li aveva richiesti.
 
 Il formato iOS per un URI di reindirizzamento è:
 
@@ -227,4 +227,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 - Documentazione di Azure AD su [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

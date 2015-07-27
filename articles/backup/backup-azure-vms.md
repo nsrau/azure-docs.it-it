@@ -13,37 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/26/2015"
+	ms.date="07/06/2015"
 	ms.author="aashishr"/>
 
 
 # Eseguire il backup di macchine virtuali di Azure
-
 Questo articolo rappresenta la guida essenziale per eseguire il backup di macchine virtuali di Azure. Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-vms-introduction.md#prerequisites) siano stati soddisfatti.
 
 L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi principali:
 
 ![Three steps to backup an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Individuare le macchine virtuali di Azure
+## 1\. Individuare le macchine virtuali di Azure
 Il processo di individuazione esegue una query su Azure per ottenere l'elenco di macchine virtuali nella sottoscrizione, insieme ad altre informazioni quali il nome del servizio cloud e l'area.
 
 > [AZURE.NOTE]Il processo di individuazione deve sempre essere eseguito come primo passaggio. Ciò consente di verificare che eventuali nuove macchine virtuali aggiunte alla sottoscrizione vengano identificate.
 
-Per attivare il processo di individuazione, eseguire la procedura seguente:
+### Per attivare il processo di individuazione
 
 1. Passare all'insieme di credenziali per il backup, che può trovarsi in **Servizi di ripristino** nel portale di Azure e fare clic sulla scheda **Elementi registrati**.
 
 2. Scegliere il tipo di carico di lavoro nel menu a discesa come **Macchina virtuale di Azure** e fare clic sul pulsante **Seleziona**. ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Fare clic sul pulsante **INDIVIDUA** nella parte inferiore della pagina. ![discover button](./media/backup-azure-vms/discover-button.png)
+3. Fare clic sul pulsante **INDIVIDUA** nella parte inferiore della pagina. ![discover button](./media/backup-azure-vms/discover-button-only.png)
 
 4. Il processo di individuazione può durare alcuni pochi minuti, mentre le macchine virtuali vengono elencate in formato tabulare. Durante l'esecuzione del processo di individuazione, viene visualizzata una notifica di tipo avviso popup nella parte inferiore della schermata. ![discover vms](./media/backup-azure-vms/discovering-vms.png)
 
 5. Al termine del processo di individuazione, viene visualizzata una notifica di tipo avviso popup. ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-
-## Registrare le macchine virtuali di Azure
+##  2\. Registrare le macchine virtuali di Azure
 Per poter essere protetta, una macchina virtuale deve essere registrata nel servizio Backup di Azure. Il processo di registrazione ha due obiettivi principali:
 
 1. Inserire l'estensione di backup nell'agente VM della macchina virtuale.
@@ -58,7 +56,7 @@ La registrazione è in genere un'attività da eseguire una sola volta. Il serviz
 
 2. Scegliere **Macchina virtuale di Azure** nel menu a discesa come tipo di carico di lavoro e fare clic sul pulsante Seleziona. ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Fare clic sul pulsante **REGISTRA** nella parte inferiore della pagina. ![register button](./media/backup-azure-vms/register-button.png)
+3. Fare clic sul pulsante **REGISTRA** nella parte inferiore della pagina. ![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. Nella finestra popup **Registra elementi** selezionare le macchine virtuali che si vuole registrare. Se sono presenti due o più macchine virtuali con lo stesso nome, usare il servizio cloud per distinguere tra le macchine virtuali.
 
@@ -66,15 +64,16 @@ La registrazione è in genere un'attività da eseguire una sola volta. Il serviz
 
     >[AZURE.NOTE]Verranno visualizzate solo le macchine virtuali che non sono registrate e che si trovano nella stessa area dell'insieme di credenziali per il backup.
 
-5. Viene creato un processo per ogni macchina virtuale da registrare. La notifica di tipo avviso popup visualizza lo stato di questa attività. Fare clic su **Visualizza processo** per passare alla pagina **Processi**. ![register job](./media/backup-azure-vms/register-create-job.png)
+5. Viene creato un processo per ogni macchina virtuale da registrare. La notifica di tipo avviso popup visualizza lo stato di questa attività. Fare clic su **Visualizza processo** per accedere alla pagina **Processi**. ![register job](./media/backup-azure-vms/register-create-job.png)
 
 6. La macchina virtuale viene visualizzata anche nell'elenco di elementi registrati e viene visualizzato lo stato dell'operazione di registrazione ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
 7. Al termine dell'operazione, lo stato nel portale viene modificato per rispecchiare lo stato registrato. ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## Eseguire il backup di macchine virtuali di Azure
+## 3\. Protezione: eseguire il backup di macchine virtuali di Azure
 Questo passaggio implica l'impostazione di un criterio di backup e conservazione per la macchina virtuale. Per proteggere una macchina virtuale, eseguire la procedura seguente:
 
+### Per eseguire il backup di macchine virtuali di Azure
 1. Passare all'insieme di credenziali per il backup, che può trovarsi in **Servizi di ripristino** nel portale di Azure e fare clic sulla scheda **Elementi registrati**.
 2. Scegliere il tipo di carico di lavoro nel menu a discesa come **Macchina virtuale di Azure** e fare clic sul pulsante **Seleziona**. ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
@@ -143,10 +142,8 @@ L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [fil
 #### Convalida dell'installazione dell'agente di VM
 Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
-- Accedere alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*,
-- che dovrebbe includere il file WaAppAgent.exe.
-- Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà**, quindi scegliere la scheda **Dettagli**.
-- Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
+1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\\WindowsAzure\\Packages*, che dovrebbe includere il file WaAppAgent.exe.
+2. Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà**, quindi scegliere la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
 
 ### Risoluzione del problemi di rete
 Analogamente a tutte le estensioni, per il funzionamento delle estensioni di Backup è necessario l'accesso a Internet pubblico. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
@@ -177,13 +174,12 @@ Nella tabella seguente vengono illustrati i tipi di coerenza che si verificano d
 |-------------|-----------|---------|
 | Coerenza con l'applicazione | Sì | Si tratta della posizione ideale per i carichi di lavoro Microsoft in quanto garantisce:<ol><li> che la VM *si riavvii* <li>che *non siano presenti danneggiamento dei dati*, <li>*perdita dei dati* e che<li> i dati siano coerenti con l'applicazione che li usa, usando l'applicazione al momento del backup tramite il Servizio snapshot del volume.</ol> Il Servizio snapshot del volume garantisce che i dati vengano scritti correttamente nell'archivio. La maggior parte dei carichi di lavoro di Microsoft ha writer del Servizio snapshot del volume che eseguono azioni specifiche di un carico di lavoro correlate alla coerenza dei dati. Ad esempio, Microsoft SQL Server ha un writer del Servizio snapshot del volume che garantisce l'esecuzione corretta delle operazioni di scrittura nel file di log delle transazioni e nel database.<br><br> Per il backup delle VM di Azure, il recupero di un punto di ripristino coerente con un'applicazione significa che l'estensione per il backup è riuscita a richiamare il flusso di lavoro del Servizio snapshot del volume e a essere completata *correttamente* prima dell'esecuzione dello snapshot della VM. Naturalmente, questo significa che anche i writer del Servizio snapshot del volume di tutte le applicazioni nella VM di Azure sono stati richiamati.<br><br>Leggere le [nozioni di base del Servizio snapshot del volume](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) per approfondimenti sui dettagli di [funzionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
 | Coerenza con i file system | Sì, per i computer Windows | Esistono due scenari in cui il punto di ripristino può essere coerente con i file system:<ul><li>Backup di VM in Azure, poiché Linux non dispone di una piattaforma equivalente al Servizio snapshot del volume.<li>Errore del Servizio snapshot del volume durante il backup di VM in Azure.</li></ul> In entrambi i casi, la cosa migliore da fare è di garantire: <ol><li> che la VM *si avvii* <li>non sia presente *danneggiamento dei dati* e <li>che non sia presente *perdita di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati.|
-| Coerenza dei dati | No | Questa situazione è equivalente a quella di un computer che si sia arrestato in modo anomalo (a causa di un ripristino software o hardware). Non esiste alcuna garanzia circa la coerenza dei dati sul supporto di archiviazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <ol><li>Anche se non vi sono garanzie, nella maggior parte dei casi il sistema operativo si avvierà.<li>Questa operazione è in genere seguita da una procedura di controllo del disco come chkdsk per correggere eventuali errori di danneggiamento del disco.<li> I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi.<li> In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. </ol>Per il backup delle VM di Azure, ottenere un punto di ripristino coerente con l'arresto anomalo significa che Backup di Azure non offre il alcuna garanzia riguardo alla coerenza dei dati di archiviazione, sia dal punto di vista del sistema operativo che dell'applicazione. Questo accade solitamente quando la VM di Azure viene arrestata al momento del backup.<br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati sono coerenti. Quando si usano dati distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati.|
+| Coerenza dei dati | No | Questa situazione è equivalente a quella di un computer che si sia arrestato in modo anomalo (a causa di un ripristino software o hardware). Ciò si verifica in genere quando la macchina virtuale di Azure viene arrestata durante il backup. Per il backup della macchina virtuale di Azure, il recupero di un punto di ripristino coerenti con l'arresto anomalo indica che Backup di Azure non offre alcuna garanzia di coerenza dei dati sul supporto di archiviazione, dal punto di vista del sistema operativo o dal punto di vista dell'applicazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <br/> <br/> Anche se non vi sono garanzie, nella maggior parte dei casi il sistema operativo si avvierà. Questa operazione è in genere seguita da una procedura di controllo come chkdsk per risolvere eventuali errori di danneggiamento del disco. I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi. In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. Per il backup delle VM di Azure, ottenere un punto di ripristino coerente con l'arresto anomalo significa che Backup di Azure non offre il alcuna garanzia riguardo alla coerenza dei dati di archiviazione, sia dal punto di vista del sistema operativo che dell'applicazione. Questo accade solitamente quando la VM di Azure viene arrestata al momento del backup.<br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati sono coerenti. Quando si usano dati distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati.|
 
 ## Passaggi successivi
 Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

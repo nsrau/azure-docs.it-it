@@ -152,4 +152,4 @@ Rivedere le [note sulla versione di StorSimple](https://msdn.microsoft.com/libra
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

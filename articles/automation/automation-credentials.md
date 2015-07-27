@@ -103,4 +103,4 @@ La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafi
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

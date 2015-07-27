@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Ripristino di un database SQL di Azure a seguito di un errore causato dall'utente
@@ -109,4 +109,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

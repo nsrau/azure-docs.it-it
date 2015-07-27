@@ -96,4 +96,4 @@ Se l'app supporta entrambi gli account Azure AD e Microsoft, è necessario inclu
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

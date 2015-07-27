@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Distribuzione di processi Web usando Visual Studio
@@ -193,11 +193,11 @@ Per un processo Web indipendente viene visualizzata la stessa procedura guidata 
 
 ## <a id="nextsteps"></a>Passaggi successivi
 
-Per altre informazioni su come distribuire i processi Web Azure da Visual Studio e con un processo di recapito continuo, vedere [Processi Web Azure - Risorse consigliate - Distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Questo articolo ha descritto come distribuire processi Web tramite Visual Studio. Per altre informazioni su come distribuire i processi Web di Azure da Visual Studio e con un processo di recapito continuo, vedere [Processi Web di Azure - Risorse consigliate - Distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

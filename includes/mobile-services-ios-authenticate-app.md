@@ -22,4 +22,4 @@
 
 * Fare clic su **segui** per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

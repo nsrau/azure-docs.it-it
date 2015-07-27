@@ -3,8 +3,8 @@
 	description="Android SDK più recente - Come usare l'API di Engagement in Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
-	manager="dwrede" 
+	authors="kpiteira" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -18,7 +18,7 @@
 
 #Come usare l'API di Engagement in Android
 
-Questo documento è complementare all'articolo [Come integrare Engagement in Android](mobile-engagement-android-integrate-engagement.md) e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
+Questo documento costituisce un'integrazione al documento [relativo all'integrazione di Mobile Engagement in Android](mobile-engagement-android-integrate-engagement.md). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
 Tenere presente che, se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `Activity` ereditino dalla classe `EngagementActivity` corrispondente.
 
@@ -252,7 +252,7 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -287,7 +287,7 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
 #### Dimensione
 
@@ -298,4 +298,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

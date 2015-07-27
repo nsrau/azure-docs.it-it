@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # Creare una rete virtuale
@@ -48,15 +48,8 @@ Dopo aver creato la rete virtuale, è possibile aggiungere nuove macchine virtua
 
 
 ## Passaggi successivi
--  [Panoramica di rete virtuale](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  Leggere ulteriori informazioni sulle [reti virtuali](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) in Azure. 
 
--  [Aggiungere una macchina virtuale a Rete virtuale](virtual-machines-create-custom)
+-  [Aggiungere una macchina virtuale](../virtual-machines/virtual-machines-create-custom.md) a una rete virtuale.
 
--  [Domande frequenti su Rete virtuale](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [Configurare una rete virtuale usando file di configurazione di rete](virtual-networks-using-network-configuration-file)
-
--  [Panoramica sulla risoluzione dei nomi di Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

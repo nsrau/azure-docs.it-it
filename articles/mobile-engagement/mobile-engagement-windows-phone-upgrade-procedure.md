@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -142,4 +142,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

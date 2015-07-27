@@ -76,9 +76,9 @@ Per completare le attività in questa guida è necessario quanto segue:
 - IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>. 
 - La distribuzione di un server Web basato su Java o un server applicazioni, come Apache Tomcat, GlassFish, JBoss Application Server o Jetty.
 - Una sottoscrizione di Azure, che può essere acquistata all'indirizzo <http://www.microsoft.com/windowsazure/offers/>.
-- Il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies) - Versione aprile 2014. Per altre informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/it-it/library/windowsazure/hh690946.aspx).
+- Il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies) - Versione aprile 2014. Per altre informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificato X.509 da usare con l'applicazione. Questo certificato è necessario in entrambi i formati di certificato pubblico (.cer) e certificato di scambio di informazioni personali (.PFX). Le opzioni per la creazione di questo certificato verranno descritte più avanti in questa esercitazione.
-- Familiarità con l'emulatore di calcolo di Azure e le tecniche di distribuzione illustrate in [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx).
+- Familiarità con l'emulatore di calcolo di Azure e le tecniche di distribuzione illustrate in [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Creare uno spazio dei nomi ACS
 
@@ -203,7 +203,7 @@ Nella pagina **Login Page Integration: Azure Web App**, per l'applicazione Web J
 
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyACSHelloWorld**, scegliere **Azure** e quindi fare clic su **Package for Azure**.
 2. In **Project name** digitare **MyAzureACSProject** e fare clic su **Next**.
-3. Selezionare un JDK e un server applicazioni. Questi passaggi vengono descritti in dettaglio nell'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx).
+3. Selezionare un JDK e un server applicazioni. Questi passaggi vengono descritti in dettaglio nell'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 4. Fare clic su **Finish**.
 5. Fare clic sul pulsante **Run in Azure Emulator**.
 6. Dopo l'avvio dell'applicazione Web Java nell'emulatore di calcolo, chiudere tutte le istanze del browser, per evitare che sessioni correnti del browser interferiscano con il test di accesso di ACS.
@@ -237,11 +237,11 @@ Per la distribuzione in Azure è necessario modificare l'area di autenticazione 
 
 13. Fare clic su **Finish** per chiudere la finestra di dialogo **Edit Library**.
 14. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for MyACSHelloWorld**.
-15. In Eclipse fare clic sul pulsante **Publish to Azure Cloud**. Rispondere alle richieste visualizzate, come nella sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx). 
+15. In Eclipse fare clic sul pulsante **Publish to Azure Cloud**. Rispondere alle richieste visualizzate, come nella sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). 
 
 Dopo la distribuzione dell'applicazione Web, chiudere le sessioni del browser aperte ed eseguire l'applicazione Web. Verrà richiesto di accedere con le credenziali di Windows Live ID e si verrà reindirizzati all'URL restituito dell'applicazione relying party.
 
-Al termine dell'uso dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx)).
+Al termine dell'uso dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Passaggi successivi
@@ -307,4 +307,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

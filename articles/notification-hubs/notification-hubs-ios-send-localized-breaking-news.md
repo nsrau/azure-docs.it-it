@@ -222,4 +222,4 @@ In [Procedure di Hub di notifica per iOS] è disponibile un riferimento al lingu
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

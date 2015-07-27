@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Scenari comuni di utilizzo di Data factory di Azure
@@ -76,4 +76,4 @@ Vedere i seguenti argomenti per l'utilizzo dei dati con Power Query:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

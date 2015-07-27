@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
+   ms.date="07/08/2015"
    ms.author="yossib"/>
 
 
@@ -76,7 +76,7 @@ La procedura seguente illustra come ottenere l'ID client e il segreto client del
 Per modificare lo script di PowerShell in modo che funzioni con la directory, sostituire $ClientID, $ClientSecret e $tenantdomain con i valori corretti mostrati in "Delega dell'accesso in Azure AD".
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ Per modificare lo script di PowerShell in modo che funzioni con la directory, so
 
 
 ## Eseguire lo script
-Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti.
+Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti dal report degli eventi di controllo.
 
 Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'output del report AccountProvisioningEvents nella finestra di PowerShell in formato JSON. Crea anche i file con lo stesso output in formato JSON, testo e XML. È possibile sperimentare ulteriormente modificando lo script inserendo commenti affinché restituisca i dati da altri report e rimuovere i commenti per i formati di output non necessari.
 
@@ -136,6 +136,5 @@ Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'out
 - Per informazioni sui report di sicurezza, controllo e attività disponibili, vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

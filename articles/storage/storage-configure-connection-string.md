@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -41,15 +41,7 @@ Archiviare la stringa di connessione all'interno di un file di configurazione co
 
 ## Creare una stringa di connessione nell'emulatore di archiviazione
 
-L'emulatore di archiviazione è un account locale con un nome e una chiave ben noti. È possibile utilizzare un formato di stringa di scelta rapida, `UseDevelopmentStorage=true`, per fare riferimento all'emulatore di archiviazione all'interno di una stringa di connessione. Ad esempio, una stringa di connessione all'emulatore di archiviazione in un file app. config risulterà simile al seguente:
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-È inoltre possibile specificare un proxy HTTP da usare quando si esegue il test del servizio nell'emulatore di archiviazione. Ciò può essere utile per osservare le richieste HTTP e le risposte in fase di debug delle operazioni nei servizi di archiviazione. Per specificare un proxy, aggiungere `DevelopmentStorageProxyUri` l'opzione alla stringa di connessione, e impostarne il valore sull'URI del proxy. Ad esempio, di seguito viene presentata una stringa di connessione che punta all'emulatore di archiviazione e configura un proxy HTTP:
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [risorsa di archiviazione-emulatore-connessione-stringa-includere](../../includes/storage-emulator-connection-string-include.md)]
 
 Vedere [utilizzare l'emulatore di archiviazione di Azure per lo sviluppo e Testing](storage-use-emulator.md) per ulteriori informazioni sull'emulatore di archiviazione.
 
@@ -60,9 +52,10 @@ Per creare una stringa di connessione nell'account di archiviazione di Azure, us
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Ad esempio, la stringa di connessione dovrebbe somigliare all'esempio seguente:
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]L'archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione. Tuttavia, è consigliabile usare HTTPS.
     
@@ -75,9 +68,12 @@ Ad esempio, la stringa di connessione dovrebbe somigliare all'esempio seguente:
 
 Per creare una stringa di connessione che specifica un endpoint BLOB esplicito, specificare l'endpoint di servizio completo per ciascun servizio, inclusa la specifica del protocollo(HTTP o HTTPS), usando il formato seguente:
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 È necessario specificare almeno un endpoint di servizio, ma non occorre specificarli tutti. Se, ad esempio, si sta creando una stringa di connessione da usare con un endpoint BLOB personalizzato, la specifica degli endpoint di coda e di tabella è facoltativa. Se si sceglie di omettere gli endpoint di coda e di tabella dalla stringa di connessione, non sarà più possibile accedere ai servizi code e tabelle dalla coda mediante tale stringa di connessione.
 
@@ -92,9 +88,11 @@ Se è stato registrato un nome di dominio personalizzato da usare con il servizi
 
 Ad esempio, una stringa di connessione in un endpoint BLOB di un dominio personalizzato è simile a:
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### Specifica di un endpoint BLOB con una firma di accesso condiviso 
 
@@ -116,8 +114,12 @@ Per creare una stringa di connessione per il servizio di archiviazione in aree o
 
 Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di connessione di esempio seguente:
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

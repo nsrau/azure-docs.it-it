@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aggiungere notifiche push all'app iOS tramite il servizio app di Azure"
+	pageTitle="Aggiungere notifiche push all'app iOS tramite Azure App Service"
 	description="Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app iOS."
 	services="app-service\mobile"
 	documentationCenter="ios"
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-In questo argomento viene illustrato come aggiungere notifiche push per il [progetto di guida introduttiva](app-service-mobile-dotnet-backend-ios-get-started-preview.md), in modo che il servizio mobile sia in grado di inviare una notifica push ogni volta che viene inserito un record. È necessario completare prima l'esercitazione [Introduzione alle app per dispositivi mobili].
+In questo argomento viene illustrato come aggiungere notifiche push per il [progetto di guida introduttiva](app-service-mobile-dotnet-backend-ios-get-started-preview.md), in modo che il servizio mobile sia in grado di inviare una notifica push ogni volta che viene inserito un record. È necessario completare prima l'esercitazione [Introduzione ad App per dispositivi mobili].
 
 > [AZURE.NOTE]Il [simulatore di iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi è necessario utilizzare un dispositivo iOS fisico. È inoltre necessario iscriversi all'[Apple Developer Program](https://developer.apple.com/programs/ios/), una membership a pagamento.
 
@@ -118,9 +118,9 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-ios-get-started.md
-[Introduzione alle app per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

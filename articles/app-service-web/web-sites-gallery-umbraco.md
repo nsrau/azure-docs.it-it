@@ -135,4 +135,4 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

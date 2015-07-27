@@ -77,4 +77,4 @@ Per poter usare il modulo Gestione risorse di Azure, è necessario passare dal s
 
 > [AZURE.NOTE]Per tornare al set di comandi predefinito, usare il comando **Switch-AzureMode AzureServiceManagement**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

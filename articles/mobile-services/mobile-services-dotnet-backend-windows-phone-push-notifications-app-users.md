@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
-Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione [Aggiungere notifiche push all’app], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine il codice del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
+Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione [Aggiungere notifiche push all'app], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine il codice del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
 
 Questa esercitazione supporta app per Windows Phone 8.0 e Windows Phone 8.1 Silverlight. Per le app per Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
@@ -40,7 +40,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 ##<a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Testare l'app
@@ -56,9 +56,10 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Aggiungere notifiche push all'app]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 [Aggiungere notifiche push all’app]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

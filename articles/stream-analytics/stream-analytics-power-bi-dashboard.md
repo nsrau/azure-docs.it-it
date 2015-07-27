@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
 	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/12/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jeffstok"/>
 	
 # Analisi di flusso di Azure e Power BI: dashboard dinamico per analisi in tempo reale del flusso di dati
@@ -27,12 +26,12 @@ In questo articolo viene descritto come creare strumenti di business intelligenc
 
 > [AZURE.NOTE]L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure.
 
-##Prerequisiti
+## Prerequisiti ##
 
 * Account Microsoft Azure tramite ID organizzazione (Power BI funziona solo con ID organizzazione. L’ID organizzazione è l’indirizzo di posta elettronica aziendale o dell’ufficio, ad esempio xyz@mycompany.com. E-mail personali come xyz@hotmail.com non sono ID organizzazione. Per ulteriori informazioni sull'ID organizzazione, fare clic [qui](https://msdn.microsoft.com/subscriptions/dn531048.aspx) ed esaminare anche le domande frequenti che possono essere scaricate da [qui](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409).
 * Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.  
 
-##Creare processi di Analisi di flusso di Azure
+## Creare processi di Analisi di flusso di Azure ##
 
 Dal [portale di Azure](https://manage.windowsazure.com), fare clic su **Nuovo, Servizi dati, Analisi dei flussi, Creazione rapida**.
 
@@ -48,7 +47,7 @@ Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un el
 
 > [AZURE.TIP]Il nuovo processo verrà visualizzato nell'elenco con lo stato **Non avviato**. Si noti che il pulsante **Avvia** nella parte inferiore della pagina è disabilitato. Questo è un comportamento previsto, poiché è necessario configurare input, output, query del processo e così via, prima di avviare il processo.
 
-##Specificare l'input del processo
+## Specificare l'input del processo ##
 
 Per questa esercitazione, si presuppone che l’utente usi EventHub come input con serializzazione JSON e codifica utf-8.
 
@@ -73,7 +72,7 @@ Per questa esercitazione, si presuppone che l’utente usi EventHub come input c
   *	**Codifica** - UTF8
 *	Fare clic sul pulsante con il segno di spunta per aggiungere l'origine e per verificare che Analisi dei flussi possa connettersi all'hub eventi.
 
-##Aggiungere l’output Power BI
+## Aggiungere l’output Power BI ##
 
 1.  Fare clic su **Output** nella parte superiore della pagina, quindi scegliere **Aggiungi output**. Verrà visualizzato Power BI come opzione di output nell’elenco.
 
@@ -104,7 +103,7 @@ Fornire i valori come mostrato di seguito:
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-##Scrivere query
+## Scrivere query ##
 
 Andare nella scheda **Query** del processo. Scrivere la query, l’output che si desidera avere in Power BI. Ad esempio, potrebbe essere simile alla query SQL seguente:
 
@@ -125,7 +124,7 @@ Andare nella scheda **Query** del processo. Scrivere la query, l’output che si
     
 Avviare il processo. Confermare che l’hub eventi riceve eventi e che la query genera i risultati previsti. Se la query produce 0 righe, il set di dati e le tabelle Power BI non verranno creati automaticamente.
 
-##Creare il dashboard in Power BI
+## Creare il dashboard in Power BI ##
 
 Andare al sito [Powerbi.com](https://powerbi.com) e accedere con l’ID organizzazione. Se la query del processo di Analisi di flusso produce risultati, verrà visualizzato il set di dati già creato:
 
@@ -161,10 +160,34 @@ Tenere presente che in questa esercitazione è stato mostrato come creare solo u
 
 Un’altra risorsa utile per ulteriori informazioni su come creare dashboard con Power BI è [Dashboard nell’anteprima Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+## Limitazioni e procedure consigliate ##
+Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-## Passaggi successivi
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. È consigliabile utilizzare TumblingWindow o HoppingWindow per garantire che il push dei dati sia di al massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile utilizzare l’equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+
+Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+
+Pertanto sarà necessario modificare la query originale in:
+
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+    	OutPBI
+    FROM
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,4),
+    	dspl
+
+
+
+## Ottenere aiuto ##
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Passaggi successivi ##
 
 - [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
@@ -185,4 +208,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

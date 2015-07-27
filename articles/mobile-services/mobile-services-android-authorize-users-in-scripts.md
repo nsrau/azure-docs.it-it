@@ -110,4 +110,4 @@ L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è termi
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
-	writer="mwasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -71,7 +70,7 @@ Per aggiungere una regola avvisi, fare clic sul grafico, quindi fare clic su **A
  
 ![](./media/web-sites-manage/manage05.png)
 
-- Configurare la distribuzione continua. Vedere [Uso di Git per distribuire App Web nel servizio app di Azure](web-sites-publish-source-control.md)
+- Configurare la distribuzione continua. Vedere [Uso di Git per distribuire app Web nel servizio app di Azure](web-sites-publish-source-control.md)
 - Slot di distribuzione. Vedere [Distribuzione di app Web negli ambienti temporanei in Azure App Service](web-sites-staged-publishing.md)
 - Configurare le credenziali di distribuzione per Git o FTP. 
 
@@ -90,8 +89,8 @@ Per aggiungere una regola avvisi, fare clic sul grafico, quindi fare clic su **A
 - [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure](web-sites-monitor.md)
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

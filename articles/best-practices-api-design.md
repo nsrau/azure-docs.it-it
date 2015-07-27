@@ -523,4 +523,4 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 - La [guida di riferimento dettagliata relativa a RESTful ](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
 - L’articolo Web in cui è riportato un [elenco di controllo delle API](https://mathieu.fenniak.net/the-api-checklist/) contiene un elenco utile di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

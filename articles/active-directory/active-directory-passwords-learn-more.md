@@ -29,7 +29,7 @@ Se si è già distribuita la funzionalità di gestione delle password o se si è
 ## Panoramica del writeback delle password
 Writeback password è un componente di [Azure Active Directory Connect](active-directory-aadconnect) che può essere abilitato e usato dagli attuali sottoscrittori di Azure Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
-Il writeback delle password consente di configurare il tenant cloud per scrivere automaticamente le password nuovamente in Active Directory locale. Evita di dover configurare e gestire una complessa soluzione di reimpostazione della password self-service locale e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Di seguito sono riportate altre informazioni su alcune delle funzionalità principali del writeback delle password:
+Il writeback delle password consente di configurare il tenant cloud per scrivere automaticamente le password nuovamente in Active Directory locale. Evita di dover configurare e gestire una complessa soluzione di reimpostazione della password self-service locale, e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Di seguito sono riportate altre informazioni su alcune delle funzionalità principali del writeback delle password:
 
 - **Feedback immediato.** Il writeback delle password è un'operazione sincrona. Gli utenti saranno informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
 - **Supporta la reimpostazione delle password per gli utenti con ADFS o altre tecnologie di federazione.** Con il writeback delle password gli account utente federati potranno gestire le proprie password AD locali dal cloud, purché siano sincronizzati nel tenant di Azure AD.
@@ -72,10 +72,10 @@ La tabella seguente descrive quali scenari sono supportati per le versioni delle
 ### Modello di sicurezza del writeback della password
 Il writeback delle password è un servizio altamente sicuro e affidabile. Per garantire che le informazioni siano protette, viene abilitato un modello di protezione a 4 livelli descritto di seguito.
 
-- **Inoltro del bus di servizio specifico del tenant**: quando si configura il servizio, viene configurato automaticamente Inoltro del bus di servizio specifico del tenant, protetto da una password complessa generata in modo casuale, a cui Microsoft non può mai accedere.
-- **Chiave di crittografia bloccata e crittograficamente complessa per le password**: dopo la creazione di Inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto del tenant nel cloud, bloccato in modo sicuro e controllato, come qualsiasi password nella directory.
+- **Inoltro del bus di servizio specifico del tenant** - quando si configura il servizio, viene configurato automaticamente Inoltro del bus di servizio specifico del tenant, protetto da una password complessa generata in modo casuale, a cui Microsoft non può mai accedere.
+- **Chiave di crittografia bloccata e crittograficamente complessa per le password** - dopo la creazione di Inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto del tenant nel cloud, bloccato in modo sicuro e controllato, come qualsiasi password nella directory.
 - **TLS standard di settore**: quando si verifica nel cloud un'operazione di reimpostazione o modifica della password, la password non crittografata viene crittografata automaticamente con la chiave pubblica dell'utente. Viene quindi inclusa in un messaggio HTTPS inviato tramite un canale crittografato con certificati SSL Microsoft a Inoltro del bus di servizio. Dopo l'arrivo del messaggio arriva nel bus di servizio, l'agente locale si riattiva, si autentica con il bus di servizio usando la password complessa generata in precedenza, preleva il messaggio crittografato, lo decrittografa con la chiave privata generata e quindi tenta di impostare la password tramite l'API SetPassword di Servizi di dominio Active Directory. Questo passaggio consente di applicare i criteri password locali di AD (complessità, validità, cronologia, filtri e cosi via) nel cloud.
-- **Criteri di scadenza del messaggio**: se per qualche motivo il messaggio rimane nel bus di servizio poiché il servizio locale non è disponibile, verrà infine applicato il timeout e il messaggio verrà rimosso dopo alcuni minuti, per assicurare una sicurezza maggiore.
+- **Criteri di scadenza del messaggio** - se per qualche motivo il messaggio rimane nel bus di servizio poiché il servizio locale non è disponibile, verrà infine applicato il timeout e il messaggio verrà rimosso dopo alcuni minuti, per assicurare una sicurezza maggiore.
 
 ## Funzionamento del portale di reimpostazione delle password
 Quando un utente accede al portale di reimpostazione della password, viene avviato un flusso di lavoro per stabilire se l'account utente è valido e se l'utente dispone della licenza per usare la funzionalità e per determinare l'organizzazione a cui l'utente appartiene e la posizione in cui viene gestita la password dell'utente. Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina di reimpostazione della password.
@@ -282,4 +282,4 @@ La seguente tabella indica il punto e la modalità d'uso dei dati durante la rei
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

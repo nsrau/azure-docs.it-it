@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale | Microsoft Azure"
 	description="Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale."
-	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -246,7 +245,7 @@ Utilizzare uno strumento di [esplorazione di archiviazione di Azure](https://azu
 ![Rilevamento di illeciti: eventi illeciti visualizzati in tempo reale](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -258,4 +257,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

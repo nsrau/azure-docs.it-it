@@ -1,19 +1,19 @@
 <properties
    pageTitle="Funzioni del modello di Gestione risorse di Azure"
    description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -382,4 +382,4 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 - [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

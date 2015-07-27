@@ -29,7 +29,7 @@ Ogni risorsa di Application Insights viene addebitata come un servizio separato 
 
 È possibile aprire il pannello Quota + Prezzi dalle Impostazioni della risorsa dell'applicazione.
 
-![Scegliere le impostazioni, la quota e i prezzi.](./media/app-insights-pricing/01-pricing.png)
+![Scegliere le impostazioni, la quota e i prezzi](./media/app-insights-pricing/01-pricing.png)
 
 ## Come funziona la quota?
 
@@ -68,7 +68,7 @@ Fare clic sul grafico per altri dettagli o trascinare gli elementi per visualizz
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).
 
-![Scegliere Fatturazione dal menu laterale.](./media/app-insights-pricing/02-billing.png)
+![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)
 
 
 
@@ -81,4 +81,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

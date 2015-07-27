@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Connettere macchine virtuali in un servizio cloud di Azure" 
-	description="Informazioni sulla connessione di una macchina virtuale a un servizio cloud di Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Connettere macchine virtuali in un servizio cloud di Azure"
+	description="Informazioni sulla connessione di una macchina virtuale a un servizio cloud di Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
 
 # Come connettere le macchine virtuali con una rete virtuale o un servizio cloud
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

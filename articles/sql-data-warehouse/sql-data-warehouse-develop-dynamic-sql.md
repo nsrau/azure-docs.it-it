@@ -35,16 +35,16 @@ Se la stringa non è particolarmente lunga, è possibile utilizzare [sp_executes
 
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica dello sviluppo][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [sp_executesql]: https://msdn.microsoft.com/it-it/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

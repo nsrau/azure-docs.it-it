@@ -220,9 +220,13 @@ In questa sezione si creerà un repository Git locale e si eseguirà il push dal
 
 		git remote add azure [URL for remote repository]
 
-7. Effettuare il push delle modifiche in Azure usando il comando seguente.
+7. Configurare Git per salvare le credenziali a livello locale, in modo che siano aggiunte automaticamente ai comandi push generati da Visual Studio Code.
 
-		git push azure master
+		git config credential.helper store
+
+8. Effettuare il push delle modifiche in Azure usando il comando seguente. Dopo questo push iniziale in Azure, sarà possibile eseguire tutti i comandi push di Visual Studio Code.
+
+		git push -u azure master
 
 	Verrà richiesto di specificare la password creata in precedenza. **Nota: la password non sarà visibile.**
 
@@ -232,7 +236,9 @@ In questa sezione si creerà un repository Git locale e si eseguirà il push dal
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripubblicarla selezionando l'opzione **Commit All** in Visual Studio Code e immettendo il comando **git push azure master** al prompt dei comandi.
+> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripetere la pubblicazione direttamente in Visual Studio Code con la funzionalità Git predefinita selezionando l'opzione **Commit All** seguita dall'opzione **Push**. L'opzione **Push** è disponibile nel menu a discesa accanto ai pulsanti **Commit all** e **Refresh**.
+
+Se è necessario collaborare a un progetto, considerare la possibilità di effettuare il push in GitHub mentre si effettua il push in Azure.
 
 ## Eseguire l'app in Azure
 Dopo aver distribuito l'app Web, è possibile ora eseguirla mentre è ospitata in Azure.
@@ -250,4 +256,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo sui [vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

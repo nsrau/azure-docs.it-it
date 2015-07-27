@@ -3,7 +3,7 @@
     pageTitle="Configurare Active Directory per Azure RemoteApp" 
     description="Informazioni su come configurare Active Directory per lavorare con Azure RemoteApp." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -108,4 +108,4 @@ Se si riscontrano problemi durante la configurazione della sincronizzazione dell
 Avviare ora lo strumento Sincronizzazione directory di Azure e usare le credenziali **myAzureSyncUser@mydomain.com**per la prima richiesta (Credenziali di amministratore di Microsoft Azure Active Directory), quindi usare **myDomainSyncUser@mydomain.com** per la seconda richiesta.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

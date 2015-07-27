@@ -77,4 +77,4 @@
 
 <sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

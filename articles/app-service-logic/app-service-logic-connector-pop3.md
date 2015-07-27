@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Uso di POP3 Connector nell'app per la logica #
@@ -30,19 +30,7 @@ Per usare POP3 Connector, è necessario innanzitutto creare un'istanza dell'app 
 2.	In "Tutto" cercare "POP3 Connector".
 3.	Configurare POP3 Connector nel modo seguente:
 
-	![][1]
-	- **Località**: scegliere la località geografica in cui verrà distribuito il connettore
-	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
-	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore
-	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
-	- **Piano tariffario**: scegliere il piano tariffario per il connettore
-	- **Nome**: assegnare un nome al connettore POP3
-	- **Impostazioni pacchetto**
-		- **Nome utente**: specificare il nome utente per la connessione al server POP3
-		- **Password**: specificare la password per la connessione al server POP3
-		- **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server POP3
-		- **Porta del server**: specificare il numero di porta del server POP3
-		- **Abilita SSL**: specificare true per usare il protocollo POP3 tramite un canale SSL/TLS sicuro
+	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui risiederà il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore POP3 - **Impostazioni pacchetto** - **Nome utente**: specificare il nome utente per la connessione al server POP3 - **Password**: specificare la password per la connessione al server POP3 - **Indirizzo server**: specificare il nome del server o l'indirizzo IP del server POP3 - **Porta del server**: specificare il numero di porta del server POP3 - **Abilita SSL**: specificare true per usare il protocollo POP3 tramite un canale SSL/TLS sicuro
 4.	Fare clic su Crea. Verrà creato un nuovo POP3 Connector.
 5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare POP3 Connector.
 
@@ -62,9 +50,8 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 
 5.	È ora possibile usare POP3 Connector nel flusso. Selezionare il trigger "Get Email" e configurare la frequenza e l'intervallo. È possibile usare il messaggio e-mail recuperato dal trigger di POP3 in altre azioni del flusso.
 		 
-	
-	![][5]
-	![][6]
+
+	![][5] ![][6]
 
 
 	<!--Image references-->
@@ -75,4 +62,4 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Connettori#
+
+> [AZURE.NOTE]Questo argomento verrà ritirato. Per vedere tutte le app per le API e tutti i connettori predefiniti, fare riferimento all'[Elenco di connettori e app per le API](app-service-logic-connectors-list.md).
+
+
 I connettori sono app per le API che consentono di connettersi ai dati e ai servizi in esecuzione nel cloud oppure in locale. I connettori consentono di accedere ai dati con un'ampia gamma di trigger predefiniti e azioni cui è possibile accedere facilmente nelle app per la logica e altro ancora.
 
 Il servizio app di Azure fornisce una serie di connettori predefiniti:
@@ -46,14 +50,16 @@ Il servizio app di Azure fornisce una serie di connettori predefiniti:
 * [Connettore SugarCRM]
 * [Connettore Twilio]
 * [Connettore Twitter]
-* Connettore Wait
+* [Connettore Wait]
 * [Connettore Yammer]
+
 
 ##Connettori Premium e app per le API##
 * [Connettore AS2]
 * [BizTalk EDIFACT]
 * [BizTalk Flat File Encoder]
-* BizTalk Transform Service
+* [BizTalk JSON Encoder]
+* [BizTalk Transform Service]
 * [BizTalk Rules]
 * [BizTalk X12]
 * [BizTalk XPath Extractor]
@@ -112,7 +118,10 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 [BizTalk XML Validator]: app-service-logic-xml-validator.md
 [BizTalk Rules]: app-service-logic-use-biztalk-rules.md
 [Connettore AS2]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[BizTalk Transform Service]: app-service-logic-transform-xml-documents.md
+[Connettore Wait]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

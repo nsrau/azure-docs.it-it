@@ -2,7 +2,6 @@
 	pageTitle="Spostamento dei dati in SQL Server in Azure| Microsoft Azure" 
 	description="Spostamento dei dati in SQL Server in Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -19,7 +18,7 @@
 
 #Spostamento dei dati in SQL Server in Azure
 
-In questo documento viene illustrato lo spostamento dei dati da file flat (csv o tsv) o da un SQL Server locale a un SQL Server in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
+In questo documento viene illustrato lo spostamento dei dati da file flat (csv o tsv) o da un server locale SQL locale in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
 
 
 <table>
@@ -43,7 +42,7 @@ In questo documento viene illustrato lo spostamento dei dati da file flat (csv o
   </td>
 </tr>
 <tr>
-  <td><b>SQL Server locale</b></td>
+  <td><b>Server locale SQL</b> </td>
   <td>
     1. <a href="#export-flat-file">Esportazione in un file flat </a><br>
     2. <a href="#sql-migration">Migrazione guidata database SQL </a> <br>    
@@ -64,7 +63,7 @@ In questa sezione viene illustrato il processo di spostamento dei dati in una ma
 In questo documento viene descritto lo spostamento dei dati dalle origini dei dati seguenti:
   
 1. [Da file flat](#filesource_to_sqlonazurevm) 
-2. [Da un SQL Server locale](#sqlonprem_to_sqlonazurevm)
+2. [Da un Server locale SQL](#sqlonprem_to_sqlonazurevm)
 
 
 ### <a name="filesource_to_sqlonazurevm"></a>Origine file
@@ -189,9 +188,9 @@ Tali procedure vengono descritte qui di seguito:
 
 #### <a name="export-flat-file"></a>Esportazione in un file flat
 
-È possibile utilizzare diversi metodi per l'esportazione di massa dei dati da SQL Server locale come descritto [qui](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
+È possibile utilizzare diversi metodi per l'esportazione di massa dei dati dal Server locale SQL come descritto [qui](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
 
-1. Esportare i dati da SQL Server locale in un file mediante l'utilità bcp come indicato di seguito
+1. Esportare i dati dal Server locale SQL in un file mediante l'utilità bcp come indicato di seguito
 
 	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
 
@@ -233,4 +232,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

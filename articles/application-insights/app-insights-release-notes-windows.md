@@ -32,6 +32,33 @@ Vedere [Introduzione ad Application Insights per app di Windows Phone e Store](a
 * Confrontare la vecchia e la nuova versione di ApplicationInsights.xml. Unire di nuovo eventuali personalizzazioni apportate alla versione precedente.
 * Ricompilare la soluzione.
 
+## Versione 1.0.0
+
+### Windows App SDK
+
+- Nuova inizializzazione per le applicazioni Windows. La nuova classe `WindowsAppInitializer` con il metodo `InitializeAsync()` permette l'inizializzazione bootstrap della raccolta di SDK. Questa modifica offre un controllo più preciso e miglioramenti significativi alle prestazioni dell'inizializzazione dell'app rispetto alla tecnica precedente di ApplicationInsights.config.
+- La modalità DeveloperMode non viene più impostata automaticamente. Per modificare il comportamento di DeveloperMode, è necessario specificarlo nel codice.
+- Il pacchetto NuGet non inserisce più ApplicationInsights.config. È consigliabile usare il nuovo WindowsAppInitializer quando si aggiunge manualmente il pacchetto NuGet.
+- ApplicationInsights.config legge solo `<InstrumentationKey>`. Tutte le altre impostazioni vengono ignorate a favore delle impostazioni di WindowsAppInitializer.
+- Store Market verrà raccolto automaticamente dall'SDK.
+- Molte correzioni di bug, miglioramenti alla stabilità e ottimizzazioni delle prestazioni.
+
+### SDK di base
+
+- Il file ApplicationInsights.config non è più necessario e non viene aggiunto dal pacchetto NuGet. La configurazione può essere specificata completamente nel codice.
+- Il pacchetto NuGet non aggiungerà più file di destinazione alla soluzione. Verrà quindi rimossa l'impostazione automatica di DeveloperMode durante una compilazione di debug. DeveloperMode deve essere impostato manualmente nel codice.
+
+## Versione 0.17
+
+### Windows App SDK
+
+- Windows App SDK supporta ora le app di Windows universali create nell'anteprima tecnica di Windows 10 e con VS 2015 RC.
+
+### SDK di base
+
+- Il valore predefinito per TelemetryClient comporta l'inizializzazione con InMemoryChannel.
+- È stata aggiunta una nuova API, `TelemetryClient.Flush()`. Questo metodo Flush attiverà un caricamento bloccante immediato di tutti i dati di telemetria registrati in tale client. Ciò permette l'attivazione manuale del caricamento prima dell'arresto del processo.
+- Il pacchetto NuGet ha aggiunto una destinazione .NET 4.5. Questa destinazione non presenta dipendenze esterne. Le dipendenze BCL ed EventSource sono state rimosse.
 
 ## Versione 0.16 
 
@@ -50,4 +77,4 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

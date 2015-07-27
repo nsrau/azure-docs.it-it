@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
-Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione [Aggiungere notifiche push all’app], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine lo script del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
+Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione [Aggiungere notifiche push all'app], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine lo script del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
  
 Questa esercitazione supporta app sia di Windows Store che di Windows Phone Store.
 
@@ -30,7 +30,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 + [Aggiungere l'autenticazione all'app]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
 
-+ [Aggiungere notifiche push all’app]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
++ [Aggiungere notifiche push all'app]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
 
 Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utenti non autenticati di effettuare la registrazione per le notifiche push dal servizio mobile.
 
@@ -85,9 +85,9 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: mobile-services-windows-store-javascript-get-started-users.md
-[Aggiungere notifiche push all’app]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
+[Aggiungere notifiche push all'app]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="06/30/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
@@ -67,4 +67,4 @@ Con il *servizio app di Azure* è ora possibile creare più ambienti privati di 
 Al momento del passaggio dell'*app per dispositivi mobili del servizio app di Azure* alla fase di disponibilità generale, verrà fornita una soluzione per eseguire la migrazione dei servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare il *servizio app* e sperimentando i vantaggi nel proprio servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

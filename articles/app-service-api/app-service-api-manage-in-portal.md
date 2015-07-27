@@ -43,8 +43,8 @@ Usare il pannello **App per le API** per eseguire queste attività:
 - Configurare i criteri di aggiornamento: fare clic su **Impostazioni > Impostazioni applicazione**. Il valore predefinito è **Attivato**. Questo significa che quando una nuova versione dell'app per le API viene pubblicata nel Marketplace, l'app per le API in uso verrà automaticamente aggiornata alla nuova versione, se si tratta di una modifica non sostanziale.  
 - Configurare l'autenticazione per le chiamate in uscita dall'app per le API: fare clic su **Impostazioni > Autenticazione**. Se l'app per le API effettua chiamate a un servizio esterno che richiede l'autenticazione, è necessario immettere i valori di configurazione necessari in questa sezione. Ad esempio, un connettore Dropbox richiede un ID client e un segreto client per accedere al servizio Dropbox.
 - Configurare il [Controllo degli accessi in base al ruolo](../role-based-access-control-configure.md): fare clic su **Impostazioni > Utenti**. L'accesso utente configurato in questa sezione determina solo gli utenti che possono accedere alle funzionalità specifiche dell'app per le API. Per configurare il Controllo degli accessi in base al ruolo per le funzionalità dell'app Web, usare il pannello **Host app per le API**. In genere, si tende a mantenere sincronizzate le impostazioni di Controllo degli accessi in base al ruolo per l'app per le API e per l'host dell'app per le API. Se si concede a un utente l'accesso all'app per le API ma non all'host dell'app per le API, l'utente non potrà usare le funzionalità disponibili nel pannello **App per le API** che si riferiscono all'host dell'app per le API.
-- Visualizzare la definizione dell'API: fare clic su **Definizione API** nella sezione **Riepilogo** per visualizzare un elenco dei metodi esposti dall'**app per le API**.
-- [Installare Gestione connessioni ibride](](../app-service-logic/app-service-logic-hybrid-connection-manager.md). (Si applica alle app per le API del connettore incorporato). Gestione connessioni ibride Una consente di connettersi a un sistema locale, ad esempio SQL Server o SAP. La connettività ibrida usa il bus di servizio di Azure per la connessione e il controllo della sicurezza tra le risorse di Azure e le risorse locali.
+- Visualizzare la definizione dell'API: fare clic su **Definizione API** nella sezione **Riepilogo** per visualizzare un elenco dei metodi esposti dall'app per le API.
+- [Installare Gestione connessione ibrida](../app-service-logic/app-service-logic-hybrid-connection-manager.md). Gestione connessioni ibride Una consente di connettersi a un sistema locale, ad esempio SQL Server o SAP. La connettività ibrida usa il bus di servizio di Azure per la connessione e il controllo della sicurezza tra le risorse di Azure e le risorse locali.
 
 ### Attività che possono essere eseguite sia nel pannello App per le API sia nel pannello Host di app per le API 
 
@@ -130,8 +130,8 @@ Per passare a un'app per le API in Esplora server, fare clic su **Azure > Serviz
 
 ## Passaggi successivi
 
-Questo articolo ha illustrato come usare il portale di Azure per eseguire le attività di gestione relative alle app per le API.
+Questo articolo ha illustrato come usare il portale di Azure per eseguire le attività di gestione per le app per le API. Per le app per le API installate dalla raccolta di app per le API, vedere anche [Gestire e monitorare le app per le API e i connettori predefiniti](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Per informazioni su come gestire le app per le API usando la riga di comando, vedere gli articoli nella sezione **Automazione** del menu che viene visualizzato sul lato sinistro dell'articolo (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

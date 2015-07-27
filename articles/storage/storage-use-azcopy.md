@@ -42,12 +42,21 @@ Aprire una finestra di comando e passare alla directory di installazione di AzCo
 
 > [AZURE.NOTE]A partire da AzCopy versione 3.0.0, la sintassi della riga di comando di AzCopy richiede che ogni parametro venga specificato in modo da includere il nome di parametro,*ad esempio *, `/ParameterName:ParameterValue`.
 
+## Scrivere il primo comando AzCopy
+
+**Caricare un file dal file system all'archiviazione BLOB:**
+	
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
+
+Si noti che quando si copiano file singoli, specificare l'opzione /Pattern con il nome del file. È possibile trovare ulteriori esempi nella sezione successiva di questo articolo.
+
+## Introduzione ai parametri
+
 I parametri per AzCopy sono descritti nella tabella seguente. È anche possibile digitare uno dei comandi seguenti dalla riga di comando per assistenza nell'uso di AzCopy:
 
 - Per assistenza dettagliata della riga di comando per AzCopy:`AzCopy /?`
 - Per assistenza dettagliata con un parametro di AzCopy:`AzCopy /?:SourceKey`
 - Per esempi della riga di comando:`AzCopy /?:Samples` 
-
 
 <table>
   <tr>
@@ -810,7 +819,7 @@ AzCopy genererà un file di dati JSON nella cartella locale o nel contenitore BL
 
 Il file di dati JSON generato segue il formato di payload per i metadati minimi. Per i dettagli su questo formato di payload, vedere [Formato di payload per le operazioni del servizio tabelle](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tenere presente che quando si esportano entità di tabella di archiviazione nella risorsa di archiviazione BLOB, AzCopy esporterà in primo luogo le entità della tabella in file di dati temporanei locali e quindi li caricherà in un BLOB, questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", è possibile specificare l'opzione/z: [cartella di file journal] per modificare il percorso della cartella di file journal e quindi modificare il percorso di file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalla dimensione delle entità della tabella e dalla dimensione specificata tramite l’opzione /SplitSize, anche se il file di dati temporanei nel disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB, verificare che si disponga di sufficiente spazio su disco locale per archiviare i file di dati temporanei prima di essere eliminati,
+Tenere presente che quando si esportano entità di tabella di archiviazione nella risorsa di archiviazione BLOB, AzCopy esporterà in primo luogo le entità della tabella in file di dati temporanei locali e quindi li caricherà in un BLOB, questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>", è possibile specificare l'opzione/z: [cartella di file journal] per modificare il percorso della cartella di file journal e quindi modificare il percorso di file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalla dimensione delle entità della tabella e dalla dimensione specificata tramite l’opzione /SplitSize, anche se il file di dati temporanei nel disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB, verificare che si disponga di sufficiente spazio su disco locale per archiviare i file di dati temporanei prima di essere eliminati,
 
 ### Dividere i file di esportazione
 
@@ -902,4 +911,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -53,18 +53,18 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
 1. Dal menu **File** di Visual Studio scegliere **Nuovo** e quindi fare clic su **Progetto**.
 
-   Verrà visualizzata la finestra di dialogo **Nuovo progetto**. 
+   	Verrà visualizzata la finestra di dialogo **Nuovo progetto**.
 2. Nel riquadro **Tipi progetto** espandere **Modelli**, **Visual C#**, **Web** e quindi selezionare **Applicazione Web ASP.NET**.
 
-  ![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/image10.png)
+  	![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/image10.png)
 
-3. Nella casella **Nome** digitare il nome del progetto. Questa esercitazione usa il nome "todo". Se si sceglie di usare un valore diverso da questo, quindi ogni volta che in questa esercitazione viene descritto lo spazio dei nomi todo, è necessario modificare gli esempi di codice forniti per usare il nome assegnato all'applicazione. 
+3. Nella casella **Nome** digitare il nome del progetto. Questa esercitazione usa il nome "todo". Se si sceglie di usare un valore diverso da questo, quindi ogni volta che in questa esercitazione viene descritto lo spazio dei nomi todo, è necessario modificare gli esempi di codice forniti per usare il nome assegnato all'applicazione.
 
 4. Fare clic su **Sfoglia** per passare alla cartella in cui si vuole creare il progetto e quindi fare clic su **OK**.
 
-  Verrà visualizzata la finestra di dialogo **Nuovo progetto ASP.NET**.
+  	Verrà visualizzata la finestra di dialogo **Nuovo progetto ASP.NET**.
 
-  ![Schermata della finestra di dialogo Nuovo progetto ASP.NET con il modello MVC evidenziato e la casella Ospita nel cloud selezionata](./media/documentdb-dotnet-application/image11.png)
+  	![Schermata della finestra di dialogo Nuovo progetto ASP.NET con il modello MVC evidenziato e la casella Ospita nel cloud selezionata](./media/documentdb-dotnet-application/image11.png)
 
 5. Nel riquadro dei modelli selezionare **MVC**.
 
@@ -74,11 +74,11 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
 8. Se si è scelto di ospitare l'applicazione nel cloud, verrà visualizzata almeno un'altra schermata che richiede di accedere all'account Azure e di specificare alcuni valori per il nuovo sito Web. Specificare tutti i valori aggiuntivi e continuare.
 
-  Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure DocumentDB successivamente nel portale di Microsoft Azure.
+  	Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure DocumentDB successivamente nel portale di anteprima di Azure.
 
-	Per ulteriori informazioni sulla scelta di un **piano di servizio app** e di un **gruppo di risorse**, vedere [Panoramica approfondita dei piani di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Per ulteriori informazioni sulla scelta di un**piano di servizio App**e del **gruppo di risorse**vedere[approfondimenti su piani di servizio di Azure App](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-  ![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
+  	![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Al termine della creazione dell'applicazione MVC standard da parte di Visual Studio, sarà disponibile un'applicazione ASP.NET vuota eseguibile in locale.
 
@@ -90,23 +90,23 @@ Ora che si dispone della maggior parte del plumbing MVC ASP.NET necessario per q
 
 1. DocumentDB .NET SDK è distribuito come pacchetto NuGet. Per ottenere il pacchetto NuGet in Visual Studio, usare Gestione pacchetti NuGet in Visual Studio facendo clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliendo **Gestisci pacchetti NuGet**.
 
-  ![Schermata delle opzioni del menu di scelta rapida per il progetto in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/image21.png)
+  	![Schermata delle opzioni del menu di scelta rapida per il progetto in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/image21.png)
 
-    Viene visualizzata la finestra di dialogo **Gestisci pacchetti NuGet**.
+    Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
-2. Nella casella **Cerca online** digitare ***Azure DocumentDB***. 
+2. Nella casella **Cerca online** digitare ***Azure DocumentDB***.
     
     Dai risultati installare il pacchetto delle **librerie client Microsoft Azure DocumentDB**. Il pacchetto DocumentDB verrà scaricato e installato, insieme a tutte le dipendenze, ad esempio Newtonsoft.Json.
 
-  ![Schermata della finestra Gestisci pacchetti NuGet, con la libreria del client di Microsoft Azure DocumentDB evidenziata](./media/documentdb-dotnet-application/nuget.png)
+  	![Schermata della finestra Gestisci pacchetti NuGet, con la libreria del client di Microsoft Azure DocumentDB evidenziata](./media/documentdb-dotnet-application/nuget.png)
 
-  In alternativa, è possibile usare la console di Gestione pacchetti per installare il pacchetto. A tale scopo, dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**. Al prompt dei comandi, immettere quanto segue.
+  	In alternativa, è possibile usare la console di Gestione pacchetti per installare il pacchetto. A tale scopo, dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**. Al prompt dei comandi, immettere quanto segue.
 
     	Install-Package Microsoft.Azure.DocumentDB
 
 3. Una volta installato il pacchetto, la soluzione di Visual Studio dovrebbe assomigliare alla seguente, con due nuovi riferimenti aggiunti, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
 
-  ![Schermata dei due riferimenti aggiunti al progetto in Esplora soluzioni](./media/documentdb-dotnet-application/image22.png)
+  	![Schermata dei due riferimenti aggiunti al progetto in Esplora soluzioni](./media/documentdb-dotnet-application/image22.png)
 
 
 ##<a name="_Toc395637763"></a>Passaggio 4: Configurare l'applicazione MVC ASP.NET
@@ -124,9 +124,9 @@ Creare prima di tutto l'elemento che corrisponde alla lettera **M** in MVC, ovve
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 
-  Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+  	Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 
-2. Denominare la nuova classe **Item.cs** e fare clic su **Aggiungi**. 
+2. Denominare la nuova classe **Item.cs** e fare clic su **Aggiungi**.
 
 3. In questo nuovo file **Item.cs**, aggiungere quanto segue dopo l'ultima *istruzione using*.
 		
@@ -392,17 +392,17 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 	> [AZURE.TIP]Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta DocumentDB vedere [livelli di prestazioni DocumentDB](documentdb-performance-levels.md)
 
-3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file **Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
+3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file** Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. A questo punto, aggiornare i valori per *endpoint* e *authKey* usando il pannello Chiavi del portale di Azure. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
+4. A questo punto, aggiornare i valori per*endpoint*e*authKey*utilizzando il blade di chiavi del portale Azure Preview. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
 
 
-    Ciò consente il collegamento al repository DocumentDB. A questo punto è possibile aggiungere la logica di applicazione.
+    Che consente di collegare i repository DocumentDB, ora possibile aggiunta la logica dell'applicazione.
 
 5. Un'applicazione per un elenco di azioni deve innanzitutto consentire la visualizzazione degli elementi incompleti. Copiare e incollare il seguente frammento di codice in un punto qualsiasi all'interno della classe **DocumentDBRepository**.
 
@@ -441,13 +441,13 @@ A questo punto dovrebbe essere possibile compilare la soluzione senza errori.
 
 Se si eseguisse l'applicazione a questo punto, si passerebbe a **HomeController** e alla visualizzazione **Index** di tale controller. Questo è il comportamento predefinito per il progetto di modello MVC scelto inizialmente, ma è possibile cambiarlo. Per modificare questo comportamento, è possibile cambiare il routing nell'applicazione MVC.
 
-Aprire ***App_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
+Aprire ***App\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views****Item****Index**.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\\**Item**\\**Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -462,7 +462,9 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 1.  Aggiungere il metodo seguente alla classe **DocumentDBRepository**.
 
     	public static async Task<Document> CreateItemAsync(T item)
-		{ return await Client.CreateDocumentAsync(Collection.SelfLink, item); }
+   	 	{
+   	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
+   		}
 
 	Questo metodo accetta semplicemente un oggetto passato al metodo stesso e lo rende permanente in DocumentDB.
 
@@ -471,9 +473,9 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
     	public ActionResult Create()
     	{ 
 			return View(); 
-		}
+   		}
 
-	È ora necessario aggiungere altro codice al controller, in modo da accettare gli invii dalla visualizzazione **Create**.
+	Nel controller è necessario avere più codici, ed il controller stesso accetterà la presentazione dal codice **Crea**visualizzazione.
 
 2. Aggiungere il blocco di codice successivo alla classe ItemController.cs, che indica a MVC ASP.NET le operazioni da eseguire con un POST per i moduli per questo controller.
 	
@@ -490,9 +492,9 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 		}
 	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
-	**Nota sulla sicurezza**: L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni su questo argomento e alcuni esempi di corretta implementazione, vedere la pagina relativa alla [prevenzione di richieste intersito false][]. Il codice sorgente disponibile in [GitHub][] definisce l'implementazione completa.
+	**Nota sulla sicurezza**: l’attributo**ValidateAntiForgeryToken**viene utilizzato di seguito per proteggere l'applicazione da attacchi di richiesta intersito false. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in[GitHub][] permette l'implementazione completa.
 
-	**Nota sulla sicurezza**: Viene usato anche l'attributo **Bind** nel parametro del metodo in modo da garantire la protezione da attacchi basati su un eccesso di post. Per informazioni dettagliate, vedere la pagina relativa alle [operazioni CRUD di base in MVC ASP.NET][].
+	**Nota sulla sicurezza**: È possibile utilizzare l’attributo**associare**sul parametro del metodo per proteggersi da attacchi di registrazione eccessiva. Per ulteriori informazioni, vedere[operazioni CRUD di base in ASP.NET MVC][].
 
 Questo è tutto il codice necessario per aggiungere nuovi elementi al database.
 
@@ -562,13 +564,13 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
 		}
 		
 	
-	Il primo metodo gestisce l'operazione Http GET, che avviene quando l'utente fa clic sul collegamento **Edit** nella visualizzazione **Index**. Questo metodo recupera un oggetto [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) da DocumentDB e lo passa alla visualizzazione **Edit**.
+	Il primo metodo per gestire Http GET che si verifica quando l'utente fa clic sul collegamento**Modifica** dall’**indice**di visualizzazione. Questo metodo recupera un[**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)da DocumentDB e passa alla visualizzazione **Modifica**.
 
-	La visualizzazione **Edit** esegue quindi un'operazione Http POST in **IndexController**. 
+	La visualizzazione**Modifica** quindi eseguirà un Http POST per l’**IndexController**.
 	
 	Il secondo metodo aggiunto gestisce il passaggio dell'oggetto aggiornato a DocumentDB in modo da renderlo permanente nel database.
 
-A questo punto, queste sono le procedure necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e modificarli **Item**.
+A questo punto, queste sono le procedure necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e modificarli.
 
 ## <a name="_Toc395637773"></a>Passaggio 6: Eseguire l'applicazione in locale
 
@@ -628,17 +630,17 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 
 3. Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare clic con il pulsante destro del mouse sulla soluzione todo in **Esplora soluzioni** e quindi fare clic sul comando per **abilitare il ripristino del pacchetto NuGet**.
 
-4. Recuperare i valori di **URI** e **CHIAVE PRIMARIA** o **CHIAVE SECONDARIA** dal pannello **Chiavi** dell'account DocumentDB nel [portale di Azure](https://portal.azure.com/).
+4. Recuperare i valori**URI**e la **chiave primaria**o**chiave SECONDARIA**dal blade **chiavi** dell'account di DocumentDB nel[portale Azure Preview](https://portal.azure.com/).
 
 	
 	Se non si dispone di un account, vedere [Creare un account di database](documentdb-create-account.md) per configurarne uno.
 
-	![Schermata del portale di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato,  il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi](media/documentdb-dotnet-application/keys.png)
+	![Schermata del portale di anteprima di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi](media/documentdb-dotnet-application/keys.png)
 
 5. Nel file Web.config aggiornare i valori predefiniti per le chiavi **endpoint** e **authKey**.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure classic portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure classic portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
 
 	- Copiare il valore di **URI** dal pannello Chiavi e incollarlo nel valore della proprietà **endpoint**. 
 	- Copiare il valore di **CHIAVE PRIMARIA** o **CHIAVE SECONDARIA** dal pannello **Chiavi** e incollarlo nel valore della proprietà **authKey**.
@@ -652,8 +654,8 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-[prevenzione di richieste intersito false]: http://go.microsoft.com/fwlink/?LinkID=517254
-[operazioni CRUD di base in MVC ASP.NET]: http://go.microsoft.com/fwlink/?LinkId=317598
-
-<!--HONumber=52-->
+[impedendo Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
+
+<!---HONumber=July15_HO3-->

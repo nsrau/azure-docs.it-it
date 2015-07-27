@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Codifica di file multimediali con Dolby Digital Plus
@@ -651,4 +651,4 @@ Di seguito sono descritti i singoli attributi.
 **TruePeak** - Questo risultato contiene il valore massimo di true‐peak assoluto in un canale dall'ultimo ripristino della misurazione. Per una descrizione del true-peak, fare riferimento a ITU‐R BS.1770‐2. I valori possono essere compresi tra -70 e 12,04 dBTP.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

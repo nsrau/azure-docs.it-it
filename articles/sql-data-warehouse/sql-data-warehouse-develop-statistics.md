@@ -152,7 +152,7 @@ Per creare statistiche a più colonne, è sufficiente usare gli esempi precedent
 
 > [AZURE.NOTE]L'istogramma, che viene usato per stimare il numero di righe nei risultati delle query, sarà disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product_category*. Le statistiche tra le colonne vengono calcolate su *product_category* e *product_sub_c\ategory*:
+In questo esempio l'istogramma è disponibile su *product_category*. Le statistiche tra le colonne vengono calcolate su *product_category* e *product_sub_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -452,4 +452,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -36,11 +36,10 @@
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##Riepilogo
-In questa esercitazione è stato illustrato come creare una macchina virtuale che esegue OpenSUSE Linux e come stabilire una connessione remota a quest'ultima usando SSH o PuTTY. È stato inoltre illustrato come installare e configurare MySQL nella macchina virtuale Linux. Per ulteriori informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
+In questa esercitazione è stato illustrato come creare una macchina virtuale che esegue OpenSUSE Linux e come stabilire una connessione remota a quest'ultima usando SSH o PuTTY. È stato inoltre illustrato come installare e configurare MySQL sulla macchina virtuale di Linux. Per ulteriori informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -52,13 +52,13 @@ Quando si fa clic sul pulsante Nuovo vengono aperte tutte le categorie di serviz
 
 ### SQL Data Warehouse
 
-Come si può vedere, Azure offre molti motori di dati e archiviazione. Questa guida introduttiva riguarda tuttavia SQL Data Warehouse.
+Come si può vedere, Azure offre molti motori di dati e archiviazione. Tuttavia, questa Guida introduttiva è per Data Warehouse di SQL.
 
 - Procedere e selezionare SQL Data Warehouse.
 
 ## Configurare SQL Data Warehouse
 
-Per completare il processo di provisioning, è necessario configurare SQL Data Warehouse.
+Per completare il processo di provisioning, configurare semplicemente SQL Data Warehouse.
 
 
 ### Nome database
@@ -67,18 +67,18 @@ La prima configurazione riguarda l'assegnazione di un nome al database.
 
 
 
-- Per questa guida introduttiva assegnare al database il nome "MySQLDW".
+- Per questa avvio rapido, assegnare al database il nome "MySQLDW".
 
 
 > [AZURE.NOTE]Quando si crea un database personalizzato, si può naturalmente usare un nome qualsiasi, che tuttavia dovrà essere conforme ai requisiti di denominazione di Azure.
 
 ### Prestazioni
 
-L'opzione relativa alle prestazioni è **importante**. Tramite questo dispositivo di scorrimento è possibile sfruttare le potenzialità scalabili di SQL Data Warehouse. Le prestazioni possono essere aumentate o diminuite in qualsiasi momento, non solo quando si configura il cluster. Spostando il dispositivo verso destra si hanno a disposizione maggiori risorse. Quando le risorse non sono più necessarie, è possibile spostare immediatamente il dispositivo di scorrimento a sinistra, risparmiando così sul costo. SQL Data Warehouse consente di modificare il profilo delle prestazioni su richiesta, senza dover ricreare il cluster o spostare dati.
+L'opzione relativa alle prestazioni è **importante**. Tramite questo dispositivo di scorrimento è possibile sfruttare le potenzialità scalabili di SQL Data Warehouse. Le prestazioni possono essere aumentate o diminuite in qualsiasi momento, non solo quando si configura il data warehouse. Spostando il dispositivo verso destra si hanno a disposizione maggiori risorse. Quando le risorse non sono più necessarie, è possibile spostare immediatamente il dispositivo di scorrimento a sinistra, risparmiando così sul costo. SQL Data Warehouse consente di modificare il profilo delle prestazioni su richiesta, senza dover ricreare il data warehouse o spostare dati.
 
 - Usare ora il dispositivo di scorrimento per vedere come aumentano le unità data warehouse quando lo si sposta a destra e come diminuiscono quando lo si risposta a sinistra.
 
-- Prima di completare questo passaggio, assicurarsi di riportare il dispositivo di scorrimento a sinistra. Il nuovo database è solo un piccolo data warehouse, quindi non servono molte risorse. Conservarle invece per il resto della versione di valutazione.
+- Prima di completare questo passaggio, assicurarsi di riportare il dispositivo di scorrimento a sinistra. Il nuovo data warehouse è piccolo, quindi non servono molte risorse. Conservarle invece per il resto della versione di valutazione.
 
 ### Selezionare l'origine
 
@@ -103,7 +103,7 @@ I gruppi di risorse sono contenitori progettati per facilitare la gestione di un
 
 Per questa guida introduttiva lasciare configurati i valori predefiniti in Gruppo di risorse.
 
-Per altre informazioni, vedere [gruppi di risorse]
+Per altre informazioni, vedere [gruppi di risorse](../azure-portal/resource-group-portal.md)
 
 ### Sottoscrizione
 Un singolo utente può avere una o più sottoscrizioni di Azure. Se all'account di accesso sono associate più sottoscrizioni, è possibile scegliere quale usare.
@@ -153,18 +153,17 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo.
 
-Nei prossimi passaggi si apprenderà quindi come: 1. [Connettersi ed eseguire query] sul database di SQL Data Warehouse. 2. Esportare dati dal database di SQL Data Warehouse nell'archivio BLOB di Azure. 3. Caricare altri dati nel database di SQL Data Warehouse.
+Nei prossimi passaggi si apprenderà quindi come: 1. [Connect e query](sql-data-warehouse-get-started-connect-query.md)il data warehouse. 2. Esportare i dati dal data warehouse nella risorsa di archiviazione blob di Azure. 3. Caricare più dati nel data warehouse.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Connettersi ed eseguire query]: ./sql-data-warehouse-get-started-connect-query/
-[gruppi di risorse]: ./azure-preview-portal-using-resource-groups/
+
 
 <!--External links-->
 [versione di valutazione gratuita]: https://azure.microsoft.com/it-it/pricing/free-trial/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

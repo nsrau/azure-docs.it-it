@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Connettori dati nel servizio app di Microsoft Azure
+
+> [AZURE.NOTE]Questo argomento verrà ritirato. Per vedere tutte le app per le API e tutti i connettori predefiniti, fare riferimento all'[Elenco di connettori e app per le API](app-service-logic-connectors-list.md).
 
 
 ## Cos'è un connettore app per le API dei servizi app e dati
@@ -47,17 +49,6 @@ Ecco una breve panoramica di ogni connettore dei servizi app e dati disponibile 
 <td>Il connettore Bus di servizio di Azure consente di inviare messaggi dalle entità del bus di servizio, ad esempio code e argomenti, e di ricevere messaggi dalle entità del bus di servizio, ad esempio code e sottoscrizioni.
 <td>Nuovi messaggi
 <td>Invio di un messaggio
-</tr>
-<tr>
-<td>Tabella di archiviazione di Azure
-<td>Il connettore Tabella di archiviazione di Azure consente di connettersi alla tabella di archiviazione di Azure e di eseguire diverse azioni, ad esempio ottenere, eseguire la query, inserire, aggiornare ed eliminare un'entità, e un trigger per recuperare i dati.
-<td>Nuova entità
-<td><li>Acquisizione entità
-	<li>Inserimento entità
-	<li>Eliminazione entità
-	<li>Aggiornamento entità
-	<li>Query
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@ Ecco una breve panoramica di ogni connettore dei servizi app e dati disponibile 
 	<li>Selezione dalla tabella
 	<li>Eliminazione dalla tabella
 	<li>Chiamata a una stored procedure
-</tr>
-
-<tr>
-<td>MongoDB
-<td>Un connettore MongoDB consente di creare, aggiornare, eliminare e ottenere documenti da una raccolta MongoDB.
-<td>Nuovo documento
-<td>	<li>Aggiunta documento
-		<li>Aggiornamento documento
-		<li>Acquisizione documenti
-		<li>Upsert documento
-		<li>Eliminazione documento
 </tr>
 
 
@@ -256,12 +236,13 @@ I connettori usano OAuth oppure nomi utente e password.
 
 
 ## Informazioni sulle app per la logica e le app Web
-[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web in Azure App Service](../app-service-web/app-service-web-overview.md) |
+[Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md) | [Siti Web e app Web nel servizio app di Azure](../app-service-web/app-service-web-overview.md) |
 
 
 
 ## Altri connettori
-[Connettori di integrazione di BizTalk](app-service-logic-integration-connectors.md) | [Connettori Enterprise](app-service-logic-enterprise-connectors.md) | [Connettori di Business-to-Business](app-service-logic-b2b-connectors.md) | [Connettori per social network](app-service-logic-social-connectors.md) | [Connettori per protocolli](app-service-logic-protocol-connectors.md) | [Connettori per i servizi app e dati](app-service-logic-data-connectors.md) | [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+[Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

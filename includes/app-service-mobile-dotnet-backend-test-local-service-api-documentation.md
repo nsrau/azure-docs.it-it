@@ -7,9 +7,9 @@
 
 	 ![verifica del servizio mobile nella barra delle applicazioni](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
 
-3. Nella pagina di avvio del back-end .NET fare clic su **Provalo**.
+3. Nella pagina di avvio del back-end .NET, fare clic su **Provalo**.
 
-    Viene visualizzata la pagina di documentazione sull'API, che può essere usata per eseguire il test dell'app per dispositivi mobili.
+    Viene visualizzata la pagina di documentazione sull'API, che può essere utilizzata per effettuare il test dell'app per dispositivi mobili.
 
 	>[AZURE.NOTE]Durante l'esecuzione a livello locale, l'autenticazione non è necessaria per accedere a questa pagina. Durante l'esecuzione in Azure, per accedere a questa pagina è necessario immettere la chiave di applicazione come password (senza nome utente).
 
@@ -27,4 +27,4 @@
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

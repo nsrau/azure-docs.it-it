@@ -16,8 +16,8 @@
 </tr>
 </table>
 
-<sup>1</sup>Quando si crea una macchina virtuale all'esterno di un gruppo di risorse di Azure, viene creato automaticamente un servizio cloud per contenerla. È quindi possibile aggiungere più macchine virtuali nello stesso servizio cloud.
+<sup>1</sup>Macchine virtuali create in Gestione dei servizi (anziché Resource Manager) viene automaticamente archiviato in un servizio cloud. È possibile aggiungere più macchine virtuali al servizio cloud per il bilanciamento del carico e disponibilità. Vedere [Come connettere le macchine virtuali con una rete virtuale o un servizio cloud](../virtual-machines/cloud-services-connect-virtual-machine.md).
 
-<sup>2</sup>Gli endpoint di input vengono usati per consentire le comunicazioni con le macchine virtuali esterne al servizio cloud contenitore. Le macchine virtuali nello stesso servizio cloud consentono automaticamente le comunicazioni tra tutte le porte UDP e TCP per le comunicazioni interne.
+<sup>2</sup>Endpoint di input consentire le comunicazioni a una macchina virtuale da fuori servizio cloud della macchina virtuale. Le macchine virtuali nello stesso servizio cloud o rete virtuale può comunicare automaticamente tra loro. Vedere [Come configurare gli endpoint in una macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -186,4 +186,4 @@ Per il codice sorgente di Azure SDK per .NET, comprese le librerie client, veder
 
 Per la documentazione di riferimento sulle librerie client di Azure, vedere [Informazioni di riferimento su .NET per Azure](/documentation/api/).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

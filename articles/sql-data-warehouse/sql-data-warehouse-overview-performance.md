@@ -77,4 +77,4 @@ Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, veder
 
 <!--Other web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

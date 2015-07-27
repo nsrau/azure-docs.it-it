@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -128,7 +128,7 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 + Nella pagina Panoramica, fare clic sul riquadro Ricerca per aprire Ricerca diagnostica. I dati verranno visualizzati prima qui.
 + Fare clic sul pulsante Aggiorna. Nella versione corrente il contenuto di un pannello non viene aggiornato automaticamente.
 + Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
-+ Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
 + Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
 + Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: assicurarsi che siano stati installati i seguenti aggiornamenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -232,4 +232,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

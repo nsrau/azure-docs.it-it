@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Creare un semplice esperimento in Machine Learning Studio | Microsoft Azure"
 	description="Una prima esercitazione di Machine Learning per creare un semplice esperimento per eseguire il training e il test di un modello semplice in Azure Machine Learning Studio."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
@@ -23,9 +22,9 @@ Nella prima esercitazione di Machine Learning, verrà creato un modello di regre
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un Machine Learning Studio è costituito da componenti a trascinamento per *creare un modello*, *eseguire il training del modello* e infine *assegnare un punteggio al modello e testarlo*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
+Un esperimento Machine Learning Studio consiste in trascinare e rilasciare componenti in un'area di disegno e connetterli al fine di *creare un modello*, *provare il modello* e *valutare e testare il modello*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
 
-Aprire Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Per informazioni sui concetti introduttivi di Machine Learning Studio, vedere la [home page di Microsoft Azure Machine Learning Studio](https://studio.azureml.net/).
+Immettere Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante "Scarica subito". È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
 
 Per informazioni più generali su Machine Learning Studio, vedere [Cos'è Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
@@ -233,4 +232,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

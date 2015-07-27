@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -148,4 +147,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

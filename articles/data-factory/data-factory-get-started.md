@@ -66,7 +66,7 @@ Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **A
 ### Preparare l'archiviazione BLOB di Azure e il database SQL Azure per l'esercitazione
 Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazione seguendo questa procedura:
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStarted** sul disco rigido.
+1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\\ADFGetStarted** sul disco rigido.
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@ Eseguire le operazioni seguenti:
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

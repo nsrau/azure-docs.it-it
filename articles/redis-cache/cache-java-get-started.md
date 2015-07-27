@@ -87,4 +87,4 @@ Fare clic sul collegamento in **Porte**, quindi su **No** per "Consenti l’acce
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

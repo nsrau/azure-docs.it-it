@@ -3,7 +3,6 @@
 	description="Informazioni su come usare Servizi mobili per archiviare i dati nell'archiviazione tabelle." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@ Informazioni su come usare l’archiviazione tabelle con Servizi mobili nell’e
 [Servizi mobili e Archiviazione di Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

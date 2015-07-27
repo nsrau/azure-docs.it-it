@@ -48,18 +48,14 @@ Prima di continuare, assicurarsi di avere installato quanto segue:
 Se si conosce già Azure Store, utilizzare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Provisioning del database][provision] più avanti.
 
 1. Aprire Azure Marketplace facendo clic su **Nuovo** > **Markeplace**.  
-	<!--- ![Store][button-store] -->
-2. Fare clic sul componente aggiuntivo **MongoLab**.  
-	![MongoLab][entry-mongolab]
-3. Fare clic sul componente aggiuntivo **MongoLab** nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**.  
-	![ConnectionInfoButton][button-connectioninfo]  
-4. Copiare **MONGOLAB_URI** negli Appunti.  
-	![ConnectionInfoScreen][screen-connectioninfo]
+<!-- ![Store][button-store] -->
+2. Fare clic sul componente aggiuntivo **MongoLab**. ![MongoLab][entry-mongolab]
+3. Fare clic sul componente aggiuntivo **MongoLab** nell'elenco dei componenti aggiuntivi e fare clic su **Informazioni di connessione**. ![ConnectionInfoButton][button-connectioninfo]  
+4. Copiare **MONGOLAB_URI** negli Appunti. ![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.
 
-5. Aggiungere il valore all'elenco **Stringhe di connessione** nel menu **Configurazione** dell'applicazione Web in Servizio app di Azure:  
-	![WebAppConnectionStrings][focus-website-connectinfo]
+5. Aggiungere il valore all'elenco **Stringhe di connessione** nel menu **Configurazione** dell'applicazione Web in Servizio app di Azure: ![WebAppConnectionStrings][focus-website-connectinfo]
 6. In **Nome** digitare **MONGOLAB_URI**.
 7. In **Valore** incollare la stringa di connessione ottenuta nella sezione precedente.
 8. Selezionare **Personalizzato** nell'elenco a discesa Tipo (anziché la voce predefinita **SQLAzure**).
@@ -404,17 +400,17 @@ Ora che l'ambiente e lo scaffolding sono pronti, si estenderà l'applicazione di
 
 Ora che l'applicazione è stata sviluppata, è possibile creare un'app Web in Servizio app di Azure per ospitarla, configurarla e distribuire il codice. L'argomento principale di questa sezione è l'utilizzo della stringa di connessione MongoDB (URI). Si configurerà una variabile di ambiente nell'app Web con questo URI per mantenere l'URI separato dal codice. È consigliabile considerare l'URI come un'informazione riservata in quanto contiene le credenziali per connettersi al database.
 
-Nei passaggi descritti in questa sezione viene usata l'interfaccia della riga di comando di Azure per Mac, Linux e Windows per creare una nuova app Web nel servizio app di Azure e quindi viene usato Git per distribuire l'applicazione. Per eseguire questi passaggi, è necessario disporre di una sottoscrizione di Azure.
+Nei passaggi descritti in questa sezione viene utilizzata l'interfaccia della riga di comando di Azure per Mac, Linux e Windows per creare una nuova applicazione web nel servizio di applicazione Azure e quindi utilizzano Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
 ### Installare l'interfaccia della riga di comando di Azure
 
-Per installare l'interfaccia della riga di comando di Azure, usare il comando seguente:
+Per installare l'interfaccia della riga di comando di Azure, immettere il comando seguente:
 
 	npm install azure-cli -g
 
-Se si è già installato <strong>Azure SDK per Node. js</strong> dal <a href="/develop/nodejs/">Centro per sviluppatori di Azure</a>, l'interfaccia della riga di comando di Azure sarà già installata. Per altre informazioni, vedere la pagina relativa all'<a href="../virtual-machines-command-line-tools.md">interfaccia della riga di comando di Azure</a>.
+Se è già stato installato <strong>Azure SDK per Node. js</strong> dal <a href="/develop/nodejs/">Centro per sviluppatori Azure</a>, l'interfaccia della riga di comando Azure deve essere già installata. Per altre informazioni, vedere la pagina relativa all'<a href="../virtual-machines-command-line-tools.md">Interfaccia della riga di comando di Azure</a>.
 
-Anche se gli strumenti dell'interfaccia della riga di comando di Azure sono stati creati principalmente per gli utenti di Mac e Linux, essendo basati su Node.js, dovrebbero funzionare in qualsiasi sistema in grado di eseguire Node.
+Anche se gli strumenti da riga di comando di Azure sono stati creati principalmente per gli utenti Mac e Linux, essendo basati su Node.js, dovrebbero funzionare in qualsiasi sistema in grado di eseguire Node.
 
 ### Importare le impostazioni di pubblicazione
 
@@ -449,14 +445,13 @@ Prima di usare l'interfaccia della riga di comando di Azure, è necessario scari
 
 La creazione di un'app Web in Servizio app di Azure è molto semplice. Se si tratta della prima app Web di Azure, è necessario usare il portale. Se si dispone già di almeno un sito, andare al passaggio 7.
 
-1. Nel portale di Azure fare clic su **Nuovo**.  
-	![Nuovo][button-new]
-2. Selezionare **Calcolo > App Web > Creazione rapida**.  
-	<!--- ![Create Web App][screen-mongolab-newwebsite] -->
+1. Nel portale di Azure fare clic su **Nuovo**. ![Nuovo][button-new]
+2. Selezionare **Calcolo > App Web > Creazione rapida**.
+<!-- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Immettere un prefisso URL. Scegliere il nome desiderato, ma tenere presente che deve essere univoco. "mymongoapp" non sarà probabilmente disponibile.
 4. Fare clic su **Crea app Web**.
-5. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Verrà visualizzato il dashboard dell'app Web.  
-	<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+5. Al termine della creazione dell'app Web, fare clic sul nome dell'app Web nell'elenco delle app Web. Verrà visualizzato il dashboard dell'app Web.
+<!-- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. Fare clic su **Imposta distribuzione dal controllo del codice sorgente** in **riepilogo rapido**, selezionare GitHub e immettere il nome utente e la password desiderati per git. Si userà questa password durante il push all'app Web (nel passaggio 9).  
 7. Se l'app Web è stata creata attenendosi ai passaggi precedenti, il comando seguente completerà il processo. Se, tuttavia, si dispone già di più di un'app Web di Azure, è possibile saltare i passaggi precedenti e creare una nuova app Web mediante questo stesso comando. Nella directory del progetto **tasklist**:
 
@@ -534,7 +529,7 @@ Eseguire `azure site browse` dalla directory del progetto per aprire automaticam
 Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [support@mongolab.com](mailto:support@mongolab.com) per eventuali domande o problemi sul database o per assistenza con MongoDB o con il driver del nodo. È ora possibile utilizzare l'applicazione.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -575,4 +570,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!-----HONumber=62-->
+<!---HONumber=July15_HO3-->

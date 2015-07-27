@@ -366,4 +366,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
 			pageTitle="Come usare l'archiviazione file di Azure con PowerShell e .NET | Microsoft Azure"
-            description="Informazioni su come usare l'archiviazione file di Azure per creare condivisioni file nel cloud e gestire il contenuto di file. Archiviazione file consente alle aziende di spostare le applicazioni dipendenti da condivisioni file SMB in Azure. Gli esempi sono scritti in PowerShell e C#."
+            description="Informazioni su come usare l'archiviazione file di Azure per creare condivisioni file nel cloud e gestire il contenuto di file. Archiviazione file consente alle aziende di spostare le applicazioni dipendenti da condivisioni file SMB in Azure. Rendere persistenti le credenziali di account di archiviazione per la macchina virtuale in modo da ristabilire la connessione alla condivisione file al riavvio."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,12 +12,16 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/22/2015"
+      ms.date="07/06/2015"
       ms.author="tamram" />
 
 # Come usare l'archiviazione file di Azure con PowerShell e .NET
 
 ## Panoramica
+
+Il servizio File di Azure espone condivisioni di file utilizzando il protocollo SMB 2.1 standard. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, i file inoltre sono accessibili contemporaneamente tramite un'interfaccia REST, che consente di aprire un'ampia gamma di scenari ibridi. Infine, i file di Azure sono basato sulla tecnologia stessa come Blob, tabella e coda di servizi, ovvero i file di Azure sono in grado di utilizzare il gruppo di disponibilità, la durabilità, scalabilità e ridondanza geografica creata nella nostra piattaforma.
+
+## Informazioni sull'esercitazione
 
 In questa guida introduttiva vengono illustrate le nozioni di base sull'uso dell'archiviazione file di Microsoft Azure. In questa esercitazione si apprenderà come:
 
@@ -114,17 +118,17 @@ Windows esegue la riconnessione alla condivisione file quando la macchina virtua
 
 Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile eseguire il comando `net use` per montare la condivisione file usando la seguente sintassi. Sostituire `<storage-account-name>` con il nome dell'account di archiviazione e `<share-name>` con il nome della condivisione di archiviazione file.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs
+	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Poiché sono state mantenute le credenziali dell'account di archiviazione nel passaggio precedente, non è necessario inserirle con il comando `net use`. Se le credenziali non sono state mantenute, inserirle come parametro passato al comando `net use`.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli spazi dei nomi [System.IO] (http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in .NET Framework.
 
@@ -233,4 +237,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

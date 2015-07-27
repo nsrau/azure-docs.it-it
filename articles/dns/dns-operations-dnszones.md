@@ -24,7 +24,7 @@ Questa guida descrive come gestire per la zona DNS. E consentirà di comprendere
 
 Per creare una nuova zona DNS in cui ospitare il dominio, usare il cmdlet New-AzureDnsZone:
 
-		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+		PS C:> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 L'operazione crea una nuova zona DNS nel servizio DNS di Azure e restituisce un oggetto locale corrispondente a tale area. È possibile specificare facoltativamente una matrice di tag di Gestione risorse di Azure. Per altre informazioni, vedere [ETag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
 
@@ -36,14 +36,14 @@ Lo stesso nome di zona può essere usato nuovamente in un gruppo di risorse dive
 
 Per recuperare una zona DNS, usare il cmdlet Get-AzureDnsZone:
 
-		PS C:\> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+		PS C:> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 L'operazione restituisce un oggetto di zona DNS corrispondente a una zona esistente nel servizio DNS di Azure. Questo oggetto contiene i dati sulla zona (ad esempio il numero di set di record), ma non contiene i set di record stessi.
 
 ## Elencare le zone DNS
 Omettendo il nome della zona da Get-AzureDnsZone, è possibile enumerare tutte le zone in un gruppo di risorse:
 
-	PS C:\> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
+	PS C:> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
 Questa operazione restituisce una matrice di oggetti di zona.
 
 ## Aggiornare una zona DNS
@@ -55,14 +55,14 @@ Usare una delle due opzioni seguenti per aggiornare la zona DNS:
  
 Specificare la zona usando il nome della zona e del gruppo di risorse.
 
-	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+	PS C:> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### Opzione 2
 Specificare la zona usando un oggetto $zone da Get-AzureDnsZone:
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> <..modify $zone.Tags here...>
-	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> <..modify $zone.Tags here...>
+	PS C:> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
 Quando si usa il cmdlet Set-AzureDnsZone con un oggetto $zone, i controlli "etag" vengono usati per verificare che le modifiche simultanee non vengano sovrascritte. Puoi usare l'opzione "-Overwrite" facoltativa per disattivare questi controlli. Per altre informazioni, vedere [Etag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
 
@@ -78,15 +78,15 @@ Usare una delle due opzioni seguenti per rimuovere la zona DNS:
 
 Specificare la zona usando il nome della zona e del gruppo di risorse:
 
-	PS C:\> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+	PS C:> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 Questa operazione ha un'opzione "-Force" facoltativa, che elimina la richiesta di conferma della rimozione della zona DNS.
 ### Opzione 2
 
 Specificare la zona usando un oggetto $zone da Get-AzureDnsZone:
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
 
 L'opzione "-Force" è la stessa dell'opzione 1.
 
@@ -94,7 +94,7 @@ Come per "Set-AzureDnsZone", specificare la zona usando un oggetto consente di a
 
 L'oggetto di zona può essere anche reindirizzato invece che passato come parametro:
 
-	PS C:\> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
+	PS C:> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
 
 ## Passaggi successivi
 
@@ -103,4 +103,4 @@ L'oggetto di zona può essere anche reindirizzato invece che passato come parame
 
 [Automatizzare le operazioni usando .NET SDK](../dns-sdk)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

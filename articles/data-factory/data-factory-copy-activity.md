@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Copiare i dati con Data factory di Azure (attività di copia)
@@ -40,23 +40,15 @@ Per altre informazioni, è possibile:
 ## Sink e origini supportate
 L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 
-- Copiare i dati da un BLOB di Azure a un BLOB di Azure, tabelle di Azure, Database SQL di Azure, SQL Server locale o SQL Server in IaaS.
-- Copiare i dati da un database SQL di Azure a un BLOB di Azure, tabelle di Azure, Database SQL di Azure, SQL Server locale o SQL Server in IaaS
-- Copiare i dati da una tabella di Azure a un BLOB di Azure, tabelle di Azure o Database SQL di Azure.
-- Copiare i dati da un SQL Server locale/SQL Server in IaaS a un BLOB di Azure o Database SQL Azure
-- Copiare i dati da un database Oracle locale a un BLOB di Azure
-- Copiare i dati da un file system locale a un BLOB di Azure
- 
-
 <table border="1">	
 	<tr>
 		<th><i>Origine/Sink<i></th>
 		<th>BLOB Azure</th>
 		<th>Tabella di Azure</th>
 		<th>Database SQL di Azure</th>
-		<th>Server SQL locale</th>
-		<th>SQL Server in IaaS</th>
 		<th>Azure DocumentDB</th>
+		<th>Macchine virtuali SQL Server in Azure</th>
+		<th>Server SQL locale</th>
 	</tr>	
 
 	<tr>
@@ -74,11 +66,10 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 		<td>X</td>
 	</tr>	
-
 	<tr>
 		<td><b>Database SQL di Azure</b></td>
 		<td>X</td>
@@ -88,108 +79,6 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td>X</td>
 		<td>X</td>
 	</tr>
-
-
-	<tr>
-		<td><b>Server SQL locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server in IaaS</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>File System locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database Oracle in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>File System locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database MySQL in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database DB2 in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database Teradata in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database Sybase in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Database PostgreSQL in locale</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
 	<tr>
 		<td><b>Azure DocumentDB</b></td>
 		<td>X</td>
@@ -198,6 +87,106 @@ L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Server SQL locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Macchine virtuali SQL Server in Azure</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>File System locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database Oracle in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>File System locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database MySQL in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database DB2 in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database Teradata in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database Sybase in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Database PostgreSQL in locale</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 </table>
@@ -443,7 +432,7 @@ Per gli archivi dati che offrono una connessione HTTPS, scegliere la connessione
 
 Per **Database SQL di Azure**, richiedere in modo esplicito una connessione crittografata e non ritenere attendibili i certificati server per evitare l'attacco "man in the middle". A tale scopo, usare **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per informazioni dettagliate vedere [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Per i database tradizionali, ad esempio **SQL Server**, soprattutto quando le istanze sono in una macchina virtuale di Azure, abilitare l'opzione di connessione crittografata tramite la configurazione di un certificato firmato con **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintassi della stringa di connessione.](https://msdn.microsoft.com/library/ms254500.aspx).
+Per i database tradizionali, ad esempio **SQL Server**, soprattutto quando le istanze sono in una macchina virtuale di Azure, abilitare l'opzione di connessione crittografata tramite la configurazione di un certificato firmato con **Encrypt=True** e **TrustServerCertificate=False** nella stringa di connessione. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192(v=sql.110)) e [Sintassi della stringa di connessione.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scenari avanzati
 - **Filtro di colonna usando la definizione della struttura**. A seconda del tipo di tabella, è possibile specificare un subset di colonne dall'origine specificando un minor numero di colonne nella definizione **Structure** della definizione della tabella rispetto a quelle presenti nell'origine dati sottostante.
@@ -486,4 +475,4 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

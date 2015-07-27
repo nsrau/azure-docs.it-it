@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio" 
-	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web di Azure App Service." 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure." 
 	services="app-service\web"
 	tags="python"
 	documentationCenter="python" 
@@ -26,9 +26,9 @@ In questa esercitazione si userà [Python Tools per Visual Studio] al fine di cr
 
 L'app Web per sondaggi definisce un'astrazione per il proprio repository; in questo modo, è possibile passare facilmente tra diversi tipi di repository (in memoria, archiviazione tabelle di Azure, MongoDB).
 
-Si apprenderà come creare un account di archiviazione di Azure, come configurare l'app Web per l'uso dell'archiviazione tabelle di Azure e come pubblicare l'app Web in [App Web di Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Si apprenderà come creare un account di archiviazione di Azure, come configurare l'app Web per l'uso dell'archiviazione tabelle di Azure e come pubblicare l'app Web in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Vedere il [Centro per sviluppatori Python] per consultare altri articoli che trattano lo sviluppo di app Web di Azure App Service con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
+Vedere il [Centro per sviluppatori Python] per consultare altri articoli che trattano lo sviluppo di app Web del servizio app di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
 
 ## Prerequisiti
 
@@ -66,7 +66,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
   	![Web browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskInMemoryBrowser.png)
 
-## Creare un account di archiviazione di Azure
+## Creare un account di Archiviazione di Azure
 
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
@@ -120,9 +120,9 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
   	<!-- ![Table Query Results](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png) -->
 
-## Pubblicare l'app Web in Azure App Service
+## Pubblicare l'app Web nel servizio app di Azure
 
-.NET SDK di Azure offre un modo semplice di distribuire l'app Web in Azure App Service.
+L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio app di Azure.
 
 1.  Fare clic su **App Web di Microsoft Azure**.
 
@@ -181,7 +181,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 - [Come usare il servizio di archiviazione tabelle di Python]
 
 ## Modifiche apportate
-* Per una guida relativa alla modifica da siti Web ad App Service, vedere [Azure App Service e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -210,4 +210,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

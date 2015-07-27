@@ -3,7 +3,7 @@
     pageTitle="Versione di valutazione gratuita di 30 giorni di RemoteApp"
     description="Provare la versione di valutazione gratuita di 30 giorni di RemoteApp di Azure."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -30,4 +30,4 @@ Per ottenere subito altre informazioni, Guardare un video rapido su come [creare
 
 Per eventuali commenti, pubblicare le domande nei [forum di discussione](http://feedback.azure.com/forums/247748-azure-remoteapp). Se si dispone di un [piano di supporto di Azure](http://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum per commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

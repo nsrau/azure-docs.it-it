@@ -193,7 +193,7 @@ In questo esempio, una query SQL (vedere la tabella nell'esempio precedente) vie
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
 			},
 			"sink":
 			{
@@ -347,4 +347,4 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

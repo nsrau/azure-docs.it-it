@@ -16,7 +16,7 @@
 
 	- **Nuovo nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
 
-	- La dimensione di una macchina virtuale influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://go.microsoft.com/fwlink/p/?LinkId=466520).
+	- La dimensione di una macchina virtuale influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni per le macchine virtuali](../articles/virtual-machines-size-specs.md) e [Dimensioni per i servizi cloud](../articles/cloud-services-sizes-specs.md) in Azure.
 
 
 6. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Di seguito sono indicate alcune informazioni utili per agevolare la compilazione:
@@ -40,4 +40,4 @@
 
 	![Configurare l'agente di macchine virtuali e gli endpoint della macchina virtuale](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

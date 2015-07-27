@@ -138,4 +138,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

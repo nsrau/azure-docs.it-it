@@ -54,7 +54,7 @@ Per creare un'attività personalizzata:
 ## Uso dell'attività personalizzata in una pipeline
 Per usare l'attività personalizzata in una pipeline:
 
-1.	**Comprimere** tutti i file binari presenti nelle cartelle di output **bin\debug** o **bin\release** del progetto. 
+1.	**Comprimere** tutti i file binari presenti nelle cartelle di output **bin\\debug** o **bin\\release** del progetto. 
 2.	**Caricare il file ZIP** come BLOB nella propria **archiviazione BLOB di Azure**. 
 3.	Aggiornare il file **JSON della pipeline** per fare riferimento al file ZIP, al file DLL di attività personalizzata, alla classe di attività e al BLOB che contiene il file ZIP nel file JSON della pipeline. Nel file JSON:
 	<ol type ="a">
@@ -286,8 +286,8 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 
 10. Compilare il progetto. Fare clic su **Compila** dal menu e scegliere **Compila soluzione**.
-11. Avviare **Esplora risorse** e passare alla cartella **bin\debug** o **bin\release**, a seconda del tipo di compilazione.
-12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\bin\Debug.
+11. Avviare **Esplora risorse** e passare alla cartella **bin\\debug** o **bin\\release**, a seconda del tipo di compilazione.
+12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\\bin\\Debug.
 13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **MyBlobStore** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **blobcustomactivitycontainer**. 
 
 
@@ -523,4 +523,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

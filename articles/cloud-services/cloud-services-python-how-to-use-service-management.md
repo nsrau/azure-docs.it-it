@@ -42,7 +42,7 @@ Per creare il certificato `.cer`, eseguire il comando seguente:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per altre informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Per altre informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Dopo avere creato questi file sarà necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di gestione][management-portal]. Sarà inoltre necessario prendere nota del percorso di salvataggio del file `.pem`.
 
@@ -64,7 +64,7 @@ Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. L
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-Il comando permette di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx).
+Il comando permette di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
 
 Dopo avere creato il certificato sarà necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di gestione][management-portal].
 
@@ -74,7 +74,7 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\my\AzureCertificate'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -445,4 +445,4 @@ A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi,
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

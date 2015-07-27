@@ -2,7 +2,7 @@
     pageTitle="Procedure consigliate di Azure RemoteApp"
     description="Procedure consigliate per la configurazione e l'uso di Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -44,4 +44,4 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

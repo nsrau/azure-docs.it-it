@@ -35,4 +35,4 @@ Fare clic nella pagina di benvenuto per modificare gli elementi visualizzati nel
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

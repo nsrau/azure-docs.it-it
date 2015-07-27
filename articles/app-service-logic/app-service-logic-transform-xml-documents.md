@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Trasformare i documenti XML" 
+	pageTitle="BizTalk Transform" 
 	description="Informazioni su come trasformare i documenti XML da uno schema a un altro." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
-#Trasformare i documenti XML
+#BizTalk Transform
 
 
-## Panoramica dell'app per le API BizTalk Transform
+## Panoramica
 In parole semplici, l'app per le API BizTalk Transform converte i dati da un formato a un altro. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
 
 A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform o Map consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo.
@@ -34,46 +34,12 @@ Le altre funzionalità includono:
 - Durante la creazione di una mappa viene visualizzata la relativa rappresentazione grafica, incluse tutte le relazioni e i collegamenti creati dall'utente.
 - Usare la funzione **Mappa di test** per aggiungere un messaggio XML di esempio. Con un semplice clic, è possibile testare la mappa creata e visualizzare l'output generato.
 - Caricare le mappe dei Servizi BizTalk di Azure esistenti (trfm) e sfruttare tutti i vantaggi dell'app per le API Transform.
+- Quando si crea la mappa, non è necessario aggiungere uno schema. Quando la mappa è pronta, aggiungerla all'app per le API Transform e iniziare a usarla. 
 - Include il supporto per il formato XML.
-
-
-## Creare una nuova app per le API BizTalk Transform
-
-1.	Accedere al portale di Azure e passare alla Schermata iniziale (la home page).
-
-2.	Selezionare **Nuovo** > **Web e dispositivi mobili** > **Azure Marketplace** > **App per le API**:
-
-	   ![][1]
- 
-	In alternativa, selezionare **Marketplace** nella schermata iniziale e selezionare **App per le API** dall'elenco disponibile:
-
-	   ![][2]
- 
-3.	Cercare BizTalk Transform digitando **Transform** e selezionare **Servizio BizTalk Transform**:
-
-	   ![][4]
- 
-4.	Nel pannello **Servizio BizTalk Transform** selezionare **Crea**:
-
-       ![][5]
- 
-5.	Nel pannello **Nuova app per le API** immettere le informazioni seguenti e selezionare **Crea**:
-
-	- Nome: assegnare un nome all'app per le API Transform 
-	- Piano di servizio app: selezionare o creare un nuovo piano di servizio app 
-	- Piano tariffario: scegliere il piano tariffario desiderato per l'app 
-	- Gruppo di risorse: selezionare o creare il gruppo di risorse desiderato per questa app 
-	- Località: scegliere la località geografica in cui si vuole distribuire il connettore
-	
-	   ![][6]
-
-6.	Selezionare **Crea**. Entro pochi minuti verranno create le app per le API BizTalk Transform.
 
 
 ## Scaricare schemi dalle app per le API per i connettori
 È possibile scaricare gli schemi XML per i connettori come SQL, SAP e SharePoint dalla pagina di riepilogo dell'app per le API. Ad esempio, se si vogliono scaricare gli schemi XML per una specifica app per le API per i connettori SAP, cercare l'app per le API e aprire la pagina di riepilogo. Selezionare **Download degli schemi**: un file zip con tutti gli schemi corrispondenti alle azioni SAP verrà scaricato sul computer. È possibile usare gli schemi per creare una mappa (.trfm) in Visual Studio.
-
-   ![][14]
 
 
 ## Creare e aggiungere la mappa
@@ -109,7 +75,7 @@ Se la mappa cambia o subisce modifiche dopo il caricamento, è possibile caricar
 
 
 ## Usare un'app per le API BizTalk Transform in un'app per la logica
-Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli utenti possono creare una nuova app per la logica (Nuovo -> **App per la logica**).
+Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
 1. All'interno dell'app per la logica, BizTalk Transform è disponibile nella raccolta a destra. Selezionare **Servizio BizTalk Transform** dalla raccolta. L'API Transform viene aggiunta al flusso:
 
@@ -150,4 +116,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli ut
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->
