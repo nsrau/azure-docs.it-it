@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Informazioni sui concetti chiave dell'analisi di flusso | Microsoft Azure" 
+	pageTitle="Informazioni sui concetti chiave dell&#39;analisi di flusso | Microsoft Azure" 
 	description="Informazioni sui concetti fondamentali di un processo di analisi di flusso, inclusi input e output supportati, la configurazione del processo e le metriche." 
-	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,9 +29,9 @@ Con l'analisi di flusso è possibile:
 - Elaborare dati di telemetria per il monitoraggio e la diagnostica quasi in tempo reale. 
 - Acquisizione e archiviazione di eventi in tempo reale per elaborazione successiva
 
-Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md).
+Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md).
 
-Un processo di analisi di flusso include quanto segue: \* Uno o più origini di input \* Una query su un flusso di dati in ingresso \* Una destinazione di output.
+Un processo di analisi di flusso include quanto segue: - Uno o più origini di input - Una query su un flusso di dati in ingresso - Una destinazione di output.
 
 
 ## Input
@@ -110,7 +109,7 @@ Per informazioni sulla creazione di origini di input, vedere gli articoli relati
 La logica per filtrare, gestire ed elaborare i dati in ingresso è definita nella query per i processi di analisi di flusso. Le query vengono scritte nel linguaggio di query di Analisi dei flussi, un linguaggio simile a SQL che è sostanzialmente un sottoinsieme della sintassi Transact-SQL standard, con alcune estensioni specifiche per le query temporali.
 
 ### Windowing
-Le estensioni AWE \(Address Windowing Extensions\) consentono aggregazioni e calcoli da eseguire su subset di eventi che rientrano in un determinato periodo di tempo. Le funzioni di windowing vengono richiamate tramite l'istruzione **GROUP BY**. Ad esempio, la query seguente conta gli eventi ricevuti al secondo:
+Le estensioni AWE (Address Windowing Extensions) consentono aggregazioni e calcoli da eseguire su subset di eventi che rientrano in un determinato periodo di tempo. Le funzioni di windowing vengono richiamate tramite l'istruzione **GROUP BY**. Ad esempio, la query seguente conta gli eventi ricevuti al secondo:
 
 	SELECT Count(*) 
 	FROM Input1 
@@ -139,10 +138,14 @@ La destinazione di output è l'ubicazione in cui verranno scritti i risultati de
 - Archiviazione tabelle di Azure: Archiviazione tabelle di Azure è un archivio dati strutturato con meno vincoli nello schema. Le entità con schemi e tipi diversi possono essere archiviate nella stessa tabella di Azure. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente. Per altre informazioni, vedere l'articolo relativo all'[introduzione all'archiviazione di Azure](../storage/storage-introduction.md) e [Progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Database SQL di Azure: questa destinazione di output è appropriata per dati di natura relazionale o per applicazioni che dipendono dal contenuto ospitato in un database.
 
+## Unità di streaming ##
+Allo scopo di offrire ai clienti un'esperienza di prestazioni prevedibili, Analisi di flusso di Azure usa le unità di streaming per rappresentare le risorse e le funzionalità dedicate all'esecuzione di un processo. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva. Ogni processo di Analisi di flusso di Azure richiede almeno un'unità di streaming, che è l'impostazione predefinita per tutti i processi. Per altre informazioni sulla selezione del numero adatto di unità di streaming per un processo, vedere [Ridimensionare i processi di Analisi di flusso di Azure](stream-analytics-scale-jobs.md)
 
 ## Ridimensionare i processi
 
-Un processo di analisi di flusso può essere ridimensionato mediante la configurazione di unità di flussi. Tali unità definiscono la quantità di potenza di elaborazione ricevuta dai processi. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva. Ogni sottoscrizione possiede una quota pari a 12 unità di streaming per ogni area da allocare tra i processi in tale area.
+La metrica % utilizzo unità di streaming definita di seguito è un indicatore della necessità di ridimensionare un processo di Analisi di flusso di Azure. Una % utilizzo unità di streaming elevata può essere il risultato di una finestra di grandi dimensioni in una query, di eventi di grandi dimensioni nell'input, di finestra di tolleranza elementi non in ordine di grandi dimensioni o una combinazione di questi elementi. Il partizionamento della query o la suddivisione della query in più passaggi e l'aggiunta di altre unità di streaming dalla scheda Scalabilità sono strategie per evitare una situazione di questo genere.
+
+Si può osservare un utilizzo delle risorse di base anche senza eventi di input, perché il sistema utilizza una certa quantità di risorse. La quantità di risorse utilizzata dal sistema di può inoltre variare nel tempo.
 
 Per informazioni dettagliate, vedere l'articolo relativo alla [scalabilità dei processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md).
 
@@ -156,9 +159,9 @@ Per abilitare il monitoraggio dei processi, è necessario designare un account d
 ### Metrica
 Le seguenti metriche sono disponibili per il monitoraggio dell'uso e delle prestazioni dei processi di Analisi dei flussi:
 
+- % utilizzo unità di streaming: indicatore della capacità relativa di elaborazione di eventi per uno o più passaggi della query. Se questo indicatore raggiunge l'80% o più, esiste una forte probabilità che l'elaborazione di eventi possa essere ritardata o interrotta.
 - Errori: numero di messaggi di errore rilevato da un processo di Analisi dei flussi.
-- Eventi di input - Quantità di dati ricevuta dal processo di analisi di flusso, in termini di 
-- conteggio degli eventi.
+- Eventi di input: quantità di dati ricevuta dal processo di Analisi dei flussi, in termini di conteggio degli eventi.
 - Eventi di output: quantità di dati inviata dal processo di Analisi dei flussi alla destinazione di output, in termini di conteggio degli eventi.
 - Eventi non ordinati: numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai criteri non ordinati.
 - Errori di conversione dati: numero di errori di conversione dei dati rilevati da un processo di Analisi dei flussi.
@@ -203,4 +206,4 @@ A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed �
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

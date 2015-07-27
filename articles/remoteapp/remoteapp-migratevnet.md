@@ -2,7 +2,6 @@
     pageTitle="Come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure"
     description="Informazioni su come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@ Si supponga di avere già creato una raccolta RemoteApp ibrida denominata *Racco
 
 1.	Nella scheda **Reti** del [portale di gestione](http://manage.windowsazure.com/) creare una rete virtuale denominata *ReteVirtualeAzure* usando lo stesso percorso, la stessa configurazione del DNS e lo stesso spazio di indirizzi (per almeno una delle subnet di *ReteVirtualeAzure*) usati per *ReteVirtualeRemoteApp*.
 2.	Configurare *ReteVirtualeAzure* per ospitare o avere la connettività di rete alla distribuzione di Active Directory in cui *RaccoltaOriginale* è aggiunta al dominio.
-3.	Nella scheda **RemoteApp** creare una nuova raccolta RemoteApp denominata *NuovaRaccolta*. Usare l'opzione **Crea con VPN**, non **Creazione rapida**.
+3.	Nella scheda **RemoteApp** creare una nuova raccolta RemoteApp denominata *NuovaRaccolta*. Usare l'opzione **Crea con rete virtuale**, non **Creazione rapida**.
 3.	Configurare *NuovaRaccolta* per la distribuzione a una subnet in *ReteVirtualeAzure*.
 4.	Configurare *NuovaRaccolta* per l'uso della stessa immagine e delle stesse informazioni sull'aggiunga a un dominio usate per *RaccoltaOriginale*.
 5.	Dopo alcune ore, *NuovaRaccolta* verrà visualizzata nell'elenco di raccolte con uno stato attivo.
@@ -49,6 +48,6 @@ In alternativa, se È necessario eseguire la migrazione delle informazioni utent
 L'operazione è così completata.
 
 In caso di domande o se è necessaria un'assistenza particolare, inviare un messaggio di posta elettronica a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

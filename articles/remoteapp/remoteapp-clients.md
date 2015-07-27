@@ -1,9 +1,9 @@
 
 <properties
     pageTitle="Accesso alle app"
-    description="Informazioni sui client supportati per RemoteApp e su come accedere alle app."
+    description="Informazioni sui client supportati per Azure RemoteApp e su come accedere alle app."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2015"
+    ms.date="06/30/2015"
     ms.author="elizapo" />
 
 
 
-# Accesso alle app
+# Accesso alle app in Azure RemoteApp
 
-Uno dei vantaggi di RemoteApp consiste nel fatto che è possibile accedere alle app pubblicate da qualsiasi dispositivo. Non solo: è anche possibile iniziare a lavorare su un dispositivo e passare senza problemi a un secondo dispositivo, riprendendo il lavoro da dove era stato interrotto. Per iniziare, è necessario scaricare il client adatto al proprio dispositivo e accedere al servizio.
+Uno dei vantaggi di Azure RemoteApp consiste nel fatto che è possibile accedere alle app pubblicate da qualsiasi dispositivo. Non solo: è anche possibile iniziare a lavorare su un dispositivo e passare senza problemi a un secondo dispositivo, riprendendo il lavoro da dove era stato interrotto. Per iniziare, è necessario scaricare il client adatto al proprio dispositivo e accedere al servizio.
 
 In questo argomento viene esaminato l'elenco dei client attualmente supportati, con istruzioni su come scaricarli. In seguito, viene spiegato come accedere a RemoteApp da ogni client.
 
@@ -62,15 +62,15 @@ Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inseri
 
 ![Centro connessioni vuoto](./media/remoteapp-clients/Android1.png)
 
-2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, toccare il pulsante che consente di iniziare a usare il servizio****.
+2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, toccare il pulsante che consente di iniziare a usare il servizio.
 
 ![Prompt di accesso](./media/remoteapp-clients/Android2.png)
 
-3. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare il pulsante per continuare****. Viene avviato il processo di accesso tramite Azure Active Directory.
+3. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare il pulsante per continuare. Viene avviato il processo di accesso tramite Azure Active Directory.
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/Android3.png)
 
-4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
+4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione.
 
 ![Pagina degli inviti](./media/remoteapp-clients/Android4.png)
 
@@ -78,7 +78,7 @@ Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inseri
 
 ![Centro connessioni con un feed](./media/remoteapp-clients/Android5.png)
 
-6. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio toccando il pulsante per ottenere una versione di prova gratuita** **quando richiesto.
+6. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio toccando il pulsante per ottenere una versione di prova gratuita quando richiesto.
 
 ![Prompt dei feed dimostrativi](./media/remoteapp-clients/Android6.png)
 
@@ -90,15 +90,15 @@ Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inseri
 
 Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inserita nell'elenco di app in **Client Desktop remoto**.
 
-1. All'avvio dell'app viene visualizzato un centro connessioni vuoto, a meno che l'app non sia già stata usata. Per iniziare a usare Azure RemoteApp, toccare il pulsante **""+""** e il pulsante per aggiungere Azure RemoteApp****.
+1. All'avvio dell'app viene visualizzato un centro connessioni vuoto, a meno che l'app non sia già stata usata. Per iniziare a usare Azure RemoteApp, toccare il pulsante **""+""** e il pulsante per aggiungere Azure RemoteApp.
 
 ![Centro connessioni vuoto](./media/remoteapp-clients/IOS1.png)
 
-2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, digitare l'**indirizzo di posta elettronica** e toccare il pulsante per continuare****.
+2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, digitare l'**indirizzo di posta elettronica** e toccare il pulsante per continuare.
 
 ![Prompt di accesso](./media/remoteapp-clients/IOS2.png)
 
-3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione****.
+3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione.
 
 ![Pagina degli inviti](./media/remoteapp-clients/IOS3.png)
 
@@ -106,7 +106,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Centro connessioni con un feed](./media/remoteapp-clients/IOS4.png)
 
-5. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio toccando il pulsante per ottenere una versione di prova gratuita** **quando richiesto.
+5. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio toccando il pulsante per ottenere una versione di prova gratuita quando richiesto.
 
 ![Prompt dei feed dimostrativi](./media/remoteapp-clients/IOS5.png)
 
@@ -122,11 +122,11 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Centro connessioni vuoto](./media/remoteapp-clients/Mac1.png)
 
-2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, toccare il pulsante che consente di iniziare a usare il servizio****.
+2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, toccare il pulsante che consente di iniziare a usare il servizio.
 
 ![Prompt di accesso](./media/remoteapp-clients/Mac2.png)
 
-3. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare il pulsante per continuare****. Viene avviato il processo di accesso tramite Azure Active Directory.
+3. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare il pulsante per continuare. Viene avviato il processo di accesso tramite Azure Active Directory.
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/Mac3.png)
 
@@ -138,7 +138,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 ![Centro connessioni con un feed](./media/remoteapp-clients/Mac5.png)
 
-6. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio facendo clic sul pulsante per ottenere una versione di prova gratuita** **quando richiesto.
+6. Se non si è ancora ricevuto un invito, è comunque possibile provare il servizio facendo clic sul pulsante per ottenere una versione di prova gratuita quando richiesto.
 
 ![Prompt dei feed dimostrativi](./media/remoteapp-clients/Mac6.png)
 
@@ -150,7 +150,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 
 Il client viene avviato automaticamente al termine dell'installazione, tuttavia per accedervi in seguito è disponibile nell'elenco di app con il nome **Azure RemoteApp**.
 
-1. Dopo aver avviato il client, la prima pagina visualizzata è la pagina iniziale di Azure RemoteApp. Per continuare, fare clic sul pulsante che consente di iniziare a usare il servizio****.
+1. Dopo aver avviato il client, la prima pagina visualizzata è la pagina iniziale di Azure RemoteApp. Per continuare, fare clic sul pulsante che consente di iniziare a usare il servizio.
 
 ![Pagina iniziale del client di Azure RemoteApp](./media/remoteapp-clients/Windows1.png)
 
@@ -180,13 +180,13 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 
 2. Quindi, toccare **Azure RemoteApp**.
 
-![Pagina Aggiungi elemento ](./media/remoteapp-clients/WinPhone2.png)
+![Pagina Aggiungi elemento](./media/remoteapp-clients/WinPhone2.png)
 
 3. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, toccare **connetti**.
 
 ![Prompt di accesso](./media/remoteapp-clients/WinPhone3.png)
 
-4. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare **Continua**. Viene avviato il processo di accesso tramite Azure Active Directory.
+4. Digitare il proprio **indirizzo di posta elettronica** nella pagina successiva e toccare il pulsante per continuare. Viene avviato il processo di accesso tramite Azure Active Directory.
 
 ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
 
@@ -205,5 +205,6 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 8. In questo modo si potrà accedere a un gruppo di app di base per iniziare a usare RemoteApp.
 
 ![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

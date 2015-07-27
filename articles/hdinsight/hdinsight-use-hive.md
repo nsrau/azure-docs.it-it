@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Informazioni su Hive e su come usare HiveQL | Microsoft Azure"
-	description="Informazioni su Apache Hive e su come usarlo con Hadoop in HDInsight. Scegliere come si desidera eseguire il processo Hive e usare HiveQL per analizzare un file Apache log4j di esempio." 
-	keywords="hiveql,what is hive"
+	description="Informazioni su Apache Hive e su come usarlo con Hadoop in HDInsight. Scegliere come eseguire il processo Hive e usare HiveQL per analizzare un file Apache log4j di esempio."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
@@ -24,7 +23,7 @@
 
 Questa esercitazione fornisce informazioni su come usare Apache Hive di Hadoop su HDInsight e come scegliere la modalità di esecuzione del processo Hive. Descrive inoltre il linguaggio HiveQL e illustra come analizzare un file Apache log4j di esempio.
 
-##<a id="why"></a>Che cos'è Hive e perché usarlo? 
+##<a id="why"></a>Che cos'è Hive e perché usarlo?
 [Apache Hive](http://hive.apache.org/) è un sistema di data warehouse per Hadoop, che consente di eseguire attività di riepilogo, query e analisi di volumi di dati tramite HiveQL (un linguaggio di query simile a SQL). Può essere usato per esplorare i dati in modo interattivo o per creare processi di elaborazione di batch riusabili.
 
 Hive consente di proiettare la struttura su dati principalmente non strutturati. Dopo aver definito la struttura, Hive consente di eseguire una query sui dati anche senza alcuna conoscenza di Java o MapReduce. **HiveQL**, il linguaggio di query di Hive, consente di scrivere query con istruzioni simili a quelle di T-SQL.
@@ -49,11 +48,11 @@ Nell'esempio precedente, il livello log è ERROR.
 
 > [AZURE.NOTE]È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel contenitore BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](hdinsight-upload-data.md). Per altre informazioni sul modo in cui HDInsight usa l'archivio BLOB di Azure, vedere [Usare l'archivio BLOB di Azure con HDInsight](../hdinsight-use-blob-storage.md).
 
-I dati di esempio vengono archiviati nell'archiviazione BLOB di Azure, usata da HDInsight come file system predefinito. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb**. Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
+I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDInsight come file system predefinito. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb**. Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
 
 	wasb:///example/data/sample.log
 
-Poiché l'archiviazione BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
+Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
 
 > [AZURE.NOTE]La sintassi precedente, **wasb:///**, consente di accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
@@ -73,7 +72,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 * **CREATE EXTERNAL TABLE**: crea una nuova tabella **esterna** in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione e nel formato originali.
 * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.
-* **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+* **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **ERROR**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
 > [AZURE.NOTE]È consigliabile usare tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, e si desidera che le query Hive usino sempre i dati più recenti.
 >
@@ -90,7 +89,7 @@ Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
 * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
-* **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
+* **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **ERROR**, quindi inserisce i dati nella tabella **errorLogs**.
 
 > [AZURE.NOTE]A differenza delle tabelle esterne, se si elimina una tabella interna vengono eliminati anche i dati sottostanti.
 
@@ -163,4 +162,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

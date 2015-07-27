@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Foglio informativo sugli algoritmi di Machine Learning | Microsoft Azure" 
 	description="Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -28,7 +27,7 @@ Il **foglio illustrativo sugli algoritmi di Microsoft Azure Machine Learning** a
 
 ## Scaricare il foglio informativo sugli algoritmi di Machine Learning
 
-Scaricare il foglio informativo sugli algoritmi di Machine Learning e ottenere aiuto su come scegliere un algoritmo di Machine Learning per la propria soluzione. Per tenerlo a portata di mano, stampare il foglio informativo in formato tabloid \(27 x 43 cm circa\).
+Scaricare il foglio informativo sugli algoritmi di Machine Learning e ottenere aiuto su come scegliere un algoritmo di Machine Learning per la propria soluzione. Per tenerlo a portata di mano, stampare il foglio informativo in formato tabloid (27 x 43 cm circa).
 
 **Download del foglio informativo: [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)**
 
@@ -65,7 +64,7 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 
   * Nell'**apprendimento non supervisionato** ai punti dati non sono associate etichette. L'obiettivo di un algoritmo di apprendimento non supervisionato è invece l'organizzazione dei dati in un certo modo o la descrizione della loro struttura. Questo può significare il raggruppamento dei dati in cluster, come fa K-Means, o l'individuazione di modi diversi in cui osservare dati complessi perché appaiano semplici.
 
-  * Nell'**apprendimento per rinforzo** l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. Si tratta di un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" \(Internet of Things, IoT\). L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. In base a questo segnale, l'algoritmo modifica la propria strategia per ottenere la ricompensa maggiore. Attualmente in Azure ML non sono disponibili moduli di algoritmi di apprendimento per rinforzo.
+  * Nell'**apprendimento per rinforzo** l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. Si tratta di un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" (Internet of Things, IoT). L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. In base a questo segnale, l'algoritmo modifica la propria strategia per ottenere la ricompensa maggiore. Attualmente in Azure ML non sono disponibili moduli di algoritmi di apprendimento per rinforzo.
 
 * I **metodi bayesiani** presuppongono punti dati statisticamente indipendenti. Questo significa che la variabilità non modellata in un punto dati non è correlata agli altri, ovvero non può essere stimata. Ad esempio, se i dati registrati sono il numero di minuti fino all'arrivo del prossimo treno della metropolitana, due misurazioni eseguite a distanza di un giorno sono statisticamente indipendenti. Tuttavia, due misurazioni eseguite a distanza di un minuto non sono statisticamente indipendenti e il valore di una è altamente predittivo rispetto a quello dell'altra.
 
@@ -73,7 +72,7 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 
 * La classificazione di dati in più di due categorie può essere eseguita usando un classificatore essenzialmente multiclasse o combinando un set di classificatori a due classi in un **insieme**. L'approccio basato su un insieme prevede un classificatore a due classi per ogni classe, ognuno dei quali separa i dati in due categorie "questa classe" e "non questa classe". I classificatori votano quindi l'assegnazione corrente del punto dati. Questo è il principio operativo alla base del modulo [One-vs-All Multiclass][one-vs-all-multiclass].
 
-* Diversi metodi, tra cui la regressione logistica e Bayes Point Machine, presuppongono **limiti di classe lineari**, ovvero che i limiti tra classi siano all'incirca linee rette \(or iperpiani nel caso più generale\). Spesso questa caratteristica dei dati non viene individuata fino a dopo aver provato a separarli, ma può essere determinata in genere visualizzando i dati in anticipo. Se i limiti di classe appaiono molto irregolari, optare per alberi delle decisioni, giungle delle decisioni, macchine a vettori di supporto o reti neurali.
+* Diversi metodi, tra cui la regressione logistica e Bayes Point Machine, presuppongono **limiti di classe lineari**, ovvero che i limiti tra classi siano all'incirca linee rette (or iperpiani nel caso più generale). Spesso questa caratteristica dei dati non viene individuata fino a dopo aver provato a separarli, ma può essere determinata in genere visualizzando i dati in anticipo. Se i limiti di classe appaiono molto irregolari, optare per alberi delle decisioni, giungle delle decisioni, macchine a vettori di supporto o reti neurali.
 
 * Le reti neurali possono essere usate con variabili di categoria creando una **variabile fittizia** per ogni categoria e impostandola su 1 nei casi in cui la categoria è applicabile e su 0 quando non lo è.
 
@@ -90,4 +89,4 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Scalabilità dei processi di Analisi dei flussi | Azure"
-	description="Informazioni su come applicare la scalabilità ai processi di Analisi dei flussi"
+	pageTitle="Ridimensionare i processi di Analisi di flusso per aumentare la velocità effettiva | Microsoft Azure"
+	description="Informazioni su come ridimensionare i processi di Analisi di flusso configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo."
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,29 +13,36 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
-# Scalabilità dei processi di Analisi dei flussi di Azure
+# Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva #
 
-Informazioni su come calcolare le *unità di streaming* per un processo di Analisi dei flussi e su come scalare i processi di questo tipo configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo.
+Informazioni su come calcolare le *unità di streaming* per un processo di Analisi di flusso e come ridimensionare i processi di questo tipo configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo.
 
-Una definizione del processo di Analisi dei flussi di Azure include input, query e output. Gli input sono l'origine da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input, e l'output è la destinazione a cui il processo invia i risultati.
+## Quali sono le parti di un processo di Analisi di flusso? ##
+Una definizione del processo di Analisi dei flussi di Azure include input, query e output. Gli input sono l'origine da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input dei dati e l'output è la destinazione a cui il processo invia i risultati.
 
-Un processo richiede almeno un'origine di input del flusso di dati. L'origine di input del flusso di dati può essere archiviata in un hub eventi del bus di servizio di Azure o un archivio BLOB di Azure. Per altre informazioni, vedere [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md), [Introduzione all’uso di Analisi dei flussi di Azure](stream-analytics-get-started.md) e [Guida per gli sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md).
+Un processo richiede almeno un'origine di input per il flusso dei dati. L'origine di input del flusso di dati può essere archiviata in un hub eventi del bus di servizio di Azure o un archivio BLOB di Azure. Per altre informazioni, vedere [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md), [Introduzione all’uso di Analisi dei flussi di Azure](stream-analytics-get-started.md) e [Guida per gli sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md).
 
-La risorsa disponibile per l'elaborazione di processi di Analisi dei flussi è misurata da un'unità di streaming. Ogni unità di streaming può fornire una velocità effettiva fino a 1 MB/secondo. Ogni processo richiede almeno un'unità di streaming, che è l'impostazione predefinita per tutti i processi. È possibile impostare fino a 50 unità di streaming per un processo di Analisi dei flussi mediante il portale di gestione di Azure. Ogni sottoscrizione di Azure può avere solo un massimo di 50 unità di streaming per tutti i processi in un'area specifica. Per aumentare le unità di streaming per la sottoscrizione (fino a 100 unità), contattare il [Supporto tecnico Microsoft](http://support.microsoft.com).
+## Configurazione delle unità di streaming ##
+Le unità di streaming rappresentano le risorse e le funzionalità dedicate all'esecuzione di un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva.
 
-Il numero di unità di streaming che un processo può usare dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. In questo articolo viene illustrato come calcolare e ottimizzare la query per incrementare la velocità effettiva.
+Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita per il processo. È possibile selezionare un numero massimo pari alla quota di unità di streaming per un processo mediante il portale di Azure. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di un massimo di 50 unità di streaming per tutti i processi di analisi in un'area specifica. Per aumentare le unità di streaming per le sottoscrizioni, contattare il [Supporto tecnico Microsoft](http://support.microsoft.com).
 
+Il numero di unità di streaming che un processo può usare dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. Si noti inoltre che è necessario usare un valore valido per le unità di streaming. I valori validi iniziano da 1, 3, 6 e poi a salire con incrementi di 6, come illustrato di seguito.
 
-## Calcolare il numero massimo di unità di streaming di un processo
+![Scalabilità delle unità di streaming di Analisi di flusso di Azure][img.stream.analytics.streaming.units.scale]
+
+In questo articolo viene illustrato come calcolare e ottimizzare la query per incrementare la velocità effettiva per i processi di analisi.
+
+## Calcolare il numero massimo di unità di streaming di un processo ##
 Il numero totale di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni per ogni passaggio.
 
-### Passaggi in una query
+### Passaggi in una query ###
 Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery definita mediante la parola chiave WITH. Anche l’unica query esterna alla parola chiave WITH viene contata come passaggio, ad esempio, l’istruzione SELECT nella query seguente:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -43,13 +50,13 @@ Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery d
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 La query precedente include due passaggi.
 
 > [AZURE.NOTE]Questa query di esempio verrà illustrata più avanti in questo articolo.
 
-### Partizionamento di un passaggio
+### Partizionamento di un passaggio ###
 
 Il partizionamento di un passaggio richiede le condizioni seguenti:
 
@@ -59,7 +66,7 @@ Il partizionamento di un passaggio richiede le condizioni seguenti:
 
 Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi di partizioni separati e vengono generati eventi di output per ognuno dei gruppi. Se è preferibile un aggregato combinato, è necessario creare un secondo passaggio non partizionato da aggregare.
 
-### Calcolare il numero massimo di unità di streaming per un processo
+### Calcolare il numero massimo di unità di streaming per un processo ###
 
 Tutti i passaggi non partizionati insieme possono arrivare fino a sei unità di streaming per un processo di Analisi dei flussi. Per aggiungere ulteriori unità di streaming, è necessario partizionare un passaggio. Ogni partizione può includere sei unità di streaming.
 
@@ -103,7 +110,7 @@ Tutti i passaggi non partizionati insieme possono arrivare fino a sei unità di 
 <td>24 (18 per i passaggi partizionati + 6 per i passaggi non partizionati)</td></tr>
 </table>
 
-### Esempio di scalabilità
+### Esempio di scalabilità ###
 La query seguente calcola il numero di automobili che passano per una stazione di pedaggio con tre caselli in una finestra temporale di tre minuti. Questa query può essere aumentata fino a sei unità di streaming.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -120,7 +127,7 @@ Quando una query è partizionata, gli eventi di input vengono elaborati e aggreg
 
 Le singole partizioni Input1 verranno elaborate separatamente da Analisi dei flussi e verranno creati più record del conteggio del passaggio di automobili dello stesso casello nella stessa finestra a cascata. Nel caso in cui la chiave di partizione di input non possa essere modificata, è possibile risolvere il problema aggiungendo un ulteriore passaggio non di partizione, ad esempio:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -128,14 +135,14 @@ Le singole partizioni Input1 verranno elaborate separatamente da Analisi dei flu
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 Questa query può essere aumentata fino a 24 unità di streaming.
 
->[AZURE.NOTE]Se si crea un join di due flussi, assicurarsi che i flussi siano partizionati mediante la chiave di partizione della colonna usata per i join e che in entrambi i flussi sia presente lo stesso numero di partizioni.
+>[AZURE.NOTE]Se si crea un join di due flussi, assicurarsi che i flussi siano partizionati dalla chiave di partizione della colonna usata per i join e che in entrambi i flussi sia presente lo stesso numero di partizioni.
 
 
-## Configurare la partizione del processo di Analisi dei flussi
+## Configurare la partizione del processo di Analisi dei flussi ##
 
 **Per regolare l'unità di streaming di un processo**
 
@@ -147,7 +154,7 @@ Questa query può essere aumentata fino a 24 unità di streaming.
 ![Configurazione della scalabilità dei processi di Analisi dei flussi di Azure][img.stream.analytics.configure.scale]
 
 
-## Monitorare le prestazioni del processo
+## Monitorare le prestazioni del processo ##
 
 Nel portale di gestione è possibile rilevare la velocità effettiva di un processo, espressa in eventi al secondo:
 
@@ -155,7 +162,7 @@ Nel portale di gestione è possibile rilevare la velocità effettiva di un proce
 
 Calcolare la velocità effettiva prevista del carico di lavoro in eventi al secondo. Se la velocità effettiva è inferiore al previsto, ottimizzare la partizione di input, ottimizzare la query e aggiungere unità di streaming al processo.
 
-##Velocità effettiva ASA su larga scala - Scenario Raspberry Pi
+## Velocità effettiva ASA su larga scala - Scenario Raspberry Pi ##
 
 
 Per comprendere come ASA garantisce la scalabilità in uno scenario tipico in termini di velocità effettiva di elaborazione tra più unità di streaming, viene riportato un esperimento nel corso del quale i dati del sensore (client) vengono inviati a Hub di eventi. ASA li elabora e invia avvisi o le statistiche come output a un altro Hub di eventi.
@@ -220,11 +227,11 @@ Di seguito sono riportati i risultati con un numero crescente di unità di strea
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## Ottenere aiuto
+## Ottenere aiuto ##
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
-## Passaggi successivi
+## Passaggi successivi ##
 
 - [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
@@ -238,6 +245,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
+[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 
 <!--Link references-->
 
@@ -246,10 +254,10 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

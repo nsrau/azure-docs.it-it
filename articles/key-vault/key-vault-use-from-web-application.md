@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Usare l'insieme di credenziali chiave di Azure da un'applicazione Web | Panoramica" 
+	pageTitle="Usare l'insieme di credenziali chiave di Azure da un'applicazione Web | Panoramica"
 	description="In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web." 
 	services="key-vault" 
 	documentationCenter="" 
 	authors="adamhurwitz" 
 	manager=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -115,7 +115,7 @@ A questo punto è necessario il codice per chiamare l'API dell'insieme di creden
 
 
 
-## <a id="portalsettings"></a>Aggiungere le impostazioni dell'app nel portale di Azure \(facoltativo\) ##
+## <a id="portalsettings"></a>Aggiungere le impostazioni dell'app nel portale di Azure (facoltativo) ##
 Se si dispone di un'app Web di Azure, è ora possibile aggiungere i valori effettivi per AppSettings nel portale di Azure. In questo modo, i valori effettivi non saranno in web.config, ma saranno protetti tramite il portale in cui si dispone di funzionalità di controllo di accesso separate. Questi valori verranno sostituiti per i valori immessi in web.config. Assicurarsi che i nomi siano uguali.
 
 ![Impostazioni dell'applicazione visualizzate nel portale di Azure][1]
@@ -125,11 +125,11 @@ Se si dispone di un'app Web di Azure, è ora possibile aggiungere i valori effet
 ## <a id="next"></a>Passaggi successivi ##
 
 
-Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API client C\# dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Come automatizzare con Gestione risorse di Azure" 
-	description="Ottenere collegamenti ad argomenti sull'automazione delle macchine virtuali con Gestione risorse di Azure." 
+	description="Ottenere collegamenti ad argomenti sull&#39;automazione delle macchine virtuali con Gestione risorse di Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -72,4 +72,4 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

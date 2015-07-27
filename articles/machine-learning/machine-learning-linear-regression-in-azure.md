@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Uso della regressione lineare in Machine Learning | Microsoft Azure" 
 	description="Confronto tra i modelli di regressione lineare in Excel e in Azure Machine Learning Studio" 
-	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -44,15 +42,15 @@ La prima priorità consisteva nel raggiungere la parità tra i modelli di regres
 ### Creare un modello di regressione in Excel
 La regressione di Excel usava il modello di regressione lineare standard disponibile in Strumenti di analisi di Excel.
 
-È stato calcolato l'*Errore assoluto medio \(%\)*, usato come misura delle prestazioni per il modello. Sono stati necessari tre mesi per arrivare al modello di lavoro usando Excel. Gran parte delle informazioni sono state trasferite nell'esperimento di Azure ML che ha consentito una migliore comprensione dei requisiti.
+È stato calcolato l'*Errore assoluto medio (%)*, usato come misura delle prestazioni per il modello. Sono stati necessari tre mesi per arrivare al modello di lavoro usando Excel. Gran parte delle informazioni sono state trasferite nell'esperimento di Azure ML che ha consentito una migliore comprensione dei requisiti.
 
 ### Creare un esperimento confrontabile in Azure Machine Learning  
 Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
-1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV \(un file di dimensioni molto ridotte\)
+1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
 2.	È stato creato un nuovo esperimento ed è stato usato il modulo [Project Columns][project-columns] per selezionare le stesse funzionalità di dati usate in Excel   
-3.	È stato usato il modulo [Split][split] \(con la modalità *Relative Expression*\) per dividere i dati esattamente negli stessi set di training di Excel  
-4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] \(solo opzioni predefinite\), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
+3.	È stato usato il modulo [Split][split] (con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel  
+4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
 ### Rivedere i risultati iniziali
 All'inizio, il modello di Excel ha superato nettamente le prestazioni del modello di Azure ML:
@@ -61,9 +59,9 @@ All'inizio, il modello di Excel ha superato nettamente le prestazioni del modell
 |---|:---:|:---:|
 |Prestazioni| | |
 |<ul style="list-style-type: none;"><li>R-quadrato corretto</li></ul>| 0,96 |N/D|
-|<ul style="list-style-type: none;"><li>Coefficiente di <br />determinazione</li></ul>|N/D|	0,78<br />\(bassa precisione\)|
+|<ul style="list-style-type: none;"><li>Coefficiente di <br />determinazione</li></ul>|N/D|	0,78<br />(bassa precisione)|
 |Errore assoluto medio |	$ 9,5 milioni|	$ 19,4 milioni|
-|Errore assoluto medio \(%\)|	6,03%|	12,2%
+|Errore assoluto medio (%)|	6,03%|	12,2%
 
 Dopo aver eseguito il processo e aver passato i risultati di sviluppatori ed esperti di dati al team di Azure ML, il team ha fornito subito alcuni suggerimenti utili.
 
@@ -75,28 +73,11 @@ Dopo aver eseguito il processo e aver passato i risultati di sviluppatori ed esp
 ### Misero risolto
 Dopo aver applicato i suggerimenti, in Azure ML sono state raggiunte le stesse prestazioni di base di Excel:
 
-|| Excel|Azure ML (iniziale)|Azure ML con Least Squares|
-|---|:---:|:---:|:---:|
-|Valore etichettato |Valori effettivi (numerici)|uguale|uguale|
-|Strumento di apprendimento |Excel -\> Analisi dei dati -\> Regressione|Regressione lineare|Regressione lineare|
-|Opzioni strumento di apprendimento|N/D|Valori predefiniti|Ordinary Least Squares<br />L2 = 0,005|
-|Set di dati|26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici.|uguale|uguale|
-|Divisione: training|Excel con training sulle prime 18 righe, con test delle ultime 8 righe.|uguale|uguale|
-|Divisione: test|Formula di regressione Excel applicata alle ultime 8 righe|uguale|uguale|
-|**Prestazioni**||||
-|Adjusted R Square|0,96|N/D||
-|Coefficiente di determinazione|N/DA|0,78|0,952049|
-|Errore assoluto medio |$ 9,5 milioni|$ 19,4 milioni|$ 9,5 milioni|
-|Errore assoluto medio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
+|| Excel|Azure ML (iniziale)|Azure ML con Least Squares| |---|:---:|:---:|:---:| |Valore etichettato |Valori effettivi (numerici)|uguale|uguale| |Strumento di apprendimento |Excel -> Analisi dei dati -> Regressione|Regressione lineare|Regressione lineare| |Opzioni strumento di apprendimento|N/D|Valori predefiniti|Ordinary Least Squares<br />L2 = 0,005| |Set di dati|26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici.|uguale|uguale| |Divisione: training|Excel con training sulle prime 18 righe, con test delle ultime 8 righe.|uguale|uguale| |Divisione: test|Formula di regressione Excel applicata alle ultime 8 righe|uguale|uguale| |**Prestazioni**|||| |Adjusted R Square|0,96|N/D|| |Coefficiente di determinazione|N/DA|0,78|0,952049| |Errore assoluto medio |$ 9,5 milioni|$ 19,4 milioni|$ 9,5 milioni| |Errore assoluto medio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
 
 Inoltre, i coefficienti di Excel hanno dato buoni risultati anche confrontati con i pesi delle funzionalità nel modello con training di Azure:
 
-||Coefficienti di Excel|Pesi delle funzionalità di Azure|
-|---|:---:|:---:|
-|Intercetta/differenza|19470209,88|19328500|
-|Funzionalità A|0,832653063|0,834156|
-|Funzionalità B|11071967,08|11007300|
-|Funzionalità C|25383318,09|25140800|
+||Coefficienti di Excel|Pesi delle funzionalità di Azure| |---|:---:|:---:| |Intercetta/differenza|19470209,88|19328500| |Funzionalità A|0,832653063|0,834156| |Funzionalità B|11071967,08|11007300| |Funzionalità C|25383318,09|25140800|
 
 ## Passaggi successivi
 
@@ -125,9 +106,9 @@ Per eseguire un esperimento con regressione, si consiglia di provare il set di d
 |Modello|Errore assoluto medio|Radice dell'errore quadratico medio|Errore assoluto relativo|Errore quadratico relativo|Coefficiente di determinazione
 |---|---|---|---|---|---
 |Albero delle decisioni con boosting scalabile|0,930113|1,4239|0,106647|0,021662|0,978338
-|Regressione lineare \(Gradient Descent\)|2,035693|2,98006|0,233414|0,094881|0,905119
+|Regressione lineare (Gradient Descent)|2,035693|2,98006|0,233414|0,094881|0,905119
 |Regressione rete neurale|1,548195|2,114617|0,177517|0,047774|0,952226
-|Regressione lineare \(Ordinary Least Squares\)|1,428273|1,984461|0,163767|0,042074|0,957926  
+|Regressione lineare (Ordinary Least Squares)|1,428273|1,984461|0,163767|0,042074|0,957926  
 
 ## Risultati principali 
 
@@ -158,4 +139,4 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

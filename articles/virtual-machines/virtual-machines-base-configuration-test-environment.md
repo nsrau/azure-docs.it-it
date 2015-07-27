@@ -1,24 +1,27 @@
 <properties 
 	pageTitle="Ambiente di test di configurazione di base" 
-	description="Informazioni su come creare un ambiente di sviluppo e test semplice che simuli una intranet semplificata in Azure." 
+	description="Informazioni su come creare un ambiente di sviluppo e test semplice che simuli una Intranet semplificata in Microsoft Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Ambiente di test di configurazione di base
 
-In questo argomento vengono fornite le istruzioni dettagliate per creare l’ambiente di test configurazione di base in una rete virtuale di Microsoft Azure, utilizzando computer su cui è in esecuzione Windows Server 2012 R2. È possibile utilizzare l'ambiente di test risultante:
+In questo articolo vengono fornite le istruzioni dettagliate per creare l’ambiente di test configurazione di base in una rete virtuale di Microsoft Azure, usando macchine virtuali create in Gestione servizi.
+
+È possibile utilizzare l'ambiente di test risultante:
 
 - Per lo sviluppo e il testing di applicazioni.
 - L’[ambiente cloud ibrido simulato](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
@@ -63,7 +66,7 @@ Creare innanzitutto la rete virtuale di Azure TestLab che ospiterà la subnet Co
 7.	Nella colonna **CIDR (conteggio indirizzi)** per la subnet Corpn,et fare clic su **/24 (256)**.
 8.	Fare clic sull'icona Completa. Attendere il completamento della creazione della rete virtuale prima di continuare.
 
-Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)  per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 Selezionare innanzitutto la sottoscrizione di Azure corretta con questi comandi. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
@@ -126,8 +129,8 @@ Successivamente, connettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **DC1**[Nome dell'account amministratore locale]
-- Password: [Password dell’account dell’amministratore locale]
+- Nome: **DC1**Nome dell'account amministratore locale
+- Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
 Quindi, aggiungere un altro disco dati come nuovo volume con la lettera di unità F:.
@@ -155,7 +158,7 @@ Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **CORP**[Nome dell'account amministratore locale]
+- Nome: **CORP**Nome dell'account amministratore locale
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -164,9 +167,9 @@ Successivamente, creare un account utente in Active Directory che verrà utilizz
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false 
 	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-Si noti che non appena viene eseguito il comando, viene visualizzato una finestra in cui viene chiesto di immettere la password dell’account User1. Poiché questo account verrà utilizzato per le connessioni desktop remote per tutti i computer appartenenti al dominio CORP, scegliere una password complessa. Per verificarne il livello di complessità, vedere  [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registrare la password dell'account User1 e archiviarlo in una posizione protetta.
+Si noti che non appena viene eseguito il comando, viene visualizzato una finestra in cui viene chiesto di immettere la password dell’account User1. Poiché questo account verrà utilizzato per le connessioni desktop remote per tutti i computer appartenenti al dominio CORP, scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registrare la password dell'account User1 e archiviarlo in una posizione protetta.
 
-Riconnettersi alla macchina virtuale DC1 utilizzando l'account CORP\\User1.
+Riconnettersi alla macchina virtuale DC1 utilizzando l'account CORP\User1.
 
 Successivamente, per consentire il traffico per lo strumento Ping, eseguire questo comando in un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
@@ -191,7 +194,7 @@ Innanzitutto, specificare il nome del servizio cloud e utilizzare questi comandi
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Successivamente, connettersi alla macchina virtuale APP1 utilizzando le credenziali CORP\\User1 e aprire un prompt dei comandi di Windows PowerShell a livello di amministratore.
+Successivamente, connettersi alla macchina virtuale APP1 utilizzando le credenziali CORP\User1 e aprire un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
 Per controllare la comunicazione di rete e di risoluzione dei nomi tra APP1 e DC1, eseguire il comando **ping dc1.corp.contoso.com** per verificare che vengano restituite quattro risposte.
 
@@ -224,18 +227,18 @@ Innanzitutto, specificare il nome del servizio cloud e utilizzare questi comandi
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Successivamente, connettersi alla macchina virtuale CLIENT1 con le credenziali CORP\\User1.
+Successivamente, connettersi alla macchina virtuale CLIENT1 con le credenziali CORP\User1.
 
 Per controllare la comunicazione di rete e di risoluzione dei nomi tra CLIENT1 e DC1, eseguire il comando **ping dc1.corp.contoso.com** in un prompt dei comandi Windows PowerShell per verificare che vengano restituite quattro risposte.
 
 Successivamente, verificare che sia possibile accedere al Web e alle risorse di condivisione file in APP1 da CLIENT1.
 
 1.	In Server Manager, nel riquadro dell'albero, fare clic su **Server locale**. 
-2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a **Configurazione sicurezza avanzata IE**.
-3.	In **Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
+2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a ** Configurazione sicurezza avanzata IE**.
+3.	In ** Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
 4.	Dalla schermata Start, fare clic su **Internet Explorer**, quindi su **OK**.
 5.	Nella barra degli indirizzi digitare **http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1. 6.	Sulla barra delle applicazioni desktop, fare clic sull'icona Esplora File.
-7.	Nella barra degli indirizzi digitare **\\\\app1\\Files**, quindi premere INVIO.
+7.	Nella barra degli indirizzi digitare **\app1\Files**, quindi premere INVIO.
 8.	Dovrebbe essere visualizzata una finestra della cartella con il contenuto della cartella condivisa File.
 9.	Nella finestra della cartella condivisa **File**, fare doppio clic sul file **Example.txt**. Viene visualizzato il contenuto del file di Example.txt.
 10.	Chiudere il file **Example.txt in Blocco note** e le finestre della cartella condivisa **File**.
@@ -278,6 +281,6 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,16 +37,16 @@ Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Informazioni sui modelli di risorse di Azure e sui gruppi di risorse
+## Informazioni sui modelli di Gestione risorse di Azure e sui gruppi di risorse
 
-La maggior parte delle applicazioni distribuite ed eseguite da Microsoft Azure viene creata da una combinazione di tipi diversi di risorse cloud \(ad esempio una o più macchine virtuali e account di archiviazione, un database SQ o una rete virtuale\). I modelli di Gestione risorse di Azure consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
+La maggior parte delle applicazioni distribuite ed eseguite da Microsoft Azure viene creata da una combinazione di tipi diversi di risorse cloud (ad esempio una o più macchine virtuali e account di archiviazione, un database SQ o una rete virtuale). I modelli di Gestione risorse di Azure consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
 
 Dopo aver definito un modello di risorsa basata su JSON, è possibile eseguirla e sono le risorse definito all'interno di distribuirlo in Azure utilizzando un comando di PowerShell. È possibile eseguire questi comandi in modo autonomo nell’ambito della shell dei comandi PowerShell o integrandoli all'interno di uno script che contenga la logica di automazione aggiuntiva.
 
 Le risorse create mediante i modelli di Gestione risorse di Azure verranno distribuite in un gruppo di risorse Azure nuovo o esistente. Un *gruppo di risorse Azure* consente di gestire più risorse distribuite insieme come gruppo logico: in questo modo è possibile gestire il ciclo di vita complessivo del gruppo o dell’applicazione e fornire le API di gestione che consentono quanto segue:
 
 - Arrestare, avviare o eliminare tutte le risorse all'interno del gruppo contemporaneamente. 
-- Applicare le regole di controllo degli accessi in base al ruolo \(RBAC\) per bloccare le autorizzazioni di sicurezza su di essi. 
+- Applicare le regole di controllo degli accessi in base al ruolo (RBAC) per bloccare le autorizzazioni di sicurezza su di essi. 
 - Controllare le operazioni. 
 - Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente. 
 
@@ -304,7 +305,7 @@ Verrà visualizzata una schermata simile alla seguente:
 
 ## <a id="customvm"></a>ATTIVITÀ: Creare un'immagine di macchina virtuale personalizzata
 
-Utilizzare le istruzioni incluse in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse utilizzato in Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale \(VHD\) specificato.
+Utilizzare le istruzioni incluse in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse utilizzato in Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
 ### Passaggio 1: esaminare il file JSON per il modello.
 
@@ -395,7 +396,7 @@ Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un
 
 ### Passaggio 3: creare la macchina virtuale con il modello.
 
-Per creare una nuova macchina virtuale basata sul disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore \("\< \>"\) con le informazioni specifiche ed eseguire questi comandi:
+Per creare una nuova macchina virtuale basata sul disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore ("< >") con le informazioni specifiche ed eseguire questi comandi:
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -863,7 +864,7 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente.
 	
 	Outputs           :
 
-Connettere quindi la macchina virtuale dal portale di anteprima di Azure \(\*\*Sfoglia \> Macchine virtuali \(v2\) \>\*\* *Nome VM* **\> Connetti**\).
+Connettere quindi la macchina virtuale dal portale di anteprima di Azure (**Sfoglia > Macchine virtuali (v2) >** *Nome VM* **> Connetti**).
 
 Nella schermata Start digitare **Symantec**. I componenti di Symantec Endpoint Protection non sono installati, quindi non verranno restituiti risultati della ricerca con "Symantec" nel titolo.
 
@@ -875,7 +876,7 @@ Nell'editor di testo preferito aprire il file azuredeploy.json che si trova nell
 
 	"vmExtensionName" : "SymantecExtension",
 
-Nella sezione **resources** aggiungere la nuova sezione seguente subito prima della riga con l'ultima parentesi quadra di chiusura "\]":
+Nella sezione **resources** aggiungere la nuova sezione seguente subito prima della riga con l'ultima parentesi quadra di chiusura "]":
 
 	       {
 	         "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -942,7 +943,7 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente.
 	
 	Outputs           :
 
-Connettere la macchina virtuale dal portale di anteprima di Azure \(\*\*Sfoglia \> Macchine virtuali \(v2\) \>\*\* *Nome VM* **\> Connetti**\).
+Connettere la macchina virtuale dal portale di anteprima di Azure (**Sfoglia > Macchine virtuali (v2) >** *Nome VM* **> Connetti**).
 
 Nella schermata Start digitare **Symantec**. Dovrebbe essere visualizzata una schermata analoga alla seguente, dove è indicato che l'estensione di Symantec Endpoint Protection è installata.
 
@@ -962,7 +963,7 @@ Verranno visualizzate informazioni come segue:
 
 ## <a id="logon"></a>ATTIVITÀ: Accedere a una macchina virtuale di Windows
 
-Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia tutto \> Macchine virtuali \(v2\) \>** *Nome VM* **\> Connetti**.
+Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia tutto > Macchine virtuali (v2) >** *Nome VM* **> Connetti**.
 
 Quando viene richiesto di aprire o salvare un file RDP, fare clic su **Apri** e quindi su **Connetti**. Digitare le credenziali di un account valido e quindi fare clic su **OK**.
 
@@ -1126,4 +1127,4 @@ Verranno visualizzate informazioni come segue:
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

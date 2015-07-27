@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -52,13 +53,13 @@ In questa sezione esamineremo alcune delle più importanti differenze concettual
  Item | Gestione servizi di Microsoft Azure basata su XML | Provider di calcolo, rete e di archiviazione basati su JSON
  ---|---|---
 | Servizio cloud per macchine virtuali |	Servizio cloud era un contenitore per mantenere le macchine virtuali che richiedevano disponibilità dalla piattaforma e bilanciamento del carico. | Servizio cloud non è più un oggetto richiesto per la creazione di una macchina virtuale che utilizza il nuovo modello. |
-| SET DI DISPONIBILITÀ | La disponibilità per la piattaforma era indicata mediante la configurazione  dello stesso oggetto "AvailabilitySetName" nelle macchine virtuali. Il numero massimo di domini di errore era 2. | Il set di disponibilità è una risorsa esposta dal provider Microsoft.Compute. Le macchine virtuali che richiedono un'elevata disponibilità devono essere incluse nel set di disponibilità. Il numero massimo di domini di errore è ora 3. |
+| SET DI DISPONIBILITÀ | La disponibilità per la piattaforma era indicata mediante la configurazione dello stesso oggetto "AvailabilitySetName" nelle macchine virtuali. Il numero massimo di domini di errore era 2. | Il set di disponibilità è una risorsa esposta dal provider Microsoft.Compute. Le macchine virtuali che richiedono un'elevata disponibilità devono essere incluse nel set di disponibilità. Il numero massimo di domini di errore è ora 3. |
 | Gruppi di affinità |	I gruppi di affinità erano necessari per la creazione di reti virtuali. Tuttavia, con l'introduzione di reti virtuali regionali, tale requisito non era più necessario. |Per semplificare, non esiste il concetto di gruppi di affinità nelle API esposte tramite Gestione risorse di Microsoft Azure. |
 | Bilanciamento del carico. | La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. [Per ulteriori informazioni.](resource-groups-networking.md) |
 |Indirizzo IP virtuale | I servizi cloud otterranno un indirizzo predefinito (indirizzo IP virtuale) quando una macchina virtuale viene aggiunta a un servizio cloud. L'indirizzo IP virtuale è l'indirizzo associato al servizio di bilanciamento del carico implicito. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Gli indirizzi IP pubblici possono essere assegnati a un servizio di bilanciamento del carico. Gli indirizzi IP pubblici possono essere protetti tramite gruppi di protezione. |
 |Indirizzo IP riservato|	In Microsoft Azure è possibile riservare un indirizzo IP e associarlo a un servizio cloud per assicurarsi che l'indirizzo IP sia permanente. | L’indirizzo IP pubblico può essere creato in modalità "statica" e offre le stesse funzionalità di un "indirizzo IP riservato". Gli indirizzi IP statici possono essere assegnati solo a un servizio di bilanciamento del carico al momento. |
 |Indirizzo IP pubblico per macchina virtuale | Gli indirizzi IP pubblici possono inoltre essere associati direttamente a una macchina virtuale. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Tuttavia, al momento solo indirizzi IP pubblici dinamici possono essere assegnati a un'interfaccia di rete per ottenere un indirizzo IP pubblico per ogni macchina virtuale. |
-|Endpoint| In una macchina virtuale era necessario configurare gli endpoint di input per  consentire connettività a determinate porte. Una delle modalità comuni di connessione alle macchine virtuali eseguita mediante l'impostazione di endpoint di input. | È possibile configurare le regole NAT in ingresso in servizi di bilanciamento del carico per ottenere le stesse funzionalità di abilitazione degli endpoint su porte specifiche per la connessione alle macchine virtuali. |
+|Endpoint| In una macchina virtuale era necessario configurare gli endpoint di input per consentire connettività a determinate porte. Una delle modalità comuni di connessione alle macchine virtuali eseguita mediante l'impostazione di endpoint di input. | È possibile configurare le regole NAT in ingresso in servizi di bilanciamento del carico per ottenere le stesse funzionalità di abilitazione degli endpoint su porte specifiche per la connessione alle macchine virtuali. |
 |Nome DNS| Un servizio cloud otterrebbe un nome DNS univoco globale implicito. Ad esempio: `mycoffeeshop.cloudapp.net`. | I nomi DNS sono parametri facoltativi che possono essere specificati in una risorsa di indirizzo IP pubblico. Il nome di dominio completo avrà il seguente formato...`<domainlabel>.<region>.cloudapp.azure.com` |
 |Interfacce di rete | Interfacce di rete primarie e secondarie e le relative proprietà sono state definite come configurazione di rete di una macchina virtuale. | L’interfaccia di rete è una risorsa esposta dal provider Microsoft.Network. Il ciclo di vita dell'interfaccia di rete non è correlato a una macchina virtuale. |
 
@@ -72,11 +73,11 @@ Il portale di Microsoft Azure continuerà a offrire la possibilità di distribui
 
 ### Azure PowerShell
 
-Azure PowerShell avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e  la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà anche i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../powershell-azure-resource-manager.md).
+Azure PowerShell avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà anche i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../powershell-azure-resource-manager.md).
 
 ### Interfaccia della riga di comando di Azure
 
-L’interfaccia della riga di comando di Microsoft Azure avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e  la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà inoltre i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](xplat-cli-azure-resource-manager.md).
+L’interfaccia della riga di comando di Microsoft Azure avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà inoltre i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
@@ -107,6 +108,6 @@ Tutti gli script e le automazioni creati continueranno a funzionare per le macch
 **Le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure possono essere connesse al circuito Express Route in uso?**
 
 La funzionalità non è supportata al momento. Non è possibile connettere le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure con un circuito Express Route in uso. La funzionalità sarà supportata in futuro.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->
