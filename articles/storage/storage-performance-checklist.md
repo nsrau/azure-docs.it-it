@@ -104,7 +104,10 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 -	Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)). È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei metodi descritti), tuttavia questo comporta che l'applicazione non riprende a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
 
 ####Risorse utili
-I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità: - È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure in MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx). - Ulteriori informazioni sulle opzioni di ridondanza di archiviazione nel blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– vedere la sezione successiva per ulteriori dettagli. - Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Panoramica dei prezzi di Azure](http://azure.microsoft.com/pricing/overview/).
+I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità:
+-	È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure in MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx).
+-	Ulteriori informazioni sulle opzioni di ridondanza di archiviazione nel blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– vedere la sezione successiva per ulteriori dettagli.
+-	Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Panoramica dei prezzi di Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Rete
 Oltre alle chiamate API, anche i vincoli fisici della rete dell'applicazione hanno spesso effetti significativi sulle prestazioni. Di seguito vengono descritte alcune limitazioni che gli utenti possono incontrare.
@@ -384,4 +387,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
