@@ -750,13 +750,13 @@ Se un server di elaborazione è in stato critico, nel dashboard di Site Recovery
 
 ## Informazioni e comunicazioni sul software di terze parti
 
-Non tradurre o localizzare
+Do Not Translate or Localize
 
-Il software e il firmware eseguito nel prodotto o nel servizio Microsoft si basa su materiale incorporato dai progetti elencati di seguito (collettivamente, "Codice di terze parti"). Microsoft non è l'autore originale del Codice di terze parti. Le informazioni sul copyright e le condizioni di licenza originali in base alle quali Microsoft ha ricevuto il Codice di terze parti sono definite di seguito.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-Le informazioni nella sezione A riguardano i componenti del Codice di terze parti dai progetti elencati di seguito. Le licenze e le informazioni vengono fornite a scopo esclusivamente informativo. Il Codice di terze parti viene riconcesso in licenza all'utente da Microsoft in base alle condizioni di licenza del software definite da Microsoft per il prodotto o il servizio Microsoft.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-Le informazioni nella sezione B riguardano i componenti del Codice di terze parti resi disponibili all'utente da Microsoft in base alle condizioni di licenza originali.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 Il file completo è disponibile nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft si riserva tutti i diritti non espressamente disciplinati dal presente documento, sia tacitamente, per preclusione o per qualsivoglia altro motivo.
 

@@ -37,7 +37,9 @@ Message Available | Send message
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Azure Service Bus Connector".
-3. Immettere il nome, il piano di servizio app e altre proprietà: <br/> ![][1]
+3. Immettere il nome, il piano di servizio app e altre proprietà:
+<br/>
+![][1]
 
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -54,17 +56,31 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un'app per la logica 
 ## Uso di Service Bus Connector nell'app per la logica
 Dopo aver creato il connettore, è possibile usare Azure Service Bus Connector come trigger o azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Azure Service Bus Connector: <br/> ![][2]
+1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Azure Service Bus Connector:
+<br/>
+![][2]
 
-2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: <br/> ![][3]
+2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro:
+<br/>
+![][3]
 
-3. Azure Service Bus Connector verrà visualizzato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta sul lato destro: <br/> ![][4]
+3. Azure Service Bus Connector verrà visualizzato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta sul lato destro:
+<br/>
+![][4]
 
 4. È possibile trascinare Azure Service Bus Connector nell'editor facendo clic su "Azure Service Bus Connector".
 
-5.	È ora possibile usare Azure Service Bus Connector nel flusso di lavoro. È possibile usare il messaggio recuperato dal trigger di Azure Service Bus ("Message Available") in altre azioni del flusso: <br/> ![][5] <br/> ![][6]
+5.	È ora possibile usare Azure Service Bus Connector nel flusso di lavoro. È possibile usare il messaggio recuperato dal trigger di Azure Service Bus ("Message Available") in altre azioni del flusso:
+<br/>
+![][5]
+<br/>
+![][6]
 
-È anche possibile usare l'azione "Send Message" di Azure Service Bus: <br/> ![][7] <br/> ![][8]
+È anche possibile usare l'azione "Send Message" di Azure Service Bus:
+<br/>
+![][7]
+<br/>
+![][8]
 
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

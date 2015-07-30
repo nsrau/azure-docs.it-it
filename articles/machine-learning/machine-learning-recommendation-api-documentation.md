@@ -287,7 +287,8 @@ Elimina un modello esistente in base all'ID.
 |:--------			|:--------								|
 |	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 

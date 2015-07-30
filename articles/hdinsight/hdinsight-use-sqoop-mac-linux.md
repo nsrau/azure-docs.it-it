@@ -185,7 +185,8 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight: 
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     I dati importati conterranno campi separati da un carattere di tabulazione e le righe verranno terminate da un carattere di nuova riga.
