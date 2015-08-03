@@ -120,7 +120,7 @@ Se è già stato preparato un host Hyper-V autonomo de un server di ripristino, 
 
 	g. Nella sezione **Autorizzazione e archiviazione** specificare un valore in modo da consentire a **qualsiasi** server (primario) autenticato l'invio di dati di replica al server di replica. È possibile utilizzare caratteri jolly per limitare l'accettazione ai server da parte diun determinato dominio senza dover specificare singolarmente ciascuno di essi (ad esempio, *.contoso.com).
 
-	h. Aprire le porte del firewall su tutti gli host Hyper-V di ripristino: porta 443 (autenticazione certificato): Get-ClusterNode | ForEach-Object {Invoke-command -computername \\$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+	h. Aprire le porte del firewall su tutti gli host Hyper-V di ripristino: porta 443 (autenticazione certificato): Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
@@ -193,11 +193,11 @@ Specificare le informazioni di rete richieste, quindi fare clic su **Avanti**.
 
     Percorso report predefinito:
 
-    %systemdrive%\\Users\\Public\\Documents\\Capacity Planner
+    %systemdrive%\Users\Public\Documents\Capacity Planner
 
     Percorso dei log;
 
-    %systemdrive%\\Users\\Public\\Documents\\CapacityPlanner
+    %systemdrive%\Users\Public\Documents\CapacityPlanner
 
 ## Passaggio 4: Interpretazione dei risultati
 Poiché non sono rilevanti per questo scenario, è possibile ignorare le metriche che non sono elencate in uno dei due scenari seguenti.
@@ -239,4 +239,4 @@ Per avviare la distribuzione  
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

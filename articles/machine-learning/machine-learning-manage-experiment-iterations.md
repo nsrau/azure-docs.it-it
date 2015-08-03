@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Gestire iterazioni dell'esperimento in Azure Machine Learning Studio 
@@ -85,4 +85,4 @@ Si supponga ad esempio di disporre della cronologia delle esecuzioni dell'esperi
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

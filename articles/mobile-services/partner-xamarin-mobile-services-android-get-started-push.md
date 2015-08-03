@@ -86,4 +86,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

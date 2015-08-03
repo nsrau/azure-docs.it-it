@@ -76,4 +76,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 
 Informazioni su come [risolvere i problemi relativi a un dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -148,4 +148,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

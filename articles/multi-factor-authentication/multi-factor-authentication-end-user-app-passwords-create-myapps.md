@@ -39,4 +39,4 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 <li>Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.</li>
 <li>Copiare la password per l'app negli Appunti, quindi incollarla nell'app.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

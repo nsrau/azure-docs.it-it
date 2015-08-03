@@ -144,4 +144,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

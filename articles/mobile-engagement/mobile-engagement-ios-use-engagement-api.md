@@ -240,7 +240,7 @@ Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguen
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
 #### Dimensione
 
@@ -273,7 +273,7 @@ Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguen
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
 #### Dimensione
 
@@ -285,4 +285,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

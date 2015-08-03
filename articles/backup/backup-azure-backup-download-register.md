@@ -55,4 +55,4 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 ## Passaggi successivi
 - Vedere[pianificare backup](backup-azure-backup-and-recover.md)per informazioni sul backup dei dati e applicazioni in Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

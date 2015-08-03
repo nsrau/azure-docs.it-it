@@ -73,4 +73,4 @@
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

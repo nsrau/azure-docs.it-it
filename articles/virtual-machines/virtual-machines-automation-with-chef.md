@@ -46,15 +46,15 @@ I "cookbook" e i "recipe" costituiscono invece i criteri effettivi che vengono d
 
 In primo luogo, è necessario predisporre la workstation. Nel seguente esempio viene utilizzata una workstation Windows standard. È necessario creare una directory per archiviare i file di configurazione e i cookbook.
 
-Creare innanzitutto una directory denominata **C:\\chef**.
+Creare innanzitutto una directory denominata **C:\chef**.
 
-Creare quindi una seconda directory denominata **c:\\chef\\cookbooks**
+Creare quindi una seconda directory denominata **c:\chef\cookbooks**
 
 A questo punto, è necessario scaricare il file di impostazioni di Azure affinché Chef possa comunicare con la sottoscrizione Azure.
 
 Scaricare le impostazioni di pubblicazione da qui: <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
-Salvare il file delle impostazioni di pubblicazione in **C:\\chef**
+Salvare il file delle impostazioni di pubblicazione in **C:\chef**
 
 ##Creazione di un account Chef gestito
 
@@ -74,15 +74,15 @@ Il file ZIP dello Starter Kit contiene i file di configurazione e le chiavi dell
 
 ##Configurazione della workstation Chef
 
-Estrarre il contenuto del file chef-starter.zip in **C:\\chef**
+Estrarre il contenuto del file chef-starter.zip in **C:\chef**
 
-Copiare tutti i file presenti in **chef-starter\\chef-repo.chef** su **c:\\chef**
+Copiare tutti i file presenti in **chef-starter\chef-repo.chef** su **c:\chef**
 
 La directory avrà ora un aspetto analogo al seguente:
 
 ![][5]
 
-Dovrebbero essere presenti 4 file, incluso il file di pubblicazione di Azure nella cartella c:\\chef.
+Dovrebbero essere presenti 4 file, incluso il file di pubblicazione di Azure nella cartella c:\chef.
 
 I file PEM contengono le chiavi private dell'organizzazione e quelle amministrative per la comunicazione, mentre il file **knife.rb** contiene la configurazione Knife. È necessario modificare il file **knife.rb**.
 
@@ -98,7 +98,7 @@ Il file knife.rb dovrebbe avere un aspetto simile al seguente:
 
 ![][6]
 
-Queste righe sono necessarie per garantire la presenza di riferimenti Knife nella directory di cookbook c:\\chef\\cookbooks e per usare il file delle impostazioni di pubblicazione di Azure durante le operazioni con Azure.
+Queste righe sono necessarie per garantire la presenza di riferimenti Knife nella directory di cookbook c:\chef\cookbooks e per usare il file delle impostazioni di pubblicazione di Azure durante le operazioni con Azure.
 
 ## Installazione di Chef Development Kit
 
@@ -108,9 +108,9 @@ A questo punto, scaricare e installare ChefDK (Chef Development Kit) per configu
 
 ![][7]
 
-L'installazione di ChefDK è estremamente semplice. Non modificare il percorso di installazione predefinito, ovvero c:\\opscode. L'installazione richiederà all'incirca 10 minuti.
+L'installazione di ChefDK è estremamente semplice. Non modificare il percorso di installazione predefinito, ovvero c:\opscode. L'installazione richiederà all'incirca 10 minuti.
 
-Verificare che la variabile PATH contenga voci relative ai percorsi C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin
+Verificare che la variabile PATH contenga voci relative ai percorsi C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin
 
 Se questi percorsi non sono presenti, assicurarsi di aggiungerli.
 
@@ -143,15 +143,15 @@ A questo punto la workstation è stata configurata.
 
 Chef usa i cookbook per definire i set di comandi che si desidera eseguire nel client gestito. La creazione di un cookbook è molto semplice. A tale scopo viene usato il comando "chef generate cookbook" per generare il modello di cookbook. In questo esempio il cookbook verrà denominato webserver, in quanto si desidera creare un criterio che distribuisca automaticamente IIS.
 
-Nella directory C:\\Chef eseguire il seguente comando:
+Nella directory C:\Chef eseguire il seguente comando:
 
 	chef generate cookbook webserver
 
-Verrà generato un set di file nella directory **C:\\Chef\\cookbooks\\webserver.** A questo punto è necessario definire il set di comandi che il client Chef dovrà eseguire nella macchina virtuale gestita.
+Verrà generato un set di file nella directory **C:\Chef\cookbooks\webserver.** A questo punto è necessario definire il set di comandi che il client Chef dovrà eseguire nella macchina virtuale gestita.
 
 I comandi vengono archiviati nel file **default.rb.** In questo file verrà definito un set di comandi che consente di installare IIS, avviare IIS e copiare un file di modello nella cartella wwwroot.
 
-Modificare il file **C:\\chef\\cookbooks\\webserver\\recipes\\default.rb** e aggiungere le seguenti righe:
+Modificare il file **C:\chef\cookbooks\webserver\recipes\default.rb** e aggiungere le seguenti righe:
 
 	powershell_script 'Install IIS' do
  		action :run
@@ -177,7 +177,7 @@ Eseguire il seguente comando per generare il modello:
 
 	chef generate template webserver Default.htm
 
-Selezionare ora il file **C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb** e modificarlo.
+Selezionare ora il file **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** e modificarlo.
 
 Aggiungere un semplice codice HTML, ad esempio alcune parole di benvenuto, e salvare il file.
 
@@ -238,4 +238,4 @@ Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastrut
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

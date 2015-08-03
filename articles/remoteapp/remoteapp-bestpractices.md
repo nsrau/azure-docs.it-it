@@ -44,4 +44,4 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

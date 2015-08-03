@@ -228,4 +228,4 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 Per analizzare i dati di server in diverse posizioni geografiche, considerare la configurazione di un gruppo di gestione per posizione. Questo approccio può migliorare le prestazioni per il trasferimento dei dati dall'agente al gruppo di gestione.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

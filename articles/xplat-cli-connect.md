@@ -145,4 +145,4 @@ Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

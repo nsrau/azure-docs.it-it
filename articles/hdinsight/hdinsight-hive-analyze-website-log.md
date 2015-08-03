@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Usare Hive con HDInsight per analizzare i log dei siti Web
@@ -31,7 +31,7 @@ In questo esempio si userà un cluster HDInsight per analizzare i file di log de
 
 ##Prerequisiti
 
-- È necessario avere completato il provisioning di un **cluster HDInsight**. Per ottenere istruzioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. 
+- È necessario avere completato il provisioning di un cluster Hadoop in Azure HDInsight. Per ottenere istruzioni, vedere [Provisioning di cluster HDInsight][hdinsight-provision]. 
 - È necessario aver installato Microsoft Excel 2013 o Excel 2010.
 - Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886).
 
@@ -58,4 +58,4 @@ Provare l'esempio seguente: [Analizzare i dati dei sensori mediante Hive con HDI
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

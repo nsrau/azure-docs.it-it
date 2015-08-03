@@ -152,4 +152,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e il servizio di accodamento di Azure discusso nell'articolo [Come utilizzare il servizio di accodamento di Azure](/develop/ruby/how-to-guides/queue-service/), vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

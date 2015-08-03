@@ -38,10 +38,10 @@ In primo luogo, è necessario installare Azure PowerShell. Per istruzioni, veder
 
 Aprire una sessione di Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordare di sostituire `ACCOUNT_NAME` e `ACCOUNT_KEY== ` con le credenziali dell'account di archiviazione. Sostituire `CONTAINER_NAME` con il nome scelto.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 L'URI della firma di accesso condiviso per il nuovo contenitore deve essere simile al seguente:
 
@@ -176,4 +176,4 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) [Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md) [Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md) [Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

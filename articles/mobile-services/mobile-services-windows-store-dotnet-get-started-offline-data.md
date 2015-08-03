@@ -297,4 +297,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

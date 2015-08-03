@@ -78,4 +78,4 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 ## Supporto esteso per la famiglia di sistemi operativi guest 1 terminato il 3 novembre 2014
 I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -63,7 +63,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 2. Decomprimere il file *WAImportExport.zip*. Eseguire lo strumento *WAImportExport* che consente di formattare l'unità SATA, scrivere i dati di backup nell'unità SATA e crittografarli. Prima di eseguire il comando seguente, verificare che BitLocker sia abilitato nel computer. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | Parametro | Descrizione
@@ -107,4 +107,4 @@ Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazio
 - Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

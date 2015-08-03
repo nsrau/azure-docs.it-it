@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Panoramica sulla continuità aziendale
@@ -88,4 +88,4 @@ La funzionalità di replica geografica attiva è disponibile per i database Prem
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

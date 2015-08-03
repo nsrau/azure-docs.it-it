@@ -4,18 +4,11 @@
 	description="Informazioni su come gestire una macchina virtuale di Azure"
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 # Gestire le macchine virtuali
 
@@ -158,6 +151,5 @@ Per eliminare i dati di backup in una macchina virtuale con stato "Protezione ar
 Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine virtuali di Azure, le relative risorse di archiviazione e i processi associati nelle ultime 24 ore. È possibile visualizzare lo stato del backup ed eventuali errori di backup associati.
 
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

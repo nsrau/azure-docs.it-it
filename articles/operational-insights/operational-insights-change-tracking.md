@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Identificare le differenze con la funzionalità di rilevamento modifiche
@@ -51,6 +51,7 @@ Dopo l'installazione, è possibile visualizzare il riepilogo delle modifiche rel
 
 3. In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati in base all'ora, ai dettagli e alla cronologia di ricerca. È anche possibile filtrare per facet in modo da limitare i risultati.
 
-4. In una pagina di ricerca di log qualsiasi è possibile **esportare** i dettagli dei risultati in un file con estensione CSV, che può essere aperto in Excel o in un'altra applicazione per la visualizzazione o la modifica.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

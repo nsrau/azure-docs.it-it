@@ -28,7 +28,7 @@ Nell'esempio seguente viene illustrato come utilizzare Azure per archiviare imma
 2.  Azure SDK installato.
 3.  JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK for Java].
 4.  Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice più sotto. Vedere [Come creare un account di archiviazione] per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione] per informazioni sul recupero della chiave dell'account.
-5.  Aver creato un file di immagine locale denominato archiviato nel percorso c:\\myimages\\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per utilizzare un percorso e un nome file di immagine diversi.
+5.  Aver creato un file di immagine locale denominato archiviato nel percorso c:\myimages\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per utilizzare un percorso e un nome file di immagine diversi.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@ Ottenere un riferimento al BLOB in blocchi, che rappresenterà il BLOB nell'arch
 
 Utilizzare il costruttore **File** per ottenere un riferimento al file creato localmente che si caricherà. Assicurarsi di aver creato questo file prima di eseguire il codice.
 
-    File fileReference = new File ("c:\\myimages\\image1.jpg");
+    File fileReference = new File ("c:\myimages\image1.jpg");
 
 Caricare il file locale tramite una chiamata al metodo **CloudBlockBlob.upload**. Il primo parametro per il metodo **CloudBlockBlob.upload** è un oggetto **FileInputStream** che rappresenta il file locale che verrà caricato nell'archiviazione di Azure. Il secondo parametro è la dimensione, in byte, del file.
 
@@ -237,7 +237,7 @@ Di seguito è riportato il codice completo per questo esempio. Si ricordi di mod
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\\myimages\\image1.jpg");
+                File fileReference = new File("c:\myimages\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

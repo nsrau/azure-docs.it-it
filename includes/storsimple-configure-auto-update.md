@@ -7,4 +7,4 @@
 
 3. Impostare **Aggiornamenti automatici** su **Sì**. Questa opzione consente di eseguire automaticamente un'analisi degli aggiornamenti alle 3:00 AM (ora del dispositivo) e di installare eventuali aggiornamenti alle 4:00 AM ogni giorno.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

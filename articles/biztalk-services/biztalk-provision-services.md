@@ -238,4 +238,4 @@ Dopo la creazione del Servizio BizTalk, è possibile acquisire familiarità con 
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

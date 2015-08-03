@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/14/2015" 
 	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
@@ -240,4 +240,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

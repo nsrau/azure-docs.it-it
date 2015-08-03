@@ -33,9 +33,9 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 - **Tipo**: i set di backup possono essere snapshot in locale o del cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
 - **Avviato da**: i backup possono essere avviati automaticamente in base a una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile utilizzare un criterio di backup. In alternativa, è possibile utilizzare l’opzione **Esegui backup** per eseguire un backup interattivo.
 
-## Come ripristinare il dispositivo dal backup
+## Come ripristinare il volume di StorSimple da un backup
 
-È possibile utilizzare la pagina **Catalogo di backup** per ripristinare il dispositivo da un backup specifico. Tenere presente che, effettuando il ripristino, lo stato di un volume torna a quello in cui si trovava al momento dell'esecuzione del backup. Tutti i dati aggiunti dopo l'operazione di backup andranno persi.
+È possibile utilizzare la pagina **Catalogo di backup** per ripristinare il volume di StorSimple da un backup specifico. Tenere presente che, effettuando il ripristino, lo stato di un volume torna a quello in cui si trovava al momento dell'esecuzione del backup. Tutti i dati aggiunti dopo l'operazione di backup andranno persi.
 
 > [AZURE.WARNING]Il ripristino da un backup sostituisce i volumi esistenti dal backup. Ciò può comportare la perdita dei dati scritti dopo l'esecuzione del backup.
 
@@ -56,7 +56,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Accedere ai volumi sulla pagina **Contenitori di volumi**, quindi attenersi alla procedura descritta in [Disattivare un volume](storsimple-manage-volumes.md#take-a-volume-offline) per disattivarli.
 
-    >  [AZURE.IMPORTANT]Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se i volumi non vengono disattivati sull'host, questa operazione verrà effettuata dal servizio StorSimple Manager. In questo modo alcuni dati potrebbero essere danneggiati.
+    >  [AZURE.IMPORTANT]Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se non si eseguono i volumi offline nell'host, si potrebbe verificare un danneggiamento dei dati.
 
 4. Tornare alla scheda **Catalogo di backup** e selezionare un set di backup.
 
@@ -74,4 +74,4 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

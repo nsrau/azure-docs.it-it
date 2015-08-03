@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/21/2015"
 	ms.author="evanhi"/>
 
 # Dashboard di Operational Insights
@@ -75,4 +75,4 @@ Per organizzare il dashboard, passare alla visualizzazione My Dashboard e fare c
 ## Rimozione di un riquadro
 Per rimuovere un riquadro, passare alla visualizzazione My Dashboard e fare clic sul pulsante con l'ingranaggio **customize** nella parte inferiore della pagina per avviare la modalità di personalizzazione. Selezionare il riquadro che si desidera rimuovere e quindi fare clic su **Remove Tile** nel riquadro di destra. ![Rimozione di un riquadro](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -259,4 +259,4 @@ Dovrebbe essere possibile visualizzare una notifica popup inviata dalla campagna
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

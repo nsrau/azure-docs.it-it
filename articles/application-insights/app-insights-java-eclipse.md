@@ -39,7 +39,7 @@ Sono necessari gli elementi seguenti:
 
     ![Guida in linea, Installa nuovo Software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. SDK è in http://dl.msopentech.com/eclipse, in Azure Toolkit.
+2. SDK è in http://dl.windowsazure.com/eclipse, in Azure Toolkit.
 3. Deselezionare l'opzione **Contatta tutti i siti di aggiornamento...**
 
     ![Per Application Insights SDK deselezionare tutti i siti di aggiornamento Contatta tutti](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

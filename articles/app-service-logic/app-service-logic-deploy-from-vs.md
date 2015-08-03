@@ -65,4 +65,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 
 Se non si vuole usare Visual Studio, ma si desidera comunque avere gli strumenti necessari per distribuire l'app per la logica dal controllo di origine è sempre possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

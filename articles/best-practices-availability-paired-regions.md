@@ -51,35 +51,46 @@ Tabella 1 - Mapping di coppie di aree di Azure
 È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.
 
 ## Esempio di coppia di aree
-La figura 2 seguente mostra un'ipotetica coppia di aree. I numeri in verde evidenziano le attività tra aree di tre servizi di Azure (calcolo, archiviazione e database di Azure) e come vengono configurate per la replica tra aree. I vantaggi esclusivi della distribuzione tra aree abbinate sono evidenziali dai numeri in arancione.
+La Figura 2 mostra un'ipotetica applicazione che utilizza la coppia internazionali per il ripristino di emergenza. I numeri in verde evidenziano le attività tra aree di tre servizi di Azure (calcolo, archiviazione e database di Azure) e come vengono configurate per la replica tra aree. I vantaggi esclusivi della distribuzione tra aree abbinate sono evidenziali dai numeri in arancione.
 
 
 ![Panoramica dei vantaggi delle aree abbinate](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
 Figura 2: ipotetica coppia di aree di Azure
 
-![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure**: è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area nel caso di un'emergenza. È consigliabile distribuire queste risorse in un'area abbinata ai fini del ripristino di emergenza.
-
-![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Archiviazione di Azure**: per impostazione predefinita, quando si crea un account di archiviazione di Azure viene configurata l'archiviazione con ridondanza geografica. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. L'archiviazione con ridondanza geografica consente la replica solo nell'area abbinata e non può essere configurata diversamente. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](../storage/storage-redundancy.md).
-
-
-![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Database SQL di Azure**: con la replica geografica SQL di Azure è possibile configurare la replica asincrona delle transazioni di altri server di database di Microsoft Azure. La replica geografica standard consente solo la replica asincrona all'area abbinata. Con la replica geografica di Premium è possibile configurare la replica per tutte le aree del mondo, tuttavia è consigliabile distribuire queste risorse in un'area abbinata per il ripristino di emergenza. Per altre informazioni, vedere [Replica geografica nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx)
-
-![4Green](./media/best-practices-availability-paired-regions/4Green.png) **Servizi di gestione indipendenti**: Gestione risorse di Azure fornisce implicitamente l'isolamento logico dei componenti di gestione dei servizi tra le aree, senza richiedere alcuna configurazione. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
-
-## Vantaggi di un'area abbinata
-
+## Attività tra aree
 Come indicato nella figura 2.
 
-![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Isolamento fisico**: quando possibile, per Azure è preferibile una separazione di almeno 480 km tra i data center di una coppia di aree, anche se ciò non è sempre pratico o possibile in tutte le aree geografiche. La separazione dei data center fisici riduce la possibilità che calamità naturali, agitazioni sociali, interruzioni dell'alimentazione o interruzioni della rete fisica interessino entrambe le aree contemporaneamente. L'isolamento è soggetto ai vincoli presenti all'interno dell'area geografica (dimensioni dell'area geografica, disponibilità dell'infrastruttura di rete/alimentazione, normative e così via).
+![1Green](./media/best-practices-availability-paired-regions/1Green.png) 
+**Calcolo di Azure (PaaS)**: è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area nel caso di un'emergenza. Per ulteriori informazioni, vedere[informazioni tecniche sulla continuità di Azure Business](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
-![6Orange](./media/best-practices-availability-paired-regions/6Orange.png) **Stato dell'applicazione coerente**: se si usa un servizio che consente solo la replica in un'area abbinata (ad esempio, l'archiviazione con ridondanza geografica), è opportuno accertarsi che anche tutti gli altri servizi puntino all'area abbinata per la replica. In questo modo si assicura uno stato dell'applicazione coerente durante il failover.
-
-![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) **Ordine di ripristino dell'area**: nel caso di un'interruzione su vasta scala, viene definita la priorità di ripristino di un'area per ogni coppia. Per le applicazioni distribuite in aree abbinate viene garantito che una delle aree sarà ripristinata con priorità. Se un'applicazione viene distribuita in aree non abbinate, il ripristino potrebbe essere ritardato: nel peggiore dei casi le aree scelte potrebbero essere le ultime due a essere ripristinate.
-
-![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) **Aggiornamenti sequenziali**: gli aggiornamenti di sistema di Azure pianificati vengono implementati in aree abbinate in modo sequenziale (non contemporaneamente) per ridurre al minimo i tempi di inattività, l'effetto di bug e gli errori logici nel raro caso di un aggiornamento non valido.
+![2Green](./media/best-practices-availability-paired-regions/2Green.png) 
+**Archiviazione di Azure**: per impostazione predefinita ( GRS), quando si crea un account di archiviazione di Azure viene configurata l'archiviazione con ridondanza geografica. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](../storage/storage-redundancy.md).
 
 
-![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
+![3Green](./media/best-practices-availability-paired-regions/3Green.png)
+**Database SQL Azure**: con Azure SQL replica geografica Standard, è possibile configurare la replica asincrona delle transazioni in un'area associata. Con la replica geografica di Premium è possibile configurare la replica per tutte le aree del mondo, tuttavia è consigliabile distribuire queste risorse in un'area abbinata per il ripristino di emergenza. Per altre informazioni, vedere [Replica geografica nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
-<!---HONumber=July15_HO2-->
+![4Green](./media/best-practices-availability-paired-regions/4Green.png)
+**Gestione risorse di azure (ARM)**-ARM intrinsecamente fornisce isolamento logico dei componenti di gestione del servizio in aree geografiche. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
+
+## Vantaggi di un'area abbinata
+Come indicato nella figura 2.
+
+![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) 
+**Isolamento fisico**: quando possibile, per Azure è preferibile una separazione di almeno 300 km tra i data center di una coppia di aree, anche se ciò non è sempre pratico o possibile in tutte le aree geografiche. La separazione dei data center fisici riduce la possibilità che calamità naturali, agitazioni sociali, interruzioni dell'alimentazione o interruzioni della rete fisica interessino entrambe le aree contemporaneamente. L'isolamento è soggetto ai vincoli presenti all'interno dell'area geografica (dimensioni dell'area geografica, disponibilità dell'infrastruttura di rete/alimentazione, normative e così via).
+
+![6Orange](./media/best-practices-availability-paired-regions/6Orange.png)
+**Replica fornita dalla piattaforma**-replica automatica per l'area associata di fornire alcuni servizi, ad esempio l'archiviazione con ridondanza geografica.
+
+![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) 
+**Ordine di ripristino dell'area**: nel caso di un'interruzione su vasta scala, viene definita la priorità di ripristino di un'area per ogni coppia. Per le applicazioni distribuite in aree abbinate viene garantito che una delle aree sarà ripristinata con priorità. Se un'applicazione viene distribuita in aree non abbinate, il ripristino potrebbe essere ritardato: nel peggiore dei casi le aree scelte potrebbero essere le ultime due a essere ripristinate.
+
+![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) 
+**Aggiornamenti sequenziali**: gli aggiornamenti di sistema di Azure pianificati vengono implementati in aree abbinate in modo sequenziale (non contemporaneamente) per ridurre al minimo i tempi di inattività, l'effetto di bug e gli errori logici nel raro caso di un aggiornamento non valido.
+
+
+![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) 
+**Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
+
+<!---HONumber=July15_HO4-->

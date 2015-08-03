@@ -7,4 +7,4 @@ Di seguito sono riportate alcune schermate dell'app completata:
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app di Windows Store e Windows Phone Store.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

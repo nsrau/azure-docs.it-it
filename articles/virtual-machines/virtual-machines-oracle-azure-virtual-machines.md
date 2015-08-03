@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Software Oracle ospitato su macchine virtuali di Azure
@@ -60,4 +61,4 @@ In [Configurazione di Oracle Data Guard per Azure](virtual-machines-configuring-
 
 In [Configurazione di Oracle GoldenGate per Azure](virtual-machines-configuring-oracle-goldengate.md) viene illustrata la procedura per la configurazione del database e della replica.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

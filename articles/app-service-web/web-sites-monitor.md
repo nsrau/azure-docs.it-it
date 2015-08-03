@@ -132,7 +132,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 - Posizione in cui verranno salvati i log dell'applicazione, relativi alla radice Web.
 
-- Valore predefinito:.. \\.. \\LogFiles\\Application
+- Valore predefinito:.. \.. \LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -277,4 +277,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

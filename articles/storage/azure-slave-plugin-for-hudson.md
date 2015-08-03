@@ -213,4 +213,4 @@ Hudson creerà quindi un nodo slave utilizzando il modello creato nella sezione 
 
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,9 @@
 <properties 
-	pageTitle="ADAPT (Advanced Analytics Process and Technology) in azione: usare cluster Hadoop di HDInsight sul set di dati Criteo da 1 TB | Microsoft Azure" 
+	pageTitle="ADAPT (Advanced Analytics Process and Technology) in azione: uso di cluster Hadoop di HDInsight sul set di dati Criteo da 1 TB | Azure" 
 	description="Uso di ADAPT (Advanced Analytics Process and Technology) per uno scenario end-to-end in cui un cluster Hadoop di HDInsight viene usato per creare e distribuire un modello con un set di dati di grandi dimensioni (1 TB) disponibile pubblicamente" 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -13,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" />
 
 # ADAPT (Advanced Analytics Process and Technology) in azione - Uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
-In questa procedura dettagliata viene descritto come usare uno scenario end-to-end ADAPT (Advanced Analytics Process and Technology) con un [cluster Hadoop di Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare modelli di classificazione binaria e regressione per questi dati. Viene inoltre illustrato come pubblicare uno di questi modelli come servizio Web.
+In questa procedura dettagliata viene descritto come usare uno scenario end-to-end ADAPT (Advanced Analytics Process and Technology) con un [cluster Hadoop di Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene inoltre illustrato come pubblicare uno di questi modelli come servizio Web.
 
-Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare iPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descrizione del set di dati Criteo
@@ -62,7 +64,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
-1. [Creare un account di archiviazione](../storage-whatis-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](storage-whatis-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, ci sono due importanti passaggi (descritti in questo argomento) da completare.
 
@@ -80,7 +82,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 Fare clic su **Continue to Download** per leggere altre informazioni sul set di dati e sulla sua disponibilità.
 
-I dati si trovano in un [archivio BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
+I dati si trovano in un [archivio BLOB di Azure](storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
 
 1. I dati in questo archivio BLOB pubblico sono costituiti da tre sottocartelle di dati non compressi.
 		
@@ -119,9 +121,9 @@ Dopo che viene visualizzata la shell REPL Hive con l'indicazione "hive >", è su
 Il codice seguente crea un database "criteo" e quindi genera 4 tabelle:
 
 
-* una *tabella di conteggio* basata sui giorni da 0 a 20 (da day_00 a day_20) 
-* una *tabella di training* basata sul giorno 21 (day_21) 
-* due *tabelle di test* basate rispettivamente sul giorno 22 (day_22) e 23 (day_23). 
+* una *tabella per la generazione di conteggi* compilata nei giorni compresi tra day_00 e day_20 
+* una *tabella da usare come set di dati di training* compilata il giorno day_21 
+* due *tabelle da usare come set di dati di test* compilate rispettivamente nei giorni day_22 e day_23 
 
 Il set di dati di test è suddiviso in due diverse tabelle perché uno dei giorni è festivo e si vuole determinare se il modello è in grado di rilevare le differenze tra un giorno festivo e uno non festivo in base alla percentuale di click-through.
 
@@ -437,25 +439,28 @@ Il processo di creazione di un modello in Azure Machine Learning prevede i passa
 5. [Valutare il modello](#step5)
 6. [Pubblicare il modello come servizio Web per consentirne l'utilizzo](#step6)
 
-È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati verrà usato il modulo Reader di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate sotto.
+È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati verrà usato il modulo **Reader** di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate sotto.
 
 ### <a name="step1"></a> Passaggio 1: Ottenere i dati dalle tabelle Hive in Machine Learning usando il modulo Reader e selezionarli per un esperimento di Machine Learning
 
-Per il modulo **Reader** i valori dei parametri impostati nel grafico sono solo esempi. Di seguito sono illustrate le indicazioni generali per la "compilazione" del set di parametri per il modulo **Reader**.
-
-1. Scegliere "Hive query" come origine dati
-2. Per la query Hive è sufficiente specificare l'istruzione SELECT * FROM <nome_database.nome_tabella>.
-3. Hcatalog server URI: se il cluster è "abc", specificare https://abc.azurehdinsight.net
-4. Hadoop user account name: nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto)
-5. Hadoop user account password: password per il nome utente indicato sopra, scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto)
-6. Location of output data: scegliere "Azure"
-7. Azure storage account name: account di archiviazione associato al cluster
-8. Azure storage account key: chiave dell'account di archiviazione associato al cluster
-9. Azure container name: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc" 
+Per iniziare, selezionare **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Quindi nella casella **Search** in alto a sinistra cercare "Reader". Trascinare il modulo **Reader** sull'area di disegno degli esperimenti (la parte centrale della schermata) per usare il modulo per l'accesso ai dati.
 
 Ecco l'aspetto del modulo **Reader** durante il recupero dei dati dalla tabella Hive:
 
 ![Il lettore ottiene i dati](http://i.imgur.com/i3zRaoj.png)
+
+Per il modulo **Reader** i valori dei parametri forniti nel grafico sono solo esempi del tipo di valori che sarà necessario specificare. Di seguito sono illustrate alcune indicazioni generali su come compilare il set di parametri per il modulo **Reader**.
+
+1. In **Data Source** scegliere "Hive query".
+2. Nella casella **Hive database query**, è sufficiente specificare l'istruzione SELECT * FROM <nome_database.nome_tabella>.
+3. **Hcatalog server URI**: se il cluster è "abc", specificare semplicemente https://abc.azurehdinsight.net
+4. **Hadoop user account name**: nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto).
+5. **Hadoop user account password**: password per il nome utente indicato sopra, scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto).
+6. **Location of output data**: scegliere "Azure".
+7. **Azure storage account name**: account di archiviazione associato al cluster.
+8. **Azure storage account key**: chiave dell'account di archiviazione associato al cluster.
+9. **Azure container name**: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc". 
+
 
 Quando il modulo **Reader** termina il recupero di dati (il completamento è indicato da un segno di spunta verde nel modulo), salvare i dati come set di dati (con un nome di propria scelta). L'aspetto è il seguente:
 
@@ -464,19 +469,21 @@ Quando il modulo **Reader** termina il recupero di dati (il completamento è ind
 
 Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Reader**. Verranno visualizzate le opzioni **Save as dataset** e **Visualize**. Facendo clic sull'opzione **Visualize** vengono visualizzati 100 righe di dati e un pannello, sul lato destro, utile per le statistiche di riepilogo. Per salvare i dati, è sufficiente selezionare **Save as dataset** e seguire le istruzioni.
 
-Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Learning, individuare il set di dati usando la casella **Search** illustrata di seguito. Digitare quindi una parte del nome del set di dati per accedervi e trascinare il set di dati nel pannello principale. Rilasciando il set di dati sul pannello principale, questo viene selezionato per la modellazione in Machine Learning.
+Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Learning, individuare il set di dati usando la casella **Search** illustrata di seguito. Digitare quindi una parte del nome assegnato al set di dati per accedervi e trascinare il set di dati nel pannello principale. Rilasciando il set di dati sul pannello principale, questo viene selezionato per la modellazione in Machine Learning.
 
-![Individuazione del set di dati](http://i.imgur.com/rx4nnUH.png)
+![](http://i.imgur.com/cl5tpGw.png)
 
-Eseguire questa operazione per entrambi i set di dati, di training e di test.
-
+***NOTA IMPORTANTE:*** **Eseguire questa operazione per entrambi i set di dati, di training e di test. Ricordare anche di usare il nome database e i nomi delle tabelle assegnati a questo scopo. I valori usati nella figura hanno puramente scopo illustrativo.**
+ 
 ### <a name="step2"></a>Passaggio 2: Creare un semplice esperimento in Azure Machine Learning per stimare i clic o l'assenza di clic
 
-Viene prima illustrata una semplice architettura di esperimento, quindi vengono analizzate in modo più dettagliato le specifiche. Innanzitutto vengono puliti i dati, quindi viene scelto uno strumento di apprendimento e infine viene illustrato come definire le caratteristiche con tabelle di conteggio preesistenti o create da zero dall'utente.
+L'esperimento di Azure ML è simile al seguente:
 
-![Architettura dell'esperimento](http://i.imgur.com/R4iTLYi.png)
+![](http://i.imgur.com/xRpVfrY.png)
 
-Per eseguire l'analisi dettagliata, si partirà dai set di dati salvati, come illustrato.
+Ora si esamineranno i componenti chiave di questo esperimento. Si ricordi che prima è necessario trascinare i set di dati di training e di test salvati sull'area di disegno degli esperimenti.
+
+#### Pulire i dati mancanti
 
 Il modulo **Clean Missing Data** pulisce i dati mancanti in un modo che può essere specificato dall'utente. Analizzando il modulo, è possibile vedere quanto segue:
 
@@ -484,94 +491,98 @@ Il modulo **Clean Missing Data** pulisce i dati mancanti in un modo che può ess
 
 In questo caso, si sceglie di sostituire tutti i valori mancanti con 0. Sono disponibili anche altre opzioni, che è possibile visualizzare aprendo gli elenchi a discesa nel modulo.
 
-È quindi necessario scegliere lo strumento di apprendimento. Verrà usato un albero delle decisioni con boosting a due classi. In particolare, verrà illustrato come usare le funzionalità di conteggio per caratteristiche categoriche con dimensionalità elevata per creare rappresentazioni compatte del modello, nonché per operazioni di training e test efficienti.
+#### Progettazione di funzionalità per i dati
 
-Le tabelle di conteggio sono conteggi condizionali di classi e talvolta vengono indicate semplicemente come "conteggi condizionali". Essenzialmente, rappresentano un metodo per conteggiare i valori di una caratteristica per ogni classe e usare questi conteggi per calcolare i log-odd.
+Per alcune funzioni categoriche di set di dati di grandi dimensioni possono esistere milioni di valori univoci. Non è possibile usare metodi di base come la codifica one-hot per rappresentare funzioni categoriche con dimensionalità così elevata. In questa procedura dettagliata, viene illustrato come usare le funzioni di conteggio con i moduli predefiniti di Azure Machine Learning per generare rappresentazioni compatte di queste funzioni categoriche con dimensionalità così elevata. Come risultato finale si ottengono dimensioni minori per il modello, tempi di training più rapidi e metriche delle prestazioni abbastanza simili all'uso di altre tecniche.
 
+##### Compilazione di trasformazioni conteggio
 
-#### Ottenere l'accesso alle tabelle di conteggio preesistenti per la modellazione
+Per compilare funzioni di conteggio, si usa il modulo **Build Counting Transform** disponibile in Azure Machine Learning. Il modulo è simile al seguente:
 
-Per ottenere l'accesso alle tabelle di conteggio preesistenti, fare clic su **Raccolta**, come illustrato di seguito:
+![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
 
-![Raccolta](http://i.imgur.com/TsWkig3.png)
+**Nota importante**: nella casella **Count columns**, si immettono le colonne su cui eseguire i conteggi. Come indicato in precedenza, si tratta in genere di colonne categoriche con dimensionalità elevata. All'inizio si è detto che il set di dati Criteo contiene 26 colonne categoriche: da Col15 a Col40. Ora vengono tenute tutte in considerazione e si assegnano gli indici (da 15 a 40 separati da virgole, come nella figura).
 
-Facendo clic su **Raccolta** viene visualizzata una pagina simile alla seguente:
+Per usare il modulo in modalità MapReduce (appropriata per i set di dati di grandi dimensioni), è necessario accedere a un cluster Hadoop HDInsight (quello usato prima per esplorare le funzioni può essere usato anche a questo scopo) e alle relative credenziali. Le figure precedenti illustrano i valori inseriti. Sostituire i valori forniti a scopo illustrativo con quelli pertinenti al proprio caso di utilizzo.
 
-![Pagina principale della raccolta](http://i.imgur.com/dmXo0KR.png)
+![](http://i.imgur.com/05IqySf.png)
 
-In questa pagina eseguire una ricerca per "criteo counts" e scorrere l'elenco di risultati. Dovrebbe essere visualizzato:
-
-![Conteggi Criteo](http://i.imgur.com/JZ119Jf.png)
-
-Facendo clic su questo esperimento viene visualizzata una pagina simile alla seguente:
-
-![Conteggi](http://i.imgur.com/dxdjMjh.png)
-
-In questa pagina fare clic su **Apri in Studio** per copiare l'esperimento nell'area di lavoro. In questo modo, verranno automaticamente copiati anche i set di dati. In questo caso, i due set di dati principali di interesse sono la tabella di conteggio e i metadati di conteggio, che verranno descritti più dettagliatamente.
-
-#### Caratteristiche di conteggio nel set di dati
-
-I moduli successivi nell'esperimento comportano l'uso di tabelle di conteggio preesistenti. Per usare queste tabelle di conteggio preesistenti, cercare "cr_count_" nella scheda Search di un nuovo esperimento. Dovrebbero venire visualizzati due set di dati: "cr_count_cleanednulls_metadata" e "cr_count_table_cleanednulls". Trascinare entrambi i set di dati e rilasciarli sul riquadro dell'esperimento a destra. Facendo clic con il pulsante destro del mouse sulle porte di output è possibile, come sempre, visualizzare l'aspetto.
-
-La visualizzazione dei metadati della tabella di conteggio è simile alla seguente:
-
-![Metadati tabella di conteggio](http://i.imgur.com/A39PIe7.png)
-
-Si noti che i metadati contengono informazioni sulle colonne in base a cui sono stati creati i conteggi condizionali, sul fatto che sia stato o meno usato un dizionario per la creazione (in alternativa è possibile usare l'algoritmo count-min sketch), sul valore di inizializzazione dell'hash usato, sul numero di bit di hash usati per l'hashing delle caratteristiche, sul numero di classi e altri dati analoghi.
-
-La visualizzazione della tabella di conteggio è simile alla seguente:
-
-![Tabella di conteggio](http://i.imgur.com/NJn1EQO.png)
-
-Come è possibile vedere, la tabella di conteggio contiene informazioni sui conteggi condizionali di classe. Il valore delle caratteristiche categoriche è indicato in "Hash Value", pertanto anche per le caratteristiche viene eseguito l'hashing.
-
-Come vengono integrate le caratteristiche di conteggio nei set di dati? A tale scopo, viene usato il modulo di conteggio **Featurizer**, illustrato di seguito:
-
-![Modulo Count Featurizer](http://i.imgur.com/dnMdrR1.png)
-
-Una volta creata la tabella conteggio (tenere presente che si stanno producendo conteggi condizionali di classe delle caratteristiche categoriche) viene usato il modulo **Count Featurizer** illustrato in precedenza per integrare queste caratteristiche di conteggio nel set di dati. Come è possibile notare, il modulo **Featurizer** consente di scegliere le caratteristiche da usare per il conteggio, indicare se si desidera ottenere solo log-odd o anche i conteggi, nonché impostare altre opzioni avanzate.
-
-#### Creare una tabella di conteggio da zero
-
-Come indicato nella sezione "Breve discussione sulla tabella di conteggio", oltre a usare tabelle di conteggio preesistenti, come illustrato in dettaglio nelle sezioni precedenti, è possibile anche creare tabelle di conteggio da zero.
-
-In questa sezione viene illustrato come creare una tabella di conteggio da zero. A tale scopo, viene usato il modulo **Build Count Table**, illustrato di seguito con le relative impostazioni:
-
-![Modulo Build Count Table](http://i.imgur.com/r7pP8Qq.png)
-
-Il gruppo finale di impostazioni per il modulo è il seguente:
-
-![Impostazioni modulo Build Count Table](http://i.imgur.com/PvmSh3C.png)
+Nella figura precedente, viene mostrato come immettere il percorso BLOB di input. Questo percorso include i dati riservati per la compilazione delle tabelle di conteggio.
 
 
-**Nota importante:** per le impostazioni del cluster e dell'account di archiviazione, usare i propri valori pertinenti.
+Dopo l'esecuzione di questo modulo, è possibile salvare la trasformazione per dopo facendo clic con il pulsante destro del mouse sul modulo e scegliendo l'opzione **Save as Transform**:
 
-Fare clic su **Run** per creare le tabelle di conteggio nel cluster selezionato. L'output è costituito, come illustrato in precedenza, dalla tabella di conteggio e dai metadati associati. Quando le tabelle sono pronte, è possibile creare l'esperimento.
+![](http://i.imgur.com/IcVgvHR.png)
 
+Nell'architettura dell'esperimento precedente, il set di dati "ytransform2" corrisponde esattamente a una trasformazione conteggio salvata. Nella parte restante di questo esperimento, si presume che il lettore abbia usato un modulo **Build Counting Transform** su alcuni dati per generare i conteggi e possa quindi usare tali conteggi per generare le funzioni di conteggio nei set di dati di training e di test.
 
-### <a name="step3"></a> Passaggio 3: Eseguire il training del modello
+##### Scelta delle funzioni di conteggio da includere nei set di dati di training e di test
 
-Per eseguire questa operazione, digitare "two class boosted" nella casella di ricerca e trascinare il modulo. Vengono usati i valori predefiniti dello strumento di apprendimento albero delle decisioni con boosting, come illustrato di seguito:
+Una volta disponibile una trasformazione conteggio, l'utente può scegliere quali funzioni includere nei set di dati di training e di test usando il modulo **Modify Count Table Parameters**. Questo modulo viene illustrato di seguito per completezza, ma, per maggior semplicità, non viene effettivamente usato nell'esperimento.
 
-![Strumento di apprendimento albero delle decisioni con boosting](http://i.imgur.com/dDk0Jtv.png)
+![](http://i.imgur.com/PfCHkVg.png)
 
-Prima di eseguire l'esperimento ML sono necessari tre componenti finali.
+In questo caso, come si può osservare, si è scelto di usare solo i log-odds e di ignorare la colonna backoff. Si possono anche impostare parametri come la soglia cestino, il numero di pseudo esempi precedenti da aggiungere per lo smoothing (attenuazione) e se usare o meno la scala laplaciana del rumore. Sono tutte funzioni avanzate e si deve osservare che i valori predefiniti sono un valido punto di partenza per gli utenti con poca familiarità con questo tipo di generazione di funzioni.
 
-Il primo è un modulo Train Model. Mentre la prima porta accetta lo strumento di apprendimento come input, la seconda porta accetta il set di dati di training per l'apprendimento. Di seguito sono illustrati il modulo e i parametri da impostare nel modulo.
+##### Trasformazione dei data prima di generare le funzioni conteggio
 
-![Connessioni del modulo Train Model per l'albero delle decisioni con boosting](http://i.imgur.com/szS2xBb.png)
+Ora verrà illustrata una fase importante della trasformazione dei dati di training e di test prima della generazione effettiva delle funzioni conteggio. Si noti che vengono usati due moduli **Execute R Script** prima di applicare la trasformazione conteggio ai dati.
 
-![Impostazioni del modulo Train Model per l'albero delle decisioni con boosting](http://i.imgur.com/nd7lHBL.png)
+![](http://i.imgur.com/aF59wbc.png)
 
-### <a name="step4"></a> Passaggio 4: Assegnare un punteggio al modello in base a un set di dati di test
+Ecco il primo script R:
 
-Il secondo componente è un modo per assegnare un punteggio in base al set di dati di test. A tale scopo, è sufficiente usare il modulo **Score Model**, che accetta come input il modello preparato con i dati di training e il set di dati di test in base a cui eseguire le stime. L'aspetto è il seguente.
+![](http://i.imgur.com/3hkIoMx.png)
 
-![Connessioni del modulo Score Model per l'albero delle decisioni con boosting](http://i.imgur.com/AwIH1rH.png)
+In questo script R, si rinominano le colonne con nomi da "Col1" a "Col40". Infatti i nomi devono avere questo formato nella trasformazione conteggio.
+
+Nel secondo script R, si bilancia la distribuzione tra classi positive e negative (rispettivamente le classi 1 e 0) sottocampionando la classe negativa. Lo script R seguente mostra come farlo:
+
+![](http://i.imgur.com/91wvcwN.png)
+
+In questo semplice script R, si usa "pos_neg_ratio" per impostare la quantità di bilanciamento tra le classi positiva e negativa. Questo è importante perché, riducendo lo sbilanciamento delle classi, si ottengono di solito vantaggi a livello delle prestazioni per i problemi di classificazione in cui la distribuzione delle classi è asimmetrica. Si ricordi che in questo caso la classe positiva è pari al 3,3% e la classe negativa al 96,7%.
+
+##### Applicazione della trasformazione conteggio ai dati
+
+Infine, si può usare il modulo **Apply Transformation** per applicare le trasformazioni conteggio ai set di dati di training e di test. Questo modulo accetta la trasformazione conteggio salvata come input e i set di dati di training o di test come secondo input e restituisce i dati con le funzioni conteggio, come illustrato di seguito:
+
+![](http://i.imgur.com/xnQvsYf.png)
+
+##### Estratto delle funzioni conteggio
+
+È interessante osservare come appaiono le funzioni conteggio in questo caso. Eccone un estratto:
+
+![](http://i.imgur.com/FO1nNfw.png)
+
+In questo estratto, si nota che, per le colonne usate per i conteggi, si ottengono i conteggi e i log-odds oltre ai backoff pertinenti.
+
+Ora si può compilare un modello di Azure Machine Learning usando questi set di dati trasformati. Nella sezione successiva viene illustrato come effettuare questa operazione.
+
+#### Compilazione di modelli in Azure Machine Learning
+
+##### Scelta dello strumento di apprendimento
+
+Prima di tutto è necessario scegliere uno strumento di apprendimento. Verrà usato un albero delle decisioni con boosting a due classi. Ecco le opzioni predefinite per questo strumento di apprendimento:
+
+![](http://i.imgur.com/bH3ST2z.png)
+
+Per l'esperimento, verranno semplicemente scelti i valori predefiniti. I valori predefiniti sono in genere significativi e consentono di ottenere previsioni rapide sulle prestazioni. È possibile migliorare le prestazioni con lo sweep dei parametri, una volta che si dispone di una previsione.
+
+#### Eseguire il training del modello
+
+Per il training, è sufficiente richiamare un modulo **Train Model**. I due input sono lo strumento di apprendimento Two-Class Boosted Decision Tree e il set di dati di training, come illustrato di seguito:
+
+![](http://i.imgur.com/2bZDZTy.png)
+
+#### Assegnare un punteggio al modello
+
+Una volta disponibile un modello con training, è possibile assegnare un punteggio al set di dati di test e valutarne le prestazioni. A questo scopo, usare il modulo **Score Model** illustrato sotto, insieme a un modulo **Evaluate Model**:
+
+![](http://i.imgur.com/fydcv6u.png)
 
 ### <a name="step5"></a> Passaggio 5: Valutare il modello
 
-Infine, si desidera analizzare le prestazioni del modello. In genere, per i problemi di classificazione a due classi (binaria), un buon metodo di misurazione è costituito dall'area sottesa alla curva (AUC). Per visualizzare quest'area, è necessario collegare il modulo "Score Model" a un modulo "Evaluate Model". Fare clic su **Visualize** nel modulo **Evaluate Model** per visualizzare un grafico simile al seguente:
+Infine, si vogliono analizzare le prestazioni del modello. In genere, per i problemi di classificazione a due classi (binaria), un buon metodo di misurazione è costituito dall'area sottesa alla curva (AUC). Per visualizzare quest'area, è necessario collegare il modulo **Score Model** a un modulo **Evaluate Model**. Fare clic su **Visualize** nel modulo **Evaluate Model** per visualizzare un grafico simile al seguente:
 
 ![Modulo di valutazione del modello per l'albero delle decisioni con boosting](http://i.imgur.com/0Tl0cdg.png)
 
@@ -580,42 +591,45 @@ Per i problemi di classificazione binaria (o a due classi), un buon metodo di mi
 ![Visualizzazione del modulo Evaluate Model](http://i.imgur.com/IRfc7fH.png)
 
 ### <a name="step6"></a> Passaggio 6: Pubblicare il modello come servizio Web
-Molto interessante è la possibilità di pubblicare i modelli di Machine Learning come servizi Web. Al termine dell'operazione, è possibile effettuare chiamate al servizio Web usando i dati per i quali sono necessarie stime e il modello restituirà una stima di qualche tipo.
+Per rendere disponibile su larga scala un modello di Azure Machine Learning, è possibile pubblicarlo come servizio Web in modo molto semplice. Una volta fatto, chiunque può eseguire chiamate al servizio Web con i dati di input per cui è necessario ottenere delle stime e il servizio Web usa il modello per restituire tali stime.
 
-A tale scopo, è innanzitutto necessario salvare il modello sottoposto a training come oggetto Trained Model. Fare clic con il pulsante destro del mouse su **Train Model** e scegliere "Save as Trained Model".
+A tale scopo, è innanzitutto necessario salvare il modello sottoposto a training come oggetto Trained Model. Fare clic con il pulsante destro del mouse su **Train Model** e scegliere **Save as Trained Model**.
 
-È quindi necessario creare una porta di input e una di output per il servizio Web: una porta di input che accetta dati nello stesso formato dei dati per i quali sono necessarie stime e una porta di output che restituisce le etichette con i punteggi e le probabilità associate.
+Successivamente, è necessario creare le porte di input e di output per il servizio Web:
+
+* una porta di input accetta i dati nello stesso formato dei dati per cui sono necessarie le stime 
+* una porta di output restituisce le etichette con punteggi e le probabilità associate.
 
 #### Selezionare alcune righe di dati per la porta di input
 
-Viene ora illustrato come selezionare solo poche righe di dati per la porta di input.
+Per praticità, è possibile usare un modulo **Apply SQL Transformation** per selezionare solo 10 righe come dati della porta di input. Selezionare solo queste righe di dati per la porta di input usando la query SQL seguente.
 
 ![Dati porta di input](http://i.imgur.com/XqVtSxu.png)
-
-Per praticità, è possibile usare una trasformazione Apply SQL per selezionare solo 10 righe come dati della porta di input.
 
 #### Servizio Web
 È ora possibile eseguire un piccolo esperimento che può essere usato per pubblicare il servizio Web.
 
 #### Generare i dati di input per il servizio Web
 
-Come passaggio iniziale, poiché la tabella di conteggio è grande, vengono prese poche righe di dati di test e da esse vengono generati i dati di output con le caratteristiche di conteggio. Questo è il formato dei dati di input per il servizio Web, come illustrato di seguito:
+Come passaggio iniziale, poiché la tabella di conteggio è grande, vengono prese poche righe di dati di test e da esse vengono generati i dati di output con le caratteristiche di conteggio. Questo può essere il formato dei dati di input per il servizio Web, come illustrato di seguito:
 
 ![Creazione dati di input per l'albero delle decisioni con boosting](http://i.imgur.com/OEJMmst.png)
 
-Nota: per il formato dei dati di input, verrà ora usato l'OUTPUT del modulo **Count Featurizer**. Una volta terminata l'esecuzione dell'esperimento, salvare l'output del modulo **Count Featurizer** come set di dati. **Nota importante:** il set di dati verrà usato per i dati di input nel servizio Web.
+Nota: per il formato dei dati di input, verrà ora usato l'OUTPUT del modulo **Count Featurizer**. Una volta terminata l'esecuzione dell'esperimento, salvare l'output del modulo **Count Featurizer** come set di dati.
+
+**Nota importante:** il set di dati verrà usato per i dati di input nel servizio Web.
 
 #### Esperimento di assegnazione dei punteggi per la pubblicazione del servizio Web
 
-Innanzitutto, viene illustrato l'aspetto. La struttura essenziale è un modulo Score Model che accetta l'oggetto modello sottoposto a training e poche righe di dati di input generate nei passaggi precedenti usando il modulo **Count Featurizer**. Viene usato il modulo "Project Columns" per ottenere le etichette con i punteggi e le probabilità di stima.
+Innanzitutto, viene illustrato l'aspetto. La struttura essenziale è un modulo **Score Model** che accetta l'oggetto modello sottoposto a training e poche righe di dati di input generate nei passaggi precedenti usando il modulo **Count Featurizer**. Viene usato il modulo "Project Columns" per ottenere le etichette con i punteggi e le probabilità di stima.
 
 ![Selezione delle colonne](http://i.imgur.com/kRHrIbe.png)
 
-È interessante vedere in che modo è possibile usare il modulo Project Columns per filtrare i dati da escludere da un set di dati. Il contenuto è illustrato di seguito:
+Si noti che modo è possibile usare il modulo **Project Columns** per filtrare i dati da escludere da un set di dati. Il contenuto è illustrato di seguito:
 
 ![Filtro tramite il modulo Project Columns](http://i.imgur.com/oVUJC9K.png)
 
-Per ottenere le porte di input e di output indicate in blu, è sufficiente fare clic su "prepare webservice" in basso a destra. L'esecuzione di questo esperimento consente anche di pubblicare il servizio Web facendo clic sull'icona **PUBLISH WEB SERVICE** in basso a destra, illustrata di seguito.
+Per ottenere le porte di input e di output indicate in blu, è sufficiente fare clic su **prepare webservice** in basso a destra. L'esecuzione di questo esperimento consente anche di pubblicare il servizio Web facendo clic sull'icona **PUBLISH WEB SERVICE** in basso a destra, illustrata di seguito.
 
 ![Pubblicazione del servizio Web](http://i.imgur.com/WO0nens.png)
 
@@ -626,24 +640,22 @@ Dopo la pubblicazione del servizio Web, si viene reindirizzati a una pagina simi
 A sinistra sono presenti due collegamenti per i servizi Web:
 
 * Il collegamento **REQUEST/RESPONSE** (o RRS) serve per le stime singole e verrà usato in questo workshop. 
-* Il collegamento **BATCH EXECUTION** (BES) viene usato per le stime in batch e richiede che i dati per i quali effettuare le stime si trovino in un BLOB di Azure.
+* Il collegamento **BATCH EXECUTION** (BES) viene usato per le stime in batch e richiede che i dati di input usati per effettuare le stime si trovino in un archivio BLOB di Azure.
 
 Facendo clic sul collegamento **REQUEST/RESPONSE** viene visualizzata una pagina che fornisce codice predefinito in C#, Python ed R. Questo codice può essere usato in modo semplice per effettuare chiamate al servizio Web. Si noti che la chiave API in questa pagina deve essere usata per l'autenticazione.
 
-È consigliabile copiare questo codice Python in una nuova cella di iPython Notebook.
+È consigliabile copiare questo codice Python in una nuova cella di IPython Notebook.
 
 Di seguito è illustrato un segmento di codice Python con la chiave API corretta.
 
 ![Codice Python](http://i.imgur.com/f8N4L4g.png)
 
-Si noti che la chiave API predefinita è stata sostituita con la chiave API dei servizi Web. Facendo clic su "Run" in questa cella in iPython Notebook viene restituita la risposta seguente:
+Si noti che la chiave API predefinita è stata sostituita con la chiave API del servizio Web. Facendo clic su **Run** in questa cella di IPython Notebook, viene generata la risposta seguente:
 
-![Risposta iPython](http://i.imgur.com/KSxmia2.png)
+![Risposta IPython](http://i.imgur.com/KSxmia2.png)
 
-Si noti che per i due esempi di test chiesti (nel framework JSON dello script Python) si ottengono le risposte nel formato "Scored Labels, Scored Probabilities". In questo caso, sono stati scelti i valori predefiniti forniti dal codice predefinito (0 per tutte le colonne numeriche, la stringa "value" per tutte le colonne categoriche).
+Si noti che per i due esempi di test chiesti (nel framework JSON dello script Python) si ottengono le risposte nel formato "Scored Labels, Scored Probabilities". In questo caso, sono stati scelti i valori predefiniti forniti dal codice predefinito (0 per tutte le colonne numeriche e la stringa "value" per tutte le colonne categoriche).
 
-Con questa osservazione si conclude la discussione sulla gestione di scenari end-to-end di set di dati di grandi dimensioni con Azure ML durante la quale, partendo da un terabyte di dati si è arrivati alla distribuzione di un modello di stima come servizio Web nel cloud.
+Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -33,12 +33,14 @@ Una query a database elastica inoltre facilita l'accesso a un intero insieme di 
 
 Il livello dati viene scalato in molti database utilizzando uno schema comune. Questo approccio è noto anche come partizionamento orizzontale o il partizionamento orizzontale. Il partizionamento può essere eseguito e gestita utilizzando (1) di [libreria client di Database elastica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o (2) che utilizza un modello specifico dell'applicazione per la distribuzione dei dati tra più database. Con questa topologia report dispongono spesso possono estendersi su più database. Con una query di database flessibile, è ora possibile connettersi a un singolo database SQL e risultati di query dai database remoti vengono visualizzati come se generato da un singolo database virtuale.
 
+> [AZURE.NOTE]La query di database elastico è adatta per scenari di reporting occasionali dove è possibile eseguire la maggior parte dell'elaborazione nel livello dati. Per carichi di lavoro report o di data warehousing con query più complesse, inoltre è possibile utilizzare [SQL Data Warehouse di Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Scenari di query di database elastica
 
 L'utilizzo di una query di database flessibile per eseguire attività relative ai report su un livello di dati partizionati orizzontalmente richiede un mapping della partizione di una certa flessibilità per rappresentare i database del livello dati. In genere, in questo scenario viene utilizzato solo un mapping della partizione singola e un database dedicato con funzionalità di query di database elastica funge da punto di ingresso per la query di report. Solo questo database dedicato deve essere configurato con gli oggetti di query di database flessibile, come descritto di seguito. Figura 2 viene illustrata questa topologia e la configurazione con il mapping dei database e partizionamento query database elastica.
 
-**Nota** il database di query di database elastica dedicato deve essere un database v12 DB SQL e inizialmente solo il premio livelli sono supportati. Non esistono restrizioni su partizioni stesse.
+> [AZURE.NOTE]Il database di query di database elastico dedicato deve essere un database v12 DB SQL e inizialmente solo il livello Premium è supportato. Non esistono restrizioni su partizioni stesse.
 
 **Figura 2**
 
@@ -51,7 +53,7 @@ Nel corso del tempo, topologie aggiuntive saranno supportate dalla funzionalità
 
 ## Abilitazione query elastica configurando un mapping della partizione
 
-Creazione di una soluzione di query di database elastica richiede gli strumenti di Database elastica [**mapping della partizione**](sql-database-elastic-scale-shard-map-management.md) per rappresentare i database remoti in una query di database flessibile. Se già si utilizza la libreria client di Database flessibile, è possibile utilizzare il mapping della partizione esistente. In caso contrario, è necessario creare un mapping della partizione mediante strumenti di Database flessibile.
+La reazione di una soluzione di query di database elastico richiede il [**mapping della partizione**](sql-database-elastic-scale-shard-map-management.md) degli strumenti di Database elastici per rappresentare i database remoti in una query di database elastico. Se già si utilizza la libreria client di Database flessibile, è possibile utilizzare il mapping della partizione esistente. In caso contrario, è necessario creare un mapping della partizione mediante strumenti di Database flessibile.
 
 Il codice c# di esempio seguente viene illustrato come creare un mapping della partizione con un singolo database remoto aggiunto come una partizione.
 
@@ -78,8 +80,8 @@ La funzionalità di query di Database elastica si basa su queste quattro istruzi
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 *    [CREARE LE CREDENZIALI](https://msdn.microsoft.com/library/ms189522.aspx)
-*    [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-*    [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+*    [CREARE/ELIMINARE ORIGINE DATI ESTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
+*    [ELIMINARE LA TABELLA ESTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
 
 ### Chiave master con ambito database e credenziali
 
@@ -153,7 +155,7 @@ I criteri di partizionamento orizzontale controllano se una tabella viene consid
 
     DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
 
-Le autorizzazioni per **CREATE/DROP TABLE esterno**: sono necessarie autorizzazioni ALTER ANY origine dati esterna a cui è necessario anche per fare riferimento all'origine dati sottostante.
+Autorizzazioni per **CREARE/ELIMINARE LA TABELLA esterna**: sono necessarie autorizzazioni ALTER ANY origine dati esterna necessarie anche per fare riferimento all'origine dati sottostante.
 
 **Esempio**: nell'esempio seguente viene illustrato come creare una tabella esterna:
 
@@ -183,7 +185,7 @@ Nell'esempio seguente viene illustrato come recuperare l'elenco di tabelle ester
 ## Creazione di report e l'esecuzione di query
 
 ### Query
-Dopo aver definito l'origine dati esterna e le tabelle esterne, è possibile utilizzare stringhe di connessione di Database SQL familiare per connettersi al database che sia abilitata la funzionalità di query Database elastica. È possibile utilizzare eseguire query completa di sola lettura tramite le tabelle esterne, con alcune limitazioni descritte nel [sezione limitazioni](#preview-limitations) sotto.
+Dopo aver definito l'origine dati esterna e le tabelle esterne, è possibile utilizzare stringhe di connessione di Database SQL familiare per connettersi al database che sia abilitata la funzionalità di query Database elastica. È possibile utilizzare eseguire query completa di sola lettura tramite le tabelle esterne, con alcune limitazioni descritte nella [sezione limitazioni](#preview-limitations) sottostante.
 
 **Esempio**: la query seguente esegue un join a tre vie tra magazzini, ordini e righe di ordine e vengono utilizzate diverse funzioni di aggregazione e un filtro selettivo. Supponendo che la colonna id warehouse vengono partizionati magazzini, ordini e righe d'ordine, una query di database flessibile può collocare i join su database remoti può orizzontale e l'elaborazione della parte della query costosa.
 
@@ -217,7 +219,7 @@ Utilizza le informazioni della mappa partizione fornite nei parametri di chiamat
 
 Si noti che le stesse credenziali vengono utilizzate per connettersi al database di mappa di partizionamento e per le partizioni.
 
-**Esempio**
+**Esempio**:
 
     sp_execute_fanout 'myserver.database.windows.net', N'ShardMapDb', N'myuser', N'MyPwd', N'ShardMap', N'select count(w_id) as foo from warehouse'
 
@@ -250,7 +252,7 @@ Esistono alcuni aspetti da tenere a mente dell'anteprima:
 Condividere commenti e suggerimenti sulle esperienze con noi in Disqus o Stackoverflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
 
 ## Passaggi successivi
-Per iniziare a esplorare le query di Database flessibile, provare a nostra esercitazione dettagliata per installato un esempio funzionante in esecuzione in minuti: [Guida introduttiva a query di Database elastica](sql-database-elastic-query-getting-started.md).
+Per iniziare a esplorare le query di Database elastico, provare la nostra esercitazione dettagliata per avere un esempio funzionante in esecuzione in minuti: [Guida introduttiva a query di Database elastico](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -261,4 +263,4 @@ Per iniziare a esplorare le query di Database flessibile, provare a nostra eserc
 
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

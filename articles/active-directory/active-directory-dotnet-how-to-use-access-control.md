@@ -116,7 +116,7 @@ In questo passaggio verrà creata un'applicazione ASP.NET MVC. Nei passaggi succ
 
 1. In **Nome** digitare **MvcACS** e quindi fare clic su **OK**.
 1. Nella finestra di dialogo successiva selezionare **Applicazione Internet** e quindi fare clic su **OK**.
-1. Modificare il file *Views\\Shared_LoginPartial.cshtml* e sostituire il contenuto con il codice seguente:
+1. Modificare il file *Views\Shared_LoginPartial.cshtml* e sostituire il contenuto con il codice seguente:
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Congratulazioni. ACS è stato correttamente integrato con l'applicazione Web ASP
 
 In questa sezione l'applicazione verrà modificata in modo da visualizzare le attestazioni inviate da ACS. Lo strumento di gestione delle identità e degli accessi ha creato un gruppo di regole che trasmette tutte le attestazioni provenienti dal provider di identità all'applicazione. Si noti che provider di identità diversi inviano attestazioni diverse.
 
-1. Aprire il file *Controllers\\HomeController.cs*. Aggiungere un'istruzione **using** per **System.Threading**:
+1. Aprire il file *Controllers\HomeController.cs*. Aggiungere un'istruzione **using** per **System.Threading**:
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ In questa sezione l'applicazione verrà modificata in modo da visualizzare le at
 
 1. Fare clic su **Aggiungi**.
 
-1. Sostituire il contenuto del file *Views\\Home\\Claims.cshtml* con il codice seguente:
+1. Sostituire il contenuto del file *Views\Home\Claims.cshtml* con il codice seguente:
 
         @{
             ViewBag.Title = "Claims";
@@ -402,4 +402,4 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

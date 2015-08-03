@@ -180,4 +180,4 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog del Team di Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

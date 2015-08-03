@@ -41,4 +41,4 @@ A questo punto è stato creato un nuovo backend che può essere usato dalle app 
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,8 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/21/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint.
@@ -35,14 +36,14 @@ Una volta che i database sono stati sottoposti a backup e ripristino, possono es
 
 Per abilitare il backup e il ripristino, i file di backup (.bak) devono essere accessibili dalla macchina virtuale del server SQL secondario. Utilizzare la procedura seguente:
 
-1.	Accedere al computer host SQL Server principale come [domain]**\\sp_farm_db**. 
+1.	Accedere al computer host SQL Server principale come [domain]**\sp_farm_db**. 
 2.	Passare al disco F:\. 
 3.	Fare con il pulsante destro del mouse sulla cartella **Backup**, quindi scegliere **Condividi con** e fare clic su **Utenti specifici**.
-4.	Nella finestra di dialogo **condivisione File** digitare **[domain]\\sqlservice**, quindi fare clic su **Aggiungi**.
+4.	Nella finestra di dialogo **condivisione File** digitare **[domain]\sqlservice**, quindi fare clic su **Aggiungi**.
 5.	Scegliere la colonna **Livello di autorizzazione** relativa al nome account **sqlservice**, quindi fare clic su **Lettura/scrittura**. 
 6.	Fare clic su **Condividi** e quindi su **Operazione completata**.
 
-Eseguire la procedura sopra riportata nell'host SQL Server secondario, ad eccezione del fatto che all'account sqlservice viene assegnata l'autorizzazione in **lettura** per la cartella F:\\Backup creata nella fase 5.
+Eseguire la procedura sopra riportata nell'host SQL Server secondario, ad eccezione del fatto che all'account sqlservice viene assegnata l'autorizzazione in **lettura** per la cartella F:\Backup creata nella fase 5.
 
 ### Backup e ripristino di un database
 
@@ -55,20 +56,20 @@ Utilizzare questi passaggi per il backup del database.
 3.	Nel riquadro sinistro, espandere il nodo **Database**.
 4.	Fare doppio clic su un database per eseguire il backup, scegliere **Attività**, quindi fare clic su **Backup**.
 5.	Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
-6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\\ [machineName]\\backup[databaseName].bak**, dove machineName è il nome del computer SQL server principale e databaseName è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
+6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\ [machineName]\backup[databaseName].bak**, dove machineName è il nome del computer SQL server principale e databaseName è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
 7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro ** [databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
 8.	In **Tipo di Backup**, selezionare **Log delle transazioni**, quindi fare clic su **OK** per due volte.
 9.	Mantenere aperta la sessione Desktop remoto.
 
 Utilizzare questi passaggi per il ripristino del database.
 
-1.	Accedere al computer SQL Server secondario come [domainName]\\sp_farm_db.
+1.	Accedere al computer SQL Server secondario come [domainName]\sp_farm_db.
 2.	Nella schermata Start digitare **SQL Studio**, quindi fare clic su **SQL Server Management Studio**.
 3.	Fare clic su **Connect**.
 4.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Ripristina database**.
 5.	Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante dei puntini di sospensione (...)
 6.	In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
-7.	In **Percorso del file di Backup**, digitare **\\[machineName]\\backup**, premere **INVIO**, selezionare **[databaseName].bak**, quindi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
+7.	In **Percorso del file di Backup**, digitare **\[machineName]\backup**, premere **INVIO**, selezionare **[databaseName].bak**, quindi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
 8.	In **Selezione pagina**, fare clic su **Opzioni**. Nella sezione **Opzioni di ripristino** in **Stato di recupero**, selezionare **RESTORE WITH NORECOVERY**, quindi fare clic su **OK**. 
 9.	Quando richiesto, fare clic su **OK**.
 
@@ -124,4 +125,4 @@ Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Ser
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

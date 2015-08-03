@@ -140,4 +140,4 @@ Per informazioni su come gestire il dispositivo tramite il servizio StorSimple M
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

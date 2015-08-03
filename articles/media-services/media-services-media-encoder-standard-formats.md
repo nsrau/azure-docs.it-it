@@ -84,4 +84,4 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

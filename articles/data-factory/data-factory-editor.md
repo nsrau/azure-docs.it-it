@@ -221,4 +221,4 @@ Per istruzioni dettagliate per creare una data factory di Azure usando l'editor 
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

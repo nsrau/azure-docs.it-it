@@ -63,4 +63,4 @@ Talvolta questi esperti di dati si applicano per documentare le proprie conoscen
 
 Il Catalogo dati di Azure fornisce un percorso per la condivisione di queste conoscenze specifiche e per renderle facilmente individuabili. Gli esperti di dati possono annotare direttamente gli asset di dati e possono includere anche i collegamenti alla documentazione esistente. In tal modo non solo si acquisisce conoscenza, ma inserisce la competenza nella stessa esperienza impiegata per l'individuazione dell’origine dati. Quando un utente utilizza il catalogo per individuare un'origine dati, non solo trova l'origine, ma ha inoltre a disposizione le informazioni di un esperto che esistevano in precedenza solo nella mente dell’esperto stesso.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

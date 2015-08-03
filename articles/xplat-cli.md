@@ -283,4 +283,4 @@ Se si scrive uno script che si basa sullo stato di uscita, verificare che i coma
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -39,4 +39,4 @@ Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][]
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

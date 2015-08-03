@@ -84,7 +84,7 @@ Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio
 
 ## <a name="step4"> </a>Passaggio 4: Attivare una ricompilazione e ridistribuire il progetto
 
-1. In Visual Studio aprire un file e modificarlo. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\\Shared di un ruolo Web MVC. <br/> ![][17] 
+1. In Visual Studio aprire un file e modificarlo. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\Shared di un ruolo Web MVC. <br/> ![][17] 
 2. Modificare il testo del piè di pagina per il sito e salvare il file.<br/> ![][18]
 
 3. In Esplora soluzioni aprire il menu di scelta rapida per il nodo della soluzione, il nodo del progetto o il file modificato e scegliere **Commit**.<br/>
@@ -209,4 +209,4 @@ Per altre informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fw
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

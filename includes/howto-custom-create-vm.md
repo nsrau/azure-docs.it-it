@@ -60,4 +60,4 @@ Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal
 - [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

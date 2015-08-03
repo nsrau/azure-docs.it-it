@@ -43,4 +43,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Viene illustrato come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="bradsev;garye" />
+	ms.date="07/14/2015" 
+	ms.author="bradsev" />
 
 
 # Come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning
@@ -70,4 +70,4 @@ e un set di dati di input facoltativi. Si effettua la connessione al set di dati
 [sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

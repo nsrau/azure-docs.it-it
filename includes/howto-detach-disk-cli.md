@@ -1,4 +1,3 @@
-
 #Come scollegare un disco dati da una macchina virtuale con l'interfaccia della riga di comando
 
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
@@ -48,4 +47,4 @@ Procedura dettagliata di esempio, incluso l'output terminale:
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

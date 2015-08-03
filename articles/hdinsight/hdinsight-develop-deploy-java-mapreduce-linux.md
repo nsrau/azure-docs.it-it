@@ -44,7 +44,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 
 	* **JAVA_HOME** o il percorso equivalente
 
-	* **JAVA_HOME\\bin** o il percorso equivalente
+	* **JAVA_HOME\bin** o il percorso equivalente
 
 	* Directory in cui è installato Maven
 
@@ -60,7 +60,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 
 	* __pom.xml__: il modello a oggetti dei progetti ([POM o Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
 
-	* __src__: la directory che contiene la directory __main\\java\\org\\apache\\hadoop\\examples__, in cui verrà creata l'applicazione.
+	* __src__: la directory che contiene la directory __main\java\org\apache\hadoop\examples__, in cui verrà creata l'applicazione.
 
 3. Eliminare il file __src/test/java/org/apache/hadoop/examples/apptest.java__, perché non verrà usato in questo esempio.
 
@@ -297,4 +297,4 @@ In questo documento si è appreso come sviluppare un processo Java MapReduce. Ve
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

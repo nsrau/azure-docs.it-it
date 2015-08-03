@@ -127,4 +127,4 @@ Viene creato il file di configurazione del servizio per ogni servizio cloud che 
 
 [Schema di configurazione di servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710) [Schema di configurazione di rete virtuale](https://msdn.microsoft.com/library/azure/jj157100) [Informazioni sulla configurazione delle impostazioni di rete virtuale nel portale di gestione](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurare una rete virtuale utilizzando un file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Attività di configurazione di rete virtuale Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -300,4 +300,4 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [utilizzo di Dropbox per la condivisione di archivi Git]: https://gist.github.com/trey/2722927
 [Distribuzione continua in Azure tramite Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

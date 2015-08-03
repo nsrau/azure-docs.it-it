@@ -104,4 +104,4 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

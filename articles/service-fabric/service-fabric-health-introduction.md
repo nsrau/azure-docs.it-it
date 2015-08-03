@@ -255,9 +255,9 @@ I campi di transizione dello stato possono essere usati per avere segnalazioni p
 L'esempio seguente invia un report sull'integrità tramite PowerShell all'applicazione fabric:/WordCount dall'origine MyWatchdog. Il report sull'integrità contiene informazioni relative alla proprietà di integrità Availability con stato di integrità Error e TTL infinito. Viene quindi eseguita una query relativa all'integrità dell'applicazione che restituirà Error come stato di integrità aggregato e l'evento di integrità segnalato come parte dell'elenco degli eventi di integrità.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

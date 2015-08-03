@@ -20,4 +20,4 @@
 > - Questo comando si applica solo agli aggiornamenti regolari. È possibile eseguire questo comando in un solo controller, ma verranno aggiornati entrambi i controller. 
 > - Durante il processo di aggiornamento è possibile che venga eseguito il failover di un controller. Tale failover, tuttavia, non avrà effetti sulla disponibilità o sul funzionamento del sistema.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

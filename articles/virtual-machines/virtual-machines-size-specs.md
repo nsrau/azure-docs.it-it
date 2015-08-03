@@ -39,9 +39,9 @@ La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, 
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-*   La dimensione A0\\Basic_A0 è disponibile solo tramite Azure SDK versione 1.3 o successiva.  
+*   La dimensione A0\Basic_A0 è disponibile solo tramite Azure SDK versione 1.3 o successiva.  
 
-*   A1\\Basic_A1 corrisponde alla dimensione minima consigliata per i carichi di lavoro di produzione.
+*   A1\Basic_A1 corrisponde alla dimensione minima consigliata per i carichi di lavoro di produzione.
 
 *   Selezionare una macchina virtuale con 4 o 8 core CPU quando si usa SQL Server Enterprise Edition.
 
@@ -68,24 +68,24 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 ## Livello Basic
 
-|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
+|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|
-|A0\\Basic_A0|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x300|
-|A1\\Basic_A1|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 40 GB</p>|2|2x300|
-|A2\\Basic_A2|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 60 GB</p>|4|4x300|
-|A3\\Basic_A3|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 120 GB</p>|8|8x300|
-|A4\\Basic_A4|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 240 GB</p>|16|16x300|
+|A0\Basic_A0|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x300|
+|A1\Basic_A1|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 40 GB</p>|2|2x300|
+|A2\Basic_A2|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 60 GB</p>|4|4x300|
+|A3\Basic_A3|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 120 GB</p>|8|8x300|
+|A4\Basic_A4|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 240 GB</p>|16|16x300|
 
 ## Livello Standard
 ### Serie A e serie D
 
-|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|
-|A0\\molto piccola|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
-|A1\\piccola|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
-|A2\\media|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4x500|
-|A3\\grande|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
-|A4\\molto grande|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
+|A0\molto piccola|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
+|A1\piccola|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
+|A2\media|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4x500|
+|A3\grande|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
+|A4\molto grande|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
 |A5 (uguale)|2|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4X500|
 |A6 (uguale)|4|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
 |A7 (uguale)|8|56 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
@@ -105,7 +105,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 ### Livello Standard: serie DS *
 
-|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
+|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|
 |Standard_DS1 (uguale)|1|3,5|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 7 GB</p>|2|43|<p>3.200</p><p>32 MB al secondo</p>|
 |Standard_DS2 (uguale)|2|7|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 14 GB</p>|4|86|<p>6.400</p><p>64 MB al secondo</p>|
@@ -120,7 +120,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 ### Livello Standard: serie G
 
-|Dimensione: portale di gestione\\cmdlet eamp; API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di gestione\cmdlet eamp; API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|
 |Standard_G1 (uguale)|2|28 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 384 GB</p>|4|4x500|
 |Standard_G2 (uguale)|4|56 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 768 GB</p>|8|8x500|
@@ -134,4 +134,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

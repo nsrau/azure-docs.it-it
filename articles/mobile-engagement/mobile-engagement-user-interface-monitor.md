@@ -144,4 +144,4 @@ La generazione di un evento nell'applicazione dal dispositivo di test e la relat
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

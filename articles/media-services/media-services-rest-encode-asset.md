@@ -262,4 +262,4 @@ Dopo avere creato un processo per la codifica di un asset, passare all'argomento
 
 [Ottenere i processori per supporti](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

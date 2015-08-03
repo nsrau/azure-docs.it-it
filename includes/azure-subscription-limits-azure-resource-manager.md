@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Gruppi di risorse</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Letture API Gestione risorse</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

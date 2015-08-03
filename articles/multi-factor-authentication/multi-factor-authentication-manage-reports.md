@@ -50,4 +50,4 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

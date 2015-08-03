@@ -19,17 +19,17 @@
 
 *Application Insights è disponibile in Anteprima.*
 
-Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
+Se l'[app Web Java è stata strumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
 
 * **Dipendenze remote:** dati sulle chiamate effettuate dall'applicazione tramite un driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
 * **Eccezioni rilevate:** dati sulle eccezioni gestite dal codice.
 * **Tempo di esecuzione dei metodi:** dati sul tempo necessario per eseguire metodi specifici.
 
-Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java].
+Per usare l'agente Java, installarlo nel server. Le app Web devono essere strumentate con [Application Insights Java SDK][java].
 
 ## Installare l'agente di Application Insights per Java
 
-1. [Scaricare l'agente](http://go.microsoft.com/fwlink/?LinkId=618633) nel computer che esegue il server Java.
+1. [Scaricare l'agente](http://go.microsoft.com/fwlink/?LinkId=618633) sul computer che esegue il server Java.
 2. Modificare lo script di avvio del server applicazioni e aggiungere il codice JVM seguente:
 
     `javaagent:`*full path to the agent JAR file*
@@ -43,7 +43,7 @@ Per usare l'agente Java, installarlo nel server. Le app Web devono essere instru
 
 ## Configurare l'agente
 
-Creare un file denominato `AI-Agent.xml` e inserirlo nella stessa cartella che include il file JAR dell'agente.
+Creare un file detto `AI-Agent.xml` e inserirlo nella stessa cartella che include il file JAR dell'agente.
 
 Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da includere o escludere le funzionalità desiderate.
 
@@ -87,6 +87,8 @@ Nella risorsa di Application Insights verranno visualizzate le dipendenze remote
 
 Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire [Cerca][diagnostic].
 
+[Diagnosi dei problemi di dipendenza - ulteriori informazioni](app-insights-dependencies.md#diagnosis).
+
 ## Domande? Problemi?
 
 [Risoluzione dei problemi Java](app-insights-java-troubleshoot.md)
@@ -107,4 +109,4 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -121,7 +121,7 @@ Gli ambiti disponibili vengono definiti da ogni provider SaaS e si trovano nel p
 	 
 			install-package DropboxRestAPI  
 
-1. Aprire *Controllers\\ValuesController.cs* e sostituire tutto il codice nel file con il codice seguente.
+1. Aprire *Controllers\ValuesController.cs* e sostituire tutto il codice nel file con il codice seguente.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -447,4 +447,4 @@ Se si rimuove %3d%3d dalla fine del valore querystring `error`, si ottiene una s
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -236,4 +236,4 @@ I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senz
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

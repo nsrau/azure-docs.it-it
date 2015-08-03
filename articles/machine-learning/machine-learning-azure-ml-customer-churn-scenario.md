@@ -239,4 +239,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

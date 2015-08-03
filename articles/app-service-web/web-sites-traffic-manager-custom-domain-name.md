@@ -70,4 +70,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

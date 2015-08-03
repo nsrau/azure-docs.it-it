@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="vittorib"/>
 
 # Integrare Azure AD con un'app Apache Cordova
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -63,8 +65,8 @@ Ogni piattaforma di destinazione ha prerequisiti diversi.
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim): consente di avviare app iOS nel simulatore iOS dalla riga di comando (può essere installato facilmente tramite il terminale `npm install -g ios-sim`).
 
 - Per compilare ed eseguire un'applicazione per Android
-	- Installare [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versione successiva. Assicurarsi che la variabile di ambiente `JAVA_HOME` sia impostata correttamente in base al percorso di installazione di JDK (ad esempio, C:\\Programmi\\Java\\jdk1.7.0_75).
-	- Installare [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) e aggiungere il percorso `<android-sdk-location>\tools` (ad esempio, C:\\tools\\Android\\android-sdk\\tools) alla variabile di ambiente `PATH`.
+	- Installare [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versione successiva. Assicurarsi che la variabile di ambiente `JAVA_HOME` sia impostata correttamente in base al percorso di installazione di JDK (ad esempio, C:\Programmi\Java\jdk1.7.0_75).
+	- Installare [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) e aggiungere il percorso `<android-sdk-location>\tools` (ad esempio, C:\tools\Android\android-sdk\tools) alla variabile di ambiente `PATH`.
 	- Aprire Android SDK Manager (ad esempio, tramite il terminale `android`) e installare
     - *Android 5.0.1 (API 21)* Platform SDK
     - *Android SDK Build Tools* versione 19.1.0 o successiva
@@ -252,7 +254,7 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [Proteggere un'API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

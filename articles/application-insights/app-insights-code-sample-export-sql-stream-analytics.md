@@ -305,4 +305,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

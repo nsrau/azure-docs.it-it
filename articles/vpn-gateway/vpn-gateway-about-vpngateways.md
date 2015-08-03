@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # Informazioni sui gateway VPN
@@ -71,12 +71,12 @@ Configurare la rete virtuale. Per le connessioni cross-premise, vedere gli artic
 - [Configurare una connessione VPN Point-to-Site a una rete virtuale di Azure](vpn-gateway-point-to-site-create.md)
 - [Configurare una VPN Site-to-Site mediante il servizio RRAS (Routing and Remote Access Service) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
-Se si desidera configurare un gateway VPN, vedere [Connessione di più siti locali a una rete virtuale](http://go.microsoft.com/fwlink/p/?LinkId=615106).
+Se si desidera configurare un gateway VPN, vedere [Connessione di più siti locali a una rete virtuale](vpn-gateway-configure-vpn-gateway-mp.md).
 
-Se si desidera modificare il tipo di gateway VPN, vedere [Modifica del tipo di routing di un gateway di rete virtuale](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+Se si vuole modificare il tipo di gateway VPN, vedere [Modificare il tipo di routing di un gateway VPN di rete virtuale](vpn-gateway-configure-vpn-gateway-mp.md).
 
 Se si desidera connettere più siti in una rete virtuale, vedere [Connessione di più siti locali a una rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

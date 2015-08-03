@@ -27,4 +27,4 @@ Quando è necessario modificare la configurazione predefinita, eseguire le opera
 - Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 - Se è necessario modificare l'ambito o l'impostazione di unione in una regola di sincronizzazione predefinita, documentare questa necessità e riapplicare la modifica dopo l'aggiornamento a una versione più recente di Azure AD Connect. 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

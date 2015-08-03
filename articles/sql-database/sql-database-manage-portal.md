@@ -70,4 +70,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

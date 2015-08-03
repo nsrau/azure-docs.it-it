@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 1: Configurare l'infrastruttura di SQL Server" 
-	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, si compila la rete virtuale e altri elementi dell'infrastruttura di Azure." 
+<properties
+	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 1: Configurare l'infrastruttura di SQL Server"
+	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, si compila la rete virtuale e altri elementi dell'infrastruttura di Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 1: Configurare l'infrastruttura di SQL Server
 
-In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure si compila l'infrastruttura di rete e di archiviazione di Azure. È necessario completare questa fase prima di passare alla [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
+In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, viene realizzata l'infrastruttura di rete e di archiviazione di Azure in Gestione dei servizi di Azure. È necessario completare questa fase prima di passare alla [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
 È necessario eseguire il provisioning di Azure con questi componenti di rete di base:
 
-- Una rete virtuale cross-premise con una subnet
-- Tre servizi cloud di Azure
-- Un account di archiviazione di Azure per archiviare le immagini di dischi rigidi virtuali e dischi dati aggiuntivi
+- Una rete virtuale cross-premise con una subnet.
+- Tre servizi cloud di Azure.
+- Un account di archiviazione di Azure per archiviare le immagini di dischi rigidi virtuali e dischi dati aggiuntivi.
 
 ## Prima di iniziare
 
@@ -32,8 +33,8 @@ Prima di iniziare la configurazione dei componenti di Azure, è necessario compi
 
 Per le impostazioni della rete virtuale (VNet), compilare la tabella V.
 
-Item | Elemento di configurazione | Descrizione | Valore 
---- | --- | --- | --- 
+Item | Elemento di configurazione | Descrizione | Valore
+--- | --- | --- | ---
 1. | Nome della rete virtuale | Nome da assegnare alla rete virtuale di Azure (ad esempio SPFarmNet). | __________________
 2. | Posizione della rete virtuale | Il centro dati di Azure che conterrà la rete virtuale. | __________________
 3. | Nome della rete locale | Nome da assegnare alla rete dell'organizzazione. | __________________
@@ -46,8 +47,8 @@ Item | Elemento di configurazione | Descrizione | Valore
 
 Compilare la tabella S per la subnet di questa soluzione. Assegnare alla subnet un nome descrittivo, un spazio degli indirizzi IP basato sullo spazio degli indirizzi di rete virtuale e uno scopo descrittivo. Lo spazio degli indirizzi deve essere nel formato Classless Interdomain Routing (CIDR), noto anche come formato di prefisso di rete. Un esempio è 10.24.64.0/20. Collaborare con il reparto IT per determinare questo spazio degli indirizzi dallo spazio degli indirizzi di rete virtuale.
 
-Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo 
---- | --- | --- | --- 
+Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **Tabella S: Subnet nella rete virtuale**
@@ -56,10 +57,10 @@ Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 Per i due server DNS locali che si desidera utilizzare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
-Item | Nome descrittivo per il server DNS | Indirizzo IP del server DNS 
+Item | Nome descrittivo per il server DNS | Indirizzo IP del server DNS
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **Tabella D: Server DNS locali**
 
@@ -67,7 +68,7 @@ Per distribuire pacchetti dalla rete locale alla rete dell'organizzazione attrav
 
 Per il set di spazi degli indirizzi della rete locale, compilare la tabella L. Si noti che sono elencate tre voci vuote, ma in genere ne occorrono di più. Collaborare con il reparto IT per determinare questo elenco di spazi degli indirizzi.
 
-Item | Spazio degli indirizzi della rete virtuale 
+Item | Spazio degli indirizzi della rete virtuale
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -82,7 +83,7 @@ Per creare la rete virtuale con le impostazioni dalle tabelle V, S, D e G, utili
 Dopo aver creato la rete virtuale di Azure, il portale di gestione di Azure determinerà le operazioni seguenti:
 
 - L'indirizzo IPv4 pubblico del gateway VPN di Azure per la rete virtuale.
-- La chiave precondivisa IPsec (Internet Protocol security) per la connessione VPN da sito a sito
+- La chiave precondivisa IPsec (Internet Protocol security) per la connessione VPN da sito a sito.
 
 Per visualizzare questi elementi nel portale di gestione di Azure dopo aver creato la rete virtuale, fare clic su **Reti**, selezionare il nome della rete virtuale e scegliere l’opzione di menu **Dashboard**.
 
@@ -103,7 +104,7 @@ Selezionare innanzitutto la sottoscrizione di Azure corretta con questi comandi.
 
 Successivamente, creare i tre servizi cloud necessari per la farm di SharePoint. Compilare la tabella C.
 
-Item | Scopo | Nome del servizio cloud 
+Item | Scopo | Nome del servizio cloud
 --- | --- | ---
 1. | Controller di dominio | ___________________________
 2. | Server di SQL | ___________________________
@@ -137,8 +138,8 @@ Se questo comando restituisce "False", il nome proposto è univoco. Quindi, crea
 
 Successivamente, definire i nomi di quattro set di disponibilità. Compilare la tabella A.
 
-Item | Scopo | Nome set di disponibilità 
---- | --- | --- 
+Item | Scopo | Nome set di disponibilità
+--- | --- | ---
 1. | Controller di dominio | ___________________________
 2. | Server di SQL | ___________________________
 3. | Server applicazioni SharePoint | ___________________________
@@ -152,7 +153,7 @@ Questa è la configurazione risultante dal corretto completamento di questa fase
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase1/workload-spsqlao_01.png)
 
-## Passaggi successivi
+## Passaggio successivo
 
 Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: Configurare di controller di dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
@@ -167,6 +168,5 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -71,13 +71,15 @@ Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file.
 20150101,1,3
 ```
 
-Salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
+Salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt.
+
+> [AZURE.NOTE]È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Utilizzare i file codificati ASCII o la codifica UTF-16 per i file quando si utilizza bcp.exe.
 
 ### Passaggio 3: Connettersi e importare i dati
 bcp permette di connettersi e importare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Per verificare il caricamento dei dati, connettersi con sqlcmd come indicato in precedenza ed eseguire il comando TSQL seguente:
@@ -112,7 +114,7 @@ In questa esercitazione verrà creato un file di dati da una tabella in SQL Data
 L'utilità bcp permette di connettersi ed esportare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Per verificare che i dati siano stati esportati correttamente, aprire il nuovo file. I dati del file devono corrispondere al testo seguente:
 
@@ -150,4 +152,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

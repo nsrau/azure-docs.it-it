@@ -125,4 +125,4 @@ Per aggiungere un ILPIP alla macchina virtuale creata usando lo script precedent
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

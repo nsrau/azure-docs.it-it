@@ -153,17 +153,17 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo.
 
-Nei prossimi passaggi si apprenderà quindi come: 1. [Connect e query](sql-data-warehouse-get-started-connect-query.md)il data warehouse. 2. Esportare i dati dal data warehouse nella risorsa di archiviazione blob di Azure. 3. Caricare più dati nel data warehouse.
+Nei prossimi passaggi si apprenderà quindi come: 1. [Connect e query][]il data warehouse. 2. Esportare i dati dal data warehouse nella risorsa di archiviazione blob di Azure. 3. Caricare più dati nel data warehouse.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-
+[Connect e query]: sql-data-warehouse-get-started-connect-query.md
 
 <!--External links-->
 [versione di valutazione gratuita]: https://azure.microsoft.com/it-it/pricing/free-trial/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

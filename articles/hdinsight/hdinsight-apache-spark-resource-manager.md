@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -36,13 +36,13 @@ Ecco alcuni scenari comuni che si verificano con il cluster Spark e le istruzion
 Cluster Apache Spark in HDInsight è progettato per multi-tenancy, pertanto le risorse vengono suddivise tra più componenti (notebook, server dei processi e così via). In questo modo è possibile utilizzare contemporaneamente tutti i componenti di Spark senza preoccuparsi di qualsiasi componente non in grado di ottenere le risorse per l'esecuzione, ma ogni componente sarà più lento poiché le risorse vengono frammentate. Questo può essere regolato in base alle esigenze.
 
 
-### Utilizzare solo IPython con il cluster di Spark. Come è possibile allocare tutte le risorse?
+### Si usa il notebook Jupyter solo con il cluster Spark. Come è possibile allocare tutte le risorse?
 
 1. Dal **Dashboard Spark** fare clic sulla scheda **Spark UI** per individuare il numero massimo di core e la RAM massima che è possibile allocare per le applicazioni.
 
 	![Allocazione delle risorse](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Trovare le risorse allocate a un cluster di Spark")
 
-	Dalla schermata catturata, i core massimi che è possibile allocare sono 7 (totale di 8 core di cui è in uso 1) e il valore massimo che è possibile allocare per la RAM è 9GB (12GB di RAM totali, dei quali 2GB devono essere riservare per il sistema e 1GB è in uso da altre applicazioni).
+	In base alla schermata precedente, il numero massimo di core allocabili è 7 (totale di 8 core di cui 1 in uso) e la quantità massima di RAM allocabile è 9 GB (totale di 12 GB di RAM, di cui 2 GB devono essere riservati per l'utilizzo da parte del sistema e 1 GB è in uso da parte di altre applicazioni).
 
 	Inoltre, è consigliabile tenere tutte le applicazioni in esecuzione. È possibile esaminare le applicazioni in esecuzione dalla scheda **interfaccia utente Spark**.
 
@@ -79,4 +79,4 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

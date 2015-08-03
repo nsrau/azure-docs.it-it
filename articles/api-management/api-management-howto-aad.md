@@ -228,4 +228,4 @@ L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio 
 
 [Accedere al portale per sviluppatori con un account Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

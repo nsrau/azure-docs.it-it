@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Gestire un servizio di Service Fabric
@@ -30,6 +30,7 @@ I seguenti argomenti illustrano il modello di applicazione di Service Fabric e c
 - [Risorse del manifesto del servizio](service-fabric-service-manifest-resources.md)
 - [Creare il pacchetto di un'applicazione](service-fabric-application-model.md)
 - [Distribuire e rimuovere un'applicazione](service-fabric-deploy-remove-applications.md)
+- [Distribuire un'applicazione esistente](service-fabric-deploy-existing-app.md)
 - [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Aggiornare un'applicazione
@@ -49,4 +50,4 @@ Gli articoli seguenti illustrano la scalabilità e il partizionamento:
 - [Scalabilità delle applicazioni di Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

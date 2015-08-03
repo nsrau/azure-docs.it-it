@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
-	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
+	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -363,4 +363,4 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
 			}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

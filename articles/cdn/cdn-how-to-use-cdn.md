@@ -54,4 +54,4 @@ Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL de
 [Panoramica della Rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

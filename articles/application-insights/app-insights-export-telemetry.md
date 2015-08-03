@@ -74,7 +74,7 @@ La data e ora sono UTC e lo sono quando i dati di telemetria sono stati deposita
 
 ## <a name="format"></a> Formato dati
 
-* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
+* Ogni BLOB è un file di testo che contiene più righe separate da '\n'.
 * Ogni riga è un documento JSON non formattato. Se si vuole stare seduti e esaminali, usare un visualizzatore, ad esempio Blocco note++ con il plug-in JSON:
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
@@ -183,4 +183,4 @@ L'esportazione continua verrà riavviata.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

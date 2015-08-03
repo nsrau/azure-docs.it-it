@@ -280,4 +280,4 @@ I dati creati da un'attività che non dispone di un collegamento in uscita verra
 - [Asset di automazione](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

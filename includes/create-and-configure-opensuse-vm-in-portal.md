@@ -1,3 +1,4 @@
+
 **Importante**: se si vuole che una macchina virtuale usi una rete virtuale, è necessario assicurarsi di specificare la rete quando si crea la macchina. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per altre informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 
@@ -58,4 +59,4 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

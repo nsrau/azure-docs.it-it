@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Come usare l'archiviazione BLOB da C++  
@@ -165,6 +165,8 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
 		}
 	}
 
+Per ulteriori informazioni sull'elenco di operazioni, vedere[elenco risorse di archiviazione Azure in C++](storage-c-plus-plus-enumeration.md).
+
 ## Procedura: scaricare i BLOB
 Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chiamare il metodo **download_to_stream**. Nell'esempio seguente viene utilizzato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto stream che è quindi possibile rendere persistente in un file locale.
 
@@ -231,6 +233,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 -	[Come usare l’archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Come usare l’archiviazione tabelle da C++](storage-c-plus-plus-how-to-use-tables.md)
+-	[Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
 -	[Libreria client di archiviazione per C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Riferimento MSDN ad Archiviazione di Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

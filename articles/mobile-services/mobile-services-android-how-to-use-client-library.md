@@ -928,4 +928,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

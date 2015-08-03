@@ -155,4 +155,4 @@ Logo | Nome app
 
 - [Accesso all'applicazione](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

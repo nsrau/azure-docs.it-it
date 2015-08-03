@@ -22,9 +22,9 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile creare passwor
 
 ## Per creare password per le app nel portale di Azure
 
-1. Accedere al portale di gestione di Azure.
+1. Accedere al portale di gestione di Azure
 3. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
-5. Nella parte superiore della pagina di verifica selezionare le password per le app.
+5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
 6. Fare clic su **Crea**.
 7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
 8. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
@@ -32,4 +32,4 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile creare passwor
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

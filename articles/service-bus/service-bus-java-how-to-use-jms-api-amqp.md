@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -50,104 +50,65 @@ Per informazioni sul download dell'ultima versione della libreria client JMS bas
 
 JMS usa l'interfaccia JNDI (Java Naming and Directory Interface) per creare una separazione tra i nomi logici e i nomi fisici. Con JNDI vengono risolti due tipi di oggetti JMS: ConnectionFactory e Destination. JNDI usa un modello di provider in cui è possibile inserire diversi servizi directory per gestire le attività di risoluzione dei nomi. La libreria JMS basata su AMQP 1.0 di Apache Qpid viene fornita con un semplice provider JNDI, basato su un file delle proprietà, che viene configurato mediante un file di testo:
 
-	# servicebus.properties - sample JNDI configuration
+```
+# servicebus.properties - sample JNDI configuration
 	
-	# Register a ConnectionFactory in JNDI using the form:
-	# connectionfactory.[jndi_name] = [ConnectionURL]
-	connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+# Register a ConnectionFactory in JNDI using the form:
+# connectionfactory.[jndi_name] = [ConnectionURL]
+connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
 	
-	# Register some queues in JNDI using the form
-	# queue.[jndi_name] = [physical_name]
-	# topic.[jndi_name] = [physical_name]
-	queue.QUEUE = queue1
-
+# Register some queues in JNDI using the form
+# queue.[jndi_name] = [physical_name]
+# topic.[jndi_name] = [physical_name]
+queue.QUEUE = queue1
+```
 
 #### Configurazione della factory di connessione
 
 La voce utilizzata per definire un oggetto **ConnectionFactory** nel provider JNDI basato sul file delle proprietà Qpid è nel formato seguente:
 
-	connectionfactory.[jndi_name] = [ConnectionURL]
+```
+connectionfactory.[jndi_name] = [ConnectionURL]
+```
 
-Dove [jndi_name] e [ConnectionURL] hanno i significati seguenti:
+Dove **[jndi_name]** e **[ConnectionURL]** hanno i significati seguenti:
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>Nome logico dell'oggetto ConnectionFactory. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().</td>
-  </tr>
-  <tr>
-    <td>[ConnectionURL]</td>
-    <td>URL che fornisce alla libreria JMS le informazioni necessarie per il broker AMQP.</td>
-  </tr>
-</table>
+- **[jndi_name]**: Nome logico dell'oggetto ConnectionFactory. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().
+- **[ConnectionURL]**: URL che fornisce alla libreria JMS le informazioni necessarie per il broker AMQP.
 
 Il formato di **ConnectionURL** è il seguente:
 
-	amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+Dove **[namespace]**, **[username]** e **[password]** hanno i significati seguenti:
 
-Dove [namespace], [username] e [password] hanno i significati seguenti:
+- ** [namespace]**: spazio dei nomi del bus di servizio
+- **[username]**: nome dell'autorità emittente del Bus di servizio.
+- **[password]**: formato con codifica URL della chiave dell'autorità emittente del Bus di servizio.
 
-<table>
-  <tr>
-    <td>[namespace]</td>
-    <td>Spazio dei nomi del bus di servizio ottenuto dal portale di gestione di Azure.</td>
-  </tr>
-  <tr>
-    <td>[username]</td>
-    <td>Nome dell'autorità emittente del bus di servizio ottenuto dal portale di gestione di Azure.</td>
-  </tr>
-  <tr>
-    <td>[password]</td>
-    <td>Chiave dell'autorità emittente del bus di servizio con codifica URL ottenuta dal portale di gestione di Azure.</td>
-  </tr>
-</table>
-
-**Nota**: è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
-
-Ad esempio, se le informazioni ottenute dal portale di gestione di Azure sono le seguenti:
-
-<table>
-  <tr>
-    <td>Spazio dei nomi:</td>
-    <td>foo.servicebus.windows.net</td>
-  </tr>
-  <tr>
-    <td>Nome autorità emittente:</td>
-    <td>proprietario</td>
-  </tr>
-  <tr>
-    <td>Chiave autorità emittente:</td>
-    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
-  </tr>
-</table>
-
-Per definire un oggetto **ConnectionFactory** denominato "SBCF", la stringa di configurazione sarà la seguente:
-
-	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
+> [AZURE.NOTE]è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Configurazione delle destinazioni
 
 La voce utilizzata per definire una destinazione nel provider JNDI basato sul file delle proprietà Qpid è nel formato seguente:
 
-	queue.[jndi_name] = [physical_name]
+```
+queue.[jndi_name] = [physical_name]
+```
+
 oppure
 
-	topic.[jndi_name] = [physical_name]
+```
+topic.[jndi_name] = [physical_name]
+```
 
-Dove [jndi_name] e [physical_name] hanno i significati seguenti:
+Dove **[jndi_name]** e **[physical_name]** hanno i significati seguenti:
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>Nome logico della destinazione. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().</td>
-  </tr>
-  <tr>
-    <td>[physical_name]</td>
-    <td>Nome dell'entità del bus di servizio a cui l'applicazione invia messaggi o da cui l'applicazione riceve messaggi.</td>
-  </tr>
-</table>
+- **[jndi_name]**: nome logico dell'oggetto di destinazione. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().
+- **[physical_name]**:Nome dell'entità del bus di servizio a cui l'applicazione invia messaggi o da cui l'applicazione riceve messaggi.
 
-**Nota**: in caso di ricezione da una sottoscrizione a un argomento del bus di servizio, il nome fisico specificato in JNDI deve essere il nome dell'argomento. Il nome della sottoscrizione viene fornito al momento della creazione della sottoscrizione durevole nel codice dell'applicazione JMS. Nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx) sono disponibili istruzioni dettagliate sull'utilizzo delle sottoscrizioni ad argomenti del bus di servizio da JMS.
+> [AZURE.NOTE]In caso di ricezione da una sottoscrizione a un argomento del bus di servizio, il nome fisico specificato in JNDI deve essere il nome dell'argomento. Il nome della sottoscrizione viene fornito al momento della creazione della sottoscrizione durevole nel codice dell'applicazione JMS. Nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx) sono disponibili istruzioni dettagliate sull'utilizzo delle sottoscrizioni ad argomenti del bus di servizio da JMS.
 
 ### Scrivere l'applicazione JMS
 
@@ -157,10 +118,12 @@ Non esistono API speciali oppure opzioni obbligatorie quando si utilizza JMS con
 
 La configurazione dell'ambiente JNDI viene eseguita passando una tabella hash di informazioni di configurazione al costruttore della classe javax.naming.InitialContext. I due elementi necessari nella tabella hash sono il nome della classe della factory del contesto iniziale e l'URL del provider. Nel codice seguente viene illustrato come configurare l'ambiente JNDI per utilizzare il provider JNDI basato sul file delle proprietà Qpid con un file delle proprietà denominato **servicebus.properties**.
 
-	Hashtable<String, String> env = new Hashtable<String, String>(); 
-	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-	InitialContext context = new InitialContext(env); 
+```
+Hashtable<String, String> env = new Hashtable<String, String>(); 
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
+env.put(Context.PROVIDER_URL, "servicebus.properties"); 
+InitialContext context = new InitialContext(env);
+``` 
 
 ### Semplice applicazione JMS che usa la coda del bus di servizio
 
@@ -265,18 +228,20 @@ La seguente applicazione di esempio consente di inviare e ricevere messaggi di t
 
 L'esecuzione dell'applicazione produce un output nel formato seguente:
 
-	> java SimpleSenderReceiver
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+```
+> java SimpleSenderReceiver
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
-	Sent message with JMSMessageID = ID:2867600614942270318
-	Received message with JMSMessageID = ID:2867600614942270318
+Sent message with JMSMessageID = ID:2867600614942270318
+Received message with JMSMessageID = ID:2867600614942270318
 	
-	Sent message with JMSMessageID = ID:7578408152750301483
-	Received message with JMSMessageID = ID:7578408152750301483
+Sent message with JMSMessageID = ID:7578408152750301483
+Received message with JMSMessageID = ID:7578408152750301483
 	
-	Sent message with JMSMessageID = ID:956102171969368961
-	Received message with JMSMessageID = ID:956102171969368961
-	exit
+Sent message with JMSMessageID = ID:956102171969368961
+Received message with JMSMessageID = ID:956102171969368961
+exit
+```
 
 ## Messaggistica multipiattaforma tra JMS e .NET
 
@@ -297,21 +262,25 @@ Per verificare la messaggistica da JMS a .NET, eseguire la procedura seguente:
 
 #### Output dell'applicazione JMS
 
-	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
-	exit
+```
+> java SimpleSenderReceiver sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with JMSMessageID = ID:4364096528752411591
+Sent message with JMSMessageID = ID:459252991689389983
+Sent message with JMSMessageID = ID:1565011046230456854
+exit
+```
 
 #### Output dell'applicazione .NET
 
-	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
-	exit
+```
+> SimpleSenderReceiver.exe	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with MessageID = 4364096528752411591
+Received message with MessageID = 459252991689389983
+Received message with MessageID = 1565011046230456854
+exit
+```
 
 ### Da .NET a JMS
 
@@ -324,22 +293,25 @@ Per verificare la messaggistica da .NET a JMS, eseguire la procedura seguente:
 
 #### Output dell'applicazione .NET
 
-	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
-	exit
-
+```
+> SimpleSenderReceiver.exe sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 #### Output dell'applicazione JMS
 
-	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
-	exit
+```
+> java SimpleSenderReceiver	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 ## Funzionalità non supportate e restrizioni
 
@@ -366,4 +338,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

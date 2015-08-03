@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,12 +40,12 @@ Prima di tutto verrà configurato il modello di albero delle decisioni con boost
 
 1.	Trovare il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] nella tavolozza dei moduli e trascinarlo nell'area di disegno.
 2.	Trovare il modulo [Esegui training modello][train-model], trascinarlo nell'area di disegno, quindi connettere l'output del modulo dell'albero delle decisioni con boosting alla porta di input sinistra ("Modello senza training") del modulo [Training modello][train-model].
-3.	Connettere l'output del modulo [Esecuzione script R][execute-r-script] sinistro alla porta di input destra ("Set di dati") del modulo [Esegui training modello][train-model].
+3.	Connettere l'output sinistro ("Result Dataset") del modulo [Execute R Script][execute-r-script] sinistro alla porta di input destra ("Dataset") del modulo [Train Model][train-model].
 
 	> [AZURE.TIP]Due degli input e uno degli output del modulo [Execute R Script][execute-r-script] non sono necessari per questo esperimento, pertanto verranno lasciati scollegati. Questa situazione è alquanto frequente per alcuni moduli.
 
 
-4.	Selezionare il modulo [Esegui training modello][train-model]. Nel riquadro **Properties** fare clic su **Launch column selector**, selezionare **Include** nel primo elenco a discesa, selezionare **column indices** nel secondo elenco a discesa e immettere "21" nel campo di testo. È anche possibile selezionare **Column name** e immettere "Credit Risk". Questo identifica la colonna 21 come valore di rischio di credito, come la colonna in cui il modello calcolerà la previsione.
+4.	Selezionare il modulo [Esegui training modello][train-model]. Nel riquadro **Properties** fare clic su **Launch column selector**, selezionare **Include** nel primo elenco a discesa, selezionare **column indices** nel secondo elenco a discesa e immettere "21" nel campo di testo. È anche possibile selezionare **column names** e immettere "Credit Risk". Questo identifica la colonna 21 come valore di rischio di credito, come la colonna in cui il modello calcolerà la previsione.
 
 
 Questa parte dell'esperimento avrà ora un aspetto analogo al seguente:
@@ -63,7 +63,7 @@ Gli alberi delle decisioni con boosting funzionano bene con qualsiasi tipo di fu
 5.	Connettere l'input di questo modulo di trasformazione all'output del modulo [Esecuzione script R][execute-r-script] sinistro.
 6.	Connettere la porta di output sinistra ("Set di dati trasformato") del modulo di trasformazione alla porta di input destra ("Set di dati") del modulo [Esegui training modello][train-model].
 7.	Nel riquadro **Properties** relativo al modulo di trasformazione, scegliere **Tanh** per il parametro **Transformation method**.
-8.	Fare clic su **Launch column selector**, selezionare **Include** nel primo elenco a discesa, selezionare **column type** nel secondo elenco a discesa e selezionare **Numeric** nel terzo elenco a discesa. Questo specifica che tutte le colonne numeriche (ma solo quelle di questo tipo) verranno trasformate.
+8.	Fare clic su **Launch column selector**, selezionare "No columns" for **Begin With**, selezionare **Include** nel primo elenco a discesa, selezionare **column type** nel secondo elenco a discesa e selezionare **Numeric** nel terzo elenco a discesa. Questo specifica che tutte le colonne numeriche (ma solo quelle di questo tipo) verranno trasformate.
 9.	Fare clic sul segno più (+). Viene creata una nuova riga di elenchi a discesa. Selezionare **Exclude** nel primo elenco a discesa, selezionare **column indices** nel secondo elenco a discesa e immettere "21" nel campo di testo. Questo specifica che la colonna 21 (la colonna Credit Risk) verrà ignorata.
 10.	Fare clic su **OK**.  
 
@@ -79,7 +79,7 @@ Verranno usati i dati di assegnazione del punteggio separati dal modulo **Dividi
 
 1.	Trovare il modulo [Calcola punteggio modello][score-model] e trascinarlo nell'area di disegno.
 2.	Connettere la porta di input sinistra di questo modulo al modello di albero delle decisioni con boosting (connetterlo alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Albero delle decisioni con boosting a due classi][two-class-boosted-decision-tree]).
-3.	Connettere la porta di input destra del modulo [Calcola punteggio modello][score-model] all'output del modulo [Esecuzione script R][execute-r-script] destro. Si noti che è accettabile che l'output di un modulo sia diretto a più destinazioni.
+3.	Connettere la porta di input destra del modulo [Calcola punteggio modello][score-model] all'output del modulo [Esecuzione script R][execute-r-script] destro. 
 4.	Copiare e incollare il modulo [Calcola punteggio modello][score-model] per creare una seconda copia, oppure trascinare un nuovo modulo nell'area di disegno.
 5.	Connettere la porta di input sinistra di questo modulo al modello di macchina a vettori di supporto (connetterla alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Macchina a vettori di supporto a due classi][two-class-support-vector-machine]).
 6.	Per il modello SVM, è necessario eseguire la stessa trasformazione sui dati di test eseguita in precedenza sui dati di training. Copiare e incollare il modulo [Normalize Data][normalize-data] per creare una seconda copia e connetterla all'output del modulo [Execute R Script][execute-r-script] destro.
@@ -97,7 +97,7 @@ L'esperimento avrà ora un aspetto analogo al seguente:
  
 Fare clic sul pulsante **ESEGUI** sotto l'area di disegno per eseguire l'esperimento. L'operazione potrebbe richiedere alcuni minuti. Verrà visualizzato un indicatore rotante su ogni modulo per indicare che il modulo è in esecuzione, quindi un segno di spunta verde quando l'esecuzione di un modulo è terminata.
 
-Quando tutti i moduli presentano il segno di spunta, l'esecuzione dell'esperimento sarà completa. Per verificare i risultati, fare clic con il pulsante destro del mouse sulla porta di output del modulo [Valuta modello][evaluate-model] e selezionare **Visualizza**.
+Quando tutti i moduli presentano il segno di spunta, l'esecuzione dell'esperimento sarà completa. Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare **View Results**.
 
 Il modulo [Valuta modello][evaluate-model] produce un paio di curve e metriche che consentono di confrontare i risultati dei due modelli classificati. È possibile visualizzare i risultati come curve ROC (Receiver Operator Characteristic), curve precisione/recupero o curve di accuratezza. Altri dati visualizzati includono una matrice di confusione, valori cumulativi per l'area nella curva (AUC) e altra metrica. È possibile modificare il valore soglia spostando il dispositivo di scorrimento a sinistra o a destra e vedere come ciò influisce sul set della metrica.
 
@@ -134,4 +134,4 @@ Come ulteriore accorgimento per tenere traccia delle modifiche apportate ai para
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

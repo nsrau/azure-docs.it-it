@@ -23,4 +23,4 @@ Per poter autenticare gli utenti, è necessario registrare la propria app presso
 <!-- URLs. -->
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

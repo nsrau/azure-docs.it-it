@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
-	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
+	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
+	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -243,7 +243,7 @@ Se non si vuole che la sovrimpressione venga aggiunta all'attività e se non si 
 
 #### <a name="categories"></a> Categorie
 
-Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna di copertura, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
+Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna Reach, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
 
@@ -647,4 +647,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

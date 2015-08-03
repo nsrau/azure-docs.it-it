@@ -108,7 +108,7 @@ La configurazione di una connessione VPN Point-To-Site prevede tre passaggi:
 2. [Creare i certificati](#Create-your-certificates)
 3. [Configurare il client VPN](#Configure-your-VPN-client)
 
-Per altre informazioni, vedere [Configurare una connessione VPN Point-to-Site alla rete virtuale di Azure](https://msdn.microsoft.com/library/azure/dn133792.aspx).
+Per altre informazioni, vedere [Configurare una connessione VPN Point-to-Site alla rete virtuale di Azure](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
 #### Configurare una rete virtuale e un gateway di routing dinamico
 
@@ -216,7 +216,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
 2. Aprire/eseguire il file jar. È richiesto [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Fare clic su **Next** due volte.
 4. Specificare un percorso per cui si dispone dell'autorizzazione di scrittura e fare clic su **Next**.
-	>[AZURE.NOTE]La cartella di installazione predefinita è nella cartella c:\\Programmi\\Microsoft Files\\squirrel-sql-3.6. Per scrivere in questo percorso, al programma di installazione devono essere concessi i privilegi di amministratore. È possibile aprire un prompt dei comandi come amministratore, passare alla cartella bin di Java e quindi eseguire
+	>[AZURE.NOTE]La cartella di installazione predefinita è nella cartella c:\Programmi\Microsoft Files\squirrel-sql-3.6. Per scrivere in questo percorso, al programma di installazione devono essere concessi i privilegi di amministratore. È possibile aprire un prompt dei comandi come amministratore, passare alla cartella bin di Java e quindi eseguire
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Fare clic su **OK** per confermare la creazione della directory di destinazione.
@@ -306,4 +306,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

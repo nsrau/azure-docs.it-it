@@ -179,4 +179,4 @@ Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono pe
 
 - Per un dispositivo 8600, visitare[decompressione, rack e cavo del dispositivo 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

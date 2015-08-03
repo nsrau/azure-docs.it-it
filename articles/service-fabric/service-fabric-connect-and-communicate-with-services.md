@@ -58,4 +58,4 @@ Tutte le API di comunicazione di Service Fabric attualmente sono disponibili sol
 * [Stack di comunicazione basato su WCF per Reliable Services](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

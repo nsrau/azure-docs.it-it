@@ -84,7 +84,7 @@ Aggiornare una riga in una tabella dati. In questo esempio todoItem è l'element
 
 Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto [Promise]() restituito per ottenere una copia dell'oggetto inserito e gestire eventuali errori.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@ Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

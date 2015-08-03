@@ -91,4 +91,4 @@ Informazioni su come [ripristinare un volume StorSimple da un set di backup](sto
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

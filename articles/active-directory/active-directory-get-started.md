@@ -44,4 +44,4 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

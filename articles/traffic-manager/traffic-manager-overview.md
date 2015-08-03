@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# Panoramica di Gestione traffico
+# Gestione traffico di Azure
 
 Con Gestione traffico di Microsoft Azure è possibile controllare la distribuzione del traffico utente agli endpoint specificati, che possono includere servizi cloud, siti Web e altri endpoint di Azure. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. I servizi cloud o i siti Web Azure possono essere in esecuzione su differenti datacenter ubicati in aree geografiche diverse.
 
@@ -160,7 +160,7 @@ Per aggiungere un profilo di Gestione traffico come endpoint e configurare il nu
 
 Se si vogliono scaricare le figure presenti in questo argomento come diapositive di PowerPoint da usare per una presentazione su Gestione traffico o da modificare per altri scopi, vedere [Figure di Gestione traffico nella documentazione MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Vedere anche
+## Passaggi successivi
 
 [Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

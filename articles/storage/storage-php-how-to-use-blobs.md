@@ -305,4 +305,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio BLOB di Azure,
 [stream-get-contents]: http://www.php.net/stream_get_contents
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

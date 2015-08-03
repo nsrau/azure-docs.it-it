@@ -36,4 +36,4 @@ Si noti che, quando un servizio crea report sul carico, tali report sostituiscon
 Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

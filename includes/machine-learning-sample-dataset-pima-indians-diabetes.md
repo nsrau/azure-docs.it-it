@@ -1,3 +1,3 @@
 Sottoinsieme di dati del database del National Institute of Diabetes and Digestive and Kidney Diseases. Il set di dati è stato filtrato in modo da evidenziare solo i pazienti di genere femminile di etnia Pima. I dati includono dati medici, quali i livelli di glucosio e di insulina, oltre a fattori relativi allo stile di vita.<p> </p><b>Utilizzo:</b> prevedere se il soggetto è diabetico (classificazione binaria). <p> </p><b>Ricerca correlata:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

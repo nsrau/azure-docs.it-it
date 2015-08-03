@@ -305,7 +305,7 @@ Opzioni dei parametri:
 Il comando consente di elencare tutte le reti virtuali in un gruppo di risorse.
 
 
-	C:>azure network vnet list myresourcegroup
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Opzioni dei parametri:
 Imposta una subnet specifica della rete virtuale all'interno di un gruppo di risorse.
 
 
-	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Opzioni dei parametri:
 
 Elenca le proprietà di probe per un set di bilanciamento del carico.
 
-	C:>azure network lb probe list -g myresourcegroup -l mylb
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -1737,4 +1737,4 @@ Opzioni dei parametri:
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

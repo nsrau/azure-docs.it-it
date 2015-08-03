@@ -124,8 +124,8 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     #### MS_TableOperations
 
     | Attributo | Tipo |
-    |----------- |   ------    |
-    | id | Valore integer 64 |
+    |-------------- |   ------    |
+    | id (obbligatorio) | Valore integer 64 |
     | itemId | String |
     | properties | Dati binari |
     | tabella | String |
@@ -134,8 +134,8 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     #### MS_TableOperationErrors
 
     | Attributo | Tipo |
-    |------------ | ----------  |
-    | id | String |
+    |-------------- | ----------  |
+    | id (obbligatorio) | Stringa |
     | operationId | Valore integer 64 |
     | properties | Dati binari |
     | tableKind | Integer 16 |
@@ -144,8 +144,8 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
 
     | Attributo | Tipo |
-    |----------- | ----------  |
-    | id | String |
+    |-------------- | ----------  |
+    | id (obbligatorio) | Stringa |
     | key | String |
     | keyType | Valore integer 64 |
     | tabella | String |
@@ -155,14 +155,13 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     #### TodoItem
 
-    | Attributo | Tipo |
-    |-----------   |  ------ |
-    | id | String |
-    | complete | Boolean |
-    | text | String |
-    | ms_createdAt | Data |
-    | ms_updatedAt | Data |
-    | ms_version | String |
+    | Attributo | Tipo | Nota | 
+    |-------------- |  ------ | -------------------------------------------------------|
+    | id (obbligatorio) | Stringa | chiave primaria nell'archivio remoto (obbligatoria) |
+    | complete | Boolean | campo elemento ToDo |
+    | text | String | campo elemento ToDo |
+    | ms_createdAt | Data | (optional) maps to __createdAt system property | | ms_updatedAt | Date | (optional) maps to __updatedAt system property | | ms_version | String | (optional) used to detect conflicts, maps to __version |
+
 
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
@@ -191,7 +190,7 @@ In questa sezione si procederà alla modifica dell'app in modo che non esegua la
 
 In questa sezione si disattiverà il Wi-Fi nel simulatore per creare uno scenario offline. Quando si aggiungono elementi di dati, questi vengono conservati nell'archivio Core Data locale, ma non sincronizzati con il servizio mobile.
 
-1. Disattivare il Wi-Fi nel simulatore iOS. In questo modo viene simulato uno scenario offline.
+1. Disattivare la connessione Internet sul Mac. La disattivazione del WiFi solo nel simulatore iOS potrebbe non avere effetto, perché il simulatore potrebbe usare ancora la connessione Internet del Mac host. Disattivare quindi Internet per il computer. In questo modo viene simulato uno scenario offline.
 
 2. Aggiungere alcuni elementi todo o completare alcuni elementi. Uscire dal simulatore (o forzare la chiusura dell'app) e riavviare. Verificare che le modifiche siano state conservate. Si noti che gli elementi di dati vengono comunque visualizzati perché conservati nell'archivio Core Data locale.
 
@@ -272,4 +271,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -150,4 +150,4 @@ La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campa
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -165,7 +165,7 @@ Se si vuole caricare facilmente tutto il contenuto statico dell'applicazione Web
 		cd <ProjectFolder>
 		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<yourStorageAccountName>" -StorageContainer "<yourContainerName>"
 
-Questo script carica tutti i file dalle cartelle *\\Content* e *\\Scripts* nell'account di archiviazione e nel contenitore specificati. Lo script presenta i vantaggi seguenti:
+Questo script carica tutti i file dalle cartelle *\Content* e *\Scripts* nell'account di archiviazione e nel contenitore specificati. Lo script presenta i vantaggi seguenti:
 
 -	Replica automaticamente la struttura dei file del progetto di Visual Studio
 -	Crea automaticamente i contenitori BLOB a seconda delle esigenze
@@ -174,7 +174,7 @@ Questo script carica tutti i file dalle cartelle *\\Content* e *\\Scripts* nell'
 
 Per il parametro `-StorageContainer` è consigliabile usare il nome dell'applicazione Web o il nome del progetto di Visual Studio. Considerato che precedentemente è stato usato il nome generico "cdn" come nome del contenitore, se si usa il nome dell'applicazione Web è possibile organizzare il contenuto correlato nello stesso contenitore facilmente identificabile.
 
-Una volta terminato il caricamento del contenuto, è possibile collegarsi a qualsiasi elemento delle cartelle *\\Content* e *\\Scripts* nel codice HTML, come ad esempio nei file .cshtml, usando `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Di seguito è riportato un esempio di un elemento da poter usare in una visualizzazione Razor:
+Una volta terminato il caricamento del contenuto, è possibile collegarsi a qualsiasi elemento delle cartelle *\Content* e *\Scripts* nel codice HTML, come ad esempio nei file .cshtml, usando `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Di seguito è riportato un esempio di un elemento da poter usare in una visualizzazione Razor:
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
@@ -230,7 +230,7 @@ Lo stratagemma consiste quindi nell'aggiornare automaticamente il numero di vers
 
 &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>"; rel=";stylesheet";/&gt; </pre>
 
-Se si modifica il numero di assembly a ogni ciclo di pubblicazione, si potrà essere sicuri anche di ottenere un numero di versione univoco ogni volta che si pubblica l'app Web, che rimarrà uguale fino al successivo ciclo di pubblicazione. In alternativa, si può impostare Visual Studio in modo che incrementi automaticamente il numero di versione dell'assembly ogni volta che l'app Web viene compilata aprendo *Properties\\AssemblyInfo.cs* nel progetto di Visual Studio e usando `*` in `AssemblyVersion`. Ad esempio:
+Se si modifica il numero di assembly a ogni ciclo di pubblicazione, si potrà essere sicuri anche di ottenere un numero di versione univoco ogni volta che si pubblica l'app Web, che rimarrà uguale fino al successivo ciclo di pubblicazione. In alternativa, si può impostare Visual Studio in modo che incrementi automaticamente il numero di versione dell'assembly ogni volta che l'app Web viene compilata aprendo *Properties\AssemblyInfo.cs* nel progetto di Visual Studio e usando `*` in `AssemblyVersion`. Ad esempio:
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -261,4 +261,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

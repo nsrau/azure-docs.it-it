@@ -121,14 +121,14 @@ Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs
+	net use z: \samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Poiché sono state mantenute le credenziali dell'account di archiviazione nel passaggio precedente, non è necessario inserirle con il comando `net use`. Se le credenziali non sono state mantenute, inserirle come parametro passato al comando `net use`.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli spazi dei nomi [System.IO] (http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in .NET Framework.
 
@@ -237,4 +237,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

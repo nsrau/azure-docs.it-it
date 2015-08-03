@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Creazione di una macchina virtuale Oracle WebLogic Server 12c in Azure" description="Seguire un esempio di creazione di una macchina virtuale Oracle WebLogic Server 12c in esecuzione su Windows Server 2012 in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Creazione di una macchina virtuale Oracle WebLogic Server 12c in Azure" 
+	description="Seguire un esempio di creazione di una macchina virtuale Oracle WebLogic Server 12c in esecuzione su Windows Server 2012 in Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Creazione di una macchina virtuale Oracle WebLogic Server 12c in Azure
 Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su un'immagine Oracle WebLogic Server 12c fornita da Microsoft in esecuzione su Windows Server 2012 in Azure.
 
@@ -86,13 +100,13 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 15.	Viene avviato un prompt dei comandi per **startWebLogic.cmd**. Quando richiesto, fornire il nome utente e la password WebLogic.
 
 ##Installazione di un’applicazione su una macchina virtuale Oracle WebLogic Server 12c in Azure
-1.	Dopo aver effettuato l’accesso alla macchina virtuale, copiare l'esempio di shoppingcart.war disponibile all'indirizzo http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war in locale. Ad esempio, creare una cartella denominata **c:\\mywar** e salvare il file WAR in http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war su **c:\\mywar**.
+1.	Dopo aver effettuato l’accesso alla macchina virtuale, copiare l'esempio di shoppingcart.war disponibile all'indirizzo http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war in locale. Ad esempio, creare una cartella denominata **c:\mywar** e salvare il file WAR in http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war su **c:\mywar**.
 
 2.	Aprile la **Console di amministrazione di WebLogic Server**, http://localhost:7001/console. Quando richiesto, fornire il nome utente e la password WebLogic.
 
 3.	All'interno della **Console di amministrazione di WebLogic Server**, fare clic su **Blocca e modifica**, su **Distribuzioni**, quindi su **Installa**.
 
-4.	Per **Percorso**, digitare **c:\\mywar\\shoppingcart.war**.
+4.	Per **Percorso**, digitare **c:\mywar\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
@@ -168,4 +182,4 @@ Dopo aver configurato la macchina virtuale che esegue Oracle WebLogic Server, ve
 
 -	[Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

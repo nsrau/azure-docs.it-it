@@ -74,4 +74,4 @@ Poiché nell'esempio precedente è stata aperta la porta SSH predefinita, la con
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

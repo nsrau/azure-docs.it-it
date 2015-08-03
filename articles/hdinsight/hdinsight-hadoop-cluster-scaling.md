@@ -145,4 +145,4 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 Per altre informazioni sull'uso di HDInsight .NET SDK, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

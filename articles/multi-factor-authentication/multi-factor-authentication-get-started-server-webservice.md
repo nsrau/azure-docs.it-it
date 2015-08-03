@@ -44,7 +44,7 @@ Per installare il portale utente su un server diverso da Azure Multi-Factor Auth
 
 ## Installare SDK servizio Web
 
-Se l'SDK servizio Web Azure Multi-Factor Authentication non è già installato nel server Azure Multi-Factor Authentication, accedere al server e aprire il server Azure Multi-Factor Authentication. Fare clic sull'icona SDK servizio Web, fare clic sul pulsante Installa SDK servizio Web... e seguire le istruzioni visualizzate. SDK servizio Web deve essere protetto con un certificato SSL. Un certificato autofirmato è accettabile per questo scopo, ma deve essere importato nell'archivio "Autorità di certificazione radice disponibile nell'elenco locale" dell'account del computer locale sul server Web del portale utenti per poter essere considerato attendibile all'avvio della connessione SSL.
+Se l'SDK del servizio Web Azure Multi-Factor Authentication non è già installato nel server Azure Multi-Factor Authentication, accedere al server e aprire il server Azure Multi-Factor Authentication. Fare clic sull'icona SDK servizio Web, fare clic sul pulsante Installa SDK servizio Web... e seguire le istruzioni visualizzate. L'SDK servizio Web deve essere protetto con un certificato SSL. Un certificato autofirmato è accettabile per questo scopo, ma deve essere importato nell'archivio "Autorità di certificazione radice disponibile nell'elenco locale" dell'account del computer locale sul server Web del portale utenti per poter essere considerato attendibile all'avvio della connessione SSL.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
@@ -60,7 +60,7 @@ Prima di installare il servizio Web app per dispositivi mobili, tenere presente 
 <ol>
 <li>Aprire Esplora risorse sul server Azure Multi-Factor Authentication e andare alla cartella in cui è installato il server Azure Multi-Factor Authentication (ad esempio, C:\Program Files\Azure Multi-Factor Authentication). Scegliere la versione a 32 bit o 64 bit del file di installazione Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup come appropriato per il server in cui verrà installato il servizio Web app per dispositivi mobili. Copiare il file di installazione nel server con connessione Internet.</li>
 
-<li>Sul server Web con connessione Internet, è necessario eseguire il file di installazione con diritti di amministratore. Il modo più semplice per eseguire questa operazione consiste nell'aprire un prompt dei comandi come amministratore e andare al percorso in cui è stato copiato il file di installazione.</li>
+<li>Sul server Web connesso a Internet, è necessario eseguire il file di installazione con diritti di amministratore. Il modo più semplice per eseguire questa operazione consiste nell'aprire un prompt dei comandi come amministratore e andare al percorso in cui è stato copiato il file di installazione.</li>
 
 <li>Eseguire il file di installazione Multi-Factor AuthenticationMobileAppWebServiceSetup, se lo si desidera modificare il sito e assegnare alla directory virtuale un nome breve, ad esempio "PA". Un nome della directory virtuale breve è consigliato poiché gli utenti devono immettere l'URL del servizio Web app per dispositivi mobili nel dispositivo mobile durante l'attivazione.</li>
 
@@ -89,4 +89,4 @@ Il servizio Web app per dispositivi mobili è ora installato. È necessario conf
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

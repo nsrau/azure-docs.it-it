@@ -210,4 +210,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

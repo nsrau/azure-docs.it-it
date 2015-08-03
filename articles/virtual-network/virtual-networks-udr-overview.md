@@ -90,4 +90,4 @@ Per informazioni su come abilitare l’inoltro IP per una macchina virtuale in A
 - Visualizzare le informazioni su come[creare route](../virtual-networks-udr-how-to#How-to-manage-routes)e associarle alle subnet.
 - Visualizzare le informazioni su come[attivare l'inoltro IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)per una macchina virtuale in esecuzione su un dispositivo virtuale. 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

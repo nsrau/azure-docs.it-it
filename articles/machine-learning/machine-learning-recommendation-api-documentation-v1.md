@@ -12,14 +12,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/17/2015" 
 	ms.author="v-ahgumn"/>
 
 
 #Documentazione relativa all'API Recommendations di Azure Machine Learning
 
-Versione: 1.0<br>
-La versione più recente è disponibile [qui](machine-learning-recommendation-api-documentation.md)
+Versione: 1.0<br> La versione più recente è disponibile [qui](machine-learning-recommendation-api-documentation.md)
 
 Questo documenta illustra le API Recommendations di Azure ML.
 
@@ -75,8 +74,7 @@ Creazione di una richiesta "crea modello":
 |:--------			|:--------								|
 |	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 20 |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -126,8 +124,7 @@ Creazione di una richiesta "ottieni modello":
 |:--------			|:--------								|
 |	id |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -188,8 +185,7 @@ Consente di recuperare tutti i modelli dell'utente corrente
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -245,9 +241,7 @@ XML OData
 
 ###4.4. Aggiornare il modello
 
-È possibile aggiornare la descrizione del modello o l'ID compilazione attivo.<br>
-<ins>ID compilazione attivo</ins>: a ogni compilazione relativa a ciascun modello viene assegnato un "ID compilazione". Con "ID compilazione" attivo si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attivo si eseguono altre compilazioni per lo stesso modello, è consigliabile impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br>
-Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
+È possibile aggiornare la descrizione del modello o l'ID compilazione attivo.<br> <ins>ID compilazione attivo</ins>: a ogni compilazione relativa a ciascun modello viene assegnato un "ID compilazione". Con "ID compilazione" attivo si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attivo si eseguono altre compilazioni per lo stesso modello, è consigliabile impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br> Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
 
 | Metodo HTTP | URI |
@@ -258,8 +252,7 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 |:--------			|:--------								|
 |	id | Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenere presente che i tag xml Description e ActiveBuildId sono opzionali. Se si preferisce non impostare Description o ActiveBuildId, rimuovere l'intero tag.|
+||| | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenere presente che i tag xml Description e ActiveBuildId sono opzionali. Se si preferisce non impostare Description o ActiveBuildId, rimuovere l'intero tag.|
 
 **Risposta**:
 
@@ -276,8 +269,7 @@ Eliminare un modello esistente in base all'ID
 |:--------			|:--------								|
 |	id |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -318,8 +310,7 @@ Questa API restituisce informazioni statistiche sui dati di utilizzo su cui è b
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -327,14 +318,9 @@ Codice stato HTTP: 200
 
 XML OData
 
-I dati vengono restituiti come una raccolta di:
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+I dati vengono restituiti come una raccolta di: <pre> feed/entry/id/content/properties/key feed/entry/id/content/properties/value </pre>
 
-Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato
-	<table> <tr> <th>Chiave</th> <th>Descrizione</th> </tr> <tr> <td>AvgItemLength</td> <td>Numero medio di utenti distinti per elemento</td> </tr> <tr> <td>AvgUserLength</td> <td>Numero medio di elementi distinti per utente</td> </tr> <tr> <td>DensificationNumberOfItems</td> <td>Numero di elementi dopo l’eliminazione di quelli che non possono essere modellati</td> </tr> <tr> <td>DensificationNumberOfUsers</td> <td>Numero di punti di utilizzo dopo l’eliminazione degli utenti e degli elementi che non possono essere modellati</td> </tr> <tr> <td>DensificationNumberOfRecords</td> <td>Numero di punti di utilizzo dopo l’eliminazione degli utenti e degli elementi che non possono essere modellati</td> </tr> <tr> <td>MaxItemLength</td> <td>Numero di utenti distinti per l’elemento più diffuso</td> </tr> <tr> <td>MaxUserLength</td> <td>Numero massimo di elementi distinti per utente</td> </tr> <tr> <td>MinItemLength</td> <td>Numero massimo di utenti distinti per elemento</td> </tr> <tr> <td>MinUserLength</td> <td>Numero minimo di elementi distinti per utente</td> </tr> <tr> <td>RawNumberOfItems</td> <td>Numero di elementi prima dell’eliminazione di quelli che non possono essere modellati</td> </tr> <tr> <td>RawNumberOfUsers</td> <td>Numero di punti di utilizzo prima di qualsiasi eliminazione</td> </tr> <tr> <td>RawNumberOfRecords</td> <td>Numero di punti di utilizzo dopo qualsiasi eliminazione</td> </tr> <tr> <td>SampelingNumberOfItems</td> <td>Se la funzionalità di campionamento è attivata, numero di elementi inclusi nel campione. In caso contrario, ignorare</td> </tr> <tr> <td>SampelingNumberOfRecords</td> <td>Se la funzionalità di campionamento è attivata, numero di punti utente nel campione. In caso contrario, ignorare</td> </tr> <tr> <td>SampelingNumberOfUsers</td> <td>Se la funzionalità di campionamento è attivata, numero di punti utente nel campione. In caso contrario, ignorare</td> </tr> </table>
+Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato <table> <tr> <th>Chiave</th> <th>Descrizione</th> </tr> <tr> <td>AvgItemLength</td> <td>Numero medio di utenti distinti per elemento</td> </tr> <tr> <td>AvgUserLength</td> <td>Numero medio di elementi distinti per utente</td> </tr> <tr> <td>DensificationNumberOfItems</td> <td>Numero di elementi dopo l’eliminazione di quelli che non possono essere modellati</td> </tr> <tr> <td>DensificationNumberOfUsers</td> <td>Numero di punti di utilizzo dopo l’eliminazione degli utenti e degli elementi che non possono essere modellati</td> </tr> <tr> <td>DensificationNumberOfRecords</td> <td>Numero di punti di utilizzo dopo l’eliminazione degli utenti e degli elementi che non possono essere modellati</td> </tr> <tr> <td>MaxItemLength</td> <td>Numero di utenti distinti per l’elemento più diffuso</td> </tr> <tr> <td>MaxUserLength</td> <td>Numero massimo di elementi distinti per utente</td> </tr> <tr> <td>MinItemLength</td> <td>Numero massimo di utenti distinti per elemento</td> </tr> <tr> <td>MinUserLength</td> <td>Numero minimo di elementi distinti per utente</td> </tr> <tr> <td>RawNumberOfItems</td> <td>Numero di elementi prima dell’eliminazione di quelli che non possono essere modellati</td> </tr> <tr> <td>RawNumberOfUsers</td> <td>Numero di punti di utilizzo prima di qualsiasi eliminazione</td> </tr> <tr> <td>RawNumberOfRecords</td> <td>Numero di punti di utilizzo dopo qualsiasi eliminazione</td> </tr> <tr> <td>SampelingNumberOfItems</td> <td>Se la funzionalità di campionamento è attivata, numero di elementi inclusi nel campione. In caso contrario, ignorare</td> </tr> <tr> <td>SampelingNumberOfRecords</td> <td>Se la funzionalità di campionamento è attivata, numero di punti utente nel campione. In caso contrario, ignorare</td> </tr> <tr> <td>SampelingNumberOfUsers</td> <td>Se la funzionalità di campionamento è attivata, numero di punti utente nel campione. In caso contrario, ignorare</td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -537,8 +523,7 @@ Questa API restituisce informazioni dettagliate sul modello nella compilazione a
 |	modelId |	Identificatore univoco del modello. |
 |	buildId |	Facoltativo: numero che identifica una compilazione completata. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -546,14 +531,9 @@ Codice stato HTTP: 200
 
 XML OData
 
-I dati vengono restituiti come una raccolta di:
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+I dati vengono restituiti come una raccolta di: <pre> feed/entry/id/content/properties/key feed/entry/id/content/properties/value </pre>
 
-Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato
-	<table> <tr> <th>Chiave</th> <th>Descrizione</th> </tr> <tr> <td>CatalogCoverage</td> <td>Parte del catalogo che può essere modellata mediante modelli di utilizzo. I restanti elementi dovranno essere gestiti mediante funzionalità basate sul contenuto</td> </tr> <tr> <td>Mpr</td> <td>Classificazione percentile media del modello. Più il valore è basso, meglio è.</td> </tr> <tr> <td>NumberOfDimensions</td> <td>Numero di dimensioni usate dall'algoritmo di fattorizzazione di matrice</td> </tr> </table>
+Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato <table> <tr> <th>Chiave</th> <th>Descrizione</th> </tr> <tr> <td>CatalogCoverage</td> <td>Parte del catalogo che può essere modellata mediante modelli di utilizzo. I restanti elementi dovranno essere gestiti mediante funzionalità basate sul contenuto</td> </tr> <tr> <td>Mpr</td> <td>Classificazione percentile media del modello. Più il valore è basso, meglio è.</td> </tr> <tr> <td>NumberOfDimensions</td> <td>Numero di dimensioni usate dall'algoritmo di fattorizzazione di matrice</td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -611,141 +591,20 @@ Consente di ottenere un esempio del modello di raccomandazione.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-OData XML<br>
-La risposta viene restituita in un formato di testo non elaborato
-<pre>
+OData XML<br> La risposta viene restituita in un formato di testo non elaborato <pre>
 Level 1
 ---------------
-655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel
-	655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel Rating: 0.5215
-	3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War Rating: 0.5151
-	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5148
-	6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica Rating: 0.5146
-	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.514
-56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai
-	56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai Rating: 0.5218
-	53156702-cc0c-443d-b718-6fb74b2491d3, Son of \ Rating: 0.5212
-	fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188
-	8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) Rating: 0.5156
-	d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel Rating: 0.5156
-50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
-	cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244
-	e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227
-	6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel Rating: 0.5222
-5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
-	5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537
-	5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277
-	bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275
-	31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks Rating: 0.5252
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived
-	68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
-	6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345
-	cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325
-	382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309
-	6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285
-37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
-	37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
-	f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207
-	ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195
-	0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194
-	883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) Rating: 0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball
-	d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II Rating: 0.5416
-	ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball Rating: 0.5403
-	49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
-	cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
-	8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
-12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
-	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417
-	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416
-	1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371
-	56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366
-	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366
-df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
-	56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417
-	0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416
-	df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408
-	400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383
-	f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358
-de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
-	de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422
-	b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385
-	34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379
-	306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376
-	e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
+655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel Rating: 0.5215 3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War Rating: 0.5151 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5148 6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica Rating: 0.5146 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.514 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai Rating: 0.5218 53156702-cc0c-443d-b718-6fb74b2491d3, Son of \ Rating: 0.5212 fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188 8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) Rating: 0.5156 d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel Rating: 0.5156 50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244 e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227 6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel Rating: 0.5222 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537 5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277 bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275 31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks Rating: 0.5252 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5238 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379 6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345 cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325 382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309 6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397 f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207 ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195 0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194 883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) Rating: 0.5184 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II Rating: 0.5416 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball Rating: 0.5403 49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394 cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379 8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416 1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371 56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417 0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408 400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383 f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358 de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422 b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385 34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379 306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376 e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
 
 Level 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
-	352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425
-	74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387
-	9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372
-	e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353
-	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332
-c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5433
-	c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543
-	a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
-	6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
-	798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
-73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-	cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434
-	5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406
-	73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
-	d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
-	b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings
-	271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings Rating: 0.5445
-	2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
-	d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316
-	c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
-	8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289
-9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
-	9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446
-	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389
-	65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387
-	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344
-5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
-	5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
-	57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332
-	efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329
-	1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309
-	24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303
-4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
-	4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449
-	cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329
-	19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267
-	15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235
-98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
-	f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451
-	98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442
-	0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421
-	15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409
-	329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54
-5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover))
-	5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372
-	604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341
-	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334
-	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319
-d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
-	d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491
-	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401
-	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393
-	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382
-	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425 74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387 9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372 e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5433 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543 a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327 6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307 798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434 5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403 d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539 b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings Rating: 0.5445 2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329 d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316 c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305 8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389 65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446 57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332 efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329 1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309 24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449 cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329 19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267 15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442 0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421 15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409 329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372 604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
 
 </pre>
 
@@ -762,8 +621,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -818,8 +676,7 @@ XML OData
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| Corpo richiesta Body | <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+||| | Corpo richiesta Body | <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
 Codice stato HTTP: 200
 
@@ -861,8 +718,7 @@ XML OData
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -878,8 +734,7 @@ Codice stato HTTP: 200
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -900,8 +755,7 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | Dati del catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+||| | Corpo della richiesta | Dati del catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Risposta**:
@@ -945,8 +799,7 @@ Consente di recuperare tutti gli elementi del catalogo
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1047,8 +900,7 @@ XML OData
 |	modelId |	Identificatore univoco del modello. |
 |	token |	Token del nome dell'elemento del catalogo. Deve contenere almeno tre caratteri. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1104,8 +956,7 @@ Queste sezioni mostrano come caricare dati di utilizzo usando un file. È possib
 |	modelId |	Identificatore univoco del modello. |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima file: 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -1256,8 +1107,7 @@ Consente di recuperare i metadati di tutti i file di utilizzo del modello
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
 |	apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1322,8 +1172,7 @@ Consente di ottenere statistiche sull'utilizzo:
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1406,32 +1255,13 @@ Consente di recuperare i primi 2 KB dei contenuto del flie di utilizzo:
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di utilizzo del modello. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-OData XML<br>
-La risposta viene fornita in un formato testo non elaborato:<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-</pre>
-
+OData XML<br> La risposta viene fornita in un formato testo non elaborato:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 ###8.5. Ottenere il file di dati di utilizzo del modello
 Consente di recuperare l'intero contenuto del file:
@@ -1446,49 +1276,13 @@ Consente di recuperare l'intero contenuto del file:
 | fid |	Identificatore univoco del file di utilizzo del modello. |
 | download | 1 |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-OData XML<br>
-La risposta viene restituita in un formato di testo non elaborato:<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-</pre>
+OData XML<br> La risposta viene restituita in un formato di testo non elaborato:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
 ###8.6. Eliminare il file di dati di utilizzo
 Consente di eliminare un file di utilizzo del modello specifico
@@ -1502,8 +1296,7 @@ Consente di eliminare un file di utilizzo del modello specifico
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1521,8 +1314,7 @@ Consente di eliminare tutti i file di utilizzo del modello
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1541,8 +1333,7 @@ Codice stato HTTP: 200
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti<br><br>Per impostare i parametri della compilazione, inviare il seguente codice XML nel corpo (per una descrizione dei parametri, vedere la sezione Ottenere i parametri della compilazione):<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
+||| | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti<br><br>Per impostare i parametri della compilazione, inviare il seguente codice XML nel corpo (per una descrizione dei parametri, vedere la sezione Ottenere i parametri della compilazione):<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
 
 **Risposta**:
 
@@ -1809,16 +1600,9 @@ Codice stato HTTP: 200
 
 XML OData
 
-Raccolta di elementi chiave/valore, ciascuno dei quali contenente un parametro:
-<pre>
-Chiave:
-	feed/entry/content/properties/Key – Nome parametro compilazione
-Valore:
-	feed/entry/content/properties/Value – Nome parametro compilazione
-</pre>
+Raccolta di elementi chiave/valore, ciascuno dei quali contenente un parametro: <pre> Chiave: feed/entry/content/properties/Key – Nome parametro compilazione Valore: feed/entry/content/properties/Value – Nome parametro compilazione </pre>
 
-Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato
-	<table> <tr> <th>Chiave</th> <th>Descrizione</th> <th>Tipo</th> <th>Valore valido</th> </tr> <tr> <td>NumberOfModelIterations</td> <td>Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore.</td> <td>Numero intero</td> <td>10-50</td> </tr> <tr> <td>NumberOfModelDimensions</td> <td>Il numero di dimensioni è correlato al numero di 'funzionalità' che il modello tenterà di trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni, tuttavia, impediranno al modello di trovare correlazioni tra gli elementi.</td> <td>Numero intero</td> <td>10-40</td> </tr> <tr> <td>MinItemAppearance</td> <td>Consente di controllare il numero minimo di occorrenze di un elemento non incluso nel modello. Più alta è la soglia, migliori saranno i risultati ottenuti dal modello. Se, tuttavia, la soglia è troppo alta, si potrebbe avere un numero di elementi insufficiente per l'uso.</td> <td>Numero intero</td> <td>0 o più</td> </tr> <tr> <td>MinUserAppearance</td> <td>Consente di controllare il numero minimo di occorrenze di un utente non incluso nel modello. Più alta è la soglia, migliori saranno i risultati ottenuti dal modello. Se, tuttavia, la soglia è troppo alta, si potrebbe avere un numero di elementi insufficiente per l'uso o nessuna indicazione per un utente specifico.</td> <td>Numero intero</td> <td>0-20</td> </tr> <tr> <td>Descrizione</td> <td>Descrizione della compilazione</td> <td>Stringa</td> <td>Qualsiasi testo, lunghezza massima 255 caratteri</td> </tr> <tr> <td>UseFeaturesInModel</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>AllowColdItemPlacement</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>EnableFeatureCorrelation</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>RefreshFeatureScoreOnBuild</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ComputeUpd</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>EnableModelingInsights</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ModelingFeatureList</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ReasoningFeatureList</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> </table>
+Nella tabella seguente, per ogni chiave viene indicato il valore rappresentato <table> <tr> <th>Chiave</th> <th>Descrizione</th> <th>Tipo</th> <th>Valore valido</th> </tr> <tr> <td>NumberOfModelIterations</td> <td>Il numero di iterazioni eseguite dal modello viene riflesso dal tempo di calcolo complessivo e dall'accuratezza del modello. A un numero più alto corrisponderà una migliore accuratezza, ma il tempo di calcolo sarà maggiore.</td> <td>Numero intero</td> <td>10-50</td> </tr> <tr> <td>NumberOfModelDimensions</td> <td>Il numero di dimensioni è correlato al numero di 'funzionalità' che il modello tenterà di trovare nei dati. L'aumento del numero di dimensioni consentirà l'ottimizzazione dei risultati in cluster più piccoli. Troppe dimensioni, tuttavia, impediranno al modello di trovare correlazioni tra gli elementi.</td> <td>Numero intero</td> <td>10-40</td> </tr> <tr> <td>MinItemAppearance</td> <td>Consente di controllare il numero minimo di occorrenze di un elemento non incluso nel modello. Più alta è la soglia, migliori saranno i risultati ottenuti dal modello. Se, tuttavia, la soglia è troppo alta, si potrebbe avere un numero di elementi insufficiente per l'uso.</td> <td>Numero intero</td> <td>0 o più</td> </tr> <tr> <td>MinUserAppearance</td> <td>Consente di controllare il numero minimo di occorrenze di un utente non incluso nel modello. Più alta è la soglia, migliori saranno i risultati ottenuti dal modello. Se, tuttavia, la soglia è troppo alta, si potrebbe avere un numero di elementi insufficiente per l'uso o nessuna indicazione per un utente specifico.</td> <td>Numero intero</td> <td>0-20</td> </tr> <tr> <td>Descrizione</td> <td>Descrizione della compilazione</td> <td>Stringa</td> <td>Qualsiasi testo, lunghezza massima 255 caratteri</td> </tr> <tr> <td>UseFeaturesInModel</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>AllowColdItemPlacement</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>EnableFeatureCorrelation</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>RefreshFeatureScoreOnBuild</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ComputeUpd</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>EnableModelingInsights</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ModelingFeatureList</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> <tr> <td>ReasoningFeatureList</td> <td>Per uso futuro</td> <td></td> <td></td> </tr> </table>
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -2164,10 +1948,7 @@ XML OData
 	</feed>
 
 ##11. Notifiche
-L'API Recommendations di Azure ML crea una notifica quando nel sistema si verificano continui errori. Sono disponibili tre tipi di notifica.
-1.	Errore di compilazione: questa notifica viene attivata per ogni errore di compilazione.
-2.	Errore di elaborazione dell'acquisizione dati: questa notifica viene attivata quando, durante l'elaborazione degli eventi di utilizzo per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti.
-3.	Errore di utilizzo delle raccomandazioni: questa notifica viene attivata quando, durante l'elaborazione delle richieste di raccomandazione per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti.
+L'API Recommendations di Azure ML crea una notifica quando nel sistema si verificano continui errori. Sono disponibili tre tipi di notifica. 1. Errore di compilazione: questa notifica viene attivata per ogni errore di compilazione. 2. Errore di elaborazione dell'acquisizione dati: questa notifica viene attivata quando, durante l'elaborazione degli eventi di utilizzo per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti. 3. Errore di utilizzo delle raccomandazioni: questa notifica viene attivata quando, durante l'elaborazione delle richieste di raccomandazione per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti.
 
 
 ###11.1. Ottenere notifiche
@@ -2182,8 +1963,7 @@ Consente di recuperare tutte le notifiche relative a tutti i modelli o a un sing
 |:--------			|:--------								|
 | modelId | Parametro facoltativo: se omesso, vengono restituite tutte le notifiche relative a tutti i modelli. <br>Valore valido: identificatore univoco del modello.|
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta:**
 
@@ -2234,8 +2014,7 @@ Consente di eliminare tutte le notifiche di lettura relative a un modello
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello. |
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -2252,8 +2031,7 @@ Consente di eliminare tutte le notifiche relative a tutti i modelli
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | apiVersion | 1.0 |
-|||
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -2262,4 +2040,4 @@ Codice stato HTTP: 200
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

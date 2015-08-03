@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/17/2015" 
 	ms.author="sidneyh"/>
 
 
@@ -31,7 +31,7 @@ Un **account di Microsoft Azure**. Per una versione di valutazione gratuita, ved
 
 Scaricare [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx) (Per ulteriori informazioni sullo strumento, vedere [SQL Server Management Studio - note sulla versione di giugno 2015](https://msdn.microsoft.com/library/mt238486.aspx)).
 
-Un server esistente nel database SQL di Azure. Per istruzioni sulla creazione di un nuovo database (in un nuovo server), vedere [Creazione del primo database SQL di Azure](sql-database-get-started.md).
+Un **server di Database SQL Azure**esistente. Per creare un server, è necessario creare almeno un database. Quando si crea un database, è possibile scegliere di crearlo su un nuovo server o su un server esistente. Per istruzioni sulla creazione di un nuovo database (in un nuovo server), vedere [Creazione del primo database SQL di Azure](sql-database-get-started.md).
 
 ## Creare il database school su un server locale
 
@@ -539,7 +539,7 @@ Il database locale appena creato può essere esportato in Azure. In seguito, una
 	
 ## Distribuzione del database in Azure SQL 
 	
-1. In Management Studio, fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Tasks** e quindi fare clic su **Deploy Database to Microsoft Azure SQL Database**.
+1. In Management Studio, fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Attività** e quindi fare clic su **Distribuisci database a database SQL di Microsoft Azure**.
 2. In **Impostazioni di distribuzione** immettere un nome per il database, ad esempio *school*.
 5. Fare clic su **Connect**. Per risolvere problemi relativi alla connettività, provare questa [risoluzione dei problemi](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 6. In **Nome server** immettere il nome del server composto da 10 caratteri, seguito da **.database.windows.net**
@@ -555,14 +555,14 @@ Il database locale appena creato può essere esportato in Azure. In seguito, una
 	
 ## Procedura: verificare la distribuzione del database
 	
-1. In Management Studio, in **Esplora oggetti**, fare clic sull’icona **Connect**.
+1. In Management Studio, in **Esplora oggetti**, fare clic sull’icona **Connetti**.
 2. Nella casella del nome **Server**, digitare il nome del server SQL di Azure, seguito da **database.windows.net**
 3. In **Autenticazione**, selezionare **Autenticazione di SQL Server**.
 4. Immettere il nome dell'account di accesso e la password dell’amministratore creato durante il provisioning del server. 
 5. Fare clic sul pulsante **Opzioni**.
 6. Scegliere l’elenco a discesa **Connetti al database** e fare clic su **Sfoglia server**. Nella finestra di dialogo seguente, fare clic su **Sì** per consentire l'esplorazione del server.
 7. Scegliere il database **school** per selezionarla, quindi fare clic su **OK**. 
-8. Fare clic su **Connect**. Per risolvere problemi relativi alla connettività, provare questa [risoluzione dei problemi](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+8. Fare clic su **Connetti**. Per risolvere problemi relativi alla connettività, provare questa [risoluzione dei problemi](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Espandere la cartella **Database**. Verrà visualizzato il database **school** nell'elenco.
 
 	**Nota** È necessario connettersi al database su cui si desidera eseguire una query. 
@@ -593,4 +593,4 @@ Per un'esercitazione sulla creazione di un nuovo database SQL Azure, vedere [Int
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

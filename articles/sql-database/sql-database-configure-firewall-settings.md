@@ -47,7 +47,7 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 
 ## Gestione delle regole del firewall a livello di server tramite il Portale di gestione 
 
-1. Nel Portale di gestione fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
+1. Nel Portale di gestione fare clic su **Database SQL** Di seguito sono elencati tutti i database e i server corrispondenti.
 1. Fare clic su **Servers** nella parte superiore della pagina.
 2. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
 3. Fare clic su **Configure** nella parte superiore della pagina.
@@ -144,4 +144,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

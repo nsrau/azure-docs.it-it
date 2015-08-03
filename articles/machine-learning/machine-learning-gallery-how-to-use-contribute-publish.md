@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -58,7 +58,9 @@ A tale scopo, seguire questa procedura:
 
 - Accedere a Studio usando il proprio account Microsoft (accertarsi che il nome e l'immagine del profilo presenti nelle impostazioni dell'account Microsoft siano quelli che si desidera mostrare)
 - Creare l'esperimento ed eseguirlo
-- Quando l'esperimento è pronto per essere pubblicato nella raccolta, fare clic su "Publish to Gallery" nella barra di colore nero inferiore di Studio. ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Buon lavoro.
+- Quando l'esperimento è pronto per essere pubblicato nella raccolta, fare clic su "Publish to Gallery" nella barra di colore nero inferiore di Studio. ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
+pronta per essere usata.
 
 ## Esprimere un'opinione. 
 La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Per specificare gli aspetti della raccolta che più si apprezzano o che si ritiene possano essere migliorati, è possibile usare gli emoticon.
@@ -111,4 +113,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 **[VAI ALLA RACCOLTA >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

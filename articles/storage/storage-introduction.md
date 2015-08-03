@@ -224,4 +224,4 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

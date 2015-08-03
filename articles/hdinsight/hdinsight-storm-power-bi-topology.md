@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/28/2015"
+ ms.date="07/17/2015"
  ms.author="larryfr"/>
 
 # Usare Power BI (anteprima) per visualizzare i dati provenienti da una topologia Apache Storm
@@ -137,6 +137,5 @@ La topologia rimarrà in esecuzione fino all'arresto o all'eliminazione del clus
 In questo documento è stato illustrato come inviare dati da una topologia Storm a Power BI mediante REST. Per informazioni su come usare altre tecnologie di Azure, vedere l'articolo seguente:
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

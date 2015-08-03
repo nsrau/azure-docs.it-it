@@ -20,7 +20,7 @@
 
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
 
-##<a id="assets"></a>Asset\\Archiviazione
+##<a id="assets"></a>Asset\Archiviazione
 
 ###Asset
 
@@ -79,13 +79,13 @@ Si noti che l'autorizzazione di elenco (AccessPermissions.List) non deve essere 
 
 l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Un account di Servizi multimediali può essere associato a uno o più account di archiviazione. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 500TB per ogni account di archiviazione. In Servizi multimediali sono disponibili strumenti di SDK che consentono di gestire più account di archiviazione e di bilanciare il carico della distribuzione degli asset durante il caricamento negli account in base a metriche specifiche oppure secondo una distribuzione casuale. Per altre informazioni, vedere Uso di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-##Processi\\Attività
+##Processi\Attività
 
 Un'entità [Job](https://msdn.microsoft.com/library/azure/hh974289.aspx) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
 
 Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://msdn.microsoft.com/library/azure/hh974286.aspx) che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
 
-##<a id="encoding"></a>Codifica\\Creazione di pacchetti
+##<a id="encoding"></a>Codifica\Creazione di pacchetti
 
 ###Codifica
 
@@ -242,4 +242,4 @@ Il seguente elenco include la descrizione dei vari formati di streaming e alcuni
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

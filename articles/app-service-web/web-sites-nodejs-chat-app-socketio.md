@@ -33,7 +33,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 1.  Scaricare una [versione archiviata ZIP o GZ][release] del progetto Socket.IO (per questo documento è stata usata la versione 1.3.5)
 
 
-3.  Estrarre l'archivio e copiare la directory **examples\\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
+3.  Estrarre l'archivio e copiare la directory **examples\\chat** in una nuova posizione. Ad esempio, **\node\chat**.
 
 ## Modificare app.js e installare i moduli
 
@@ -57,7 +57,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 		  "socket.io": "1.3.5"
 		}
 
-4. Dalla riga di comando passare alla directory **\\\\node\\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
+4. Dalla riga di comando passare alla directory **\\node\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
 
         npm install
 
@@ -76,7 +76,7 @@ Per creare un'app Web di Azure, abilitare la pubblicazione Git e quindi abilitar
 		azure site deployment user set [username] [password]
 
 
-3. Passare alla directory **\\node\\chat** e utilizzare il comando seguente per creare una nuova app Web di Azure e un repository Git locale. Verrà inoltre creato un repository Git remoto denominato .
+3. Passare alla directory **\node\chat** e utilizzare il comando seguente per creare una nuova app Web di Azure e un repository Git locale. Verrà inoltre creato un repository Git remoto denominato .
 
 		azure site create mysitename --git
 
@@ -125,7 +125,7 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 
 ###Aggiungere i moduli redis e socket.io-redis
 
-1. Dalla riga di comando, passare alla directory __\\node\\chat__ e usare il comando seguente.
+1. Dalla riga di comando, passare alla directory __\node\chat__ e usare il comando seguente.
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 
 ###Eseguire il commit delle modifiche ed effettuare la ridistribuzione
 
-Dalla riga di comando nella directory __\\node\\chat__, usare i comandi seguenti per eseguire il commit delle modifiche e ridistribuire l'applicazione.
+Dalla riga di comando nella directory __\node\chat__, usare i comandi seguenti per eseguire il commit delle modifiche e ridistribuire l'applicazione.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -283,4 +283,4 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

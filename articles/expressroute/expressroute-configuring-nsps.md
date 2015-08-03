@@ -58,11 +58,11 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
 	Prima di creare un circuito, è necessario disporre di un elenco dei provider di servizi, delle sedi e delle opzioni di larghezza di banda supportati per ciascuna sede. Il cmdlet di PowerShell riportato di seguito restituirà informazioni necessarie nei passaggi successivi.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	Le informazioni restituite saranno simili al seguente esempio:
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
 	Si possono recuperare queste informazioni in qualsiasi momento usando il cmdlet Get-AzureCircuit. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti. La chiave di servizio verrà elencata nel campo ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
 	Verificare che sia disponibile almeno una rete virtuale di Azure con un gateway creato. Il gateway deve essere in esecuzione.
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

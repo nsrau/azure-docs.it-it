@@ -3,7 +3,7 @@
     pageTitle="Risoluzione dei problemi di creazione di raccolte ibride di RemoteApp di Azure "
     description="Informazioni su come risolvere i problemi relativi agli errori di creazione delle raccolte ibride di RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Se la raccolta non è stata ancora creata, vedere [Come creare una raccolta ibri
 Se si verificano problemi durante la creazione della raccolta o se la raccolta non funziona nel modo previsto, consultare le informazioni seguenti.
 
 ## La rete virtuale usa il tunneling forzato? ##
-RemoteApp non supporta attualmente l'utilizzo di reti virtuali con tunneling forzato attivato. Se questa funzione è necessaria, contattare il team di RemoteApp per assistenza.
+RemoteApp non supporta attualmente l'utilizzo di reti virtuali con tunneling forzato attivato. Se questa funzione è necessaria, contattare il [Team di RemoteApp](mailto:remoteappforum@microsoft.com) per assistenza.
 
 Dopo l’approvazione della richiesta, assicurarsi che le seguenti porte siano aperte nella subnet scelta per RemoteApp di Azure e le macchine virtuali nella subnet. Le macchine virtuali nelle subnet, inoltre, devono essere in grado di accedere gli URL indicati nella sezione sui gruppi di protezione di rete.
 
@@ -70,8 +70,6 @@ ad esempio:
 
 ![Definire il DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-Per ulteriori informazioni, vedere [Risoluzione dei nomi utilizzando il proprio server DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## Si sta utilizzando un controller di dominio di Active Directory nella raccolta? ##
 Attualmente solo un dominio di Active Directory può essere associato a RemoteApp di Azure. La raccolta ibrida supporta solo gli account Azure Active Directory che sono stati sincronizzati mediante uno strumento come DirSync da una distribuzione di Windows Server Active Directory. In particolare, sincronizzati con l'opzione di sincronizzazione password oppure con la federazione di Active Directory Federation Services (ADFS) configurata. È necessario creare un dominio personalizzato che corrisponda al suffisso di dominio UPN per il dominio locale e impostare l'integrazione di directory.
 
@@ -83,4 +81,4 @@ Assicurarsi che i dettagli del dominio forniti siano validi e che il controller 
 
 Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

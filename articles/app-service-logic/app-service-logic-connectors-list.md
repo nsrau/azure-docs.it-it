@@ -94,4 +94,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)<br/> [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

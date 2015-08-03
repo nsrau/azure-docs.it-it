@@ -118,7 +118,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 
 	![Gateway - Pannello Configura][image-data-factory-gateway-configure-blade]
 
-	Si tratta del metodo più semplice (con un clic) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+	Si tratta del metodo più semplice (con un clic) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
 
 	È anche possibile scaricare e installare manualmente il gateway usando i collegamenti nel pannello e registrarlo usando il tasto visualizzato nella casella di testo **REGISTRA CON TASTO**.
 	
@@ -167,7 +167,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 4.	Nel riquadro JSON, eseguire le operazioni riportate di seguito:
 	1.	Per la proprietà **gatewayName** immettere **adftutorialgateway** in modo da sostituire tutto il testo racchiuso tra virgolette.  
 	2.	Se si usa **Autenticazione SQL**: 
-		1.	Per la proprietà **connectionString**, sostituire **<servername>**, **<databasename>**, **<username>** e **<password>** con i nomi del server SQL locale, del database, l'account utente e la password. Per specificare un nome di istanza, utilizzare il carattere di escape:. Ad esempio:**server\\instancename**. 	
+		1.	Per la proprietà **connectionString**, sostituire **<servername>**, **<databasename>**, **<username>** e **<password>** con i nomi del server SQL locale, del database, l'account utente e la password. Per specificare un nome di istanza, utilizzare il carattere di escape:. Ad esempio:**server\instancename**. 	
 		2.	Rimuovere le ultime due proprietà (**username** e **password**) dal file JSON e il carattere della **virgola (,)** al termine dell'ultima riga dello script JSON rimanente.
 		
 				{
@@ -488,7 +488,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 	**Comando di esempio e output**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -510,12 +510,12 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 	**Output del comando di esempio**:
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. In Azure PowerShell, passare alla cartella. **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
+4. In Azure PowerShell, passare alla cartella. **C:\Programmi\Microsoft Data Management Gateway\1.0\PowerShellScript\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -628,4 +628,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

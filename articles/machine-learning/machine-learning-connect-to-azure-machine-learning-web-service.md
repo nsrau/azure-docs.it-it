@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/17/2015" 
 	ms.author="derrickv" />
 
 
@@ -69,75 +69,9 @@ Una pagina della Guida API ML Azure viene creata quando si pubblica un servizio 
 3. Scegliere la **pagina della Guida per l'API** - **REQUEST/RESPONSE** o **BATCH EXECUTION**.
 
 
-**Pagina della Guida per l'API di Azure ML** La pagina della Guida per l'API di Azure ML contiene i dettagli su un servizio Web di stima tra cui
+**Pagina della Guida per l'API di Azure ML** La pagina della Guida per l'API di Azure ML contiene i dettagli su un servizio Web di stima.
 
 
-<table>
-	<tr>
-		<td>&#160;</td>
-		<td>Esempio </td>
-	</tr>
-	<tr>
-		<td>URI POST della richiesta </td>
-
-		<td>https://ussouthcentral.services.azureml.net/workspaces/{WorkspaceId}/services/{ServiceId}/score
-		</td>
-	</tr>
-	<tr>
-		<td>Richiesta di esempio </td>
-		<td>{ <br/> 
-			&#160;&#160; "Id": "score00001",   <br/>
-			&#160;&#160; "Instance": <br/>
-			&#160;&#160;&#160;&#160; {  <br/>  
- 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
-			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
-			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
-			&#160;&#160;&#160;&#160; } <br/>
-		}</td>
-	</tr>
-	<tr>
-		<td>Contenuto risposta </td>
-		<td>
-		<table style="width: 100%">
-
-			<tr>
-				<td><B>Nome</B></td>
-				<td><B>Tipo di dati</B></td>
-			</tr>
-	
-			<tr>
-				<td>Funzionalità</td>
-				<td>Stringa</td>
-			</tr>
-			<tr>
-				<td>Conteggio</td>
-				<td>Numerico</td>
-			</tr>
-			<tr>
-				<td>Conteggio valori univoci </td>
-				<td>Numerico </td>
-			</tr>
-			<tr>
-				<td>... </td>
-				<td>... </td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-		<td>Risposta di esempio </td>
-		<td>["Col1","1","1",…] </td>
-	</tr>
-	<tr>
-		<td>Codice di esempio </td>
-		<td>(Codice di esempio in C#, Python e R) </td>
-	</tr>
-</table>
-
-**NOTA** Gli esempi sono tratti da Sample 1: Download dataset from UCI: Adult 2 class dataset che fa parte della raccolta di esempi di Azure ML.
 
 ### Esempio C# ###
 
@@ -148,110 +82,14 @@ Per connettersi a un servizio Web di ML, è necessario installare il pacchetto N
 **Installare Microsoft.AspNet.WebApi.Client Nuget su Visual Studio**
 
 1. Pubblicare il set di dati di download dal servizio Web UCI: Adult 2 class dataset.
-2. Fare clic su **Strumenti** > **Gestione pacchetto NuGet** > **Console di Gestione pacchetti**.
+2. Fare clic su **Strumenti** > **Gestione pacchetto NuGet** > **Console di gestione pacchetti**.
 2. Scegliere **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Per eseguire l'esempio di codice**
 
 1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", parte della raccolta di esempi di Azure ML.
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
-3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
-
-		using System;
-		using System.Collections.Generic;
-		using System.IO;
-		using System.Net.Http;
-		using System.Net.Http.Formatting;
-		using System.Net.Http.Headers;
-		using System.Text;
-		using System.Threading.Tasks;
-
-		namespace CallRequestResponseService
-		{
-	    public class ScoreData
-	    {
-	        public Dictionary<string, string> FeatureVector { get; set; }
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	    }
-	
-	    public class ScoreRequest
-	    {
-	        public string Id { get; set; }
-	        public ScoreData Instance { get; set; }
-	    }
-	
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            InvokeRequestResponseService().Wait();
-	
-	            Console.ReadLine();
-	        }
-	
-	        static async Task InvokeRequestResponseService()
-	        {
-	            //Assign apiKey with the key from a web service.
-	            const string apiKey = "{ApiKey}";
-	
-	            //Assign serviceUri with the Request URI. See How to get a Request URI.
-	            const string serviceUri = "{ServiceUri}";
-	            
-	            using (var client = new HttpClient())
-	            {
-	                ScoreData scoreData = new ScoreData()
-	                {
-	                    //Input data
-	                    FeatureVector = new Dictionary<string, string>() 
-	                    {
-	                        { "Col1", "0" },
-	                        { "Col2", "0" },
-	                        { "Col3", "0" },
-	                        { "Col4", "0" },
-	                        { "Col5", "0" },
-	                        { "Col6", "0" },
-	                        { "Col7", "0" },
-	                        { "Col8", "0" },
-	                        { "Col9", "0" },
-	                        { "Col10", "0" },
-	                        { "Col11", "0" },
-	                        { "Col12", "0" },
-	                        { "Col13", "0" },
-	                        { "Col14", "0" },
-	                        { "Col15", "0" },
-	                    },
-	                    GlobalParameters = 
-	                        new Dictionary<string, string>() {}
-	                };
-	
-	                ScoreRequest scoreRequest = new ScoreRequest()
-	                {
-	                    Id = "score00001",
-	                    Instance = scoreData
-	                };
-	
-	                //Set authorization header
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	             
-	                client.BaseAddress = new Uri(serviceUrl);
-	
-	                //Post HTTP response message
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    //Read result string
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Result: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-		}
+3. Assegnare l'URI del servizio con l'URI della richiesta. 
 
 
 ### Esempio Python ###
@@ -265,53 +103,7 @@ Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
-		import urllib2
-		# If you are using Python 3+, import urllib instead of urllib2
 	
-		import json 
-	
-		data =  {
-	            "Id": "score00001",
-	            "Instance": {
-	                "FeatureVector": {
-	                    "Col1": "0",
-	                    "Col2": "0",
-	                    "Col3": "0",
-	                    "Col4": "0",
-	                    "Col5": "0",
-	                    "Col6": "0",
-	                    "Col7": "0",
-	                    "Col8": "0",
-	                    "Col9": "0",
-	                    "Col10": "0",
-	                    "Col11": "0",
-	                    "Col12": "0",
-	                    "Col13": "0",
-	                    "Col14": "0",
-	                    "Col15": "0",
-	                },
-	                "GlobalParameters": { }
-	            }
-	        }
-	
-		body = str.encode(json.dumps(data))
-	
-		#Assign serviceUrl with the Request URI. See How to get a Request URI.
-		uri = '{ServiceUri}'
-	
-		#Assign apiKey with the key from a web service.
-		api_key = '{ApiKey}'
-		headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-	
-		req = urllib2.Request(uri, body, headers) 
-		response = urllib2.urlopen(req)
-	
-		#If you are using Python 3+, replace urllib2 with urllib.request in the above code:
-		#req = urllib.request.Request(uri, body, headers) 
-		#response = urllib.request.urlopen(req)
-	
-		result = response.read()
-		print(result) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

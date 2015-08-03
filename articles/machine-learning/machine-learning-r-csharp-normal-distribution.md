@@ -265,4 +265,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

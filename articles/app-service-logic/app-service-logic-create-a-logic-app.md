@@ -137,7 +137,7 @@ Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un
 
 	Viene immesso il valore `@first(body('twitterconnector')).TweetText` nella casella di testo. Questo valore generato contiene le parti seguenti:
 
-	Parte di contenuto | Descrizione
+Parte di contenuto | Descrizione
 	------------------------------------------ | ------------
 	 `@` | Indica che si sta immettendo una funzione anziché un valore effettivo.
 	`actions('twitterconnector').outputs.body` | Ottiene i tweet restituiti dalla query del connettore Twitter.
@@ -172,4 +172,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

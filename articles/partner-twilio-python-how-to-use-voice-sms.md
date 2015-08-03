@@ -268,4 +268,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, usare 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -164,7 +164,7 @@ A questo punto, si ha tutto quanto necessario per iniziare a creare gli account 
 
 ## Creare la proprietà LoginProvider
 
-Uno dei costrutti fondamentali nella pipeline di autenticazione di Servizi mobili è la proprietà **LoginProvider**. In questa sezione verrà creata una proprietà personalizzata, `CustomLoginProvider`. che non verrà inserita nella pipeline come i provider predefiniti, ma fornirà alcune comode funzionalità.
+Uno dei costrutti fondamentali nella pipeline di autenticazione di Servizi mobili è la proprietà **LoginProvider**. In questa sezione verrà creata una proprietà personalizzata, `CustomLoginProvider`. che non verrà inserita nella pipeline come i provider predefiniti, ma fornirà alcune comode funzionalità. Se si usa Visual Studio 2013, potrebbe essere necessario installare il pacchetto NuGet `WindowsAzure.MobileServices.Backend.Security` per aggiungere i riferimenti alla classe `LoginProvider`.
 
 1. Creare una nuova classe `CustomLoginProvider` che deriva da **LoginProvider** e aggiungere le istruzioni `using` seguenti:
 
@@ -420,4 +420,4 @@ L'esercitazione è terminata.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

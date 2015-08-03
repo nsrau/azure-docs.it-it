@@ -52,7 +52,7 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 
    	Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
 
-6. (Facoltativo) Per un'app universale di Windows, ripetere i passaggi da 4 a 5 per il progetto Windows Phone Store.
+6. (Facoltativo) Per un'app di Windows universale, ripetere i passaggi da 4 a 5 per il progetto Windows Phone Store.
 
 6. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
@@ -107,4 +107,4 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

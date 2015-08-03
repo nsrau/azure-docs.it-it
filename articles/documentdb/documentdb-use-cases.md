@@ -79,4 +79,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). L'archivio del futuro si basa sulla velocità delle ricerche e su un flusso di dati scorrevole.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -72,7 +72,7 @@ Se ne vengono visualizzati solo uno o due, non tutti e tre, rimuoverli e attende
 ### Procedura 2: Verificare se le soluzioni corrette vengono scaricate nell'agente diretto
 >[AZURE.NOTE]Se si usa solo Operations Manager, è possibile ignorare questa procedura.
 
-Nell'agente diretto il criterio per la raccolta di soluzioni viene memorizzato nella cache nel percorso **C:\\Programmi\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**
+Nell'agente diretto il criterio per la raccolta di soluzioni viene memorizzato nella cache nel percorso **C:\Programmi\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs**
 
 
 ### Procedura 3: Verificare se i dati vengono inviati al servizio Advisor (o se almeno viene effettuato il tentativo)
@@ -145,4 +145,4 @@ Il drill-down passa alla ricerca log e mostra il timestamp dei dati indicizzati 
 
 Questa pagina include anche informazioni sulle misurazioni (queste informazioni non usano l'indice di ricerca log ma il sistema di fatturazione e vengono aggiornate ogni due ore circa) relative alle quantità di dati inviati al servizio suddivise in base alle diverse soluzioni.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

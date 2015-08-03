@@ -104,7 +104,7 @@ Vi sono alcune informazioni che è necessario conoscere sulle tabelle Hive inter
 
 Per altre informazioni, vedere l'[articolo introduttivo alle tabelle Hive interne ed esterne di HDInsight][cindygross-hive-tables].
 
-> [AZURE.NOTE]Una delle istruzioni HiveQL crea una tabella Hive esterna. La tabella Hive esterna mantiene il file di dati nella posizione originale. La tabella Hive interna sposta il file di dati in hive\\warehouse. Per la tabella Hive interna è necessario che il file di dati si trovi nel contenitore predefinito. Per i dati archiviati all'esterno del contenitore BLOB predefinito, è necessario usare le tabelle Hive esterne.
+> [AZURE.NOTE]Una delle istruzioni HiveQL crea una tabella Hive esterna. La tabella Hive esterna mantiene il file di dati nella posizione originale. La tabella Hive interna sposta il file di dati in hive\warehouse. Per la tabella Hive interna è necessario che il file di dati si trovi nel contenitore predefinito. Per i dati archiviati all'esterno del contenitore BLOB predefinito, è necessario usare le tabelle Hive esterne.
 
 
 
@@ -407,7 +407,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 </table>
 
 3. Fare clic su **Download**.
-4. Decomprimere il file nella cartella **C:\\Tutorials\\FlightDelays\\Data**. Ogni file è in formato CSV e ha dimensioni pari a circa 60 GB.
+4. Decomprimere il file nella cartella **C:\Tutorials\FlightDelays\Data**. Ogni file è in formato CSV e ha dimensioni pari a circa 60 GB.
 5.	Rinominare il file, specificando il nome del mese a cui fanno riferimento i dati. Ad esempio, al file contenente i dati relativi a gennaio verrà assegnato il nome *January.csv*.
 6. Ripetere i passaggi 2 e 5 per scaricare un file per ognuno dei 12 mesi del 2013. Per eseguire l'esercitazione, è necessario avere almeno un file.  
 
@@ -505,7 +505,7 @@ Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
 1. **Eliminazione della tabella delays_raw**, nel caso in cui la tabella esista già.
-2. **Creazione della tabella Hive esterna delays_raw**, che fa riferimento al percorso dell'archivio BLOB che include i file relativi ai ritardi dei voli. La query consente di specificare che i campi sono delimitati da "," e che le righe vengono interrotte da "\\n". Ciò costituisce un problema quando i valori dei campi contengono virgole, poiché Hive non è in grado di distinguere tra una virgola che delimita i campi e una virgola inclusa in un valore di campo, come ad esempio nel caso dei valori di campo per ORIGIN_CITY_NAME e DEST_CITY_NAME. Per risolvere questo problema, la query crea colonne TEMP in cui inserire i dati suddivisi erroneamente in colonne.  
+2. **Creazione della tabella Hive esterna delays_raw**, che fa riferimento al percorso dell'archivio BLOB che include i file relativi ai ritardi dei voli. La query consente di specificare che i campi sono delimitati da "," e che le righe vengono interrotte da "\n". Ciò costituisce un problema quando i valori dei campi contengono virgole, poiché Hive non è in grado di distinguere tra una virgola che delimita i campi e una virgola inclusa in un valore di campo, come ad esempio nel caso dei valori di campo per ORIGIN_CITY_NAME e DEST_CITY_NAME. Per risolvere questo problema, la query crea colonne TEMP in cui inserire i dati suddivisi erroneamente in colonne.  
 3. **Eliminazione della tabella delays**, se la tabella esiste già.
 4. **Creazione della tabella delays**. È consigliabile ripulire i dati prima di procedere con l'elaborazione. La query crea una nuova tabella *delays* dalla tabella delays_raw. Si noti che le colonne TEMP, come indicato in precedenza, non vengono copiate e che la funzione **substring** viene usata per rimuovere le virgolette dai dati. 
 5. **Calcolo della media dei ritardi dovuti alle condizioni climatiche e raggruppamento dei risultati in base al nome della città.** I risultati verranno anche inviati come output all'archivio BLOB. Si noti che la query rimuoverà gli apostrofi dai dati ed escluderà le righe in cui il valore per **weather_delay** è Null. Ciò è necessario perché Sqoop, usato più avanti nell'esercitazione, non è in grado di gestire correttamente tali valori per impostazione predefinita.
@@ -673,7 +673,7 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 
 	Ecco le variabili usate nello script:
 
-	- **$hqlLocalFileName**: lo script salva il file di script HiveQL in locale prima di caricarlo nell'archivio BLOB. Questo è il nome file. Il valore predefinito è <u>C:\\tutorials\\flightdelays\\flightdelays.hql</u>.
+	- **$hqlLocalFileName**: lo script salva il file di script HiveQL in locale prima di caricarlo nell'archivio BLOB. Questo è il nome file. Il valore predefinito è <u>C:\tutorials\flightdelays\flightdelays.hql</u>.
 	- **$hqlBlobName**: questo è il nome BLOB del file di script HiveQL usato per l'archivio BLOB di Azure. Il valore predefinito è tutorials/flightdelays/flightdelays.hql. Poiché il file verrà scritto direttamente nell'archiviazione BLOB di Azure, all'inizio del nome BLOB NON è presente il carattere "/". Per accedere al file dall'archivio BLOB di Azure sarà necessario aggiungere "/" all'inizio del nome file.
 	- **$srcDataFolder** e **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
@@ -880,4 +880,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -46,4 +46,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 * Vedere gli [script di PowerShell dell'insieme di credenziali chiave di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

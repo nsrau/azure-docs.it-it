@@ -93,4 +93,4 @@ Per creare una nuova macchina virtuale basata su Windows in Azure, utilizzare le
 - Imposta un membro di un oggetto esistente con carico bilanciato
 - Un indirizzo IP statico
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

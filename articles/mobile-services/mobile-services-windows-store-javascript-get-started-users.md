@@ -94,4 +94,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

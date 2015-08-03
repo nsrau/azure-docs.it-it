@@ -35,7 +35,7 @@ Con Gestione risorse di Azure, il bilanciamento del carico di Azure contiene le 
 - Regole NAT in ingresso: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](./media/load-balancer-arm/load-balancer-arm.png)
 
 
 
@@ -77,4 +77,4 @@ I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.as
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Panoramica di Testabilità
@@ -94,4 +94,4 @@ Per creare servizi effettivamente di scala cloud, è fondamentale la capacità d
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

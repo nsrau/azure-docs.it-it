@@ -61,4 +61,4 @@ Per altre informazioni, vedere [Bilanciamento del carico interno](http://msdn.mi
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -16,7 +16,7 @@
 	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
-# Autenticazione per app per le API e per dispositivi mobili nel servizio app di Azure
+# Autenticazione per le app per API e dispositivi mobili nel servizio app di Azure
 
 ## Panoramica
 
@@ -214,4 +214,4 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 
 * [Ottenere un token di accesso e chiamare l'API SharePoint in un'app per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

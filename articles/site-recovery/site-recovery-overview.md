@@ -181,4 +181,4 @@ In questa tabella vengono riepilogate le principali funzionalità di Site Recove
 Una volta completata questa panoramica [leggere le procedure consigliate](site-recovery-best-practices.md) che consentono di iniziare la pianificazione della distribuzione.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

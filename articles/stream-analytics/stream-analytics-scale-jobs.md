@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva #
@@ -151,7 +151,7 @@ Questa query può essere aumentata fino a 24 unità di streaming.
 3. Fare clic sul processo di Analisi dei flussi da scalare.
 4. Nella parte superiore della pagina fare clic su **RIDIMENSIONA**.
 
-![Configurazione della scalabilità dei processi di Analisi dei flussi di Azure][img.stream.analytics.configure.scale]
+![Scalabilità delle unità di streaming di Analisi di flusso di Azure][img.stream.analytics.streaming.units.scale]
 
 
 ## Monitorare le prestazioni del processo ##
@@ -260,4 +260,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

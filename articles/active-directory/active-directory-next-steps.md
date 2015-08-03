@@ -41,4 +41,4 @@ Registrazione dispositivo di Azure AD consente di eseguire il provisioning dei d
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

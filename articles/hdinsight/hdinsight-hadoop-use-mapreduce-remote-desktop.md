@@ -38,7 +38,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura per eseguire un processo MapReduce usando il comando Hadoop:
 
-1. Dal desktop di HDInsight avviare la **riga di comando di Hadoop**. Viene aperta una finestra del prompt dei comandi nella directory **c:\\apps\\dist\\hadoop-&lt;numero versione>**.
+1. Dal desktop di HDInsight avviare la **riga di comando di Hadoop**. Viene aperta una finestra del prompt dei comandi nella directory **c:\apps\dist\hadoop-&lt;numero versione>**.
 
 	> [AZURE.NOTE]Quando Hadoop viene aggiornato, il numero di versione viene modificato. La variabile di ambiente **HADOOP_HOME** può essere usata per trovare il percorso. Ad esempio, `cd %HADOOP_HOME%` modifica le directory nella directory di Hadoop, senza richiedere il nome della versione.
 
@@ -95,4 +95,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -64,4 +64,4 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

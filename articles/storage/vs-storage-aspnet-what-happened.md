@@ -42,4 +42,4 @@ Nel file web.config del progetto è stato creato un elemento con la stringa di c
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

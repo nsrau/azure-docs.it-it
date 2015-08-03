@@ -161,4 +161,4 @@ Nell’esempio di codice seguente viene creato un nuovo contenitore e vengono im
 - [Introduzione all’archiviazione BLOB per .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

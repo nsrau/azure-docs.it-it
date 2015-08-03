@@ -106,4 +106,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 [portale di anteprima di Azure]: https://portal.azure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -133,4 +133,4 @@ Nel grafico inferiore vengono illustrati gli stessi dati ma suddivisi per repart
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 - Pianificazione della cartella di lavoro"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Report di esempio per lo scenario di confronto dei costi del carico di lavoro"
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

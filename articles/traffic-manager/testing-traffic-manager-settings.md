@@ -57,4 +57,4 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

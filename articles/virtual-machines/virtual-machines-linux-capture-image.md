@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,30 +14,30 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/16/2015"
 	ms.author="dkshir"/>
 
 
-# Come acquisire una macchina virtuale Linux da usare come modello##
+# Come acquisire una macchina virtuale Linux da usare come modello
 
-Questo articolo illustra come acquisire una macchina virtuale di Azure che esegue Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e gli eventuali dischi dati connessi alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
+Questo articolo illustra come acquisire una macchina virtuale di Azure che esegue Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
 
-Azure gestisce questo modello come immagine e lo archivia in **Immagini personali**. che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
+Azure gestisce questo modello come immagine e lo archivia in **Immagini**. che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
 
-##Prima di iniziare##
+## Prima di iniziare
 
 Questa procedura presuppone che sia stata creata una macchina virtuale di Azure e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se non si sono ancora effettuate queste operazioni, vedere le istruzioni seguenti:
 
-- [Come creare una macchina virtuale personalizzata][]
-- [Come collegare un disco dati a una macchina virtuale][]
+- [Come creare una macchina virtuale che esegue Linux][]
 
-##Acquisizione della macchina virtuale##
 
-1. Connettere la macchina virtuale facendo clic su **Connetti** sulla barra dei comandi. Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Linux][].
+## Acquisizione della macchina virtuale
+
+1. Effettuare la connessione alla macchina virtuale utilizzando un client SSH a scelta. Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Linux][].
 
 2. Nella finestra di SSH digitare il comando seguente. Si noti che l'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
-	`$ sudo waagent -deprovision+user`
+	`sudo waagent -deprovision`
 
 	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
 
@@ -47,45 +48,53 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 	- Ripristina il nome host su localhost.localdomain
 	- Elimina anche l'ultimo account utente (ottenuto da /var/lib/waagent) di cui è stato effettuato il provisioning **e i dati associati**.
 
-	![Deprovisioning della macchina virtuale](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
-
-	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in macchine virtuali che si vogliono acquisire come nuovo modello di immagine.
+	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in macchine virtuali che si vogliono acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
 
 
-3. Digitare **y** per continuare.
-
-	![Deprovisioning della macchina virtuale effettuato correttamente](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
-
-	**Si noti** che è possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
-
-	>[AZURE.NOTE]Il deprovisioning generalizza solo l'immagine Linux, ma non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili e che sia adatta per la ridistribuzione a terzi.
-
+3. Digitare **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
 
 4. Digitare **Exit** per chiudere il client SSH.
 
-5. Nel [portale di gestione](http://manage.windowsazure.com) selezionare la macchina virtuale e quindi fare clic su **Arresta**.
 
-6. Dopo l'arresto della macchina virtuale, sulla barra dei comandi fare clic su **Capture** per aprire la finestra di dialogo **Capture the Virtual Machine**.
+	>[AZURE.NOTE]I passaggi successivi presuppongono che l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi riportati di seguito possono essere eseguiti anche nel [portale di gestione][].
 
-7.	In **Image Name** digitare un nome per la nuova immagine.
+5. Dal computer client, aprire l'interfaccia della riga di comando di Azure ed eseguire l'accesso alla sottoscrizione di Azure. Per informazioni dettagliate, leggere [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
-8.	Tutte le immagini di Linux devono essere sottoposte a *deprovisioning* eseguendo il comando `waagent` con l’opzione `-deprovision`. Fare clic su **I have run waagent-deprovision on the virtual machine** per indicare che il sistema operativo è pronto per essere convertito in un'immagine.
+6. Assicurarsi che sia attiva la modalità Gestione dei servizi:
 
-9.	Fare clic sul segno di spunta per acquisire l'immagine.
+	`azure config mode asm`
 
-	La nuova immagine è ora disponibile in **Images**. Dopo l'acquisizione dell'immagine, la macchina virtuale viene eliminata.
+7. Arrestare la macchina virtuale già sottoposta al deprovisioning nei passaggi riportati in precedenza con:
+
+	`azure vm shutdown <your-virtual-machine-name>`
+
+	>[AZURE.NOTE]È possibile individuare tutte le macchine virtuali create nella sottoscrizione utilizzando `azure vm list`
+
+8. Quando la macchina virtuale viene arrestata, acquisire l'immagine con il comando:
+
+	`azure vm capture -t <your-virtual-machine-name> <new-image-name>`
+
+	Digitare il nome dell'immagine al posto di _nuovo-nome-immagine_. Questo comando consente di creare un'immagine generalizzata del sistema operativo. Il sottocomando `-t` consente di eliminare la macchina virtuale originale.
+
+9.	La nuova immagine è ora disponibile nell'elenco delle immagini che possono essere utilizzate per configurare nuove macchine virtuali. È possibile visualizzarla con il comando:
+
+	`azure vm image list`
+
+	Verrà visualizzata nell'elenco **IMMAGINI** del [portale di gestione][].
 
 	![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
-##Passaggi successivi##
-L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. Per effettuare questa operazione, creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionare l'immagine creata. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata][].
+## Passaggi successivi
+L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Utilizzo dell'interfaccia della riga di comando con Gestione dei servizi](virtual-machines-command-line-tools.md). In alternativa, è possibile utilizzare il [portale di gestione][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per ulteriori dettagli, vedere [Come creare una macchina virtuale personalizzata][].
 
 **Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
+[portale di gestione]: http://manage.windowsazure.com
 [Come accedere a una macchina virtuale che esegue Linux]: virtual-machines-linux-how-to-log-on.md
 [Informazioni sulle immagini di macchine virtuali in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Come creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
-[Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
+[How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
+[Come creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

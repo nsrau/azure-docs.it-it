@@ -46,4 +46,4 @@ L'evento StatefulRunAsyncFailure viene emesso ogni volta che l'attività RunAsyn
 
 L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richiesta di annullamento dell'attività RunAsync richiede più di 4 secondi. L'eccessiva durata di un'operazione di annullamento influisce sulla possibilità di riavviare rapidamente il servizio su un altro nodo e può avere un impatto negativo sulla disponibilità complessiva.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

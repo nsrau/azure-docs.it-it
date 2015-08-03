@@ -152,4 +152,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 	Console.WriteLine(mpegDashUri);
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

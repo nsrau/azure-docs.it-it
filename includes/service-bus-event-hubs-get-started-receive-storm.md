@@ -230,4 +230,4 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -204,4 +204,4 @@ Ora dovrebbe essere presente un cluster CoreOS a tre nodi in esecuzione in Azure
 [Introduzione a fleet su CoreOS in Azure]: virtual-machines-linux-coreos-fleet-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

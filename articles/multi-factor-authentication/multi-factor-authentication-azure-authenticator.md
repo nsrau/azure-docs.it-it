@@ -66,4 +66,4 @@ Per rimuovere singoli account dall'app precedente, toccare l'account. Verrà vis
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 * App Azure Authenticator per [Windows Phone](http://www.windowsphone.com/it-it/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -133,4 +133,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -102,11 +102,11 @@ Il numero massimo di thread di lavoro simultanei e di sessioni simultanee suppor
 
 | DTU | Numero massimo di thread di lavoro simultanei | Numero massimo di sessioni simultanee |
 | :-- | :-- | :-- |
-| 100 | 200 | 2\.400 |
-| 200 | 400 | 4\.800 |
-| 400 | 800 | 9\.600 |
-| 800 | 1\.600 | 19\.200 |
-| 1\.200 | 2\.400 | 28\.800 |
+| 100 | 200 | 2.400 |
+| 200 | 400 | 4.800 |
+| 400 | 800 | 9.600 |
+| 800 | 1.600 | 19.200 |
+| 1.200 | 2.400 | 28.800 |
 
 
 ## Limiti di Gestione risorse di Azure
@@ -191,4 +191,4 @@ Il prezzo unitario delle DTU per un pool elastico è superiore al prezzo unitari
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

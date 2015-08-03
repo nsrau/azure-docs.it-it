@@ -271,4 +271,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

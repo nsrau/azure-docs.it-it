@@ -84,4 +84,4 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 Informazioni su come gestire i backup di StorSimple con il [Gestione Snapshot StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

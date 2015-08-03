@@ -340,4 +340,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

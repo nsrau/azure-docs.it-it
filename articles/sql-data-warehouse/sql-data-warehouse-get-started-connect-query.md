@@ -21,6 +21,8 @@ Questo breve articolo introduttivo illustra la connessione e l'esecuzione di que
 
 **Visual Studio**: l'editor di codice e il debugger integrati di Visual Studio, ovvero SQL Server Data Tools (SSDT), sono completamente compatibili con SQL DW e permettono di connettersi, eseguire query e gestire con facilità SQL Data Warehouse.
 
+> [AZURE.NOTE]L’SQL Data Warehouse richiede almeno la versione di anteprima di SSDT 12.0.50623 o versione successiva
+
 **sqlcmd**: sqlcmd è uno strumento da riga di comando che offre semplici capacità di connessione ed esecuzione di query.
 
 Al termine di questo articolo saranno state eseguite le operazioni seguenti:
@@ -62,7 +64,9 @@ Prima di continuare, chiudere la finestra "Estensioni e aggiornamenti" e chiuder
 L'aggiornamento di Visual Studio 2013 è stato completato.
 
 ### Aggiornare SSDT 
-Potrebbe essere necessario aggiornare anche SSDT. Questo è abbastanza normale. I tecnici che si occupano di SSDT aggiornano regolarmente il plug-in con le nuove funzionalità e ogni tanto sarà quindi necessario applicare gli aggiornamenti. Si tratta comunque di un processo molto semplice. Per verificare se è necessario aggiornare SSDT, eseguire i passaggi seguenti:
+> [AZURE.IMPORTANT]L’SQL Data Warehouse richiede almeno la versione di anteprima di SSDT 12.0.50623 o versione successiva.
+
+I tecnici che si occupano di SSDT aggiornano regolarmente il plug-in con le nuove funzionalità e ogni tanto sarà quindi necessario applicare gli aggiornamenti. Si tratta comunque di un processo molto semplice. Per verificare se è necessario aggiornare SSDT, eseguire i passaggi seguenti:
 
 1. Aprire Visual Studio 2013.  
 2. Scegliere "Estensioni e aggiornamenti" dal menu "Strumenti".
@@ -83,7 +87,7 @@ Verrà avviato il download della versione più recente di SSDT. La figura seguen
 
 Sul desktop è ora disponibile una versione aggiornata di Visual Studio 2013 con un'estensione SSDT aggiornata.
 
-> [AZURE.NOTE]È attualmente consigliabile usare l'[anteprima di SSDT per Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
+> [AZURE.NOTE]È attualmente consigliabile usare l'[anteprima di SSDT per Visual Studio 2013 versione 12.0.50623 o successive](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
 
 ## Connettersi a Visual Studio 2013
 Se si esegue la versione desiderata di Visual Studio, sarà possibile connettersi all'istanza di SQL Data Warehouse in due modi diversi:
@@ -141,13 +145,13 @@ Per connettersi a un'istanza specifica di SQL DW quando si usa sqlcmd, sarà nec
 Per connettersi a un'istanza di SQL DW, è quindi necessario immettere quanto segue:
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza. Ad esempio, l'istruzione seguente usa l'istruzione [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) per creare una nuova tabella.
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +187,4 @@ Dopo avere registrato il server, è possibile scrivere una query.
 ## Passaggi successivi ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

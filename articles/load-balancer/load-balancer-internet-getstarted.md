@@ -115,6 +115,17 @@ La definizione del probe ne controlla anche la frequenza. Nel caso precedente, i
 
 Per altre informazioni, fare riferimento allo schema di definizione del servizio per il [probe di integrità](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
+## Configurazione del servizio di bilanciamento del carico con PowerShell
+
+Dopo avere creato una macchina virtuale, è possibile usare i cmdlet di PowerShell per aggiungere un servizio di bilanciamento del carico a una macchina virtuale all'interno dello stesso servizio cloud.
+
+Nell'esempio seguente, si aggiungerà un servizio di bilanciamento del carico denominato "webfarm" all'endpoint di servizio cloud "mycloudservice" (o mycloudservice.cloudapp.net) e il nome della macchina virtuale myVM. Il servizio di bilanciamento del carico riceverà il traffico sulla porta 80 e bilancerà il carico del traffico di rete tra le macchine virtuali sulla porta 8080 usando "HTTP".
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## Passaggi successivi
 
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Per altre informazioni, fare riferimento allo schema di definizione del servizio
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

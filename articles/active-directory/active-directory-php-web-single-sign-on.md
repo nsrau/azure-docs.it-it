@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # Single Sign-On Web con PHP e Azure Active Directory
@@ -131,7 +131,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato usando W
 
 5. Nella finestra di dialogo **New PHP File** assegnare al file il nome **secureResource.php**, quindi fare clic su **Finish**.
 
-6. Nel nuovo file **secureResource.php** immettere il codice seguente, sostituendo il percorso **c:\\phpLibraries** con il percorso radice in cui è stato scaricato il codice di esempio. Il percorso radice dovrebbe includere il file **simpleSAML.php** e la cartella **federation**:
+6. Nel nuovo file **secureResource.php** immettere il codice seguente, sostituendo il percorso **c:\phpLibraries** con il percorso radice in cui è stato scaricato il codice di esempio. Il percorso radice dovrebbe includere il file **simpleSAML.php** e la cartella **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@ Un esempio che mostra l'uso di Azure Active Directory e Single Sign-On per i sit
 [Codice di esempio PHP per Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

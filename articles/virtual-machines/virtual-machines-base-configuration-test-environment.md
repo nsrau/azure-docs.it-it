@@ -129,7 +129,7 @@ Successivamente, connettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **DC1**Nome dell'account amministratore locale
+- Nome: **DC1\**Nome dell'account amministratore locale
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -158,7 +158,7 @@ Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **CORP**Nome dell'account amministratore locale
+- Nome: **CORP\**Nome dell'account amministratore locale
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -238,7 +238,7 @@ Successivamente, verificare che sia possibile accedere al Web e alle risorse di 
 3.	In ** Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
 4.	Dalla schermata Start, fare clic su **Internet Explorer**, quindi su **OK**.
 5.	Nella barra degli indirizzi digitare **http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1. 6.	Sulla barra delle applicazioni desktop, fare clic sull'icona Esplora File.
-7.	Nella barra degli indirizzi digitare **\app1\Files**, quindi premere INVIO.
+7.	Nella barra degli indirizzi digitare **\\app1\Files**, quindi premere INVIO.
 8.	Dovrebbe essere visualizzata una finestra della cartella con il contenuto della cartella condivisa File.
 9.	Nella finestra della cartella condivisa **File**, fare doppio clic sul file **Example.txt**. Viene visualizzato il contenuto del file di Example.txt.
 10.	Chiudere il file **Example.txt in Blocco note** e le finestre della cartella condivisa **File**.
@@ -283,4 +283,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

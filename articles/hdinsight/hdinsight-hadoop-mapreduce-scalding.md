@@ -168,7 +168,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

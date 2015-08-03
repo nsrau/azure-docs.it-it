@@ -23,4 +23,4 @@ DocumentDB Azure è un servizio di database di documenti NoSQL progettato da zer
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

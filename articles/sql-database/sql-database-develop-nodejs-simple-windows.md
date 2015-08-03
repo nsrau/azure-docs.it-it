@@ -49,14 +49,14 @@ In una finestra della riga di comando **cmd.exe** passare alla directory in cui 
 	npm install -g node-gyp
 
 
-Ora che è installato node-gyp, passare alla directory *DirectoryProgettoPersonale* e quindi a **node_modules\\msnodesql**. Eseguire i comandi seguenti nella finestra **cmd.exe**.
+Ora che è installato node-gyp, passare alla directory *DirectoryProgettoPersonale* e quindi a **node_modules\msnodesql**. Eseguire i comandi seguenti nella finestra **cmd.exe**.
 
 
 	node-gyp configure 
 	node-gyp build
 
 
-Quindi, passare alla directory **build\\release**. Copiare il file **sqlserver.node** e incollarlo nella directory **msnodesql\\lib**. Se necessario, sostituire il file precedente.
+Quindi, passare alla directory **build\release**. Copiare il file **sqlserver.node** e incollarlo nella directory **msnodesql\lib**. Se necessario, sostituire il file precedente.
 
 Per informazioni su come installare e configurare i requisiti menzionati, vedere il [blog del team](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) e il [video](https://www.youtube.com/watch?v=kQo_L-D_zk8).
 
@@ -234,4 +234,4 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

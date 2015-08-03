@@ -52,4 +52,4 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 - Se il file VHD si blocca durante il caricamento, copiare il file o spostarlo in un nuovo percorso e riprovare il caricamento. Il caricamento potrebbe essere ostacolato da qualche processo di Windows in esecuzione.  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

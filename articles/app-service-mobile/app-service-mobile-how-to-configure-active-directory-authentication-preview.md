@@ -18,6 +18,8 @@
 
 # Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Questo argomento descrive come configurare i servizi app di Azure per usare Azure Active Directory come provider di autenticazione.
 
 ## <a name="register"> </a>Registrare l'applicazione con Azure Active Directory
@@ -73,4 +75,4 @@ Autenticare gli utenti della propria app per dispositivi mobili con Single Sign-
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

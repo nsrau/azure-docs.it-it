@@ -139,4 +139,4 @@ Gestione e controllo dell'accesso
 - [Autenticazione di un'entità servizio](./resource-group-authenticate-service-principal.md)
 - [Creare una nuova entità servizio utilizzando il portale di Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

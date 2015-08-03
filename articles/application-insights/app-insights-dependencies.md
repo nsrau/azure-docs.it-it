@@ -25,30 +25,35 @@ Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un ser
 Il monitoraggio predefinito delle dipendenze è attualmente disponibile per:
 
 * App Web e servizi di ASP.NET in esecuzione su un server IIS oppure su Azure
+* [Applicazioni web Java](app-insights-java-agent.md)
 
 Per altri tipi, ad esempio app Web Java o applicazioni per dispositivi, è possibile scrivere il proprio codice di monitoraggio usando l'API TrackDependency.
 
 Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seguenti tipi di dipendenze:
 
-* Database SQL
-* Servizi Web ASP.NET e WCF che usano i binding basati su HTTP
-* Chiamate HTTP locali o remote
-* Azure DocumentDB, tabelle, archivio BLOB e coda
+* ASP.NET
+ * Database SQL
+ * Servizi Web ASP.NET e WCF che usano i binding basati su HTTP
+ * Chiamate HTTP locali o remote
+ * Azure DocumentDB, tabelle, archivio BLOB e coda
+* Java
+ * Chiamate a un database tramite un[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)driver, ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
 
 Anche in questo caso, è possibile scrivere le proprie chiamate SDK per monitorare altre dipendenze.
 
 ## Configurazione del monitoraggio delle dipendenze
 
-Per ottenere il monitoraggio delle dipendenze, è necessario:
+Installare l'agente appropriato per il server host.
 
-* Usare [Status Monitor](app-insights-monitor-performance-live-website-now.md) sul server IIS per abilitare il monitoraggio
-* Aggiungere l'[estensione Application Insights](../insights-perf-analytics.md) all'app Web o alla VM di Azure
+Piattaforma | Installa
+---|---
+Server IIS | [Monitoraggio stato](app-insights-monitor-performance-live-website-now.md)
+App Web di Azure | [Informazioni sull'estensione dell'applicazione](../insights-perf-analytics.md)
+Server web Java | [Applicazioni web Java](app-insights-java-agent.md)
 
-(per una VM di Azure, è possibile installare l'estensione dal pannello di controllo di Azure oppure installare Status Monitor proprio come si farebbe su qualsiasi computer).
+Il monitoraggio dello stato per i server IIS non necessita che si ricompili il progetto di origine con il SDK di Application Insights.
 
-È possibile eseguire i passaggi precedenti per un'app Web già distribuita. Per ottenere il monitoraggio delle dipendenze standard non è necessario aggiungere Application Insights al progetto di origine.
-
-## Diagnosi dei problemi relativi alle prestazioni delle dipendenze
+## <a name="diagnosis"></a>Diagnosi dei problemi relativi alle prestazioni delle dipendenze
 
 Per valutare le prestazioni delle richieste al server:
 
@@ -100,7 +105,7 @@ Fare clic in un tipo di richiesta e un'istanza di richiesta per trovare una chia
 
 Il modulo standard per il rilevamento delle dipendenze rileva automaticamente le dipendenze esterne, ad esempio database e API REST. È tuttavia possibile che si vogliano gestire allo stesso modo altri componenti.
 
-È possibile scrivere codice che invia informazioni sulle dipendenze, mediante la stessa [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usata dai moduli standard.
+È possibile scrivere il codice che invia informazioni sulle dipendenze, mediante la stessa [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usata dai moduli standard.
 
 Ad esempio, se si compila il codice con un assembly non scritto personalmente, sarà possibile misurare il tempo necessario per tutte le chiamate all'assembly, per individuare il contributo dell'assembly ai tempi di risposta. Per visualizzare i dati nei grafici relativi alle dipendenze in Application Insights, inviarli mediante `TrackDependency`.
 
@@ -124,4 +129,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

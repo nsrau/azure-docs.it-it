@@ -26,7 +26,7 @@ Application Insights consente di monitorare un'applicazione distribuita in base 
 Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di base di Application Insights. Tale SDK fornisce il supporto API completo per tutti i dati di telemetria ma non offre la funzionalità di raccolta automatica di questi dati.
 
 
-## <a name="add"></a> Creare una risorsa di Application Insights
+## <a name="add"></a> Creare una risorsa Application Insights
 
 
 1.  Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Come tipo di applicazione scegliere l'app di Windows Store. 
@@ -56,7 +56,7 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
 Creare un'`TelemetryClient` istanza e quindi [usarla per inviare dati di telemetria][api].
 
-Usare `TelemetryClient.Flush()` per inviare messaggi prima di chiudere l'app L’SDK di base usa un buffer in memoria. Il metodo flush garantisce che questo buffer venga svuotato e che non si verifichi alcuna perdita di dati all'arresto del processo. (Non è consigliato per altri tipi di app. Gli SDK delle piattaforme implementano questo comportamento automaticamente).
+Usare `TelemetryClient.Flush()` per inviare messaggi prima di chiudere l'app L’SDK di base utilizza un buffer in memoria. Il metodo flush garantisce che questo buffer venga svuotato e che non si verifichi alcuna perdita di dati all'arresto del processo. (Non è consigliato per altri tipi di app. Gli SDK delle piattaforme implementano questo comportamento automaticamente).
 
 Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
@@ -173,4 +173,4 @@ Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire l'[
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

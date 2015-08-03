@@ -100,4 +100,4 @@ Per ulteriori informazioni relative all'agente Linux di Azure, visitare [Azure L
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

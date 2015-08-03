@@ -3,7 +3,7 @@
 	description="Accedere ai log applicazioni a livello di codice su un cluster Hadoop in HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Accedere ai log applicazioni YARN su Hadoop in HDInsight a livello di codice
 
@@ -115,7 +115,7 @@ Tali direttive fanno riferimento alle API appena definite nel codice seguente. I
 A questo punto, è possibile usare il client di cronologia delle applicazioni per elencare le applicazioni completate, filtrare le applicazioni in base ai propri criteri e scaricare i log applicazioni rilevanti. Il frammento di codice seguente mostra come viene eseguita questa operazione a livello di codice:
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ Se necessario, è possibile anche scaricare i log per tutti i contenitori, o per
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

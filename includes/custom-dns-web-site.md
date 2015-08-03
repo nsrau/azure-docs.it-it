@@ -311,4 +311,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

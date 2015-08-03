@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esecuzione di query con SQL di DocumentDB | Azure" 
+	pageTitle="Eseguire query con DocumentDB SQL | Azure" 
 	description="DocumentDB, un servizio di database di documenti NoSQL, supporta le query che usano una grammatica simile a quella di SQL sui documenti JSON gerarchici senza richiedere esplicitamente uno schema o la creazione di indici secondari." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mimig"/>
 
-#Esecuzione di query con DocumentDB
+#Query DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
 Nella progettazione del linguaggio di query per DocumentDB sono stati tenuti in considerazione due obiettivi:
@@ -33,7 +33,7 @@ Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandra
 Tornare quindi a questo articolo, dove verranno illustrati alcuni semplici documenti JSON e alcune semplici query.
 
 ## Introduzione
-Per osservare il funzionamento del linguaggio SQL di DocumentDB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Tenere presente che, con DocumentDB, non è necessario creare alcuno schema o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di DocumentDB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
+Per osservare il funzionamento del linguaggio SQL di DocumentDB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Da notare che, con DocumentDB, non è necessario creare alcuno schema o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di DocumentDB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
 
 **Documento**
 
@@ -136,7 +136,7 @@ Si prenda ora in considerazione il caso in cui fosse necessario modificare la fo
 	}]
 
 
-La query successiva restituisce i nomi di elementi figlio specificati nella famiglia con id corrispondente a `WakefieldFamily` ordinato in base alla città di residenza.
+La query successiva restituisce i nomi di elementi figlio specificati nella famiglia con ID corrispondente a `WakefieldFamily` ordinato in base alla città di residenza.
 
 **Query**
 
@@ -256,7 +256,7 @@ Se nell'esempio precedente veniva usata una matrice come origine, è possibile u
 
 
 ##Clausola WHERE
-La clausola WHERE (**`WHERE <filter_condition>`**) è facoltativa e specifica la condizione (o le condizioni) che i documenti JSON forniti dall'origine devono soddisfare per essere inclusi come parte del risultato. Per essere considerato per il risultato, qualsiasi documento JSON deve valutare le condizioni specificate come "true". La clausola WHERE viene usata dal livello di indice allo scopo di determinare il sottoinsieme più piccolo in assoluto di documenti di origine che possono fare parte del risultato.
+La clausola WHERE (**`WHERE <filter_condition>`**) è facoltativa. e specifica la condizione (o le condizioni) che i documenti JSON forniti dall'origine devono soddisfare per essere inclusi come parte del risultato. Per essere considerato per il risultato, qualsiasi documento JSON deve valutare le condizioni specificate come "true". La clausola WHERE viene usata dal livello di indice allo scopo di determinare il sottoinsieme più piccolo in assoluto di documenti di origine che possono fare parte del risultato.
 
 La query seguente richiede documenti che contengono una proprietà nome il cui valore è `AndersenFamily`. Qualsiasi altro documento che non contiene una proprietà nome o il cui valore non corrisponde a `AndersenFamily` verrà escluso.
 
@@ -277,9 +277,9 @@ La query seguente richiede documenti che contengono una proprietà nome il cui v
 	}]
 
 
-L'esempio precedente ha illustrato una semplice query di uguaglianza. Il linguaggio SQL di DocumentDB supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
+Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. Il linguaggio SQL di DocumentDB supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
 
-Gli operatori binari seguenti sono attualmente supportati e può essere utilizzati nelle query, come illustrato negli esempi seguenti:<table><tr><td>aritmetica</td><td>+,-, *, /, %</td></tr><tr><td>Bitwise</td><td>| &, ^, <<, >>, >>> (spostamento a destra riempimento zero)</td></tr><tr><td>logiche</td><td>AND, OR</td></tr><tr><td>confronto</td><td>=,! =, >, > =, <, <=, <></td></tr><tr><td>stringa</td><td>| | (concatenazione)</td></tr></table>
+Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti:<table><tr><td>aritmetica</td><td>+,-, *, /, %</td></tr><tr><td>Bitwise</td><td>| &, ^, <<, >>, >>> (spostamento a destra riempimento zero)</td></tr><tr><td>logiche</td><td>AND, OR</td></tr><tr><td>confronto</td><td>=,! =, >, > =, <, <=, <></td></tr><tr><td>stringa</td><td>| | (concatenazione)</td></tr></table>
 
 Saranno ora prese in esame alcune query che usano gli operatori binari.
 
@@ -311,7 +311,7 @@ Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati
 Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituirebbe i documenti JSON contenenti la proprietà `isRegistered` dove il valore della proprietà è uguale al valore JSON `true`. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` e così via) comporta l'esclusione del documento di origine dai risultati.
 
 ###Operatori di confronto e uguaglianza
-La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi. <table style = "width:300px"><tbody><tr><td valign="top"><strong>Op</strong></td><td valign="top"><strong>Non definito</strong></td><td valign="top"><strong>Null</strong></td><td valign="top"><strong>booleano</strong></td><td valign="top"><strong>numero</strong></td><td valign="top"><strong>stringa</strong></td><td valign="top"><strong>oggetto</strong></td><td valign="top"><strong>matrice</strong></td></tr><tr><td valign="top"><strong>non definito<strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>Null<strong></td><td valign="top">non definito</td><td valign="top"><strong>OK</strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>booleano<strong></td><td valign="top">definito</td><td valign="top">definito</td><td valign="top"><strong>OK</strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>Numero<strong></td><td valign="top">Undefined</td><td valign="top">Non definito</td><td valign="top">non definito</td><td valign="top"><strong>OK</strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>stringa<strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">definito</td><td valign="top"><strong>OK</strong></td><td valign="top">non definito</td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>oggetto<strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">definito</td><td valign="top"><strong>OK</strong></td><td valign="top">non definito</td></tr><tr><td valign="top"><strong>matrice<strong></td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top">definito</td><td valign="top">non definito</td><td valign="top">non definito</td><td valign="top"><strong>OK</strong></td></tr></tbody></table>
+La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Non definito</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>Booleano</strong> </td> <td valign="top"> <strong>Numero</strong> </td> <td valign="top"> <strong>Stringa</strong> </td> <td valign="top"> <strong>Oggetto</strong> </td> <td valign="top"> <strong>Matrice</strong> </td> </tr> <tr> <td valign="top"> <strong>Non definito <strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Booleano<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Numero<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Stringa<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Oggetto<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Matrice<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
 
 Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano le regole seguenti:
 
@@ -593,7 +593,7 @@ In questo esempio restituisce tutti i documenti in cui lo stato è uno dei valor
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-IN è equivalente alla concatenazione di più clausole OR, tuttavia, poiché possono essere gestito utilizzando un unico indice, DocumentDB supporta un livello più elevato di [limite](documentdb-limits.md) per il numero di argomenti specificato all'interno di una clausola IN.
+IN è equivalente alla concatenazione di più clausole OR, tuttavia, poiché possono essere gestito usando un unico indice, DocumentDB supporta un livello più elevato di [limite](documentdb-limits.md) per il numero di argomenti specificato all'interno di una clausola IN.
 
 ###Operatori Ternary (?) e Coalesce (??):
 Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni condizionali, analogamente ai linguaggi di programmazione più diffusi come C# e JavaScript.
@@ -615,8 +615,16 @@ L'operatore Coalesce (?) può essere usato per verificare se una proprietà è p
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
+###Funzione di accesso della proprietà di delimitazione
+È anche possibile accedere alle proprietà mediante l'operatore della proprietà di delimitazione `[]`. Ad esempio, `SELECT c.grade` e `SELECT c["grade"]` sono equivalenti. Questa sintassi risulta utile quando occorre usare i caratteri di escape per una proprietà che contiene spazi, caratteri speciali o condivide lo stesso nome di una parola chiave SQL o una parola riservata.
+
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+
+
 ##Clausola SELECT
-La clausola SELECT (**`SELECT <select_list>`**) è obbligatoria e specifica quali valori saranno recuperati dalla query, proprio come in ANSI-SQL. Il sottoinsieme filtrato dai documenti di origine viene passato alla fase di proiezione, in cui vengono recuperati i valori JSON specificati e viene costruito un nuovo oggetto JSON, per ogni input passato ad esso.
+La clausola SELECT (**`SELECT <select_list>`**) è obbligatoria e specifica quali valori saranno recuperati dalla query, proprio come in ANSI-SQL. Il sottoinsieme filtrato dai documenti di origine viene passato alla fase di proiezione, in cui vengono recuperati i valori JSON specificati viene costruito un nuovo oggetto JSON, per ogni input passato ad esso.
 
 L'esempio seguente illustra una tipica query SELECT.
 
@@ -696,7 +704,7 @@ Verrà ora esaminato il ruolo di `$1`. La clausola `SELECT` deve creare un ogget
 
 
 ###Aliasing
-L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. Da notare che è facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`.
+L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. Si noti che è facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`.
 
 Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessario usare l'aliasing per rinominare una o entrambe le proprietà, in modo da evitare ambiguità nel risultato proiettato.
 
@@ -793,7 +801,7 @@ Un'altra funzione fondamentale del linguaggio SQL di DocumentDB è la creazione 
 	]
 
 ###Parola chiave VALUE
-La parola chiave **VALUE** consente di restituire un valore JSON. Ad esempio, la query mostrata di seguito restituisce l'espressione scalare invece `"Hello World"` di `{$1: "Hello World"}`.
+La parola chiave **VALUE** consente di restituire un valore JSON. Ad esempio, la query mostrata di seguito restituisce l'espressione scalare `"Hello World"` invece di `{$1: "Hello World"}`.
 
 **Query**
 
@@ -873,9 +881,9 @@ L'operatore speciale (*) è supportato per proiettare il documento così com'è.
 	}]
 
 ##Clausola ORDER BY
-Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita in Order By, fare riferimento a [DocumentDB ordine dalla procedura dettagliata](documentdb-orderby.md).
+Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita di Order By, vedere l'[esercitazione su Order By in DocumentDB](documentdb-orderby.md).
 
-Ad esempio, ecco una query che recupera le famiglie in ordine di nome della città di residenza.
+Ad esempio, la query seguente recupera le famiglie in ordine di nome della città di residenza.
 
 **Query**
 
@@ -896,7 +904,7 @@ Ad esempio, ecco una query che recupera le famiglie in ordine di nome della citt
 	  }
 	]
 
-E qui una query che recupera famiglie nell'ordine della data di creazione viene memorizzato come un numero che rappresenta il periodo di tempo, ad esempio, tempo trascorso dall'1 gennaio 1970 in secondi.
+La query seguente recupera le famiglie in ordine di data di creazione, archiviata come numero che rappresenta il periodo, ovvero il tempo trascorso dall'1 gennaio 1970 in secondi.
 
 **Query**
 
@@ -1000,7 +1008,7 @@ Può essere usato per filtrare ulteriormente ciascuna voce individuale della mat
 ###Join
 In un database relazionale, la necessità creare un join tra tabelle è molto importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, DocumentDB gestisce un modello dati denormalizzato di documenti senza schema. È l'equivalente logico di un "self-join".
 
-La sintassi supportata dal linguaggio è <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. In generale, restituisce un set di tuple **N** (tupla con **N** valori). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set. In altri termini, si tratta del prodotto incrociato completo dei set che partecipano al join.
+La sintassi supportata dal linguaggio è <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. In generale, restituisce un set di tuple **N** (tupla con valori **N**). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set. In altri termini, si tratta del prodotto incrociato completo dei set che partecipano al join.
 
 Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Nell'esempio seguente, il risultato è vuoto perché il prodotto incrociato di ciascun documento dall'origine e un set vuoto è a sua volta vuoto.
 
@@ -1016,7 +1024,7 @@ Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Nell'esempi
 	}]
 
 
-Nell'esempio seguente, il join avviene tra la radice del documento e la sottoradice di `children`. È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
+Nell'esempio seguente il join avviene tra la radice del documento e la sottoradice di `children`. È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
 
 **Query**
 
@@ -1060,13 +1068,13 @@ L'esempio seguente illustra un join più convenzionale:
 
 
 
-Per prima cosa occorre notare che l'origine `from_source` della clausola **JOIN** è un iteratore. Pertanto il flusso in questo caso è il seguente:
+Per prima cosa occorre notare che il valore `from_source` della clausola **JOIN** è un iteratore. Pertanto il flusso in questo caso è il seguente:
 
 -	Espandere ciascun elemento figlio **c** nella matrice.
 -	Applicare un prodotto incrociato con la radice del documento **f** con ogni elemento figlio **c** che è stato convertito nel primo passaggio.
 -	Infine, proiettare solo la proprietà nome **f** dell'oggetto radice. 
 
-Il primo documento (`AndersenFamily`) contiene solo un elemento figlio, quindi il set di risultati contiene un singolo oggetto corrispondente a questo documento. Il secondo elemento (`WakefieldFamily`) contiene due figli. Quindi, il prodotto incrociato genera un oggetto separato per ogni figlio, dando come risultato due oggetti, uno per ogni figlio corrispondente a questo documento. Da notare che i campi radice in entrambi i documenti saranno uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
+Il primo documento (`AndersenFamily`) contiene solo un elemento figlio, quindi il set di risultati contiene un singolo oggetto corrispondente a questo documento. Il secondo elemento (`WakefieldFamily`) contiene due figli. Quindi, il prodotto incrociato genera un oggetto separato per ogni figli, dando come risultato due oggetti, uno per ogni figlio corrispondente a questo documento. Da notare che i campi radice in entrambi i documenti saranno uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
 
 La vera utilità del JOIN consiste nel formare tuple dal prodotto incrociato in una forma che altrimenti sarebbe difficile proiettare. Inoltre, come illustrato nell'esempio seguente, è possibile filtrare la combinazione di una tupla che consenta all'utente di scegliere una condizione soddisfatta dall'insieme delle tuple.
 
@@ -1172,7 +1180,7 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nella seconda funzione String di JavaScript.
+Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nella seconda funzione string.match() di JavaScript.
 
 
 È ora possibile usare questa UDF in una query in una proiezione. Le UDF devono essere qualificate con il prefisso con distinzione tra maiuscole e minuscole "udf." quando chiamate dall'interno delle query.
@@ -1371,7 +1379,7 @@ Le funzioni matematiche eseguono un calcolo basato in genere su valori di input 
 <tr>
 <tr>
 <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>	
-<td>Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. denominato anche arcocoseno.</td>
+<td>Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. Denominato anche arcocoseno.</td>
 </tr>
 <tr>
 <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>	
@@ -1466,7 +1474,7 @@ Le funzioni di controllo del tipo consentono di controllare il tipo di un'espres
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (espressione)</a></td>
-  <td>Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o null.</td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o Null.</td>
 </tr>
 
 </table>
@@ -1503,11 +1511,11 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di i
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo</td>
+  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo</td>
+  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
@@ -1542,7 +1550,7 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di i
   <td>Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">Sostituisci (str_expr, str_expr, str_expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">SOSTITUISCI (str_expr, str_expr, str_expr)</a></td>
   <td>Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa.</td>
 </tr>
 <tr>
@@ -1588,7 +1596,7 @@ In alternativa, è possibile concatenare stringhe come in questo esempio:
     }]
 
 
-Funzioni stringa possono essere utilizzate anche nella clausola WHERE per filtrare i risultati, come nell'esempio seguente:
+Le funzioni stringa possono essere usate anche nella clausola WHERE per filtrare i risultati, come nell'esempio seguente:
 
 **Query**
 
@@ -1604,7 +1612,7 @@ Funzioni stringa possono essere utilizzate anche nella clausola WHERE per filtra
     }]
 
 ###Funzioni di matrice
-Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituire un valore numerico, booleano o matrice. Ecco una tabella di funzioni di matrice predefinite:
+Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. La tabella seguente include funzioni di matrice predefinite:
 
 <table>
 <tr>
@@ -1629,7 +1637,7 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di input di mat
 </tr>
 </table>
 
-Funzioni di matrice che consentono di manipolare le matrici in JSON. Ad esempio, ecco una query che restituisce tutti i documenti in cui uno degli elementi padre è "Robin Wakefield".
+Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. Ad esempio, la query seguente restituisce tutti i documenti in cui uno dei genitori è "Robin Wakefield".
 
 **Query**
 
@@ -1643,7 +1651,7 @@ Funzioni di matrice che consentono di manipolare le matrici in JSON. Ad esempio,
       "id": "WakefieldFamily"
     }]
 
-Ecco un altro esempio che utilizza ARRAY_LENGTH per ottenere il numero di elementi figlio per ogni famiglia.
+L'esempio seguente usa ARRAY_LENGTH per ottenere il numero di figli per ogni famiglia.
 
 **Query**
 
@@ -1661,13 +1669,13 @@ Ecco un altro esempio che utilizza ARRAY_LENGTH per ottenere il numero di elemen
       "numberOfChildren": 1
     }]
 
-Che esegue il wrapping di funzioni predefinite e la grammatica SQL per DocumentDB. Ora esaminiamo come funziona la query LINQ e come essa interagisce con la grammatica che abbiamo visto finora.
+Viene eseguito il wrapping di funzioni predefinite e della grammatica SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la grammatica esaminata fino ad ora.
 
 
 ##Da LINQ a SQL di DocumentDB
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. DocumentDB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di DocumentDB.
 
-Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che comunica una query al provider di query di DocumentDB, il quale a sua volta traduce la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
+Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che indirizza la query al provider di query di DocumentDB, il quale a sua volta traduce la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
 
 ![][1]
  
@@ -1755,7 +1763,7 @@ Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo de
 
 
 
-###Traduzione da LINQ a SQL
+###Traduzione LINQ to SQL
 Il provider di query di DocumentDB esegue con il massimo impegno un mapping da una query LINQ in una query SQL di DocumentDB. Nella descrizione seguente si presuppone che il lettore abbia una certa familiarità con LINQ.
 
 In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JSON: tipi numerici, booleani, stringa e null. Sono supportati solo questi tipi JSON. Sono supportate le seguenti espressioni scalari.
@@ -1791,7 +1799,7 @@ Di seguito sono riportati alcuni esempi che illustrano in che modo gli operatori
 ####Operatore Select
 La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Select(family => family.parents[0].familyName);
 
@@ -1802,7 +1810,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Select(family => family.children[0].grade + c); // c is an int variable
 
@@ -1814,7 +1822,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Select(family => new
 	{
@@ -1834,7 +1842,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 ####Operatore SelectMany
 La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare che restituisce un tipo di raccolta.
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.SelectMany(family => family.children);
 
@@ -1848,7 +1856,7 @@ La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare
 ####Operatore Where
 La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che restituisce un valore booleano.
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Where(family=> family.parents[0].familyName == "Smith");
 
@@ -1860,7 +1868,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Where(
 	    family => family.parents[0].familyName == "Smith" && 
@@ -1879,10 +1887,10 @@ Gli operatori sopra riportati possono essere composti in modo da formare query p
 
 ####Concatenazione 
 
-La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`: Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
+La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Select(family=>family.parents[0])
 	    .Where(familyName == "Smith");
@@ -1895,7 +1903,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`: Una query concaten
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Where(family => family.children[0].grade > 3)
 	    .Select(family => family.parents[0].familyName);
@@ -1908,7 +1916,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`: Una query concaten
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.Select(family => new { grade=family.children[0].grade}).
 	    Where(anon=> anon.grade < 3);
@@ -1921,7 +1929,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`: Una query concaten
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.SelectMany(family => family.parents)
 	    .Where(parent => parents.familyName == "Smith");
@@ -1940,7 +1948,7 @@ La sintassi è `input.SelectMany(x=>x.Q())` dove Q è un operatore `Select`, `Se
 
 In una query annidata, la query più interna viene applicata a ogni elemento della raccolta esterna. Una funzionalità importante è che la query interna può riferirsi ai campi degli elementi nella raccolta esterna come a self-join.
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.SelectMany(family=> 
 	    family.parents.Select(p => p.familyName));
@@ -1952,7 +1960,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	JOIN p IN f.parents
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
 
 	input.SelectMany(family => 
 	    family.children.Where(child => child.familyName == "Jeff"));
@@ -1966,7 +1974,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 
 
 
-**Espressione Lambda LINQ**
+**Espressione lambda LINQ**
             
 	input.SelectMany(family => family.children.Where(
 	    child => child.familyName == family.parents[0].familyName));
@@ -1988,7 +1996,7 @@ DocumentDB offre un modello di programmazione aperto RESTful su HTTP. È possibi
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di DocumentDB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso di `x-ms-documentdb-isquery` e Content-Type: intestazioni `application/query+json` per denotare che l'operazione è una query.
+Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per denotare che l'operazione è una query.
 
 
 **Richiesta**
@@ -2205,11 +2213,11 @@ Nell'esempio successivo vengono illustrati i join, espressi tramite la clausola 
 
 
 
-Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come illustrato sopra. Le opzioni di query presentate nella sezione relativa alle API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` e `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
+Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione relativa alle API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` e `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
 
-Gli sviluppatori possono anche controllare esplicitamente il paging creando `IDocumentQueryable` usando l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` a `FeedOptions`. È possibile impostare `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
+Gli sviluppatori possono anche controllare esplicitamente il paging creando un oggetto `IDocumentQueryable` che usi l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
 
-Per altri esempi contenenti query, vedere gli esempi di .NET in [DocumentDB](https://github.com/Azure/azure-documentdb-net).
+Per altri esempi contenenti query, vedere gli [esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net).
 
 ###API lato server JavaScript 
 DocumentDB offre un modello di programmazione per l'esecuzione di logica dell'applicazione basata su JavaScript direttamente nelle raccolte usando stored procedure e trigger. La logica JavaScript registrata a livello di raccolta può quindi rilasciare operazioni sui documenti della raccolta specifica. Viene quindi eseguito il wrapping di queste operazioni nelle transazioni ACID Ambient.
@@ -2249,7 +2257,7 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 
 
 ##Riferimenti
-1.	[Introduzione a Azure DocumentDB][introduction]
+1.	[Introduzione ad Azure DocumentDB][introduction]
 2.	[Specifica di SQL DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Livelli di coerenza in DocumentDB][consistency-levels]
@@ -2257,11 +2265,11 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 6.	JSON [http://json.org/](http://json.org/)
 7.	Specifiche Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	Tecniche di valutazione di query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9.	Tecniche di valutazione delle query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: un linguaggio non così estraneo per l'elaborazione dati, SIGMOD 2008.
-13.     G. Graefe, The Cascades framework for query optimization. Dati IEEE jolly Bull., 18(3): 1995.
+13.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
@@ -2269,4 +2277,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

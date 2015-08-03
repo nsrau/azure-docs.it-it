@@ -34,11 +34,13 @@ In questo argomento viene descritto come usare il metodo di creazione rapida di 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
 
-- **Definizione del servizio**<br/> Il file di definizione del servizio cloud ( con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
+- **Definizione del servizio** Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
 
-- **Configurazione del servizio**<br/> l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
+- **Configurazione del servizio** l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
 
-- **Pacchetto del servizio**<br/> Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+- **Pacchetto del servizio** Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+
+Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
 ## Preparare l'app
 Per poter distribuire un servizio cloud, è necessario creare il pacchetto di servizio cloud (.cspkg) dal codice dell'applicazione e un file di configurazione del servizio cloud (.cscfg). Azure SDK offre strumenti per la preparazione dei file necessari alla distribuzione. È possibile installare l'SDK dalla pagina di [download](http://azure.microsoft.com/downloads/) di Azure, nel linguaggio in cui si preferisce sviluppare il codice dell'applicazione.
@@ -64,30 +66,30 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 ## Passaggio 3: creare un servizio cloud e caricare il pacchetto di distribuzione
 
-1. Accedere al [portale di anteprima di Azure]. 
+1. Accedere al [portale di anteprima di Azure][]. 
 2. Fare clic su **Nuovo**, quindi su **Calcola**, scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-3. Nel blade del nuovo **servizio cloud**, immettere un valore per il **nome DNS**
+3. Nel pannello del nuovo **servizio cloud** immettere un valore per il **nome DNS**
 4. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
-6. Selezionare **Pacchetto** e nel blade **Caricare un pacchetto**, compilare i campi obbligatori.  
+6. Selezionare **Pacchetto** e nel pannello **Caricare un pacchetto** compilare i campi obbligatori.  
       
      Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 
-7. Assicurarsi che l’opzione **Avvia distribuzione** sia *selezionata*.
+7. Assicurarsi che l'opzione **Avvia distribuzione** sia *selezionata*.
 8. Fare clic su **OK**. 
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## Caricamento di un certificato
 
-Se il pacchetto di distribuzione è stato [configurato per utilizzare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
+Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
 
-9. Selezionare **Certificati** e nel blade **Aggiungi certificati**, selezionare il file .pfx del certificato SSL e fornire la **password** per il certificato. 
-10. Fare clic su **Collega certificato** e su **OK** nel blade **Aggiungi certificati**.
-11. Fare clic su **Crea** nel blade **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready**, è possibile procedere con i passaggi successivi.
+9. Selezionare **Certificati** e nel pannello **Aggiungi certificati** selezionare il file PXF del certificato SSL e fornire la **password** per il certificato. 
+10. Fare clic su **Collega certificato** e su **OK** nel pannello **Aggiungi certificati**.
+11. Fare clic su **Crea** nel pannello **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready**, è possibile procedere con i passaggi successivi.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -106,4 +108,4 @@ Se il pacchetto di distribuzione è stato [configurato per utilizzare i certific
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -73,7 +73,7 @@ Ogni raccolta viene fornita con un'allocazione di memoria del database e il prov
 ###Come è possibile iniziare a sviluppare per DocumentDB?
 Nell'anteprima sono disponibili gli SDK per .NET, Python, Node.js, JavaScript e Java. Gli sviluppatori possono anche usare le API HTTP RESTful per interagire con le risorse di DocumentDB da un'ampia gamma di piattaforme e linguaggi. Per informazioni dettagliate su come usare gli SDK, vedere la sezione Sviluppo nella [pagina della documentazione di DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
-###DocumentDB supporta SQL?
+###In DocumentDB è supportato SQL?
 Il linguaggio di query SQL di DocumentDB offre operatori avanzati gerarchici e relazionali ed estendibilità tramite funzioni definite dall'utente basate su JavaScript. La grammatica JSON consente la creazione di modelli di documenti JSON come alberi con etichette come nodi dell'albero. Questa struttura è usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto di query SQL di DocumentDB. Per informazioni dettagliate su come utilizzare la grammatica SQL, vedere il[Query tramite SQL DocumentDB][query]articolo.
 
 ###Quali sono i tipi di dati supportati da DocumentDB?
@@ -98,4 +98,4 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

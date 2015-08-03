@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
 Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Node.js. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi** a un argomento, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per ulteriori informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
@@ -140,7 +136,7 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è 
 
 > [AZURE.NOTE]
 
-> Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti <strong>MatchAll</strong> sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo <strong>deleteRule</strong> dell'oggetto <strong>ServiceBusService</strong>.
+> Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti **MatchAll** sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **deleteRule** dell'oggetto **ServiceBusService**.
 
 Nell'esempio seguente viene creata una sottoscrizione denominata 'HighMessages' con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **messagenumber** è maggiore di 3:
 
@@ -294,7 +290,7 @@ Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni reg
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][].
+-   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][]
 -   Riferimento sulle API per [SqlFilter][]
 -   Archivio [Azure SDK for Node] su GitHub
 
@@ -309,4 +305,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Applicazione Web Node.js con archiviazione]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

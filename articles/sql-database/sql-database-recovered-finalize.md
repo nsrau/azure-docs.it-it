@@ -18,14 +18,6 @@
 
 # Finalizzare il database SQL di Azure ripristinato
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Panoramica
 
 In questo articolo viene fornito un elenco di controllo delle attività che è necessario effettuare prima di riportare un database SQL di Azure appena ripristinato in produzione. L'elenco si applica a database ripristinati da failover di replica geografica, a database eliminati e ripristinati, a database ripristinati in modalità temporizzata o a livello geografico.
@@ -64,4 +56,4 @@ Per ulteriori sulle regole di avviso per il database, vedere [Procedura: ricever
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. È necessario un indicatore efficace per controllare che nelle applicazioni client vengano utilizzate stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md). 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

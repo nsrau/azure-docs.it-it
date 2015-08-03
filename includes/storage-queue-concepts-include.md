@@ -24,4 +24,4 @@ L'URL seguente fa riferimento a una delle code nel diagramma: http://myaccount.q
 
 - **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

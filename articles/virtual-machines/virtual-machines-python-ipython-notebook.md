@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # IPython Notebook in Azure
 
 Il [progetto IPython](http://ipython.org) rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.
@@ -149,7 +146,7 @@ In Linux:
 
 In Windows:
 
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd \users\azureuser.ipython\profile_nbserver
 
 Creare il certificato SSL come indicato di seguito (Linux e Windows):
 
@@ -180,7 +177,7 @@ In seguito verrà modificato il file di configurazione del profilo, che corrispo
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -276,4 +273,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

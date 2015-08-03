@@ -125,4 +125,4 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

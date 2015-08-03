@@ -15,4 +15,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
  	</div>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

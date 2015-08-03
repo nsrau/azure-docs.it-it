@@ -40,11 +40,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-## Creare una nuova app universale di Windows
+## Creare una nuova app di Windows universale
 
 Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
-In questa sezione si creerà una nuova app universale di Windows connessa al servizio mobile.
+In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
 
 1. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
@@ -126,4 +126,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

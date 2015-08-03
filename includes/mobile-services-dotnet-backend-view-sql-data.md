@@ -13,4 +13,4 @@ L'ultimo passaggio facoltativo di questa esercitazione consiste nel controllare 
 
 	Si noti che la tabella include le colonne Id, __createdAt, __updatedAt e __version. Tali colonne supportano la sincronizzazione dei dati offline e sono implementate nella classe di base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Per altre informazioni, vedere l'argomento relativo alla [sincronizzazione dei dati offline].
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

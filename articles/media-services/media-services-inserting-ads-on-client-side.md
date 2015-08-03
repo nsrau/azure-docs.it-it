@@ -804,4 +804,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md) [Introduzione al Media Player Framework per iOS di Azure](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

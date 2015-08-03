@@ -108,8 +108,8 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sulla continuità aziendale per database SQL Azure]: sql-database/sql-database-business-continuity/,d
-[Finalizzare un database ripristinato]: sql-database/sql-database-recovered-finalize/
+[Panoramica sulla continuità aziendale per database SQL Azure]: sql-database/sql-database-business-continuity.md
+[Finalizzare un database ripristinato]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -120,4 +120,4 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

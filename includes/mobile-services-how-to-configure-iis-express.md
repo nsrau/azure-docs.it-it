@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [aggiunta di una nuova regola porta in Windows Firewall]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

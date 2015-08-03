@@ -145,7 +145,7 @@ Questi 8 gruppi mappano il consumo di slot della concorrenza
 | SloDWGroupC06 | 64 | Alto |
 | SloDWGroupC07 | 128 | Alto |
 
-Quindi, ad esempio, se DW500 è l'impostazione DWU corrente per il Data Warehouse SQL allora i gruppi del carico di lavoro attivo saranno associati alle classi di risorse come segue:
+Quindi, ad esempio, se DW500 è l'impostazione DWU corrente per il SQL Data Warehouse allora i gruppi del carico di lavoro attivo saranno associati alle classi di risorse come segue:
 
 | Classe di risorse | Gruppo di carico | Numero di slot di concorrenza usate | Importance |
 | :------------- | :------------- | :---------------------   | :--------- |
@@ -377,4 +377,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

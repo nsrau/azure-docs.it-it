@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti
@@ -45,10 +45,11 @@ Esistono due scenari diversi. La figura seguente li illustra entrambi.
 
 ### Note e limitazioni
 
+- Tramite Azure non sarà possibile attivare il routing tra la rete locale connessa tramite la VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
+- Non è possibile abilitare connessioni VPN da punto a sito dalla stessa rete virtuale connessa a ExpressRoute. Le connessioni VPN da punto a sito ed ExpressRoute non possono coesistere per la stessa rete virtuale.
 - Sia il gateway ExpressRoute che il gateway VPN da sito a sito devono essere SKU del gateway di tipo Standard o HighPerformance. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito (scenario 1), per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica. 
 - È necessario creare il gateway ExpressRoute prima di aggiungere il gateway VPN da sito a sito.
-- Tramite Azure non sarà possibile attivare il routing tra la rete locale connessa tramite la VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
 - Entrambe le procedure presuppongono la disponibilità di un circuito ExpressRoute già configurato. In caso contrario, vedere gli articoli seguenti: 
 
 	- [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md) 
@@ -151,12 +152,12 @@ Esistono due scenari diversi. La figura seguente li illustra entrambi.
 		OperationStatus      : Succeeded
 
 	
-8. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per ulteriori informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 	
 
 9. Collegare il gateway VPN da sito a sito in Azure al gateway locale.
 
-	In questo esempio, connectedEntityId è l'ID del gateway locale, che è possibile trovare eseguendo `Get-AzureLocalNetworkGateway`. È possibile trovare virtualNetworkGatewayId usando il cmdlet `Get-AzureVirtualNetworkGateway` . Dopo questo passaggio, viene stabilita la connessione tra la rete locale e Azure tramite la connessione VPN da sito a sito.
+	In questo esempio connectedEntityId è l'ID del gateway locale, che è possibile trovare eseguendo `Get-AzureLocalNetworkGateway`. È possibile trovare virtualNetworkGatewayId usando il cmdlet `Get-AzureVirtualNetworkGateway`. Dopo questo passaggio, viene stabilita la connessione tra la rete locale e Azure tramite la connessione VPN da sito a sito.
 
 
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
@@ -193,7 +194,7 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. A questo punto, si avrà una rete virtuale senza gateway. È possibile procedere con il **passaggio 3** nell'articolo, [Creare una nuova rete virtuale con connessioni coesistenti](#create-a-new-vnet-with-coexisting-connections) per creare nuovi gateway e completare le connessioni.
+5. A questo punto, si avrà una rete virtuale senza gateway. È possibile procedere con il **Passaggio 3** nell'articolo, [Creare una nuova rete virtuale con connessioni coesistenti](#create-a-new-vnet-with-coexisting-connections) per creare nuovi gateway e completare le connessioni.
 
 
 
@@ -203,4 +204,4 @@ Altre informazioni su ExpressRoute. Vedere l'articolo [Panoramica tecnica relati
 
 Altre informazioni sui gateway VPN. Vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

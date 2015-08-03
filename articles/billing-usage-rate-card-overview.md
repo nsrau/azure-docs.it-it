@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure"
    description="Fornisce una panoramica concettuale sull'utilizzo dell’API di fatturazione e dell’API RestCard di Azure, che sono utilizzate per fornire informazioni sul consumo di risorse e sulle tendenze di Azure."
    services="billing"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="07/7/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure 
@@ -78,4 +78,4 @@ In [Cloud Cruiser e integrazione dell’API di fatturazione di Microsoft Azure](
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -45,9 +45,9 @@ Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usan
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
 3. Nella finestra di dialogo **Nuovo progetto** fare clic su **Installato** > **Modelli** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3\.a. Scegliere uno dei seguenti modelli: Archiviazione Blob di Azure, Archiviazione tabelle di Azure o Code di archiviazione di Azure. 
-	- 3\.b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.	
-	- 3\.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
+	- 3.a. Scegliere uno dei seguenti modelli: Archiviazione Blob di Azure, Archiviazione tabelle di Azure o Code di archiviazione di Azure. 
+	- 3.b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.	
+	- 3.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
 	
 	![Guide rapide di Azure][Image1]
 
@@ -71,9 +71,9 @@ Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
 3. Nella finestra di dialogo **Nuovo progetto** fare clic su **Installato** > **Modelli** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3\.a. Scegliere uno dei seguenti modelli: Archiviazione Blob di Azure, Archiviazione tabelle di Azure o Code di archiviazione di Azure.
-	- 3\.b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
-	- 3\.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato: 
+	- 3.a. Scegliere uno dei seguenti modelli: Archiviazione Blob di Azure, Archiviazione tabelle di Azure o Code di archiviazione di Azure.
+	- 3.b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+	- 3.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato: 
 
 È possibile esaminare il codice sorgente prima di eseguire l'applicazione. Per esaminare il codice, selezionare **Esplora soluzioni** nel menu **Visualizza** di Visual Studio. Quindi, fare doppio clic sul file Program.cs.
 
@@ -107,4 +107,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

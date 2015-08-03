@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Come usare l'archiviazione di Azure per il backup e ripristino di SQL Server | Azure" 
-	description="Backup e ripristino di SQL Server e database SQL nell'archiviazione di Azure Vengono illustrati i vantaggi del backup dei database SQL nell'archiviazione di Azure e i componenti necessari del server SQL e dell'archiviazione di Azure" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Come usare l'archiviazione di Azure per il backup e ripristino di SQL Server | Azure"
+	description="Backup e ripristino di SQL Server e database SQL nell'archiviazione di Azure Vengono illustrati i vantaggi del backup dei database SQL nell'archiviazione di Azure e i componenti necessari del server SQL e dell'archiviazione di Azure"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@ Il primo passaggio nel processo consiste nel creare un account Azure. In SQL Ser
 
 Per una procedura dettagliata completa sulla creazione di un account di archiviazione e sull'esecuzione di una semplice attività di ripristino, vedere [Introduzione al servizio di archiviazione di Azure per il backup e ripristino di SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615)
 
-## Componenti del servizio di archiviazione BLOB di Azure 
+## Componenti del servizio di archiviazione BLOB di Azure
 
 * Account di archiviazione: l'account di archiviazione è il punto di partenza per tutti i servizi di archiviazione. Per accedere a un servizio di archiviazione BLOB di Azure, è innanzitutto necessario creare un account di archiviazione di Azure. Il nome dell'account di archiviazione e le proprietà della relativa chiave di accesso sono elementi necessari per l'autenticazione con il servizio di archiviazione BLOB di Azure e con i relativi componenti. Per ulteriori informazioni sul servizio di archiviazione BLOB di Azure, vedere [Come utilizzare il servizio di archiviazione BLOB di Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
@@ -69,17 +69,7 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 [Introduzione al backup e ripristino di SQL Server nel servizio di archiviazione BLOB di Azure](http://go.microsoft.com/fwlink/?LinkID=271615 "Esercitazione")
 
 **Procedure consigliate e risoluzione dei problemi:**
-	
+
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

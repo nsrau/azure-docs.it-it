@@ -207,4 +207,4 @@ Questo esempio ha creato una semplice campagna di tipo annuncio, specificando pr
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

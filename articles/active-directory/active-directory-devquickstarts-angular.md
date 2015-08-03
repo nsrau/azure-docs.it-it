@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
 # Protezione di app AngularJS a singola pagina con Azure AD
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -147,7 +149,6 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [Chiamare un'API Web CORS da un'applicazione a singola pagina >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-Per altre risorse, vedere: [AzureADSamples su GitHub >>](https://github.com/AzureAdSamples), [CloudIdentity.com >>](https://cloudidentity.com), la documentazione su Azure AD in [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

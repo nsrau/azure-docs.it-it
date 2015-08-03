@@ -65,4 +65,4 @@
 
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

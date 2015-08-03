@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # Configurare DNS tra due reti virtuali di Azure
@@ -220,4 +220,4 @@ In questa esercitazione si è appreso come configurare la risoluzione dei nomi t
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

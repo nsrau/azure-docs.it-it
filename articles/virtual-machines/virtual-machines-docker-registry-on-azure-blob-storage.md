@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Distribuzione del registro Docker privato in Azure"
-    description="Descrive come usare il registro Docker per ospitare immagini di contenitori nel servizio di archiviazione BLOB di Azure."
-    services="virtual-machines"
-    documentationCenter="virtual-machines"
-    authors="ahmetalpbalkan"
-    editor="squillace"
-    manager=""
+  pageTitle="Distribuzione del registro Docker privato in Azure"
+  description="Descrive come usare il registro Docker per ospitare immagini di contenitori nel servizio di archiviazione BLOB di Azure."
+  services="virtual-machines"
+  documentationCenter="virtual-machines"
+  authors="ahmetalpbalkan"
+  editor="squillace"
+  manager="" 
   tags="" />
 
 <tags
-    ms.service="virtual-machines"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="06/17/2015" 
-    ms.author="ahmetb" />
+  ms.service="virtual-machines"
+  ms.devlang="multiple"
+  ms.topic="article"
+  ms.tgt_pltfrm="vm-linux"
+  ms.workload="infrastructure-services"
+  ms.date="06/17/2015" 
+  ms.author="ahmetb" />
 
 # Distribuzione del registro Docker privato in Azure
 
@@ -92,4 +92,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

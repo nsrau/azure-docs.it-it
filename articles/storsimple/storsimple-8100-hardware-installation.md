@@ -3,7 +3,7 @@
    description="In questo argomento viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/20/2015"
+   ms.author="alkohli" />
 
 # Installare il dispositivo StorSimple 8100
 
@@ -297,4 +297,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

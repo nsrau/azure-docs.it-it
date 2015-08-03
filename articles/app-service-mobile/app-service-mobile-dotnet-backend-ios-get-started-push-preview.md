@@ -25,6 +25,10 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 
 > [AZURE.NOTE]Il [simulatore di iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi è necessario utilizzare un dispositivo iOS fisico. È inoltre necessario iscriversi all'[Apple Developer Program](https://developer.apple.com/programs/ios/), una membership a pagamento.
 
+##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 [AZURE.INCLUDE [Abilitare le notifiche push per Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## Configurare Azure per l'invio di notifiche push
@@ -123,4 +127,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -31,4 +31,4 @@ Tornare in Visual Studio e selezionare il progetto Shared Code Client App (con u
 
 	Tenere presente che i dati salvati dal passaggio precedente vengono caricati dall'app per dispositivi mobili dopo l'avvio dell'app Windows.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

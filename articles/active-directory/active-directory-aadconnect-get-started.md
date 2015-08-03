@@ -49,11 +49,11 @@ Nella tabella seguente vengono indicati i requisiti minimi per il computer Azure
 | Numero di oggetti in Active Directory | CPU | Memoria | Dimensioni del disco rigido |
 | ------------------------------------- | --- | ------ | --------------- |
 | Meno di 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10\.000-50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50\.000-100.000 | 1,6 GHz | 16 GB | 100 GB |
+| 10.000-50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50.000-100.000 | 1,6 GHz | 16 GB | 100 GB |
 | Per 100.000 o più oggetti, è necessaria la versione completa di SQL Server| | | |
-| 100\.000-300.000 | 1,6 GHz | 32 GB | 300 GB |
-| 300\.000-600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100.000-300.000 | 1,6 GHz | 32 GB | 300 GB |
+| 300.000-600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Più di 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -114,4 +114,4 @@ Dopo avere installato Azure AD Connect, è possibile fare clic [qui](active-dire
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

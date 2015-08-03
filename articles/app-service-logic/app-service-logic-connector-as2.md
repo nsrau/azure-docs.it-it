@@ -20,7 +20,7 @@
 Con Microsoft Azure AS2 Connector è possibile ricevere e inviare messaggi tramite il protocollo di trasporto AS2 (Applicability Statement 2) nelle comunicazioni Business to Business. I dati vengono trasportati in modo sicuro e affidabile tramite Internet. La sicurezza è garantita con i certificati digitali e la crittografia.
 
 ## Trigger e azioni
-Un trigger avvia una nuova istanza in base a un evento specifico, ad esempio l'arrivo di un messaggio AS2 da un partner. Un'azione è il risultato. Ad esempio, dopo la ricezione di un messaggio AS2, viene quindi inviato il messaggio tramite AS2.
+Un trigger avvia una nuova istanza in base a un evento specifico, ad esempio l'arrivo di un messaggio AS2 da un partner. Un'azione è il risultato, ad esempio, dopo la ricezione di un messaggio AS2 poi viene inviato il messaggio tramite AS2.
 
 AS2 Connector può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per AS2 Connector sono disponibili i trigger e le azioni seguenti:
 
@@ -69,14 +69,16 @@ I passaggi per la creazione di un accordo tra partner commerciali sono documenta
 
 4. Questo trigger non include input. Fare clic sulla freccia destra →: <br/> ![Configurazione di Receive & Decode][6]
 
-Come parte dell'output, il connettore restituisce il payload AS2, nonché i metadati specifici di AS2.
+Quale parte dell'output, il connettore restituisce il payload AS2, nonché i metadati specifici di AS2.
+
+Il Trigger viene attivato quando un Payload AS2 è come un POST alhttps://{HostURL} / decodifica. È possibile trovare l'URL Host nell'API App impostazioni. Inoltre potrebbe essere necessario modificare il livello di accesso dell'applicazione nelle impostazioni dell'applicazione API pubblico (autenticate o anonime).
 
 ## Usare il connettore come azione
 1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), dal riquadro destro aggiungere AS2 Connector creato in precedenza: <br/> ![Impostazioni di azione][7]
 
 2. Fare clic sulla freccia destra →: <br/> ![Elenco di azioni][8]
 
-3. AS2 Connector supporta una sola azione. Selezionare *Encode & Send*: <br/> ![Input di Encode & Send][9]
+3. AS2 Connector supporta una sola azione. Selezionare *Encode & Send*: <br/> ![Input di Encode & Send][9].
 
 4. Immettere gli input per l'azione e configurarla: <br/> ![Configurazione di Encode & Send][10]
 
@@ -84,7 +86,7 @@ I parametri includono:
 
 Parametro | Tipo | Descrizione
 --- | --- | ---
-Payload | oggetto| Contenuto del paylod da codificare e registrare nell'endpoint configurato. Il payload deve essere specificato come oggetto JSON.
+Payload | oggetto| Contenuto del payload da codificare e registrare nell'endpoint configurato. Il payload deve essere specificato come oggetto JSON.
 AS2 di origine | stringa | Identità AS2 del mittente del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
 AS2 di destinazione | stringa | Identità AS2 del destinatario del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
 URL del partner | stringa | Endpoint del partner a cui deve essere inviato il messaggio.
@@ -111,4 +113,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -225,4 +225,4 @@ In questo caso si sfrutta semplicemente la capacità di Reliable Actors di conse
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

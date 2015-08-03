@@ -17,7 +17,7 @@
    ms.author="sameerch"/>
 
 
-# SAP Connector #
+# Connettore SAP #
 
 I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. Esistono scenari in cui può essere necessario usare un sistema SAP installato in locale e protetto da un firewall. Inserendo SAP Connector nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:
 
@@ -94,4 +94,4 @@ Completare l'app per la logica per definire il processo aziendale e quindi esegu
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

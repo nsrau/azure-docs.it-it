@@ -50,4 +50,4 @@ Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gest
 Per ulteriori informazioni su ciò che è possibile configurare per una macchina virtuale e quando a tale scopo, vedere [le impostazioni di configurazione sulla macchina virtuale di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

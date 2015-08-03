@@ -16,4 +16,4 @@ Da qui sarà possibile selezionare una raccolta specifica ed eseguire il drill-d
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

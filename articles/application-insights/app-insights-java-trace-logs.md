@@ -87,9 +87,9 @@ Scaricare ed estrarre l'appender appropriato e quindi aggiungere la libreria app
 
 Logger | Download | Libreria
 ----|----|----
-Logback|[SDK con appender Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK con appender Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK con appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Logback|[SDK con appender Logback](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[SDK con appender Log4J v2](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK con appender Log4J v1.2](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -149,4 +149,4 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

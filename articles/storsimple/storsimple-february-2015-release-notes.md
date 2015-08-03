@@ -86,4 +86,4 @@ Questa versione non contiene aggiornamenti per il controller SAS (Serial Attache
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

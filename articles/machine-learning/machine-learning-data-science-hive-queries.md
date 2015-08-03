@@ -2,6 +2,7 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop nel processo di analisi avanzata dei dati | Microsoft Azure" 
 	description="Elaborazione dati tabelle Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight nel processo di analisi avanzata dei dati
 
-Questo documento illustra vari metodi di invio di query Hive ai cluster Hadoop gestiti da un servizio HDInsight in Azure. È possibile inviare query Hive mediante:
+Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. È possibile inviare query Hive mediante:
 
 * Riga di comando di Hadoop presente nel nodo head del cluster
 * IPython Notebook 
@@ -27,40 +28,44 @@ Questo documento illustra vari metodi di invio di query Hive ai cluster Hadoop g
 
 Vengono fornite query Hive generiche che possono essere usate per esplorare i dati o per generare funzionalità che usano le funzioni definite dall'utente di Hive (UDF).
 
-Esempi di query specifiche per scenari relativi ai [dati delle corse dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) vengono inoltre forniti nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
+Esempi di query specifiche per scenari relativi ai [dati delle corse dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) vengono inoltre forniti nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente per questo scenario.
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
  
-* Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage). 
+* Creato un account di archiviazione di Azure. Per istruzioni per questa attività, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage). 
 * Eseguito il provisioning di un cluster Hadoop con il servizio HDInsight. Per istruzioni, vedere [Provisioning di un cluster HDInsight](../hdinsight-get-started.md#provision).
-* Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
+* Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare prima di tutto i dati nelle tabelle Hive.
 * Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
-- [Come inviare query Hive](#submit)
-- [Esplorazione dei dati e progettazione di funzionalità](#explore)
-- [Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query](#tuning)
-
 ## <a name="submit"></a>Come inviare query Hive
 
-###1. Attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop
+1. [Inviare le query Hive attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop](#headnode)
+2. [Inviare le query Hive con l'editor Hive](#hive-editor)
+3. [Inviare le query Hive con i comandi di Azure PowerShell](#ps)
+ 
+###<a name="headnode"></a> 1. Inviare le query Hive attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop
 
-Se la query è complessa e si inviano le query Hive direttamente al nodo head del cluster Hadoop il completamento dell'operazione sarà più rapido rispetto a quando l'invio viene effettuato tramite l'Editor Hive o gli script di Azure PowerShell.
+Se la query Hive è complessa e la si invia direttamente al nodo head del cluster Hadoop, il completamento dell'operazione sarà più rapido rispetto a quando l'invio viene effettuato con l'editor Hive o gli script di Azure PowerShell.
 
 Accedere al nodo head del cluster Hadoop, aprire la riga di comando di Hadoop sul desktop del nodo head e immettere il comando `cd %hive_home%\bin`.
 
-Gli utenti dispongono di tre modi per inviare query Hive nella riga di comando di Hadoop.
+Gli utenti dispongono di tre modi per inviare query Hive nella riga di comando di Hadoop:
 
-####Inviare query Hive direttamente nella riga di comando di Hadoop 
+* Direttamente
+* Mediante i file con estensione hql
+* Con la console dei comandi di Hive
+
+#### Inviare query Hive direttamente nella riga di comando di Hadoop 
 
 Gli utenti possono eseguire comandi come `hive -e "<your hive query>;` per inviare query Hive semplici direttamente nella riga di comando di Hadoop. In questo esempio, la casella rossa evidenzia il comando che consente di inviare la query Hive, mentre quella verde evidenzia l'output della query.
 
 ![Creare un'area di lavoro][10]
 
-####Inviare query nei file con estensione hql
+#### Inviare query nei file con estensione hql
 
 Quando la query Hive è più complicata e presenta più righe, modificare le query nella riga di comando o nella console dei comandi di Hive non è pratico. Un'alternativa consiste nell'usare un editor di testo nel nodo head del cluster Hadoop per salvare le query Hive in un file con estensione hql in una directory locale del nodo head. Quindi la query Hive nel file con estensione hql può essere inviata usando l'argomento `-f` nel modo seguente:
 	
@@ -69,14 +74,14 @@ Quando la query Hive è più complicata e presenta più righe, modificare le que
 ![Creare un'area di lavoro][15]
 
 
-####Eliminare la visualizzazione relativa allo stato di avanzamento delle query Hive sullo schermo
+**Eliminare la visualizzazione relativa allo stato di avanzamento delle query Hive sullo schermo**
 
 Per impostazione predefinita, dopo l'invio della query Hive nella riga di comando di Hadoop, lo stato di avanzamento del processo di mapping e riduzione verrà stampato sullo schermo. Per eliminare la stampa della schermata di avanzamento del processo di mapping e riduzione, è possibile usare un argomento `-S` ("S" in lettere maiuscole) nella riga di comando nel modo seguente:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Inviare query Hive nella console dei comandi di Hive
+#### Inviare query Hive nella console dei comandi di Hive
 
 Gli utenti possono innanzitutto immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop, quindi inviare query Hive nella console dei comandi di Hive. Di seguito è fornito un esempio. In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
 
@@ -84,7 +89,7 @@ Gli utenti possono innanzitutto immettere la console dei comandi di Hive eseguen
 
 Negli esempi precedenti, i risultati della query Hive vengono visualizzati direttamente sullo schermo. Gli utenti possono anche salvare l'output su un file locale nel nodo head o in un BLOB di Azure. Quindi, gli utenti possono usare altri strumenti per analizzare ulteriormente l'output delle query Hive.
 
-####Restituire i risultati delle query Hive in un file locale. 
+**Restituire i risultati delle query Hive in un file locale.**
 
 Per restituire i risultati delle query Hive in una directory locale nel nodo head, gli utenti devono inviare la query Hive nella riga di comando di Hadoop come indicato di seguito:
 
@@ -94,7 +99,7 @@ Nell'esempio seguente, l'output della query Hive viene scritto in un file `hiveq
 
 ![Creare un'area di lavoro][12]
 
-####Restituire i risultati delle query Hive in un BLOB di Azure
+**Restituire i risultati delle query Hive in un BLOB di Azure**
 
 Gli utenti possono anche restituire i risultati della query Hive in un BLOB di Azure, nel contenitore predefinito del cluster Hadoop. La query Hive deve avere l'aspetto seguente:
 
@@ -108,17 +113,20 @@ Se si apre il contenitore predefinito del cluster Hadoop usando strumenti come E
 
 ![Creare un'area di lavoro][14]
 
-###2. Attraverso i comandi dell'editor Hive o di Azure PowerShell
+###<a name="hive-editor"></a> 2. Inviare le query Hive con l'editor Hive
 
-Gli utenti possono inoltre usare la Console Query (Editor Hive) immettendo l'URL in un browser Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (verrà richiesto di immettere le credenziali del cluster Hadoop per accedere) o possono [inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Gli utenti possono inoltre usare la Console Query (Editor Hive) immettendo l'URL in un browser Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (verrà richiesto di immettere le credenziali del cluster Hadoop per accedere).
+
+###<a name="ps"></a> 3. Inviare le query Hive con i comandi di Azure PowerShell
+
+Gli utenti possono usare anche PowerShell per inviare le query Hive. Per istruzioni, vedere [Invio di processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 ## <a name="explore"></a> Esplorazione dei dati, progettazione delle funzionalità e ottimizzazione dei parametri Hive
 
-I dati seguenti vengono descritti nella sezione riportata di seguito usando Hive nei cluster Hadoop di Azure HDInsight e in un argomento più avanzato sull'ottimizzazione di alcuni parametri Hive per migliorare le prestazioni delle query Hive:
+In questa sezione, vengono descritte le attività di gestione dei dati seguenti usando Hive nei cluster Hadoop in Azure HDInsight:
 
 1. [Esplorazione dei dati](#hive-dataexploration)
 2. [Creazione di funzionalità](#hive-featureengineering)
-3. [Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query](#tune-parameters)
 
 > [AZURE.NOTE]Le query Hive di esempio presuppongono che i dati siano stati caricati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 
@@ -165,16 +173,16 @@ Di seguito sono riportati alcuni script Hive di esempio che possono essere usati
 ###<a name="hive-featureengineering"></a>Creazione di funzionalità
 
 In questa sezione verranno descritti i modi per creare funzionalità tramite query Hive:
-
-> [AZURE.NOTE]Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente o creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che possono essere unite con la tabella originale.
-
+  
 1. [Creazione di funzionalità basata sulla frequenza](#hive-frequencyfeature)
 2. [Rischi di variabili di categoria nella classificazione binaria](#hive-riskfeature)
-3. [Estrazione delle funzionalità dal campo Datetime](#hive-datefeatures)
-4. [Estrazione delle funzionalità dal campo Text](#hive-textfeatures)
+3. [Estrazione delle funzionalità dal campo Datetime](#hive-datefeature)
+4. [Estrazione delle funzionalità dal campo Text](#hive-textfeature)
 5. [Calcolo della distanza tra le coordinate GPS](#hive-gpsdistance)
 
-####<a name="hive-frequencyfeature"></a>Creazione di funzionalità basata sulla frequenza
+> [AZURE.NOTE]Dopo avere creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente o creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che possono quindi essere unite con la tabella originale.
+
+####<a name="hive-frequencyfeature"></a> Creazione di funzionalità basata sulla frequenza
 
 Talvolta è utile per calcolare le frequenze dei livelli di una variabile di categoria o le frequenze di combinazioni di livelli di più variabili di categoria. Gli utenti possono usare lo script seguente per calcolare le frequenze:
 
@@ -189,7 +197,7 @@ Talvolta è utile per calcolare le frequenze dei livelli di una variabile di cat
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>Rischi di variabili di categoria nella classificazione binaria
+####<a name="hive-riskfeature"></a> Rischi di variabili di categoria nella classificazione binaria
 
 Nella classificazione binaria, a volte è necessario convertire le variabili di categoria non numeriche in funzionalità numeriche sostituendo i livelli non numerici con rischi numerici, poiché alcuni modelli potrebbero richiedere solo funzionalità numeriche. In questa sezione vengono illustrate alcune query Hive generiche per calcolare i valori di rischio (disparità di log) di una variabile di categoria.
 
@@ -216,7 +224,7 @@ In questo esempio, le variabili `smooth_param1` e `smooth_param2` vengono impost
 
 Dopo aver calcolato la tabella dei rischi, gli utenti possono assegnare i valori di rischio a una tabella unendola a quella dei rischi. Il join della query Hive è stato descritto nella sezione precedente.
 
-####<a name="hive-datefeature"></a>Estrazione delle funzionalità dal campo Datetime
+####<a name="hive-datefeature"></a> Estrazione delle funzionalità dal campo Datetime
 
 Hive presenta un set di UDF per l'elaborazione dei campi Data/ora. In Hive, il formato di data/ora predefinito è "aaaa-MM-gg 00:00:00" (ad esempio, "1970-01-01 12:21:32"). In questa sezione, sono riportati esempi di estrazione del giorno del mese e del mese da un campo Data/ora ed esempi di conversione di una stringa Data/ora in un formato diverso da quello predefinito in una stringa Data/ora in formato predefinito.
 
@@ -238,14 +246,14 @@ In questa query , se `<datetime field>` dispone di un criterio quale `03/26/2015
 In questa query, `hivesampletable` presenta tutti i cluster Hadoop di Azure HDInsight per impostazione predefinita quando viene effettuato il provisioning dei cluster.
 
 
-####<a name="hive-textfeature"></a>Estrazione delle funzionalità dal campo Text
+####<a name="hive-textfeature"></a> Estrazione delle funzionalità dal campo Text
 
 Supponendo che la tabella Hive presenti un campo di testo che è una stringa di parole separate da spazi, la seguente query consente di estrarre la lunghezza della stringa e il numero di parole nella stringa.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>Calcolo della distanza tra le coordinate GPS
+####<a name="hive-gpsdistance"></a> Calcolo della distanza tra le coordinate GPS
 
 La query descritta in questa sezione può essere applicata direttamente ai dati di viaggio dei taxi di NYC. Lo scopo di questa query è mostrare il modo in cui applicare le funzioni matematiche incorporare in Hive per creare funzionalità.
 
@@ -318,4 +326,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

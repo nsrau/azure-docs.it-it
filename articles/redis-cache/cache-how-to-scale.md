@@ -138,4 +138,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

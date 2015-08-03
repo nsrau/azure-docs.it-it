@@ -190,4 +190,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

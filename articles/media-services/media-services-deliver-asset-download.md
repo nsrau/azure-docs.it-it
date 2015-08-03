@@ -75,4 +75,4 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 	}
    
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

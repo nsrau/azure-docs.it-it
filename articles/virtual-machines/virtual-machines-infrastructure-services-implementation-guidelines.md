@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Linee guida sull&#39;implementazione dei servizi di infrastruttura di Azure" 
+	pageTitle="Linee guida sull'implementazione dei servizi di infrastruttura di Azure" 
 	description="Informazioni sulle linee guida di progettazione e implementazione fondamentali per la distribuzione di un carico di lavoro IT nei servizi di infrastruttura di Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
 # Linee guida sull'implementazione dei servizi di infrastruttura di Azure
  
@@ -168,7 +168,7 @@ I dischi del sistema operativo e i dischi dati hanno una dimensione massima di 1
 ### Dischi con striping
 Oltre a fornire la capacità per creare dischi di dimensioni superiori a 1023 GB, in molti casi, utilizzare lo striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. In questo modo viene parallelizzato l’I/O richiesto per la scrittura e la lettura dei dati da un singolo disco.
 
-In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
 
 Se si utilizza lo striping del disco per i dischi dati di Azure, considerare le linee guida seguenti:
 
@@ -204,7 +204,7 @@ Attività:
 
 - Creare il set di account di archiviazione utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di anteprima di Azure, il portale di gestione di Azure o il cmdlet PowerShell **New-AzureStorageAccount**.
 
-## 4. Microsoft Azure
+## 4. Servizi cloud
 
 I servizi cloud sono un blocco predefinito fondamentale in Gestione servizi di Azure, sia per i servizi PaaS sia per quelli IaaS. Per il modello PaaS, i servizi cloud rappresentano un'associazione di ruoli, le cui istanze possono comunicare tra loro. I servizi cloud sono associati a un indirizzo VIP e a un bilanciamento del carico, che accetta il traffico in ingresso da Internet e ne bilancia il carico ai ruoli configurati per la ricezione di tale traffico.
 
@@ -288,9 +288,9 @@ Attività:
 - Definire lo spazio degli indirizzi per la rete virtuale.
 - Definire il set di subnet e lo spazio degli indirizzi per ognuno.
 - Per le reti virtuali cross-premise, definire il set di spazi degli indirizzi della rete locale per le sedi locali che devono essere raggiunte dalle macchine virtuali nella rete virtuale.
-- Creare la rete virtuale utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di anteprima di Azure o il portale di gestione di Azure.
+- Creare la rete virtuale utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di anteprima di Azure o il portale di Azure.
 
-## 6. SET DI DISPONIBILITÀ
+## 6. Set di disponibilità
 
 In Azure PaaS, i servizi cloud contengono uno o più ruoli che eseguono il codice dell'applicazione. I ruoli possono avere una o più istanze di macchine virtuali per le quali l'infrastruttura esegue automaticamente il provisioning. In qualsiasi momento, Azure può aggiornare le istanze di questi ruoli, ma poiché fanno parte dello stesso ruolo, Azure sa di non dover eseguire l'aggiornamento di tutte le istanze contemporaneamente per evitare un'interruzione del servizio per il ruolo.
 
@@ -312,7 +312,7 @@ Attività:
 
 In Azure PaaS, Azure consente di gestire le macchine virtuali e i relativi dischi associati. È necessario creare e denominare i servizi cloud e i ruoli e successivamente Azure creerà le istanze associate a tali ruoli. Nel caso di Azure IaaS, è responsabilità dell'utente fornire nomi per i servizi cloud, le macchine virtuali e i dischi associati.
 
-Per ridurre il carico amministrativo, il portale di gestione di Azure utilizzerà il nome del computer come un suggerimento per il nome predefinito per il servizio cloud associato (nel caso in cui il cliente scelga di creare un nuovo servizio cloud come parte della creazione guidata della macchina virtuale).
+Per ridurre il carico amministrativo, il portale di Azure utilizzerà il nome del computer come un suggerimento per il nome predefinito per il servizio cloud associato (nel caso in cui il cliente scelga di creare un nuovo servizio cloud come parte della creazione guidata della macchina virtuale).
 
 Inoltre, in Azure i dischi e i relativi BLOB VHD di supporto vengono denominati utilizzando una combinazione del nome del servizio cloud, nome del computer e data di creazione.
 
@@ -387,7 +387,7 @@ Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tram
 	- Nome: BackEnd
 	- Spazio degli indirizzi: 10.0.2.0/24
 
-### SET DI DISPONIBILITÀ
+### Set di disponibilità
 
 Per mantenere l'elevata disponibilità di tutti i quattro i livelli del loro motore di analisi finanziaria, Contoso ha optato per quattro set di disponibilità:
 
@@ -430,7 +430,7 @@ Questa configurazione include:
 
 [Limiti, quote e vincoli delle sottoscrizioni e dei servizi Microsoft Azure](../azure-subscription-service-limits.md#storage-limits)
 
-[Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Dimensioni delle macchine virtuali](virtual-machines-size-specs.md)
 
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Questa configurazione include:
 
 [Diagramma dell'architettura di riferimento per l'estensione di un data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

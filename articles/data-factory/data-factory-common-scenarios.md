@@ -76,4 +76,4 @@ Vedere i seguenti argomenti per l'utilizzo dei dati con Power Query:
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

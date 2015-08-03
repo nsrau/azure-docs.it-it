@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #Come creare uno stack LAMP con Microsoft Azure
@@ -32,9 +32,7 @@ Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversa
 
 Oltre a questo argomento, se si dispone già di una macchina virtuale e sono necessarie solo informazioni di base sull'installazione di uno stack LAMP in diverse distribuzioni Linux, vedere [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-install-lamp-stack.md).
 
-È anche possibile distribuire immagini LAMP preconfigurate da Azure Marketplace. Il seguente video di 10 minuti presenta la distribuzione di immagini LAMP predefinite da Azure Marketplace:
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+È anche possibile distribuire immagini LAMP preconfigurate da Azure Marketplace. Nel seguente video di 10 minuti viene presentata la distribuzione di immagini LAMP predefinite da Azure Marketplace: (stack LAMP sulle macchine virtuali di Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Fase 1: creare un'immagine.
 In questa fase si creerà una macchina virtuale usando un'immagine Linux in Azure.
@@ -51,8 +49,8 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 -	Selezionare e copiare la chiave pubblica in **Chiave** e salvarla in un file denominato **publicKey.pem**. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
 -	Fare clic su **Salva chiave privata** e salvarla in un file denominato **privateKey.ppk**.
 
-###Passaggio 2: creare l'immagine nel portale di anteprima di Azure.
-Nel [portale di anteprima di Azure](https://portal.azure.com/), fare clic su **Nuovo** nella barra delle applicazioni e creare un'immagine seguendo queste istruzioni, quindi scegliendo l'immagine Linux in base alle esigenze. In questo esempio viene usata l'immagine Ubuntu 14.04.
+###Passaggio 2: creare l'immagine nel portale di Azure.
+Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** nella barra delle applicazioni e creare un'immagine seguendo queste istruzioni, quindi scegliendo l'immagine Linux in base alle esigenze. In questo esempio viene usata l'immagine Ubuntu 14.04.
 
 ![][3]
 
@@ -60,7 +58,7 @@ Per **Nome host**, specificare il nome per l'URL che verrà utilizzato dall'uten
 
 Per **Nome utente**, scegliere un nome che verrà utilizzato successivamente per l'accesso alla macchina virtuale.
 
-Per **Chiave di autenticazione SSH**, copiare il valore della chiave dal file **publicKey.pem** che contiene la chiave pubblica generata da puttygen.
+In **Chiave di autenticazione SSH** copiare il valore della chiave dal file **publicKey.pem** che contiene la chiave pubblica generata da puttygen.
 
 ![][4]
 
@@ -74,11 +72,11 @@ Gli endpoint di Azure sono costituiti da un protocollo (TCP o UDP), insieme a un
 
 La porta TCP 80 è il numero di porta predefinito su cui Apache è in ascolto. Se si apre questa porta con un endpoint di Azure l'utente e altri client Internet potranno accedere al server Web Apache.
 
-Nel portale di anteprima di Azure, fare clic su **Sfoglia -> Macchina virtuale**, quindi sulla macchina virtuale creata.
+Nel portale di Azure, fare clic su **Sfoglia -> Macchina virtuale**, quindi fare clic sulla macchina virtuale creata.
 
 ![][5]
 
-Per aggiungere un endpoint a una macchina virtuale, fare clic sulla casella **Endpoint**.
+Per aggiungere un endpoint a una macchina virtuale, fare clic sulla casella **Endpoints**.
 
 ![][6]
 
@@ -100,7 +98,7 @@ Fare clic su **OK** per aggiungere l'endpoint alla macchina virtuale.
 ###Passaggio 2: effettuare la connessione all'immagine creata
 È possibile scegliere qualsiasi strumento SSH per connettersi alla nuova macchina virtuale. In questo esempio, viene usato Putty.
 
-Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di anteprima di Azure. Fare clic su **Sfoglia -> Macchine virtuali ->** il nome della macchina virtuale **-> Proprietà**, quindi osservare il campo **Nome di dominio** del riquadro **Proprietà**.
+Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di Azure. Fare clic su **Sfoglia -> Macchine virtuali ->** nome della macchina virtuale **-> Proprietà**, quindi osservare il campo **Nome di dominio** del riquadro **Proprietà**.
 
 Ottenere il numero di porta per le connessioni SSH dal campo **SSH**. Di seguito è fornito un esempio.
 
@@ -112,7 +110,7 @@ Dopo il download, fare clic sul file eseguibile PUTTY.EXE. Configurare le opzion
 
 ![][9]
 
-Nel riquadro sinistro, fare clic su **Connessione -> SSH -> Auth**, quindi su **Sfoglia** per specificare la posizione del file **privateKey.ppk** che contiene la chiave privata generata da puttygen in Fase 1: creare un’immagine. Di seguito è fornito un esempio:
+Nel riquadro sinistro, fare clic su **Connessione -> SSH -> Auth**, quindi fare clic su **Sfoglia** per specificare il percorso del file **privateKey.ppk**, che contiene la chiave privata generata da puttygen nella fase 1: creare un'immagine. Di seguito è fornito un esempio:
 
 ![][10]
 
@@ -144,7 +142,7 @@ Dopo l'installazione, avviare Apache con il comando seguente:
 
 	sudo service httpd start
 ####Testare Apache
-Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato «It works!» ![][14]
+Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato "It works!" ![][14]
 
 ####Risoluzione dei problemi
 Se Apache è in esecuzione ma è possibile visualizzare la pagina predefinita di Apache riportata sopra, è necessario controllare che:
@@ -277,7 +275,7 @@ Usare tasksel per installare il software necessario per lo stack LAMP.
 		sudo apt-get install tasksel
 		sudo tasksel install lamp-server
 
-Quindi, eseguire la procedura guidata e scegliere la **password MySQL radice**.
+Successivamente, completare la procedura guidata e scegliere la **password MySQL radice**.
 
 ![][15]
 
@@ -348,7 +346,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]
--	Utilizzare qualsiasi client FTP sicuro (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
+-	Utilizzare qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
 
 
 
@@ -358,7 +356,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 -	**Sintomo**: Apache è in esecuzione ma non è possibile visualizzare la pagina predefinita di Apache con il browser.
 -	**Possibile causa principale**
-	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Vedere Fase 1: creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale.</br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
+	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Per istruzioni sulla configurazione degli endpoint per la macchina virtuale, vedere Fase 1: creare un'immagine.</br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
 
 	2.	Il firewall ha disabilitato la porta di ascolto di Apache.</br> Se è possibile visualizzare la pagina predefinita di Apache dall'host locale, molto probabilmente il problema risiede nel fatto che la porta su cui Apache è in ascolto è bloccata dal firewall. È possibile usare lo strumento w3m per passare alla pagina web. I comandi seguenti consentono di installare w3m e di passare alla pagina predefinita di Apache:
 
@@ -387,7 +385,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 ###Autorizzazione negata quando si caricano i file di progetto in /var/www/html/  
 
--	**Sintomo**: quando viene utilizzato qualsiasi client FTP sicuro (come FileZilla) per effettuare la connessione alla macchina virtuale e passare a /var/www/html per pubblicare il sito, viene visualizzato un messaggio di errore simile al seguente:  
+-	**Sintomo**: quando viene utilizzato qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione alla macchina virtuale e passare a /var/www/html per pubblicare il sito, viene visualizzato un messaggio di errore simile al seguente:  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
@@ -430,7 +428,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 -	**Causa radice possibile**: non è stato impostato il nome del server di Apache.
 
--	**Soluzione**: inserire una riga «ServerName localhost» (versione Red Hat) o apache2.conf (versione Debian) in /etc/apache2 e riavviare Apache. L'avviso scomparirà.
+-	**Soluzione**: inserire una riga "ServerName localhost" in httpd.conf (versione Red Hat) o apache2.conf (versione Debian) in /etc/apache2 e riavviare Apache. L'avviso scomparirà.
 
 
 
@@ -454,4 +452,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

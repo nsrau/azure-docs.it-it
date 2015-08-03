@@ -14,10 +14,10 @@ Quando si ospita un'applicazione Node.js, può essere necessario assicurarsi che
 
 Le versioni di Node.js fornite da Azure vengono aggiornate costantemente. Se non diversamente specificato, verrà usata la versione più recente. Attualmente sono incluse le versioni seguenti:
 
-- 0\.12.x: 0.12.0
-- 0\.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
-- 0\.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
-- 0\.6.x: 0.6.20, 0.6.17
+- 0.12.x: 0.12.0
+- 0.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
+- 0.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
+- 0.6.x: 0.6.20, 0.6.17
 
 > [AZURE.NOTE]Se l'applicazione è ospitata in un servizio cloud di Azure (ruolo di lavoro o Web) ed è la prima volta che si distribuisce l'applicazione, Azure tenterà di usare la stessa versione di Node.js installata nell'ambiente di sviluppo, se questa corrisponde a une delle versioni predefinite disponibili.
 
@@ -93,4 +93,4 @@ Dopo avere appreso come specificare la versione di Node.js utilizzata dall'appli
 [utilizzare i moduli]: nodejs-use-node-modules-azure-apps.md
 [creare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

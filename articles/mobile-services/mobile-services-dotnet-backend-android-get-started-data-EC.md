@@ -134,4 +134,4 @@ Provare a eseguire una delle esercitazioni seguenti:
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

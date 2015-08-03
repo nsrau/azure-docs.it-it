@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/15/2015"
    ms.author="mihaelab"/>
 
 #Esercitazione per il ripristino di emergenza
@@ -81,6 +81,4 @@ L'esercitazione per il ripristino di emergenza verrà effettuata usando un serve
 
 - Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

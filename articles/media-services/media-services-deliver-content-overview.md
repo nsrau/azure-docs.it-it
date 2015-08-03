@@ -205,4 +205,4 @@ Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -52,4 +52,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 <!--Other Web references-->
 [Documentazione di Data factory]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

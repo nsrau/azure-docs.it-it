@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Dopo aver creato un file del flusso di lavoro, lo strumento può essere caricato
 
 È possibile modificare i file del flusso di lavoro predefiniti usando lo strumento di progettazione. È possibile ottenere i file del flusso di lavoro predefiniti [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
 
+Il blog seguente include video di formazione su come usare la finestra di progettazione:
 
->[AZURE.NOTE]Presto saranno disponibili altre informazioni.
+[Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

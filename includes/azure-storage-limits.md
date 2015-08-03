@@ -77,4 +77,4 @@
 
 <sup>3</sup>GRS si intende l'archiviazione con ridondanza geografica, mentre LRS si riferisce a archiviazione con ridondanza locale.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -215,4 +215,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Esercitazione su Hub di notifica - WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

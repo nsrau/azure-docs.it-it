@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione all&#39;insieme di credenziali delle chiavi di Azure | Panoramica"
-	description="Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell&#39;insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure."
+	pageTitle="Introduzione all'insieme di credenziali delle chiavi di Azure | Panoramica"
+	description="Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure."
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
 # Introduzione all'insieme di credenziali delle chiavi di Azure #
@@ -211,7 +211,7 @@ Il comando successivo importa un pacchetto "bring your own key" (BYOK). Ciò con
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati ##
 
@@ -248,4 +248,4 @@ Per un elenco di cmdlet di Windows PowerShell per l'insieme di credenziali delle
 Per riferimenti alla programmazione, vedere [Insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903625.aspx) nella libreria della documentazione di Microsoft Azure su MSDN.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

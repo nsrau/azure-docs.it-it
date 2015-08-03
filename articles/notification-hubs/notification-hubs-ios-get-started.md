@@ -511,4 +511,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -192,4 +192,4 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

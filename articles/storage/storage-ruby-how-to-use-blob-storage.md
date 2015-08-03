@@ -147,4 +147,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 - Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

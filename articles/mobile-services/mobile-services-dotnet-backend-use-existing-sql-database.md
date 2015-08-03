@@ -615,4 +615,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

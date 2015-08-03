@@ -185,4 +185,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -53,4 +53,4 @@ Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Direc
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all'[uso di Office 365 con Azure RemoteApp](remoteapp-o365.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -272,4 +272,4 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

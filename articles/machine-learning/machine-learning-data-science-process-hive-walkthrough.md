@@ -2,6 +2,7 @@
 	pageTitle="ADAPT (Advanced Analytics Process and Technology): uso dei cluster Hadoop | Microsoft Azure" 
 	description="Uso di ADAPT (Advanced Analytics Process and Technology) per uno scenario end-to-end in cui un cluster Hadoop di HDInsight viene usato per creare e distribuire un modello con un set di dati di grandi dimensioni disponibile pubblicamente."  
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -17,13 +18,13 @@
 	ms.author="hangzh;bradsev" />
 
                 
-# ADAPT (Advanced Analytics Process and Technology): uso dei cluster Hadoop di HDInsight
+# ADAPT (Advanced Analytics Process and Technology): uso di cluster Hadoop di HDInsight
 
-In questa procedura dettagliata si userà Advanced Analytics Process and Technology (ADAPT) in uno scenario end-to-end mediante un [cluster Hadoop di Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e acquisire dati di progettazione del set di dati relativo alle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) disponibile pubblicamente, nonché di sottocampionarli. I modelli dei dati sono creati con Azure Machine Learning in modo da gestire la classificazione binaria e multiclasse e attività predittive di regressione.
+In questa procedura dettagliata si userà Advanced Analytics Process and Technology (ADAPT) in uno scenario end-to-end usufruendo di un [cluster Hadoop di Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e acquisire dati di progettazione del set di dati relativo alle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) disponibile pubblicamente, nonché sottocampionarli. I modelli dei dati sono creati con Azure Machine Learning in modo da gestire la classificazione binaria e multiclasse e attività predittive di regressione.
 
 Per una procedura dettagliata su come gestire un set di dati più grande (1 terabyte) in uno scenario simile in cui si usano i cluster Hadoop di HDInsight per l'elaborazione dei dati, vedere [ADAPT (Advanced Analytics Process and Technology): uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
-Per eseguire le attività presentate in questa procedura con un set di dati da 1 TB, è anche possibile usare iPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Per eseguire le attività presentate in questa procedura con un set di dati da 1 TB, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -809,4 +810,4 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

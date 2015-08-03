@@ -53,7 +53,7 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 	uso di Microsoft.WindowsAzure.MediaServices.Client; uso di System; uso di System.Collections.Generic; uso di System. Configuration; uso di System.IO; uso di LINQ; uso di System. Text; uso di System. Threading; uso di System.Threading.Tasks;
 	
-	spazio dei nomi MultipleStorageAccounts { class Program { // Percorso del file multimediale che si desidera codificare. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
+	spazio dei nomi MultipleStorageAccounts { class Program { // Percorso del file multimediale che si desidera codificare. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +236,4 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 	}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

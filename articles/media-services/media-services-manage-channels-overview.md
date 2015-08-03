@@ -331,4 +331,4 @@ Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezi
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

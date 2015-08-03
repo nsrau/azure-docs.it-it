@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Risolvere i problemi di configurazione del cluster di sviluppo locale
@@ -85,6 +85,5 @@ Assicurarsi di non disporre di progetti di servizio impostati come progetti di a
 
 - [Comprendere e risolvere i problemi del cluster con report di integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizzazione del cluster con Esplora Infrastruttura di servizi](service-fabric-visualizing-your-cluster.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

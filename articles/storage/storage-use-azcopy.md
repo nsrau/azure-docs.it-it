@@ -819,7 +819,7 @@ AzCopy genererà un file di dati JSON nella cartella locale o nel contenitore BL
 
 Il file di dati JSON generato segue il formato di payload per i metadati minimi. Per i dettagli su questo formato di payload, vedere [Formato di payload per le operazioni del servizio tabelle](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tenere presente che quando si esportano entità di tabella di archiviazione nella risorsa di archiviazione BLOB, AzCopy esporterà in primo luogo le entità della tabella in file di dati temporanei locali e quindi li caricherà in un BLOB, questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>", è possibile specificare l'opzione/z: [cartella di file journal] per modificare il percorso della cartella di file journal e quindi modificare il percorso di file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalla dimensione delle entità della tabella e dalla dimensione specificata tramite l’opzione /SplitSize, anche se il file di dati temporanei nel disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB, verificare che si disponga di sufficiente spazio su disco locale per archiviare i file di dati temporanei prima di essere eliminati,
+Tenere presente che quando si esportano entità di tabella di archiviazione nella risorsa di archiviazione BLOB, AzCopy esporterà in primo luogo le entità della tabella in file di dati temporanei locali e quindi li caricherà in un BLOB, questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", è possibile specificare l'opzione/z: [cartella di file journal] per modificare il percorso della cartella di file journal e quindi modificare il percorso di file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalla dimensione delle entità della tabella e dalla dimensione specificata tramite l’opzione /SplitSize, anche se il file di dati temporanei nel disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB, verificare che si disponga di sufficiente spazio su disco locale per archiviare i file di dati temporanei prima di essere eliminati,
 
 ### Dividere i file di esportazione
 
@@ -911,4 +911,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

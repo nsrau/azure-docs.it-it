@@ -2,6 +2,7 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop in Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Elaborare i dati delle tabelle Hive usando query Hive."
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -121,7 +122,7 @@ L'output della query Hive può essere visualizzato nell'archiviazione BLOB, apre
 
 Gli utenti possono usare la Console di query (editor Hive) inserendo l'URL del modulo
 
-*https://&#60;Hadoopnome cluster >.azurehdinsight.net/Home/HiveEditor*
+*https://&#60;Hadoop nome cluster >.azurehdinsight.net/Home/HiveEditor*
 
 in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l'accesso. In alternativa, [Inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
@@ -322,4 +323,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

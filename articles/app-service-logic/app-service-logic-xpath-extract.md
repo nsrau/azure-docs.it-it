@@ -63,4 +63,4 @@ L'azione restituisce l'output sotto forma di stringa - Risultato. Il risultato c
 <!-- Links -->
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

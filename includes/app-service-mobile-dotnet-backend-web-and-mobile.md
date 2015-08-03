@@ -77,4 +77,4 @@ In questo esempio è stato illustrato come usare lo stesso database di base per 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Creare un'app per dispositivi mobili]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

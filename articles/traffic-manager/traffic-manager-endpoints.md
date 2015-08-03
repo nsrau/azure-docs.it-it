@@ -77,4 +77,4 @@ Siti Web di Azure offre già funzionalità di bilanciamento del carico failover 
 [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

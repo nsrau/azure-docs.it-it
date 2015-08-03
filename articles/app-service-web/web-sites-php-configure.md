@@ -120,7 +120,7 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 	![Impostazioni app][settings-button]
 
 5. Dal pannello **Impostazioni** selezionare **Impostazioni dell'applicazione** e scorrere fino alla sezione **Impostazioni app**.
-6. Nella sezione **Impostazioni app** creare una chiave **PHP_EXTENSIONS**. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\\your-ext-file**.
+6. Nella sezione **Impostazioni app** creare una chiave **PHP_EXTENSIONS**. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
 
 	![Abilitare le estensioni nelle impostazioni app][php-extensions]
 
@@ -176,4 +176,4 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

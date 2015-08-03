@@ -33,7 +33,7 @@ Per usare File Connector, è necessario innanzitutto creare un'istanza dell'app 
 
 	- **Nome**: assegnare un nome al connettore File
 	- **Impostazioni pacchetto**
-		- **Cartella radice**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\\FileConnectorTest
+		- **Cartella radice**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\FileConnectorTest
 		- **Stringa di connessione del bus di servizio**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida.
 	- **Piano di servizio app**: selezionare o creare un piano di servizio app
 	- **Piano tariffario**: scegliere un piano tariffario per il connettore
@@ -85,4 +85,4 @@ Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definiz
 [definizione delle API di File Connector]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

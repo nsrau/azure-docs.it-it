@@ -25,7 +25,7 @@ Alcune applicazioni non basate su browser, come il client di posta elettronica d
 
 >[AZURE.NOTE]Autenticazione moderna per i client di Office 2013
 >
-> I client di Office 2013 (tra cui Outlook) supportano ora nuovi protocolli di autenticazione e possono essere abilitati per supportare Multi-Factor Authentication. Pertanto, una volta attivate, le password delle app non sono necessarie per l'utilizzo con i client di Office 2013. Per ulteriori informazioni, vedere l’[anteprima dell’annuncio pubblico per l’autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per ulteriori informazioni, vedere l’[anteprima dell’annuncio pubblico per l’autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
  
 ## Come utilizzare le password delle app
 
@@ -54,4 +54,4 @@ Come utilizzare l’autenticazione a più fattori|Descrizione
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

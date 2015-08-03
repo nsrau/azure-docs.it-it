@@ -281,7 +281,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente **PATH**: <i>C:\\Programmi (x86)\\nodejs;C:\\Utenti[nomeutente]\\AppData\\Roaming\\npm</i> or <i>C:\\Programmi\\nodejs;C:\\Utenti[nomeutente]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE]Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente **PATH**: <i>C:\Programmi (x86)\nodejs;C:\Utenti[nomeutente]\AppData\Roaming\npm</i> or <i>C:\Programmi\nodejs;C:\Utenti[nomeutente]\AppData\Roaming\npm</i>
 
 
 5.	Eseguire il comando seguente per verificare l'installazione:
@@ -758,4 +758,4 @@ In questo articolo si sono appresi diversi modi per effettuare il provisioning d
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

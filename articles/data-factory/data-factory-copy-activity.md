@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copiare i dati con Data factory di Azure (attività di copia)
@@ -40,156 +40,22 @@ Per altre informazioni, è possibile:
 ## Sink e origini supportate
 L'attività di copia supporta gli scenari seguenti di spostamento dei dati:
 
-<table border="1">	
-	<tr>
-		<th><i>Origine/Sink<i></th>
-		<th>BLOB Azure</th>
-		<th>Tabella di Azure</th>
-		<th>Database SQL di Azure</th>
-		<th>Azure DocumentDB</th>
-		<th>Macchine virtuali SQL Server in Azure</th>
-		<th>Server SQL locale</th>
-	</tr>	
+| *Origine/Sink* | BLOB Azure | Tabella di Azure | Database SQL di Azure | Azure DocumentDB | Macchine virtuali SQL Server in Azure | Server SQL locale |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| BLOB Azure | X | X | X | X | X | X |
+| Tabella di Azure | X | X | X | X | X | X |
+| Database SQL di Azure | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X | | | |  
+| Server SQL locale | X | X | X | | X | X |
+| Macchine virtuali SQL Server in Azure | X | X | X | | X | X |
+| File System locale | X | X | X | | X | X |
+| Database Oracle in locale | X | X | X | | X | X |
+| Database MySQL in locale| X | X | X | | X | X |
+| Database DB2 in locale | X | X | X | | X | X |
+| Database Teradata in locale | X | X | X | | X | X |
+| Database Sybase in locale | X | X | X | | X | X |
+| Database PostgreSQL in locale | X | X | X | | X | X |
 
-	<tr>
-		<td><b>BLOB Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Tabella di Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Database SQL di Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Server SQL locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Macchine virtuali SQL Server in Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>File System locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database Oracle in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>File System locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database MySQL in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database DB2 in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database Teradata in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database Sybase in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Database PostgreSQL in locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 Per informazioni dettagliate, vedere l’argomento [Sink e origini supportate](https://msdn.microsoft.com/library/dn894007.aspx) in MSDN Library.
 
@@ -249,57 +115,15 @@ Ogni attività all'interno della sezione **activities** presenta la seguente str
 
 Nella tabella seguente vengono descritti i tag usati con una sezione di attività.
 
-<table border="1">	
-	<tr>
-		<th align="left">Tag</th>
-		<th align="left">Descrizione</th>
-		<th align="left">Obbligatorio</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Nome dell'attività.</td>
-		<td>S</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Testo descrittivo per lo scopo dell'attività.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Specifica il tipo di attività. <br/><br/>La proprietà <b>type</b> deve essere impostata su <b>CopyActivity</b>.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Tabelle di input usate dall'attività. Specificare una sola tabella di input per l'attività di copia.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Tabelle di output usate dall'attività. Specificare una sola tabella di output per l'attività di copia.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Le proprietà nella trasformazione dipendono dal tipo. L'<b>attività di copia</b> richiede di specificare una sezione <b>source</b> e <b>sink</b> nella sezione <b>transformation</b>. Altri dettagli vengono forniti più avanti in questo articolo. </td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Criteri che influiscono sul comportamento di runtime dell'attività. Se vengono omessi, verranno usati i valori predefiniti.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Tag | Descrizione | Obbligatorio |
+|-----|-------------|----------|
+|name|Nome dell'attività.|S|
+|description|Testo descrittivo per lo scopo dell'attività|S|
+|type|Specifica il tipo di attività. La proprietà type deve essere impostata su **Copy**. |S|
+|inputs|Tabelle di input usate dall'attività. Specificare una sola tabella di input per l'attività di copia | S
+|outputs|Tabelle di output usate dall'attività. Specificare una sola tabella di output per l'attività di copia | S
+|transformation|Le proprietà nella trasformazione dipendono dal tipo. L'attività di copia richiede di specificare una sezione source e una sezione sink nella sezione transformation. Altri dettagli vengono forniti più avanti in questo articolo.|S
+|policy| Criteri che influiscono sul comportamento di runtime dell'attività. Se vengono omessi, verranno usati i valori predefiniti. | N
 
 Per informazioni dettagliate su proprietà/tag JSON, vedere [Riferimento agli script JSON][json-script-reference].
 
@@ -475,4 +299,4 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

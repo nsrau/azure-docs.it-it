@@ -138,7 +138,7 @@ Immaginiamo la seguente regola NSG per tale scenario:
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|INTERNET NON DISPONIBILE|100| VIRTUAL_NETWORK|& \#42;|INTERNET|& \#42;|TCP|NEGA| 
+|INTERNET NON DISPONIBILE|100| VIRTUAL_NETWORK|& #42;|INTERNET|& #42;|TCP|NEGA| 
 
 Poiché la regola consiste nel negare gli accessi ad Internet dalla rete virtuale, le macchine virtuali non saranno in grado di accedere a qualsiasi servizio PaaS di Azure che richieda un endpoint Internet pubblico, ad esempio database SQL.
 
@@ -146,8 +146,8 @@ Invece di utilizzare una regola di negazione, bisognerebbe prendere in considera
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|A INTERNET|100| VIRTUAL_NETWORK|& \#42;|INTERNET|& \#42;|TCP|CONSENTI|
-|DA INTERNET|110| INTERNET|& \#42;|VIRTUAL_NETWORK|& \#42;|TCP|NEGA| 
+|A INTERNET|100| VIRTUAL_NETWORK|& #42;|INTERNET|& #42;|TCP|CONSENTI|
+|DA INTERNET|110| INTERNET|& #42;|VIRTUAL_NETWORK|& #42;|TCP|NEGA| 
 
 
 ## Pianificazione: flusso di lavoro dei gruppi di sicurezza di rete
@@ -248,4 +248,4 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

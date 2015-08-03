@@ -22,7 +22,7 @@
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app universale di Windows mediante Servizi mobili di Azure. Le soluzioni per app universali di Windows includono progetti di app per Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune. Per altre informazioni, vedere [Creare app universali di Windows per Windows e Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la versione per back-end .NET di questo argomento.
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la versione per back-end .NET di questo argomento.
 
 >[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile e un'app universale di Windows usando il portale di gestione di Azure. Visual Studio 2013 permette di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
 
@@ -39,11 +39,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-## Creare una nuova app universale di Windows
+## Creare una nuova app di Windows universale
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app universale di Windows o per modificare un progetto app esistente per Windows Store o Windows Phone per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app di Windows universale o per modificare un progetto app esistente per Windows Store o Windows Phone per connettersi al servizio mobile.
 
-In questa sezione si creerà una nuova app universale di Windows connessa al servizio mobile.
+In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
 
 1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
@@ -103,4 +103,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

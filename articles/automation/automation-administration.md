@@ -60,4 +60,4 @@ Non è possibile recuperare il valore delle variabili crittografate o il campo p
 
 Non è possibile esportare certificati da Automazione di Azure. È necessario assicurarsi che eventuali certificati siano disponibili all'esterno di Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

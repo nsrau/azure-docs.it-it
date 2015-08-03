@@ -23,4 +23,4 @@ La tabella seguente descrive le quote e i limiti applicati in DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

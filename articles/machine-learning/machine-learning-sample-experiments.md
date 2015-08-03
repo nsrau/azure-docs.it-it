@@ -40,4 +40,4 @@ Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti 
 - [Esplorare applicazioni pronte per l'uso](https://datamarket.azure.com/browse?query=machine+learning)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -92,4 +92,4 @@ I punti deboli dei servizi senza stato appaiono evidenti nella creazione dei ser
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

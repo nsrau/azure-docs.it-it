@@ -152,4 +152,4 @@ In determinati scenari come l'utilizzo della funzionalità di database federati,
 
 [Database SQL di Azure procedure consigliate per impedire rifiuti di richieste o interruzioni di connessione](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

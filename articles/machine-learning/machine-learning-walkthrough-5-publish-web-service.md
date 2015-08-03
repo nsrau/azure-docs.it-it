@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,7 +40,9 @@ A questo scopo, è necessario:
 - Convertire l'*esperimento di training* creato in un *esperimento di classificazione*
 - Pubblicazione dell'esperimento di classificazione come servizio Web
 
-Prima però è necessario ridurre un po' questo esperimento. Nell'esperimento attualmente sono presenti due modelli diversi, ma ora è necessario selezionare un solo modello da pubblicare. Si supponga che il modello di albero con boosting sia il modello più indicato. La prima cosa da fare, quindi, è rimuovere il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] e i moduli usati per eseguirne il training. È possibile creare prima una copia dell'esperimento facendo clic su **Save As** nella parte inferiore dell'area di disegno dell'esperimento.
+Prima però è necessario ridurre un po' questo esperimento. Nell'esperimento attualmente sono presenti due modelli diversi, ma ora è necessario selezionare un solo modello da pubblicare.
+
+Si supponga che il modello di albero con boosting sia il modello più indicato. La prima cosa da fare, quindi, è rimuovere il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] e i moduli usati per eseguirne il training. È possibile creare prima una copia dell'esperimento facendo clic su **Save As** nella parte inferiore dell'area di disegno dell'esperimento.
 
 È necessario eliminare i seguenti moduli:
 
@@ -85,13 +87,13 @@ Ci si chiederà perché il set di dati relativo alle carte di credito tedesche U
 
 Il servizio non necessita dei dati della carta di credito originali. Necessita però dello schema per tali dati, incluse informazioni come il numero di colonne presenti e quali colone sono numeriche. Queste informazioni sullo schema sono necessarie per interpretare i dati dell'utente. È necessario lasciare questi componenti collegati in modo che il modulo di punteggio abbia lo schema del set di dati quando il servizio è in esecuzione. I dati non vengono usati, solo lo schema.
 
-Eseguire l'esperimento ancora una volta, facendo clic su **ESEGUI**. Se si vuole verificare che il modello funzioni ancora, fare clic con il pulsante destro del mouse sull'output del modulo [Modello di punteggio][score-model] e selezionare **Visualizza**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
+Eseguire l'esperimento ancora una volta, facendo clic su **ESEGUI**. Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **View Results**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
 ##Pubblicare il servizio Web
 
-Per pubblicare un servizio Web derivato dall'esperimento, fare clic su **PUBBLICA SERVIZIO WEB** sotto l'area di disegno e quindi su **SÌ** quando richiesto. Machine Learning Studio pubblica l'esperimento come servizio Web nel server di gestione temporanea Machine Learning e apre il dashboard servizi.
+Per pubblicare un servizio Web derivato dall'esperimento, fare clic su **PUBLISH WEB SERVICE** sotto l'area di disegno. Machine Learning Studio pubblica l'esperimento come servizio Web e apre il dashboard del servizio.
 
-> [AZURE.TIP]È possibile aggiornare il servizio Web dopo averlo pubblicato. Se ad esempio si vuole cambiare il modello, è sufficiente modificare l'esperimento di training, modificare i parametri del modello e fare clic su **UPDATE SCORING EXPERIMENT**. Quando si pubblica di nuovo l'esperimento, il servizio Web verrà sostituito con il modello aggiornato.
+> [AZURE.TIP]È possibile aggiornare il servizio Web dopo averlo pubblicato. Se ad esempio si vuole cambiare il modello, è sufficiente modificare l'esperimento di training, modificare i parametri del modello e fare clic su **PUBLISH WEB SERVVICE**. Quando si pubblica di nuovo l'esperimento, il servizio Web verrà sostituito con il modello aggiornato.
 
 È possibile configurare il servizio facendo clic sulla scheda **CONFIGURAZIONE**, dove è possibile modificare il nome del servizio (per impostazione predefinita ha il nome dell'esperimento) e aggiungere una descrizione. È anche possibile inserire etichette più descrittive per le colonne di input e output.
 
@@ -125,4 +127,4 @@ Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard.
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

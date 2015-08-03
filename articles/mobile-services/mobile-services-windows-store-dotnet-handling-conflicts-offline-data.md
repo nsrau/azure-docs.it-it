@@ -51,7 +51,7 @@ Questa esercitazione è una procedura dettagliata che illustra come usare l'[ese
 
 2. Se SQLite per Windows 8.1 e Windows Phone 8.1 non sono già installati, come indicato nell'esercitazione [Introduzione ai dati offline], installare entrambi i runtime.
 
-3. In Visual Studio 2013 aprire il file della soluzione *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Premere **F5** per ricompilare ed eseguire il progetto. Verificare che i pacchetti NuGet vengano ripristinati e che i riferimenti siano impostati correttamente.
+3. In Visual Studio 2013 aprire il file della soluzione *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Premere **F5** per ricompilare ed eseguire il progetto. Verificare che i pacchetti NuGet vengano ripristinati e che i riferimenti siano impostati correttamente.
 
     >[AZURE.NOTE]Potrebbe essere necessario eliminare i vecchi riferimenti al runtime di SQLite e sostituirli con il riferimento aggiornato, come indicato nell'esercitazione [Introduzione ai dati offline].
 
@@ -166,4 +166,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

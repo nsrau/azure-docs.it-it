@@ -67,18 +67,18 @@ Installare la versione più recente di Azure PowerShell, accedendo alle pagine d
 ### Passaggio 2
 Modificare la modalità di PowerShell affinché utilizzi i cmdlet di Gestione risorse di Azure. Altre informazioni sono disponibili in Uso di Windows PowerShell con Gestione risorse.
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### Passaggio 3
 Accedere all'account Azure.
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 ### Passaggio 4
 Scegliere le sottoscrizioni ad Azure da utilizzare.
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
 
@@ -86,12 +86,12 @@ Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "
 
  Il servizio Gestione traffico di Azure viene gestito dal provider di risorse Microsoft.Network. Tale provider deve essere registrato nella sottoscrizione ad Azure prima di utilizzare Gestione traffico tramite Gestione risorse di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### Passaggio 6
 Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si usa un gruppo di risorse esistente.
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali (non locali), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
 
@@ -99,7 +99,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Per creare un profilo di gestione traffico, utilizzare il cmdlet New-AzureTrafficManagerProfile:
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 I parametri sono i seguenti:
 
@@ -125,7 +125,7 @@ Il cmdlet consente di creare un profilo in Gestione traffico di Azure e restitui
 
 Per recuperare un oggetto profilo di Gestione traffico esistente, utilizzare il cmdlet Get-AzureTrafficManagerProfle:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 Questo cmdlet restituisce un oggetto profilo di Gestione traffico.
 
@@ -145,9 +145,9 @@ L'esempio seguente chiarisce ulteriormente quanto riportato in precedenza:
 
 È possibile aggiungere endpoint a un profilo di Gestione traffico utilizzando il cmdlet "Add-AzureTrafficManagerEndpointConfig":
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 I parametri per Add-AzureTrafficManagerEndpointConfig sono i seguenti:
 
@@ -173,36 +173,36 @@ I parametri Status, Weight e Priority dell'endpoint sono opzionali. Se si ometto
 
 Per eliminare un endpoint da un profilo, utilizzare "Remove-AzureTrafficmanagerEndpointConfig", specificando il nome dell'endpoint da eliminare:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 La sequenza delle operazioni da eseguire per aggiungere o eliminare gli endpoint può essere "inoltrata tramite pipe", consentendo all'oggetto di passare tramite il pipe invece che come parametro. Ad esempio:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### Modificare le impostazioni del profilo o dell'endpoint
 
 I parametri del profilo e dell'endpoint possono essere modificati offline e le modifiche possono essere confermate utilizzando Set-AzureTrafficManagerProfile. Fa eccezione soltanto il RelativeDnsName del profilo, che non può essere modificato dopo aver creato il profilo. Per modificare tale valore, eliminare e creare di nuovo il profilo. Ad esempio, per modificare il profilo TTL e lo stato del primo endpoint:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### Eliminare un profilo di Gestione traffico
 Per eliminare un profilo di Gestione traffico, utilizzare il cmdlet Remove-AzureTrafficManagerProfile, specificando il nome del profilo e del gruppo di risorse:
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 Il cmdlet richiede una conferma. L'opzione facoltativa "-Force" può essere usata per eliminare questa richiesta. Inoltre, il profilo da eliminare può essere specificato utilizzando un oggetto di profilo:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Questa sequenza può anche essere inoltrata tramite pipe:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## Vedere anche
@@ -212,4 +212,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Introduzione ai cmdlet di Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -152,4 +152,4 @@ Oltre che con il comando Hadoop dal cluster, è possibile procedere in diversi m
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

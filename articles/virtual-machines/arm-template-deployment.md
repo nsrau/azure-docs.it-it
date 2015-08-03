@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Distribuire le risorse di Azure mediante un modello" 
-	description="Informazioni su come usare alcuni dei client disponibili nella libreria di Gestione risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione." 
-	services="virtual-machines,virtual-networks,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Distribuzione di risorse di Azure utilizzando un modello" description="Viene illustrato come utilizzare alcuni dei client disponibili nella libreria di gestione delle risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione" services="macchine virtuali, reti virtuali, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di Azure/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.topic="article"
+	ms.date="06/15/2015"
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure usando le librerie .NET e un modello
@@ -55,7 +48,7 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 5. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Impostare le autorizzazioni per l'uso dell'applicazione:
 
@@ -186,7 +179,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
           "resources": [ {
             "apiVersion": "2014-12-01-preview",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",       
+            "name": "[parameters('newStorageAccountName')]",
             "location": "[parameters('location')]",
             "properties": { "accountType": "[parameters('storageAccountType')]" }
           },
@@ -195,7 +188,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddressName')]",
             "location": "[parameters('location')]",
-            "properties": { 
+            "properties": {
               "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
               "dnsSettings": { "domainNameLabel": "[parameters('dnsName')]" }
             }
@@ -256,7 +249,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
                 "adminPassword": "[parameters('adminPassword')]",
                 "windowsProfile": { "provisionVMAgent": "true" }
               },
-              "storageProfile": { 
+              "storageProfile": {
                 "sourceImage": { "id": "[variables('sourceImageName')]" },
                 "destinationVhdsContainer" : "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmStorageAccountContainerName'),'/')]"
               },
@@ -283,7 +276,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
 
         {
           "contentVersion": "1.0.0.0",
-          "parameters": { 
+          "parameters": {
             "vmName": { "value": "mytestvm1" },
             "newStorageAccountName": { "value": "mytestsa1" },
             "storageAccountType": { "value": "Standard_LRS" },
@@ -296,8 +289,8 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
             "adminUserName": { "value": "mytestacct1" },
             "adminPassword": { "value": "mytestpass1" },
             "virtualNetworkName": { "value": "mytestvn1" },
-            "dnsName": { "value": "mytestdns1" }, 
-            "nicName": { "value": "mytestnic1" } 
+            "dnsName": { "value": "mytestdns1" },
+            "nicName": { "value": "mytestnic1" }
           }
         }
 
@@ -450,4 +443,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -127,4 +127,4 @@ In questa esercitazione vengono descritte tali azioni e viene illustrato come ut
 
 [Ulteriori informazioni sull'interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

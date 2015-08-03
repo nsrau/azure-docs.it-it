@@ -179,13 +179,13 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 2. Aprire Azure PowerShell e passare alla cartella in cui è installato AzCopy.  
 3. Utilizzare il seguente comando per copiare il file di disco rigido virtuale da "Source" a "Destination". 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
  - **/Source: *&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione con il disco rigido virtuale.    
  - **/SourceKey: *&lt;source-account-key&gt;:*** chiave dell’account di archiviazione dell’account di archiviazione di origine.  
- - **/Destination: *&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+ - **/Dest: *&lt;destination&gt;:* **URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
  - **/DestKey: *&lt;dest-account-key&gt;:*** chiave dell’account di archiviazione dell’account di archiviazione di destinazione.
  - **/BlobType:page:** specifica che la destinazione è un BLOB di pagine.
  - **/Pattern: *&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale che si sta copiando.
@@ -315,4 +315,4 @@ Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviaz
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

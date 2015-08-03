@@ -109,7 +109,7 @@ Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abi
 
 	![Messaggi di errore dettagliati](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	L'errore illustrato è stato creato aggiungendo la riga mostrata in rosso a *Views\\Home\\Index.cshtml*.
+	L'errore illustrato è stato creato aggiungendo la riga mostrata in rosso a *Views\Home\Index.cshtml*.
 
 La modifica del file Web.config è solo un esempio degli scenari in cui la possibilità di leggere e modificare file nell'app Web di Azure semplifica la risoluzione dei problemi.
 
@@ -123,7 +123,7 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 1. Aprire il progetto Web creato in [Introduzione ad Azure e ASP.NET][GetStarted].
 
-1. Aprire il file *Controllers\\HomeController.cs*.
+1. Aprire il file *Controllers\HomeController.cs*.
 
 2. Eliminare il metodo `About()` e sostituirlo con il codice seguente.
 
@@ -296,7 +296,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 ### Aggiungere istruzioni di traccia all'applicazione
 
-1. Aprire il file *Controllers\\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
+1. Aprire il file *Controllers\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -517,9 +517,9 @@ Tutti i log che è possibile monitorare nella finestra **Output** possono anche 
 
 	![File scaricato](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* I log di traccia dell'applicazione sono contenuti in file con estensione *txt* nella cartella *LogFiles\\Application*.
-	* I log del server Web sono contenuti in file con estensione *log* nella cartella *LogFiles\\http\\RawLogs*. Per visualizzare e manipolare questi file, è possibile utilizzare uno strumento come [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659).
-	* I log dei messaggi di errore dettagliati sono contenuti in file con estensione *html* nella cartella *LogFiles\\DetailedErrors*.
+	* I log di traccia dell'applicazione sono contenuti in file con estensione *txt* nella cartella *LogFiles\Application*.
+	* I log del server Web sono contenuti in file con estensione *log* nella cartella *LogFiles\http\RawLogs*. Per visualizzare e manipolare questi file, è possibile utilizzare uno strumento come [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659).
+	* I log dei messaggi di errore dettagliati sono contenuti in file con estensione *html* nella cartella *LogFiles\DetailedErrors*.
 
 	La cartella *deployments* contiene i file creati dalla pubblicazione del controllo del codice sorgente e non include contenuto correlato alla pubblicazione di Visual Studio. La cartella *Git* contiene le tracce correlate alla pubblicazione del controllo del codice sorgente e al servizio di streaming di file di log.
 
@@ -734,7 +734,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 
 Per la registrazione degli errori, in alternativa alla scrittura di codice di traccia personalizzato, è possibile utilizzare un framework di registrazione open source come [ELMAH](http://nuget.org/packages/elmah/). Per ulteriori informazioni, vedere i [post di blog di Scott Hanselman su ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Si noti inoltre che non è necessario utilizzare le funzionalità di traccia di ASP.NET o System.Diagnostics se si desidera ottenere log in streaming da Azure. Il servizio di log in streaming di Siti Web di Azure trasmette tutti i file con estensione *txt*, *html* o *log* che si trovano nella cartella *LogFiles*. Pertanto, è possibile creare un sistema di registrazione personalizzato per scrivere nel file system dell'app Web. In questo modo il file verrà automaticamente trasmesso e scaricato. È sufficiente scrivere codice di applicazione che crea file nella cartella *d:\\home\\logfiles*.
+Si noti inoltre che non è necessario utilizzare le funzionalità di traccia di ASP.NET o System.Diagnostics se si desidera ottenere log in streaming da Azure. Il servizio di log in streaming di Siti Web di Azure trasmette tutti i file con estensione *txt*, *html* o *log* che si trovano nella cartella *LogFiles*. Pertanto, è possibile creare un sistema di registrazione personalizzato per scrivere nel file system dell'app Web. In questo modo il file verrà automaticamente trasmesso e scaricato. È sufficiente scrivere codice di applicazione che crea file nella cartella *d:\home\logfiles*.
 
 ### Analisi dei log del server Web
 
@@ -763,4 +763,4 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

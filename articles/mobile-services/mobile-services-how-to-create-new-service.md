@@ -41,4 +41,4 @@ Questo argomento illustra come usare il [portale di gestione di Azure][Managemen
 [.NET backend version]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

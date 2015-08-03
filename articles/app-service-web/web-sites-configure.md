@@ -128,7 +128,7 @@ Per visualizzare i file di log, è necessario creare le credenziali FTP, come de
 ![](./media/web-sites-configure/configure03.png)
 
 
-Il nome utente completo FTP è "app\\nomeutente", dove *app* è il nome dell'app web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
+Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -174,4 +174,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

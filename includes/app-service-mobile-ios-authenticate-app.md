@@ -25,4 +25,4 @@
 
 3. Premere **Esegui** per avviare l'app, quindi accedere con il provider di identità scelto. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Creare una rete virtuale cross-premise utilizzando le tabelle di configurazione
@@ -27,7 +28,7 @@ I passaggi di questo argomento illustrano la creazione di una rete virtuale cros
 
 Queste tabelle in genere vengono compilate in un argomento che descrive la configurazione di un carico di lavoro IT in Azure e include una rete virtuale cross-premise. Per un esempio, vedere [Fase 1: Configurare Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-La procedura seguente fa riferimento alle informazioni in queste tabelle come guida nel processo di configurazione della rete virtuale. Se non sono già state specificate le impostazioni in queste tabelle in un altro argomento, ma si desidera comunque configurare una rete virtuale cross-premise, vedere [Configurazione di una connessione da sito a sito cross-premise a una rete virtuale di Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+La procedura seguente fa riferimento alle informazioni riportate in queste tabelle come guida nel processo di configurazione della rete virtuale in Gestione dei servizi. Se non sono già state specificate le impostazioni in queste tabelle in un altro argomento, ma si desidera comunque configurare una rete virtuale cross-premise, vedere [Configurazione di una connessione da sito a sito cross-premise a una rete virtuale di Azure](https://msdn.microsoft.com/library/dn133795.aspx).
 
 > [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -66,4 +67,4 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 [Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](https://msdn.microsoft.com/library/dn133795.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

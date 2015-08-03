@@ -44,7 +44,7 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
     <tr>
        <td>Flusso di lavoro Premium del codificatore multimediale</td>
        <td>Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.</td>
-       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificare con il flusso di lavoro Premium del Codificatore multimediale.</a></td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificare con il flusso di lavoro Premium del codificatore multimediale.</a></td>
     </tr>    
 	<tr>
         <td>Azure Media Indexer</td>
@@ -97,4 +97,4 @@ Dopo avere ottenuto un'istanza del processore multimediale, passare all'argoment
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

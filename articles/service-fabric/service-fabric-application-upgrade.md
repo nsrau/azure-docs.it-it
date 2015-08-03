@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 
@@ -66,4 +66,4 @@ Il diagramma di flusso seguente illustra il processo di aggiornamento di un'appl
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -273,4 +273,4 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

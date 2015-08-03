@@ -289,4 +289,4 @@ Creare un indice dell’API REST di Ricerca di Azure (API di Ricerca di Azure)
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

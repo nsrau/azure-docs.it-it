@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Scenari avanzati per l'utilizzo dell'attività di copia in Data factory di Azure 
@@ -24,34 +24,11 @@
 ## Filtro di colonna usando la definizione della struttura
 A seconda del tipo di tabella, è possibile specificare un subset di colonne dall'origine specificando un minor numero di colonne nella definizione **Structure** della definizione della tabella rispetto a quelle presenti nell'origine dati sottostante. Nella tabella seguente vengono fornite informazioni sulla logica di filtro colonne per diversi tipi di tabella.
 
-<table>
-
-	<tr>
-		<th align="left">Tipo di tabella</th>
-		<th align="left">Logica di filtro colonne</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>La definizione <b>Structure</b> del file JSON della tabella deve corrispondere alla struttura del BLOB. Per selezionare un subset di colonne, usare la funzionalità di mapping delle colonne descritta nella sezione seguente: Regole di trasformazione - Mapping di colonne.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation e OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			Se la proprietà <b>SqlReaderQuery</b> viene specificata come parte della definizione di attività di copia, la definizione <b>Structure</b> della tabella deve allinearsi con le colonne selezionate nella query.<br/><br/>
-			Se la proprietà <b>SqlReaderQuery</b> non viene specificata, l'attività di copia crea automaticamente una query SELECT in base alle colonne specificate nella definizione <b>Structure</b> della definizione della tabella.
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			La sezione <b>Structure</b> nella definizione della tabella può contenere un set completo o un subset di colonne nella tabella sottostante in Azure.
-		</td>
-	<tr>
-
-</table>
+| Tipo di tabella | Logica di filtro colonne |
+|-------------------|----------------------- |
+| AzureBlobLocation |La definizione Structure del file JSON della tabella deve corrispondere alla struttura del BLOB. Per selezionare un subset di colonne, usare la funzionalità di mapping delle colonne descritta nella sezione seguente: Regole di trasformazione - Mapping di colonne. | 
+| AzureSqlTableLocation e OnPremisesSqlServerTableLocation | Se la proprietà SqlReaderQuery viene specificata come parte della definizione di attività di copia, la definizione Structure della tabella deve allinearsi con le colonne selezionate nella query. Se la proprietà SqlReaderQuery non è specificata, l'attività di copia creerà automaticamente una query SELECT in base alle colonne specificate nella definizione Structure della definizione della tabella |
+| AzureTableLocation | La sezione Structure nella definizione della tabella può contenere un set completo o un subset di colonne nella tabella sottostante in Azure.
 
 ## Regole di trasformazione - Mapping di colonne.
 Il mapping di colonne consente di specificare come mappare le colonne nella tabella di origine rispetto alle colonne della tabella di sink. Supporta gli scenari seguenti:
@@ -213,49 +190,14 @@ In questo esempio, una query SQL (vedere la tabella nell'esempio precedente) vie
 
 I tipi di dati specificati nella sezione Structure della definizione Table vengono accettati solo per **BlobSource**. La tabella seguente descrive la modalità di gestione dei tipi di dati per altri tipi di origine e sink.
 
-<table>	
-	<tr>
-		<th align="left">Origine/Sink</th>
-		<th align="left">Logica di gestione di tipi dei dati</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. I tipi di dati definiti nel database SQL sottostante verranno usati per l'estrazione dei dati durante l'attività di copia.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. Verranno confrontati i tipi di dati nell'origine e nella destinazione sottostanti e verrà eseguita la conversione implicita dei tipi se sono presenti tipi non corrispondenti.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td>Durante il trasferimento da <b>BlobSource</b> a <b>BlobSink</b>, non avviene alcuna trasformazione dei tipi. I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. Per destinazioni differenti da <b>BlobSink</b>, i tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella verranno accettati.<br/><br/>
-		Se la sezione <b>Structure</b> non è specificata nella definizione della tabella, la gestione dipende dalla proprietà <b>format</b> della tabella <b>BlobSource</b>:
-		<ul>
-			<li> <b>TextFormat:</b> tutti i tipi di colonna vengono considerati come stringa e tutti i nomi di colonna sono impostati come "Prop_&lt;0-N>"</li> 
-			<li><b>AvroFormat:</b> usare i tipi di colonna predefiniti e i nomi nel file Avro.</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante. Le colonne verranno specificate come nullable per la serializzazione Avro.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nella tabella di Azure sottostante.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>I tipi di dati definiti nella sezione <b>Structure</b> della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante.</td>
-	</tr>
-
-</table>
+| Origine/Sink | Logica di gestione di tipi dei dati |
+| ----------- | ------------------------ |
+| SqlSource | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. I tipi di dati definiti nel database SQL sottostante verranno usati per l'estrazione dei dati durante l'attività di copia. |
+| SqlSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno confrontati i tipi di dati nell'origine e nella destinazione sottostanti e verrà eseguita la conversione implicita dei tipi se sono presenti tipi non corrispondenti. |
+| BlobSource | Durante il trasferimento da BlobSource a BlobSink, non avviene alcuna trasformazione dei tipi. I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Per destinazioni differenti da BlobSink, i tipi di dati definiti nella sezione Structure della definizione della tabella verranno accettati. Se la sezione Structure non è specificata nella definizione della tabella, la gestione dipende dalla proprietà format della tabella BlobSource: TextFormat: tutti i tipi di colonna vengono considerati come stringa e tutti i nomi di colonna sono impostati come "Prop_<0-N>". AvroFormat: usare i tipi di colonna predefiniti e i nomi nel file Avro.
+| BlobSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante. Le colonne verranno specificate come nullable per la serializzazione Avro. |
+| AzureTableSource | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nella tabella di Azure sottostante. |
+| AzureTableSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante. |
 
 **Nota:** la tabella di Azure supporta solo un set limitato di tipi di dati. Fare riferimento a [Informazioni sul modello di dati del servizio tabelle][azure-table-data-type].
 
@@ -347,4 +289,4 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

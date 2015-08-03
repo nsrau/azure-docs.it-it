@@ -76,4 +76,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

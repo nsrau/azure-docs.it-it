@@ -27,7 +27,9 @@ Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizio
 
 Tramite il portale di gestione di Azure, [PowerShell](https://msdn.microsoft.com/library/azure/dn546726.aspx) o l'[API REST](https://msdn.microsoft.com/library/dn505719.aspx), è possibile passare facilmente da un livello di servizio a un altro .
 
-Quando si passa da un livello di servizio a un altro, tenere presente quanto segue: prima dell'aggiornamento a livelli di servizio o di prestazioni diversi, assicurarsi che il server disponga della quota necessaria. Se occorrono quote aggiuntive, contattare l'assistenza clienti. I database federati non possono essere aggiornati ai livelli di servizio Basic Standard o Premium.
+Quando si passa da un livello di servizio a un altro, tenere presente quanto segue:
+- prima dell'aggiornamento a livelli di servizio o di prestazioni diversi, assicurarsi che il server disponga della quota necessaria. Se occorrono quote aggiuntive, contattare l'assistenza clienti.
+- I database federati non possono essere aggiornati ai livelli di servizio Basic Standard o Premium.
 
 - Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. Per ulteriori informazioni sulla dimensione consentita per ogni livello di servizio, vedere la relativa tabella più avanti in questa sezione.
 
@@ -66,7 +68,8 @@ Per aggiornare un database, utilizzare uno dei metodi seguenti. I passaggi sono 
 2. Impostare il contesto server con il cmdlet New-AzureSqlDatabaseServerContext. La sintassi di esempio è disponibile nella sezione relativa all'uso dei comandi PowerShell di Azure.
 3. Individuare un handle per il database e il livello di prestazioni di destinazione. Specificare il livello di prestazioni utilizzando Set-AzureSqlDatabase – ServiceObjective
 
-**Esempio di utilizzo**: 
+**Esempio di utilizzo**:
+Esempio:
 - in questo esempio viene illustrato l'aggiornamento a un livello di servizio Premium. 
 - Vengono creati l'handle $db che fa riferimento al nome di database "somedb"e 
 - l'handle $P1 che fa riferimento al livello di prestazioni 1 del livello di servizio Premium. 
@@ -229,7 +232,8 @@ Impostare il contesto server con il cmdlet **New-AzureSqlDatabaseServerContext**
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Riferimenti di Azure PowerShell** Per informazioni dettagliate sui cmdlet di Azure PowerShell utilizzati in questo argomento, vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/dn546726.aspx).
+**Riferimenti di Azure PowerShell**
+Per informazioni dettagliate sui cmdlet di Azure PowerShell utilizzati in questo argomento, vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/dn546726.aspx).
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -238,4 +242,4 @@ Impostare il contesto server con il cmdlet **New-AzureSqlDatabaseServerContext**
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

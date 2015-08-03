@@ -324,4 +324,4 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 	}
 	
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

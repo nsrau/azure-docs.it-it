@@ -45,4 +45,4 @@ Esaminare i passaggi illustrati in questo video[Introduzione a Azure Backup 3 di
 - Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup](backup-introduction-to-azure-backup.md).
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

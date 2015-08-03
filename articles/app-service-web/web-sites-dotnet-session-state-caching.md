@@ -74,7 +74,7 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
   &lt;/system.web></pre>
 
 
-<a id="usesessionobject"></a>Usare l'oggetto Session nel codice Il passaggio finale consiste nell'iniziare a usare l'oggetto Session nel codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** Tale metodo usa coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
+<a id="usesessionobject"></a>Usare l'oggetto Session nel codice Il passaggio finale consiste nell'iniziare a usare l'oggetto Session nel codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -108,4 +108,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -22,8 +22,8 @@ Una volta inizializzata app web Java in [servizio App Azure](http://go.microsoft
 
 Il percorso della cartella **webapps** varia a seconda della configurazione del sito Web.
 
-- Se si configura il sito Web usando la raccolta di applicazioni di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\bin\\application_server\\webapps**, dove **application_server** è il nome del server applicazioni usato per il sito Web. 
-- Se si configura il sito Web usando l'interfaccia utente di configurazione di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\webapps**. 
+- Se si configura il sito Web usando la raccolta di applicazioni di Azure, il percorso della cartella **webapps** sarà nel formato **d:\home\site\wwwroot\bin\application_server\webapps**, dove **application_server** è il nome del server applicazioni usato per il sito Web. 
+- Se si configura il sito Web usando l'interfaccia utente di configurazione di Azure, il percorso della cartella **webapps** sarà nel formato **d:\home\site\wwwroot\webapps**. 
 
 Si noti che è possibile usare il controllo del codice sorgente per caricare l'applicazione o le pagine Web, anche negli scenari di integrazione continuata. Istruzioni per l'utilizzo del controllo del codice sorgente con l'applicazione web sono disponibili all'indirizzo [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md). Per caricare l'applicazione o le pagine Web è anche possibile usare FTP.
 
@@ -35,4 +35,4 @@ Dopo avere caricato il file WAR nella cartella **webapps**, il server applicazio
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -301,4 +301,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Aggiornare i server con gli aggiornamenti del sistema
@@ -34,4 +34,6 @@ Prima di poter usare gli aggiornamenti di sistema in Microsoft Azure Operational
 5. Il browser Web apre l’articolo della Knowledge Base che descrive l'aggiornamento. ![immagine della pagina Updates](./media/operational-insights-updates/updates05.png)
 6. Con le informazioni trovate, è possibile creare un piano per applicare gli aggiornamenti mancanti.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

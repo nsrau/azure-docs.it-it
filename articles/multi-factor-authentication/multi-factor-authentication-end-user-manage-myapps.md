@@ -27,10 +27,10 @@ Se si utilizza l'autenticazione a più fattori con Office 365 si potranno gestir
 <li>Nella parte superiore, selezionare il profilo.</li>
 <li>Fare clic sul nome utente e selezionare Verifica aggiuntiva di sicurezza.</li>
 
-<center>![Cloud](./media/multi-factor-authentication-end-user-manage-myapps/myapp.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-end-user-manage-myapps/myapp.png)</center>
 
 <li>Ora dovrebbe comparire la pagina di registrazione da cui è possibile modificare le impostazioni.</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!-----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

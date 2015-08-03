@@ -162,4 +162,4 @@ Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della docum
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

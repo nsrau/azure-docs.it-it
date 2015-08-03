@@ -122,4 +122,4 @@ Gestione e controllo dell'accesso
 - [Creare una nuova entità servizio di Azure usando il portale classico di Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

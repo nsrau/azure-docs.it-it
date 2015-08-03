@@ -45,4 +45,4 @@ Le applicazioni ibride per cloud/locali sono una realtà degli ambienti IT moder
 - [Servizi cloud](http://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

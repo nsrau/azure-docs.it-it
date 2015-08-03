@@ -32,7 +32,7 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-windows-pho
 
 ##Note sulla versione
 
-###3\.0.0 (03/04/2015)
+###3.0.0 (03/04/2015)
 
 -   L'icona di notifica predefinita è stata aggiornata.
 -   È possibile inviare feedback relativo all'azione di notifica di sistema quando si fa clic su una notifica.
@@ -55,4 +55,4 @@ Nessuna.
 Vedere [Procedure di aggiornamento](mobile-engagement-windows-phone-upgrade-procedure/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

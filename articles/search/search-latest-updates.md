@@ -107,4 +107,4 @@ La versione di anteprima dell'[API REST di gestione](search-management-api-2014-
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

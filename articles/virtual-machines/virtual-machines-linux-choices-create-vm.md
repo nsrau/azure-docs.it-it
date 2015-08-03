@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Diversi modi per creare una macchina virtuale Linux" 
-	description="Vengono elencati i diversi modi per creare una macchina virtuale Linux e vengono forniti collegamenti alle istruzioni." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Diversi modi per creare una macchina virtuale Linux"
+	description="Vengono elencati i diversi modi per creare una macchina virtuale Linux e vengono forniti collegamenti alle istruzioni."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015" 
-	ms.author="kathydav"/>
+	ms.date="07/20/2015"
+	ms.author="dkshir"/>
 
 # Diversi modi per creare una macchina virtuale Linux
 
@@ -24,15 +24,15 @@ Modelli di Gestione risorse di Azure sono stati introdotti recentemente per cons
 
 ## Opzioni dello strumento
 
-### Interfaccia utente grafica: il portale di Azure o il portale di anteprima 
+### Interfaccia utente grafica: il portale di Azure o il portale di anteprima
 
-L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a utilizzare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il portale di Azure o il portale di anteprima di Azure per creare la macchina virtuale. Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Linux][]
+L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a utilizzare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il portale di Azure o il portale di anteprima di Azure per creare la macchina virtuale. Per istruzioni generali, vedere [Creazione di una macchina virtuale personalizzata][] e selezionare un'immagine Linux dalla **raccolta**.
 
 ### Shell dei comandi: interfaccia della riga di comando di Azure o Azure PowerShell
 
 Se si preferisce lavorare in una shell dei comandi, scegliere tra l'interfaccia della riga di comando (CLI) di Azure per gli utenti Mac e Linux o Azure PowerShell, che dispone di cmdlet Windows PowerShell per Azure e una console personalizzata.
 
-Per l'interfaccia della riga di comando di Azure, vedere [Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure][]. Per utilizzare un modello, vedere [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure][].
+Per l'interfaccia della riga di comando di Azure, vedere [Creazione di una macchina virtuale che esegue Linux][]. Per usare un modello, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure][].
 
 Per Azure PowerShell, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux][]. Per utilizzare un modello, vedere [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell][].
 
@@ -70,19 +70,21 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 
 [Ambienti di test basati su cloud ibrido di Azure][]
 
+[Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure][]
+
 <!-- LINKS -->
 [Panoramica]: ../resource-group-overview.md
 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
-[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 
 [Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure]: xplat-cli-azure-manage-vm-asm-arm.md
-[Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
 [Come creare una macchina virtuale personalizzata su cui è in esecuzione Linux in Azure]: virtual-machines-linux-create-custom.md
-[Come acquisire una macchina virtuale Linux da utilizzare come modello con l'interfaccia CLI]: virtual-machines-vm-capture-image-cli.md
+[Come acquisire una macchina virtuale Linux da utilizzare come modello con l'interfaccia CLI]: virtual-machines-linux-capture-image.md
 
 [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux]: virtual-machines-linux-create-upload-vhd.md
 
@@ -97,4 +99,7 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Ambiente di test di configurazione di base]: virtual-machines-base-configuration-test-environment.md
 [Ambienti di test basati su cloud ibrido di Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO2-->
+[Creazione di una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
+[Creazione di una macchina virtuale personalizzata]: virtual-machines-create-custom.md
+
+<!---HONumber=July15_HO4-->

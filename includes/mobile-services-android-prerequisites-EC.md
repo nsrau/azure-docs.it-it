@@ -4,4 +4,4 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 >[AZURE.NOTE]Mobile Services SDK per Android è stato aggiornato alla versione 2.0. Se le due esercitazioni precedenti sono state completate in passato senza usare l'SDK aggiornato, è necessario ripeterle. Per verificare la versione dell'SDK usata dall'app, aprirla in Eclipse ed esaminare il contenuto della cartella **libs**. Il numero di versione dei file con estensione jar di Servizi mobili deve essere 2.0 o superiore.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

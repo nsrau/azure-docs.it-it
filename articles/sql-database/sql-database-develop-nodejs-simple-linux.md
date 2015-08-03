@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -41,7 +41,7 @@ Una volta configurato il computer con **node** e **npm**, passare a una director
 
 
 	sudo npm init
-	sudp npm install tedious
+	sudo npm install tedious
 
 
 **npm init** crea un progetto node. Per mantenere i valori predefiniti durante la creazione del progetto, premere INVIO finché non viene creato il progetto. A questo punto è possibile visualizzare un file **package.json** nella directory del progetto.
@@ -171,4 +171,4 @@ L'esempio di codice in questa sezione applica parametri a un'istruzione SQL INSE
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

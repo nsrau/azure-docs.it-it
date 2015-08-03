@@ -46,4 +46,4 @@ Se si usa Operations Manager per monitorare uno dei carichi di lavoro seguenti, 
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

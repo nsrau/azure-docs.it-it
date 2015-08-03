@@ -319,4 +319,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -43,7 +43,7 @@ Avvertenze per le password dell’app rivolte agli utenti federati:
 
 Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Server Azure Multi-Factor Authentication con ADFS vedere quanto segue:
 
-- [Proteggere le risorse cloud mediante Azure Multi-Factor Authentication e ADFS](multi-factor-authentication-get-started-adfs-cloud)
+- [Proteggere le risorse cloud con Azure Multi-Factor Authentication e ADFS](multi-factor-authentication-get-started-adfs-cloud.md)
 - [Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con ADFS Server Windows 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [Proteggere le risorse del cloud e locali mediante Server Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 
@@ -55,4 +55,4 @@ Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Se
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

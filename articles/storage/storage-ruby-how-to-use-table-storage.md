@@ -159,4 +159,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 - Archivio [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

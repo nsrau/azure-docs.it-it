@@ -83,7 +83,7 @@ Scaricare il link Non-Thread Safe (NTS) x86 per la versione di PHP abilitata nel
 
 ### Abilitare l'estensione php_memcache
 
-Dopo il download del file, decomprimerlo e caricare il file **php_memcache.dll** nella directory **d:\\home\\site\\wwwroot\\bin\\ext\**. Dopo il caricamento del file php_memcache.dll nell'app Web, è necessario abilitare l'estensione nel runtime PHP. Per abilitare l'estensione Memcache nel portale di Azure, aprire il pannello **Impostazioni applicazione** per l'app Web e quindi aggiungere una nuova impostazione di app con chiave **PHP_EXTENSIONS** e valore **bin\\ext\\php_memcache.dll**.
+Dopo il download del file, decomprimerlo e caricare il file **php_memcache.dll** nella directory **d:\home\site\wwwroot\bin\ext\**. Dopo il caricamento del file php_memcache.dll nell'app Web, è necessario abilitare l'estensione nel runtime PHP. Per abilitare l'estensione Memcache nel portale di Azure, aprire il pannello **Impostazioni applicazione** per l'app Web e quindi aggiungere una nuova impostazione di app con chiave **PHP_EXTENSIONS** e valore **bin\ext\php_memcache.dll**.
 
 
 > Se l'app Web deve caricare più estensioni PHP, il valore di PHP_EXTENSIONS deve essere un elenco di percorsi relativi di file DLL delimitati da virgole.
@@ -197,4 +197,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

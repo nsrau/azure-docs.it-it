@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/09/2015"
+	ms.date="07/16/2015"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Panoramica
 
-Un account di archiviazione di Azure è un account sicuro che consente di accedere ai servizi in Archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per gli oggetti dati dell'archiviazione di Azure. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
+Un account di archiviazione di Azure è un account sicuro che consente di accedere ai servizi Blob, coda, tabella e File in archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per gli oggetti dati dell'archiviazione di Azure. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
 
 Sono disponibili due tipi di account di archiviazione:
 
@@ -63,7 +63,7 @@ Per informazioni sugli obiettivi di capacità e prestazioni dell'account di arch
 
 	Tenere presente che è necessario selezionare un gruppo di affinità quando l'account di archiviazione viene creato. Non è possibile spostare un account esistente in un gruppo di affinità. Per informazioni dettagliate sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
 
-5. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione. È possibile creare fino a cinque account di archiviazione per una sottoscrizione.
+5. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione.
 
 6. In **Replica** selezionare il livello di replica desiderato per l'account di archiviazione. L'opzione di replica raccomandata è la replica con ridondanza geografica, che fornisce il livello di durabilità massimo per i dati. Per altri dettagli sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di archiviazione di Azure](storage-redundancy.md).
 
@@ -167,4 +167,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

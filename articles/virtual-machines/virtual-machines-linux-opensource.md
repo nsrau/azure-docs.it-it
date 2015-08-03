@@ -296,4 +296,4 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

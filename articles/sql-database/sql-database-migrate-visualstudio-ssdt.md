@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #Aggiornare il database sul posto, quindi distribuire database SQL di Azure
 
 ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Utilizzare questa opzione quando la migrazione di un database all’anteprima della versione più recente di database SQL V12 di Azure richiede modifiche dello schema che non possono essere risolte utilizzando la procedura guidata di migrazione di SQL Azure (SAMW). Ciò si verifica se il database utilizza funzionalità di SQL Server non supportate o non ancora supportate in database SQL di Azure. In questa opzione, Visual Studio viene utilizzato innanzitutto per creare un progetto di database dal database di origine. La piattaforma di destinazione del progetto viene quindi impostata sul database SQL V12 di Azure e il progetto viene compilato per identificare tutti i problemi di compatibilità. SAMW consente di risolvere molti, ma non tutti, i problemi di compatibilità, pertanto viene utilizzato per elaborare tutti gli script nei progetti come primo passaggio. L’utilizzo di SAMW è facoltativo, ma consigliato. La compilazione del progetto dopo l'elaborazione dei file di script con SAMW consentirà l’identificazione dei restanti problemi che devono essere risolti manualmente utilizzando gli strumenti di modifica T-SQL in Visual Studio. Una volta compilato correttamente il progetto, lo schema viene pubblicato nuovamente in una copia (scelta consigliata) del database di origine per aggiornare il relativo schema e i dati sul posto. Il database aggiornato viene quindi distribuito in Azure, direttamente o mediante l’esportazione e l’importazione di un file BACPAC, utilizzando le tecniche descritte nell’opzione 1.
+Utilizzare questa opzione quando la migrazione di un database in Azure SQL Database V12 richiede modifiche dello schema che non possono essere indirizzate tramite il SQL Azure Migration Wizard (SAMW) perché il database utilizza funzionalità di SQL Server che non sono supportate nel Database di SQL Azure. In questa opzione, Visual Studio viene utilizzato innanzitutto per creare un progetto di database dal database di origine. La piattaforma di destinazione del progetto viene quindi impostata sul database SQL V12 di Azure e il progetto viene compilato per identificare tutti i problemi di compatibilità. SAMW consente di risolvere molti, ma non tutti, problemi di compatibilità, pertanto viene utilizzato per elaborare tutti gli script nei progetti come primo passaggio. L’utilizzo di SAMW è facoltativo, ma consigliato. La compilazione del progetto dopo l'elaborazione dei file di script con SAMW consentirà l’identificazione dei restanti problemi che devono essere risolti manualmente utilizzando gli strumenti di modifica Transact-SQL in Visual Studio. Una volta compilato correttamente il progetto, lo schema viene pubblicato nuovamente in una copia (scelta consigliata) del database di origine per aggiornare il relativo schema e i dati sul posto. Il database aggiornato viene quindi distribuito in Azure, direttamente o mediante l’esportazione e l’importazione di un file BACPAC, utilizzando le tecniche descritte nell’opzione 1.
  
 Dal momento che questa opzione implica l’aggiornamento dello schema del database sul posto prima della distribuzione in Azure, è consigliabile eseguire questa operazione su una copia del database. Lo strumento di confronto degli schemi di Visual Studio può essere utilizzato per esaminare il set completo delle modifiche che verranno applicate al database prima di pubblicare il progetto.
 
-L’utilizzo di SAMW è facoltativo ma consigliato. SAMW consentirà di rilevare problemi di compatibilità nel corpo di funzioni, stored procedure e trigger che altrimenti non verranno rilevati fino alla distribuzione. Se è necessario eseguire la distribuzione del solo schema, è possibile pubblicare lo schema aggiornato direttamente da Visual Studio al database SQL di Azure.
+L’utilizzo di SAMW è facoltativo ma consigliato. SAMW consentirà di rilevare problemi di compatibilità nel corpo di funzioni, stored procedure e trigger che altrimenti non verranno rilevati fino alla distribuzione.
+
+Se è necessario eseguire la distribuzione del solo schema, è possibile pubblicare lo schema aggiornato direttamente da Visual Studio al database SQL di Azure.
 
 ## Passaggi della migrazione
 
@@ -59,10 +61,10 @@ L’utilizzo di SAMW è facoltativo ma consigliato. SAMW consentirà di rilevare
 
 ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->Si noti che vengono eseguite copie temporanee sia dei file originali prima dell’elaborazione, sia dei file interessati dopo l'elaborazione nei percorsi indicati nella parte superiore della pagina.
+> [AZURE.NOTE]Si noti che vengono eseguite copie temporanee sia dei file originali prima dell’elaborazione, sia dei file interessati dopo l'elaborazione nei percorsi indicati nella parte superiore della pagina.
 
-10.	Scegliere Sovrascrivi e OK nella finestra di dialogo di conferma. I file originali verranno sovrascritti con i file modificati. Si noti che verranno sovrascritti solo i file che sono stati effettivamente modificati.
-11.	Facoltativa. Utilizzare Confronto schema per confrontare il progetto a uno snapshot precedente oppure al database originale per comprendere quali modifiche sono state apportate mediante la procedura guidata. A questo punto è inoltre possibile eseguire un altro snapshot. 
+10.	Scegliere **Sovrascrivi** e **OK** nella finestra di dialogo di conferma. I file originali verranno sovrascritti con i file modificati. Si noti che verranno sovrascritti solo i file che sono stati effettivamente modificati.
+11.	Facoltativo. Utilizzare Confronto schema per confrontare il progetto a uno snapshot precedente oppure al database originale per comprendere quali modifiche sono state apportate mediante la procedura guidata. A questo punto è inoltre possibile eseguire un altro snapshot. 
 
 ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
 
@@ -93,6 +95,4 @@ Nel confronto degli schemi sotto Adventure Works 2014, il database SQL V12 di Az
 
 ![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

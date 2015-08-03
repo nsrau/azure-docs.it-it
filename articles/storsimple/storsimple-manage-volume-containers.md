@@ -66,4 +66,4 @@ Un contenitore del volume ha volumi all'interno di esso. Può essere eliminato s
 Ulteriori informazioni su [la gestione di volumi StorSimple](storsimple-manage-volumes.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

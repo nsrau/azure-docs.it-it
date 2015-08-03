@@ -194,13 +194,13 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processor(_Totale)\% Tempo processore|
-|Memoria disponibile|\\Memoria\\MByte disponibili|
-|IOPS|\\DiscoFisico(_Totale)\\Trasferimenti disco/secondo|
-|Operazioni di lettura VM (IOPS) al secondo|\\Dispositivo di archiviazione Hyper-V (<VHD>)\\Operazioni di lettura/secondo|
-|Operazioni di scrittura VM (IOPS) al secondo|\\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\\Operazioni di scrittura/S|
-|Velocità effettiva lettura VM|\\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\\Byte letti al secondo|
-|Velocità effettiva di scrittura VM|\\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\\Byte scritti al secondo|
+|CPU|\Processor(_Totale)\% Tempo processore|
+|Memoria disponibile|\Memoria\MByte disponibili|
+|IOPS|\DiscoFisico(_Totale)\Trasferimenti disco/secondo|
+|Operazioni di lettura VM (IOPS) al secondo|\Dispositivo di archiviazione Hyper-V (<VHD>)\Operazioni di lettura/secondo|
+|Operazioni di scrittura VM (IOPS) al secondo|\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Operazioni di scrittura/S|
+|Velocità effettiva lettura VM|\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Byte letti al secondo|
+|Velocità effettiva di scrittura VM|\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\Byte scritti al secondo|
 
 
 ## Passaggi successivi
@@ -214,4 +214,4 @@ Per avviare la distribuzione  
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

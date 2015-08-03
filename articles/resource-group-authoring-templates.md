@@ -405,4 +405,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
 - [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

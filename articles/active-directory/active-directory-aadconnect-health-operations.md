@@ -87,4 +87,4 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
 1. Confermare il nome del servizio digitandolo nella casella di conferma (ad esempio: sts.contoso.com). 
 1. Fare clic sul pulsante "Elimina".
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

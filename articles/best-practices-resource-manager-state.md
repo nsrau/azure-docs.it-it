@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Procedure consigliate per la gestione dello stato in modelli di Gestione risorse di Azure"
 	description="Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con i modelli di Gestione risorse di Azure e i modelli collegati"
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -74,7 +74,7 @@ Il seguente esempio mostra come definire variabili contenenti oggetti complessi 
       "udCount": 5
     }
 
-È possibile fare riferimento queste variabili in un secondo momento nel modello. La possibilità di fare riferimento a variabili denominate e alle relative proprietà semplifica la sintassi del modello e semplifica la comprensione del contesto. Il seguente esempio definisce una risorsa da distribuire usando gli oggetti indicati sopra per impostare i valori. Ad esempio, si noti che le dimensioni della VM vengono impostate recuperando il valore di `variables('tshirtSize').vmSize`, mentre il valore delle dimensioni del disco viene recuperato da `variables('tshirtSize').diskSize`. Inoltre, l'URI di un modello collegato viene impostato con il valore di `variables('tshirtSize').vmTemplate`.
+È possibile fare riferimento a queste variabili in un secondo momento nel modello. La possibilità di fare riferimento a variabili denominate e alle relative proprietà semplifica la sintassi del modello e semplifica la comprensione del contesto. Il seguente esempio definisce una risorsa da distribuire usando gli oggetti indicati sopra per impostare i valori. Ad esempio, si noti che le dimensioni della VM vengono impostate recuperando il valore di `variables('tshirtSize').vmSize`, mentre il valore delle dimensioni del disco viene recuperato da `variables('tshirtSize').diskSize`. Inoltre, l'URI di un modello collegato viene impostato con il valore di `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -381,4 +381,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

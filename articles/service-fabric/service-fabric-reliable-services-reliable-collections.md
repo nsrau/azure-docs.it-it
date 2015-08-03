@@ -60,16 +60,16 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
 ### ReliableDictionary
-| Operazione\\Ruolo | Primario | Secondario |
+| Operazione\Ruolo | Primario | Secondario |
 | --------------------- | :--------------- | :--------------- |
 | Lettura di entità singola | Repeatable Read | Snapshot |
-| Enumerazione\\Conteggio | Snapshot | Snapshot |
+| Enumerazione\Conteggio | Snapshot | Snapshot |
 
 ### ReliableQueue
-| Operazione\\Ruolo | Primario | Secondario |
+| Operazione\Ruolo | Primario | Secondario |
 | --------------------- | :--------------- | :--------------- |
 | Lettura di entità singola | Snapshot | Snapshot |
-| Enumerazione\\Conteggio | Snapshot | Snapshot |
+| Enumerazione\Conteggio | Snapshot | Snapshot |
 
 ## Modello di persistenza
 Reliable State Manager e le raccolte Reliable Collections seguono un modello di persistenza basato su log e checkpoint. Si tratta di un modello in cui ciascuna modifica apportata allo stato viene registrata sul disco e applicata soltanto in memoria. Lo stato completo stesso viene reso persistente solo occasionalmente (noto anche come Checkpoint). Questo modello offre il vantaggio seguente:
@@ -87,7 +87,7 @@ Le raccolte Reliable Collections acquisiscono sempre blocchi esclusivi. Per le o
 
 La matrice di compatibilità dei blocchi è disponibile di seguito:
 
-| Richiesto\\Concesso | Nessuno | Condiviso | Aggiornamento | Esclusivo |
+| Richiesto\Concesso | Nessuno | Condiviso | Aggiornamento | Esclusivo |
 | ----------------- | :----------- | :----------- | :---------- | :----------- |
 | Condiviso | Nessun conflitto | Nessun conflitto | Conflitto | Conflitto |
 | Aggiornamento | Nessun conflitto | Nessun conflitto | Conflitto | Conflitto |
@@ -119,4 +119,4 @@ Occorre tenere presente i concetti seguenti:
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

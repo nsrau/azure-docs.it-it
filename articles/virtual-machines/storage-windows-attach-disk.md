@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="Collegare un disco a una macchina virtuale | Azure" 
-	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Collegare un disco a una macchina virtuale | Azure"
+	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # Come collegare un disco dati a una macchina virtuale Windows
 
-È possibile collegare dischi vuoti e dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
+È possibile collegare dischi vuoti e i dischi dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
 > [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non usare l'unità D per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
@@ -42,8 +43,14 @@
 
 	![Inizializzazione del volume completata](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]Le dimensioni della macchina virtuale determinano il numero di dischi che è possibile collegare. Per altri dettagli, vedere [Servizi cloud e dimensioni delle macchine virtuali](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+> [AZURE.NOTE]Le dimensioni della macchina virtuale determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
+
+## Risorse aggiuntive
+
+[Come scollegare un disco dati da una macchina virtuale di Windows](storage-windows-detach-disk.md)
+
+[Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

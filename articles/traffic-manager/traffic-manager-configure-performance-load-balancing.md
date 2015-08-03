@@ -48,4 +48,4 @@ Per bilanciare il carico di servizi cloud e siti Web (endpoint) che si trovano i
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

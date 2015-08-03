@@ -229,4 +229,4 @@ Per ulteriori informazioni: [Architettura del bilanciamento delle risorse](servi
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

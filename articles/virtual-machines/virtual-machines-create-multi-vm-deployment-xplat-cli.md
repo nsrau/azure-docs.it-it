@@ -67,4 +67,4 @@ Nonostante sia possibile trovare altre informazioni usando l'opzione -help in qu
 * [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

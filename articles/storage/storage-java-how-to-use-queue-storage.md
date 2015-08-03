@@ -393,4 +393,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

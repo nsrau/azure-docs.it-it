@@ -17,4 +17,4 @@
 
 6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Vedere [Uscire dalla modalità di manutenzione](#exit-maintenance-mode) per visualizzare istruzioni.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -50,7 +50,7 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 
 	<table>
 <tr><th>Nome</th><th>Autorizzazioni</th></tr>
-<tr><td>mysendpolicy</td><td>Invia</td></tr>
+<tr><td>mysendpolicy</td><td>Invio</td></tr>
 <tr><td>myreceivepolicy</td><td>Attesa</td></tr>
 </table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (* * mysendpolicy * *) e di ascolto (* * myreceivepolicy * *) per l'Hub eventi.
 
@@ -164,4 +164,4 @@ Istruzioni su come eseguire questi passaggi e un flusso applicazione di esempio 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

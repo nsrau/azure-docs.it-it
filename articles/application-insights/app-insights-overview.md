@@ -27,7 +27,7 @@ Può essere usato con app Web e autonome su una vasta gamma di piattaforme, ovve
  * Conteggi delle visualizzazioni pagina, utenti nuovi e abituali, georilevazione, piattaforme e altre statistiche di utilizzo principali.
  * Rilevamento dei percorsi di utilizzo per valutare la riuscita di ogni funzionalità.
 * [Rilevare, valutare e diagnosticare][detect] i problemi di prestazioni e risolverli prima che vengano individuati dalla maggior parte degli utenti.
- *  Avvisi sulle modifiche delle prestazioni o sugli arresti anomali.
+ *  Avvisa sulle modifiche delle prestazioni o sugli arresti anomali.
  *  Metriche per diagnosticare problemi di prestazioni, ad esempio tempi di risposta, utilizzo della CPU, traccia delle dipendenze.
  *  Test di disponibilità per le app Web.
  *  Arresto anomalo del sistema, report e avvisi di eccezioni
@@ -139,4 +139,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

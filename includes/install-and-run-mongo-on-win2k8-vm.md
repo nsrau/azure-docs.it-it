@@ -10,24 +10,24 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 4. Trovare la **versione stabile corrente**, selezionare la versione più recente a **64 bit** nella colonna di Windows, scaricare ed eseguire il programma di installazione MSI.
 
-5. MongoDB è in genere installato in c:\\Programmi\\Microsoft Files\\MongoDB. Cercare le variabili di ambiente sul desktop e aggiungere il percorso di file binari MongoDB alla variabile PATH. Ad esempio, si potrebbero individuare i file binari in c:\\Programmi\\Microsoft Files\\MongoDB\\Server\\3.0\\bin sul computer.
+5. MongoDB è in genere installato in c:\Programmi\Microsoft Files\MongoDB. Cercare le variabili di ambiente sul desktop e aggiungere il percorso di file binari MongoDB alla variabile PATH. Ad esempio, si potrebbero individuare i file binari in c:\Programmi\Microsoft Files\MongoDB\Server\3.0\bin sul computer.
 
 6. Creare le directory dei dati e dei log nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi. Digitare:
 
-		C:> F:
+		C:\> F:
 		F:> mkdir \MongoData
 		F:> mkdir \MongoLogs
 
 7. Per eseguire il database:
 
 		F:> C:
-		C:> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
+		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tutti i messaggi di log verranno indirizzati al file *F:\\MongoLogs\\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
+	Tutti i messaggi di log verranno indirizzati al file *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
 
 8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le informazioni seguenti:
 
-		C:> cd \my_mongo_dir\bin  
+		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test
@@ -108,4 +108,4 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

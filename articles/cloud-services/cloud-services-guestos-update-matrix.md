@@ -115,21 +115,21 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.22 | WA-GUEST-OS-4.22_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 4.24 | Da definire |
-| 4\.21 | WA-GUEST-OS-4.21_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 4.23 | Da definire |
-| 4\.20 | WA-GUEST-OS-4.20_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 4.22 | Da definire |
-| 4\.19 | WA-GUEST-OS-4.19_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 4\.18 | WA-GUEST-OS-4.18_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 4\.17 | WA-GUEST-OS-4.17_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 4\.16 | WA-GUEST-OS-4.16_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 4\.15 | WA-GUEST-OS-4.15_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 4\.14 | WA-GUEST-OS-4.14_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 4\.13 | WA-GUEST-OS-4.13_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
-| 4\.12 (Nota 1) | WA-GUEST-OS-4.12_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
-| 4\.11 (Nota 1) | WA-GUEST-OS-4.11_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
-| 4\.10 | WA-GUEST-OS-4.10_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
-| 4\.9 | WA-GUEST-OS-4.9_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
-| 4\.8 | WA-GUEST-OS-4.8_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
+| 4.22 | WA-GUEST-OS-4.22_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 4.24 | Da definire |
+| 4.21 | WA-GUEST-OS-4.21_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 4.23 | Da definire |
+| 4.20 | WA-GUEST-OS-4.20_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 4.22 | Da definire |
+| 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
+| 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
+| 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
+| 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
+| 4.14 | WA-GUEST-OS-4.14_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
+| 4.13 | WA-GUEST-OS-4.13_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 4.12 (Nota 1) | WA-GUEST-OS-4.12_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
+| 4.11 (Nota 1) | WA-GUEST-OS-4.11_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
+| 4.10 | WA-GUEST-OS-4.10_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
+| 4.9 | WA-GUEST-OS-4.9_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
+| 4.8 | WA-GUEST-OS-4.8_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
 
 ## Versioni della famiglia 3
 
@@ -139,21 +139,21 @@ Supporta .NET 4.0, 4.5
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.29 | WA-GUEST-OS-3.29_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 3.31 | Da definire |
-| 3\.28 | WA-GUEST-OS-3.28_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 3.30 | Da definire |
-| 3\.27 | WA-GUEST-OS-3.27_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 3.29 | Da definire |
-| 3\.26 | WA-GUEST-OS-3.26_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 3\.25 | WA-GUEST-OS-3.25_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 3\.24 | WA-GUEST-OS-3.24_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 3\.23 | WA-GUEST-OS-3.23_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 3\.22 | WA-GUEST-OS-3.22_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 3\.21 | WA-GUEST-OS-3.21_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 3\.20 | WA-GUEST-OS-3.20_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
-| 3\.19 (Nota 1) | WA-GUEST-OS-3.19_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
-| 3\.18 (Nota 1) | WA-GUEST-OS-3.18_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
-| 3\.17 | WA-GUEST-OS-3.17_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
-| 3\.16 | WA-GUEST-OS-3.16_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
-| 3\.15 | WA-GUEST-OS-3.15_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
+| 3.29 | WA-GUEST-OS-3.29_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 3.31 | Da definire |
+| 3.28 | WA-GUEST-OS-3.28_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 3.30 | Da definire |
+| 3.27 | WA-GUEST-OS-3.27_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 3.29 | Da definire |
+| 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
+| 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
+| 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
+| 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
+| 3.21 | WA-GUEST-OS-3.21_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
+| 3.20 | WA-GUEST-OS-3.20_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 3.19 (Nota 1) | WA-GUEST-OS-3.19_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
+| 3.18 (Nota 1) | WA-GUEST-OS-3.18_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
+| 3.17 | WA-GUEST-OS-3.17_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
+| 3.16 | WA-GUEST-OS-3.16_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
+| 3.15 | WA-GUEST-OS-3.15_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
 
 
 ## Versioni della famiglia 2
@@ -164,21 +164,21 @@ Supporta .NET 3.5, 4.0
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.41 | WA-GUEST-OS-2.41_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 2.43 | Da definire |
-| 2\.40 | WA-GUEST-OS-2.40_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 2.42 | Da definire |
-| 2\.39 | WA-GUEST-OS-2.39_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 2.41 | Da definire |
-| 2\.38 | WA-GUEST-OS-2.38_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 2\.37 | WA-GUEST-OS-2.37_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 2\.36 | WA-GUEST-OS-2.36_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 2\.35 | WA-GUEST-OS-2.35_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 2\.34 | WA-GUEST-OS-2.34_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 2\.33 | WA-GUEST-OS-2.33_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 2\.32 | WA-GUEST-OS-2.32_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
-| 2\.31 (Nota 1) | WA-GUEST-OS-2.31_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
-| 2\.30 (Nota 1) | WA-GUEST-OS-2.30_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
-| 2\.29 | WA-GUEST-OS-2.29_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
-| 2\.28 | WA-GUEST-OS-2.28_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
-| 2\.27 | WA-GUEST-OS-2.27_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
+| 2.41 | WA-GUEST-OS-2.41_201507-01 | Prevista il 14 agosto 2015 | Verrà aggiornata al momento del rilascio della versione 2.43 | Da definire |
+| 2.40 | WA-GUEST-OS-2.40_201506-01 | 9 luglio 2015 | Verrà aggiornata al momento del rilascio della versione 2.42 | Da definire |
+| 2.39 | WA-GUEST-OS-2.39_201505-02 | 12 giugno 2015 | Verrà aggiornata al momento del rilascio della versione 2.41 | Da definire |
+| 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
+| 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
+| 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
+| 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
+| 2.33 | WA-GUEST-OS-2.33_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
+| 2.32 | WA-GUEST-OS-2.32_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 2.31 (Nota 1) | WA-GUEST-OS-2.31_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
+| 2.30 (Nota 1) | WA-GUEST-OS-2.30_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
+| 2.29 | WA-GUEST-OS-2.29_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
+| 2.28 | WA-GUEST-OS-2.28_201406-01 | 16 giugno 2014 | 10 novembre 2014 | 23 marzo 2015 |
+| 2.27 | WA-GUEST-OS-2.27_201405-01 | 1 giugno 2014 | 1 agosto 2014 | 23 marzo 2015 |
 
 
 
@@ -266,14 +266,14 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 4\.7 | WA-GUEST-OS-4.7_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
-| 4\.6 | WA-GUEST-OS-4.6_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
-| 4\.5 | WA-GUEST-OS-4.5_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
-| 4\.4 | WA-GUEST-OS-4.4_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
-| 4\.3. | WA-GUEST-OS-4.3_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
-| 4\.2 | WA-GUEST-OS-4.2_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
-| 4\.1 | WA-GUEST-OS-4.1_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
-| 4\.0 rel3 | WA-GUEST-OS-4.0_201309-03 | 9 ottobre 2013 Resa pubblica il 18 ottobre. | N/D | 14 maggio 2014 |
+| 4.7 | WA-GUEST-OS-4.7_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
+| 4.6 | WA-GUEST-OS-4.6_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
+| 4.5 | WA-GUEST-OS-4.5_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
+| 4.4 | WA-GUEST-OS-4.4_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
+| 4.3. | WA-GUEST-OS-4.3_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
+| 4.2 | WA-GUEST-OS-4.2_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
+| 4.1 | WA-GUEST-OS-4.1_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
+| 4.0 rel3 | WA-GUEST-OS-4.0_201309-03 | 9 ottobre 2013 Resa pubblica il 18 ottobre. | N/D | 14 maggio 2014 |
  
 
 
@@ -281,29 +281,29 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 3\.14 | WA-GUEST-OS-3.14_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
-| 3\.13 | WA-GUEST-OS-3.13_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
-| 3\.12 | WA-GUEST-OS-3.12_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
-| 3\.11 | WA-GUEST-OS-3.11_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
-| 3\.10 | WA-GUEST-OS-3.10_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
-| 3\.9 | WA-GUEST-OS-3.9_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
-| 3\.8 | WA-GUEST-OS-3.8_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
-| 3\.7 rel3 | WA-GUEST-OS-3.7_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
-| 3\.7 rel1 | WA-GUEST-OS-3.7_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
+| 3.14 | WA-GUEST-OS-3.14_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
+| 3.13 | WA-GUEST-OS-3.13_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
+| 3.12 | WA-GUEST-OS-3.12_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
+| 3.11 | WA-GUEST-OS-3.11_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
+| 3.10 | WA-GUEST-OS-3.10_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
+| 3.9 | WA-GUEST-OS-3.9_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
+| 3.8 | WA-GUEST-OS-3.8_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
+| 3.7 rel3 | WA-GUEST-OS-3.7_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
+| 3.7 rel1 | WA-GUEST-OS-3.7_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
 
 ### Famiglia 2
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 2\.26 | WA-GUEST-OS-2.26_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
-| 2\.25 | WA-GUEST-OS-2.25_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
-| 2\.24 | WA-GUEST-OS-2.24_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
-| 2\.23 | WA-GUEST-OS-2.23_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
-| 2\.22 | WA-GUEST-OS-2.22_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
-| 2\.21 | WA-GUEST-OS-2.21_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
-| 2\.20 | WA-GUEST-OS-2.20_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
-| 2\.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
-| 2\.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
+| 2.26 | WA-GUEST-OS-2.26_201404-01 | 2 maggio 2014 | 2 luglio 2014 | 18 agosto 2014 |
+| 2.25 | WA-GUEST-OS-2.25_201403-01 | 28 marzo 2014 | 9 giugno 2014 | 18 agosto 2014 |
+| 2.24 | WA-GUEST-OS-2.24_201402-01 | 21 marzo 2014 | 21 maggio 2014 | 18 agosto 2014 |
+| 2.23 | WA-GUEST-OS-2.23_201401-01 | 8 febbraio 2014 | 8 aprile 2014 | 14 maggio 2014 |
+| 2.22 | WA-GUEST-OS-2.22_201312-01 | 6 gennaio 2014 | 6 marzo 2014 | 14 maggio 2014 |
+| 2.21 | WA-GUEST-OS-2.21_201311-01 | 12 dicembre 2013 | 12 febbraio 2014 | 14 maggio 2014 |
+| 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 ottobre 2013 | N/D | 14 maggio 2014 |
+| 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
+| 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
 
 
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
@@ -326,4 +326,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

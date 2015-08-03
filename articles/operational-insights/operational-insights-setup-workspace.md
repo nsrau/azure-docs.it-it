@@ -180,4 +180,4 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 
 3. Fare clic su **Close workspace**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

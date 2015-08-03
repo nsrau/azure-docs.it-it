@@ -72,7 +72,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 #### Per abilitare il controllo per ADFS 2.0
 
 1. Fare clic su **Avvia**, scegliere **Programmi**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Criteri di sicurezza locali**.
-1. Passare alla cartella **Impostazioni sicurezza\\Criteri locali\\Gestione diritti utente** e quindi fare doppio clic su Generazione di controlli di sicurezza.
+1. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Gestione diritti utente** e quindi fare doppio clic su Generazione di controlli di sicurezza.
 1. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio ADFS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 1. Aprire il prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare il controllo. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Chiudere Criteri di sicurezza locali e quindi aprire lo snap-in Gestione. Per aprire lo snap-in Gestione, fare clic su **Start**, scegliere **Programmi**, scegliere **Strumenti di amministrazione** e quindi fare clic su Gestione ADFS 2.0.
@@ -84,7 +84,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 #### Per abilitare il controllo per ADFS in Windows Server 2012 R2
 
 1. Aprire **Criteri di sicurezza locali** aprendo **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop, quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
-1. Passare alla cartella **Impostazioni sicurezza\\Criteri locali\\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
+1. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
 1. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 1. Aprire il prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare il controllo: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
 1. Chiudere **Criteri di sicurezza locali** e quindi aprire lo snap-in **Gestione ADFS**. In Server Manager fare clic su Strumenti e quindi selezionare Gestione ADFS.
@@ -155,4 +155,4 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
  
 ![Verificare Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

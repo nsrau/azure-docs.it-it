@@ -50,4 +50,4 @@ Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il c
 
 [Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

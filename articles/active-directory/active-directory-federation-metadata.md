@@ -149,4 +149,4 @@ Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune v
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

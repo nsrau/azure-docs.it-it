@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
@@ -279,4 +279,4 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

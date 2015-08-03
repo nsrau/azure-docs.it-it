@@ -36,7 +36,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 3. Scegliere **Applicazioni** dal menu principale.
 
-	![Fare clic su Applicazioni.][1]
+	![Fare clic su applicazioni.][1]
 
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
 
@@ -62,7 +62,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a NetSuite". Selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
-	![Selezionare Single Sign-On di Microsoft Azure AD.][7]
+	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
 	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](https://msdn.microsoft.com/library/azure/dn308588.aspx).
 
@@ -258,4 +258,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

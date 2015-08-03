@@ -330,4 +330,4 @@ Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapRedu
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -136,4 +136,4 @@ Questo è un elenco di articoli sull'utilizzo di macchine virtuali nella gestion
 
 [Comandi dell’interfaccia della riga di comando di Azure per la gestione dei servizi](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

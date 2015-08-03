@@ -247,4 +247,4 @@ da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata de
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

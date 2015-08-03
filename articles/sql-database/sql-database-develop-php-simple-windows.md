@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 Questo argomento illustra come connettersi al database SQL di Azure da un'applicazione client scritta in PHP che viene eseguita in Windows.
 
 
-## Prerequisiti
-
-
-Per eseguire l'esempio di codice PHP fornito in questo argomento, nel computer client devono essere installati gli elementi software seguenti:
-
-
-- [Driver Microsoft per PHP per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contiene i bit più recenti)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Driver Microsoft ODBC](https://www.microsoft.com/it-it/download/details.aspx?id=36434)
-- IIS Express
-- [5.6 PHP per IIS Express](http://www.microsoft.com/web/downloads/platform.aspx): scaricare usando l'installazione guidata piattaforma. Assicurarsi di usare Internet Explorer per scaricare il programma di installazione piattaforma
-
-Per informazioni su come installare e configurare i requisiti menzionati, vedere il [blog del team](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) e il [video](https://www.youtube.com/watch?v=0oCjiRK_tUk).
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Creare un database e recuperare la stringa di connessione
@@ -192,4 +180,4 @@ Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai dat
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -33,7 +33,7 @@ Nel server SharePoint, SQL Server e qualsiasi altro server che faccia parte dell
 Per ogni 10 milioni di elementi nella farm, deve essere almeno disponibili 2 GB di spazio nel volume in cui si trova la cartella di DPM. Questo spazio è necessario per la generazione del catalogo. Per DPM ripristinare elementi specifici (raccolte siti, siti, elenchi, raccolte documenti, cartelle, singoli documenti e gli elementi dell'elenco), la generazione del catalogo consente di creare un elenco degli URL inclusi all'interno di ogni database dei contenuti. Nel pannello elementi ripristinabili nell'area relativa alle attività di ripristino della Console di amministrazione DPM, è possibile visualizzare l'elenco di URL.
 
 ### SQL Server
-DPM viene eseguito con l'account di sistema locale e per eseguire il backup dei database di SQL Server richiede privilegi di amministratore di sistema sull'account per SQL server. Impostare NT AUTHORITY\\SYSTEM su *amministratore di sistema* nel sistema SQL Server di cui si desidera eseguire il backup.
+DPM viene eseguito con l'account di sistema locale e per eseguire il backup dei database di SQL Server richiede privilegi di amministratore di sistema sull'account per SQL server. Impostare NT AUTHORITY\SYSTEM su *amministratore di sistema* nel sistema SQL Server di cui si desidera eseguire il backup.
 
 Nella farm di SharePoint, se si dispone di database di SQL Server configurati con gli alias di SQL Server, installare i componenti client di SQL Server nel server Web front-end protetto da DPM.
 
@@ -50,14 +50,14 @@ Per iniziare a proteggere una farm di SharePoint in Azure, è necessario install
 ## Configurare la protezione di SharePoint
 È necessario configurare il servizio Writer VSS di SharePoint (servizio WSS Writer) mediante **ConfigureSharePoint.exe** prima di poter proteggere SharePoint con DPM.
 
-È possibile trovare **ConfigureSharePoint.exe** nella cartella \\bin [percorso di installazione di DPM] sul server Web front-end. Questo strumento fornisce all'agente protezione le credenziali per la farm di SharePoint. È possibile eseguirlo in un unico server front-end Web. Se si dispone di più server front-end Web, selezionarne solo uno quando si configura un gruppo protezione dati.
+È possibile trovare **ConfigureSharePoint.exe** nella cartella \bin [percorso di installazione di DPM] sul server Web front-end. Questo strumento fornisce all'agente protezione le credenziali per la farm di SharePoint. È possibile eseguirlo in un unico server front-end Web. Se si dispone di più server front-end Web, selezionarne solo uno quando si configura un gruppo protezione dati.
 
 ### Per configurare il servizio Writer VSS di SharePoint
-1. Nel server WFE, al prompt dei comandi, passare a \\bin\\ [percorso di installazione di DPM]
+1. Nel server WFE, al prompt dei comandi, passare a \bin\ [percorso di installazione di DPM]
 2. Eseguire ConfigureSharePoint -EnableSharePointProtection
 3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le autorizzazioni seguenti sul server front-end Web:
-  - Concedere il controllo completo del gruppo WSS_Admin_WPG sulla cartella DPM (% Program Files%\\Microsoft Data Protection Manager\\DPM).
-  - Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
+  - Concedere il controllo completo del gruppo WSS_Admin_WPG sulla cartella DPM (% Program Files%\Microsoft Data Protection Manager\DPM).
+  - Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]È necessario eseguire di nuovo ConfigureSharePoint.exe ogni volta che si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
 
@@ -226,4 +226,4 @@ D: È possibile ripristinare un database di SharePoint nel percorso originale se
 - Esaminare le [Note sulla versione di System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Esaminare le [Note sulla versione di Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

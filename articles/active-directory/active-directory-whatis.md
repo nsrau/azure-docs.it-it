@@ -92,4 +92,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 - [Usare il cloud per migliorare e monitorare i sistemi di identità locali](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Piattaforma basata su standard avanzati per gli sviluppatori](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

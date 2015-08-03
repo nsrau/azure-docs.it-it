@@ -63,7 +63,7 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 ### 3. Verificare che il componente aggiuntivo ExpressRoute Premium sia abilitato
 È possibile controllare e verificare se il componente aggiuntivo ExpressRoute Premium è abilitato per il circuito. Nell'esempio seguente, per il circuito ExpressRoute non sono abilitate le funzionalità del componente aggiuntivo ExpressRoute Premium. La SKU verrà visualizzata come ***Premium*** se il componente aggiuntivo è abilitato.
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 	È possibile ottenere i dettagli del circuito ExpressRoute usando il cmdlet PowerShell riportato di seguito:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Questo comando restituirà un elenco di tutti i circuiti creati nella sottoscrizione. È possibile usare il comando seguente per ottenere i dettagli di un circuito ExpressRoute specifico se si dispone della chiave di servizio
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Sostituire il <skey> con la chiave del servizio effettivo.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 
 	È possibile abilitare il componente aggiuntivo ExpressRoute Premium per il circuito esistente usando il cmdlet PowerShell riportato di seguito:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 	È possibile ottenere i dettagli del circuito ExpressRoute usando il cmdlet PowerShell riportato di seguito:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Questo comando restituirà un elenco di tutti i circuiti creati nella sottoscrizione. È possibile usare il comando seguente per ottenere i dettagli di un circuito ExpressRoute specifico se si dispone della chiave di servizio
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Sostituire il <skey> con la chiave del servizio effettivo.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 
 	È possibile disabilitare il componente aggiuntivo ExpressRoute Premium per il circuito esistente usando il cmdlet PowerShell riportato di seguito:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

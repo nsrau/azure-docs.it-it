@@ -26,7 +26,7 @@ Service Fabric Explorer è uno strumento grafico per analizzare e gestire applic
 
 Verificare l'ambiente di sviluppo locale sia impostato in base alle istruzioni indicate in [Configurare l'ambiente di sviluppo di Infrastruttura di servizi](service-fabric-get-started.md).
 
-Eseguire Service Fabric Explorer dal percorso di installazione locale (%Programmi%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe). Lo strumento si connetterà automaticamente a un cluster di sviluppo locale, se presente. Vengono visualizzate informazioni sul cluster, quali:
+Eseguire Service Fabric Explorer dal percorso di installazione locale (%Programmi%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). Lo strumento si connetterà automaticamente a un cluster di sviluppo locale, se presente. Vengono visualizzate informazioni sul cluster, quali:
 
 - Applicazioni in esecuzione nel cluster
 - Informazioni sui nodi del cluster
@@ -76,4 +76,4 @@ Per visualizzare un cluster di Infrastruttura di servizi remoto, fare clic su **
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

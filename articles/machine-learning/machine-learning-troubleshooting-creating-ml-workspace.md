@@ -77,4 +77,4 @@ L'obiettivo consiste nel semplificare al massimo l'esperienza di Machine Learnin
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

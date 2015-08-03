@@ -1,3 +1,3 @@
 Uno dei tre set di dati relativi al tumore fornito dall'istituto oncologico e usato spesso nella letteratura di Machine Learning. Combina informazioni diagnostiche con funzionalità relative ad analisi di laboratorio effettuate su circa 300 campioni di tessuto.<p> </p><b>Utilizzo:</b> classificare il tipo di tumore, in base a 9 attributi, alcuni dei quali sono lineari e altri categorici. <p> </p><b>Ricerca correlata:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

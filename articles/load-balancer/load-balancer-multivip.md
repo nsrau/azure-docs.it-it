@@ -156,4 +156,4 @@ L'output sarà simile ai risultati seguenti:
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

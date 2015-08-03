@@ -26,4 +26,4 @@ Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere
 
 Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere il [ documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

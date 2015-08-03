@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Introduzione all'API WEB per Node
@@ -24,7 +24,7 @@ Questa procedura dettagliata offre un modo rapido e semplice per configurare un 
 
 Al termine di questa procedura dettagliata, sarà possibile compilare un server API REST in esecuzione con le funzionalità seguenti:
 
-* Un server node. js che esegue un'interfaccia API REST con JSON usando MongoDB come archivio permanente
+* Un server node.js che esegue un'interfaccia API REST con JSON usando MongoDB come archivio permanente
 * API REST che sfruttano la protezione delle API OAuth2 con i token Bearer mediante Azure Active Directory
 
 
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2\. Indicare al server che si usa l'autenticazione
+### 2. Indicare al server che si usa l'autenticazione
 
 Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti informazioni **sotto il metodo server.get()**, in cui sono state definite le route, ma sopra il metodo **server.listen()**.
 
@@ -1043,7 +1043,7 @@ Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti inform
 ```
 
 
-### 3\. Aggiungere il modulo OAuth2 di Passport al codice
+### 3. Aggiungere il modulo OAuth2 di Passport al codice
 
 Qui si usano i parametri specifici di OAuth2 aggiunti al file config.js. Se il file `aadutils.js` ha analizzato correttamente il documento Federation Metadata, tutti questi valori verranno popolati automaticamente, anche se sono vuoti nel file config.js.
 
@@ -1176,6 +1176,8 @@ Sarà sufficiente clonarli nel computer di sviluppo e configurarli come spiegato
 [ADAL per Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL per .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

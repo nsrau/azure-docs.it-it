@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library.
 
 Per poter autenticare gli utenti è necessario registrare l'applicazione nel proprio tenant di Azure Active Directory (AAD). Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio app ed esporre le autorizzazioni sul servizio. In secondo luogo, è necessario registrare l'app iOS e concedere a quest'ultima accesso alle autorizzazioni.
@@ -28,6 +30,10 @@ Per completare questa esercitazione, è necessario disporre di:
 * Completamento dell'esercitazione [Introduzione ad App per dispositivi mobili].
 * SDK di Servizi mobili di Microsoft Azure
 * [Active Directory Authentication Library per iOS]
+
+##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Registrare l'applicazione con Azure Active Directory
 
@@ -117,4 +123,4 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
  [Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

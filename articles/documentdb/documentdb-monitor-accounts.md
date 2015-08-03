@@ -99,4 +99,4 @@ Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacit
 [Next steps]: #Next-steps
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

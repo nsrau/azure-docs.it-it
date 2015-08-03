@@ -234,4 +234,4 @@ Come indicato in precedenza, se l'entità implementa TableEntity, le proprietà 
 
 [Crittografia lato client per Archiviazione di Microsoft Azure: anteprima](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net/tree/preview) da GitHub Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell’insieme di credenziali chiave di Azure Visitare la [Documentazione dell’insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

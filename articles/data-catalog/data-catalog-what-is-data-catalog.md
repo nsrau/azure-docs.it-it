@@ -117,4 +117,4 @@ L'obiettivo principale di individuazione dati è trovare i dati necessari e util
  
 > [AZURE.NOTE]Per l'anteprima privata del catalogo dei dati di Azure, solo Microsoft Excel sarà direttamente supportato e disponibile nel menu**Connect**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

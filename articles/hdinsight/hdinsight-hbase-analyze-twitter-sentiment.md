@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jgao"/>
 
 # Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight
@@ -75,11 +75,11 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 
 	<table border="1">
-	<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
-	<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
-	<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
-	</table>
+<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
+<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
+<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
+</table>
 
 - **Una workstation** in cui sia stato installato Visual Studio 2013. Per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,13 +98,11 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 3. Compilare i campi **Name**, **Description** e **Website**. Il campo Website non viene realmente usato. Non è necessario inserire un URL valido. Nella tabella seguente vengono mostrati alcuni valori di esempio da usare:
 
 	<table border="1">
-	<tr><th>Campo</th><th>Valore</th></tr>
-	<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Descrizione</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Sito Wen</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
+<tr><th>Campo</th><th>Valore</th></tr>
+<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Descrizione</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Sito Wen</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Il nome dell'applicazione Twitter deve essere univoco.
 
 4. Fare clic su **Yes, I agree**, quindi scegliere **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions**. L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione. 
@@ -163,7 +161,7 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 
 	- Modello: **Visual C# / Windows Desktop / Console Application**
 	- Nome: **TweetSentimentStreaming** 
-	- Percorso: **C:\\Tutorials**
+	- Percorso: **C:\Tutorials**
 	- Nome soluzione: **TweetSentimentStreaming**
 
 4. Fare clic su **OK** per continuare.
@@ -541,7 +539,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 	- Categoria modello: **Visual C#/Web**
 	- Modello: **Applicazione Web ASP.NET**
 	- Nome: **TweetSentimentWeb**
-	- Percorso: **C:\\Tutorials** 
+	- Percorso: **C:\Tutorials** 
 4. Fare clic su **OK**.
 5. In **Select a template** fare clic su **MVC**. 
 6. In **Microsoft Azure** fare clic su **Gestisci sottoscrizioni**.
@@ -1354,7 +1352,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -61,7 +61,7 @@ Quando si crea un cluster HDInsight basato su Linux, è possibile usare una pass
 
 	Verrà richiesto di specificare le seguenti informazioni:
 
-	* Il percorso del file: il percorso predefinito è ~/.ssh/id\\_rsa.
+	* Il percorso del file: il percorso predefinito è ~/.ssh/id\_rsa.
 	* Una passphrase: verrà richiesto di immetterla una seconda volta.
 
 		> [AZURE.NOTE]È consigliabile usare una passphrase sicura per la chiave. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
@@ -295,4 +295,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

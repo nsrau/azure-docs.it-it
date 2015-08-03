@@ -91,4 +91,4 @@ Un modulo può avere un set di parametri che è possibile usare per configurare 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

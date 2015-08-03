@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del bilanciamento del carico interno
@@ -102,7 +102,7 @@ Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è f
 
 Dalla visualizzazione del comando Get-AzureInternalLoadBalancer prendere nota dell'indirizzo IP e apportare le modifiche necessarie ai server o ai record DNS per assicurarsi che il traffico venga inviato all'indirizzo VIP.
 
->[AZURE.IMPORTANT]La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, in quanto potrebbe provocare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se un gruppo di sicurezza di rete viene usato per limitare il traffico a macchine virtuali di Azure in un set con carico internamente bilanciato o viene applicato a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
+>[AZURE.NOTE]La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, in quanto potrebbe provocare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se un gruppo di sicurezza di rete viene usato per limitare il traffico a macchine virtuali di Azure in un set con carico internamente bilanciato o viene applicato a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
 
 
 
@@ -224,15 +224,59 @@ Di seguito è fornito un esempio:
 
 ILB è supportato sia per le macchine virtuali che per i servizi cloud. Un endpoint ILB creato in un servizio cloud esterno a una rete virtuale dell'area sarà accessibile solo nel servizio cloud.
 
-La configurazione di ILB deve essere impostata durante la creazione della prima distribuzione nel servizio cloud, come illustrato nell'esempio di cmdlet seguente.
+La configurazione di ILB deve essere impostata durante la creazione della prima distribuzione nel servizio cloud, come illustrato nell'esempio seguente.
 
-### Creare un oggetto ILB locale
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+>[AZURE.IMPORTANT]Come prerequisito per eseguire i passaggi seguenti, è necessario avere già creato una rete virtuale per la distribuzione cloud. Per creare ILB, saranno necessari il nome della rete virtuale e il nome della subnet.
 
-### Aggiungere il bilanciamento del carico interno per un nuovo servizio
+### Passaggio 1
 
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
+Aprire il file di configurazione del servizio (file cscfg) per la distribuzione cloud in Visual Studio e aggiungere la sezione seguente per creare ILB sotto l'ultimo elemento "</Role>" per la configurazione di rete.
 
+
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+
+Aggiungere i valori per il file di configurazione di rete per visualizzare come apparirà. Nell'esempio, si supponga di avere creato una subnet denominata "test_vnet" con una subnet 10.0.0.0/24 denominata test_subnet e un IP statico 10.0.0.4. Il servizio di bilanciamento del carico si chiamerà testLB.
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
+Per altre informazioni sullo schema di bilanciamento del carico, vedere [Aggiungere il bilanciamento del carico](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+
+### Passaggio 2
+
+
+Modificare il file di definizione del servizio (.csdef) per aggiungere gli endpoint a ILB. Mentre viene creata un'istanza del ruolo, il file di definizione del servizio aggiungerà le istanze del ruolo a ILB.
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
+Usando gli stessi valori dell'esempio precedente, aggiungere i valori al file di definizione del servizio.
+
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+Il carico del traffico di rete verrà bilanciato con il servizio di bilanciamento del carico testLB usando la porta 80 per le richieste in ingresso e anche per l'invio alle istanze del ruolo di lavoro.
 
 
 ## Rimozione della configurazione ILB
@@ -266,6 +310,7 @@ Di seguito è fornito un esempio:
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
+
 ## Altre informazioni sui cmdlet ILB
 
 
@@ -286,4 +331,4 @@ Per ottenere altre informazioni sui cmdlet ILB, eseguire i comandi seguenti in u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

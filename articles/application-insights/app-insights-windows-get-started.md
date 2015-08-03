@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 * Una sottoscrizione a [Microsoft Azure][azure].
 * Visual Studio 2013 o versione successiva.
 
-## 1\. Creare una risorsa di Application Insights 
+## 1. Creare una risorsa Application Insights 
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
@@ -50,7 +50,7 @@ La chiave identifica la risorsa. È necessaria subito per configurare SDK per l'
 ![Aprire il cassetto a discesa Informazioni di base e selezionare la chiave di strumentazione](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Aggiungere Application Insights SDK alle app
+## 2. Aggiungere Application Insights SDK alle app
 
 In Visual Studio aggiungere l'SDK appropriato al progetto.
 
@@ -227,4 +227,4 @@ Quando [viene rilasciata una nuova versione di SDK](app-insights-release-notes-w
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

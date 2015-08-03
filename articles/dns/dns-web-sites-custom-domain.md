@@ -32,7 +32,7 @@ Un record A viene usato per eseguire il mapping di un nome al relativo indirizzo
  
 Creare un record A e assegnarlo a una variabile $rs
 	
-	PS C:>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+	PS C:\>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### Passaggio 2
 
@@ -40,7 +40,7 @@ Aggiungere al set di record "@" creato in precedenza il valore IPv4 usando la va
 
 > [AZURE.NOTE]Per trovare l'indirizzo IP per l'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel Servizio app di Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### Passaggio 3
 
@@ -56,7 +56,7 @@ Presumendo che il dominio sia già gestito da DNS di Azure (vedere la [delega de
 
 Aprire PowerShell, creare un nuovo set di record CNAME e assegnarlo a una variabile $rs:
 
-	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -75,7 +75,7 @@ Una volta creato il set di record CNAME, è necessario creare un valore alias ch
 
 Usando la variabile "$rs" assegnata in precedenza, è possibile usare il seguente comando di PowerShell per creare l'alias per l'app Web contoso.azurewebsites.net.
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -90,11 +90,11 @@ Usando la variabile "$rs" assegnata in precedenza, è possibile usare il seguent
 
 Eseguire il commit delle modifiche usando il cmdlet Set-AzureDnsRecordSet:
 
-	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
 
 È possibile verificare che il record sia stato creato correttamente eseguendo una query di "www.contoso.com" con nslookup, come mostrato di seguito:
 
-	PS C:> nslookup
+	PS C:\> nslookup
 	Default Server:  Default
 	Address:  192.168.0.1
  
@@ -117,7 +117,7 @@ Nel seguente esempio, il record "awverify" verrà creato per permettere a contos
 
 ### Passaggio 1
 
-	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -133,7 +133,7 @@ Nel seguente esempio, il record "awverify" verrà creato per permettere a contos
 
 Una volta creato il set di record awverify, è necessario assegnare l'alias del set di record CNAME ad awverify.contoso.azurewebsites.net, come mostrato nel comando seguente:
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -148,7 +148,7 @@ Una volta creato il set di record awverify, è necessario assegnare l'alias del 
 
 Eseguire il commit delle modifiche usando il cmdlet Set-AzureDnsRecordSet, come mostrato nel comando seguente:
 
-	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
 
 Ora è possibile continuare a seguire i passaggi in [Configurazione di un nome di dominio personalizzato nel servizio app](../web-sites-custom-domain-name) per configurare l'app Web per l'uso di un dominio personalizzato.
 
@@ -165,4 +165,4 @@ Ora è possibile continuare a seguire i passaggi in [Configurazione di un nome d
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

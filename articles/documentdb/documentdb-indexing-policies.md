@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Criteri di indicizzazione di DocumentDB | Azure" 
-    description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare i criteri di indicizzazione." 
+    description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione." 
     services="documentdb" 
     documentationCenter="" 
     authors="mimig1" 
@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/06/2015" 
+    ms.date="07/19/2015" 
     ms.author="mimig"/>
 
 
@@ -41,14 +41,13 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 - Come è possibile configurare l'indice di eventuali aggiornamenti?
 - Come è possibile configurare l'indicizzazione per eseguire query Order By o intervallo?
 
-
 ## Come funziona l'indicizzazione di DocumentDB
 
 L'indicizzazione di DocumentDB sfrutta il fatto che la grammatica JSON consente la **rappresentazione dei documenti come strutture ad albero**. Per rappresentare un documento JSON come struttura ad albero, è necessario creare un nodo principale fittizio come elemento padre per il resto dei nodi sottostanti nel documento. Ogni etichetta che include gli indici di matrice in un documento JSON diventa un nodo dell'albero. La figura seguente illustra un documento JSON di esempio e la rappresentazione ad albero corrispondente.
 
 ![Criteri di indicizzazione](media/documentdb-indexing-policies/image001.png)
 
-Ad esempio, la proprietà JSON {"headquarters": "Belgium"} nell'esempio precedente corrisponde al percorso /"headquarters"/"Belgium". La matrice JSON {"exports": [{"city": “Moscow"}, {"city": Athens"}]} corrisponde ai percorsi /"exports"/0/"city"/"Moscow" e /"exports"/1/"city"/"Athens".
+Ad esempio, la proprietà JSON `{"headquarters": "Belgium"}` nell'esempio precedente corrisponde al percorso `/headquarters/Belgium`. La matrice JSON `{"exports": [{"city": “Moscow"}, {"city": Athens"}]}` corrisponde ai percorsi `/exports/[]/city/Moscow` e `/exports/[]/city/Athens`.
 
 >[AZURE.NOTE]La rappresentazione di percorso attenua il confine tra struttura/schema e valori di istanza nei documenti, consentendo a DocumentDB di essere effettivamente privo di schema.
 
@@ -56,64 +55,39 @@ In DocumentDB i documenti sono organizzati in raccolte su cui è possibile esegu
 
 ## Configurazione dei criteri di indicizzazione di una raccolta
 
-L'esempio seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta usando l'API REST di DocumentDB. L'esempio mostra i criteri di indicizzazione espressi in termini di percorsi, tipi di indice e precisioni.
+Per ogni raccolta DocumentDB, è possibile configurare le opzioni seguenti:
 
-    POST https://<REST URI>/colls HTTP/1.1
-    Accept: application/json 
+- Modalità di indicizzazione: **Consistent**, **Lazy** (per gli aggiornamenti asincroni) o **None** (solo accesso basato su "id")
+- Percorsi inclusi ed esclusi: scegliere i percorsi all'interno di JSON da includere e da escludere
+- Tipo indicizzato: **Hash** (per le query di uguaglianza), **Range** (per le query di uguaglianza, intervallo e orderby con una capacità di archiviazione maggiore)
+- Precisione dell'indice: da 1 a 8 o massima (-1) come compromesso tra esigenze di archiviazione e prestazioni
+- Automatica: **true** o **false** per abilitare oppure **manual** (consenso esplicito con ogni inserimento)
 
-    {
-       "id":"customIndexCollection",
-       "indexingPolicy":{
-          "automatic":true,
-          "indexingMode":"Consistent",
-          "includedPaths":[
-             {
-                "path":"/*",
-                "indexes":[
+Il frammento di codice .NET seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta. Qui vengono impostati i criteri con l'indice di tipo Range per stringhe e numeri con la precisione massima. Questi criteri consentono di eseguire query orderby sulle stringhe.
+
+    var collection = new DocumentCollection { Id = "myCollection" };
     
-                ]
-             }
-          ],
-          "excludedPaths":[
-             {
-                "path":"/nonIndexedContent/*"
-             }
-          ]
-       }
-    }
-     ...
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+    
+    collection.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
-     HTTP/1.1 201 Created
-
->[AZURE.NOTE]Lo schema JSON per il criterio di indicizzazione è stato modificato con la versione dell'API REST versione 2015-06-03 per supportare gli indici dell'intervallo stringhe. .NET SDK 1.2.0 e Java, Python e Node. js SDK 1.1.0 supportano il nuovo schema di criteri. SDK precedenti utilizzano l'API REST versione 2015-04-08 e supportano lo schema precedente dei criteri di indicizzazione.
+>[AZURE.NOTE]Lo schema JSON per il criterio di indicizzazione è stato modificato con la versione dell'API REST 2015-06-03 per supportare gli indici di tipo Range sulle stringhe. .NET SDK 1.2.0 e Java, Python e Node.js SDK 1.1.0 supportano il nuovo schema di criteri. SDK precedenti usano l'API REST versione 2015-04-08 e supportano lo schema precedente dei criteri di indicizzazione.
 >
->I criteri di indicizzazione di una raccolta devono essere specificati al momento della creazione. La modifica di tali criteri dopo la creazione della raccolta non è attualmente consentita, ma sarà supportata in una futura versione di DocumentDB.
->
->Per impostazione predefinita, DocumentDB indicizza tutti i percorsi nei documenti in maniera coerente con un indice Hash. Il percorso di Timestamp (\\_ts) interno viene archiviato con un indice Range.
-
-### Indicizzazione automatica
-
-È possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile scegliere di disattivare tale funzionalità. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i relativi self link o le query con ID.
-
-Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile lasciare attivata l'indicizzazione automatica e scegliere di escludere in modo selettivo solo documenti specifici. Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili quando si ha un solo subset di documenti su cui eseguire query.
-
-È possibile configurare i criteri predefiniti impostando su true o false il valore per la proprietà automatica. Per ignorare un singolo documento, è possibile impostare l'intestazione della richiesta x-ms-indexingdirective durante l'inserimento o la sostituzione di un documento.
-
-L'esempio seguente mostra come includere un documento in modo esplicito usando [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) e la proprietà [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
-
-    // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
-        new { id = "AndersenFamily", isRegistered = true },
-        new RequestOptions { IndexingDirective = IndexingDirective.Include });
-        
-
+>Per impostazione predefinita, DocumentDB indicizza tutte le proprietà delle stringhe nei documenti in maniera coerente con un indice Hash e le proprietà numeriche con un indice Range.
 
 ### Modalità di indicizzazione
 
-È possibile scegliere tra aggiornamenti dell'indice sincroni (**coerenti**) e asincroni (**differiti**). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono in ogni azione di inserimento, sostituzione o eliminazione eseguita su un documento della raccolta. Questo consente alle query di rispettare lo stesso livello di coerenza delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
+È possibile scegliere tra aggiornamenti dell'indice sincroni (**Consistent**), asincroni (**Lazy**) o nessuno (**None**). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono in ogni azione di inserimento, sostituzione o eliminazione eseguita su un documento della raccolta. Questo consente alle query di rispettare lo stesso livello di coerenza delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
 
 Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita è ideale per gli scenari in cui i dati vengono scritti in burst e si desidera ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. Questo consente di usare in modo efficiente la velocità effettiva con provisioning e di servire le richieste di scrittura nei momenti di massima attività con latenza minima. Con l'indicizzazione differita attivata, i risultati delle query risulteranno comunque coerenti indipendentemente dal livello di coerenza configurato per l'account di database.
 
@@ -135,41 +109,11 @@ L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK
      
      collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
 
-### Tipi di indice e precisione
-
-Il tipo o lo schema usato per le voci di indice ha un impatto diretto sulle prestazioni e le risorse di archiviazione dell'indice. Per uno schema con precisione più elevata, le query sono in genere più veloci, ma i costi di archiviazione dell'indice sono maggiori. Se si sceglie una precisione inferiore, è possibile che debbano essere elaborati più documenti durante l'esecuzione di query, ma i costi di archiviazione saranno inferiori.
-
-La precisione dell'indice per i valori di qualsiasi percorso può essere configurata entro un intervallo da 1 a 8 oppure può essere impostata su -1 per indicare che il percorso deve usare la precisione massima necessaria. Ogni percorso può essere configurato con una matrice di indici, uno per ogni tipo di dati (stringa e numero) e specifica la precisione per ognuno.
-
-Sono supportati due tipi di indice: Hash e Range. Se si sceglie un tipo di indice **Hash**, è possibile eseguire query di uguaglianza efficienti. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte.
-
-Se sceglie un tipo di indice **Range**, è possibile eseguire query di intervallo (con >, <, >=, <=, !=), oltre a query di tipo **Order By**. Per impostazione predefinita, le query di tipo Order By richiedono anche che l'indice dell'intervallo venga creato con la precisione di indice massima (-1), in modo da garantire l'ordine totale dei risultati.
-
-Per i percorsi con ampi intervalli di valori, è consigliabile usare una precisione maggiore, ad esempio 6 byte. Un caso comune in cui è richiesto un indice Range con maggiore precisione è rappresentato da timestamp archiviati come valore Epoch.
-
-Se non sono richieste query di intervallo particolarmente efficienti, l'impostazione predefinita degli indici Hash offre un compromesso ottimale tra archiviazione e prestazioni. Si noti che per supportare la clausola order by o le query di intervallo, è necessario specificare un criterio di indice personalizzato/non predefinito.
-
-L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Nell'esempio viene usato un percorso speciale "/" che verrà descritto nella sezione successiva.
-
-    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
-    
-    rangeDefault.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
-
-
 ### Percorsi di indice
 
 All'interno dei documenti è possibile scegliere i percorsi da includere o escludere dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti.
 
-I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per servire SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
+I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
 
 I percorsi di indice possono anche usare il carattere jolly * per specificare un comportamento ricorsivo al di sotto del prefisso. Ad esempio, /"payload"/* può essere usato per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
 
@@ -217,6 +161,9 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
                 <p>
                     SELECT * FROM collection c WHERE c.prop > 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>                
             </td>
         </tr>
         <tr>
@@ -238,7 +185,9 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value"
                 </p>
-
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>
             </td>
         </tr>
         <tr>
@@ -293,14 +242,17 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop > 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop.subprop
+                </p>                
             </td>
         </tr>
     </tbody>
 </table>
 
->[AZURE.NOTE]Durante l'impostazione dei percorsi indice personalizzata, è necessario specificare la regola di indicizzazione predefiniti per l'albero intero documento identificato dal percorso speciale "/ *".
+>[AZURE.NOTE]Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/*".
 
-Nell'esempio seguente viene configurato un percorso specifico con l'indicizzazione di intervallo e un valore di precisione personalizzato di 20 byte:
+L'esempio seguente configura un percorso specifico con indicizzazione Range e un valore di precisione personalizzato di 20 byte:
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
     
@@ -311,17 +263,62 @@ Nell'esempio seguente viene configurato un percorso specifico con l'indicizzazio
                 new RangeIndex(DataType.String) { Precision = 20 } } 
             });
 
+    // Default for everything else
     collection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
-            Path = "/*" 
+            Path = "/*" ,
+            Indexes = new Collection<Index> {
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 } 
+            }
         });
         
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
 
+### Tipi di dati, tipologie e precisioni degli indici
 
-Quando una query utilizza Order By, ma non dispone di un indice di intervallo con il percorso di query con la precisione massima, DocumentDB restituisce un errore. Viene restituito un errore per le query con operatori di intervallo come > = Se non esiste alcun indice di intervallo (di qualsiasi precisione), ma quelli possono essere serviti se sono presenti altri filtri che possono essere serviti dall'indice. Le query di intervallo possono essere eseguite senza un indice di intervallo utilizzando l'intestazione x-ms-documentdb-enable-analisi nell'opzione richiesta EnableScanInQuery utilizzando .NET SDK o l'API REST.
+Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che è possibile usare per configurare i criteri di indicizzazione per un percorso. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:
 
-Allo stesso modo percorsi possono essere completamente esclusi dall'indicizzazione. Nell'esempio seguente viene illustrato come escludere un'intera sezione dei documenti (anche noto come una sotto-struttura ad albero) dall'indicizzazione utilizzando il "*" con caratteri jolly.
+- Tipo di dati: **String** o **Number** (può contenere una sola voce per tipo di dati per percorso)
+- Tipologia indice: **Hash** (query di uguaglianza) o **Range** (query di uguaglianza, intervallo o orderby)
+- Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
+
+#### Tipologia di indice
+
+DocumentDB supporta due tipologie di indice per ogni coppia percorso e tipo di dati.
+
+- **Hash** supporta query di uguaglianza efficienti. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte.
+- **Range** supporta query di uguaglianza efficienti, query di intervallo (con >, <, >=, <=, !=) e query orderby. Per impostazione predefinita, anche le query orderby richiedono la precisione di indice massima (-1).
+
+#### Precisione indice
+
+La precisione indice consente di raggiungere un compromesso tra l'overhead di archiviazione indice e le prestazioni delle query. Per i numeri, si consiglia di usare la configurazione di precisione predefinita -1. Poiché i numeri sono a 8 byte in JSON, questo valore equivale a una configurazione a 8 byte. Selezionando un valore più basso per la precisione, ad esempio da 1 a 7, i valori compresi in alcuni intervalli eseguono il mapping alla stessa voce di indice. Quindi verrà ridotto lo spazio di archiviazione dell'indice, ma l'esecuzione delle query potrebbe dover elaborare più documenti e di conseguenza utilizzare una velocità effettiva maggiore, ad esempio unità di richiesta.
+
+La configurazione di precisione indice è più utile con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione indice può compromettere le prestazioni delle query di intervallo di stringhe e influire sulla quantità di spazio di archiviazione indice necessario. Gli indici di intervallo di stringhe possono essere configurati con valori compresi tra 1 e 100 o con il valore di precisione massima (-1). Se è necessaria una query orderby sulle stringhe, è necessario specificarlo nel percorso specificato (-1).
+
+L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Si noti che viene usato il percorso predefinito "/*".
+
+    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
+    
+    rangeDefault.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+
+
+> [AZURE.NOTE]Quando una query usa Order By, ma non dispone di un indice di intervallo con il percorso di query con la precisione massima, DocumentDB restituisce un errore.
+>
+> Viene restituito un errore per le query con operatori di intervallo come > = se non esiste alcun indice di intervallo (di qualsiasi precisione), ma possono essere usati se sono presenti altri filtri che possono essere gestiti dall'indice.
+> 
+> Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione x-ms-documentdb-enable-scans nell'API REST o nell'opzione della richiesta EnableScanInQuery usando .NET SDK.
+
+Allo stesso modo i percorsi possono essere completamente esclusi dall'indicizzazione. Nell'esempio seguente viene illustrato come escludere un'intera sezione dei documenti (detta anche sottoalbero) dall'indicizzazione usando il carattere jolly "*".
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -330,9 +327,24 @@ Allo stesso modo percorsi possono essere completamente esclusi dall'indicizzazio
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
+### Indicizzazione automatica
+
+È possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile scegliere di disattivare tale funzionalità. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i relativi self link o le query con ID.
+
+Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile lasciare attivata l'indicizzazione automatica e scegliere di escludere in modo selettivo solo documenti specifici. Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili quando si ha un solo subset di documenti su cui eseguire query.
+
+L'esempio seguente mostra come includere un documento in modo esplicito usando [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) e la proprietà [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+
+    // If you want to override the default collection behavior to either
+    // exclude (or include) a Document from indexing,
+    // use the RequestOptions.IndexingDirective property.
+    client.CreateDocumentAsync(defaultCollection.SelfLink,
+        new { id = "AndersenFamily", isRegistered = true },
+        new RequestOptions { IndexingDirective = IndexingDirective.Include });
+
 ## Ottimizzazione delle prestazioni
 
-Quando si valutano le diverse configurazioni dei criteri di indicizzazione, è consigliabile valutare le implicazioni di archiviazione e velocità effettiva dei criteri tramite le API di DocumentDB.
+Le API per DocumentDB forniscono informazioni sulle metriche delle prestazioni, ad esempio le risorse di archiviazione dell'indice usate e il costo della velocità effettiva (unità di richiesta) per ogni operazione. Queste informazioni possono essere usate per confrontare diversi criteri di indicizzazione e per l'ottimizzazione delle prestazioni.
 
 Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire una richiesta HEAD o GET sulla risorsa della raccolta ed esaminare le intestazioni x-ms-request-quota e x-ms-request-usage. In.NET SDK, le proprietà [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
 
@@ -361,21 +373,21 @@ Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (creat
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
 ## Modifiche per la specifica di criteri di indicizzazione
-È stata introdotta una modifica nello schema per il criterio di indicizzazione su 7 luglio 2015 con API REST versione 2015-06-03. Le classi corrispondenti nelle versioni di SDK sono nuove implementazioni affinché corrisponda allo schema.
+Il 7 luglio 2015 è stata introdotta una modifica nello schema del criterio di indicizzazione con l'API REST versione 2015-06-03. Le relative classi nelle versioni SDK hanno nuove implementazioni per garantire la corrispondenza con lo schema.
 
 Nella specifica JSON sono state implementate le modifiche seguenti:
 
-- Indicizzazione di criterio supporta gli indici dell'intervallo per le stringhe
+- Il criterio di indicizzazione supporta gli indici di intervallo per le stringhe
 - Ogni percorso può avere più definizioni di indice, uno per ogni tipo di dati
-- L'indicizzazione precisione supporta 1-8 per numeri, 1-100 per le stringhe di e -1 (la precisione massima)
-- Segmenti di percorsi non richiedono una virgoletta doppia per ogni percorso di escape. Ad esempio, è possibile aggiungere un percorso per/titolo /? anziché / "title" /?
-- Il percorso radice che rappresenta "tutti i percorsi" può essere rappresentato come / * (oltre a /)
+- La precisione di indicizzazione supporta valori da 1 a 8 per i numeri, da 1 a 100 per le stringhe e -1 (precisione massima)
+- I segmenti di percorsi non richiedono le virgolette doppie per l'escape di ogni percorso. Ad esempio, è possibile aggiungere un percorso per /title/? invece che /"title"/?
+- Il percorso radice che rappresenta "tutti i percorsi" può essere rappresentato come /* (oltre che /)
 
-Se si dispone di codice che raccolte disposizioni con un criterio di indicizzazione personalizzato scritto con versione 1.1.0 di .NET SDK o meno recenti, sarà necessario modificare il codice dell'applicazione per gestire queste modifiche per spostare in SDK versione 1.2.0. Se non si dispone di codice che configura il criterio di indicizzazione, o intende continuare a utilizzare una versione precedente di SDK, è richiesta alcuna modifica.
+Se si dispone di codice che esegue il provisioning delle raccolte con un criterio di indicizzazione personalizzato scritto con .NET SDK versione 1.1.0 o precedente, sarà necessario modificare il codice dell'applicazione per gestire queste modifiche e poter passare a SDK versione 1.2.0. Se non si dispone di codice che configura il criterio di indicizzazione o si prevede di continuare a usare una versione precedente dell'SDK, non è richiesta alcuna modifica.
 
-Ecco alcuni esempi che mostrano le differenze tra la versione dell'API 2015-06-03 e la versione precedente 2015-04-08.
+Per un rapido confronto, ecco un criterio di indicizzazione personalizzato di esempio scritto usando l'API REST versione 2015-06-03 e la versione precedente 2015-04-08.
 
-**Criterio di indicizzazione precedente JSON**
+**JSON criterio di indicizzazione precedente**
 
     {
        "automatic":true,
@@ -393,7 +405,7 @@ Ecco alcuni esempi che mostrano le differenze tra la versione dell'API 2015-06-0
        ]
     }
 
-**Criterio di indicizzazione corrente JSON**
+**JSON criterio di indicizzazione corrente**
 
     {
        "automatic":true,
@@ -432,4 +444,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

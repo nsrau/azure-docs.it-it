@@ -3,7 +3,7 @@
 	description="Informazioni su come aggiornare i database Web o Business del database SQL di Azure ai nuovi livelli di prestazioni e di servizio Basic, Standard e Premium del database SQL di Azure." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jenniehubbard" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="06/18/2015" 
-	ms.author="jhubbard; sstein" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
@@ -249,7 +249,7 @@ Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei liv
 
 
 ## 6. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
-Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gestione (come CREATE, ALTER, DROP) eseguite su un database nella vista DMV sys.dm_operation_status nel database master del server logico in cui si trova il database corrente. [Vedere la documentazione su sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Usare la DMV con lo stato delle operazioni per determinare l'avanzamento dell'operazione di aggiornamento per un database. Questa query di esempio mostra tutte le operazioni di gestione eseguite su un database:
+Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gestione (come CREATE, ALTER, DROP) eseguite su un database nella vista DMV sys.dm_operation_status nel database master del server logico in cui si trova il database corrente. Vedere la documentazione su sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Usare la DMV con lo stato delle operazioni per determinare l'avanzamento dell'operazione di aggiornamento per un database. Questa query di esempio mostra tutte le operazioni di gestione eseguite su un database:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -309,4 +309,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

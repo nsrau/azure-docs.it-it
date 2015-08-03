@@ -23,7 +23,7 @@
 Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
 
 
-## Creare una risorsa di Application Insights
+## Creare una risorsa Application Insights
 
 
 Nel [portale di Azure](http://portal.azure.com) creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
@@ -41,7 +41,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared_Layout.cshtml
+Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared_Layout.cshtml
 
 Lo script contiene la chiave di strumentazione che indirizza i dati di telemetria alla risorsa di Application Insights.
 
@@ -108,4 +108,4 @@ Fare clic su Utenti per visualizzare i dettagli relativi a nuovi utenti e ai rel
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

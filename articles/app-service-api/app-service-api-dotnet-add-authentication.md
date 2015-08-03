@@ -71,8 +71,7 @@ Il modo più semplice per verificare che l'app per le API sia accessibile pubbli
 
 ## Proteggere l'app per le API
 
-L'app per le API è stata distribuita in un gruppo di risorse. È possibile aggiungere app Web e altre app per le API allo stesso gruppo di risorse e ogni app per le API del gruppo di risorse può avere una delle tre impostazioni di accessibilità seguenti:
-<!--todo: diagram showing different accessibility settings-->
+L'app per le API è stata distribuita in un gruppo di risorse. È possibile aggiungere app Web e altre app per le API allo stesso gruppo di risorse e ogni app per le API del gruppo di risorse può avere una delle tre impostazioni di accessibilità seguenti: <!--todo: diagram showing different accessibility settings-->
 
 - **Pubblico (anonimo)**: chiunque può chiamare l'app per le API dall'esterno del gruppo di risorse senza aver effettuato l'accesso.
 - **Pubblico (autenticato)**: solo agli utenti autenticati è consentito chiamare l'app per le API dall'esterno del gruppo di risorse.
@@ -269,4 +268,4 @@ Questa sezione illustra come modificare il codice nell'app per le API ContactsLi
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

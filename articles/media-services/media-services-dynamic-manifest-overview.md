@@ -209,4 +209,4 @@ L'argomento seguente descrive le entità di Servizi multimediali correlati ai fi
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

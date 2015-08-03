@@ -1,3 +1,4 @@
+
 I limiti seguenti si applicano alle sottoscrizioni di Operational Insights.
 
 
@@ -10,4 +11,4 @@ I limiti seguenti si applicano alle sottoscrizioni di Operational Insights.
 
 <sup>1</sup>Quando i clienti raggiungono il limite giornaliero di trasferimento dei dati di 500 MB, l’analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@ La raccolta di log di IIS è supportata nei computer con i sistemi operativi seg
 
 3. Nella pagina di conferma, fare clic su **Yes** per rimuovere la soluzione
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

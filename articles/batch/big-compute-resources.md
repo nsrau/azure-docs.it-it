@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Big Compute: Risorse tecniche per Batch e HPC (High Performance Computing)"
+   pageTitle="Big Compute: Risorse tecniche per Batch e HPC (High Performance Computing) | Microsoft Azure"
    description="In questo articolo vengono elencate le risorse tecniche per consentire l'esecuzione di carichi di lavoro paralleli, batch e HPC su larga scala in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)
@@ -81,6 +81,8 @@ Usare questi modelli di Gestione risorse di Azure per distribuire cluster HPC Li
 
 Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md), tra cui [Istanze A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) a elevato utilizzo di calcolo, per eseguire carichi di HPC in Linux e Windows.
 
+* [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
+
 * [Istanze A8 e A9: Avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
 * [Eseguire applicazioni MPI in istanze A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx)
@@ -116,4 +118,4 @@ Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](http://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

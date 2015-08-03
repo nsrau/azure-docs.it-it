@@ -136,4 +136,4 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 Ora che si dispone di una comprensione migliore del mapping di rete, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

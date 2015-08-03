@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Convertire un esperimento di training di Machine Learning in un esperimento di assegnazione dei punteggi
@@ -54,7 +54,7 @@ Quando si converte l'esperimento di training in un esperimento di assegnazione d
 
 - **Prep**: in base ai dati che verranno inviati per la classificazione, i moduli potrebbero non essere necessari per l'elaborazione dei dati in ingresso.
 
-	In questo esempio, nel set di dati di esempio potrebbero mancare dei valori e sono incluse delle colonne non necessarie per il eseguire il training del modello. Sono stati quindi inclusi un modulo **Clean Missing Data** per gestire i valori mancanti e un modulo [Project Columns][project-columns] per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentano valori mancanti, è possibile rimuovere il modulo **Clean Missing Data**. Tuttavia, poiché il modulo [Project Columns][project-columns] consente di definire il set di funzionalità in corso di classificazione, il modulo deve essere mantenuto.
+	In questo esempio, nel set di dati di esempio potrebbero mancare dei valori e sono incluse delle colonne non necessarie per il eseguire il training del modello. Sono stati quindi inclusi un modulo [Clean Missing Data][clean-missing-data] per gestire i valori mancanti e un modulo [Project Columns][project-columns] per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentano valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Tuttavia, poiché il modulo [Project Columns][project-columns] consente di definire il set di funzionalità in corso di classificazione, il modulo deve essere mantenuto.
 
 - **Train**: dopo aver eseguito il training del modello, è necessario salvarlo come modulo del modello sottoposto a training singolo. Sarà poi possibile sostituire i singoli moduli con il modello sottoposto a training salvato.
 
@@ -70,7 +70,7 @@ Tutto ciò potrebbe essere sufficiente per preparare l'esperimento alla pubblica
 
 Nell'esperimento di training è stato utilizzato un set di dati di training e quindi sono state eseguite delle operazioni di elaborazione per ottenere i dati in un formato utile all'algoritmo Machine Learning necessario. Se i dati che si prevede di ricevere tramite il servizio Web non richiedono tale elaborazione, è possibile spostare il modulo **Web service input** in un nodo diverso dell'esperimento.
 
-Ad esempio, per impostazione predefinita **Create Scoring Experiment** inserisce il modulo **Web service input** all'inizio del flusso di dati, come illustrato nella figura precedente. Tuttavia, se i dati di input non richiedono tale elaborazione, è possibile posizionare manualmente l'**Web service input** dopo i moduli di elaborazione dei dati:
+Ad esempio, per impostazione predefinita **Create Scoring Experiment** inserisce il modulo **Web service input** all'inizio del flusso di dati, come illustrato nella figura precedente. Tuttavia, se i dati di input non richiedono tale elaborazione, è possibile posizionare manualmente il **Web service input** dopo i moduli di elaborazione dei dati:
 
 ![Spostamento del modulo web service input][figure4]
 
@@ -78,7 +78,7 @@ I dati di input forniti tramite il servizio Web ora passano direttamente al modu
 
 In modo analogo, per impostazione predefinita, **Create Scoring Experiment** inserisce il modulo di output del servizio Web nella parte inferiore del flusso di dati. In questo esempio il servizio Web restituisce all'utente l'output del modulo [Score Model][score-model] che include il vettore dei dati di input completo, oltre ai risultati dell'assegnazione del punteggio.
 
-Tuttavia, se si preferisce restituire un valore diverso, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore di dati di input, è possibile inserire un modulo [Project Columnso][project-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare poi il modulo **Web service output** nell'output del modulo [Project Columns][project-columns]:
+Tuttavia, se si preferisce restituire un valore diverso, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore di dati di input, è possibile inserire un modulo [Project Columns][project-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare poi il modulo **Web service output** nell'output del modulo [Project Columns][project-columns]:
 
 ![Spostamento del modulo web service output][figure5]
 
@@ -132,4 +132,4 @@ Per altre informazioni sul processo di pubblicazione completo, vedere [Pubblicar
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -38,9 +38,9 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 ##<a id="CreateDB"></a>Passaggio 1: Scaricare ed estrarre i file di esempio ##
 Per iniziare, scaricare i file di esempio che verranno usati in questa esercitazione.
 
-1. Scaricare l'[esempio per creare un account DocumentDB, app Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) in una cartella locale (ad esempio, C:\\DocumentDBTemplates), quindi estrarre i file. Questo esempio distribuirà un account DocumentDB, un'app Web del servizio app e un'applicazione Web. L'applicazione Web verrà anche configurata automaticamente per connettersi all'account DocumentDB.
+1. Scaricare l'[esempio per creare un account DocumentDB, app Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) in una cartella locale (ad esempio, C:\DocumentDBTemplates), quindi estrarre i file. Questo esempio distribuirà un account DocumentDB, un'app Web del servizio app e un'applicazione Web. L'applicazione Web verrà anche configurata automaticamente per connettersi all'account DocumentDB.
 
-2. Scaricare l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) in una cartella locale (ad esempio, C:\\DocumentDBTemplates), quindi estrarre i file. Questo esempio distribuirà un account DocumentDB, un'app Web del servizio app e modificherà la configurazione dell'app Web per rilevare in modo semplice le informazioni relative alla connessione di DocumentDB. Non è tuttavia inclusa alcuna applicazione Web.
+2. Scaricare l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) in una cartella locale (ad esempio, C:\DocumentDBTemplates), quindi estrarre i file. Questo esempio distribuirà un account DocumentDB, un'app Web del servizio app e modificherà la configurazione dell'app Web per rilevare in modo semplice le informazioni relative alla connessione di DocumentDB. Non è tuttavia inclusa alcuna applicazione Web.
 
 > [AZURE.TIP]Si noti che, a seconda delle impostazioni di sicurezza del computer, potrebbe essere necessario sbloccare i file estratti facendo clic con il pulsante destro del mouse, scegliendo **Proprietà**, quindi facendo clic su **Sblocca**.
 
@@ -53,7 +53,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
 > [AZURE.TIP]Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
-1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB, un'app Web del servizio app e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (ad esempio, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
+1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB, un'app Web del servizio app e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (ad esempio, C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).
 
 
 2. Verrà eseguito lo script di PowerShell CreateDocDBWebsiteTodo.ps1. Lo script accetta i parametri obbligatori seguenti:
@@ -153,7 +153,7 @@ Si procederà ora alla distribuzione del secondo modello.
 
 > [AZURE.TIP]Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
-1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (ad esempio, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
+1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (ad esempio, C:\DocumentDBTemplates\CreateDocDBWebsite).
 
 
 2. Verrà eseguito lo script di PowerShell CreateDocDBWebsite.ps1. Lo script accetta gli stessi parametri del primo modello che distribuito, vale a dire:
@@ -210,4 +210,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -28,4 +28,4 @@
 
    Verrà registrato un nuovo script insert, che archivia le informazioni di registrazione nella nuova tabella.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

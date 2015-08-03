@@ -71,4 +71,4 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 - Melbourne
 - Sydney 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

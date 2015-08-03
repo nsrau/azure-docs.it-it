@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 
 È attualmente possibile usare le seguenti librerie client con il bus di servizio:
 
-<table>
-  <tr>
-    <th>Linguaggio</th>
-    <th>Libreria</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Client Apache Qpid Java Message Service (JMS)<br/>
-        Client IIT Software SwiftMQ Java</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Linguaggio | Libreria |
+|----------|-------------------------------------------------------------------------------|
+| Java | Client Apache Qpid Java Message Service (JMS)<br/> Client IIT Software SwiftMQ Java |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **Figura 2: Tabella delle librerie client del protocollo AMQP 1.0**
@@ -117,4 +99,4 @@ Per altre informazioni su come ottenere e usare queste librerie con il bus di se
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

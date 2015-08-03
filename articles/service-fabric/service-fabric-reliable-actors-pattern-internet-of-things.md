@@ -218,4 +218,4 @@ Azure Service Fabric Actors si occupa anche della durata degli attori. Da questo
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

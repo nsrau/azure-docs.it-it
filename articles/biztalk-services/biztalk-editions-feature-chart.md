@@ -257,4 +257,4 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Cr
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

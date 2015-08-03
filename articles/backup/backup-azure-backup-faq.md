@@ -132,4 +132,4 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

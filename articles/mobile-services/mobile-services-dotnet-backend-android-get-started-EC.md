@@ -151,4 +151,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [portale di gestione]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

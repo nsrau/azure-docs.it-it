@@ -113,4 +113,4 @@ Altre informazioni sulla [gestione dell'account di archiviazione di StorSimple](
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

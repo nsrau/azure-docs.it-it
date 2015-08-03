@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di gestione di Azure](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue Windows Server 2012 R2. Sarà quindi possibile installarla e configurarla come un server MySQL.
 
+Per istruzioni sull'installazione di MySQL su Linux, fare riferimento a: [Come installare MySQL in Azure](virtual-machines-linux-install-mysql.md).
 
 Questa esercitazione illustra come:
 
@@ -83,7 +84,7 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file **C:\\Programmi (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini**. Per altre informazioni, vedere [l'articolo relativo alle impostazioni di configurazione predefinite di MySQL 5.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file **C:\Programmi (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Per altre informazioni, vedere [l'articolo relativo alle impostazioni di configurazione predefinite di MySQL 5.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
 Se si desidera rendere disponibile il servizio MySQL Server per i computer client di MySQL su Internet è necessario configurare un endpoint per la porta TCP su cui è in ascolto il servizio MySQL Server e creare una nuova regola di Windows Firewall. Normalmente è la porta TCP 3306, a meno che non sia stata specificata una porta diversa nella pagina Type and Networking (passaggio 10 della procedura precedente).
@@ -127,4 +128,4 @@ Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

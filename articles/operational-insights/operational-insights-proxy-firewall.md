@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Configurare le impostazioni proxy e firewall per Operational Insights
@@ -79,9 +79,23 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## Configurare le impostazioni proxy e firewall con Operations Manager
 
-Per connettersi e registrarsi al servizio Operational Insights, un gruppo di gestione di Operations Manager deve avere accesso al numero di porta dei domini e degli URL. Se si usa un server proxy per la comunicazione tra il server di gestione di Operations Manager e il servizio Operational Insights è necessario verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso a Operational Insights. Le tabelle seguenti elencano le porte associate a queste attività.
+Per connettersi e registrarsi al servizio Operational Insights, un gruppo di gestione di Operations Manager deve avere accesso al numero di porta dei domini e degli URL. Se si usa un server proxy per la comunicazione tra il server di gestione di Operations Manager e il servizio Operational Insights è necessario verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso a Operational Insights. Anche se un server di gestione Operations Manager non è protetto da un server proxy, potrebbe essere di agenti. In questo caso, il server proxy dovrebbe essere configurato esattamente come gli agenti per abilitare e consentire alla soluzione di protezione e gestione dei registri dati di essere inviata al servizio web di Operational Insights.
+
+Affinché gli agenti di Operations Manager possano comunicare con il servizio Operational Insights, l'infrastruttura di Operations Manager (compresi gli agenti) deve avere il proxy e la versione corretti. L'impostazione proxy per gli agenti è specificata nella console di Operations Manager. La versione deve essere una delle seguenti:
+
+- Operations Manager 2012 SP1 Aggiornamento cumulativo 7 o versione successiva
+- Operations Manager 2012 R2 Aggiornamento cumulativo 3 o versione successiva
+
+
+Le tabelle seguenti elencano le porte associate a queste attività.
 
 >[AZURE.NOTE]Alcune delle risorse seguenti fanno riferimento ad Advisor. Tuttavia, le risorse elencate verranno modificate in futuro.
+
+|**Risorsa agente**|**Porte**|
+|--------------|-----|
+|*.ods.opinsights.azure.com|Porta 443| |*.oms.opinsights.azure.com|Porta 443|
+|ods.systemcenteradvisor.com|Porta 443|
+|*.blob.core.windows.net/*|Porta 443|
 
 |**Risorsa del server di gestione**|**Porte**|
 |--------------|-----|
@@ -119,6 +133,7 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 
 ### Per specificare le credenziali se è necessaria l'autenticazione per il server proxy
+ Le impostazioni e le credenziali del server proxy devono essere propagate ai computer gestiti che lo comunicheranno a Operational Insights. Questi server devono essere nel *Microsoft System Center Advisor Monitoring Server Group*. Le credenziali vengono crittografate nel Registro di sistema di ogni server nel gruppo.
 
 1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
 
@@ -128,28 +143,10 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 4. In Creazione guidata profilo RunAs, fare clic su **Aggiungi** per usare un account RunAs. È possibile creare un nuovo account RunAs oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. Per impostare l'account da gestire scegliere **Classe, gruppo o oggetto selezionato** per aprire la finestra Ricerca oggetti. ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. Cercare e quindi selezionare **Server di gestione di Operations Manager**. ![Immagine della finestra Ricerca oggetti](./media/operational-insights-proxy-firewall/proxyacct3.png)
+6. Cercare e quindi selezionare**Microsoft System Center Advisor Monitoring Server Group**.![Immagine della finestra Ricerca oggetti](./media/operational-insights-proxy-firewall/proxyacct3.png)
 7. Fare clic su **OK** per chiudere la finestra di dialogo Aggiungi account RunAs ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Completare la procedura guidata e salvare le modifiche. ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-
-### Per configurare il server proxy in ogni server di gestione per WinHTTP
-
-1. Se Operations Manager non è stato aggiornato con l'aggiornamento cumulativo 3 di Operations Manager 2012 R2 o con l'aggiornamento cumulativo 7 di Operations Manager 2012 SP1 o versioni successive, aprire una finestra del prompt dei comandi come amministratore nel server di gestione di Operations Manager. In caso contrario, non è necessario usare questa procedura.
-
-2. Digitare **netsh winhttp set proxy myproxy:80**.
-
-3. Chiudere la finestra del prompt dei comandi e riavviare il servizio System Center Management (HealthService).
-
-4. Eseguire il passaggio 2 per ogni server di gestione del gruppo di gestione.
-
-### Per configurare il server proxy in ogni server di gestione
-
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione**.
-
-2. Selezionare **Gestione dispositivo**, quindi fare clic su **Server di gestione**.
-
-3. Fare clic con il pulsante destro del mouse sul nome di ciascun server di gestione, scegliere **Proprietà**, quindi impostare le informazioni nella scheda **Impostazioni proxy**. ![Scheda Impostazioni proxy](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### Per convalidare il download dei Management Pack di Operational Insights
 
@@ -169,4 +166,4 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 3. Aggiungere tutti i contatori che iniziano con **HTTP**. ![Aggiungi contatori](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se la configurazione di Operations Manager è valida, verrà visualizzata l'attività dei contatori di gestione Servizio integrità per gli eventi e altri elementi di dati in base ai Management Pack aggiunti a Operational Insights e ai criteri di raccolta del log configurati. ![Attività di Monitoraggio prestazioni](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

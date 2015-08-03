@@ -80,7 +80,7 @@ Seguire le istruzioni [qui](http://go.microsoft.com/fwlink/?LinkId=512980) per c
 
 2. Passare al file della soluzione e aprirlo.<br/> ![][16]
 
-3. In Esplora soluzioni aprire un e apportarvi delle modifiche. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\\Shared di un ruolo Web MVC.<br/> ![][17]
+3. In Esplora soluzioni aprire un e apportarvi delle modifiche. Ad esempio, modificare il file _Layout.cshtml nella cartella Views\Shared di un ruolo Web MVC.<br/> ![][17]
 
 4. Modificare il logo del sito e premere CTRL+S per salvare il file.<br/> ![][18]
 
@@ -239,4 +239,4 @@ Per altre informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fw
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -25,7 +25,7 @@ Questa esercitazione illustra la creazione di un [runbook grafico](automation-gr
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti.
 
-- Sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 - [Account di automazione](automation-configuring.md) che conterrà il runbook.
 - Macchina virtuale di Azure. Si arresterà e si avvierà la macchina virtuale in modo che non sia di produzione.
 - [Utente di Azure Active Directory e asset credenziali](automation-configuring.md) per l'autenticazione con le risorse di Azure. Questo utente deve avere l'autorizzazione per arrestare e avviare la macchina virtuale.
@@ -52,7 +52,7 @@ Il controllo Libreria sul lato sinistro dell'editor consente di aggiungere attiv
 6.   Fare clic su **Parametri** per specificare i valori per i parametri del runbook. Alcuni cmdlet hanno più set di parametri ed è necessario selezionare quale sarà usato. In questo caso, **Write-Output** ha un solo set di parametri, quindi non è necessario selezionarne uno.<br>![Proprietà Write-Output](media/automation-first-runbook-graphical/write-output-properties.png)
 7.   Selezionare il parametro **InputObject**. Questo è il parametro in cui si specificherà il testo da inviare al flusso di output.
 9.   Nell'elenco a discesa **Origine dati** selezionare **Espressione PowerShell**. L'elenco a discesa **Origine dati** include diverse origini che è possibile usare per popolare il valore di un parametro. È possibile usare l'output da tali origini, ad esempio un'altra attività, un asset di automazione o un'espressione di PowerShell. In questo caso, si vuole solo generare il testo *Hello World*. È possibile usare un'espressione di PowerShell e specificare una stringa.
-10.   Nella casella **Espressione** digitare *"Hello World"* e quindi fare clic su **OK** due volte per tornare all'area di disegno.<br>![Espressione PowerShell](media/automation-first-runbook-graphical/expression-hello-world.png)
+10.   Nella casella **Espressione** digitare *"Hello World"* e quindi fare clic su **OK** due volte per tornare all'area di disegno.<br>![PowerShell Expression](media/automation-first-runbook-graphical/expression-hello-world.png)
 11.   Salvare il runbook facendo clic su **Salva**.<br>![Salvataggio del runbook](media/automation-first-runbook-graphical/runbook-edit-toolbar-save.png)
 
 ## Passaggio 3: Testare il runbook
@@ -70,7 +70,7 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 
 Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo prima di poterlo eseguire in produzione. Quando si pubblica un runbook, è possibile sovrascrivere la versione pubblicata esistente con la versione bozza. In questo caso, non esiste ancora una versione pubblicata perché il runbook è appena stato creato.
 
-1. Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br>![Pubblica](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
+1. Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br>![Publish](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
 2. Se ora si scorre verso sinistra per visualizzare il runbook nel riquadro **Runbook**, come **Stato di creazione** viene visualizzato**Pubblicato**.
 3. Scorrere verso destra per visualizzare il riquadro **MyFirstRunbook**. Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP. 
 4. Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br>![Avvia runbook](media/automation-first-runbook-graphical/runbook-toolbar-start.png)
@@ -128,7 +128,7 @@ Ora il runbook avvia la macchina virtuale specificata nel cmdlet **Start-AzureVM
 11.  Chiudere il riquadro Test.
 12.  Fare clic su **Pubblica** per pubblicare la nuova versione del runbook.
 13.  Arrestare la macchina virtuale avviata nel passaggio precedente.
-13.  Fare clic su **Avvia** per avviare il runbook. Digitare **VMName** e **VMServiceName** per la macchina virtuale da avviare.<br>![Avvia runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
+13.  Fare clic su **Avvia** per avviare il runbook. Digitare **VMName** e **VMServiceName** per la macchina virtuale da avviare.<br>![Avviare il Runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
 14.  Quando il runbook viene completato, controllare che la macchina virtuale sia stata avviata.
 
 ## Passaggio 8: Creare un collegamento condizionale
@@ -165,4 +165,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviarsi, se non è gi�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

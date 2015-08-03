@@ -54,4 +54,4 @@ Per ulteriori informazioni su Infrastruttura di servizi, vedere:
 - [Scenari applicativi](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

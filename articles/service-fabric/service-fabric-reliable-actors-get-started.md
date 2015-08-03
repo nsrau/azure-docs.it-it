@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors: scenario dettagliato per la creazione di un servizio HelloWorld canonico
@@ -36,14 +36,17 @@ Per iniziare a usare Reliable Actors è sufficiente comprendere quattro concetti
 Dopo aver installato Service Fabric Tools per Visual Studio, è possibile creare i tipi per un nuovo progetto. Questi tipi sono inclusi nella categoria Cloud della finestra di dialogo Nuovo progetto.
 
 
-![][1]
+![Strumenti di Service Fabric per Visual Studio - nuovo progetto][1]
 
+Nella finestra di dialogo successiva è possibile scegliere il tipo di progetto che si desidera creare.
+
+![Modelli di progetto di Service Fabric][5]
 
 Per il progetto HelloWorld si userà Service Fabric Actor Service.
 
 Una volta creata la soluzione, verrà visualizzata la struttura seguente:
 
-![][2]
+![Struttura del progetto di Service Fabric][2]
 
 ## Blocchi predefiniti di base di Reliable Actors
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 In Service Fabric Tools per Visual Studio è supportato il debug nel computer locale. Per avviare una sessione di debug, premere F5. Visual Studio esegue la compilazione (se necessaria), crea i pacchetti, distribuisce l'applicazione nel cluster di Service Fabric locale e infine collega il debugger. L'esperienza è simile al debug di un'applicazione ASP.NET. Durante il processo di distribuzione è possibile visualizzare lo stato di avanzamento nella finestra di output.
 
-![][3]
+![Finestra di output del debug del Service Fabric][3]
 
 ## Distribuzione dell'applicazione
 Da Visual Studio è possibile creare pacchetti e distribuire l'applicazione nel cluster locale anche senza avviare il debugger. A tale fine, selezionare il progetto dell'applicazione di Service Fabric e fare clic con il pulsante destro del mouse.
 
-![][4]
+![Service Fabric - menu progetto per la distribuzione e assemblaggio di applicazioni][4]
 
 * **Distribuisci**: crea i pacchetti dell'app e avvia il processo di distribuzione.
 * **Rimuovi distribuzione**: può essere usato per rimuovere un'applicazione dal cluster locale.
@@ -151,8 +154,7 @@ Da Visual Studio è possibile creare pacchetti e distribuire l'applicazione nel 
 
 ## Passaggi successivi
 
-[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
-
+[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md)[documentazione di riferimento API attori](https://msdn.microsoft.com/library/azure/dn971626.aspx)[codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ Da Visual Studio è possibile creare pacchetti e distribuire l'applicazione nel 
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

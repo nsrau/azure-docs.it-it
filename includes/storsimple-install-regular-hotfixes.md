@@ -15,4 +15,4 @@
 
 5. Verrà richiesto di confermare. Digitare **Y** per procedere con l'installazione dell'aggiornamento rapido.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -238,4 +238,4 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere ut
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

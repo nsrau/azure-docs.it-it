@@ -67,4 +67,4 @@ Le query su più partizioni non verificano se gli shardlet presenti nel database
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

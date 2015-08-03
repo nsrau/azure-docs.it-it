@@ -124,4 +124,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

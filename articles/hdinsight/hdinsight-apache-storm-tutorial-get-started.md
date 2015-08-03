@@ -192,7 +192,7 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 
 	Per altre informazioni, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **File di esempio**: nella directory **%STORM_HOME%\\contrib** del cluster Storm in HDInsight sono disponibili diversi esempi. Ogni esempio deve contenere quanto riportato di seguito:
+* **File di esempio**: nella directory **%STORM_HOME%\contrib** del cluster Storm in HDInsight sono disponibili diversi esempi. Ogni esempio deve contenere quanto riportato di seguito:
 
 	* Il codice sorgente, ad esempio storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 
 	> [AZURE.NOTE]I documenti Java sono costituiti da pagine Web. Dopo aver estratto i file, usare un browser per visualizzare il file **index.html**.
 
-	Per accedere a questi esempi, è necessario abilitare Desktop remoto per Storm nel cluster HDInsight e quindi copiare i file da **%STORM_HOME%\\contrib**.
+	Per accedere a questi esempi, è necessario abilitare Desktop remoto per Storm nel cluster HDInsight e quindi copiare i file da **%STORM_HOME%\contrib**.
 
 * Il documento seguente contiene un elenco di altri esempi che è possibile usare con Storm in HDInsight:
 
@@ -217,4 +217,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

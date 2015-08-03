@@ -68,7 +68,21 @@ Creare, innanzitutto, l'origine dati:
 
 Quindi, creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall’[interfaccia utente del portale](https://portal.azure.com) o usando l’[API di creazione dell’indice](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Vedere la tabella seguente per il mapping tra tipi di dati di ricerca di SQL e Azure.
 
-**Mapping tra i tipi di dati SQL e tipi di dati di Ricerca di Azure** <table style="font-size:12"> <tr> <td>Tipo di dati SQL</td> <td>Tipi di campi di indice di destinazione consentiti</td> <td>Note</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimale<br/>numerico </td> <td>Edm.String</td> <td>Ricerca di Azure non supporta la conversione dei tipi decimali in Edm.Double, in quanto la precisione andrebbe persa </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>La trasformazione di una colonna di stringhe in Collection(Edm.String) richiede l’uso di una versione API di anteprima, 2015-02-28-Preview. Vedere [questo articolo](search-api-indexers-2015-02-28-Preview.md#create-indexer) per i dettagli</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geografico</td> <td>Edm.GeographyPoint</td> <td>Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (valore predefinito)</td> </tr> <tr> <td>rowversion</td> <td>N/D</td> <td>Le colonne in versione di riga non possono essere utilizzate nell’indice di ricerca, ma possono essere usate per il rilevamento delle modifiche</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR types</td> <td>N/D</td> <td>Non supportato</td> </tr> </table>
+**Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure**
+
+|Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti |Note 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Ricerca di Azure non supporta la conversione di tipi decimali in Edm.Double, perché in tal caso si perderebbe la precisione |
+| char, nchar, varchar, nvarchar | EDM.String<br/>Collection(Edm.String)|La trasformazione di una colonna di stringhe in Collection(Edm.String) richiede l'utilizzo di un'anteprima della versione 2015-02-28-anteprima dell'API. Vedere[questo articolo](search-api-indexers-2015-02-28-Preview.md#create-indexer)per informazioni dettagliate| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) | | 
+|rowversion| N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/D |Non supportato |
 
 Infine, creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all’indice di destinazione:
 
@@ -263,4 +277,4 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

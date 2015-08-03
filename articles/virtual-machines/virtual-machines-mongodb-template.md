@@ -42,7 +42,7 @@ Attenersi alla seguente procedura per creare un cluster MongoDB utilizzando un m
 
 ### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\MongoDB).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\MongoDB).
 
 Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
@@ -103,7 +103,7 @@ Clonare l’intero repository dei modelli utilizzando un client git di propria s
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Una volta completata l’operazione, cercare la cartella **mongodb-high-availability** nella directory C:\\Azure\\Templates.
+Una volta completata l’operazione, cercare la cartella **mongodb-high-availability** nella directory C:\Azure\Templates.
 
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
@@ -655,7 +655,7 @@ I dischi collegati sono formattati nell’ambito delle attività di preparazione
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** fa parte della cartella **shared_scripts\\ubuntu** all'interno dell'archivio github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping del disco, che possono essere riutilizzate ogni volta che è necessario eseguire attività simili nell’ambito della creazione del modello.
+**vm-disk-utils-0.1.sh** fa parte della cartella **shared_scripts\ubuntu** all'interno dell'archivio github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping del disco, che possono essere riutilizzate ogni volta che è necessario eseguire attività simili nell’ambito della creazione del modello.
 
 Un altro frammento interessante da esplorare, è quello correlato alle estensioni della macchina virtuale CustomScriptForLinux. Queste vengono installate come tipo di risorsa separato, con una dipendenza su ciascun modello di distribuzione dei nodi del cluster. Vedere questo frammento alla fine di ogni file **member-resources-Dx.json**:
 
@@ -692,4 +692,4 @@ In pratica, questo approccio suggerisce di:
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

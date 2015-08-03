@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Gestire la capacità di infrastruttura
@@ -162,4 +162,6 @@ Grazie allo strumento di proiezione è possibile visualizzare le tendenze cronol
 
 4. Nello **strumento di proiezione** spostare il dispositivo di scorrimento data per visualizzare una proiezione della capacità che verrà usata nella data scelta.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

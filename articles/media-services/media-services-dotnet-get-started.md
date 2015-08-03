@@ -146,7 +146,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\\VideoFiles".
+6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
 
 ##Connettersi all'account di Servizi multimediali
 
@@ -462,4 +462,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
   [portale di gestione]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

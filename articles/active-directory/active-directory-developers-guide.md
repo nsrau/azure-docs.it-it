@@ -132,4 +132,4 @@ Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory s
 
 - **[Azure AD su Twitter](https://twitter.com/azuread)**: annunci su Azure AD in 140 caratteri o meno.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

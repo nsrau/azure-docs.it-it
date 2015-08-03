@@ -1,53 +1,13 @@
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory.
 
-### Directory
+| Categoria | Limiti |
+|---|---|
+| Directory | Un singolo utente può essere associato a un massimo di 20 directory di Azure Active Directory.<br />Esempi di combinazioni possibili: <ul> <li>Un singolo utente crea 20 directory.</li><li>Un singolo utente viene aggiunto a 20 directory come membro.</li><li>Un singolo utente crea 10 directory e successivamente viene aggiunto da altri a 10 directory diverse.</li></ul> |  
+| Oggetti | <ul><li>Gli utenti con edizione gratuita di Azure Active Directory possono usare un massimo di 500.000 oggetti per una singola directory.</li><li>Un utente non amministratore può creare al massimo 250 oggetti.</li><li>Il numero di oggetti che è possibile sincronizzare da Active Directory locale ad Azure Active Directory è limitato a 15.000 utenti, mediante Sincronizzazione della directory di Azure Active Directory (DirSync).</li><li>Il numero di oggetti che è possibile sincronizzare da Active Directory locale ad Azure Active Directory mediante Azure AD Connect è limitato a 50.000 utenti.</li></ul> |
+| Estensioni dello schema | <ul><li>Le estensioni di tipo stringa possono contenere massimo 256 caratteri. </li><li>Le estensioni di tipo binario sono limitate a 256 byte.</li><li>100 valori di estensione (tra TUTTI i tipi e TUTTE le applicazioni) possono scritti in ogni singolo oggetto.</li><li>Solo le entità "User", "Group", "TenantDetail", "Device", "Application" e "ServicePrincipal" possono essere estese con gli attributi a valore singolo del tipo "String" o "Binary".</li><li>Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.</li></ul> |
+| Applicazioni | Possono essere proprietari di una singola applicazione 10 utenti al massimo. |
+| Gruppi | <ul><li>I proprietari di un singolo gruppo non possono essere più di 10.</li><li>Qualsiasi numero di oggetti può essere membro di un singolo gruppo in Azure Active Directory.</li></ul> |
+| Pannello di accesso | <ul><li>Non esiste alcun limite al numero di applicazioni che è possibile visualizzare nel Pannello di accesso per l'utente finale per gli utenti con licenze assegnate per Azure AD Premium o Enterprise Mobility Suite.</li><li>Al massimo 10 riquadri di app (ad esempio, Box, Salesforce o Dropbox) possono essere visualizzati nel Pannello di accesso per ogni utente finale per utenti con licenze assegnate per le edizioni Free o Basic di Azure Active Directory. Questo limite non si applica agli account di amministratore.</li></ul> |
+| Report | È possibile visualizzare o scaricare in qualsiasi report un massimo di 1.000 righe. Eventuali dati aggiuntivi vengono troncati. |
 
-Un singolo utente può essere associato a massimo 20 directory di Azure Active Directory. Questo limite può essere raggiunto in uno dei seguenti esempi:
-
-- Un singolo utente crea 20 directory.
-- Un singolo utente viene aggiunto a 20 directory come membro.
-- Un singolo utente crea 10 directory e viene aggiunto in seguito da altri utenti a 10 directory diverse.
-
-### Oggetti
-
-- Non esistono limiti per i sottoscrittori di Azure Active Directory Premium o Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune o qualsiasi altro servizio online Microsoft che si basa su Azure Active Directory per i servizi directory.
-- Possono essere usati fino a 500.000 oggetti in una singola directory con l'edizione gratuita di Azure Active Directory.
-- Un utente non amministratore può creare fino a 250 oggetti.
-
-###Estensioni dello schema
-
-Attualmente le entità "User", "Group", "TenantDetail", "Device", "Application" e "ServicePrincipal" possono essere estese con gli attributi a valore singolo del tipo "String" o "Binary". Tra questi sono incluse le seguenti limitazioni:
-
-- Le estensioni di tipo stringa possono contenere massimo 256 caratteri.
-- Le estensioni di tipo binario sono limitate a 256 byte.
-- 100 valori di estensione (tra TUTTI i tipi e TUTTE le applicazioni) possono scritti in ogni singolo oggetto.
-- Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.
-
-### Applicazioni
-
-Possono essere proprietari di una singola applicazione 10 utenti al massimo.
-
-### Gruppi
-
-- È possibile che siano proprietari di un singolo gruppo 10 utenti al massimo.
-- Qualsiasi numero di oggetti può essere membro di un singolo gruppo in Azure Active Directory.
-
-
-> [AZURE.NOTE]
->
-> Esiste un limite per il numero di oggetti che è possibile sincronizzare dalla tua Active Directory locale alla Azure Active Directory.
->
-> - Se si utilizza DirSync il limite è 15.000 utenti.
-> - Se si utilizza la Azure AD Connect, il limite è 50.000 utenti.
-
-<br/>
-### Pannello di accesso
-
-- Non esiste alcun limite al numero di applicazioni che è possibile visualizzare nel Pannello di accesso per l'utente finale per i sottoscrittori di Azure AD Premium o Azure AD Basic o Enterprise Mobility Suite.
-- Possono essere visualizzate nel Pannello di accesso per ogni utente finale con l'edizione gratuita di Azure Active Directory un massimo di 10 app preintegrate (esempi: Box, Salesforce o Dropbox). Questo limite non si applica agli account di amministratore.
-
-### Report
-
-È possibile visualizzare o scaricare in qualsiasi report un massimo di 1.000 righe. Eventuali dati aggiuntivi vengono troncati.
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

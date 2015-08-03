@@ -25,7 +25,7 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare pa
 
 <ol>
 <li>Accedere al portale di Office 365.</li>
-<li>Nell'angolo superiore destro selezionare il widget di impostazioni.</li>
+<li>Nell'angolo superiore destro selezionare il widget delle impostazioni.</li>
 <li>Selezionare Verifica aggiuntiva di sicurezza a sinistra.</li>
 
 ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
@@ -43,4 +43,4 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare pa
 <li>Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.</li>
 <li>Copiare la password per l'app negli Appunti, quindi incollarla nell'app.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

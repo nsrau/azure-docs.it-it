@@ -106,4 +106,4 @@ Dopo che uno sviluppatore è stato associato a un gruppo, potrà visualizzare i 
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

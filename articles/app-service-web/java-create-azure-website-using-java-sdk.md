@@ -461,7 +461,7 @@ Per ottenere le informazioni di connessione a FTP dal pannello dell'app Web nel 
 
 1. In **Informazioni di base** trovare e copiare il **Nome host FTP**. È un URI simile a `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
-2. In **Informazioni di base** trovare e copiare il **Nome utente FTP/distribuzione**. Il formato sarà *nomeappweb\\nomeutente-distribuzione*, ad esempio `WebDemoWebApp\deployer77`.
+2. In **Informazioni di base** trovare e copiare il **Nome utente FTP/distribuzione**. Il formato sarà *nomeappweb\nomeutente-distribuzione*, ad esempio `WebDemoWebApp\deployer77`.
 
 Per ottenere le informazioni di connessione a FTP dal profilo di pubblicazione:
 
@@ -542,7 +542,7 @@ Un altro strumento che è possibile usare per pubblicare l'applicazione è FileZ
 1. In FileZilla fare clic su **File > Site Manager**.
 2. Nella finestra di dialogo **Site Manager** fare clic su **New Site**. In **Select Entry** apparirà un nuovo sito FTP vuoto a cui assegnare un nome. Per questa procedura, denominarlo `AzureWebDemo-FTP`.
 
-    Nella scheda **General** specificare le impostazioni seguenti: - **Host:** immettere il **Nome host FTP** copiato dal dashboard. - **Port:** lasciare questo campo vuoto, perché si tratta di un trasferimento passivo e sarà il server a determinare la porta da usare. - **Protocol:** FTP File Transfer Protocol - **Encryption:** Use plain FTP - **Logon Type:** Normal - **User:** immettere l'utente FTP/distribuzione copiato dal dashboard. È il nome utente FTP completo, nel formato *nomeappweb\\nomeutente*. - **Password:** immettere la password specificata quando sono state impostate le credenziali di distribuzione.
+    Nella scheda **General** specificare le impostazioni seguenti: - **Host:** immettere il **Nome host FTP** copiato dal dashboard. - **Port:** lasciare questo campo vuoto, perché si tratta di un trasferimento passivo e sarà il server a determinare la porta da usare. - **Protocol:** FTP File Transfer Protocol - **Encryption:** Use plain FTP - **Logon Type:** Normal - **User:** immettere l'utente FTP/distribuzione copiato dal dashboard. È il nome utente FTP completo, nel formato *nomeappweb\nomeutente*. - **Password:** immettere la password specificata quando sono state impostate le credenziali di distribuzione.
 
     Nella scheda **Transfer Settings** selezionare **Passive**.
 
@@ -590,4 +590,4 @@ Questa procedura crea un'app web del servizio app. Finché la risorsa esiste, i 
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

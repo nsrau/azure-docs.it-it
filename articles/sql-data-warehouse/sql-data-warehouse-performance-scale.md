@@ -95,4 +95,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

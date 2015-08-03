@@ -76,7 +76,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8: aprire il file con estensione sln nella cartella **platforms\\wp8** in Visual Studio 2012 Express per Windows Phone.
+		1. Windows Phone 8: aprire il file con estensione sln nella cartella **platforms\wp8** in Visual Studio 2012 Express per Windows Phone.
 
 		2. Premere **F5** per ricompilare il progetto e avviare l'app.
 
@@ -171,4 +171,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

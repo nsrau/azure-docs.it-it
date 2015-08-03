@@ -211,4 +211,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

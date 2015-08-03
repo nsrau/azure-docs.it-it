@@ -25,7 +25,7 @@ Questo articolo illustra come usare Servizi multimediali di Azure per distribuir
 
 Il diagramma seguente illustra un'architettura di integrazione di alto livello tra castLabs e Servizi multimediali di Azure.
 
-![Pagina Scale](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![integrazione](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##Configurazione di sistema tipica
 
@@ -114,4 +114,4 @@ Per riprodurre il video protetto in HTML5 con Chrome tramite il lettore castLabs
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

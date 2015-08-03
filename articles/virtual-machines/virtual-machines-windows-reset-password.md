@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Come reimpostare una password o il servizio Desktop remoto per macchine virtuali di Windows" 
-	description="Reimpostare rapidamente una password di amministratore locale o il servizio Desktop remoto per macchine virtuali di Windows usando il portale di anteprima di Azure o i comandi PowerShell." 
+	pageTitle="Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali Windows" 
+	description="Reimpostare rapidamente una password di amministratore locale o il servizio Desktop remoto per le macchine virtuali Windows utilizzando il portale di anteprima di Azure o i comandi PowerShell." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Come reimpostare una password o il servizio Desktop remoto per macchine virtuali di Windows
+# Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali Windows
 
 Se non è possibile connettersi a una macchina virtuale di Windows a causa di una password dimenticata o un problema con la configurazione del servizio Desktop remoto, usare il portale di anteprima di Azure o l'estensione VMAccess per reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto.
 
-> [AZURE.NOTE]Questo articolo non è applicabile a macchine virtuali basate su Gestione risorse di Azure.
+> [AZURE.NOTE]Questo articolo non si applica alle macchine virtuali create in Gestione risorse.
 
 ## Portale di anteprima di Azure
 
-Per reimpostare il servizio Desktop remoto nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Windows* > **Reimposta accesso remoto**. Di seguito è fornito un esempio.
+Per reimpostare il servizio Desktop remoto nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Reimposta accesso remoto**. Di seguito è fornito un esempio.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Per reimpostare il nome e la password dell'account di amministratore locale nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimpostazione password**. Di seguito è fornito un esempio.
+Per reimpostare il nome e la password dell'account di amministratore locale nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimpostazione password**. Di seguito è fornito un esempio.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@ Non è necessario che l'estensione VMAccess sia installata per poterla usare. Se
  
 Verificare innanzitutto che l'agente di macchine virtuali sia già installato. Specificare il nome del servizio cloud e il nome della macchina virtuale, quindi eseguire i comandi seguenti a un prompt dei comandi di Azure PowerShell di livello amministratore. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 Se non si conosce il nome del servizio cloud e della macchina virtuale, eseguire **Get-AzureVM** per visualizzare tali informazioni per tutte le macchine virtuali nella sottoscrizione corrente.
@@ -90,7 +91,7 @@ L'estensione VMAccess esegue i due comandi seguenti sulla macchina virtuale:
 
 	Questo comando abilita il gruppo predefinito Windows Firewall, che consente il traffico in ingresso di Desktop remoto, che usa la porta TCP 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Questo comando imposta il valore fDenyTSConnections del Registro di sistema su 0, abilitando le connessioni a Desktop remoto.
 
@@ -101,7 +102,7 @@ Se il problema di accesso a Desktop remoto non è stato risolto, eseguire il [pa
 
 Per ulteriori informazioni, vedere l’articolo della Knowledge base [Pacchetto di diagnostica Microsoft Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864).
 
-Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o se l'esecuzione non ha risolto il problema, vedere la pagina relativa alla [risoluzione dei problemi delle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o se l'esecuzione non ha consentito di risolvere il problema, vedere [Risoluzione dei problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 
 ## Risorse aggiuntive
@@ -110,6 +111,7 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Risoluzione dei problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

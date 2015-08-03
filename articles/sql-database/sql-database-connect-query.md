@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="04/14/2015"
+	ms.date="07/17/2015"
 	ms.author="cakarst"/>
 
 
@@ -137,4 +137,4 @@ Nel pannello delle stringhe di connessione per il database sono presenti le stri
 2. I risultati della query vengono visualizzati nella finestra della console.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

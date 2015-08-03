@@ -17,7 +17,7 @@
 
 # Configurare un gateway VPN nel portale di gestione
 
-Se si desidera creare una connessione cross-premise sicura tra Azure e il percorso locale, sarà necessario configurare un gateway VPN. Esistono diversi tipi di gateway e il tipo di gateway da creare dipende dal piano di sviluppo della rete e dal dispositivo VPN locale che si desidera usare. Alcune opzioni di connettività, come una connessione Point-to-Site, richiedono ad esempio un gateway con routing dinamico. Se si desidera configurare il gateway per supportare connessioni Point-to-Site (P2S) e Site-to-Site (S2S), sarà necessario configurare un gateway di routing dinamico, anche se la connessione Site-to-Site può essere configurata con entrambi i tipi di routing del gateway. È necessario anche assicurarsi che il dispositivo che si desidera usare per la connessione Site-to-Site supporti il tipo di gateway che si intende creare. Vedere [Gateway](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Se si desidera creare una connessione cross-premise sicura tra Azure e il percorso locale, sarà necessario configurare un gateway VPN. Esistono diversi tipi di gateway e il tipo di gateway da creare dipende dal piano di sviluppo della rete e dal dispositivo VPN locale che si desidera usare. Alcune opzioni di connettività, come una connessione Point-to-Site, richiedono ad esempio un gateway con routing dinamico. Se si desidera configurare il gateway per supportare connessioni Point-to-Site (P2S) e Site-to-Site (S2S), sarà necessario configurare un gateway di routing dinamico, anche se la connessione Site-to-Site può essere configurata con entrambi i tipi di routing del gateway. È necessario anche assicurarsi che il dispositivo che si desidera usare per la connessione Site-to-Site supporti il tipo di gateway che si intende creare. Vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ## Panoramica della configurazione
 
@@ -149,4 +149,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

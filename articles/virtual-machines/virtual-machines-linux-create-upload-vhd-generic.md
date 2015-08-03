@@ -189,4 +189,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

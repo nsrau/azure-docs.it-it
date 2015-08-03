@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Installare e usare Spark in cluster Hadoop di HDInsight
@@ -21,6 +21,8 @@
 È possibile installare Spark in qualsiasi tipo di cluster in Hadoop su Azure HDInsight usando la personalizzazione dei cluster di **azione script**. Azione script consente di eseguire script per personalizzare un cluster solo durante la creazione. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize].
 
 In questo argomento si apprenderà come installare Spark usando l'azione script. Dopo aver installato Spark, si apprenderà inoltre come eseguire una query di Spark nei cluster HDInsight.
+
+> [AZURE.NOTE]Poiché ora HDInsight fornisce Spark come tipo di cluster di primo livello, è possibile effettuare direttamente il provisioning di un cluster Spark senza modificare un cluster Hadoop. Usando il tipo di cluster Spark, si ottiene un cluster HDInsight versione 3.2 con Spark versione 1.3.1. Per altre informazioni, vedere l'articolo di [Introduzione a Spark Apache in HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 
 ## <a name="whatis"></a>Che cos'è Spark?
@@ -83,7 +85,7 @@ Per eseguire query di Spark da una shell interattiva di Spark, eseguire i passag
 
 1. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Spark installato, quindi accedere in remoto al cluster. Per istruzioni, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
-2. Nella sessione RDP (Remote Desktop Protocol), dal desktop aprire la riga di comando di Hadoop (da un collegamento sul desktop) e passare al percorso in cui è installato Spark, ad esempio **C:\\apps\\dist\\spark-1.2.0**.
+2. Nella sessione RDP (Remote Desktop Protocol), dal desktop aprire la riga di comando di Hadoop (da un collegamento sul desktop) e passare al percorso in cui è installato Spark, ad esempio **C:\apps\dist\spark-1.2.0**.
 
 
 3. Eseguire il comando seguente per avviare la shell di Spark:
@@ -117,7 +119,7 @@ Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL
 
 1. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Spark installato, quindi accedere in remoto al cluster. Per istruzioni, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
-2. Nella sessione RDP, dal desktop aprire la riga di comando di Hadoop (da un collegamento sul desktop) e passare al percorso in cui è installato Spark, ad esempio **C:\\apps\\dist\\spark-1.2.0**.
+2. Nella sessione RDP, dal desktop aprire la riga di comando di Hadoop (da un collegamento sul desktop) e passare al percorso in cui è installato Spark, ad esempio **C:\apps\dist\spark-1.2.0**.
 
 
 3. Eseguire il comando seguente per avviare la shell di Spark:
@@ -199,20 +201,20 @@ In questa sezione si usa <a href="http://www.scala-sbt.org/0.13/docs/index.html"
 	>[AZURE.NOTE]Assicurarsi di mantenere le righe vuote del file.
 
 	
-3. Nella cartella **SimpleScalaApp** creare la struttura di directory **\\src\\main\\scala** e incollare il programma Scala (**SimpleApp.scala**) creato in precedenza nella cartella \\src\\main\\scala.
+3. Nella cartella **SimpleScalaApp** creare la struttura di directory **\src\main\scala** e incollare il programma Scala (**SimpleApp.scala**) creato in precedenza nella cartella \src\main\scala.
 4. Aprire un prompt dei comandi, passare alla directory SimpleScalaApp e immettere il comando seguente:
 
 
 		sbt package
 
 
-	Una volta compilata l'applicazione, verrà visualizzato un file **simpleapp_2.10-1.0.jar** creato nella directory **\\target\\scala-2.10** all'interno della cartella radice SimpleScalaApp.
+	Una volta compilata l'applicazione, verrà visualizzato un file **simpleapp_2.10-1.0.jar** creato nella directory **\target\scala-2.10** all'interno della cartella radice SimpleScalaApp.
 
 
 #### Eseguire il processo nel cluster
 In questa sezione si esegue l'accesso remoto al cluster in cui è installato Spark e si copia la cartella di destinazione del progetto SimpleScalaApp. Si usa quindi il comando **spark-submit** per inviare il processo al cluster.
 
-1. Accedere in remoto al cluster in cui è installato Spark. Nel computer usato per la scrittura e la compilazione del programma SimpleApp.scala copiare la cartella **SimpleScalaApp\\target** e incollarla in un percorso nel cluster.
+1. Accedere in remoto al cluster in cui è installato Spark. Nel computer usato per la scrittura e la compilazione del programma SimpleApp.scala copiare la cartella **SimpleScalaApp\target** e incollarla in un percorso nel cluster.
 2. Nella sezione RDP, dal desktop, aprire la riga di comando di Hadoop e passare al percorso in cui è stata incollata la cartella **target**.
 3. Immettere il comando seguente per eseguire il programma SimpleApp.scala:
 
@@ -405,7 +407,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 **Per eseguire l'applicazione**
 
-Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \\bin\\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
+Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \bin\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
 
 	.\CreateSparkCluster <cluster-name>
 
@@ -427,4 +429,4 @@ Specificare un nome per il cluster e premere INVIO per effettuare il provisionin
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

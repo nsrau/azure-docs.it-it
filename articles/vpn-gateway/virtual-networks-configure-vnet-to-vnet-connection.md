@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurare una connessione tra reti virtuali"
+   pageTitle="Configurare una connessione tra reti virtuali | Microsoft Azure"
    description="Come connettere reti virtuali di Azure nelle stesse o diverse sottoscrizioni o aree."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
 
@@ -102,7 +102,7 @@ VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = US West
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
-Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti: Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere il [pagina dettagli rete virtuale](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti:
 
   ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -111,7 +111,7 @@ Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti
 
 
 
-Nella pagina **Server DNS e connettività VPN** immettere le informazioni seguenti e quindi fare clic sulla freccia Avanti in basso a destra. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [DNS Servers and VPN Connectivity](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+**Nella pagina Server DNS e connettività VPN** immettere le informazioni seguenti e quindi fare clic sulla freccia Avanti in basso a destra.
 
   ![Server DNS e connettività VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -120,7 +120,7 @@ Nella pagina **Server DNS e connettività VPN** immettere le informazioni seguen
 
   - Non selezionare Nessuna delle caselle di controllo. Semplicemente fare clic sulla freccia in basso a destra per passare alla schermata successiva.
 
-Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. Non esistono alcune regole spazio degli indirizzi di rete virtuale, è possibile vedere il [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
+**Nella pagina Spazi di indirizzi della rete virtuale** specificare l'intervallo di indirizzi che si vuole usare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
 
 
   ![Spazi di indirizzi della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -137,7 +137,7 @@ Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere l
 Successivamente, ripetere i passaggi precedenti per creare un'altra rete virtuale. In questo esercizio, si connetteranno queste due reti virtuali. Si noti che è molto importante che gli spazi degli indirizzi non siano duplicati o sovrapposti. Ai fini di questa esercitazione, è possibile utilizzare questi valori:
 
 - **VNet2**: spazio di indirizzi = 10.2.0.0/16
-- **Area**= Giappone orientale
+- **Area**=Giappone orientale
 
 ## Reti locali
 
@@ -195,11 +195,11 @@ Quando tutti i passaggi precedenti sono stati completati, si imposteranno le chi
 
 Per VNet1
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 Per VNet2
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gateway assume l'aspetto illustrato nella figura seguente e le reti virtuali vengono connesse.
 
@@ -214,7 +214,7 @@ Se si desidera configurare una connessione VPN da sito a sito, vedere [configura
 
 Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-Se si desidera configurare una connessione di rete virtuale mediante RRAS, vedere [configurare una VPN da sito a sito utilizzando Windows Server 2012 Routing e accesso remoto (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
+Se si vuole configurare una connessione di rete virtuale con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
 Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -223,4 +223,4 @@ Per altre informazioni sullo schema di configurazione, vedere [Schema di configu
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

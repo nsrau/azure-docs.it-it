@@ -265,4 +265,4 @@ Per altri esempi di codice per chiamare app per le API dai client .NET, scaricar
 Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

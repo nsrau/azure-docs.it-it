@@ -27,4 +27,4 @@ Le informazioni seguenti possono essere utili per l'uso dei client RemoteApp:
 - RemoteApp esegue automaticamente la disconnessione dopo un determinato periodo di inattività. Per evitare perdite di dati, è consigliabile chiudere le applicazioni dopo aver terminato di usare il servizio.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

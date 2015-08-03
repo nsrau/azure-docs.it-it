@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -170,4 +170,4 @@ L'esempio di codice in questa sezione applica parametri a un'istruzione SQL INSE
 		connection.execSql(request);
 	}
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

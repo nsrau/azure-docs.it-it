@@ -40,4 +40,4 @@ Service Fabric introduce un modello di integrità che offre una funzionalità di
 - [Aggiunta di report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

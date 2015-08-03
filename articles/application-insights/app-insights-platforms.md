@@ -73,4 +73,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Autenticazione dell'app per Windows Phone con l'accesso Single Sign-On di Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -22,11 +22,9 @@ Per creare uno spazio dei nomi del servizio:
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**. ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
@@ -44,19 +42,16 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ###Per ottenere le credenziali di gestione dal portale
 
-1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili:
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato: ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Fare clic su **Informazioni di connessione**.
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Fare clic su **Informazioni di connessione**. ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  Nel riquadro **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave.
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
-
+    
 5.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
 
 ### Per ottenere le credenziali di gestione da Esplora server
@@ -72,4 +67,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

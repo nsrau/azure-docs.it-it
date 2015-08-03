@@ -184,4 +184,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

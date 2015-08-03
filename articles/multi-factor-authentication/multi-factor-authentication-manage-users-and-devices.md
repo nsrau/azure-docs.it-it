@@ -80,4 +80,4 @@ Gli amministratori hanno la possibilità di reimpostare Multi-Factor Authenticat
 <li>Nella parte superiore fare clic su Utenti.</li>
 <li>Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina di multi-factor authentication. <li>Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.</li> <li>A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. Fare clic su di esso.</li> <li>Inserire un segno di spunta in Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi.</li> ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

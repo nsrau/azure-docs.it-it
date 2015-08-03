@@ -64,4 +64,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

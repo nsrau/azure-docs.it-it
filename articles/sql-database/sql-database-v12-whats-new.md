@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -109,6 +109,17 @@ Ci sono molti altri buoni motivi per i quali i clienti dovrebbero eseguire l'agg
 - La maggior parte delle nuove funzionalità viene rilasciata nella versione 12 del database SQL prima di esserlo per Microsoft SQL Server.
 
 
+## Il gateway non fornisce più la logica di riesecuzione in V12
+
+
+Prima della versione V12, il Database SQL di Azure disponeva di un gateway che fungeva da proxy per memorizzare nel buffer tutte le interazioni tra il database e il programma client. Il gateway forniva *logica di riesecuzione*automatizzata per alcuni*errori temporanei*.
+
+ V12 ha eliminato il gateway. A questo punto il programma deve gestire in maniera più completa gli errori temporanei. Per informazioni dettagliate, vedere:
+
+
+- [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+
 ## Se si sta già usando la versione 12
 
 
@@ -145,11 +156,11 @@ La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di [Ant
 La versione 12 è disponibile nella versione di anteprima nelle seguenti aree geografiche:
 
 
-| Area di Azure | Versione corrente<br/>stato della versione 12 | Data di innalzamento al livello<br/>di disponibilità generale |
+| Area di Azure | Versione corrente<br/>stato della versione 12 | Data di promozione<br/>per GA, stimato |
 | :--- | :--- | :--- |
-| Australia orientale | **Anteprima** | Previsione per il secondo trimestre 2015 |
-| Australia sudorientale | **Anteprima** | Previsione per il secondo trimestre 2015 |
+| Australia orientale | **Anteprima** | Terzo trimestre del calendario 2015, stimato |
+| Australia sudorientale | **Anteprima** | Terzo trimestre del calendario 2015, stimato |
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

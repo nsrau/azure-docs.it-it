@@ -75,4 +75,4 @@ L'azione restituisce l'output sotto forma di oggetto. L'output contiene il model
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -50,4 +50,4 @@ Un modello comune di bilanciamento del carico consiste nel fornire un set di end
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

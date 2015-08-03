@@ -44,4 +44,4 @@ Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

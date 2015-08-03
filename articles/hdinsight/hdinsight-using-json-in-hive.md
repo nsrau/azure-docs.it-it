@@ -154,7 +154,7 @@ SerDe è la scelta migliore per l'analisi di documenti JSON annidati, perché co
 
 	1. Aprire **Visualizza impostazioni di sistema avanzate** dalla schermata di Windows.
 	2. Fare clic su **Variabili di ambiente**.  
-	3. Aggiungere una nuova variabile di ambiente **JAVA_HOME** che punta a **C:\\Programmi\\Java\\jdk1.7.0_55** o al percorso di installazione del JDK.
+	3. Aggiungere una nuova variabile di ambiente **JAVA_HOME** che punta a **C:\Programmi\Java\jdk1.7.0_55** o al percorso di installazione del JDK.
 
 	![Configurazione dei valori di configurazione corretti per JDK][image-hdi-hivejson-jdk]
 
@@ -170,9 +170,9 @@ SerDe è la scelta migliore per l'analisi di documenti JSON annidati, perché co
 
 4. Passare alla cartella in cui è stato scaricato il pacchetto, quindi digitare "mvn package". Verranno creati i file jar necessari, che verranno quindi copiati nel cluster.
 
-5. Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin o in una cartella analoga.
+5. Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin o in una cartella analoga.
  
-6. Al prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\\apps\\dist\\hive-0.13.x\\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
+6. Al prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\apps\dist\hive-0.13.x\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -261,4 +261,4 @@ Per altri articoli correlati, vedere
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

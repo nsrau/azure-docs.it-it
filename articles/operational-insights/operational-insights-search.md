@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Ricerca di dati in Operational Insights
@@ -50,9 +50,9 @@ I filtri più semplici che è possibile utilizzare sono *parole chiave*, ad esem
 
 ### Per eseguire una ricerca semplice
 1. Nel portale di Operational Insights fare clic su **Search Data Explorer**. ![riquadro di ricerca](./media/operational-insights-search/overview-search.png)
-2. Nel campo delle query digitare `error` e quindi fare clic su **Search**. ![errore di ricerca](./media/operational-insights-search/search-error.png) Ad esempio, la query per `error` nell'immagine seguente ha restituito 100.000 record **Event** (raccolti da Log Management), 18 record **Alert** (generati da Configuration Assessment) e 12 record **ConfigurationChange** (acquisiti da Change Tracking). ![risultati della ricerca](./media/operational-insights-search/results01.png)
+2. Nel campo delle query digitare `error` e quindi fare clic su **Search**. ![errore di ricerca](./media/operational-insights-search/search-error.png) Ad esempio, la query per `error` nell'immagine seguente ha restituito 100.000 record **Event** (raccolti da Log Management), 18 record **ConfigurationAlert** (generati da Configuration Assessment) e 12 record **ConfigurationChange** (acquisiti da Change Tracking). ![risultati della ricerca](./media/operational-insights-search/results01.png)
 
-Questi filtri non sono realmente tipi o classi di oggetti. *Type* è semplicemente un tag o una proprietà o una stringa/nome/categoria, collegata a una parte dei dati. Alcuni documenti nel sistema vengono contrassegnati come **Type:Alert** e alcuni vengono contrassegnati come **Type:PerfHourly** o **Type:Event** e così via. In ogni risultato della ricerca, documento, record o voce vengono visualizzate tutte le proprietà non elaborate e i relativi valori per ciascuno di tali dati ed è possibile usare i nomi dei campi per specificare nel filtro quando si desidera recuperare solo i record il cui campo presenta il valore specificato.
+Questi filtri non sono realmente tipi o classi di oggetti. *Type* è semplicemente un tag o una proprietà o una stringa/nome/categoria, collegata a una parte dei dati. Alcuni documenti nel sistema vengono contrassegnati come **Type:ConfigurationAlert** e alcuni vengono contrassegnati come **Type:PerfHourly** o **Type:Event** e così via. In ogni risultato della ricerca, documento, record o voce vengono visualizzate tutte le proprietà non elaborate e i relativi valori per ciascuno di tali dati ed è possibile usare i nomi dei campi per specificare nel filtro quando si desidera recuperare solo i record il cui campo presenta il valore specificato.
 
 *Type* è in realtà solo un campo che contiene tutti i record, non è diverso dagli altri campi. Ciò è stato stabilito in base al valore del campo Type. Quel record avrà una forma o un formato diversi. Tra l’altro, **Type=PerfHourly** o **Type=Event** è anche la sintassi che è necessario conoscere per eseguire una query su aggregazioni di dati o eventi relativi alle prestazioni che si verificano ogni ora.
 
@@ -251,6 +251,8 @@ Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i ri
 
 Si tratta di comando particolarmente utile quando si desidera controllare l'output di ricerca e scegliere solo le parti di dati davvero importanti per l'esplorazione, che spesso non corrispondono al record completo. Il comando è utile anche quando record di tipo diverso hanno *alcune* proprietà comuni, ma non *tutte*. È possibile generare un output simile a una tabella o che funziona bene quando esportato in un file CSV e quindi modificato in Excel.
 
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
 ## Utilizzare il comando measure
 
 MEASURE è uno dei comandi più versatili nelle ricerche di Operational Insights. Consente di applicare *funzioni* statistiche ai dati e di aggregare i risultati raggruppati in base a un determinato campo. Esistono più funzioni statistiche supportate dal comando Measure.
@@ -312,7 +314,7 @@ Esistono vari scenari in cui è utile utilizzare **Measure Max()** e **Measure M
 Se si esegue una query per gli avvisi di Configuration Assessment,tali avvisi hanno una proprietà **Severity** che può essere 0, 1 o 2, valori che rappresentano informazioni, avvisi e avvisi critici. Ad esempio:
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![measure count start di ricerca](./media/operational-insights-search/search-measure-max01.png)
@@ -320,7 +322,7 @@ Type=Alert
 Se si desidera visualizzare il valore massimo per tutti gli avvisi di un determinato computer comune, quindi raggrupparli per campo, è possibile utilizzare
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![measure max computer di ricerca](./media/operational-insights-search/search-measure-max02.png)
@@ -328,7 +330,7 @@ Type=Alert | Measure Max(Severity) by Computer
 La maggior parte dei computer che presentano record **Avvisi** hanno almeno un avviso critico e il computer Bacc ha un avviso con la gravità massima.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![measure max time generated computer di ricerca](./media/operational-insights-search/search-measure-max03.png)
@@ -362,7 +364,7 @@ Nell'immagine precedente, sono presenti due set di campi contrassegnati che indi
 - il primo set identifica il nome del contatore delle prestazioni di Windows, il nome dell'oggetto e il nome dell'istanza nel filtro di query. Questi sono i campi che probabilmente verranno utilizzati in genere come facet/filtri
 - **SampleValue** è il valore effettivo del contatore
 - nella query, **Type=PerfHourly** è un'aggregazione oraria
-- **TimeGenerated** è 21:00, nel formato di 24 ore. Rappresenta l'aggregazione per il periodo orario dalle 20:00 alle 21:00.
+- **TimeGenerated** è 21:00, nel formato 24 ore. Rappresenta l'aggregazione per il periodo orario dalle 20:00 alle 21:00.
 - **SampleCount** è l'aggregazione, calcolata mediante 12 campioni (uno ogni 5 minuti)
 - **min**, **max** e **Percentile95** per il periodo orario sono, in questo esempio relativo alla memoria di una macchina virtuale, 6144 (MB)
 - **SampleValue** è un'aggregazione oraria e viene compilata con la *media* per il periodo orario e viene utilizzata per tracciare i grafici delle prestazioni
@@ -425,7 +427,7 @@ Ciò consente una visualizzazione utile e compatta di un paio di indicatori di p
 
 ### Utilizzare la funzione sum con il comando measure
 
-La funzione sum è simile ad altre funzioni del comando measure. È possibile vedere un esempio su come utilizzare la funzione sum nell’argomento relativo alla [ricerca di log W3C IIS in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
+La funzione sum è simile ad altre funzioni del comando measure. È possibile vedere un esempio su come utilizzare la funzione sum nell’argomento relativo alla [ricerca di Log W3C IIS in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 È possibile utilizzare Max() e Min() con numeri, intervalli di data/ora e stringhe di testo. Le stringhe di testo sono ordinate in ordine alfabetico e vengono visualizzate la prima e l’ultima.
 
@@ -519,9 +521,9 @@ Esempi:
 
 #### Data/ora
 
-Tutti i dati nel sistema presentano una proprietà **TimeGenerated** che rappresenta la data e ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, ad esempio **LastModified**.
+Tutti i dati nel sistema presentano una proprietà **TimeGenerated** che rappresenta la data e ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, (ad esempio **LastModified**).
 
-Il selettore di grafico e ora della sequenza temporale in Operational Insights mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo **TimeGenerated**. I campi di data e ora hanno un formato di stringa specifico che può essere utilizzato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile utilizzare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
+Il selettore di grafico/ora della sequenza temporale in Operational Insights mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo **TimeGenerated**. I campi di data e ora hanno un formato di stringa specifico che può essere utilizzato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile utilizzare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
 
 Sintassi:
 
@@ -688,7 +690,7 @@ Esempi:
 È possibile omettere l'operatore logico per gli argomenti di filtro di primo livello. In questo caso, viene utilizzato l'operatore AND.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Espressione di filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system &quot; Windows Server&quot; OR Severity:1</p> </td> <td> <p>system AND (&quot;Windows Server&quot; OR Severity:1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Espressione di filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -2036,4 +2038,4 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 ## Altre risorse:
 Stefan Roth ha creato un foglio informativo utile sulla ricerca. Per altre informazioni e per scaricare il foglio informativo visitare il suo [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

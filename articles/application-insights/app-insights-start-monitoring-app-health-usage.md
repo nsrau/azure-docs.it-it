@@ -171,7 +171,7 @@ Saranno necessari [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?
 
 #### Se è un nuovo progetto...
 
-Quando si crea un nuovo progetto in Visual Studio, assicurarsi che Application Insights sia selezionato.
+Quando si crea un nuovo progetto in Visual Studio, assicuarsi che Application Insights sia selezionato.
 
 
 ![Creazione di un progetto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -231,4 +231,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

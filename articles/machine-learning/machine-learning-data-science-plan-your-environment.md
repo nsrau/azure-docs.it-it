@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Pianificare un ambiente di analisi avanzata dei dati di Machine Learning | Microsoft Azure" 
-	description="Pianificare l&#39;ambiente di analisi avanzata tenendo presenti le domande principali." 
+	description="Pianificare l'ambiente di analisi avanzata tenendo presenti le domande principali." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -78,4 +79,4 @@ Per scenari di esempio basati sulle dimensioni dei dati originali, sul percorso 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

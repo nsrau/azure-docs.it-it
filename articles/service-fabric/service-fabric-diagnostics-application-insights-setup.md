@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/20/2015"
    ms.author="mattrow"/>
 
 # Configurazione di Application Insights per l'applicazione di Service Fabric
@@ -41,7 +41,7 @@ Per ricevere automaticamente gli eventi di Service Fabric in Application Insight
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### Esempio per StatefulActor\\Program.cs:
+### Esempio per StatefulActor\Program.cs:
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@ Ottenere altre informazioni sull'uso di Application Insights per instrumentare l
 - [Informazioni su come creare metriche ed eventi personalizzati](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

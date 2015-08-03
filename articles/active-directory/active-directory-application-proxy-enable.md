@@ -41,7 +41,7 @@ Numero della porta | Descrizione
 9090 | Per abilitare la registrazione del connettore (necessaria solo per il processo di registrazione del connettore)
 9091 | Per abilitare il rinnovo automatico dei certificati di attendibilità del connettore
  
-Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Inoltre, assicurarsi di abilitare la porta 8080 per NT Authority\\System.
+Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Inoltre, assicurarsi di abilitare la porta 8080 per NT Authority\System.
 
 
 ##Passaggio 1: abilitare il proxy dell’applicazione in Azure AD
@@ -70,4 +70,4 @@ Se si desidera disinstallare il connettore, dopo aver disinstallato il servizio 
 * [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
 * [Identità di Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -133,4 +133,4 @@ Anche i modelli e le indicazioni seguenti possono risultare pertinenti per il pr
 - [Spazio dei nomi Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - Documentazione e scenari chiave del [blocco applicazione per la scalabilità automatica](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) su MSDN.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

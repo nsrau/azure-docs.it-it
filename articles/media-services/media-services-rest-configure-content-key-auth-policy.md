@@ -474,4 +474,4 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

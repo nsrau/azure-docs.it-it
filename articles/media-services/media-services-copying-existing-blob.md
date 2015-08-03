@@ -283,4 +283,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

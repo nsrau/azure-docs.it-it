@@ -230,4 +230,4 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

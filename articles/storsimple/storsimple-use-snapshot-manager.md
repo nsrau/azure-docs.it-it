@@ -78,7 +78,7 @@ Nella tabella seguente vengono descritte le voci del menu File.
 | Voce di menu | Descrizione |
 |:----------|:-------------|
 | Nuovo | Fare clic su **Nuova** per creare una nuova console basata su Gestione snapshot StorSimple. |
-| Aprire | Fare clic su **Apri** per aprire una console esistente. |
+| Apri | Fare clic su **Apri** per aprire una console esistente. |
 | Salva | Fare clic su **Salva** per salvare la console corrente. |
 | Salva con nome | Fare clic su **Salva con nome** per creare una nuova istanza rinominata della console corrente. Utilizzare l’opzione **Salva con nome** per personalizzare una visualizzazione e salvarla per un successivo recupero. Ad esempio, è possibile creare snap-in di Gestione Snapshot StorSimple che indirizzano a specifici server. |
 | Aggiungi/Rimuovi snap-in | Fare clic su **Aggiungi/Rimuovi snap-in** per aggiungere o rimuovere snap-in e organizzare i nodi nel riquadro **Ambito**. Per ulteriori informazioni, andare a [Aggiunta, rimozione e organizzazione di snap-in ed estensioni in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
@@ -540,4 +540,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 
 Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

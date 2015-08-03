@@ -39,4 +39,4 @@ Altri miglioramenti aggiunti all'inizio dell'anno:
 - Disponibilità nei data center australiani
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

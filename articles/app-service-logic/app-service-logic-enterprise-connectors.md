@@ -71,7 +71,7 @@ I passaggi seguenti consentono di creare un connettore aziendale usando il panne
 2. Selezionare il connettore. Nel nuovo pannello selezionare **Crea**. 
 3. Immettere le proprietà: 
 
-	Proprietà | Descrizione
+Proprietà | Descrizione
 --- | ---
 Nome | Immettere un nome per il connettore, Ad esempio, è possibile denominarlo *SAPConnector*, *SalesForceGetAccounts* o *QuickBooksGetItems*.
 Impostazioni pacchetto | Immettere le impostazioni di sistema dell'organizzazione, ad esempio *nome utente SAP* o *URL del server di SugarCRM*. Vedere [Proprietà specifiche del sistema aziendale](#AddProperties) in questo argomento. 
@@ -87,7 +87,7 @@ Aggiungi a schermata iniziale | Selezionare questa opzione per aggiungere il con
 
 > [AZURE.IMPORTANT]Ogni connettore ha proprietà specifiche di un particolare sistema aziendale. Quando ci si connette a SAP, si immettono proprietà specifiche di SAP. Quando ci si connette a SalesForce, si immettono proprietà specifiche di SalesForce e così via. La tabella seguente elenca le proprietà del sistema aziendale richieste.
 	
-	Enterprise System | Required Properties
+Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>Endpoint</li><li>Nome provider</li></ul>
 MongoDB| <ul><li>Stringa di connessione</li><li>Host</li><li>Porta</li><li>Nome utente</li><li>Password</li><li>Database</li><li>Usare la crittografia SSL</li><li>Locale: immettere False se è basato su cloud. Se il sistema MongoDb è locale, immettere True e immettere le seguenti proprietà:<ul><li>Nome chiave di accesso condivisa</li><li>Spazio dei nomi del bus di servizio</li><li>Percorso relè</li><li>Chiave di invio</li></ul></li></ul>
@@ -116,7 +116,7 @@ Aprire l'app per le API aziendale nel portale di gestione di Azure. Nella sezion
 
 - Visualizzare eventi informativi e di errore
 - Visualizzare l'utilizzo della memoria e il conteggio dei thread del processo di lavoro (w3wp)
-- Visualizzare i log dell'applicazione e del server Web\\
+- Visualizzare i log dell'applicazione e del server Web\
 
 Per altre informazioni, vedere [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md).
 
@@ -158,4 +158,4 @@ Alcuni connettori aziendali usano la protezione OAuth. Quando si aggiunge il con
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

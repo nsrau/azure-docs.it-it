@@ -121,4 +121,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 Altre informazioni su [Windows PowerShell per StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

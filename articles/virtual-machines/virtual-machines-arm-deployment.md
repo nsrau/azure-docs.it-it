@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET" 
-	description="Informazioni su come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure" 
-	services="virtual-machines,virtual-network,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Distribuire Azure delle risorse mediante il calcolo, rete e archiviazione di librerie .NET" description="Viene illustrato come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure" services="macchine virtuali, rete virtuale, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di azure/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines" 
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET
@@ -55,7 +48,7 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 5. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Impostare le autorizzazioni per l'uso dell'applicazione:
 
@@ -108,7 +101,7 @@ Dopo la creazione dell'applicazione Azure Active Directory e l'installazione del
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -141,7 +134,7 @@ Le risorse vengono sempre distribuite per un gruppo di risorse. È possibile usa
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -169,7 +162,7 @@ Le risorse vengono sempre distribuite per un gruppo di risorse. È possibile usa
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -182,7 +175,7 @@ Le risorse vengono sempre distribuite per un gruppo di risorse. È possibile usa
         }
 
 3.	Aggiungere il codice seguente al metodo Main per chiamare il metodo appena aggiunto:
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -285,7 +278,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -334,7 +327,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -387,4 +380,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

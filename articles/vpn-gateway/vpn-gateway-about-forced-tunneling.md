@@ -144,4 +144,4 @@ Utilizzare la procedura seguente per configurare il tunneling forzato.
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

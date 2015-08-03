@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connessione di milioni di elementi al cloud" 
-	description="Informazioni su come connettere milioni di &quot;cose&quot; al cloud con Microsoft Azure." 
+	description="Informazioni su come connettere milioni di ";cose"; al cloud con Microsoft Azure." 
 	services="service-bus,event-hubs" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -40,4 +40,4 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
 - [Servizi cloud](http://azure.microsoft.com/documentation/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

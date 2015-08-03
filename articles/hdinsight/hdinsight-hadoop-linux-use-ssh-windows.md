@@ -278,4 +278,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

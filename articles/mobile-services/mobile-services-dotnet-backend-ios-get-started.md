@@ -101,4 +101,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

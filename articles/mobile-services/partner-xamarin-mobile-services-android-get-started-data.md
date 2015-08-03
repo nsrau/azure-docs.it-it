@@ -283,4 +283,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

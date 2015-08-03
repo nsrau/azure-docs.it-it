@@ -43,11 +43,11 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 |Dimensioni macchina virtuale (SKU standard)|NIC (numero massimo consentito per ogni macchina virtuale)|
 |---|---|
 |Tutte le dimensioni di base|1|
-|A0\\molto piccola|1|
-|A1\\piccola|1|
-|A2\\media|1|
-|A3\\grande|2|
-|A4\\molto grande|4|
+|A0\molto piccola|1|
+|A1\piccola|1|
+|A2\media|1|
+|A3\grande|2|
+|A4\molto grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -252,4 +252,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 
 - Informazioni sull'utilizzo di [macchine virtuali con più NIC e dispositivi di rete virtuale in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

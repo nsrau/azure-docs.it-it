@@ -1,3 +1,3 @@
 Il set di dati contiene circa 228.000 valutazioni di film, estratti da tweet ben strutturati pubblicati su Twitter. Ogni istanza rappresenta un tweet ed è una tupla: ID utente, ID del film nel database IMDB, valutazione e timestamp. È stato presentato nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Application Insights è un servizio di analisi estendibile che semplifica la comprensione delle prestazioni e dell'utilizzo dell'applicazione live. È possibile usarlo per rilevare e diagnosticare i problemi di prestazioni e le eccezioni e per [scrivere codice][api] per rilevare l'interazione degli utenti con l'app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) è un servizio di analisi estendibile che semplifica la comprensione delle prestazioni e dell'utilizzo dell'applicazione live. È possibile usarlo per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e per [scrivere il codice][api]per rilevare l'interazione degli utenti con l'app.
 
 ![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
@@ -32,10 +32,12 @@ Sono necessari gli elementi seguenti:
 * Oracle JRE 1.6 o versione successiva o Zulu JRE 1.6 o versione successiva
 * Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
+*Se si dispone di un'applicazione web che è già attiva, è possibile seguire la procedura alternativa per[aggiungere SDK in fase di esecuzione nel server web](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
 
-## 1\. Ottenere una chiave di strumentazione di Application Insights
 
-1. Accedere al [portale di Microsoft Azure](https://portal.azure.com)
+## 1. Ottenere una chiave di strumentazione di Application Insights
+
+1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 2. Creare una nuova risorsa di Application Insights
 
     ![Fare clic su + e scegliere Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -46,7 +48,7 @@ Sono necessari gli elementi seguenti:
 
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
-## 2\. Aggiungere SDK per Java di Application Insights al progetto
+## 2. Aggiungere SDK per Java di Application Insights al progetto
 
 *Scegliere il modo più appropriato per il progetto.*
 
@@ -105,23 +107,23 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 
 Aggiungere manualmente SDK:
 
-1. Scaricare [Application Insights SDK per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
+1. Scaricare [Application Insights SDK per Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
 2. Estrarre i file binari dal file ZIP e aggiungerli al progetto.
 
-Domande...
+### Domande...
 
 * *Qual è la relazione tra i componenti `-core` e `-web` nel file ZIP?*
 
  * `applicationinsights-core` fornisce semplicemente l'API. Sarà sempre necessario.
  * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. È possibile escluderlo se non si vuole che questi dati di telemetria vengano raccolti automaticamente, ad esempio se si preferisce scrivere dati personalizzati.
 
-* *Per aggiornare l'SDK*
- * Scaricare la versione più recente di [Application Insights SDK per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire le versioni precedenti.
+* *Per aggiornare il SDK, quando si pubblicano le modifiche*
+ * Scaricare la versione più recente di [Application Insights SDK per Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) e sostituire le versioni precedenti.
  * Le modifiche sono descritte nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).
 
 
 
-## 3\. Aggiungere un file XML di Application Insights
+## 3. Aggiungere un file XML di Application Insights
 
 Aggiungere ApplicationInsights.xml alla cartella resources del progetto oppure verificare che sia stato aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
 
@@ -162,7 +164,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
 
-## 4\. Aggiungere un filtro HTTP
+## 4. Aggiungere un filtro HTTP
 
 L'ultimo passaggio di configurazione consente al componente delle richieste HTTP di registrare ogni richiesta Web. Non necessario se si desidera l'API.
 
@@ -205,19 +207,19 @@ Aggiungere questa voce al file di configurazione Struts (in genere denominato st
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
-## 5\. Eseguire l'installazione nel server
+## 5. Eseguire l'installazione nel server
 
 Nei server Windows installare:
 
 * [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
 
-Ciò abilita i contatori delle prestazioni.
+(Ciò abilita i contatori delle prestazioni).
 
-## 6\. Eseguire l'applicazione
+## 6. Eseguire l'applicazione
 
 Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure pubblicarla nel server.
 
-## 7\. Visualizzare i dati di telemetria in Application Insights
+## 7. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -247,7 +249,7 @@ Application Insights presuppone che il formato delle richieste HTTP per le appli
 
 Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`.
 
-In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
+Abilita le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
 ## Eccezioni e richieste non eseguite
 
@@ -371,4 +373,4 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

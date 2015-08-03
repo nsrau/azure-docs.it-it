@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
-	description="Ultimi aggiornamenti e procedure relativi ad Android SDK per Azure Mobile Engagement"
+	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -118,4 +118,4 @@ Con
 
 Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

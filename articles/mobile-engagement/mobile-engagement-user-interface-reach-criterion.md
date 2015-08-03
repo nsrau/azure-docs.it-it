@@ -173,4 +173,4 @@ Se si desidera eseguire il push di un annuncio solo per un sottoinsieme di utent
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

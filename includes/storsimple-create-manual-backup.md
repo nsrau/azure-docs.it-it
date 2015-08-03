@@ -21,4 +21,4 @@
 
   Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -50,11 +50,10 @@ Di seguito sono indicate le diverse azioni disponibili in SugarCRM Connector.
 *Nota*: per altri dettagli sugli argomenti supportati nella query, fare riferimento alla documentazione dell'API REST di SugarCRM.
 
 ##Creare un'app per le API SugarCRM Connector##
-1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
-2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "SugarCRM".
+1.	Passare a indirizzo portal.azure.com. Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
+2.	Passare a "Marketplace > tutto" e cercare "SugarCRM".
 3.	Configurare SugarCRM Connector specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API.
-
-4. Configurare SugarCRM Connector e fare clic su Create. Di seguito sono elencate le impostazioni pacchetto che è necessario specificare per creare il connettore:
+4. Configurare le impostazioni del pacchetto SugarCRM connettore. Di seguito sono elencate le impostazioni pacchetto che è necessario specificare per creare il connettore:
 
 	<table>
   <tr>
@@ -125,7 +124,7 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 13.	Selezionare 'SugarCRM Connector' nella sezione 'Recently Used' della raccolta. Viene aggiunta una nuova azione SugarCRM.
 
-14.	Selezionare "Aggiorna account" nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione "Aggiorna account".
+14.	Selezionare 'Account di aggiornamento' (si tratta in azioni avanzate '.') dall'elenco di azioni e sono visualizzati i parametri di input di 'Account di aggiornamento' azione.
 
 	![][6]
 
@@ -154,4 +153,4 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

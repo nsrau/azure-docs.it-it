@@ -42,4 +42,4 @@ Questo articolo fornisce una panoramica della tecnologia e delle funzionalità e
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introduzione a Ricerca di Azure" (in formato PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introduzione a Ricerca di Azure" (in Microsoft Word)</a> 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

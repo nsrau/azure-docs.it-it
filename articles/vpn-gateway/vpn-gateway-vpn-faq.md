@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # Domande frequenti sul gateway VPN
@@ -27,7 +27,7 @@ Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra
 Sì.
 ### È possibile connettersi a più siti da una singola rete virtuale?
 
-È possibile connettersi a più siti tramite Windows PowerShell e le API REST di Azure. Vedere la sezione delle domande frequenti relative alla [connettività multisito e tra reti virtuali](#Multi-Site-and-VNet-to-VNet-Connectivity).
+È possibile connettersi a più siti tramite Windows PowerShell e le API REST di Azure. Vedere la sezione delle domande frequenti relative alla [connettività multisito e tra reti virtuali](#multi-site-and-vnet-to-vnet-connectivity).
 ## Quali sono le opzioni di connessione cross-premise?
 
 Reti virtuali supporta le seguenti connessioni cross-premise:
@@ -162,7 +162,7 @@ Aggiungere tutti gli intervalli che si desidera inviare tramite il gateway per l
 
 ### È possibile configurare il tunneling forzato?
 
-Sì. Vedere [Informazioni sul tunneling forzato](http://go.microsoft.com/fwlink/p/?LinkId=615153).
+Sì. Vedere [Informazioni sul tunneling forzato](vpn-gateway-about-forced-tunneling.md).
 
 ### È possibile configurare il server VPN in Azure e usarlo per connettersi alla rete locale?
 
@@ -170,7 +170,7 @@ Sì, è possibile distribuire i gateway o i server VPN in Azure da Azure Marketp
 
 ### Altre informazioni sui tipi di gateway, i requisiti e la velocità effettiva
 
-Per altre informazioni, vedere [Gateway](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Per altre informazioni, vedere[sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ## Connettività multisito e tra reti virtuali
 
@@ -244,4 +244,4 @@ Per dettagli aggiuntivi, vedere altre domande frequenti sulla rete:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Architettura di Gestione risorse di Azure"
-   description="Informazioni sull&#39;architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
+   description="Informazioni sull'architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Architettura di Gestione risorse di Azure
 
@@ -32,8 +32,8 @@ Prima di affrontare l'architettura di gestione risorse di Azure e i vari provide
 Questi sono i componenti e le relative relazioni per Gestione servizi di Azure.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## Architettura per Gestione risorse 
+
+## Architettura per Gestione risorse
 
 Per Gestione risorse di Azure, i provider di risorse supportano le singole risorse per la creazione di macchine virtuali funzionanti nella configurazione necessaria. Per le macchine virtuali, sono disponibili tre provider di risorse principali:
 
@@ -50,13 +50,13 @@ Esistono inoltre relazioni tra le risorse all'interno dei provider di risorse:
 - Un'istanza del servizio di bilanciamento del carico fa riferimento al pool back-end di indirizzi IP che includono la NIC di una macchina virtuale (facoltativo) e fa riferimento a un indirizzo IP pubblico o privato del servizio di bilanciamento del carico (facoltativo).
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 La componentizzazione delle risorse offre una maggiore flessibilità durante la configurazione dell'infrastruttura per un carico di lavoro IT ospitato in Azure. I modelli di Gestione risorse di Azure sfruttano questa flessibilità per creare il set di risorse dipendenti necessarie per una configurazione specifica. Durante l'esecuzione di un modello, Gestione risorse garantisce che le risorse per una configurazione vengano create nell'ordine corretto per mantenere le dipendenze e i riferimenti. Ad esempio, Gestione risorse non creerà la NIC per una macchina virtuale finché non ha creato la rete virtuale con una subnet e un indirizzo IP (un gruppo di sicurezza di rete è facoltativo).
 
 Un gruppo di risorse è un contenitore logico per le risorse correlate per un'applicazione, che può essere costituita da più macchine virtuali, NIC, indirizzi IP, servizi di bilanciamento del carico, subnet e gruppi di sicurezza di rete. Ad esempio, è possibile gestire tutte le risorse dell'applicazione come una singola unità di gestione. Le risorse possono essere create, aggiornate ed eliminate insieme. Ecco un'applicazione di esempio distribuita in un singolo gruppo di risorse.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 L'applicazione è costituita da:
 
 - Due macchine virtuali che utilizzano lo stesso account di archiviazione, sono nello stesso set di disponibilità e nella stessa subnet di una rete virtuale.
@@ -79,4 +79,4 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

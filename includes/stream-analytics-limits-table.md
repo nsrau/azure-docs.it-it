@@ -1,3 +1,4 @@
+
 | Identificatore limite | Limite | Commenti |
 |----------------- | ------------|--------- |
 | Numero massimo di unità di streaming per sottoscrizione per area | 50 | Per richiedere un aumento delle unità di streaming per la sottoscrizione a oltre 50 è possibile contattare il [supporto Microsoft](https://support.microsoft.com/it-it). |
@@ -5,4 +6,4 @@
 | SELEZIONARE limitazione query istruzione | 5 output per query | Questo limite potrebbe essere aumentare in futuro. |
 | SELEZIONARE limitazione sottoquery istruzione | 14 aggregati per sottoquery | Questo limite potrebbe essere aumentare in futuro. |
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

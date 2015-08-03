@@ -153,4 +153,4 @@ Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà poss
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

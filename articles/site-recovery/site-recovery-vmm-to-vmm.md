@@ -365,4 +365,4 @@ Il provider nel server VMM riceve la notifica dell'evento dal Servizio ed esegue
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

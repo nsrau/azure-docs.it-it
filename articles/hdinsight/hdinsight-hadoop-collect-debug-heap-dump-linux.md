@@ -120,4 +120,4 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Turn Off Maintenance Mode**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

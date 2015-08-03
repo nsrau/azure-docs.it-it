@@ -67,4 +67,4 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

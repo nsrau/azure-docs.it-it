@@ -87,7 +87,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	Una volta creato il clone locale, passare a *&lt;radice_repository>*\\ARMTemplates ed eseguire lo script deploy.ps1 come segue:
+4.	Una volta creato il clone locale, passare a *&lt;radice_repository>*\ARMTemplates ed eseguire lo script deploy.ps1 come segue:
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Esaminare *&lt;radice_repository>*\\ARMTemplates\\Deploy.ps1, per osservare come le risorse vengano generate con ID univoci. È possibile usare lo stesso approccio per creare cloni della stessa distribuzione senza doversi preoccupare dei conflitti tra i nomi di risorse.
+	>[AZURE.TIP]Esaminare *&lt;radice_repository>*\ARMTemplates\Deploy.ps1, per osservare come le risorse vengano generate con ID univoci. È possibile usare lo stesso approccio per creare cloni della stessa distribuzione senza doversi preoccupare dei conflitti tra i nomi di risorse.
  
 6.	Tornare alla sessione di Git Shell ed eseguire:
 
@@ -109,7 +109,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
  
 5.	Accedere al [portale di anteprima di Azure](https://portal.azure.com) per vedere gli elementi creati.
 
-	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come vengono configurate nel modello.
+	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice_repository>*\ARMTemplates\ProdAndStage.json per verificare come vengono configurate nel modello.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@ I file di modello ProdAndStage.json e Dev.json specificano già i parametri di c
 
 		git checkout Dev
 
-2.	Apportare una semplice modifica al livello dell'interfaccia utente dell'app modificando il codice in modo da usare gli elenchi [Bootstrap](http://getbootstrap.com/components/). Aprire *&lt;radice_repository>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml e apportare la modifica evidenziata sotto:
+2.	Apportare una semplice modifica al livello dell'interfaccia utente dell'app modificando il codice in modo da usare gli elenchi [Bootstrap](http://getbootstrap.com/components/). Aprire *&lt;radice_repository>*\src\MultiChannelToDo.Web\app\index.cshtml e apportare la modifica evidenziata sotto:
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

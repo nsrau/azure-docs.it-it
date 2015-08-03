@@ -96,4 +96,4 @@ Altri scenari prevedono di riunire pi√π tenant all'interno dei database, anzich√
 [4]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

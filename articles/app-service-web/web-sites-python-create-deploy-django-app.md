@@ -423,7 +423,7 @@ La raccolta dei file statici viene eseguita automaticamente come parte dello scr
 
 Per ignorare la raccolta dei file statici per l'applicazione Django:
 
-    \.skipDjango
+    .skipDjango
 
 Sarà quindi necessario eseguire manualmente la raccolta nel computer locale:
 
@@ -515,4 +515,4 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [Documentazione di Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

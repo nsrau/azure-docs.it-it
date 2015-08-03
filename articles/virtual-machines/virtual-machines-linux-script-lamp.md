@@ -107,4 +107,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

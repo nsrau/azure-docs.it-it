@@ -157,7 +157,7 @@ Installare provider e agente. Se si desidera eseguire l’installazione in un cl
 
 Si noti che se si desidera installare il provider in Server Core per Windows Server 2012 R2 o server Hyper-V 2012 R2 autonomo, è necessario effettuare le seguenti operazioni:
 
-1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
+1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\ASR.
 2. Estrarre il programma di installazione di Provider digitando:
 
 	    C:\Windows\System32> CD C:\ASR
@@ -296,4 +296,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -71,4 +71,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

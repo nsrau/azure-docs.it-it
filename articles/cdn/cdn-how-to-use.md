@@ -127,4 +127,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 [create-new-storage-account]: ./media/cdn-how-to-use/CDN_CreateNewStorageAcct.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

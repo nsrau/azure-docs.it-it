@@ -126,4 +126,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

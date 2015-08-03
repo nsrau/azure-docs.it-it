@@ -159,4 +159,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

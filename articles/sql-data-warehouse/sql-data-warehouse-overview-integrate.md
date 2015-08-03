@@ -72,4 +72,4 @@ Vedere [Integrazione con l’analisi dei flussi di Azure](../sql-data-warehouse-
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

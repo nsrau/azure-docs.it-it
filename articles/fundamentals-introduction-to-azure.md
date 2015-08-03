@@ -53,7 +53,7 @@ Una delle attività di base svolte da una piattaforma cloud è l'esecuzione di a
 
 ### Macchine virtuali di Azure
 
-![Macchine virtuali di Azure](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
+![Macchine virtuali di Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
 
 La possibilità di creare una macchina virtuale su richiesta, sia da un'immagine standard che da una fornita dall'utente, può risultare estremamente utile. Questo approccio, comunemente noto come IaaS (Infrastructure as a Service), è quanto fornito da Macchine virtuali di Azure. La figura 2 mostra una combinazione di esecuzione della macchina virtuale (VM) e di creazione di una macchina virtuale da un VHD.
 
@@ -75,25 +75,25 @@ Si tratta di un approccio generale al cloud computing che consente risolvere esi
 
 ### App Web
 
-![App Web di Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: App Web di Azure esegue un'applicazione di Sito Web nel cloud senza dover gestire il server Web sottostante.*
+![Applicazioni Web di Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: App Web di Azure esegue un'applicazione di Sito Web nel cloud senza dover gestire il server Web sottostante.*
 
 In genere, il cloud viene usato per eseguire siti Web e applicazioni Web. Macchine virtuali di Azure fornisce questo tipo di servizio, ma lascia all'utente la responsabilità di amministrare uno o più sistemi operativi sottostanti. I ruoli Web dei servizi cloud possono effettuare questa operazione, ma implementarli e distribuirli richiede un'attività amministrativa. Se invece si preferisce evitare di occuparsi delle attività di amministrazione del sito Web,
 
-questo è ciò che fornisce esattamente App Web. Questo modello di calcolo rende disponibile un ambiente Web gestito tramite il portale di gestione di Azure e diverse API. È possibile spostare un'applicazione Sito Web esistente in App Web lasciandola invariata o crearne una nuova direttamente nel cloud. Non appena un sito Web è in esecuzione, è possibile aggiungere o rimuovere istanze in modo dinamico, usando App Web di Azure per bilanciare il carico delle richieste. App Web di Azure offre un'opzione condivisa grazie alla quale il sito viene eseguito in una macchina virtuale assieme ad altri siti, e un'opzione standard che consente l'esecuzione di un sito in una macchina virtuale specifica. L'opzione standard consente inoltre di aumentare le dimensioni (potenza di elaborazione) delle istanze, se necessario.
+Questo è ciò che fornisce esattamente App Web. Questo modello di calcolo rende disponibile un ambiente Web gestito tramite il portale di gestione di Azure e diverse API. È possibile spostare un'applicazione Sito Web esistente in App Web lasciandola invariata o crearne una nuova direttamente nel cloud. Non appena un sito Web è in esecuzione, è possibile aggiungere o rimuovere istanze in modo dinamico, usando App Web di Azure per bilanciare il carico delle richieste. App Web di Azure offre un'opzione condivisa grazie alla quale il sito viene eseguito in una macchina virtuale assieme ad altri siti, e un'opzione standard che consente l'esecuzione di un sito in una macchina virtuale specifica. L'opzione standard consente inoltre di aumentare le dimensioni (potenza di elaborazione) delle istanze, se necessario.
 
 Per gli ambienti di sviluppo, App Web supporta .NET, PHP, Node.js, Java e Python insieme a database SQL e MySQL (di ClearDB, un partner Microsoft) per l'archivio relazionale. Fornisce inoltre il supporto incorporato per numerose applicazioni ampiamente diffuse, ad esempio WordPress, Joomla e Drupal. Si tratta di una piattaforma a basso costo, scalabile ed estremamente utile per la creazione di siti e applicazioni Web nel cloud pubblico.
 
 
-**Scenari di App Web**
+**Scenari di Applicazioni Web**
 
-App Web è ideale per aziende, sviluppatori e agenzie di progettazione Web. Per le aziende, si tratta di una soluzione di facile gestione, scalabile, estremamente sicura e a disponibilità elevate per l'esecuzione di siti Web di presenza. Quando è necessario impostare un sito Web, è preferibile iniziare con App Web di Azure e procedere con Servizi cloud quando è necessario avvalersi di una funzionalità non disponibile. Vedere la fine della sezione "Calcolo" per ulteriori collegamenti utili per scegliere tra le varie opzioni.
+Applicazioni Web è ideale per aziende, sviluppatori e agenzie di progettazione Web. Per le aziende, si tratta di una soluzione di facile gestione, scalabile, estremamente sicura e a disponibilità elevate per l'esecuzione di siti Web di presenza. Quando è necessario impostare un sito Web, è preferibile iniziare con Applicazioni Web di Azure e procedere con Servizi cloud quando è necessario avvalersi di una funzionalità non disponibile. Vedere la fine della sezione "Calcolo" per ulteriori collegamenti utili per scegliere tra le varie opzioni.
 
 ### Servizi cloud
 ![Servizio cloud di Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) *Figura: Servizi cloud di Azure fornisce una posizione in cui eseguire un codice personalizzato altamente scalabile in un ambiente di piattaforma distribuita come servizio (PaaS)*
 
 Si supponga di voler sviluppare un'applicazione cloud in grado di supportare molti utenti contemporaneamente, che richieda poca amministrazione e che rimanga sempre attiva. Potrebbe essere il caso di un fornitore di software che ha deciso di utilizzare una piattaforma SaaS (Software as a Service) per sviluppare una versione delle proprie applicazioni nel cloud. Oppure di una start-up che si propone di creare un'applicazione per il grande pubblico per la quale è prevista una crescita rapida. Se si sceglie di utilizzare Azure, sarà necessario individuare il modello di esecuzione più adatto.
 
-App Web di Azure consente la creazione di questo tipo di applicazione Web, ma con alcuni vincoli, come ad esempio il fatto che non è disponibile un accesso amministrativo e pertanto non è possibile installare software arbitrario. Macchine virtuali di Azure offre molta più flessibilità, incluso l'accesso amministrativo, ed è possibile utilizzare il servizio per creare un'applicazione con scalabilità elevata, ma occorre gestire in autonomia molti aspetti legati all'affidabilità e all'amministrazione. Sarebbe quindi preferibile un'opzione che offra il controllo necessario e che gestisca al contempo anche le attività necessarie ai fini dell'affidabilità e dell'amministrazione.
+Applicazioni Web di Azure consente la creazione di questo tipo di applicazione Web, ma con alcuni vincoli, come ad esempio il fatto che non è disponibile un accesso amministrativo e pertanto non è possibile installare software arbitrario. Macchine virtuali di Azure offre molta più flessibilità, incluso l'accesso amministrativo, ed è possibile utilizzare il servizio per creare un'applicazione con scalabilità elevata, ma occorre gestire in autonomia molti aspetti legati all'affidabilità e all'amministrazione. Sarebbe quindi preferibile un'opzione che offra il controllo necessario e che gestisca al contempo anche le attività necessarie ai fini dell'affidabilità e dell'amministrazione.
 
 Questo è ciò che offre Servizi cloud di Azure. Questa tecnologia è appositamente progettata per supportare applicazioni scalabili, affidabili e con carico amministrativo ridotto ed è un esempio di ciò che viene comunemente denominato PaaS (Platform as a Service). Per utilizzare il servizio, occorre creare un'applicazione con la tecnologia che si preferisce, ad esempio C#, Java, PHP, Python, Node.js o altro. Il codice viene quindi eseguito nelle macchine virtuali (denominate istanze) che eseguono una versione di Windows Server.
 
@@ -103,10 +103,10 @@ Quando si crea un'istanza, sono disponibili due ruoli, entrambi basati su Window
 
 **Scenari di servizi cloud**
 
-I servizi cloud sono ideali per supportare un livello avanzato di scalabilità orizzontale quando occorre esercitare un controllo maggiore sulla piattaforma rispetto a quello fornito da App Web di Azure ma non sul sistema operativo sottostante.
+I servizi cloud sono ideali per supportare un livello avanzato di scalabilità orizzontale quando occorre esercitare un controllo maggiore sulla piattaforma rispetto a quello fornito da Applicazioni Web di Azure ma non sul sistema operativo sottostante.
 
 #### Scelta di un modello di calcolo
-La [pagina di confronto tra App Web , Servizi cloud e Macchine virtuali di Azure](choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
+La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali di Azure](choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
 
 
 
@@ -139,7 +139,7 @@ Dietro pagamento di un importo leggermente superiore è inoltre disponibile un'o
 Se si crea un'applicazione di Azure (con uno qualsiasi dei tre metodi di calcolo) che richiede una soluzione di archiviazione relazionale, il database SQL rappresenta una scelta ottimale. Anche le applicazioni in esecuzione all'esterno del cloud possono usare questo servizio, pertanto gli scenari possibili sono davvero numerosi. Ad esempio, è possibile accedere ai dati archiviati in SQL Database da diversi sistemi client, inclusi desktop, portatili, tablet e telefoni cellulari. Poiché offre disponibilità elevata incorporata tramite replica, Database SQL consente inoltre di ridurre i tempi di inattività.
 
 
-### Tables
+### Tabelle
 ![Tabelle di archiviazione di Azure](./media/fundamentals-introduction-to-azure/StorageTablesIntroNew.png)
   
 *Figura: Tabelle di Azure fornisce una soluzione NoSQL semplice per archiviare i dati.*
@@ -179,9 +179,9 @@ Potrebbe essere necessario spostare un'elevata quantità di dati in Azure. Quest
 
 
 ### Servizio file
-![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\\\server\\share per le applicazioni in esecuzione nel cloud.*
+![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\server\share per le applicazioni in esecuzione nel cloud.*
 
-In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\\\Server\\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
+In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\Server\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
 
 **Scenari per File di Azure**
 
@@ -337,7 +337,7 @@ Protezione degli accessi ad account sensibili, ad esempio dati di accesso bancar
 
 Se si crea un'app per dispositivi mobili, Azure può archiviare i dati nel cloud, autenticare gli utenti e inviare notifiche push senza necessità di scrivere un'elevata quantità di codice personalizzato.
 
-Nonostante sia certamente possibile creare il back-end per un'app per dispositivi mobili tramite Macchine virtuali, Servizi cloud o App Web, usando i servizi di Azure è possibile dedicare molto meno tempo alla scrittura dei componenti del servizio sottostanti.
+Nonostante sia certamente possibile creare il back-end per un'app per dispositivi mobili tramite Macchine virtuali, Servizi cloud o Applicazioni Web, usando i servizi di Azure è possibile dedicare molto meno tempo alla scrittura dei componenti del servizio sottostanti.
 
 
 ### App per dispositivi mobili
@@ -363,9 +363,9 @@ Poiché Azure supporta già un livello avanzato di scalabilità, è possibile ge
 
 *Figura: Hub di notifica fornisce le funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
-Nonostante sia possibile scrivere codice per l'invio di notifiche in App per dispositivi mobili di Azure, Hub di notifica è ottimizzato per trasmettere milioni di notifiche push altamente personalizzate nel giro di pochi minuti. Non è necessario preoccuparsi di dettagli come il gestore di servizi mobili o il produttore del dispositivo. Ora è possibile raggiungere singoli utenti o milioni di utenti con una singola chiamata API.
+Nonostante sia possibile scrivere un codice per l'invio di notifiche in App per dispositivi mobili di Azure, Hub di notifica è ottimizzato per trasmettere milioni di notifiche push altamente personalizzate nel giro di pochi minuti. Non è necessario preoccuparsi di dettagli come il gestore di servizi mobili o il produttore del dispositivo. Ora è possibile raggiungere singoli utenti o milioni di utenti con una singola chiamata API.
 
-Hub di notifica è progettato per funzionare con qualsiasi backend. È possibile usare App per dispositivi mobili di Azure, un back-end personalizzato nel cloud eseguito su qualsiasi provider o su un back-end locale.
+Hub di notifica è progettato per funzionare con qualsiasi backend. È possibile usare App per dispositivi mobili di Azure, un backend personalizzato nel cloud eseguito su qualsiasi provider o su un backend locale.
 
 **Scenari di Hub di notifica** Si supponga, ad esempio, di compilare un gioco per dispositivi mobili in cui i vari giocatori si alternano nell'azione di gioco; potrebbe essere necessario comunicare al giocatore 2 che il giocatore 1 ha terminato il proprio turno. Se non occorre effettuare altre azioni, è sufficiente usare App per dispositivi mobili. Se invece fossero presenti 100.000 giocatori e si volesse inviare a tutti un'offerta gratuita in cui il fattore tempo è un elemento determinante, Hub di notifica è la scelta migliore.
 
@@ -374,7 +374,7 @@ Consente di inviare ultime notizie, informazioni sugli eventi sportivi e annunci
 
 
 
-## Eseguire il backup
+## Back-up
 Ogni azienda deve eseguire il backup e il ripristino dei dati. È possibile usare Azure per eseguire il backup e il ripristino dell'applicazione nel cloud o in locale. Azure offre opzioni diverse a seconda del tipo di backup.
 
 ### Site Recovery
@@ -388,7 +388,7 @@ Site Recovery funziona con tecnologie esistenti quali la replica Hyper-V, System
 ### Backup di Azure
 ![Backup di Azure](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
 
-*Figura: Backup di Azure esegue il backup dei dati da server Windows locali nel cloud.*
+*Figura: il Backup di Azure esegue il backup dei dati da server Windows locali nel cloud.*
 
 Backup di Azure esegue il backup dei dati da server locali che eseguono Windows Server nel cloud. È possibile gestire i backup direttamente dagli strumenti di backup disponibili in Windows Server 2012, Windows Server 2012 Essentials o System Center 2012 - Data Protection Manager. In alternativa, è possibile usare un agente di backup specializzato.
 
@@ -404,7 +404,7 @@ Se si usa già Windows Server o System Center, Backup di Azure è una scelta nat
 
 Indipendentemente dall'attività svolta, spesso il codice deve interagire con altro codice. In alcune situazioni, è sufficiente un messaggio in coda di base. In altri casi, sono necessarie interazioni più complesse. In Azure sono disponibili diversi modi per risolvere i problemi di questo tipo. Nella figura 5 sono illustrate le scelte disponibili.
 
-### Code
+### Queues
 ![Inoltro del bus di servizio di Azure](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
 
 *Figura: le code consentono l'accoppiamento di tipo loose tra parti di un'applicazione e facilitano la scalabilità.*
@@ -434,7 +434,7 @@ Oltre al meccanismo di accodamento (uno a uno) descritto in precedenza, bus di s
 #### Inoltro del bus di servizio
 ![Inoltro del bus di servizio di Azure](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
-*Figura: Inoltro del bus di servizio consente la comunicazione tra applicazioni su diversi lati di un firewall.*
+*Figura: l’inoltro del bus di servizio consente la comunicazione tra applicazioni su diversi lati di un firewall.*
 
 Il bus di servizio consente la comunicazione diretta con il relativo servizio di inoltro, offrendo così un modo sicuro di interagire attraverso i firewall. Inoltro del bus di servizio consente alle applicazioni di comunicare scambiando messaggi tramite un endpoint ospitato nel cloud anziché localmente.
 
@@ -592,4 +592,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

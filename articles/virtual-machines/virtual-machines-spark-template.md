@@ -16,15 +16,15 @@
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
 
-# Spark su Ubuntu con un modello di gestione risorse
+# Spark su Ubuntu con un modello di Gestione risorse
 
-Apache Spark è un motore ad alta velocità per l'elaborazione dati su larga scala. Spark dispone di un motore di esecuzione DAG avanzato che supporta il flusso dati ciclico e l'elaborazione in memoria e può accedere a diverse origini dati, tra cui HDFS, Spark, HBase e S3.
+Apache Spark è un motore ad alta velocità per l'elaborazione dati su larga scala. Spark dispone di un motore di esecuzione DAG avanzato che supporta il flusso dati ciclico e l'elaborazione in memoria e può accedere a diverse fonti di dati, tra cui HDFS, Spark, HBase e S3.
 
-Oltre a poter eseguito negli strumenti di gestione cluster Mesos e YARN, Spark offre anche una semplice modalità di distribuzione autonoma. Questa esercitazione illustrerà come usare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark o macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli.md).
+Oltre a essere eseguito sugli strumenti di gestione del cluster Mesos e YARN, Spark fornisce una semplice modalità di distribuzione autonoma. In questa esercitazione verrà illustrato come utilizzare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark su macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli.md).
 
-Questo modello consente di distribuire un cluster Spark in macchine virtuali Ubuntu. Fornisce inoltre l'account di archiviazione, la rete virtuale, il set di disponibilità, gli indirizzi IP pubblici e le interfacce di rete necessari per l'installazione. Il cluster Spark viene creato dietro una subnet, in modo da non disporre di alcun IP pubblico di accesso al cluster. Nell'ambito del processo di distribuzione, è possibile distribuire anche un "jumpbox" opzionale. Si tratta di una macchina virtuale Ubuntu distribuita anch'essa nella subnet, ma che *espone* un indirizzo IP pubblico con una porta SSH aperta alla quale è possibile connettersi. Tramite il "jumpbox" è possibile stabilire una connessione SSH con tutte le macchine virtuali Spark nella subnet.
+Questo modello consente di distribuire un cluster Spark in macchine virtuali Ubuntu. Fornisce inoltre l'account di archiviazione, la rete virtuale, il set di disponibilità, gli indirizzi IP pubblici e le interfacce di rete necessari per l'installazione. Il cluster Spark viene creato dietro una subnet, pertanto non è presente alcun IP pubblico di accesso al cluster. Nell'ambito del processo di distribuzione, è possibile distribuire anche un "jumpbox" opzionale. Si tratta di una macchina virtuale Ubuntu distribuita anch'essa nella subnet, ma che *espone* un indirizzo IP pubblico con una porta SSH aperta alla quale è possibile connettersi. Tramite il "jumpbox" è possibile stabilire una connessione SSH con tutte le macchine virtuali Spark nella subnet.
 
-Questo modello usa il concetto di "taglia" per specificare una configurazione "piccola", "media" o "grande" del cluster Spark. Se il linguaggio del modello supporta un ridimensionamento dei modelli più dinamico, è possibile specificare invece il numero di nodi master del cluster Spark, nonché i nodi slave, le dimensioni della macchina virtuale e così via. Per ora, è possibile visualizzare le dimensioni della macchina virtuale e il numero di master e slave definiti nel file azuredeploy.json nelle variabili tshirtSizeS, tshirtSizeM, e tshirtSizeL.
+Questo modello utilizza il concetto di "dimensione t-shirt" per specificare una configurazione "piccola", "media" o "grande" del cluster Spark. Se il linguaggio del modello supporta un ridimensionamento dei modelli più dinamico, è possibile specificare invece il numero di nodi master del cluster Spark, nonché i nodi slave, le dimensioni della macchina virtuale e così via. Per ora, è possibile visualizzare le dimensioni della macchina virtuale e il numero di master e slave definiti nel file azuredeploy.json nelle variabili **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL**:
 
 - S: 1 master, 1 slave
 - M: 1 master, 4 slave
@@ -34,30 +34,30 @@ La topologia dei cluster appena distribuiti basati su questo modello è descritt
 
 ![cluster-architecture](media/virtual-machines-spark-template/cluster-architecture.png)
 
-Come illustrato nell'immagine precedente, la topologia di distribuzione include gli elementi seguenti:
+Come illustrato nell'immagine riportata in precedenza, la topologia di distribuzione è costituita dagli elementi seguenti:
 
 -	Un nuovo account di archiviazione che ospita il disco del sistema operativo delle macchine virtuali appena create.
 -	Una rete virtuale con una subnet. Viene effettuato il provisioning di tutte le macchine virtuali create dal modello all'interno di questa rete virtuale.
 -	Un set di disponibilità per i nodi master e slave.
 -	Un nodo principale nel set di disponibilità appena creato.
 -	Quattro nodi slave in esecuzione nella stessa subnet virtuale e nello stesso set di disponibilità del nodo master.
--	Una macchina virtuale "jumpbox" presente nella rete virtuale e nella subnet da cui è possibile accedere al cluster.
+-	Una macchina virtuale "jumpbox" presente nella stessa rete virtuale e nella stessa subnet con cui è possibile accedere al cluster.
 
-Spark 3.0.0 è la versione predefinita e può essere modificato con qualsiasi file binario pre-esistente disponibile nel repository di Spark. Nello script è inoltre presente una disposizione per rimuovere dalla compilazione i commenti correlati all'origine. Verrà assegnato un indirizzo IP statico a ogni nodo Spark master 10.0.0.10 e ad ogni nodo Spark slave per ovviare all'attuale limitazione di non poter comporre dinamicamente un elenco di indirizzi IP all'interno del modello (per impostazione predefinita, al primo nodo verrà assegnato l'IP privato 10.0.0.30, al secondo 10.0.0.31 e così via). Per verificare che non siano presenti errori di distribuzione, accedere al nuovo portale di Azure e selezionare **Gruppo di risorse** > **Ultima distribuzione** > **Verifica dettagli operazione**.
+Spark 3.0.0 è la versione predefinita e può essere modificato con qualsiasi file binario pre-esistente disponibile nel repository di Spark. Nello script è inoltre presente una disposizione per rimuovere dalla compilazione i commenti correlati all'origine. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark master: 10.0.0.10. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark slave per risolvere il problema relativo alla limitazione attuale di non poter comporre in modo dinamico un elenco di indirizzi IP dall'interno del modello. (Per impostazione predefinita, al primo nodo verrà assegnato l'indirizzo IP privato 10.0.0.30, al secondo nodo verrà assegnato 10.0.0.31 e così via.) Per verificare che non siano presenti errori di distribuzione, andare al nuovo portale di Azure e selezionare **Gruppo di risorse** > **Ultima distribuzione** > **Verifica dettagli operazione**.
 
-Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello usato per la distribuzione, assicurarsi che Azure PowerShell o l'interfaccia della riga di comando di Azure sia configurata correttamente.
+Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello utilizzato per la distribuzione, assicurarsi che Azure PowerShell o l’interfaccia della riga di comando di Azure sia configurata correttamente.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Creare un cluster Spark con un modello di Gestione risorse
+## Creazione di un cluster Spark utilizzando un modello di Gestione risorse
 
-Attenersi alla seguente procedura per creare un cluster Spark usando un modello di Gestione risorse dall'archivio dei modelli Github tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Seguire questi passaggi per creare un cluster Spark utilizzando un modello di Gestione risorse dal repository dei modelli GitHub tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
+### Passaggio 1-a: Scaricare i file di modello utilizzando Azure PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\Spark).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\Spark).
 
 Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
@@ -87,17 +87,17 @@ foreach ($file in $files)
 
 ### Passaggio 1-b: Scaricare i file di modello tramite l'interfaccia della riga di comando di Azure
 
-Clonare l'intero repository dei modelli usando un client git di propria scelta, ad esempio:
+Clonare l’intero repository dei modelli utilizzando un client Git a propria scelta, ad esempio:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Una volta completata l'operazione, cercare la cartella **spark-on-ubuntu** nella directory C:\\Azure\\Templates.
+Una volta completata la clonazione, cercare la cartella **spark-on-ubuntu** nella directory C:\Azure\Templates.
 
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
-Quando si crea un cluster Spark con un modello, è necessario specificare un set di parametri di configurazione per gestire un numero di impostazioni necessarie. Dichiarando i parametri nella definizione del modello, è possibile specificare i valori durante l'esecuzione della distribuzione tramite un file esterno o dalla riga di comando.
+Quando si crea un cluster Spark utilizzando un modello, è necessario specificare un set di parametri di configurazione per gestire un numero di impostazioni necessarie. Dichiarando tali parametri nella definizione del modello, è possibile specificare i valori durante l'esecuzione della distribuzione tramite un file esterno o da una riga di comando.
 
-Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, si individuerà il set di parametri richiesti dal modello per configurare un cluster Spark. Di seguito è riportato un esempio della sezione dei parametri dal file azuredeploy.json di questo modello:
+Nella sezione "parametri" nella parte superiore del file azuredeploy.json, si individuerà il set di parametri richiesti dal modello per configurare un cluster Spark. Di seguito è riportato un esempio della sezione "parametri" dal file azuredeploy.json di questo modello:
 
 ```json
 "parameters": {
@@ -117,14 +117,14 @@ Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, s
 		"type": "string",
 		"defaultValue": "Canonical",
 		"metadata": {
-			"Description": "Image Publisher"
+			"Description": "Image publisher"
 		}
 	},
 	"imageOffer": {
 		"type": "string",
 		"defaultValue": "UbuntuServer",
 		"metadata": {
-			"Description": "Image Offer"
+			"Description": "Image offer"
 		}
 	},
 	"imageSKU": {
@@ -138,7 +138,7 @@ Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, s
 		"type": "string",
 		"defaultValue": "uniquesparkstoragev12",
 		"metadata": {
-			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
 		}
 	},
 	"region": {
@@ -173,7 +173,7 @@ Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, s
 		"type": "string",
 		"defaultValue": "Subnet-1",
 		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+			"Description": "Subnet name for the virtual network that resources will be provisioned into"
 		}
 	},
 	"subnetPrefix": {
@@ -218,7 +218,7 @@ Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, s
 		"disabled"
 		],
 		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Spark nodes"
+			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Spark nodes"
 		}
 	},
 	"tshirtSize": {
@@ -236,13 +236,13 @@ Nella sezione "parametri" nella parte superiore del file **azuredeploy.json**, s
 }
 ```
 
-Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, PowerShell o l'interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
+Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, Azure PowerShell o l’interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
 
-### Passaggio 3-a: Distribuire un cluster Spark con un modello tramite PowerShell
+### Passaggio 3-a: distribuire un cluster Spark utilizzando un modello tramite Azure PowerShell
 
-Preparare un file dei parametri per la distribuzione creando un file JSON con i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in PowerShell verranno usati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
+Preparare un file dei parametri per la distribuzione creando un file JSON con i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in Azure PowerShell verranno utilizzati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
 
-Di seguito viene fornito un set di parametri di esempio dal file **azuredeploy-parameters.json**. Si noti che è necessario fornire valori validi per i parametri storageAccountName, adminUsername e adminPassword, più eventuali personalizzazioni per gli altri parametri:
+Di seguito viene riportato un set di parametri di esempio dal file azuredeploy-parameters.json. Sarà necessario fornire valori validi per i parametri **storageAccountName**, **adminUsername** e **adminPassword**, oltre a eventuali personalizzazioni per gli altri parametri:
 
 ```json
 {
@@ -302,16 +302,16 @@ $templateParameterFile= $folderName + "\azuredeploy-parameters.json"
 New-AzureResourceGroup -Name $RGName -Location $locName
 New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParamterFile $templateParameterFile -TemplateFile $templateFile
 ```
-> [AZURE.NOTE]$RGName deve essere univoco all'interno della sottoscrizione.
+> [AZURE.NOTE]**$RGName** deve essere univoco all'interno della sottoscrizione.
 
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l'uso di più file di parametri con gli ambienti diversi (ad esempio, test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
+Quando si esegue il comando **New-AzureResourceGroupDeployment**, verranno estratti i valori dei parametri dal file dei parametri JSON e verrà avviata l'esecuzione del modello di conseguenza. La definizione e l'uso di più file di parametri con gli ambienti diversi (test, produzione e così via) promuoveranno il riutilizzo e la semplificazione di soluzioni con più ambienti complesse.
 
 Quando si effettua la distribuzione, tenere presente che è necessario creare un nuovo account di Archiviazione di Azure, in modo che il nome fornito come parametro di account di archiviazione sia univoco e soddisfi tutti i requisiti di un account di Archiviazione di Azure (solo lettere minuscole e numeri).
 
 Durante la distribuzione, verrà visualizzata una schermata simile alla seguente:
 
 ```powershell
-PS C:> New-AzureResourceGroup -Name $RGName -Location $locName
+PS C:\> New-AzureResourceGroup -Name $RGName -Location $locName
 
 ResourceGroupName : SparkResourceGroup
 Location          : westus
@@ -324,7 +324,7 @@ Permissions       :
 
 ResourceId        : /subscriptions/2018abc3-dbd9-4437-81a8-bb3cf56138ed/resourceGroups/sparkresourcegroup
 
-PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 VERBOSE: 10:08:28 AM - Template is valid.
 VERBOSE: 10:08:28 AM - Create template deployment 'SparkTestDeployment'.
 VERBOSE: 10:08:37 AM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -379,10 +379,10 @@ Durante e dopo la distribuzione, è possibile controllare tutte le richieste eff
 
 A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
-- Fare clic su "Sfoglia" nella barra di spostamento a sinistra, scorrere verso il basso e fare clic su "Gruppi di risorse".
-- Dopo aver fatto clic sul gruppo di risorse appena creato, viene visualizzato il pannello "Gruppo di risorse".
-- Facendo clic sul grafico a barre "Eventi" nella parte relativa al monitoraggio del pannello "Gruppo di risorse", sarà possibile visualizzare gli eventi per la distribuzione:
-- Facendo clic su singoli eventi è possibile esaminare i dettagli di ogni singola operazione eseguita per conto del modello più in basso
+- Fare clic su **Sfoglia** nella barra di spostamento a sinistra, quindi scorrere verso il basso e fare clic su **Gruppi di risorse**.
+- Fare clic sul gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".
+- Facendo clic sul grafico a barre **Eventi** nella parte **Monitoraggio** del pannello "Gruppo di risorse", è possibile visualizzare gli eventi per la distribuzione.
+- Facendo clic su singoli eventi, è possibile esaminare i dettagli di ogni singola operazione eseguita per conto del modello.
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
 
@@ -392,31 +392,31 @@ Dopo aver effettuato i test, per rimuovere il gruppo di risorse e tutte le relat
 Remove-AzureResourceGroup -Name "<resource group name>" -Force
 ```
 
-### Passaggio 3-b: Distribuire un cluster Spark con un modello tramite l'interfaccia della riga di comando di Azure
+### Passaggio 3-b: distribuire un cluster Spark utilizzando un modello tramite l'interfaccia della riga di comando di Azure
 
 Per distribuire un cluster Spark tramite l'interfaccia della riga di comando di Azure, è necessario innanzitutto creare un gruppo di risorse specificando un nome e un percorso:
 
 	azure group create SparkResourceGroup "West US"
 
-Passare il nome di questo gruppo di risorse, il percorso del file di modello JSON e il percorso del file dei parametri (vedere la sezione precedente di PowerShell per i dettagli) nel comando seguente:
+Passare il nome di questo gruppo di risorse, il percorso del file di modello JSON e il percorso del file dei parametri (vedere la sezione precedente di Azure PowerShell per i dettagli) nel comando seguente:
 
 	azure group deployment create SparkResourceGroup -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-È possibile controllare lo stato delle distribuzioni delle singole risorse con il comando seguente:
+È possibile controllare lo stato delle distribuzioni delle singole risorse utilizzando il comando seguente:
 
 	azure group deployment list SparkResourceGroup
 
 ## Panoramica della struttura del modello Spark e dell'organizzazione dei file
 
-Per progettare un modello di Gestione risorse efficace e riusabile, è necessaria un'ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come Spark. Sfruttando le funzionalità di **collegamento dei modelli** e **ciclo delle risorse** di Gestione risorse di Azure, oltre all'esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che in teoria può essere riusato con qualsiasi distribuzione complessa basata sui modelli.
+Per progettare un modello di Gestione risorse efficace e riusabile, è necessaria un'ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come Spark. Sfruttando le funzionalità di collegamento dei modelli e ciclo delle risorse di Gestione risorse, oltre all'esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che in teoria può essere riutilizzato con qualsiasi distribuzione complessa basata sui modelli.
 
 In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da GitHub per questa distribuzione:
 
 ![spark-files](media/virtual-machines-spark-template/spark-files.png)
 
-In questa sezione viene fornita una descrizione della struttura del file **azuredeploy.json** per il cluster Spark.
+In questa sezione viene fornita una descrizione della struttura del file azuredeploy.json per il cluster Spark.
 
-Se non è ancora stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\Spark). Sostituire il nome della cartella, quindi eseguire questi comandi.
+Se non è ancora stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\Azure\Templates\Spark). Sostituire il nome della cartella, quindi eseguire questi comandi.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -430,7 +430,7 @@ Aprire il modello azuredeploy.json in un editor di testo o in uno strumento a sc
 
 ### sezione "parametri"
 
-Nella sezione "parametri" di **azuredeploy.json** vengono specificati i parametri modificabili usati in questo modello. Il file **azuredeploy-parameters.json** citato in precedenza viene usato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
+Nella sezione “parametri” di azuredeploy.json vengono specificati i parametri modificabili utilizzati in questo modello. Il file azuredeploy-parameters.json menzionato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
 
 Di seguito è riportato un esempio di un parametro per la "taglia":
 
@@ -449,7 +449,7 @@ Di seguito è riportato un esempio di un parametro per la "taglia":
 },
 ```
 
->.[AZURE.NOTE]Si noti che è possibile specificare "defaultValue" e "allowedValues".
+> [AZURE.NOTE]È possibile specificare **defaultValue** e **allowedValues**.
 
 ### sezione "variabili"
 
@@ -486,16 +486,16 @@ La sezione "variabili" Specifica le variabili che possono essere usate in questo
 },
 ```
 
-"**vmStorageAccountContainerName**" è un esempio di variabile nome/valore semplice. "**vnetID**" è un esempio di variabile calcolata in fase di esecuzione usando le funzioni "**resourceId**" e "**parameters**". Il valore delle variabili "**numberOfMasterInstances**" e "**vmSize**" viene calcolato in fase di esecuzione usando le funzioni "**concat**", "**variables**" e "**parameters**".
+**vmStorageAccountContainerName** è un esempio di variabile nome/valore semplice. **vnetID** è un esempio di variabile calcolata in fase di esecuzione utilizzando le funzioni **resourceId** e **parameters**. Il valore delle variabili **numberOfMasterInstances** e **vmSize** viene calcolato in fase di esecuzione utilizzando le funzioni **concat**, **variables** e **parameters**.
 
-Se si desidera personalizzare le dimensioni della distribuzione del cluster Spark, è possibile dunque modificare le proprietà delle variabili tshirtSizeS, tshirtSizeM, e tshirtSizeL nel modello azuredeploy.json.
+Se si desidera personalizzare le dimensioni della distribuzione del cluster Spark, è possibile quindi modificare le proprietà delle variabili **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL** nel modello azuredeploy.json.
 
 Altre informazioni relative al linguaggio del modello sono disponibili sul sito MSDN in [Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
 ### sezione "risorse"
 
-La sezione **"resources"** rappresenta la posizione in cui si svolgono la maggior parte delle operazioni. Analizzando attentamente questa sezione, è possibile identificare immediatamente due diversi casi: il primo è un elemento definito di tipo `Microsoft.Resources/deployments` essenzialmente ciò implica la chiamata di una distribuzione nidificata all'interno di quella principale. Tramite l'elemento "**templateLink**" (e la proprietà della versione correlata), è possibile specificare un file di modello collegato che verrà richiamato passando un set di parametri come input, come è possibile notare in questo frammento:
+La sezione "risorse" rappresenta la posizione in cui si svolgono la maggior parte delle operazioni. Analizzando attentamente questa sezione, è possibile identificare immediatamente due diversi casi. Il primo è un elemento definito di tipo `Microsoft.Resources/deployments` che richiama essenzialmente una distribuzione nidificata all'interno di quella principale. Il secondo è la proprietà **templateLink** (e la proprietà correlata **contentVersion**) che rende possibile specificare un file di modello correlato che verrà richiamato, passando una serie di parametri come input. Tutto questo può essere osservato in questo frammento di modello:
 
 ```json
 "resources": [
@@ -533,18 +533,18 @@ La sezione **"resources"** rappresenta la posizione in cui si svolgono la maggio
 },
 ```
 
-Da questo primo esempio è chiaro come il file **azuredeploy.json** in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file di modello, ciascuno responsabile di parte delle attività di distribuzione necessarie.
+Da questo primo esempio, è chiaro come il file azuredeploy.json in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file. Ogni file è responsabile di parte delle attività di distribuzione necessarie.
 
 In particolare, i seguenti modelli collegati verranno usati per la distribuzione:
 
--	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione usati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
+-	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
 -	**jumpbox-resources-enabled.json**: consente di distribuire la macchina virtuale "jumpbox" e tutte le risorse correlate, come l'interfaccia di rete, l'indirizzo IP pubblico e l'endpoint di input usato per la connessione SSH all'ambiente.
 
-Dopo aver richiamato questi due modelli, **azuredeploy.json** esegue il provisioning di tutte le macchine virtuali dei nodi del cluster Spark e delle risorse collegate (ad esempio, schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire estensioni delle macchine virtuali (gli script personalizzati per Linux) e di richiamare uno script bash (**spark-cluster-install.sh**) per installare fisicamente e configurare Spark in ciascun nodo.
+Dopo aver richiamato questi due modelli, azuredeploy.json esegue il provisioning di tutte le macchine virtuali dei nodi del cluster Spark e delle risorse collegate (schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire estensioni delle macchine virtuali (gli script personalizzati per Linux) e di richiamare uno script bash (spark-cluster-install.sh) per installare fisicamente e configurare Spark in ciascun nodo.
 
-Si passerà ora a esaminare *come* viene usato quest'ultimo modello, **azuredeploy.json**, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Ciclo delle risorse o Resource Looping**.
+Si passerà ora a esaminare *come* quest'ultimo modello, azuredeploy.json, viene utilizzato, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Ciclo delle risorse o Resource Looping**.
 
-Una risorsa che usa l'elemento "copy" verrà copiata automaticamente per il numero di volte specificato nel parametro "count" dell'elemento "copy". Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile usare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di **azuredeploy.json** è possibile osservare questo concetto applicato a più schede di rete, macchine virtuali ed estensioni di macchine virtuali create per il cluster Spark:
+Una risorsa che utilizza l'elemento **copy** verrà copiata automaticamente per il numero di volte specificato nel parametro **count** dell'elemento **copy**. Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di azuredeploy.json, è possibile osservare questo concetto applicato a più schede di rete, macchine virtuali ed estensioni di macchine virtuali create per il cluster Spark:
 
 ```json
 {
@@ -760,9 +760,9 @@ Una risorsa che usa l'elemento "copy" verrà copiata automaticamente per il nume
 	}
 ```
 
-Un altro concetto importante nella creazione delle risorse è la possibilità di specificare le dipendenze e le priorità tra risorse, come è possibile vedere nella matrice JSON **dependsOn**. In questo particolare modello, è possibile osservare come i nodi del cluster Spark dipendano dalle risorse condivise e dalle risorse networkInterfaces create in precedenza.
+Un altro concetto importante nella creazione delle risorse è la possibilità di specificare le dipendenze e le priorità tra risorse, come è possibile vedere nella matrice JSON **dependsOn**. In questo particolare modello, è possibile osservare come i nodi del cluster Spark dipendano dalle risorse condivise e dalle risorse **networkInterfaces** create in precedenza.
 
-Un altro frammento interessante da esplorare è quello correlato alle estensioni di macchina virtuale **CustomScriptForLinux**, installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster. In questo caso, l'estensione viene usata per installare e configurare Spark in ogni nodo della macchina virtuale. Si esaminerà ora un frammento del modello **azuredeploy.json** che usa queste estensioni:
+Un altro frammento interessante da esplorare è quello correlato alle estensioni di macchina virtuale **CustomScriptForLinux**, Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster. In questo caso, l'estensione viene utilizzata per installare e configurare Spark in ciascun nodo della macchina virtuale. Si esaminerà ora un frammento del modello azuredeploy.json che utilizza queste estensioni:
 
 ```json
 {
@@ -817,21 +817,21 @@ Un altro frammento interessante da esplorare è quello correlato alle estensioni
 }
 ```
 
-Tenere presente che l'estensione relativa alle risorse dei nodi master e slave esegue comandi diversi, definiti nella proprietà **commandToExecute ** e specifici del processo di provisioning.
+L'estensione relativa alle risorse dei nodi master e slave esegue comandi diversi, definiti nella proprietà **commandToExecute ** e specifici del processo di provisioning.
 
-È possibile osservare come questa risorsa dipenda dalla macchina virtuale della risorsa già distribuita **Microsoft.Compute/virtualMachines/vmMember<X>**, nella quale **<X>** è il parametro "**machineSettings.machineIndex**", ovvero l'indice della macchina virtuale passato a questo script tramite la funzione "**copyindex()**".
+Se si osserva il frammento JSON dell'estensione della macchina virtuale più recente, si noterà che questa risorsa dipende dalla risorsa della macchina virtuale e dalla relativa interfaccia di rete. Ciò indica che la distribuzione di queste due risorse deve essere già stata eseguita prima del provisioning e dell'esecuzione di questa estensione della macchina virtuale. Inoltre è necessario utilizzare la funzione **copyindex()** per ripetere questo passaggio per ciascuna macchina virtuale slave.
 
-Acquisendo familiarità con gli altri file inclusi in questa distribuzione sarà in possibile comprendere tutti i dettagli e le procedure consigliate necessarie per organizzare e orchestrare le strategie di distribuzione complesse per le soluzioni con più nodi, basate su qualsiasi tecnologia, che sfruttano i modelli di Gestione risorse di Azure. Sebbene non obbligatorio, è un approccio consigliato per strutturare i file di modello come mostrato nel diagramma seguente:
+Acquisendo familiarità con gli altri file inclusi in questa distribuzione sarà possibile comprendere tutti i dettagli e le procedure consigliate necessarie per organizzare e orchestrare le strategie di distribuzione complesse per le soluzioni con più nodi, basate su qualsiasi tecnologia, che sfruttano i modelli di Gestione risorse di Azure. Sebbene non obbligatorio, è un approccio consigliato per strutturare i file di modello come mostrato nel diagramma seguente:
 
 ![spark-template-structure](media/virtual-machines-spark-template/spark-template-structure.png)
 
 In pratica, questo approccio suggerisce di:
 
--	Definire il file del modello di base come un punto centrale di orchestrazione per tutte le attività di distribuzione specifiche, sfruttando il modello di collegamento per richiamare le esecuzioni del sottomodello
--	Creare un modello specifico di file che verranno distribuiti a tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (ad esempio gli account di archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riusata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
--	Includere modelli di risorsa facoltativi per requisiti specifici di una determinata risorsa
--	Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche
--	Per tutte le attività di post-distribuzione (ad esempio, installazione del prodotto, configurazioni e così via) usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia
+-	Definire il file del modello di base come un punto centrale di orchestrazione per tutte le attività di distribuzione specifiche, sfruttando il modello di collegamento per richiamare le esecuzioni del sottomodello.
+-	Creare un file di modello specifico che consentirà di distribuire tutte le risorse condivise tra tutte le altre attività di distribuzione specifiche (account di archiviazione, configurazione di rete virtuale e così via). Questa funzione può essere riusata in modo intensivo tra distribuzioni che prevedono requisiti simili in termini di infrastruttura comune.
+-	Includere modelli di risorsa facoltativi per requisiti specifici di una determinata risorsa.
+-	Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche.
+-	Per tutte le attività di post distribuzione (installazione del prodotto, configurazioni e così via), usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia.
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
@@ -841,7 +841,6 @@ Acquisire altre informazioni sulla [distribuzione di un modello](../resource-gro
 
 Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
-[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
- 
+[Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

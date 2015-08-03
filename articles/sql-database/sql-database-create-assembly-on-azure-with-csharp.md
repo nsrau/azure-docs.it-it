@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="genemi"/>
 
 
@@ -328,4 +328,4 @@ Il blocco di codice Transact-SQL precedente termina con un'istruzione SELECT che
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

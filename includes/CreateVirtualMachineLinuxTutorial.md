@@ -161,4 +161,4 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 
 	>[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni `nofail` e/o `nobootwait` fstab, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

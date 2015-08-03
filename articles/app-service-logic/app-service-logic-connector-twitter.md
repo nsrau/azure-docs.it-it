@@ -92,4 +92,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

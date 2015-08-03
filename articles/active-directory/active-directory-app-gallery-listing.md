@@ -58,4 +58,4 @@ Al termine del test, l'applicazione può essere inserita nella raccolta di appli
 > Allegare il logo dell'applicazione (file PNG, 150x122 pixel, colore di sfondo a tinta unita):
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

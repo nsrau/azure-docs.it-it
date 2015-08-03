@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire l'applicazione:
 
-1. Dal prompt dei comandi, eseguire il servizio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Dal prompt dei comandi, eseguire il servizio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copiare e incollare l'indirizzo dal prompt dei comandi in un browser per visualizzare l'immagine.
 
@@ -580,4 +580,4 @@ A questo punto, dopo aver creato un'applicazione che utilizza il servizio di ino
 
 - [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

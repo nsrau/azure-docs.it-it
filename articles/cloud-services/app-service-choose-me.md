@@ -34,4 +34,4 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 [Macchine virtuali]: ../virtual-machines-choose-me.md
 [Servizi cloud]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

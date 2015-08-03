@@ -386,4 +386,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

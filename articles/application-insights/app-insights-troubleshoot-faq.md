@@ -232,4 +232,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

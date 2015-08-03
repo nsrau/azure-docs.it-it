@@ -221,4 +221,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Database SQL]: /documentation/services/sql-database/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

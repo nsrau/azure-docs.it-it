@@ -2,6 +2,7 @@
 	pageTitle="Personalizzare i cluster Hadoop per Advanced Analytics Process and Technology | Microsoft Azure" 
 	description="Moduli di Python più diffusi resi disponibili nei cluster personalizzati Hadoop di Azure HDInsight."
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -97,4 +98,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

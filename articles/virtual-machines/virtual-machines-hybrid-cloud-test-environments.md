@@ -5,20 +5,23 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Ambienti di test basati su cloud ibrido
 
 Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali (VNet) cross-premise. Al termine, è possibile effettuare lo sviluppo e il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale (VPN, Virtual Private Network) site-to-site relativa alla propria posizione su Internet.
+
+> [AZURE.NOTE]Questi articoli attualmente creano macchine virtuali, reti virtuali e altre risorse nella gestione del servizio.
 
 ## Configurazione di base del cloud ibrido
 
@@ -47,7 +50,7 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 ## Risorse aggiuntive
 
-[SharePoint nei servizi infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
+[Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Il progetto di architettura applicativa line-of-business 3D in formato PDF](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
@@ -58,4 +61,4 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creare più istanze di risorse"
-   description="Descrive come usare l'operazione di copia in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
-   services="na"
+   description="Descrive come utilizzare l'operazione di copia in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -35,7 +35,7 @@ All'interno della risorsa da ricreare più volte è possibile definire un oggett
 
 ## Usare il valore di indice nel nome
 
-È possibile usare l'operazione di copia per creare più istanze di una risorsa denominata in modo univoco in base all'indice incrementale. Ad esempio, è possibile aggiungere un numero univoco alla fine del nome di ogni risorsa distribuita. Per distribuire tre siti Web denominati:
+È possibile utilizzare l'operazione di copia per creare più istanze di una risorsa denominata in modo univoco in base all'indice incrementale. Ad esempio, è possibile aggiungere un numero univoco alla fine del nome di ogni risorsa distribuita. Per distribuire tre siti Web denominati:
 
 - examplecopy-0
 - examplecopy-1
@@ -114,4 +114,4 @@ Usare il modello seguente:
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

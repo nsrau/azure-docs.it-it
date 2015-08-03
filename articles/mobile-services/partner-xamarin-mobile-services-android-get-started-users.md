@@ -138,4 +138,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

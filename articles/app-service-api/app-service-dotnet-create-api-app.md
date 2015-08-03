@@ -50,4 +50,4 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicar
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,5 @@
 <properties 
 	pageTitle="Introduzione a Servizi mobili per Xamarin.Android" 
-	writer="craigd" 
 	description="Informazioni su come usare Servizi mobili di Azure con l'app per Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -137,4 +136,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

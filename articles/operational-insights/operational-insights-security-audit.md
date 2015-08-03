@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Esplorare i dati di sicurezza e controllo di Operational Insights
@@ -39,6 +39,8 @@ Contenuto dell'articolo:
 7. Nella casella Search rimuovere qualsiasi informazione tranne il nome del processo e le virgolette e quindi fare clic sull'icona Search. ![Immagine delle informazioni di ricerca dettagliate](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Nella pagina Search vengono visualizzate informazioni dettagliate sul processo, inclusi i computer sui quali viene eseguito e l'account utente usato, nonché la data e l'ora in cui è stato creato l'evento relativo al processo.
 9. Le informazioni trovate consentono di eseguire le azioni correttive necessarie. Se, ad esempio, risulta che il file eseguibile è un malware, è necessario rimuoverlo da tutti i computer che ha infettato. Il file eseguibile viene rimosso e Operational Insights riceve eventi di log e controllo aggiornati relativi ai computer. I valori presenti nel pannello NOTABLE ISSUES verranno modificati il giorno successivo.
+
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
 
 ## Procedure consigliate per le analisi forensi
 
@@ -98,4 +100,4 @@ Tutti i dati di controllo che si desidera raccogliere e inviare a Operational In
 
 Se oltre alle impostazioni dei criteri locali si usa AppLocker per raccogliere dati di controllo, Operational Insights raccoglierà tali dati consentendone la visualizzazione.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

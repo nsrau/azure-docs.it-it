@@ -88,4 +88,4 @@ Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica qu
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

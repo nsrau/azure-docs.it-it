@@ -3,7 +3,7 @@
 	description="Utilizzare un modello di Gestione risorse e Powershell di Microsoft Azure per creare una nuova macchina virtuale Windows."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""/>
 
@@ -14,23 +14,32 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
-# Creazione di una macchina virtuale Windows con un modello di Gestione risorse e Azure PowerShell
+# Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell
 
-È possibile creare facilmente una nuova macchina virtuale Azure basata su Windows utilizzando un modello di Gestione risorse con Azure PowerShell. Questo modello consente di creare una singola macchina virtuale su cui è in esecuzione Windows in una nuova rete virtuale con una singola subnet in un nuovo gruppo di risorse.
+È possibile creare facilmente una nuova macchina virtuale Microsoft Azure utilizzando un modello di Gestione risorse con Azure PowerShell. Questo modello consente di creare una singola macchina virtuale su cui è in esecuzione Windows in una nuova rete virtuale con una singola subnet in un nuovo gruppo di risorse.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template-simple/windowsvm.png)
 
-Prima di iniziare, seguire queste istruzioni per assicurarsi di disporre di Azure, Windows PowerShell e Azure PowerShell configurati e pronti all'uso:
+Prima di iniziare, assicurarsi che Microsoft Azure e PowerShell siano configurati e pronti all'uso.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Creazione di una macchina virtuale Windows
+## Creare una macchina virtuale Windows
 
-Attenersi alla procedura seguente per creare una macchina virtuale Windows utilizzando un modello di Gestione risorse nel repository dei modelli Github con Azure PowerShell.
+Attenersi alla seguente procedura per creare una macchina virtuale Windows utilizzando un modello di Gestione risorse nell'archivio dei modelli Github con Microsoft Azure PowerShell.
 
-Eseguire i comandi in base all’esempio riportato di seguito e fornire il nome di distribuzione di Azure, il nome del gruppo di risorse e la posizione del datacenter di Azure. Quando si esegue il comando **New-AzureResourceGroupDeployment**, verrà richiesto di fornire i valori dei parametri riportati nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la macchina virtuale.
+Inserire un nome per la distribuzione di Microsoft Azure, il nome gruppo di risorse e la posizione del data center di Microsoft Azure, quindi eseguire questi comandi.
+
+	$deployName="<deployment name>"
+	$RGName="<resource group name>"
+	$locName="<Azure location, such as West US>"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+
+Quando si esegue il comando **New-AzureResourceGroupDeployment**, verrà richiesto di fornire i valori dei parametri riportati nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la macchina virtuale.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -81,16 +90,16 @@ Verrà visualizzata una schermata simile alla seguente:
 
 ## Risorse aggiuntive
 
-[Provider di calcolo, rete e archiviazione di Azure sotto Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
+[Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
 
-[Creare una macchina virtuale Windows con Gestione risorse di Azure e Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
+[Creare una macchina virtuale Windows con un modello di Gestione risorse di Microsoft Azure e PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Creare una macchina virtuale Windows con Azure PowerShell e Gestione servizi di Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Creare una macchina virtuale Windows con PowerShell e Service Manager di Microsoft Azure](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
+[Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

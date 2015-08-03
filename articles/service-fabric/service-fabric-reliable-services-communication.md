@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Scrittura di un servizio tramite l'API di Reliable Services che usa lo stack di comunicazione WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

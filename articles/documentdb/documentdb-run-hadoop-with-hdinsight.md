@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Eseguire un processo Hadoop usando DocumentDB e HDInsight
@@ -40,17 +40,20 @@ Se non si ha tempo di completare l'esercitazione e si vogliono ottenere gli scri
 
 <table border='1'>
 	<tr><th>Versione di Hadoop Connector</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>URI script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Data ultima modifica</th>
-		<td>06/11/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>Versioni supportate di HDInsight</th>
 		<td>3.1, 3.2.</td></tr>
 	<tr><th>Registro modifiche</th>
-		<td>Risolta compatibilità del connettore con <a href="https://www.microsoft.com/download/details.aspx?id=40886">driver Microsoft Hive ODBC</a></br>
+		<td>Aggiornamento di DocumentDB Java SDK alla versione 1.1.0</br>
+			Rimozione del parametro di output aggiuntivo per i percorsi di indicizzazione personalizzati</br>
+			Aggiunta del parametro facoltativo per la precisione delle stringhe personalizzate (-1 per impostazione predefinita)</br>
+			6/11/2015</br>
+			Risolta compatibilità del connettore con <a href="https://www.microsoft.com/download/details.aspx?id=40886">driver Microsoft Hive ODBC</a></br>
 			Ulteriore possibilità di cambiare tipo di offerta di output insieme (offerta S3 per impostazione predefinita)</br>
-			Piccole correzioni di bug</br>
 		</td></tr>
 </table>
 
@@ -69,7 +72,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 
 > [AZURE.IMPORTANT]Se si ha **già** un account di archiviazione di Azure e si vuole creare un nuovo contenitore BLOB all'interno di tale account, passare direttamente al [Passaggio 2: creare un cluster HDInsight personalizzato](#ProvisionHDInsight).
 
-Azure HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS nell'archiviazione BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
+Azure HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
 Quando si effettua il provisioning di un cluster HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account è designato come file system predefinito, come in HDFS. Per impostazione predefinita, il provisioning del cluster HDInsight è eseguito nello stesso data center che include l'account di archiviazione specificato.
 
@@ -105,7 +108,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 	<tr><td>Nome del cluster</td><td>Assegnare un nome al cluster.<br/>
 		Il nome DNS deve iniziare e finire con un carattere alfanumerico e può contenere trattini.<br/>
 		Il campo deve essere una stringa contenente da 3 a 63 caratteri.</td></tr>
-	<tr><td>Nome sottoscrizione</td>
+	<tr><td>Subscription Name</td>
 		<td>Se si hanno più sottoscrizioni di Azure, selezionare la sottoscrizione corrispondente all'account di archiviazione nel <strong>passaggio 1</strong>. </td></tr>
 	<tr><td>Tipo di cluster</td>
 		<td>Per il tipo di cluster selezionare <strong>Hadoop</strong>.</td></tr>
@@ -254,7 +257,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		$queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
 		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-	È anche possibile usare l'opzione -File per specificare un file di script HiveQL in HDFS.
+	È anche possibile utilizzare l'opzione -File per specificare un file di script HiveQL in HDFS.
 
 6. Aggiungere il frammento seguente per salvare l'ora di inizio e inviare il processo Hive.
 
@@ -336,7 +339,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $queryString -StatusFolder $statusFolder
 
-	È anche possibile usare l'opzione -File per specificare un file di script Pig in HDFS.
+	È anche possibile utilizzare l'opzione -File per specificare un file di script Pig in HDFS.
 
 6. Aggiungere il frammento seguente per salvare l'ora di inizio e inviare il processo Pig.
 
@@ -467,4 +470,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

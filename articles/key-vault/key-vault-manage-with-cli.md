@@ -1,11 +1,10 @@
 <properties
-	pageTitle="Gestire l&#39;insieme di credenziali delle chiavi tramite l&#39;interfaccia della riga di comando | Panoramica"
-	description="Usare questa esercitazione per automatizzare le attività comuni nell&#39;insieme di credenziali delle chiavi tramite l&#39;interfaccia della riga di comando"
+	pageTitle="Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando | Panoramica"
+	description="Usare questa esercitazione per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando"
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

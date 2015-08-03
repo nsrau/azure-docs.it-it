@@ -76,4 +76,4 @@ Se l'ambiente include server proxy o firewall che limitano l'accesso a Internet,
 
 - [Configurare le impostazioni di proxy e firewall (facoltativo)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

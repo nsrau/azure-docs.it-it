@@ -56,4 +56,4 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

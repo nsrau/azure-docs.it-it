@@ -133,4 +133,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

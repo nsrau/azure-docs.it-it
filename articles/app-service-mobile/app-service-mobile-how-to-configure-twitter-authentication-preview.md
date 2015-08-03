@@ -18,6 +18,8 @@
 
 # Come configurare un'applicazione per usare l'account di accesso di Twitter
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Questo argomento descrive come configurare i servizi app di Azure per usare Twitter come provider di autenticazione.
 
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account Twitter con un indirizzo di posta elettronica verificato. Per creare un nuovo account Twitter, visitare il sito <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
@@ -67,4 +69,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

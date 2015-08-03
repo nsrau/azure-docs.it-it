@@ -40,4 +40,4 @@ In questa sezione il modello del database verrà modificato con l'aggiunta di un
 
 A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

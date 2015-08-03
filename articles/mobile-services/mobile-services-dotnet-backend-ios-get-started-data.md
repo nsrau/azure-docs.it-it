@@ -87,4 +87,4 @@ Scaricare l'app per iOS [GetStartedWithData]. In Xcode aprire il progetto ed esa
 [Guida introduttiva]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

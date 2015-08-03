@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni sui concetti chiave dell&#39;analisi di flusso | Microsoft Azure" 
+	pageTitle="Informazioni sui concetti chiave dell'analisi di flusso | Microsoft Azure" 
 	description="Informazioni sui concetti fondamentali di un processo di analisi di flusso, inclusi input e output supportati, la configurazione del processo e le metriche." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -206,4 +206,4 @@ A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed Ã
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

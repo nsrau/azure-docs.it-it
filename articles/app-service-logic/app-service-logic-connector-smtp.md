@@ -70,16 +70,16 @@ Dopo aver creato il connettore, è possibile usare SMTP Connector come azione pe
 
 È ora possibile configurare SMTP Connector per usarlo nel flusso di lavoro. Selezionare l'azione **Send Email** e configurare le proprietà di input:
 
-	Property | Description
+	Proprietà | Descrizione
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To |Inserire l'indirizzo e-mail dei destinatari. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Inserire l'indirizzo e-mail dei destinatari in copia. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Inserire l'oggetto dell'e-mail.
+	Body | Inserire il testo dell'e-mail.
+	Is HTML | Quando questa proprietà è impostata su true, i contenuti del testo dell'e-mail vengono inviati in formato HTML.
+	Bcc | Inserire l'indirizzo e-mail dei destinatari in copia nascosta. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
+	Attachments | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -91,7 +91,7 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

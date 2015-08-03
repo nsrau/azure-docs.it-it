@@ -498,7 +498,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 	
 	Ciò è tutto quanto è necessario per il funzionamento dell'applicazione.
 
-5. Aprire il file **style.css** nella directory **public\\stylesheets** e sostituire il codice con quanto segue:
+5. Aprire il file **style.css** nella directory **public\stylesheets** e sostituire il codice con quanto segue:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@ Il codice sorgente per l'applicazione di riferimento completa è disponibile per
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

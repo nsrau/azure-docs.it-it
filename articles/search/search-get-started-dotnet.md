@@ -798,4 +798,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

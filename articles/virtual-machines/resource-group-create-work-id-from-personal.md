@@ -140,4 +140,4 @@ Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il co
     data:
     info:    group create command OK
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

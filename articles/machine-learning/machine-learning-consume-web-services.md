@@ -2,6 +2,7 @@
 	pageTitle="Utilizzare un servizio Web di Machine Learning | Microsoft Azure" 
 	description="Dopo la pubblicazione di un servizio di apprendimento automatico, può essere utilizzato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch." 
 	services="machine-learning" 
+	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -433,4 +434,4 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

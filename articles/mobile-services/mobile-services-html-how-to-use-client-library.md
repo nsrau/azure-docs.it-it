@@ -608,4 +608,4 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [Chiamata di un'API personalizzata dal client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

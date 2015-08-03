@@ -74,8 +74,8 @@ I certificati client sono necessari per autenticare le richieste al servizio. Sc
 1.    [Disabilitare l'autenticazione basata su certificati client](Turn#Off#Client#Certificate-Based#Authentication)
 
 ### Rilasciare nuovi certificati autofirmati
-1.    [Creare un'Autorità di certificazione autofirmata](Create#a#Self-Signed#Certification#Authority)
-2.    [Caricare il certificato della CA nel servizio cloud](Upload#CA#Certificate#to#Cloud#Service)
+1.    [Creare un'autorità di certificazione autofirmata](Create#a#Self-Signed#Certification#Authority)
+2.    [Caricare un certificato della CA nel servizio cloud](Upload#CA#Certificate#to#Cloud#Service)
 3.    [Aggiornare il certificato della CA nel file di configurazione del servizio](Update#CA#Certificate#in#Service#Configuration#File)
 4.    [Rilasciare certificati client](Issue#Client#Certificates)
 5.    [Creare file PFX per i certificati client](Create#PFX#files#for#Client#Certificates)
@@ -85,7 +85,7 @@ I certificati client sono necessari per autenticare le richieste al servizio. Sc
 
 ### Usare i certificati client esistenti
 1.    [Trovare la chiave pubblica CA] (Trovare la chiave #Publicca#CA)
-2.    [Caricare il certificato della CA nel servizio cloud](Upload#CA#certificate#to#cloud#service)
+2.    [Caricare un certificato della CA nel servizio cloud](Upload#CA#certificate#to#cloud#service)
 3.    [Aggiornare il certificato della CA nel file di configurazione del servizio](Update#CA#Certificate#in#Service#Configuration#File)
 4.    [Copiare le identificazioni personali del certificato client](Copy#Client#Certificate#Thumbprints)
 5.    [Configurare i client consentiti nel file di configurazione del servizio] (Configurare #Clients #Consentiti #nel #File di configurazione #Servizio)
@@ -471,4 +471,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

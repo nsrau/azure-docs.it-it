@@ -382,4 +382,4 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 - [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

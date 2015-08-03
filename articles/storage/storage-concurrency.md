@@ -285,4 +285,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -25,4 +25,4 @@
 
 8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Vedere [Uscire dalla modalità di manutenzione](#exit-maintenance-mode) per visualizzare istruzioni.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

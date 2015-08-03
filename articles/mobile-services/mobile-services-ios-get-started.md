@@ -89,4 +89,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [Versione per back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

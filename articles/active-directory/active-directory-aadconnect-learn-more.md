@@ -47,4 +47,4 @@ Questo video spiega come estendere facilmente le istanze locali di Active Direct
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

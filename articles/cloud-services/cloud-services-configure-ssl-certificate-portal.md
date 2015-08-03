@@ -46,7 +46,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 -   Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Se, ad esempio, il nome di dominio personalizzato è **contoso.com**, si richiede un certificato dalla CA per ***.contoso.com** o **www.contoso.com**.
 -   Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
-Per eseguire delle prove, è possibile creare e utilizzare un certificato autofirmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**. Per informazioni dettagliate sulla creazione di un certificato autofirmato con Gestione IIS, vedere [Come creare un certificato per un ruolo][].
+Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato autofirmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.
 
 A questo punto, è necessario includere le informazioni sul certificato nei file di definizione e configurazione del servizio.
 
@@ -112,12 +112,12 @@ Nell'esempio precedente viene usato **sha1** come algoritmo di identificazione p
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si utilizza **cspack**, assicurarsi di non utilizzare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
-## Passaggio 3: caricare un certificato
+## Passaggio 3: Caricare un certificato
 
 Connettersi al portale e...
 
 1. Selezionare il servizio cloud in uno dei modi seguenti:
-    - Nel portale, selezionare il **servizio cloud** che sarà presente nell’**area Sfoglia tutto/Recenti**.)
+    - Nel portale selezionare il **servizio cloud** che sarà presente nell'**area Sfoglia tutto/Recenti**.
     
         ![Pubblicare il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
     
@@ -133,13 +133,13 @@ Connettersi al portale e...
 
     ![Fare clic sull'icona dei certificati](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. Fornire il **File**, la **password** e fare clic su **Carica**.
+4. Fornire il **File**, la **Password** e fare clic su **Carica**.
 
 ## Passaggio 4: Connettersi all'istanza del ruolo usando HTTPS
 
 Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
     
-1.  Fare clic sull’**URL del sito** per aprire il Web browser.
+1.  Fare clic sull'**URL del sito** per aprire il Web browser.
 
     ![Fare clic sull'URL del sito](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
@@ -149,18 +149,10 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 
     ![Anteprima del sito](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell’ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente:`https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP]Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`
       
-    >Creare un certificato con il nome comune uguale all'URL basato su GUID (ad esempio **328187776e774ceda8fc57609d404462.cloudapp.net**), utilizzare il portale per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per utilizzare il nuovo pacchetto e il nuovo file CSCFG.
+    >Creare un certificato con il nome comune uguale all'URL basato su GUID (ad esempio **328187776e774ceda8fc57609d404462.cloudapp.net**), usare il portale per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per usare il nuovo pacchetto e il nuovo file CSCFG.
 
-## Passaggi successivi
-
-* [Come associare un certificato a un servizio][]
-* [Come configurare un certificato SSL su un endpoint HTTPS][]
-
-[Come creare un certificato per un ruolo]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Come associare un certificato a un servizio]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Come configurare un certificato SSL su un endpoint HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
 [Azure Portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

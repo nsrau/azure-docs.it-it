@@ -113,4 +113,4 @@ Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR_APPID/n
 [questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

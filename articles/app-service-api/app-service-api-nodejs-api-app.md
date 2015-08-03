@@ -245,4 +245,4 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

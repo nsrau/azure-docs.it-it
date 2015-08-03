@@ -69,4 +69,4 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
 ```
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -170,14 +170,14 @@ Ciò non significa, ad ogni modo, che sia sempre una buona idea (o almeno in gen
 
 L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla rete CDN di Azure, valutando caso per caso nel servizio cloud. A tale scopo, si è già visto come accedere ai singoli file di contenuto dall'endpoint della rete CDN. Più avanti verrà illustrato come gestire una specifica azione del controller attraverso l'endpoint CDN in [Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure](#controller).
 
-È possibile specificare una regola di riscrittura URL più restrittiva per limitare il contenuto accessibile attraverso l'endpoint della rete CDN. Ad esempio, per limitare la riscrittura dell’URL alla cartella *\\Scripts*, modificare la regola di riscrittura precedente come segue: <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
+È possibile specificare una regola di riscrittura URL più restrittiva per limitare il contenuto accessibile attraverso l'endpoint della rete CDN. Ad esempio, per limitare la riscrittura dell’URL alla cartella *\Scripts*, modificare la regola di riscrittura precedente come segue: <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
 
 <a name="caching"></a>
 ## Configurare le opzioni di memorizzazione nella cache dei file statici nel servizio cloud ##
 
 Con l'integrazione della rete CDN di Azure nel servizio cloud è possibile specificare in che modo si vuole memorizzare il contenuto statico nella cache dell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config* dal progetto di ruolo Web (ad esempio, WebRole1) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il codice XML riportato di seguito consente di configurare la cache in modo che scada dopo 3 giorni. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-A questo punto, tutti i file statici nel servizio cloud osserveranno la stessa regola nella cache della rete CDN. Per un controllo più granulare delle impostazioni della cache, aggiungere un file *Web.config* in una cartella e quindi aggiungervi le impostazioni. Ad esempio, aggiungere un file *Web.config* alla cartella *\\Content* e sostituire il contenuto con il seguente linguaggio XML:
+A questo punto, tutti i file statici nel servizio cloud osserveranno la stessa regola nella cache della rete CDN. Per un controllo più granulare delle impostazioni della cache, aggiungere un file *Web.config* in una cartella e quindi aggiungervi le impostazioni. Ad esempio, aggiungere un file *Web.config* alla cartella *\Content* e sostituire il contenuto con il seguente linguaggio XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -188,7 +188,7 @@ A questo punto, tutti i file statici nel servizio cloud osserveranno la stessa r
 	  </system.webServer>
 	</configuration>
 
-Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\\Content* per 15 giorni.
+Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\Content* per 15 giorni.
 
 Per altre informazioni su come configurare l'elemento `<clientCache>`, vedere l'argomento relativo alla [cache client &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -207,7 +207,7 @@ Si usa una semplice azione `Index` che consente ai clienti di specificare i supe
 
 Seguire i passaggi precedenti per configurare questa azione del controller:
 
-1. Nella cartella *\\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Assicurarsi di sostituire la parte evidenziata con il nome della propria rete CDN.  
+1. Nella cartella *\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Assicurarsi di sostituire la parte evidenziata con il nome della propria rete CDN.  
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -314,7 +314,7 @@ namespace WebRole1.Controllers
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. Aprire il nuovo file *Views\\MemeGenerator\\Index.cshtml* e sostituire il contenuto con il semplice HTML seguente per inviare i superlativi:
+4. Aprire il nuovo file *Views\MemeGenerator\Index.cshtml* e sostituire il contenuto con il semplice HTML seguente per inviare i superlativi:
 
 		<h2>Meme Generator</h2>
 		
@@ -371,7 +371,7 @@ Gli script e i fogli di stile CSS cambiano in maniera non frequente e sono i pri
 -	Meccanismo di fallback in caso di errore dell'endpoint della rete CDN
 -	Riduzione delle modifiche del codice
 
-Nel progetto **WebRole1** creato nella sezione [Distribuire un servizio cloud con un endpoint della rete CDN](#deploy), aprire *App_Start\\BundleConfig.cs* e osservare le chiamate del metodo `bundles.Add()`.
+Nel progetto **WebRole1** creato nella sezione [Distribuire un servizio cloud con un endpoint della rete CDN](#deploy), aprire *App_Start\BundleConfig.cs* e osservare le chiamate del metodo `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -380,7 +380,7 @@ Nel progetto **WebRole1** creato nella sezione [Distribuire un servizio cloud co
 		...
     }
 
-La prima istruzione `bundles.Add()` aggiunge un'aggregazione di script alla directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\\Shared_Layout.cshtml* per vedere come viene eseguito il rendering del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
+La prima istruzione `bundles.Add()` aggiunge un'aggregazione di script alla directory virtuale `~/bundles/jquery`. Quindi, aprire *Views\Shared_Layout.cshtml* per vedere come viene eseguito il rendering del bundle di script. Dovrebbe essere possibile trovare la riga di codice Razor seguente:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -396,7 +396,7 @@ Ciò consente di eseguire il debug del codice JavaScript nell'ambiente di svilup
 
 Attenersi alla procedura seguente per integrare la creazione di bundle e la minimizzazione ASP.NET con l'endpoint della rete CDN.
 
-1. Tornando a *App_Start\\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A questo scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
+1. Tornando a *App_Start\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A questo scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -438,7 +438,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	L'origine per questo URL della rete CDN è `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale del bundle di script nel servizio cloud.
 	-	Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
-	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto di ruolo Web. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
+	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\AssemblyInfo.cs* nel progetto di ruolo Web. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -490,7 +490,7 @@ Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qua
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
 
-1. Nel progetto di ruolo Web, aprire *App_Start\\BundleConfig.cs*, a cui è stato aggiunto un URL della rete CDN a ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
+1. Nel progetto di ruolo Web, aprire *App_Start\BundleConfig.cs*, a cui è stato aggiunto un URL della rete CDN a ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -535,7 +535,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. Per utilizzare la soluzione alternativa per CSS, creare un nuovo file .cs nella cartella *App_Start* del progetto di ruolo Web, denominato *StyleBundleExtensions.cs* e sostituirne il contenuto con il codice [ di GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. Nel file *App_Start\\StyleFundleExtensions.cs*, rinominare lo spazio dei nomi con il nome del proprio ruolo Web (ad esempio **WebRole1**).
+4. Nel file *App_Start\StyleFundleExtensions.cs*, rinominare lo spazio dei nomi con il nome del proprio ruolo Web (ad esempio **WebRole1**).
 
 3. Tornare a `App_Start\BundleConfig.cs` e modificare l’ultima istruzione `bundles.Add` con il seguente codice evidenziato:
 	<pre class="prettyprint">
@@ -596,4 +596,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -94,4 +94,4 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 [9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

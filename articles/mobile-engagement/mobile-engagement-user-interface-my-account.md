@@ -145,4 +145,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

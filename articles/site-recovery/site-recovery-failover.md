@@ -279,4 +279,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

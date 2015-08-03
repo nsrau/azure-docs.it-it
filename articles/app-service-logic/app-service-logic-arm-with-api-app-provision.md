@@ -133,7 +133,7 @@ Crea l'app Web per ospitare il gateway.
                     },
                     {
                         "name": "EmaStorage",
-                        "value": "D:\\home\\data\\apiapps"
+                        "value": "D:\home\data\apiapps"
                     },
                     {
                         "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -394,4 +394,4 @@ Si noti che l'app per la logica usa il token per chiamare il gateway.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

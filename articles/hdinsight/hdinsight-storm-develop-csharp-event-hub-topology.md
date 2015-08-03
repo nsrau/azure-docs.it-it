@@ -532,7 +532,7 @@ EventHubSpout controlla periodicamente il proprio stato nel nodo Zookeeper, oper
 
 * La topologia viene arrestata e riavviata **con lo stesso nome**.
 
-È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
+È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
 
 >[AZURE.NOTE]Il numero di versione indicato nel percorso può essere diverso, poiché la versione di Storm installata nel cluster può cambiare.
 
@@ -557,4 +557,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -95,4 +95,4 @@ Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l
 [Hosting di un'applicazione multi-tenant in Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -31,29 +31,7 @@ Quando si creano nuove reti virtuali, usare *Regione*, disponibile come opzione 
 
 ### Informazioni sulle VNet attualmente associate a gruppi di affinità
 
-Le VNet attualmente associate a gruppi di affinità saranno abilitate per la migrazione a reti virtuali regionali nel prossimo futuro. Questa pagina verrà aggiornata per segnalare quando il processo è in corso e quando eseguire i passaggi successivi per completare la migrazione.
-
-Si noti che i gruppi di affinità continueranno a esistere, anche se non è più consigliabile usarli per le VNet. È pertanto possibile scegliere di non eseguire la migrazione della VNet o di ritardare la migrazione. La VNet funzionerà comunque, ma si rischia di incontrare limitazioni e non si avrà la possibilità di sfruttare le numerose nuove funzionalità che richiedono una rete virtuale regionale. È quindi consigliabile eseguire la migrazione da una VNet con gruppi di affinità a una VNet regionale quando sarà abilitata.
-
-### Migrazione anticipata
-
-La migrazione anticipata è disponibile per i clienti che dispongono di un contratto di supporto. Per scegliere la migrazione anticipata, seguire questa procedura:
-
-1. Nel **portale di gestione**, nell'angolo superiore destro della pagina della VNet, fare clic su **Contatta il supporto Microsoft**.
-
-	![Richiesta di migrazione a VNet regionali](./media/virtual-networks-migrate-to-regional-vnet/IC790447.png)
-
-1. Nella pagina **Contatta il supporto Microsoft** selezionare quanto segue:
-
-	- **Sottoscrizione:** se si dispone di più sottoscrizioni, selezionare quella corrispondente alla VNet di cui si intende eseguire la migrazione.
-
-	- **Tipo di supporto:** *Tecnico*.
-
-	- **Tipo di prodotto:** *Reti virtuali*.
-
-	- **Tipo di problema:** *migrazione di una rete virtuale a una rete virtuale regionale*.
-
-1. Prerequisito: la VNet deve già essere abilitata per la migrazione per eseguire i passaggi seguenti. Si saprà che la VNet è stata abilitata quando si riceverà la relativa conferma (in caso di richiesta di migrazione anticipata) o quando questa pagina verrà aggiornata per indicare che tutte le VNet sono abilitate per la migrazione.
+Le VNet attualmente associate a gruppi di affinità saranno abilitate per la migrazione a reti virtuali regionali nel prossimo futuro. Per eseguire la migrazione a una rete virtuale di area, attenersi alla seguente procedura:
 
 1. Esportare il file di configurazione della rete. È possibile usare PowerShell o il portale di gestione. Per istruzioni sull'uso del portale di gestione, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-networks-using-network-configuration-file/).
 
@@ -63,9 +41,9 @@ La migrazione anticipata è disponibile per i clienti che dispongono di un contr
 	
 	Modificare le righe seguenti nel file di configurazione della rete, sostituendo i valori esistenti con i propri:
 
-	**Valore precedente:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Valore precedente:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nuovo valore:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nuovo valore:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Salvare le modifiche e [importare](../virtual-networks-using-network-configuration-file/) la configurazione di rete in Azure.
 
@@ -86,4 +64,4 @@ Le macchine virtuali attualmente incluse in un gruppo di affinità non devono es
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

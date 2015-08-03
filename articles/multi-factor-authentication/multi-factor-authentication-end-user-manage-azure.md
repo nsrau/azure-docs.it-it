@@ -25,10 +25,10 @@ Se si utilizza l'autenticazione a più fattori con Azure si potranno gestire le 
 <ol>
 <li>Accedere al Portale di Azure. <li>Nella parte superiore del Portale di Azure, fare clic sul proprio nome utente. Viene visualizzata una casella di riepilogo a discesa. <li>Dalla casella di riepilogo a discesa, selezionare Verifica aggiuntiva di sicurezza. Verrà aperta la sezione verifica aggiuntiva di sicurezza.
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-manage-azure/changesettings.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-manage-azure/changesettings.png)</center>
 
 <li>Ora dovrebbe comparire la pagina di registrazione da cui è possibile modificare le impostazioni.</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!------HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

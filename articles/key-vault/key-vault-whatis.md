@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Cos&#39;è l&#39;insieme di credenziali delle chiavi di Azure? | Panoramica" 
-	description="L&#39;insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l&#39;insieme di credenziali delle chiavi di Azure i clienti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell&#39;account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM)." 
+	pageTitle="Cos'è l'insieme di credenziali delle chiavi di Azure? | Panoramica" 
+	description="L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali delle chiavi di Azure i clienti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM)." 
 	services="key-vault" 
 	documentationCenter="" 
 	authors="cabailey" 
@@ -68,4 +68,4 @@ Per altre informazioni sull'uso di chiavi e segreti con l'insieme di credenziali
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

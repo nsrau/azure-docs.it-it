@@ -124,7 +124,7 @@ Il cmdlet per ottenere l'integrità del cluster è Get-ServiceFabricClusterHealt
 I cmdlet seguenti ottengono l'integrità del cluster con criteri di integrità predefiniti. Lo stato di integrità aggregato è Avviso, poiché lo stato dell’applicazione fabric:/WordCount è Avviso. È opportuno notare come le valutazioni non integre mostrino con i dettagli la condizione che ha attivato lo stato di integrità aggregato.
 
 ```xml
-PS C:> Get-ServiceFabricClusterHealth
+PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
@@ -242,7 +242,7 @@ NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescr
 Il cmdlet per ottenere l'integrità del nodo è Get-ServiceFabricNodeHealth. Innanzitutto, effettuare la connessione al cluster con il cmdlet Connect-ServiceFabricCluster. Il cmdlet seguente consente di ottenere l'integrità del nodo con criteri di integrità predefiniti.
 
 ```powershell
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 
 NodeName              : Node.1
 AggregatedHealthState : Ok
@@ -263,7 +263,7 @@ HealthEvents          :
 Il cmdlet seguente consente di ottenere lo stato di tutti i nodi del cluster.
 
 ```powershell
-PS C:> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
+PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 
 NodeName AggregatedHealthState
 -------- ---------------------
@@ -390,7 +390,7 @@ HealthEvents                    :
 Il seguente Powershell passa i criteri personalizzati e filtra elementi figlio ed eventi.
 
 ```powershell
-PS C:> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
 Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
 
 ApplicationName                 : fabric:/WordCount
@@ -448,7 +448,7 @@ Il cmdlet per ottenere l'integrità del servizio è Get-ServiceFabricServiceHeal
 Il cmdlet seguente consente di ottenere l'integrità del servizio utilizzando i criteri di integrità predefiniti.
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
 
 
 ServiceName           : fabric:/WordCount/WordCount.Service
@@ -500,7 +500,7 @@ Il cmdlet per ottenere lo stato della partizione è Get-ServiceFabricPartitionHe
 Il cmdlet seguente consente di ottenere lo stato di tutte le partizioni del servizio di conteggio delle parole.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 AggregatedHealthState : Warning
@@ -559,7 +559,7 @@ Il cmdlet per ottenere l'integrità della replica è Get-ServiceFabricReplicaHea
 Il cmdlet seguente consente di ottenere l’integrità della replica primaria per tutte le partizioni del servizio.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 ReplicaId             : 130740415502123433
@@ -601,7 +601,7 @@ Il cmdlet per ottenere lo stato dell’applicazione distribuita è Get-ServiceFa
 Il cmdlet seguente ottiene lo stato dell’applicazione fabric:/WordCount distribuita nel nodo Node.1.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
 AggregatedHealthState              : Ok
@@ -651,7 +651,7 @@ Il cmdlet per ottenere l'integrità del pacchetto di servizi distribuito è Get-
 Il cmdlet seguente ottiene lo stato del pacchetto di servizi WordCount.Service dell’applicazione fabric:/WordCount distribuita nel nodo Node.1. L'entità dispone di report System.Hosting per l’attivazione corretta del pacchetto di servizi e del punto di immissione e la registrazione corretta del tipo di servizio.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
 
 ApplicationName       : fabric:/WordCount
 ServiceManifestName   : WordCount.Service
@@ -738,7 +738,7 @@ var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Wh
 Il cmdlet seguente ottiene i dettagli di applicazione per l’applicazione fabric:/WordCount. Si noti che lo stato di integrità è Avviso.
 
 ```powershell
-PS C:> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
@@ -751,7 +751,7 @@ ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCou
 Il seguente cmdlet ottiene i servizi con lo stato di integrità Avviso.
 
 ```powershell
-PS C:> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
+PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
 ServiceName            : fabric:/WordCount/WordCount.Service
 ServiceKind            : Stateful
@@ -771,7 +771,7 @@ Durante l’aggiornamento del **cluster**, è possibile ottenere lo stato di agg
 Di seguito viene illustrato lo stato di aggiornamento dell’applicazione per un’applicazione fabric:/WordCount modificata. Tramite un watchdog è stato rilevato un errore in una delle repliche dell’applicazione. Viene eseguito il rollback dell’aggiornamento poiché le verifiche dell’integrità non sono rispettate.
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 
 ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
@@ -836,4 +836,4 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

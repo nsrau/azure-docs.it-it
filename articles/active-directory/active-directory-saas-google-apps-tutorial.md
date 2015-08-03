@@ -250,4 +250,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di Google Apps ad Az
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

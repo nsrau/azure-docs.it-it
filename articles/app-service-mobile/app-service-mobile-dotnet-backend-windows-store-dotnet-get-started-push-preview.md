@@ -37,6 +37,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un [account di Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) attivo.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
+##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ##<a id="register"></a>Registrare l'app per le notifiche push
 
 Per inviare notifiche push ad app di Windows universale con il servizio app di Azure, è necessario inviare l'app a Windows Store, quindi configurare le credenziali del servizio di notifica push dell'app mobile per l'integrazione con Servizi notifica push Windows.
@@ -191,4 +195,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

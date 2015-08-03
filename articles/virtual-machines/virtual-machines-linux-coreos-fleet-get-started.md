@@ -172,4 +172,4 @@ Vedere anche [Computing Linux e open source in Azure] per ulteriori informazioni
 [Computing Linux e open source in Azure]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

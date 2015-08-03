@@ -337,4 +337,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

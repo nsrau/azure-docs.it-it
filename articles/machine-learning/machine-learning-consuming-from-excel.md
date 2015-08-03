@@ -70,4 +70,4 @@ Una chiamata RRS viene effettuata nei due casi seguenti:
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

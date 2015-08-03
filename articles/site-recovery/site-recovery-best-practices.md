@@ -189,4 +189,4 @@ Dopo aver esaminato queste procedure consigliate, è possibile avviare la distri
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -120,7 +120,7 @@ Per caricare un file in un BLOB, ottenere un riferimento a un contenitore e usar
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
         // Define the path to a local file.
-        final String filePath = "C:\\myimages\\myimage.jpg";
+        final String filePath = "C:\myimages\myimage.jpg";
 
     	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
     	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
@@ -186,7 +186,7 @@ Per scaricare i BLOB, eseguire la stessa procedura illustrata per caricarli al f
 	       if (blobItem instanceof CloudBlob) {
 	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
-    	        blob.download(new FileOutputStream("C:\\mydownloads\" + blob.getName()));
+    	        blob.download(new FileOutputStream("C:\mydownloads\" + blob.getName()));
     	    }
     	}
     }
@@ -265,4 +265,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

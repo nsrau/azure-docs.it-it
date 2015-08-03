@@ -109,19 +109,11 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
   1.	Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
   2.	Descrizione: campo facoltativo.
   3.	Tipo: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
-  4.	Tipo di input: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono selezionabili 4 tipi di dati: 
-    i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio")  
-    ii.	Booleano: può essere true o false  
-    iii.	Numero: può essere qualsiasi numero decimale  
-    iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM  
-    v.	Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. L'utente può immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando le parole chiave "da" e "a". L'utente può, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per il numero.
+  4.	Tipo di input: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono selezionabili 4 tipi di dati: i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") ii. Booleano: può essere true o false iii. Numero: può essere qualsiasi numero decimale iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM v. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. L'utente può immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando le parole chiave "da" e "a". L'utente può, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per il numero.
 
 ![Alt text][5]
 ##Definizione XML
-Se si sceglie XML come tipo di vocabolario, è necessario specificare gli input seguenti  
-  a.	Schema: facendo clic su questa opzione si aprirà un nuovo pannello che consente all'utente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo.  
-  b.	XPATH: questo input si sblocca solo dopo aver scelto uno schema nel passaggio precedente. Facendo clic su questa opzione viene visualizzato lo schema che è stato selezionato e l'utente potrà selezionare il nodo per il quale deve essere creata una definizione del vocabolario.  
-  c.	FATTI: questo input identifica l'oggetto dati da inserire nel motore delle regole per l'elaborazione. Si tratta di una proprietà avanzata e per impostazione predefinita è impostata sull'elemento padre dell'elemento XPATH selezionato. FATTI diventa particolarmente importante per gli scenari di concatenamento e raccolta.
+Se si sceglie XML come tipo di vocabolario, è necessario specificare gli input seguenti a. Schema: facendo clic su questa opzione si aprirà un nuovo pannello che consente all'utente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo. b. XPATH: questo input si sblocca solo dopo aver scelto uno schema nel passaggio precedente. Facendo clic su questa opzione viene visualizzato lo schema che è stato selezionato e l'utente potrà selezionare il nodo per il quale deve essere creata una definizione del vocabolario. c. FATTI: questo input identifica l'oggetto dati da inserire nel motore delle regole per l'elaborazione. Si tratta di una proprietà avanzata e per impostazione predefinita è impostata sull'elemento padre dell'elemento XPATH selezionato. FATTI diventa particolarmente importante per gli scenari di concatenamento e raccolta.
 
 ![Alt text][6]
 
@@ -131,47 +123,17 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 ![Alt text][7]
 
 ##Creazione di criteri
-Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
-	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2.	Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'utente può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB. Più criteri possono risiedere in una singola app per le API delle regole.  
-	3.	Facendo clic sul criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
-	![Alt text][8] 
-	4.	Fare clic su "Aggiungi nuovo" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
+Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure. 1. Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri. 2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'utente può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB. Più criteri possono risiedere in una singola app per le API delle regole. 3. Facendo clic sul criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. ![Alt text][8] 4. Fare clic su "Aggiungi nuovo" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
-Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate: 
-1. 	And: operatore condizionale  
-2. 	Or – operatore condizionale  
-3. 	does_not_exist  
-4. 	exists  
-5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
-14. mod  
-15. true
+Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate: 1. And: operatore condizionale 2. Or – operatore condizionale 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
 
-La casella Azione(Then) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono le parole chiave supportate:  
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+La casella Azione(Then) può contenere più istruzioni, una per riga, per creare azioni da eseguire. Di seguito sono le parole chiave supportate: 1. equals 2. false 3. true 4. halt 5. mod 6. null 7. update
 
-Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta l'utente a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
-![Alt text][9]
+Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta l'utente a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-BizTalk Rules supporta il concatenamento diretto esplicito. Ciò significa che se gli utenti desiderano rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
-   1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
-   2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
+BizTalk Rules supporta il concatenamento diretto esplicito. Ciò significa che se gli utenti desiderano rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 1. update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione. 2. Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
 ##Abilitazione\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
@@ -199,20 +161,20 @@ Di seguito è riportato un esempio di come è possibile usare questa API in C#
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -237,7 +199,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-
- 
-
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

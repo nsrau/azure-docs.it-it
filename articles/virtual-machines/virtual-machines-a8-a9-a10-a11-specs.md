@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/08/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo
@@ -91,7 +91,7 @@ All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 
 
 >[AZURE.NOTE]Attualmente i driver di Azure Linux RDMA non sono disponibili per l'installazione tramite estensioni del driver. Sono disponibili solo utilizzando l'immagine SLES 12 abilitata per RDMA da Azure Marketplace.
 
-Vedere la tabella seguente per i prerequisiti per applicazioni MPI Linux per l'accesso alla rete RDMA in cluster di nodi di calcolo (IaaS).
+Vedere la tabella seguente per i prerequisiti per applicazioni MPI Linux per l'accesso alla rete RDMA in cluster di nodi di calcolo (IaaS). Vedere[Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md)per la procedura di configurazione e le opzioni di distribuzione.
 
 Prerequisito | Macchine virtuali (IaaS)
 ------------ | -------------
@@ -100,7 +100,7 @@ MPI | Intel MPI Library 5.0
 
 ### Accedere da istanze A8 e A9 di Windows
 
-All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure quando eseguono applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze. L'interfaccia Network Direct attualmente è supportata solo dall'implementazione Microsoft di MS-MPI per Windows. Le istanze A10 e A11 non includono l'accesso alla rete RDMA.
+All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure quando eseguono applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze. Le istanze A10 e A11 non includono l'accesso alla rete RDMA.
 
 Vedere la tabella seguente per i prerequisiti per applicazioni MPI per l'accesso alla rete RDMA in distribuzioni di servizi cloud (PaaS) o di macchine virtuali (IaaS) delle istanze A8 o A9. Per informazioni sugli scenari di distribuzione tipici, vedere [Istanze con utilizzo intensivo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
@@ -108,7 +108,7 @@ Vedere la tabella seguente per i prerequisiti per applicazioni MPI per l'accesso
 Prerequisito | Macchine virtuali (IaaS) | Servizi cloud (PaaS)
 ---------- | ------------ | -------------
 Sistema operativo | Macchine virtuali Windows Server 2012 R2 o Windows Server 2012 | Windows Server 2012 R2, Windows Server 2012 o la famiglia del sistema operativo guest Windows Server 2008 R2.
-MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC Pack 2012 R2 o versioni successive | MS-MPI 2012 R2 o versioni successive, installato mediante HPC Pack 2012 R2 o versioni successive
+MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 o versioni successive, istallato tramite HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5.0
 
 
 >[AZURE.NOTE]Per gli scenari IaaS, è necessario aggiungere alle macchine virtuali l'[estensione HpcVmDrivers](https://msdn.microsoft.com/library/azure/dn690126.aspx) per installare i driver di Windows necessari per la connettività RDMA.
@@ -122,10 +122,12 @@ MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC P
 
 * Le istanze A8, A9, A10 e A11 attualmente non possono essere distribuite tramite un servizio cloud che fa parte di un gruppo di affinità esistente. Analogamente, un gruppo di affinità con un servizio cloud contenente istanze A8, A9, A10 e A11 non può essere usato per distribuzioni di istanze di altre dimensioni. Se si tentano queste distribuzioni, verrà visualizzato un messaggio di errore simile a `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
 
+* La rete RDMA in Azure riserva lo spazio indirizzo 172.16.0.0/12. Se si prevede di eseguire applicazioni MPI in istanze A8 e A9 distribuite in una rete virtuale di Azure, assicurarsi che lo spazio degli indirizzi di rete virtuale non si sovrapponga alla rete RDMA.
 
 ## Passaggi successivi
 
 * Per informazioni dettagliate sulla disponibilità e i prezzi delle istanze A8, A9, A10 e A11, vedere [Macchine virtuali - Prezzi](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Servizi cloud - Prezzi](http://azure.microsoft.com/pricing/details/cloud-services/).
-* Per le informazioni di base sulla distribuzione e l'uso delle istanze A8 e A9 con HPC Pack in Windows, vedere [Istanze con utilizzo intensivo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Eseguire applicazioni MPI nelle istanze con utilizzo intensivo di calcolo A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* Per distribuire e configurare un cluster Linux con istanze A8 e A9 per accedere alla rete RDMA di Azure, vedere[Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
+* Per informazioni di base sulla distribuzione e l'uso delle istanze A8 e A9 con HPC Pack in Windows, vedere [Istanze con utilizzo intensivo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Eseguire applicazioni MPI nelle istanze con utilizzo intensivo di calcolo A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

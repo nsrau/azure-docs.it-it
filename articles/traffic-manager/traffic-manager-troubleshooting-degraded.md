@@ -79,4 +79,4 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

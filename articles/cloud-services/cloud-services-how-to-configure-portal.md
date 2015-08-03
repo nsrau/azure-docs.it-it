@@ -71,7 +71,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
     
     4. Fare clic sul pulsante **Download**.
 
-        ![Scaricare](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+        ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 
 2. Dopo aver aggiornato il file di configurazione del servizio, caricare e applicare gli aggiornamenti della configurazione:
 
@@ -89,4 +89,4 @@ L’accesso remoto non può essere configurato tramite il **portale di anteprima
 			
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

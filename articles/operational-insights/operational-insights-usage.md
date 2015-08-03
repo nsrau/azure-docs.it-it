@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Gestire i dati relativi ai server e all'utilizzo
@@ -57,4 +57,6 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 3. Se un gruppo di gestione non invia dati, è possibile fare clic su **Troubleshoot** per ottenere informazioni dettagliate sulla risoluzione dei problemi. Se non si vuole più mantenere un gruppo di gestione e tutti gli agenti che vi fanno riferimento, fare clic su **Remove**.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

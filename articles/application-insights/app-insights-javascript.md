@@ -44,7 +44,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
-* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\_Layout.cshtml
+* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
@@ -181,4 +181,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

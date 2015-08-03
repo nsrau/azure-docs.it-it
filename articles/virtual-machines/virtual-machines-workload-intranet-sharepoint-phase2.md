@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio" 
-	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si creano e si configurano i controller di dominio di Active Directory." 
+<properties
+	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio"
+	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si creano e si configurano i controller di dominio di Active Directory."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio
 
-In questa fase di distribuzione di una farm di SharePoint 2013 con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi infrastruttura di Azure, è necessario configurare due controller di dominio nella rete virtuale di Azure in modo che le richieste Web dei client per le risorse farm di SharePoint possano essere autenticate nella rete virtuale di Azure anziché inviare il traffico di autenticazione attraverso la connessione VPN o ExpressRoute alla rete locale.
+In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono configurati due controller di dominio nella rete virtuale di Azure in Gestione dei servizi. Le richieste Web dei client per le risorse della farm di SharePoint possono quindi essere autenticate nella rete virtuale di Azure, anziché inviare tale traffico di autenticazione attraverso la connessione VPN o Azure ExpressRoute alla rete locale.
 
 È necessario completare questa fase prima di passare alla [Fase 3](virtual-machines-workload-intranet-sharepoint-phase3.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
@@ -26,8 +27,8 @@ In questa fase di distribuzione di una farm di SharePoint 2013 con i gruppi di d
 
 È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
 
-Item | Nome macchina virtuale | Immagine della raccolta | Dimensione minima 
---- | --- | --- | --- 
+Item | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
+--- | --- | --- | ---
 1. | ______________ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | A2 (Media)
 2. | ______________ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | A2 (Media)
 3. | ______________ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
@@ -40,9 +41,9 @@ Item | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 
 **Tabella M – Macchine virtuali per la farm intranet di SharePoint 2013 in Azure**
 
-Per l’elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Per un elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
 
-Utilizzare il seguente blocco di comandi di PowerShell per creare le macchine virtuali per i tre controller di dominio. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo set di comandi di PowerShell vengono utilizzati i valori delle tabelle seguenti:
+Utilizzare il seguente blocco di comandi di Azure PowerShell per creare le macchine virtuali per i due controller di dominio. Specificare i valori per le variabili, rimuovendo i caratteri < and >. In questo set di comandi di Azure PowerShell vengono utilizzati i valori seguenti:
 
 - Tabella M, per le macchine virtuali
 - Tabella V, per le impostazioni di rete virtuale
@@ -60,60 +61,59 @@ Una volta specificati tutti i valori appropriati, eseguire il blocco risultante 
 	$availSet="<Table A – Item 1 – Availability set name column>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-	
+
 	$diskSize=<size of the additional data disk in GB>
 	$diskLabel="<the label on the disk>"
 	$lun=<Logical Unit Number (LUN) of the disk>
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-	
+
 	$subnetName="<Table S – Item 1 – Subnet name column>"
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 6 – Value column>
-	
+
 	$serviceName="<Table C – Item 1 – Cloud service name column>"
 	$vnetName="<Table V – Item 1 – Value column>"
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the second domain controller
 	$vmName="<Table M – Item 2 - Virtual machine name column>"
 	$vmSize="<Table M – Item 2 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
+
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
-	
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+
 	$diskSize=<size of the additional data disk in GB>
 	$diskLabel="<the label on the disk>"
 	$lun=<Logical Unit Number (LUN) of the disk>
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 7 – Value column>
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
 ## Configurare il primo controller di dominio
 
 Accedere al primo computer controller di dominio utilizzando le credenziali dell'account dell'amministratore locale.
 
-### <a id="logon"></a>Accesso a una macchina virtuale con una connessione Desktop remoto.
+### <a id="logon"></a>Per accedere a una macchina virtuale utilizzando una connessione Desktop remoto
 
-1.	Nel portale di gestione di Azure fare clic su **Macchine virtuali** nel pannello di Azure.
+1.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**.
 2.	Per connettersi a una macchina virtuale, fare clic su **Esecuzione** nella colonna **Stato** accanto al relativo nome.
 3.	In fondo alla pagina, nella barra dei comandi, fare clic su **Connetti**.
-4.	Il portale di gestione informa l'utente che è in corso di recupero del file con estensione rdp. Fare clic su **OK**.
+4.	Nel portale viene indicato che il file .rdp viene recuperato. Fare clic su **OK**.
 5.	Viene visualizzata la finestra di dialogo del browser in cui viene chiesto se si desidera aprire o salvare ComputerName.rdp da manage.windowsazure.com. Fare clic su **Apri**.
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
-8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il seguente formato: 
-- *NomeComputer*\\*NomeAccountAmministratopreLocale*
+8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il formato seguente: *NomeComputer*\*NomeAccountAmministratoreLocale*
 9.	In **Password**, digitare la password per l'account amministratore locale.
 10.	Fare clic su **OK**.
 11.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Sì**. Il desktop della nuova macchina virtuale viene visualizzato in una finestra della sessione Desktop remoto.
@@ -125,20 +125,20 @@ Successivamente, è necessario aggiungere il disco dati aggiuntivi al primo cont
 1.	Nel riquadro sinistro di Server Manager fare clic su **Servizi file e archiviazione**, quindi scegliere **Dischi**.
 2.	Nel riquadro del contenuto, nel gruppo **Dischi**, fare clic sul disco **2** (con la **Partizione** impostata su **Sconosciuto**).
 3.	Fare clic su **Attività**, quindi su **Nuovo volume**.
-4.	Nella pagina Operazioni preliminari della creazione guidata nuovo volume fare clic su **Avanti**.
-5.	Nella pagina Selezionare il server e il disco fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su OK.
-6.	Nella pagina Specifica dimensioni del volume fare clic su **Avanti**.
-7.	Nella pagina Assegnare a una lettera di unità o cartella fare clic su **Avanti**.
-8.	Nella pagina Selezionare le impostazioni del file system fare clic su **Avanti**.
-9.	Nella pagina Conferma selezioni, fare clic su **Crea**.
-10.	Al termine, fare clic su **Chiudi**.
+4.	Nella pagina **Operazioni preliminari** della procedura guidata Nuovo volume, fare clic su **Avanti**.
+5.	Nella pagina **Selezionare il server e il disco**, fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su **OK**.
+6.	Nella pagina **Specifica dimensioni del volume**, fare clic su **Avanti**.
+7.	Nella pagina **Assegnare a una lettera di unità o cartella**, fare clic su **Avanti**.
+8.	Nella pagina **Selezionare le impostazioni del file system**, fare clic su **Avanti**.
+9.	Nella pagina **Conferma selezioni**, fare clic su **Crea**.
+10.	Una volta completata l'inizializzazione, fare clic su **Chiudi**.
 
 Successivamente, verificare la connettività del primo controller di dominio ai percorsi di rete dell'organizzazione.
 
 ### <a id="testconn"></a>Per testare la connettività
 
 1.	Dal desktop, aprire un prompt dei comandi di Windows PowerShell.
-2.	Al prompt dei comandi di Windows PowerShell, utilizzare il comando **ping** per eseguire il ping dei nomi e degli indirizzi IP delle risorse nella rete dell'organizzazione.
+2.	Utilizzare il comando **ping** per eseguire il ping dei nomi e degli indirizzi IP delle risorse nella rete dell'organizzazione.
 
 Questa procedura garantisce il corretto funzionamento della risoluzione dei nomi DNS (ovvero, garantisce che la macchina virtuale sia configurata correttamente con i server DNS locali) e che i pacchetti possano essere inviati da e verso la rete virtuale cross-premise.
 
@@ -173,64 +173,64 @@ La farm di SharePoint richiederà gli account utente seguenti:
 - sp_farm: un account utente per la gestione di farm di SharePoint.
 - sp_farm_db: un account utente con diritti sysadmin sulle istanze di SQL Server.
 - sp_install: un account utente che dispone dei diritti di amministrazione di dominio necessari per l'installazione di ruoli e funzionalità.
-- sqlservice: un account utente che può essere utilizzato per eseguire le istanze SQL.
+- sqlservice: un account utente che può essere utilizzato per eseguire le istanze SQL Server.
 
 Successivamente, accedere a qualsiasi computer con un account di amministratore di dominio per il dominio di cui i controller di dominio sono membri, aprire un prompt dei comandi di Windows PowerShell a livello di amministratore ed eseguire questi comandi *uno alla volta*:
 
 	New-ADUser -SamAccountName sp_farm -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_farm" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	
+
 	New-ADUser -SamAccountName sp_farm_db -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_farm_db" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	
+
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	
+
 	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 Per ogni comando, verrà richiesto di immettere una password. Annotare questi nomi account e password e conservarli in luogo sicuro.
 
-Successivamente, eseguire la procedura seguente per aggiungere ulteriori proprietà account per i nuovi account utente.
+Successivamente, eseguire i passaggi seguente per aggiungere ulteriori proprietà account per i nuovi account utente.
 
-1.	Dalla schermata Start immettere **Utenti di Active Directory**, quindi fare clic su **Utenti e computer di Active Directory**. 
-2.	Nel riquadro dell'albero, aprire il dominio e fare clic su **Utenti**. 
+1.	Dalla schermata Start immettere **Utenti di Active Directory**, quindi fare clic su **Utenti e computer di Active Directory**.
+2.	Nel riquadro dell'albero, aprire il dominio e fare clic su **Utenti**.
 3.	Nel riquadro del contenuto, fare clic con il pulsante destro del mouse su **sp_install**, quindi fare clic su **Aggiungi a un gruppo**.
 4.	Nella finestra di dialogo **Seleziona gruppi**, digitare **domain admins**, quindi fare cli due volte su **OK**.
 5.	Nella finestra di dialogo, fare clic su **Visualizza e seleziona funzionalità avanzate**. L'opzione consente di visualizzare tutti i contenitori nascosti e le schede nascoste nelle finestre delle proprietà degli oggetti Active Directory.
 6.	Fare clic con il pulsante destro del mouse sul nome di dominio e fare clic su **Proprietà**.
 7.	Nella finestra di dialogo **Proprietà**, fare clic sulla scheda **Protezione**, quindi fare clic sul pulsante **Avanzate**.
 8.	Nella finestra **Impostazioni di protezione avanzate per <YourDomain>**, fare clic su **Aggiungi**.
-9.	Nella finestra **Voce di autorizzazione per <YourDomain>**, fare clic su **Selezionare un principal**.
-10.	Nella casella di testo digitare **<YourDomain>\\sp_install**, quindi fare clic su **OK**.
+9.	Nella finestra **Voce di autorizzazione per <YourDomain>**, fare clic su **Seleziona un'entità**.
+10.	Nella casella di testo digitare **<YourDomain>\sp_install**, quindi fare clic su **OK**.
 11.	Selezionare **Consenti** per **Creare oggetti computer**, quindi fare clic su **OK** tre volte.
 
 Quindi, aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da utilizzare come server DNS. Si noti che questa procedura utilizza i valori di tabella V (per le impostazioni di rete virtuale).
 
-1.	Nel riquadro sinistro del portale di gestione di Azure, fare clic su **Reti**, quindi fare clic sul nome della rete virtuale (tabella V Elemento 1 – Colonna Valore).
+1.	Nel riquadro sinistro del portale di Azure, fare clic su **Reti**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
 2.	Fare clic su **Configure**.
 3.	In **Server DNS**, rimuovere le voci corrispondenti ai server DNS che si trovano sulla rete locale.
 4.	In **Server DNS**, aggiungere due voci con nomi descrittivi e gli indirizzi IP di questi due elementi di tabella:
-- Tabella V – Elemento 6 – Colonna Valore
-- Tabella V – Elemento 7 – Colonna Valore
+ - Tabella V – Elemento 6 – Colonna Valore
+ - Tabella V – Elemento 7 – Colonna Valore
 5.	Nella barra dei comandi in basso fare clic su **Salva**.
-6.	Nel riquadro sinistro del portale di gestione di Azure fare clic su **Macchine virtuali**, quindi fare clic sulla colonna **Stato** accanto al nome del primo controller di dominio.
+6.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**, quindi fare clic sulla colonna **Stato** accanto al nome del primo controller di dominio.
 7.	Nella barra dei comandi fare clic su **Riavvia**.
 8.	Quando viene avviato il primo controller di dominio, fare clic sulla colonna **Stato** accanto al nome del secondo controller di dominio.
 9.	Nella barra dei comandi fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
 
-Si noti che sono stati riavviati i due controller di dominio per cui essi non vengono configurati con i server DNS locali come server DNS. Poiché sono essi stessi server DNS, vengono configurati automaticamente con i server DNS locali come server d'inoltro DNS quando vengono promossi a controller di dominio.
+Sono stati riavviati i due controller di dominio, pertanto non vengono configurati con i server DNS locali come server DNS. Poiché sono essi stessi server DNS, vengono configurati automaticamente con i server DNS locali come server d'inoltro DNS quando sono promossi a controller di dominio.
 
-Successivamente, è necessario creare un sito di replica di Active Directory per assicurarsi che i server nella rete virtuale di Azure utilizzano i controller di dominio locali. Accedere al controller di dominio primario con l'account sp_install ed eseguire i comandi seguenti da un prompt dei comandi di Windows PowerShell a livello di amministratore:
+Successivamente, è necessario creare un sito di replica di Active Directory per assicurarsi che i server nella rete virtuale di Azure utilizzino i controller di dominio locali. Accedere al controller di dominio primario con l'account sp_install ed eseguire i comandi seguenti da un prompt dei comandi di Windows PowerShell a livello di amministratore:
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
-	New-ADReplicationSite -Name $vnet 
+	New-ADReplicationSite -Name $vnet
 	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
 
-Questa è la configurazione risultante dal corretto completamento di questa fase, con nomi di computer segnaposto.
+In questo diagramma viene visualizzata la configurazione risultante dal corretto completamento di questa fase, con nomi di computer segnaposto.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
 
-## Passaggi successivi
+## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 3: Configurare l’infrastruttura di SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
+Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 3: Configurare l'infrastruttura di SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
 ## Risorse aggiuntive
 
@@ -243,6 +243,5 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

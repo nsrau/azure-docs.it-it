@@ -161,7 +161,7 @@ Ulteriori informazioni sono disponibili [qui](http://blogs.office.com/2014/09/25
 
 > [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect.
 
-La funzionalità di writeback dei dispositivi consentirà di utilizzare n dispositivo registrato nel cloud, ad esempio in Intune, in AD DS per l'accesso condizionale. Per abilitare la funzionalità, è necessario preparare AD DS. Se si installano ADFS e DRS (device registration service), quest’ultimo fornisce i cmdlet di PowerShell per preparare Active Directory per il writeback dei dispositivi. Se DRS non è installato, è possibile eseguire C:\\Programmi\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 come amministratore dell'organizzazione.
+La funzionalità di writeback dei dispositivi consentirà di utilizzare n dispositivo registrato nel cloud, ad esempio in Intune, in AD DS per l'accesso condizionale. Per abilitare la funzionalità, è necessario preparare AD DS. Se si installano ADFS e DRS (device registration service), quest’ultimo fornisce i cmdlet di PowerShell per preparare Active Directory per il writeback dei dispositivi. Se DRS non è installato, è possibile eseguire C:\Programmi\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 come amministratore dell'organizzazione.
 
 Il cmdlet di PowerShell, prima di poter essere eseguito, deve essere importato.
 
@@ -273,4 +273,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 * [Altre informazioni](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

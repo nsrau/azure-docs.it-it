@@ -74,7 +74,7 @@ La procedura seguente consente di creare le app per le API BizTalk Integration t
 2. Selezionare l'app per le API. Nel nuovo pannello selezionare **Crea**. 
 3. Immettere le proprietà: 
 
-	Proprietà | Descrizione
+Proprietà | Descrizione
 --- | ---
 Nome | Immettere un nome per l'app per le API, ad esempio *RulesDiscountTaxCode* o *APIAppValidateXML*.
 Piano di servizio app | Elenca il piano di pagamento. È possibile modificarlo se sono necessarie più o meno risorse.
@@ -88,7 +88,7 @@ Aggiungi a schermata iniziale | Selezionare questa opzione per aggiungere le app
 ## Configurare le app per le API BizTalk
 Aprire l'app per le API BizTalk nel portale di gestione di Azure. Nella sezione **Componenti** è possibile aggiungere gli ulteriori componenti necessari per completare l'app per le API:
 
-	API App | Tasks
+API App | Tasks
 --- | ---
 BizTalk Flat File Encoder | Immettere un file flat, come Excel o un file csv che si vogliono convertire in formato XML. In alternativa, immettere un file XML che si vuole convertire in un file flat.
 BizTalk JSON Encoder | Immettere un file JSON che si vuole convertire in formato XML. In alternativa, immettere un file XML che si vuole convertire in formato JSON. 
@@ -104,7 +104,7 @@ Aprire l'app per le API BizTalk nel portale di gestione di Azure. Nella sezione 
 
 - Visualizzare eventi informativi e di errore
 - Visualizzare l'utilizzo della memoria e il conteggio dei thread del processo di lavoro (w3wp)
-- Visualizzare i log dell'applicazione e del server Web\\
+- Visualizzare i log dell'applicazione e del server Web\
 
 Per altre informazioni, vedere [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md).
 
@@ -139,4 +139,4 @@ La procedura seguente consente di aggiungere le app per le API BizTalk ad app pe
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

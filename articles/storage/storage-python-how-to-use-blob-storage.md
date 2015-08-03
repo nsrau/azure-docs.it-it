@@ -106,4 +106,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

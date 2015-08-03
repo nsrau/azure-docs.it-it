@@ -54,4 +54,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 - [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

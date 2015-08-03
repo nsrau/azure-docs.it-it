@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
@@ -166,7 +166,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 		    }
 		}
 
-	Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il**end**ora è facoltativo. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+	Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. L'ora di **fine** è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ## Parametri del servizio Web
 È possibile usare i parametri del servizio Web esposti da un servizio Web pubblicato di Azure Machine Learning nelle pipeline di Data factory di Azure. È possibile creare un esperimento in Azure Machine Learning e pubblicarlo come servizio Web, quindi usare tale servizio Web in più pipeline o attività di Data factory di Azure, passando diversi input tramite i parametri del servizio Web.
@@ -213,39 +213,11 @@ Per usare un reader SQL di Azure tramite una pipeline di Data factory di Azure, 
 #### Writer SQL di Azure
 Analogamente a un reader SQL di Azure, un writer SQL di Azure può avere proprietà esposte come parametri del servizio Web. Un writer SQL di Azure usa le impostazioni del servizio collegato associato alla tabella di input o alla tabella di output. La tabella seguente illustra le situazioni in cui viene usato il servizio collegato di input e quelle in cui viene usato il servizio collegato di output.
 
-<table>
-<tr>
-<td>Output/Input</td>
-<td><b>Input: SQL di Azure</b></td>
-<td><b>Input: BLOB di Azure</b></td>
-</tr>
-<tr>
-<td><b>Output: SQL di Azure</b></td>
-<td><p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p>
-<p>Se il reader e il writer SQL di Azure nel modello di Azure ML condividono gli stessi parametri del servizio Web indicati in precedenza, non si verificheranno problemi. Se non condividono gli stessi parametri del servizio Web, ad esempio se il writer SQL di Azure usa nomi di parametri quali Database server name1, Database name1, Server user account name1 e Server user account password1 (con "1" alla fine), sarà necessario passare i valori per questi parametri del servizio Web di OUTPUT nella sezione webServiceParameters del file JSON dell'attività.</p>
-<p>
-È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività.  
-</p>
-
-</td>
-<td>
-<p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di OUTPUT per generare parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p>
-<p>È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività. <p>Come percorso di input verrà usato il BLOB di input.</p>
-</td>
-</tr>
-<tr>
-<td><b>Output: BLOB di Azure</b></td>
-<td>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.
-</td>
-<td>
-<p>È necessario passare i valori per qualsiasi parametro del servizio Web usando la sezione WebServiceParameters del file JSON dell'attività.</p> 
-
-<p>I BLOB verranno usati come percorsi di input e di output.</p>
-
-</td>
-<tr>
-
-</table>
+| Output/Input | Input: SQL di Azure | Input: BLOB di Azure |
+| ------------ | ------------------ | ------------------- |
+| Output: SQL di Azure | <p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". È necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p><p>Se il reader e il writer SQL di Azure nel modello di Azure ML condividono gli stessi parametri del servizio Web indicati in precedenza, non si verificheranno problemi. Se non condividono gli stessi parametri del servizio Web, ad esempio se il writer SQL di Azure usa nomi di parametri quali Database server name1, Database name1, Server user account name1 e Server user account password1 (con "1" alla fine), sarà necessario passare i valori per questi parametri del servizio Web di OUTPUT nella sezione webServiceParameters del file JSON dell'attività.</p><p>È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività.</p> | <p>Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di OUTPUT per generare parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio.</p><p>È possibile passare i valori per qualsiasi altro parametro del servizio Web usando la sezione webServiceParameters del file JSON dell'attività. <p>Come percorso di input verrà usato il BLOB di input.</p> |
+|Output: BLOB di Azure | Il servizio Data factory usa le informazioni della stringa di connessione del servizio collegato di INPUT per generare i parametri del servizio Web con i nomi seguenti: "Database server name", "Database name", "Server user account name", "Server user account password". Si noti che è necessario usare questi nomi predefiniti per i parametri del servizio Web in Azure ML Studio. | <p>È necessario passare i valori per qualsiasi parametro del servizio Web usando la sezione WebServiceParameters del file JSON dell'attività.</p><p>I BLOB verranno usati come percorsi di input e di output.</p> |
+    
 
 > [AZURE.NOTE]È possibile che il writer SQL di Azure incontri violazioni delle chiavi se sovrascrive una colonna Identity. È consigliabile assicurarsi di strutturare la tabella di output in modo da evitare questa situazione.
 > 
@@ -302,7 +274,7 @@ Nell'esempio JSON precedente:
 - I parametri per il writer (con suffisso "1") non vengono completati automaticamente dal servizio Data factory. È quindi necessario specificare i valori per questi parametri nella sezione **webServiceParameters** del file JSON dell'attività.  
 - I valori **Customer ID**, **Scored Labels** e **Scored Probabilities** vengono salvati come colonne separate da virgola. 
 - Il valore **Data table name** di questo esempio corrisponde a una tabella nel database di output.
-- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il**end**ora è facoltativo. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. L'ora di **fine** è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -328,4 +300,4 @@ Articolo | Descrizione
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

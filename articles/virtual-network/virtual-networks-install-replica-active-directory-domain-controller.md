@@ -78,7 +78,7 @@ Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo 
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Per altre informazioni sull'impostazione di un indirizzo IP statico, vedere [Configurare un indirizzo IP interno statico per una macchina virtuale](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Per altre informazioni sull'impostazione di un indirizzo IP statico, vedere [Configurare un indirizzo IP interno statico per una macchina virtuale](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Installare Servizi di dominio Active Directory in macchine virtuali di Azure
 
@@ -123,4 +123,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

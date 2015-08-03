@@ -44,4 +44,4 @@ Per ulteriori informazioni sulla gestione di database SQL di Azure con SSMS e SS
 Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando [fare clic qui](sql-database-command-line-tools.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

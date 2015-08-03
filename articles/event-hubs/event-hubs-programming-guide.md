@@ -35,14 +35,14 @@ Install-Package WindowsAzure.ServiceBus
 
 ## Creare un hub eventi
 
-È possibile utilizzare la classe [NamespaceManager](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) per creare gli hub di eventi. Ad esempio:
+È possibile utilizzare la classe [NamespaceManager](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) per creare gli hub di eventi. ad esempio:
 
 ```c
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
-Nella maggior parte dei casi, è consigliabile utilizzare i metodi [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) per evitare di generare eccezioni se il servizio viene riavviato. Ad esempio:
+Nella maggior parte dei casi, è consigliabile utilizzare i metodi [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) per evitare di generare eccezioni se il servizio viene riavviato. ad esempio:
 
 ```
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
@@ -62,7 +62,7 @@ var client = EventHubClient.Create(description.Path);
 
 Questo metodo utilizza le informazioni di connessione del Bus di servizio nel file app. config nella sezione `appSettings`. Per un esempio del `appSettings` XML utilizzato per archiviare le informazioni di connessione del Bus di servizio, vedere la documentazione per il metodo [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.create.aspx).
 
-Un'altra opzione consiste nel creare il client da una stringa di connessione. Questa opzione funziona anche quando si utilizza ruoli di lavoro di Azure, poiché è possibile archiviare la stringa nelle proprietà di configurazione per il processo di lavoro. Ad esempio:
+Un'altra opzione consiste nel creare il client da una stringa di connessione. Questa opzione funziona anche quando si utilizza ruoli di lavoro di Azure, poiché è possibile archiviare la stringa nelle proprietà di configurazione per il processo di lavoro. ad esempio:
 
 ```
 EventHubClient.CreateFromConnectionString("your_connection_string");
@@ -111,7 +111,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 
 ## Creare un mittente di partizione
 
-Sebbene sia più comune per inviare eventi a un Hub di eventi con una chiave di partizione, in alcuni casi è possibile inviare eventi direttamente a una determinata partizione. Ad esempio:
+Sebbene sia più comune per inviare eventi a un Hub di eventi con una chiave di partizione, in alcuni casi è possibile inviare eventi direttamente a una determinata partizione. ad esempio:
 
 ```
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -132,7 +132,7 @@ EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
-Il metodo [CreateReceiver](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) dispone di diversi overload che facilitano il controllo sul lettore creato. Questi metodi includono la specifica di un offset come una stringa o il timestamp e la possibilità di specificare se includere questo specifico offset nel flusso restituito o avviarlo dopo di esso. Dopo aver creato il ricevitore, è possibile avviare la ricezione di eventi sull'oggetto restituito. Il metodo [ricezione](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) dispone di quattro overload che controllano i parametri dell'operazione receive, ad esempio le dimensioni di batch e tempo di attesa. È possibile utilizzare le versioni asincrone di questi metodi per aumentare la velocità effettiva di un consumer. Ad esempio:
+Il metodo [CreateReceiver](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) dispone di diversi overload che facilitano il controllo sul lettore creato. Questi metodi includono la specifica di un offset come una stringa o il timestamp e la possibilità di specificare se includere questo specifico offset nel flusso restituito o avviarlo dopo di esso. Dopo aver creato il ricevitore, è possibile avviare la ricezione di eventi sull'oggetto restituito. Il metodo [ricezione](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) dispone di quattro overload che controllano i parametri dell'operazione receive, ad esempio le dimensioni di batch e tempo di attesa. È possibile utilizzare le versioni asincrone di questi metodi per aumentare la velocità effettiva di un consumer. ad esempio:
 
 ```
 bool receive = true;
@@ -185,4 +185,4 @@ Per ulteriori informazioni sugli scenari di Hub eventi, visitare i collegamenti 
 - [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub & f [0]. Valore = hub eventi & f [0]. Digitare = SearchText & CA = 5)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

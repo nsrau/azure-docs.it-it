@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Come automatizzare con Gestione risorse di Azure" 
-	description="Ottenere collegamenti ad argomenti sull&#39;automazione delle macchine virtuali con Gestione risorse di Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Come automatizzare con Gestione risorse di Azure"
+	description="Ottenere collegamenti ad argomenti su come automatizzare la creazione e gestione delle macchine virtuali di Azure con Gestione risorse."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # Come automatizzare con Gestione risorse di Azure
 
@@ -59,7 +59,7 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 ## Automazione con .NET
 
 [Distribuire le risorse di Azure tramite la libreria .NET](virtual-machines-arm-deployment.md)
-   
+
 ## Automazione con Automazione di Azure
 
 [Utilizzare Automazione di Azure per gestire le attività della macchina virtuale](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

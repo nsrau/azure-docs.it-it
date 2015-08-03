@@ -227,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

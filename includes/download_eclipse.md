@@ -13,4 +13,4 @@ Passaggi per l'installazione:
 
 Questo plug-in utilizza la versione più recente di Azure SDK. Questa può essere scaricata utilizzando Installazione guidata piattaforma Web (WebPI) all'indirizzo <http://go.microsoft.com/fwlink/?LinkID=252838>. Se tale piattaforma non è installata, tuttavia, quando si crea il primo progetto di distribuzione di Azure, il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies) installerà automaticamente la versione appropriata di Azure SDK.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

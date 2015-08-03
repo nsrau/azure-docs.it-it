@@ -378,4 +378,4 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -108,4 +108,4 @@ Se si riscontrano problemi durante la configurazione della sincronizzazione dell
 Avviare ora lo strumento Sincronizzazione directory di Azure e usare le credenziali **myAzureSyncUser@mydomain.com**per la prima richiesta (Credenziali di amministratore di Microsoft Azure Active Directory), quindi usare **myDomainSyncUser@mydomain.com** per la seconda richiesta.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

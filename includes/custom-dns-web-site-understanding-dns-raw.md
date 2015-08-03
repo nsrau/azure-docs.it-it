@@ -10,13 +10,13 @@ Sono inoltre disponibili più tipi di record, ognuno con funzioni e limitazioni 
 
 ###Record di indirizzo (record A)
 
-Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio **\*.contoso.com**, a un indirizzo IP. Nel caso di un'app Web in Servizio app, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per l'app Web.
+Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio ***.contoso.com**, a un indirizzo IP. Nel caso di un'app Web in Servizio app, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per l'app Web.
 
 I principali vantaggi di un record A rispetto a un record CNAM sono i seguenti:
 
 * È possibile eseguire il mapping di un dominio radice, ad esempio **contoso.com**, a un indirizzo IP. Molti registrar consentono di usare solo record A in questo caso.
 
-* È possibile usare un'unica voce con un carattere jolly, ad esempio **\*.contoso.com**, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
+* È possibile usare un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Poiché viene eseguito il mapping di un record A a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP dell'app Web. Quando si configurano le impostazioni di un nome di dominio personalizzato per l'app Web, viene fornito un indirizzo IP da usare con i record A. Questo valore può tuttavia cambiare se si elimina e si ricrea l'app Web o qualora si riporti il piano di servizio app in modalità **Gratuita**.
 
@@ -44,10 +44,10 @@ Questo record CNAME viene usato per verificare che si è proprietari del dominio
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-> [AZURE.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il livello dell'app Web che si sta usando è **Gratuito**. Non è possibile usare nomi di dominio personalizzati con un'app Web in modalità **Gratuito** ed è necessario eseguire l'aggiornamento del piano di servizio app alla modalità **Condiviso**, **Base** o **Standard**. Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come ridimensionare un'app Web](../articles/web-sites-scale.md).
+	> [AZURE.NOTE]Se l'opzione** Gestisci domini** non è abilitata, il livello dell'app Web che si sta usando è **Gratuito**. Non è possibile usare nomi di dominio personalizzati con un'app Web in modalità **Gratuito** ed è necessario eseguire l'aggiornamento del piano di servizio app alla modalità **Condiviso**, **Base** o ** Standard**. Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come ridimensionare un'app Web](../articles/web-sites-scale.md).
 
 6. Nella finestra di dialogo **MANAGE CUSTOM DOMAINS** sarà possibile visualizzare le informazioni su **awverify**, il nome di dominio **.azurewebsites.net** attualmente assegnato e l'indirizzo IP virtuale. Salvare queste informazioni perché verranno usate durante la creazione dei record DNS.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

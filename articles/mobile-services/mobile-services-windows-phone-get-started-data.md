@@ -194,4 +194,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

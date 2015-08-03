@@ -27,12 +27,12 @@ I codec consistono in due componenti: un componente per la compressione dei file
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Azure Media Encoder.
 
 
-[Formati di importazione del Codificatore multimediale](#import_formats)
+[Formati di importazione del Codificatore multimediale di Azure](#import_formats)
 
-[Formati di esportazione del codificatore multimediale](#export_formats)
+[Formati di esportazione del Codificatore multimediale di Azure](#export_formats)
 
 
-##<a id="import_formats"></a>Formati di importazione del Codificatore multimediale 
+##<a id="import_formats"></a>Formati di importazione del Codificatore multimediale di Azure 
 
 La sezione seguente include l'elenco dei codec e dei formati di file supportati per l'importazione.
 
@@ -102,7 +102,7 @@ Sono supportati alcuni formati non compressi. Per altre informazioni, vedere [Fo
 </table>
 
 
-##<a id="export_formats"></a>Formati di esportazione del codificatore multimediale
+##<a id="export_formats"></a>Formati di esportazione del Codificatore multimediale di Azure
 
 La tabella seguente include l'elenco dei codec e dei formati di file supportati per l'esportazione.
 
@@ -137,4 +137,4 @@ Questo è un elenco parziale dei formati non compressi supportati.
 <tr><td>Formato YVU9 prodotto da Indeo</td><td>Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

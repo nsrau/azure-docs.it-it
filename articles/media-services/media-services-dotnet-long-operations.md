@@ -186,4 +186,4 @@ Nell'esempio viene inoltre illustrato il modo in cui il client potrebbe usare qu
 	Console.WriteLine(channelId);
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

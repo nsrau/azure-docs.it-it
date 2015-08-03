@@ -73,7 +73,7 @@ Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di ide
         "highWaterMarkColumnName" : "_ts" 
     } 
 
-Sarà anche necessario aggiungere `_ts` nella proiezione e la clausola `WHERE` per la query. Ad esempio:
+Sarà anche necessario aggiungere `_ts` nella proiezione e la clausola `WHERE` per la query. ad esempio:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
 
@@ -304,4 +304,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

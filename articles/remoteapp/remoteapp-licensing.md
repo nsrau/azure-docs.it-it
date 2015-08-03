@@ -34,4 +34,4 @@ Riassumendo, è possibile pubblicare qualsiasi app di cui si detiene il diritto 
 Si noti che non è possibile usare una licenza CAL o un contratto multilicenza in una raccolta nel cloud. È *possibile* usare un contratto multilicenza per attivare applicazioni nella raccolta ibrida (ad eccezione di Office). È sufficiente installarle nell'immagine modello dai supporti forniti per contratti multilicenza. Seguire le indicazioni del fornitore dell'applicazione per installare le licenze in un ambiente Desktop remoto.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

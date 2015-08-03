@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Bloccare risorse con Gestione risorse di Azure" 
+	pageTitle="Bloccare le risorse con Gestione risorse di Azure" 
 	description="Bloccare le risorse per impedire agli utenti di aggiornare o eliminare risorse specifiche." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
@@ -16,11 +16,11 @@
 	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
-# Bloccare risorse con Gestione risorse di Azure
+# Bloccare le risorse con Gestione risorse di Azure
 
-Esistono scenari in cui l'amministratore può desiderare di applicare un blocco a una risorsa o a un gruppo di risorse per impedire che altri utenti nell'organizzazione eseguano il commit di operazioni di scrittura oppure procedano all'eliminazione accidentale di una risorsa strategica.
+Esistono scenari in cui l'amministratore può desiderare di applicare un blocco a una risorsa o a un gruppo di risorse per impedire che altri utenti nell'organizzazione procedano ad operazioni di scrittura oppure procedano all'eliminazione accidentale di una risorsa strategica.
 
-La funzionalità Gestione risorse di Azure consente di limitare le operazioni sulle risorse tramite blocchi alla gestione delle risorse. I blocchi di risorse sono criteri che impongono un livello di blocco in un ambito specifico. Il livello di blocco identifica il tipo di imposizione per i criteri e attualmente dispone di due valori, ovvero **CanNotDelete** e **ReadOnly**. L'ambito viene espresso come URI e può essere una risorsa o un gruppo di risorse.
+La funzionalità Gestione risorse di Azure consente di limitare le operazioni sulle risorse tramite blocchi alla gestione delle risorse. I blocchi di risorse sono criteri che impongono un livello di blocco in un ambito specifico. Il livello di blocco identifica il tipo di imposizione per i criteri e attualmente dispone di due valori, ovvero **CanNotDelete**e**ReadOnly**. L'ambito viene espresso come URI e può essere una risorsa o un gruppo di risorse.
 
 I blocchi sono funzionalità diverse dall'assegnazione delle autorizzazioni utente per eseguire determinate azioni. Per altre informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel portale di anteprima](role-based-access-control-configure.md) e [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).
 
@@ -66,9 +66,9 @@ Per creare un blocco, eseguire:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-scope può essere una sottoscrizione, un gruppo di risorse o una risorsa. lock-name rappresenta il nome che si desidera assegnare al blocco. Per api-version, usare **2015-01-01**.
+scope può essere una sottoscrizione, un gruppo di risorse o una risorsa. lock-name rappresenta il nome che si desidera assegnare al blocco. Per api-version, usare**2015-01-01**.
 
-Nella richiesta includere un oggetto JSON che specifica le proprietà per il blocco.
+Nella richiesta include un oggetto JSON che specifica le proprietà per il blocco.
 
     {
         "properties": {
@@ -77,21 +77,21 @@ Nella richiesta includere un oggetto JSON che specifica le proprietà per il blo
         }
     } 
 
-Per lock-level, specificare **CanNotDelete** o **ReadOnly**.
+Per lock-level, specificare**CanNotDelete**o**ReadOnly**.
 
 Per altri esempi, vedere [API REST per i blocchi di gestione](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
 ## Creazione di un blocco con Azure PowerShell
 
-È possibile bloccare le risorse distribuite con Azure PowerShell tramite **New-AzureResourceLock**, come illustrato di seguito.
+È possibile bloccare le risorse distribuite con Azure PowerShell tramite il**New-AzureResourceLock**, come illustrato di seguito.
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 PowerShell fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-AzureResourceLock** per aggiornare un blocco e **Remove-AzureResourceLock** per eliminare un blocco.
 
 ## Passaggi successivi
 
 - [Utilizzo dei tag per organizzare le risorse](resource-group-using-tags.md)
-- [Spostare le risorse in un nuovo gruppo di risorse](resource-group-move-resources.md)
+- [Spostare le risorse al nuovo gruppo di risorse](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -134,4 +134,4 @@ Gestione e controllo dell'accesso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

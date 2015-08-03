@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 
@@ -80,7 +80,7 @@ UpgradeTimeout = 3000
 
 ## Passaggio 4: Preparare l'applicazione per l'aggiornamento
 
-L'applicazione ora è compilata e pronta per l'aggiornamento. Se si apre una finestra di PowerShell come amministratore e si digita **Get-ServiceFabricApplication**, verrà indicato che è stato distribuito il tipo di applicazione 1.0.0.0 di **VisualObjects**. Il pacchetto applicazione è archiviato nel percorso relativo seguente, dove è stato decompresso Service Fabric SDK - *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. In questa directory deve essere contenuta una cartella "Package", dove è archiviato il pacchetto applicazione. Controllare i timestamp per assicurarsi che si tratti dell'ultima build (potrebbe essere anche necessario modificare i percorsi in base alle esigenze).
+L'applicazione ora è compilata e pronta per l'aggiornamento. Se si apre una finestra di PowerShell come amministratore e si digita **Get-ServiceFabricApplication**, verrà indicato che è stato distribuito il tipo di applicazione 1.0.0.0 di **VisualObjects**. Il pacchetto applicazione è archiviato nel percorso relativo seguente, dove è stato decompresso Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. In questa directory deve essere contenuta una cartella "Package", dove è archiviato il pacchetto applicazione. Controllare i timestamp per assicurarsi che si tratti dell'ultima build (potrebbe essere anche necessario modificare i percorsi in base alle esigenze).
 
 Copiare ora il pacchetto applicazione aggiornato in ImageStore di Service Fabric (dove Service Fabric archivia i pacchetti applicazione). Il parametro *ApplicationPackagePathInImageStore* indica a Service Fabric dove è contenuto il pacchetto applicazione. L'applicazione aggiornata è stata posizionata in "VisualObjects_V2" con il comando seguente (potrebbe essere necessario di nuovo modificare i percorsi in base alle esigenze).
 
@@ -126,4 +126,4 @@ In pochi minuti lo stato che usa il comando di PowerShell precedente dovrebbe in
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

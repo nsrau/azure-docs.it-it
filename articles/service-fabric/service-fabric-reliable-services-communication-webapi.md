@@ -334,7 +334,7 @@ In questo metodo verrà impostato l'URL del server Web. A tale scopo, sono neces
 
 Prima di ottenere una porta per il server Web, è importante comprendere che Service Fabric offre un livello di applicazione che funge da buffer tra l'applicazione e il sistema operativo sottostante in cui è in esecuzione. Service Fabric consente pertanto di configurare *endpoint* per i servizi. Service Fabric verifica che l'endpoint sia disponibile per l'uso da parte del servizio, pertanto non è necessario configurarlo manualmente con l'ambiente del sistema operativo sottostante. In questo modo è possibile ospitare facilmente l'applicazione di Service Fabric in ambienti diversi senza dover apportare modifiche all'applicazione (ad esempio, è possibile ospitare la stessa applicazione in Azure o nel proprio data center).
 
-Configurare un endpoint HTTP in PackageRoot\\ServiceManifest.xml:
+Configurare un endpoint HTTP in PackageRoot\ServiceManifest.xml:
 
 ```xml
 
@@ -613,4 +613,4 @@ In ASP.NET 5 il concetto e il modello di programmazione per la separazione dell'
 [Debug dell'applicazione di Service Fabric in Visual Studio](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

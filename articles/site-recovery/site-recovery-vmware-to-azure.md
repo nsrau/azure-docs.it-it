@@ -55,7 +55,7 @@ Sono necessari gli elementi seguenti:
 **Componente** | **Distribuzione** | **Dettagli**
 --- | --- | ---
 **Server di configurazione** | <p>Distribuire come una macchina virtuale di Azure A3 standard nella stessa sottoscrizione di Site Recovery.</p> <p>Viene configurato nel portale di Site Recovery</p> | Questo server coordina la comunicazione tra i computer protetti, il server di elaborazione e i server di destinazione master in Azure. Configura la replica e coordina il ripristino in Azure quando si verifica il failover.
-**Server di destinazione master** | <p>Distribuire come una macchina virtuale di Azure: come server Windows basato su un'immagine della raccolta di Windows Server 2012 R2 (per proteggere i computer Windows) o come server Linux basato su un'immagine della raccolta di OpenLogic CentOS 6.6 (per proteggere i computer Linux).</p> <p>Sono disponibili due opzioni di dimensionamento: A3 standard e D14 standard.<p><p>Il server è connesso alla stessa rete Azure del server di configurazione.</p><p>Viene configurato nel portale di Site Recovery</p> | <p>Riceve e mantiene i dati replicati dai computer protetti tramite VHD collegati e creati nell'archivio BLOB dell'account di archiviazione di Azure.</p>   
+**Server di destinazione master** | <p>Distribuire come una macchina virtuale di Azure: come server Windows basato su un'immagine della raccolta di Windows Server 2012 R2 (per proteggere i computer Windows) o come server Linux basato su un'immagine della raccolta di OpenLogic CentOS 6.6 (per proteggere i computer Linux).</p> <p>Sono disponibili due opzioni di dimensionamento - A4 standard e D14 standard.<p><p>Il server è connesso alla stessa rete Azure del server di configurazione.</p><p>Viene configurato nel portale di Site Recovery</p> | <p>Riceve e mantiene i dati replicati dai computer protetti tramite VHD collegati e creati nell'archivio BLOB dell'account di archiviazione di Azure.</p>   
 **Server di elaborazione** | <p>Distribuire come un server virtuale o fisico locale che esegue Windows Server 2012 R2</p> <p>È consigliabile collocarlo nella stessa rete e nello stesso segmento di LAN in cui risiedono i computer da proteggere, ma è possibile eseguirlo in una rete diversa, a condizione che i computer protetti possano avere la visibilità di rete L3 per tale server.<p>Viene impostato e registrato nel server di configurazione nel portale di Site Recovery.</p> | <p>I computer protetti inviano dati di replica al server di elaborazione locale. Dispone di una cache basata su disco per la memorizzazione dei dati di replica ricevuti. Esegue una serie di azioni su tali dati.</p><p>Ottimizza i dati eseguendone la memorizzazione nella cache, la compressione e la crittografia prima di inviarli al server di destinazione master.</p><p>Gestisce l'installazione push del servizio Mobility.</p><p>Esegue l'individuazione automatica delle macchine virtuali VMware.</p>
 **Computer locali** | Macchine virtuali in esecuzione su un hypervisor VMware oppure server fisici che eseguono Windows o Linux. | È possibile configurare le impostazioni di replica che si applicano a macchine virtuali e server. Può essere eseguito il failover di un singolo computer o in modo più ampio, nell'ambito di un piano di ripristino che contiene più macchine virtuali sottoposte a failover insieme.
 **Servizio Mobility** | <p>Viene installato in ogni macchina virtuale o server fisico che si desidera proteggere</p><p>Può essere installato manualmente o trasferito tramite push e installato automaticamente dal server di elaborazione. | Il servizio crea uno snapshot Servizio Copia Shadow del volume dei dati in ogni computer protetto e lo trasferisce al server di elaborazione, che a sua volta lo replica nel server di destinazione master.
@@ -169,8 +169,8 @@ Si noti che:
 **Server di destinazione master** | <p>Macchina virtuale di Azure, A4 o D14 standard.</p><p>Il percorso di installazione deve essere specificato solo con caratteri dell'alfabeto latino. Ad esempio, il percorso per un server di destinazione master che esegue Linux dovrà essere **/usr/local/ASR**.</p></p>
 **Server di elaborazione** | <p>È possibile distribuire il server di elaborazione in macchine virtuali o computer fisici che eseguono Windows Server 2012 R2 con gli aggiornamenti più recenti. Eseguire l'installazione in C:/.</p><p>È consigliabile collocare il server nella stessa rete e subnet dei computer da proteggere.</p><p>Installare VMware vSphere CLI 5.5.0 nel server di elaborazione. Il componente VMware vSphere CLI è necessario nel server di elaborazione per individuare le macchine virtuali gestite da un server vCenter o le macchine virtuali in esecuzione in un host ESXi.</p><p>Il percorso di installazione deve essere specificato solo con caratteri dell'alfabeto latino.</p>
 **VMware** | <p>Server VMware vCenter per la gestione degli hypervisor VMware vSphere. Deve eseguire vCenter versione 5.1 o 5.5 con gli aggiornamenti più recenti.</p><p>Uno o più hypervisor vSphere contenenti le macchine virtuali VMware da proteggere. L'hypervisor deve eseguire ESX/ESXi versione 5.1 o 5.5 con gli aggiornamenti più recenti.</p><p>Nelle macchine virtuali VMware devono essere installati e in esecuzione gli strumenti VMware.</p>
-**Computer Windows** | <p>Per le macchine virtuali VMware o i server fisici protetti che eseguono Windows sono previsti diversi requisiti.</p><p>Sistema operativo a 64 bit supportato: **Windows Server 2012 R2**, **Windows Server 2012** o **Windows Server 2008 R2 con SP1 o successivo**.</p><p>Il nome host, i punti di montaggio, i nomi dei dispositivi e il percorso di sistema di Windows (ad esempio, C:\\Windows) devono essere specificati solo con caratteri dell'alfabeto latino.</p><p>Il sistema operativo deve essere installato nell'unità C:\.</p><p>Sono supportati solo i dischi di base. Non sono supportati i dischi dinamici.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Sarà necessario specificare un account amministratore (deve essere un amministratore locale nel computer Windows) per l'installazione push del servizio Mobility in Windows Server. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce del Registro di sistema DWORD LocalAccountTokenFilterPolicy con un valore di 1 in HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Per aggiungere la voce del Registro di sistema da una interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [Altre informazioni](https://msdn.microsoft.com/library/aa826699.aspx) sul controllo di accesso.</p><p>Dopo il failover, per connettersi alle macchine virtuali Windows in Azure con Desktop remoto, accertarsi che per il computer locale sia abilitato Desktop remoto. Se non si effettuano connessioni tramite VPN, le regole del firewall dovranno permettere l'esecuzione di connessioni Desktop remoto tramite Internet.</p>
-**Computer Linux** | <p> Sistema operativo a 64 bit supportato: **Centos 6.4, 6.5, 6.6**; **Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Le regole del firewall nei computer protetti devono consentire a tali computer di raggiungere i server di configurazione e di destinazione master in Azure.</p><p>I file /etc/hosts nei computer protetti devono contenere le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede NIC </p><p>Per connettersi a una macchina virtuale di Azure che esegue Linux dopo il failover usando un client Secure Shell (SSH), assicurarsi che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole del firewall permettano una connessione SSH a tale computer.</p><p>Il nome host, i punti di montaggio, i nomi dei dispositivi e i nomi di file e i percorsi di sistema di Linux (ad esempio /etc/, /usr) dovranno essere specificati solo con caratteri dell'alfabeto latino.</p><p>La protezione può essere abilitata per i computer locali con le risorse di archiviazione indicate di seguito. File system: EXT3, ETX4, ReiserFS, XFS/Software per percorsi multipli-Device Mapper (percorsi multipli)/Archiviazione volumi: LVM2\\I server fisici con archiviazione del controller HP CCISS non sono supportati.</p>
+**Computer Windows** | <p>Per le macchine virtuali VMware o i server fisici protetti che eseguono Windows sono previsti diversi requisiti.</p><p>Sistema operativo a 64 bit supportato: **Windows Server 2012 R2**, **Windows Server 2012** o **Windows Server 2008 R2 con SP1 o successivo**.</p><p>Il nome host, i punti di montaggio, i nomi dei dispositivi e il percorso di sistema di Windows (ad esempio, C:\Windows) devono essere specificati solo con caratteri dell'alfabeto latino.</p><p>Il sistema operativo deve essere installato nell'unità C:\.</p><p>Sono supportati solo i dischi di base. Non sono supportati i dischi dinamici.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Sarà necessario specificare un account amministratore (deve essere un amministratore locale nel computer Windows) per l'installazione push del servizio Mobility in Windows Server. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce del Registro di sistema DWORD LocalAccountTokenFilterPolicy con un valore di 1 in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Per aggiungere la voce del Registro di sistema da una interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [Altre informazioni](https://msdn.microsoft.com/library/aa826699.aspx) sul controllo di accesso.</p><p>Dopo il failover, per connettersi alle macchine virtuali Windows in Azure con Desktop remoto, accertarsi che per il computer locale sia abilitato Desktop remoto. Se non si effettuano connessioni tramite VPN, le regole del firewall dovranno permettere l'esecuzione di connessioni Desktop remoto tramite Internet.</p>
+**Computer Linux** | <p> Sistema operativo a 64 bit supportato: **Centos 6.4, 6.5, 6.6**; **Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Le regole del firewall nei computer protetti devono consentire a tali computer di raggiungere i server di configurazione e di destinazione master in Azure.</p><p>I file /etc/hosts nei computer protetti devono contenere le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede NIC </p><p>Per connettersi a una macchina virtuale di Azure che esegue Linux dopo il failover usando un client Secure Shell (SSH), assicurarsi che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole del firewall permettano una connessione SSH a tale computer.</p><p>Il nome host, i punti di montaggio, i nomi dei dispositivi e i nomi di file e i percorsi di sistema di Linux (ad esempio /etc/, /usr) dovranno essere specificati solo con caratteri dell'alfabeto latino.</p><p>La protezione può essere abilitata per i computer locali con le risorse di archiviazione indicate di seguito. File system: EXT3, ETX4, ReiserFS, XFS/Software per percorsi multipli-Device Mapper (percorsi multipli)/Archiviazione volumi: LVM2\I server fisici con archiviazione del controller HP CCISS non sono supportati.</p>
 **Terze parti** | Alcuni componenti della distribuzione in questo scenario dipendono da software di terze parti per funzionare correttamente. Per un elenco completo, vedere [Informazioni e comunicazioni sul software di terze parti](#third-party)
 
 ## Distribuzione
@@ -238,7 +238,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
     >[AZURE.WARNING]Non eliminare o modificare il numero della porta pubblica o privata di qualsiasi endpoint creato durante la distribuzione del server di configurazione.
 
-Il server di configurazione viene distribuito in un servizio cloud di Azure creato automaticamente con un indirizzo IP riservato. L'indirizzo riservato è necessario per garantire che l'indirizzo IP del servizio cloud del server di configurazione rimanga invariato tra i riavvii delle macchine virtuali (incluso il server di configurazione) sul servizio cloud. La prenotazione dell'indirizzo IP pubblico riservato dovrà essere annullata manualmente al momento della rimozione del server di configurazione. In caso contrario, l'indirizzo IP resterà riservato. Esiste un limite predefinito di 20 indirizzi IP pubblici riservati per ogni sottoscrizione. [Altre informazioni](https://msdn.microsoft.com/library/azure/dn630228.aspx) sugli indirizzi IP riservati.
+Il server di configurazione viene distribuito in un servizio cloud di Azure creato automaticamente con un indirizzo IP riservato. L'indirizzo riservato è necessario per garantire che l'indirizzo IP del servizio cloud del server di configurazione rimanga invariato tra i riavvii delle macchine virtuali (incluso il server di configurazione) sul servizio cloud. La prenotazione dell'indirizzo IP pubblico riservato dovrà essere annullata manualmente al momento della rimozione del server di configurazione. In caso contrario, l'indirizzo IP resterà riservato. Esiste un limite predefinito di 20 indirizzi IP pubblici riservati per ogni sottoscrizione. [Altre informazioni](../virtual-network/virtual-networks-reserved-private-ip.md) sugli indirizzi IP riservati.
 
 ### Registrare il server di configurazione nell'insieme di credenziali
 
@@ -323,19 +323,6 @@ Si noti che:
 - Una connessione VPN usa l'indirizzo IP interno del server insieme alle porte private dell'endpoint.
 - È necessario decidere se eseguire la connessione (dati di controllo e replica) dai server locali ai vari server dei componenti (server di configurazione, server di destinazione master) in esecuzione in Azure tramite una connessione VPN o via Internet. Non è possibile modificare questa impostazione in un secondo momento. Se la si modifica, sarà necessario ridistribuire lo scenario e proteggere nuovamente i computer.  
 
-#### Configurare una connessione VPN (facoltativo) 
-
-Se si desidera usare una connessione VPN o ExpressRoute, effettuare le operazioni seguenti:
-
-1. Per altre informazioni, nel caso attualmente non sia stata impostata una connessione:
-
-	- [Blog relativo alla scelta tra connessione ExpressRoute e VPN](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/)
-	- [Configurare una connessione da sito a sito a una macchina virtuale di Azure](../vpn-gateway-site-to-site-create.md)
-	- [Configurare una connessione ExpressRoute](../expressroute-configuring-exps.md)
-2. Nell'insieme di credenziali fare clic su **Server** > **Server di configurazione** > Server di configurazione > **Configura**.
-3. In **Impostazioni di connettività** assicurarsi che **Tipo di connettività** sia impostato su **VPN**. Se è configurata una VPN e nessun accesso Internet dal sito locale, accertarsi di selezionare l'opzione VPN. In caso contrario, il server di elaborazione non sarà in grado di inviare dati di replica al server di destinazione master nei relativi endpoint pubblici.
-
-	![Abilitare VPN](./media/site-recovery-vmware-to-azure/ASRVMWare_EnableVPN.png)
 
 ## Passaggio 3: Distribuire il server di destinazione master
 
@@ -400,12 +387,12 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
 
 2. Copiare il file ZIP scaricato nel server in cui si installerà il server di elaborazione. Il file ZIP contiene due file di installazione:
 
-	- Microsoft-ASR_CX_TP_8.2.0.0_Windows*
-	- Microsoft-ASR_CX_8.2.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_8.3.0.0_Windows*
 
 3. Decomprimere il file compresso e copiare i file di installazione in un percorso del server.
-4. Eseguire il file di installazione **Microsoft-ASR_CX_TP_8.2.0.0_Windows*** e seguire le istruzioni. Verranno installati i componenti di terze parti necessari per la distribuzione.
-5. Eseguire quindi **Microsoft-ASR_CX_8.2.0.0_Windows***.
+4. Eseguire il file di installazione **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** e seguire le istruzioni. Verranno installati i componenti di terze parti necessari per la distribuzione.
+5. Eseguire quindi **Microsoft-ASR_CX_8.3.0.0_Windows***.
 6. Nella pagina **Modalità server** selezionare **Server di elaborazione**.
 
 	![Modalità di selezione del server](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -433,7 +420,7 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
 	- Per l'indirizzo IP e la porta, se si stabilisce la connessione tramite VPN, specificare l'indirizzo IP interno del server di configurazione e la porta 443. In caso contrario, specificare l'indirizzo IP virtuale e l'endpoint HTTP pubblico mappato.
 	- Digitare la passphrase del server di configurazione.
 	- Per disabilitare la verifica quando si usa il push automatico per installare il servizio, deselezionare **Verifica firma del software del servizio Mobility**. La verifica della firma richiede la connettività Internet dal server di elaborazione.
-	- Fare clic su **Next**.
+	- Fare clic su **Avanti**.
 
 	![Registrare il server di configurazione](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerConfigServer.png)
 
@@ -450,7 +437,7 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
 
 Se la verifica della firma per il servizio Mobility non è stata disabilitata al momento della registrazione del server di elaborazione, è possibile farlo in un secondo momento come descritto di seguito:
 
-1. Accedere al server di elaborazione come amministratore e aprire il file C:\\pushinstallsvc\\pushinstaller.conf per la modifica. Nella sezione **[PushInstaller.transport]** aggiungere la riga seguente: **SignatureVerificationChecks=”0”**. Salvare e chiudere il file.
+1. Accedere al server di elaborazione come amministratore e aprire il file C:\pushinstallsvc\pushinstaller.conf per la modifica. Nella sezione **[PushInstaller.transport]** aggiungere la riga seguente: **SignatureVerificationChecks=”0”**. Salvare e chiudere il file.
 2. Riavviare il servizio InMage PushInstall.
 
 
@@ -467,11 +454,11 @@ Prima di procedere, assicurarsi di avere installato gli aggiornamenti più recen
 Se si eseguono macchine virtuali o server fisici in cui è già installato il servizio Mobility, è possibile ottenere gli aggiornamenti per il servizio come segue:
 
 - Scaricare gli aggiornamenti per il servizio come segue:
-	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
-- In alternativa, dopo l'aggiornamento del server di elaborazione è possibile ottenere la versione aggiornata del servizio Mobility dalla cartella C:\\pushinstallsvc\\repository nel server di elaborazione.
+	- [Windows Server (solo 64 bit)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6 (solo 64 bit)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5 (solo 64 bit)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server SP3 (solo 64 bit)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+- In alternativa, dopo l'aggiornamento del server di elaborazione è possibile ottenere la versione aggiornata del servizio Mobility dalla cartella C:\pushinstallsvc\repository nel server di elaborazione.
 
 
 ## Passaggio 6: Aggiungere server vCenter o host ESXi
@@ -534,18 +521,18 @@ Quando si aggiungono computer a un gruppo di protezione, il server di elaborazio
 
 **Eseguire automaticamente l'installazione push del servizio Mobility nei server Windows:**
 
-1. Installare gli aggiornamenti più recenti per il server di elaborazione, come descritto in [Passaggio 5: Installare gli aggiornamenti più recenti](\#latest updates) e assicurarsi che il server di elaborazione sia disponibile. 
+1. Installare gli aggiornamenti più recenti per il server di elaborazione, come descritto in [Passaggio 5: Installare gli aggiornamenti più recenti](#latest updates) e assicurarsi che il server di elaborazione sia disponibile. 
 2. Verificare che sia presente la connettività di rete tra il computer di origine e il server di elaborazione e che il computer di origine sia accessibile dal server di elaborazione.  
 3. Configurare Windows Firewall per abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows**. Nelle impostazioni di Windows Firewall selezionare l'opzione "Consenti app o funzionalità attraverso Windows Firewall" e selezionare le applicazioni, come illustrato nella figura seguente. Per i computer appartenenti a un dominio, è possibile configurare i criteri del firewall con un oggetto Criteri di gruppo.
 
 	![Impostazioni del firewall](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. L'account usato per eseguire l'installazione push deve appartenere al gruppo Administrators nel computer da proteggere. Queste credenziali vengono usate solo per l'installazione push del servizio Mobility e verranno specificate quando si aggiunge un computer a un gruppo di protezione.
-5. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce del Registro di sistema DWORD LocalAccountTokenFilterPolicy con un valore di 1 in HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Per aggiungere la voce del Registro di sistema da una interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
+5. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce del Registro di sistema DWORD LocalAccountTokenFilterPolicy con un valore di 1 in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Per aggiungere la voce del Registro di sistema da una interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
 
 **Eseguire automaticamente l'installazione push del servizio Mobility nei server Linux:**
 
-1. Installare gli aggiornamenti più recenti per il server di elaborazione, come descritto in [Passaggio 5: Installare gli aggiornamenti più recenti](\#latest updates) e assicurarsi che il server di elaborazione sia disponibile.
+1. Installare gli aggiornamenti più recenti per il server di elaborazione, come descritto in [Passaggio 5: Installare gli aggiornamenti più recenti](#latest updates) e assicurarsi che il server di elaborazione sia disponibile.
 2. Verificare che sia presente la connettività di rete tra il computer di origine e il server di elaborazione e che il computer di origine sia accessibile dal server di elaborazione.  
 3. Verificare che l'account sia un utente ROOT nel server Linux di origine.
 4. Assicurarsi che il file /etc/hosts nel server Linux di origine contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede NIC.
@@ -567,7 +554,7 @@ Quando si aggiungono computer a un gruppo di protezione, il server di elaborazio
  
 ### Installare manualmente il servizio Mobility
 
-I pacchetti software usati per installare il servizio Mobility sono nel server di elaborazione, in C:\\pushinstallsvc\\repository. Accedere al server di elaborazione e copiare il pacchetto di installazione appropriato per il computer di origine in base alla tabella seguente:
+I pacchetti software usati per installare il servizio Mobility sono nel server di elaborazione, in C:\pushinstallsvc\repository. Accedere al server di elaborazione e copiare il pacchetto di installazione appropriato per il computer di origine in base alla tabella seguente:
 
 | Sistema operativo di origine | Pacchetto del servizio Mobility nel server di elaborazione |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -598,7 +585,7 @@ I pacchetti software usati per installare il servizio Mobility sono nel server d
 
 **Per eseguire dalla riga di comando:**
 
-1. Copiare la passphrase da CX nel file "C:\\connection.passphrase" sul server ed eseguire questo comando. Nel nostro esempio CX è 104.40.75.37 e la porta HTTPS è 62519:
+1. Copiare la passphrase da CX nel file "C:\connection.passphrase" sul server ed eseguire questo comando. Nel nostro esempio CX è 104.40.75.37 e la porta HTTPS è 62519:
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
@@ -750,14 +737,14 @@ Se un server di elaborazione è in stato critico, nel dashboard di Site Recovery
 
 ## Informazioni e comunicazioni sul software di terze parti
 
-Do Not Translate or Localize
+Non tradurre o localizzare
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Il software e il firmware eseguito nel prodotto o nel servizio Microsoft si basa su materiale incorporato dai progetti elencati di seguito (collettivamente, "Codice di terze parti"). Microsoft non è l'autore originale del Codice di terze parti. Le informazioni sul copyright e le condizioni di licenza originali in base alle quali Microsoft ha ricevuto il Codice di terze parti sono definite di seguito.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+Le informazioni nella sezione A riguardano i componenti del Codice di terze parti dai progetti elencati di seguito. Le licenze e le informazioni vengono fornite a scopo esclusivamente informativo. Il Codice di terze parti viene riconcesso in licenza all'utente da Microsoft in base alle condizioni di licenza del software definite da Microsoft per il prodotto o il servizio Microsoft.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+Le informazioni nella sezione B riguardano i componenti del Codice di terze parti resi disponibili all'utente da Microsoft in base alle condizioni di licenza originali.
 
 Il file completo è disponibile nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft si riserva tutti i diritti non espressamente disciplinati dal presente documento, sia tacitamente, per preclusione o per qualsivoglia altro motivo.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

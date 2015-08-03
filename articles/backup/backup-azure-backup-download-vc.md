@@ -40,4 +40,4 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 ## Passaggi successivi
 [Scaricare, registrare e installare l'agente Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

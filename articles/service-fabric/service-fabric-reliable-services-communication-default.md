@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]Il framework di comunicazione si occupa di propagare al client le eccezioni generate nel servizio. La logica di gestione delle eccezioni nel client tramite ServiceProxy è in grado di gestire direttamente le eccezioni potenzialmente generate dal servizio.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

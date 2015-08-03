@@ -1121,4 +1121,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

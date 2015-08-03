@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione ad Analisi di flusso e all&#39;analisi di dati di flusso | Microsoft Azure" 
+	pageTitle="Introduzione ad Analisi di flusso e all'analisi di dati di flusso | Microsoft Azure" 
 	description="Informazioni su Analisi di flusso di Azure, un servizio cloud completamente gestito che consente di analizzare i dati di streaming di Internet delle cose (IoT) in tempo reale." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

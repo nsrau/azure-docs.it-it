@@ -4,6 +4,7 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,10 +76,10 @@ Se si dispone di un server di database, usarlo per creare un nuovo database. I s
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** espandere la cartella *Views\\Shared* e aprire il file *_Layout.cshtml*. 
+1. In **Esplora soluzioni** espandere la cartella *Views\Shared* e aprire il file *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Sostituire il contenuto del file *Views\\Shared_Layout.cshtml* con il codice seguente.
+1. Sostituire il contenuto del file *Views\Shared_Layout.cshtml* con il codice seguente.
 
 
 		<!DOCTYPE html>
@@ -125,7 +126,7 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
-## Distribuzione dell'applicazione in Azure
+## Distribuire l'applicazione in Azure
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.
 
@@ -235,7 +236,7 @@ L'attività successiva consiste nell'abilitare la caratteristica [Migrazioni Cod
 
 	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
 
-3. Aprire il file *Migrations\\Configuration.cs*.
+3. Aprire il file *Migrations\Configuration.cs*.
 
 4. Aggiungere gli spazi dei nomi seguenti.
 
@@ -318,7 +319,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 ## Modifica della visualizzazione
 
-1. Aprire il file *Views\\Home\\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
+1. Aprire il file *Views\Home\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
 
 
 2. Sostituire il contenuto del file con il codice seguente.
@@ -475,7 +476,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 	Questo foglio di stile verrà utilizzato per il layout, i colori e gli stili nell'app Contact Manager.
 
-6. Aprire il file *App_Start\\BundleConfig.cs*.
+6. Aprire il file *App_Start\BundleConfig.cs*.
 
 
 7. Aggiungere il codice seguente per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
@@ -628,7 +629,7 @@ Per altre informazioni, vedere il sito [Web Open Web Application Security Projec
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Aggiornare la sezione *Scripts* del file *Views\\Home\\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
+1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,4 +810,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

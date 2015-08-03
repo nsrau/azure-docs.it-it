@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Le macchine virtuali di Azure rappresentano l&#39;opzione di calcolo desiderata?" 
+	pageTitle="Le macchine virtuali di Azure rappresentano l'opzione di calcolo desiderata?" 
 	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali" 
 	services="virtual-machines"
 	authors="KBDAzure" 
@@ -29,4 +29,4 @@ Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj1
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

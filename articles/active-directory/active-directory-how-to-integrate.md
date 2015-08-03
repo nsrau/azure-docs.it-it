@@ -92,4 +92,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

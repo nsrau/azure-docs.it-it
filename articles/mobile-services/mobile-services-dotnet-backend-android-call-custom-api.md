@@ -62,4 +62,4 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

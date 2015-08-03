@@ -285,4 +285,4 @@ Entro 1 ora circa i dati dell'account di archiviazione inizieranno a essere disp
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

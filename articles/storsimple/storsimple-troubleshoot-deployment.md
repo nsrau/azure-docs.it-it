@@ -3,7 +3,7 @@
    description="In questo articolo viene descritto come diagnosticare e correggere gli errori che si verificano durante la prima distribuzione di StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Risoluzione dei problemi di distribuzione del dispositivo StorSimple
 
@@ -64,7 +64,7 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 - Impostazione delle password di amministratore del dispositivo e di Gestione Snapshot StorSimple. 
 - Registrazione del dispositivo. 
 
-### Errori che si verificano quando si configurano le impostazioni di rete necessarie
+## Errori durante le impostazioni di rete necessarie
 
 | No.| Messaggio di errore | Possibili cause | Azione consigliata |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 | 6 | Invoke-HcsSetupWizard: indirizzo IPv6 non valido. | L'indirizzo IP è stato fornito in un formato non corretto.| Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Indirizzamento Ipv6][2].|
 | 7 | Invoke-HcsSetupWizard: non sono disponibili ulteriori endpoint nel mapper di endpoint. Eccezione da HRESULT: 0x800706D9 | La funzionalità del cluster non funziona. | [Contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) per i passaggi successivi.
 
-### Errori che si verificano quando si configurano le impostazioni del proxy Web facoltative
+## Errori durante le impostazioni del proxy web facoltative
 
 | No.| Messaggio di errore | Possibili cause | Azione consigliata |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 | 4 | Invoke-HcsSetupWizard: risorsa cluster non trovata (eccezione da HRESULT: 0x8007138f) | La risorsa del cluster non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta. | Potrebbe essere necessario ripristinare le impostazioni predefinite del dispositivo. [Contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) per creare una risorsa cluster.|
 | 5 | Invoke-HcsSetupWizard: risorsa cluster non online (eccezione da HRESULT: 0x8007138c)| Le risorse del cluster non sono in linea. | [Contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) per i passaggi successivi.|
 
-### Errori che si verificano quando si impostano le password di amministratore del dispositivo e di Gestione snapshot StorSimple.
+## Errori relativi alle password di amministratore del dispositivo e di Gestione Snapshot StorSimple.
 
 La password di amministratore del dispositivo predefinita è **Password1**. La password scade dopo il primo accesso. Pertanto, sarà necessario utilizzare la configurazione guidata per modificarla. Quando si registra il dispositivo per la prima volta, è necessario fornire una nuova password di amministratore del dispositivo.
 
@@ -124,7 +124,7 @@ Le password vengono raccolte prima della registrazione del dispositivo ma vengon
 - [Configurare la password dell’amministratore del dispositivo](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configurare la password di Gestione snapshot StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Errori che si verificano quando si registra il dispositivo
+## Errori durante la registrazione del dispositivo
 
 Per registrare il dispositivo, utilizzare il servizio StorSimple Manager in esecuzione su Microsoft Azure. Durante la registrazione del dispositivo, potrebbero essere riscontrati uno o più dei seguenti problemi.
 
@@ -575,4 +575,4 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

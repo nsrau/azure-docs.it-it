@@ -124,8 +124,8 @@ Per gestire le connessioni ibride è possibile:
 2. Estrarre i file.
 3. Nel computer che modifica i Criteri di gruppo eseguire le operazioni seguenti: 
 
-	- Copiare i file .ADMX nella cartella *%WINROOT%\\PolicyDefinitions*.
-	- Copiare i file .ADML nella cartella *%WINROOT%\\PolicyDefinitions\\it-it*.
+	- Copiare i file .ADMX nella cartella *%WINROOT%\PolicyDefinitions*.
+	- Copiare i file .ADML nella cartella *%WINROOT%\PolicyDefinitions\it-it*.
 
 Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criteri.
 
@@ -146,4 +146,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

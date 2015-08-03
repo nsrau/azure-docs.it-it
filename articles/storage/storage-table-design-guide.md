@@ -582,7 +582,7 @@ Per attivare la ricerca per cognome con la struttura delle entità illustrata in
 -	Creare entità di indice nella stessa partizione delle entità dipendente.  
 -	Creare entità di indice in una tabella o una partizione separata.  
 
-<u>Opzione \#1: Usare l'archiviazione BLOB</u>
+<u>Opzione #1: Usare l'archiviazione BLOB</u>
 
 Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e archiviare in ogni BLOB un elenco dei valori **PartitionKey** (reparto) e **RowKey** (ID dipendente) per i dipendenti con questo cognome. Quando si aggiunge o elimina un dipendente, è necessario verificare la coerenza finale tra il contenuto del BLOB pertinente e le entità dipendente.
 
@@ -1548,4 +1548,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

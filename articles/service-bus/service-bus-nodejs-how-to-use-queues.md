@@ -32,7 +32,7 @@ Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node
 
 ### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Usare la finestra di comando **Windows PowerShell per Node.js** per passare alla cartella **c:\\node\\sbqueues\\WebRole1** in cui è stata creata l'applicazione di esempio.
+1.  Usare la finestra di comando **Windows PowerShell per Node.js** per passare alla cartella **c:\node\sbqueues\WebRole1** in cui è stata creata l'applicazione di esempio.
 
 2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile al seguente:
 
@@ -190,4 +190,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Applicazione Web Node.js con archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

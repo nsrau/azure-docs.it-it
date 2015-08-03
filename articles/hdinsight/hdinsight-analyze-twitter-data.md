@@ -520,7 +520,7 @@ Usare lo script di Windows PowerShell seguente per controllare l'output del proc
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]La tabella Hive usa \\001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
+> [AZURE.NOTE]La tabella Hive usa \001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
 
 Dopo che i risultati dell'analisi sono stati inserivi in un archivio BLOB di Azure, è possibile esportare i dati in un database SQL o un server SQL di Azure, esportare i dati in Excel tramite Power Query oppure connettere l'applicazione ai dati usando Hive ODBC Driver. Per altre informazioni, vedere [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop], [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data], [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query] e [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
 
@@ -559,4 +559,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

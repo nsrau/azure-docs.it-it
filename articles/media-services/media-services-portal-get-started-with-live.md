@@ -163,7 +163,7 @@ Se si passa alla pagina **CONTENUTO**, sarà possibile visualizzare gli asset cr
 
 Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
 
-A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\\programma.
+A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\programma.
 
 La creazione dinamica dei pacchetti si occuperà di inserire il flusso live in un pacchetto nel protocollo specificato.
 
@@ -210,4 +210,4 @@ Ottenere altre informazioni sulla compilazione di applicazioni Live Streaming [C
 
 <!-- Images -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

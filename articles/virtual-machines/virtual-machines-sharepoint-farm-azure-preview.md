@@ -95,4 +95,4 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -26,7 +26,7 @@
 | PublisherName | Offerta | Sku |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
+| OpenLogic | CentOS | 7.1 |
 | CoreOS | CoreOS | Beta |
 | CoreOS | CoreOS | Stabile |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
@@ -35,8 +35,8 @@
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
+| Canonical | UbuntuServer | 12.04.5-LTS |
+| Canonical | UbuntuServer | 14.04.2-LTS |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2008 R2-SP1 |
@@ -174,8 +174,8 @@ Nella visualizzazione del comando **Get-AzureVMImageSku** si hanno tutte le info
 
 Di seguito è fornito un esempio.
 
-	PS C:> $locName="West US"
-	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:\> $locName="West US"
+	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -193,8 +193,8 @@ Di seguito è fornito un esempio.
 
 Per l'editore "MicrosoftWindowsServer":
 
-	PS C:> $pubName="MicrosoftWindowsServer"
-	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:\> $pubName="MicrosoftWindowsServer"
+	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -202,8 +202,8 @@ Per l'editore "MicrosoftWindowsServer":
 
 Per l'offerta "WindowsServer":
 
-	PS C:> $offerName="WindowsServer"
-	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:\> $offerName="WindowsServer"
+	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----
@@ -227,4 +227,4 @@ In questo elenco, copiare il nome della SKU prescelta per disporre di tutte le i
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

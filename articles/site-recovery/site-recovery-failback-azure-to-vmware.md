@@ -77,7 +77,7 @@ Inoltre, installare la patch specificata in vContinuum disponibile all'indirizzo
 
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-3.  Specificare la Passphrase del server di configurazione. È necessario avere preso nota della passphrase durante la registrazione del server di configurazione. È necessario utilizzare la passphrase durante le distribuzioni di MT e PS. Qualora non si ricordi la passphrase, è possibile passare al server CS Azure e individuare la passphrase archiviata nel percorso: C:\\Programmi (x86)\\InMage Systems\\private\\connection.passphrase
+3.  Specificare la Passphrase del server di configurazione. È necessario avere preso nota della passphrase durante la registrazione del server di configurazione. È necessario utilizzare la passphrase durante le distribuzioni di MT e PS. Qualora non si ricordi la passphrase, è possibile passare al server CS Azure e individuare la passphrase archiviata nel percorso: C:\Programmi (x86)\InMage Systems\private\connection.passphrase
 
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
@@ -365,7 +365,7 @@ Nota: durante il failover da Azure all'ambiente locale, la macchina virtuale di 
 
     e. Dopo aver identificato le macchine virtuali che si desidera proteggere, selezionarne una alla volta.
 
-4.  Quando si seleziona una macchina virtuale per la protezione (che ha già eseguito il failover in Azure) verrà visualizzata una finestra popup con due voci relative alla macchina virtuale. Ciò accade perché sono state rilevate due istanze di macchine virtuali registrate. È necessario rimuovere la voce per la macchina virtuale locale in modo che sia possibile proteggere la macchina virtuale corretta. Si noti che verranno visualizzate le voci dal relativo nome host del computer. Per identificare qui la voce relativa alla macchina virtuale di Azure, è possibile accedere alla macchina virtuale di Azure e passare a C:\\Programmi (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. Nel file drscout.conf identificare l'ID dell'host. Nella finestra di dialogo vContinuum mantenere la voce con cui l'ID host è stato trovato nella macchina virtuale. Eliminare tutte le altre voci.
+4.  Quando si seleziona una macchina virtuale per la protezione (che ha già eseguito il failover in Azure) verrà visualizzata una finestra popup con due voci relative alla macchina virtuale. Ciò accade perché sono state rilevate due istanze di macchine virtuali registrate. È necessario rimuovere la voce per la macchina virtuale locale in modo che sia possibile proteggere la macchina virtuale corretta. Si noti che verranno visualizzate le voci dal relativo nome host del computer. Per identificare qui la voce relativa alla macchina virtuale di Azure, è possibile accedere alla macchina virtuale di Azure e passare a C:\Programmi (x86)\Microsoft Azure Site Recovery\Application Data\etc. Nel file drscout.conf identificare l'ID dell'host. Nella finestra di dialogo vContinuum mantenere la voce con cui l'ID host è stato trovato nella macchina virtuale. Eliminare tutte le altre voci.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -604,4 +604,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

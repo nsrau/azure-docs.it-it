@@ -45,4 +45,4 @@ Gli argomenti seguenti descrivono ognuno dei diversi meccanismi disponibili per 
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

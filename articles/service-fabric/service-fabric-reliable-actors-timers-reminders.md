@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 # Timer degli attori
-I timer degli attori forniscono un wrapper semplice attorno al timer .NET per fare in modo che i metodi di callback rispettino le garanzie di concorrenza basata su turni offerte dal runtime di Actors.
+I timer degli attori forniscono un wrapper semplice attorno al timer .NET per fare in modo che i metodi di callback rispettino le garanzie di concorrenza basate su turni offerte dal runtime di Actors.
 
 Per eseguire e annullare la registrazione dei timer, gli attori possono usare i metodi `RegisterTimer` e `UnregisterTimer` nella propria classe base. L'esempio seguente illustra l'uso delle API di timer, che sono molto simili al timer .NET. Nell'esempio, alla scadenza del timer, il runtime di Actors chiama il metodo `MoveObject` che rispetta la concorrenza basata su turni. Questo significa che nessun altro metodo dell'attore o callback di timer/promemoria viene eseguito fino al completamento dell'esecuzione di questo callback.
 
@@ -113,6 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 Come indicato nell'esempio, il metodo `UnregisterReminder` accetta un'interfaccia `IActorReminder`. La classe base dell'attore supporta un metodo `GetReminder` che può essere usato per recuperare l'interfaccia `IActorReminder` passando il nome del promemoria. Questo metodo è utile perché l'attore non deve rendere persistente l'interfaccia `IActorReminder` restituita dalla chiamata al metodo `RegisterReminder`.
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

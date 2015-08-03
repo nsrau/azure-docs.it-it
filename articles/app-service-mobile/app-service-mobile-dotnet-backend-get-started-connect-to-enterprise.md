@@ -187,4 +187,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

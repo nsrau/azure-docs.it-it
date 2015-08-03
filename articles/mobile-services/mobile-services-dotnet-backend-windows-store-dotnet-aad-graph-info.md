@@ -254,4 +254,4 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -82,4 +82,4 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

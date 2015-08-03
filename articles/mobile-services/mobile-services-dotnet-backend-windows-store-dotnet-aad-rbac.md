@@ -384,6 +384,7 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [Aggiungere l'autenticazione all'app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
@@ -392,4 +393,4 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL per .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

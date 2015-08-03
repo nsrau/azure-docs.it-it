@@ -310,7 +310,7 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             $scope.refresh();
         });
 
-1\. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
+1. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
@@ -371,4 +371,4 @@ In questo esempio è stato descritto come usare AngularJS come piattaforma JavaS
 
 Questo esempio mostra l'accesso non autenticato a un'app per le API. Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

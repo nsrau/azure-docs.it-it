@@ -130,7 +130,7 @@ Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a
 
 | Nome host/Sottodominio | Indirizzo IP |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__' come sottodominio.
@@ -153,4 +153,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

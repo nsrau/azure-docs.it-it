@@ -250,7 +250,7 @@ Accedere alla macchina virtuale e creare la struttura di directory ed estrarre i
 	echo "installation is complete"
 
 
-Se si incolla questo script in una finestra di vim, rimuovere il ritorno a capo (‘\\r”) con il comando seguente:
+Se si incolla questo script in una finestra di vim, rimuovere il ritorno a capo (‘\r”) con il comando seguente:
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -700,4 +700,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

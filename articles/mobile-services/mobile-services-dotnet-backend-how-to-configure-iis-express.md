@@ -26,4 +26,4 @@ Per poter testare un servizio mobile localmente con i client in esecuzione su un
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

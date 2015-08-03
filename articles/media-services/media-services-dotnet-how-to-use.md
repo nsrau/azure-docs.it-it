@@ -98,4 +98,4 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Servizi multimediali.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

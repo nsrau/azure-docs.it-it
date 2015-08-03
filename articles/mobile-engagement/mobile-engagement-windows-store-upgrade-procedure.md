@@ -134,7 +134,7 @@ In Package.appxmanifest `File Type Associations` è stato aggiornato da:
 
 ### ID applicazione / chiave SDK
 
-Engagement usa una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
+Engagement utilizza una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
 
 La configurazione di Engagement può essere impostata nel file `Resources\EngagementConfiguration.xml` del progetto.
 
@@ -169,4 +169,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

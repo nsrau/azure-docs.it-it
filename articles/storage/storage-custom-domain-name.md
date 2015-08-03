@@ -138,4 +138,4 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

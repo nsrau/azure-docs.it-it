@@ -42,4 +42,4 @@ Altri vantaggi da considerare per le macchine virtuali sono i seguenti:
 
 **Resilienza**. Azure effettua il monitoraggio dell'hardware fisico che ospita ogni macchina virtuale in esecuzione. Se si verifica un problema su un server fisico che esegue una macchina virtuale, Azure rileva il problema, sposta la macchina virtuale su nuovo hardware e quindi la riavvia. Questo processo a volte viene indicato come correzione del servizio. Azure inoltre protegge i dati di una macchina virtuale mantenendo copie ridondanti dei dischi rigidi virtuali nell'archivio BLOB.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

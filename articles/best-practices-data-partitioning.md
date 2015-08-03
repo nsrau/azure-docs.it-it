@@ -477,4 +477,4 @@ I modelli seguenti possono essere rilevanti per il proprio scenario anche quando
 - La pagina [Esecuzione Redis in una macchina virtuale CentOS Linux in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) sul sito Web Microsoft illustra un esempio che mostra come creare e configurare un nodo Redis in esecuzione come una macchina virtuale di Azure.
 - La pagina [Tipi di dati](http://redis.io/topics/data-types) sul sito Web di Redis descrive i tipi di dati che sono disponibili con Redis e Cache Redis di Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -39,7 +39,7 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Mar
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
 Iscriversi a New Relic usando Azure Marketplace
---
+
 New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service di Azure.
 
 Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa procedura in quattro semplici passaggi.
@@ -175,4 +175,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

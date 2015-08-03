@@ -14,15 +14,15 @@ In tale circostanza, userà uno script di distribuzione specifico di Python che 
 
 Per ignorare tutti i passaggi della distribuzione specifici di Python, è possibile creare questo file vuoto:
 
-    \.skipPythonDeployment
+    .skipPythonDeployment
 
 Per ignorare la raccolta dei file statici per l'applicazione Django:
 
-    \.skipDjango 
+    .skipDjango 
 
 Per un maggiore controllo sulla distribuzione, è possibile eseguire l'override dello script di distribuzione predefinito creando i file seguenti:
 
-    \.deployment
+    .deployment
     \deploy.cmd
 
 Per creare i file, è possibile usare l'[interfaccia della riga di comando di Azure][]. Usare questo comando dalla cartella del progetto:
@@ -33,4 +33,4 @@ Se questi file non esistono, Azure creerà uno script di distribuzione temporane
 
 [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

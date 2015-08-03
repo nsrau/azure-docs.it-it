@@ -94,4 +94,4 @@
 
 10. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

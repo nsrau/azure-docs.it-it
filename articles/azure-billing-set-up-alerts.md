@@ -46,4 +46,4 @@ Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

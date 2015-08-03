@@ -15,4 +15,4 @@
 
   Il contenitore di volumi appena creato verrà elencato nella pagina **Contenitori di volumi**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

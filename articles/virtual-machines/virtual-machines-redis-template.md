@@ -44,7 +44,7 @@ Attenersi alla seguente procedura per creare un cluster Redis utilizzando un mod
 
 ### Passaggio 1-a: Scaricare i file di modello utilizzando Azure PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\RedisCluster).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\RedisCluster).
 
 Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
@@ -96,7 +96,7 @@ Clonare l’intero repository dei modelli utilizzando un client Git a propria sc
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-Una volta completata l’operazione, cercare la cartella **redis-high-availability** nella directory C:\\Azure\\Templates.
+Una volta completata l’operazione, cercare la cartella **redis-high-availability** nella directory C:\Azure\Templates.
 
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
@@ -283,7 +283,7 @@ Quando si effettua la distribuzione, tenere presente che è necessario creare un
 
 Durante la distribuzione, verrà visualizzata una schermata simile alla seguente:
 
-	PS C:> New-AzureResourceGroup –Name $RGName –Location $locName
+	PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
 
 	ResourceGroupName : TestRG
 	Location          : westus
@@ -296,7 +296,7 @@ Durante la distribuzione, verrà visualizzata una schermata simile alla seguente
 
 	ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
 
-	PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+	PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 	VERBOSE: 2:39:10 PM - Template is valid.
 	VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
 	VERBOSE: 2:39:25 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -387,7 +387,7 @@ In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da G
 
 In questa sezione viene fornita una descrizione della struttura del file azuredeploy.json per il cluster Redis.
 
-Se non è stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\RedisCluster). Sostituire il nome della cartella, quindi eseguire questi comandi.
+Se non è stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\Azure\Templates\RedisCluster). Sostituire il nome della cartella, quindi eseguire questi comandi.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -666,4 +666,4 @@ In pratica, questo approccio suggerisce di:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

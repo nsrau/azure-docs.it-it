@@ -3,4 +3,4 @@
 
 2. Accedere con le credenziali di Azure e selezionare il servizio in **App Web esistenti** (il servizio può includere un suffisso di tipo "-code"). Visual Studio scaricherà le impostazioni di pubblicazione direttamente da Azure. Infine, fare clic su **Pubblica**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

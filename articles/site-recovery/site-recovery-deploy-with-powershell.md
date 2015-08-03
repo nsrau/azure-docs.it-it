@@ -307,7 +307,7 @@ Il cmdlet finale crea un mapping tra la rete primaria e la rete delle macchine v
 
 ```
 
-PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -354,7 +354,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 ### Creare un piano di ripristino
 
-1. Creare un file XML come modello per il piano di ripristino utilizzando i dati seguenti e quindi salvarlo come "C:\\RPTemplatePath.xml".
+1. Creare un file XML come modello per il piano di ripristino utilizzando i dati seguenti e quindi salvarlo come "C:\RPTemplatePath.xml".
 2. Cambiare l'ID nodo RecoveryPlan, il nome, il PrimaryServerId e il SecondaryServerId.
 3. Modificare il PrimaryProtectionEntityId del nodo ProtectionEntity (vmid da VMM).
 4. È possibile aggiungere ulteriori macchine virtuali mediante l'aggiunta di più nodi ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -72,4 +72,4 @@ I dati in ogni soluzione vengono analizzati e presentati nel portale di Operatio
 ### Dov’è disponibile Operational Insights?
 Microsoft Azure Operational Insights è ospitato negli Stati Uniti. Anche se Operational Insights è in lingua inglese, il servizio è disponibile in diversi altri mercati. Per informazioni, vedere [Disponibilità Internazionale](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

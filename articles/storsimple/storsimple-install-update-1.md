@@ -100,4 +100,4 @@ Se si è verificato è presente la connettività e continuare a visualizzare que
 
 Ulteriori informazioni su [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

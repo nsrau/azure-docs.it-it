@@ -63,7 +63,7 @@ Per modificare l'impostazione di timeout per un endpoint
  
 Recuperare la configurazione del timeout di inattività
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ Aggiornare la configurazione di specificati endpoint di input con carico bilanci
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -19,7 +19,7 @@
 
 Un elenco di controllo di accesso (ACL) di rete è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta.
 
-> [AZURE.IMPORTANT]È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-network-nsg).
+> [AZURE.IMPORTANT]È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-networks-nsg).
 
 Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines-set-up-endpoints/).
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

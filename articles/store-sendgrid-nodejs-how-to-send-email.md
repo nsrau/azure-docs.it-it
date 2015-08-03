@@ -224,4 +224,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

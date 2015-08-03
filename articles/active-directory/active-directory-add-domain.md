@@ -211,4 +211,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -19,4 +19,4 @@
 
 Il contenuto di questo articolo è stato spostato in [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

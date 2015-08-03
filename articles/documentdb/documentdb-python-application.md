@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Creare un'app Web con Python e Flask tramite DocumentDB | Azure"
+    pageTitle="Build a web app with Python and Flask using DocumentDB | Azure"
     description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."
     services="documentdb"
     documentationCenter="python"
@@ -56,7 +56,7 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si disp
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 
-1. Aprire Visual Studio, quindi fare clic su **File** -\\> **Nuovo progetto** -\\> **Python** -\\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
+1. Aprire Visual Studio, quindi fare clic su **File** -\> **Nuovo progetto** -\> **Python** -\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
 
 	Se è la prima volta che si usa Flask, si tratta di un framework Web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
 
@@ -350,4 +350,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

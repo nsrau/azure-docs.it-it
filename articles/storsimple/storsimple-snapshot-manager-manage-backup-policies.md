@@ -118,4 +118,4 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

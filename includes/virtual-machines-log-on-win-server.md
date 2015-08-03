@@ -1,3 +1,4 @@
+
 1. Se necessario, accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale appropriata.
@@ -26,4 +27,4 @@ Fare clic su **Yes** per verificare l'identità della macchina virtuale.
 
 È ora possibile usare la macchina virtuale in remoto.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

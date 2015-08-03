@@ -164,7 +164,7 @@ Certreq.exe è un'utilità Windows per la creazione di richieste di certificato.
 
 5. Dalla riga di comando oppure da una sessione Bash o terminal, usare il comando seguente per convertire **myserver.key** e **myserver.crt** in **myserver.pfx**, che è il formato richiesto dal servizio app di Azure:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Quando richiesto, immettere una password per proteggere il file con estensione pfx.
 
@@ -541,4 +541,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

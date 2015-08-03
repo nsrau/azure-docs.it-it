@@ -479,4 +479,4 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

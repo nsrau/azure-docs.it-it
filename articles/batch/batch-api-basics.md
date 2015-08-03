@@ -238,17 +238,17 @@ Un'attività di gestione dei processi in un processo non ha priorità sulle atti
 
 Per usare il servizio Batch è necessario un account di Batch e per pianificare il calcolo si usano più risorse del servizio. Quando si crea un scenario di calcolo distribuito con il servizio Batch, usare il seguente flusso di lavoro di base:
 
-1\. Caricare i file da usare nello scenario di calcolo distribuito in un account di archiviazione di Azure. I file devono trovarsi nell'account di archiviazione in modo che il servizio Batch possa accedervi. Il servizio Batch li carica in una TVM quando viene eseguita l'attività.
+1. Caricare i file da usare nello scenario di calcolo distribuito in un account di archiviazione di Azure. I file devono trovarsi nell'account di archiviazione in modo che il servizio Batch possa accedervi. Il servizio Batch li carica in una TVM quando viene eseguita l'attività.
 
-2\. Caricare i file binari dipendenti nell'account di archiviazione. I file binari includono il programma che viene eseguito dall'attività e gli assembly dipendenti. Questi file devono inoltre essere accessibili dalla risorsa di archiviazione ed essere caricati nella TVM.
+2. Caricare i file binari dipendenti nell'account di archiviazione. I file binari includono il programma che viene eseguito dall'attività e gli assembly dipendenti. Questi file devono inoltre essere accessibili dalla risorsa di archiviazione ed essere caricati nella TVM.
 
-3\. Creare un pool di TVM. È possibile assegnare la dimensione della macchina virtuale delle attività da usare durante la creazione del pool. Quando viene eseguita un'attività, le viene assegnata una TVM da questo pool.
+3. Creare un pool di TVM. È possibile assegnare la dimensione della macchina virtuale delle attività da usare durante la creazione del pool. Quando viene eseguita un'attività, le viene assegnata una TVM da questo pool.
 
-4\. Creare un elemento di lavoro. Un processo viene automaticamente creato quando si crea un elemento di lavoro. Un elemento di lavoro consente di gestire un processo di attività.
+4. Creare un elemento di lavoro. Un processo viene automaticamente creato quando si crea un elemento di lavoro. Un elemento di lavoro consente di gestire un processo di attività.
 
-5\. Aggiungere le attività all'elemento di lavoro. Ogni attività usa il programma caricato per elaborare le informazioni da un file caricato.
+5. Aggiungere le attività all'elemento di lavoro. Ogni attività usa il programma caricato per elaborare le informazioni da un file caricato.
 
-6\. Monitorare i risultati dell'output.
+6. Monitorare i risultati dell'output.
 
 ## <a name="files"></a>File e directory
 
@@ -430,4 +430,4 @@ A ogni VM di un pool viene assegnato un nome univoco e la VM in cui viene esegui
 
 [Panoramica di Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

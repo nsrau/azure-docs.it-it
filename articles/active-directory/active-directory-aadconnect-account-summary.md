@@ -28,18 +28,18 @@ La procedura guidata Azure AD Connect offre due percorsi diversi con requisiti d
 * In Impostazioni personalizzate viene offerto un maggior numero di scelte e opzioni, ma esistono alcune situazioni in cui è necessario assicurarsi manualmente di disporre delle autorizzazioni corrette.
 
 
-## Credenziali che vengono raccolte e operazioni per le quali sono usate nell'ambito di un'installazione rapida
+## Le credenziali che vengono raccolte e quali operazioni sono usate nell'ambito per un'installazione rapida
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo 
 ------------- | ------------- |------------- |------------- |
 Connettersi ad Azure AD| Credenziali di directory di Azure AD | Ruolo di amministratore in Azure AD | <li>Abilitazione della sincronizzazione nella directory di Azure AD.</li> <li>Creazione dell'account Azure AD che verrà utilizzato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li>
-Connettersi ad AD DS | Credenziali Active Directory locali | Membro del gruppo Enterprise Admins (EA) in Active Directory| <li>Creazione dell’account di Active Directory locale che verrà utilizzato per la lettura di oggetti e attributi da Active Directory locale per l'operazione di sincronizzazione ricorrente.</li> <li> Assegnazione delle autorizzazioni e delle impostazioni di controllo di accesso corrette per la sincronizzazione e la sincronizzazione delle password con l'account precedente e Active Directory.</li> 
+Connettersi ad AD DS | Credenziali Active Directory locali | Membro del gruppo Enterprise Admins (EA) in Active Directory| L'account viene utilizzato come account di AD Connector locale, vale a dire l'account che legge e scrive le informazioni della directory per la sincronizzazione.
 ND|Credenziali di accesso dell'utente che esegue la procedura guidata| Amministratore del server locale|Mediante la procedura guidata viene creato l'account di Active Directory che verrà utilizzato come account di accesso del servizio di sincronizzazione nel computer locale.
 
 <br> <br>
 
 
-## Credenziali che vengono raccolte e operazioni per le quali sono usate nell'ambito di un'installazione personalizzata
+## Le credenziali che vengono raccolte e per quali operazioni sono usate nell'ambito di un'installazione personalizzata
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo 
 ------------- | ------------- |------------- |------------- |
@@ -50,7 +50,7 @@ Connessione delle directory|Credenziali Active Directory locali per ciascuna for
 Server ADFS|Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, se le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione|Amministratore di domino|Installazione e configurazione del ruolo del server ADFS.|
 Server Proxy applicazione Web |Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, se le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione|Amministratore locale nel computer di destinazione.|Installazione e configurazione del ruolo del server WAP.
 Credenziali di attendibilità del proxy |Credenziali di attendibilità del servizio federativo (le credenziali che saranno utilizzate dal proxy per richiedere un certificato di attendibilità da FS) |Account di dominio che è un amministratore locale del server ADFS|Registrazione iniziale del certificato di attendibilità di FS-WAP
-Pagina Account del servizio ADFS, "Utilizzare un'opzione account utente di dominio"|Credenziali dell'account utente di Active Directory|Utente di dominio|L'account utente di Active Directory di cui vengono fornite le credenziali verrà utilizzato come account di accesso del servizio ADFS.
+Pagina Account del servizio ADFS, "Utilizzare un'opzione account utente di dominio"|Credenziali dell'account utente di Active Directory|Utente di dominio|L'account utente di Active Directory di cui vengono fornite le credenziali verrà utilizzato come account di accesso del servizio AD FS.
 
 
 
@@ -63,7 +63,7 @@ Sincronizzazione delle password| <li>Replica modifiche directory.</li> <li>Repli
 Distribuzione ibrida di Exchange|Vedere [Attributi e autorizzazioni di writeback di AAD Sync per la distribuzione ibrida di Exchange con Office 365](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange).
 Writeback delle password | <li>Cambia password</li><li>Reimposta password</li>
 Writeback di utenti, gruppi e dispositivi|Autorizzazioni di scrittura per gli oggetti di directory e gli attributi di cui si desidera eseguire il "writeback"
-Single Sign-On e AD FS| Autorizzazioni di amministratore di dominio nel dominio in cui si trovano i server federati.
+Single Sign-On e AD FS| Autorizzazioni di amministratore del dominio in cui si trovano i server federati.
 
 <br> <br>
 ## Riepilogo degli account creati da Azure AD Connect
@@ -90,4 +90,4 @@ Account AD FS:GMSA (aadcsvc$)|Utente di dominio|Account di accesso al servizio F
 * [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

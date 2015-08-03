@@ -88,4 +88,4 @@ I servizi Reliable Services emettono eventi e contatori delle prestazioni utiliz
 - [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

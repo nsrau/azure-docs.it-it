@@ -68,10 +68,10 @@ Scoprire cosa si intende per [carico di lavoro del data warehouse].
 <!--Image references-->
 
 <!--Article references-->
-[Carico di lavoro del data warehouse] sql-data-warehouse-overview-workload.md
+[carico di lavoro del data warehouse]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

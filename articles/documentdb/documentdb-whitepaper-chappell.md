@@ -31,4 +31,4 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 **Download PDF:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

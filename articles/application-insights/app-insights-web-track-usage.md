@@ -267,7 +267,7 @@ Allegare le proprietà alle visualizzazioni pagine nello stesso modo:
 Nella Ricerca diagnostica è possibile visualizzare le proprietà facendo clic su una singola occorrenza di un evento.
 
 
-![Nell'elenco di eventi aprire un evento e quindi fare clic su '...' per visualizzare altre proprietà](./media/app-insights-web-track-usage/11-details.png)
+![Nell'elenco di eventi aprire un evento e quindi fare clic su '...' per visualizzare ulteriori proprietà](./media/app-insights-web-track-usage/11-details.png)
  
 Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore della proprietà particolare.
 
@@ -366,4 +366,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

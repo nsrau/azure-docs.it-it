@@ -136,7 +136,7 @@ Il codice seguente illustra come aggiungere un allegato.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -228,4 +228,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

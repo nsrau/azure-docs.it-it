@@ -87,4 +87,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 * [Per gli utenti](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

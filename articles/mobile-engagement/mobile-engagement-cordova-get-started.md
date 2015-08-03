@@ -233,7 +233,7 @@ Modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engage
 
 **[iOS]**
 
-1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\\platforms\\ios**. Aprire il file nativo con estensione xcodeproj file in XCode. 
+1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\platforms\ios**. Aprire il file nativo con estensione xcodeproj file in XCode. 
 	
 2. Sviluppare e distribuire l'app Cordova nel dispositivo iOS usando l'account con il profilo di provisioning contenente il certificato appena caricato nel portale di Mobile Engagement e l'ID app corrispondente a quello specificato durante la creazione dell'app Cordova. È possibile verificare l'*identificatore di aggregazione* nel file **Resources*-info.plist** in XCode per individuare una corrispondenza.
 
@@ -312,4 +312,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

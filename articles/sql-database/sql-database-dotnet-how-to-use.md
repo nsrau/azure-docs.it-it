@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](
 Ora che sono state apprese le nozioni di base della connessione al Database SQL, vedere[Sviluppo: procedure (Database SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

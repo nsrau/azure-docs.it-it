@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@ Nel dashboard **Alert Management** è possibile visualizzare tutti gli avvisi tr
 3. Fare clic su un riquadro o qualsiasi elemento per visualizzarne le informazioni dettagliate nella pagina **Search**.
 4. Usando le informazioni trovate, è possibile esaminare l'avviso e determinare le azioni aggiuntive che potrebbe essere necessario intraprendere per risolvere il problema.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

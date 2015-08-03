@@ -124,7 +124,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
 2. Passare al percorso del BLOB usando il modello **DeploymentId/RoleName/RoleInstance** per trovare la configurazione per l'istanza del ruolo. 
 
 	![Esplora archivi di Visual Studio.](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Scaricare il file di configurazione per l'istanza del ruolo e aggiornarlo in modo da includere eventuali contatori delle prestazioni personalizzati. Ad esempio, per monitorare *Byte scritti su disco/sec* per l’*unità C* aggiungere quanto segue nel nodo **PerformanceCounters\\Subscriptions**
+3. Scaricare il file di configurazione per l'istanza del ruolo e aggiornarlo in modo da includere eventuali contatori delle prestazioni personalizzati. Ad esempio, per monitorare *Byte scritti su disco/sec* per l’*unità C* aggiungere quanto segue nel nodo **PerformanceCounters\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@ Ad esempio, nelle seguenti tabelle sarebbero archiviati dati di monitoraggio det
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

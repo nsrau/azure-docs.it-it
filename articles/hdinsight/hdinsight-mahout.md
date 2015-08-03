@@ -78,7 +78,7 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 3. Caricare il file __u.data__ in __example/data/u.data__ nel cluster HDInsight. Se si ha [Azure PowerShell][aps], è possibile usare il modulo [HDInsight-Tools][tools] per caricare il file. Per informazioni su altri modi per caricare i file, vedere [Caricare dati per processi Hadoop in HDInsight][upload]. Il seguente comando usa `Add-HDInsightFile` per caricare il file:
 
-    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     Questo frammento di codice carica il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. È quindi possibile accedere ai dati usando l'URI __wasb:///example/data/u.data__ dai processi HDInsight.
 
@@ -234,7 +234,7 @@ Anche se l'output generato risulta appropriato per l'uso in un'applicazione, non
 
 Per usare questo script, è necessario avere la cartella __ml-100k__ estratta in precedenza oltre a una copia locale del file di output __part-r-00000__ generato dal processo Mahout. Di seguito è riportato un esempio di esecuzione dello script:
 
-	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 L'output sarà simile al seguente:
 
@@ -353,7 +353,7 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
 1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente di [Azure PowerShell][aps]:
 
-    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __Per HDInsight 2.1__, è possibile scaricare un file di archivio Java (JAR) che contiene [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
@@ -368,7 +368,7 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
 2. Caricare il file JAR in __example/jars__ nella risorsa di archiviazione predefinita del cluster. Il seguente esempio usa add-hdinsightfile da [HDInsight-Tools][tools] per caricare il file:
 
-    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Impossibile sovrascrivere i file
 
@@ -429,4 +429,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

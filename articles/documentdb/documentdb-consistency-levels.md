@@ -35,11 +35,11 @@ Questi livelli di coerenza granulari e ben definiti permettono di ottenere compr
 
 >[AZURE.NOTE]L'override del livello di coerenza predefinito per le singole raccolte potrebbe essere supportato in una versione futura.
 
-**Sicuro**: la coerenza assoluta garantisce come un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dal quorum di maggioranza delle repliche secondarie, oppure questa viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
+**Sicuro**: la coerenza assoluta garantisce come un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dalla maggioranza delle repliche secondarie oppure viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
  
 La coerenza assoluta offre la garanzia totale sulla coerenza dei dati, ma il livello più basso di prestazioni in lettura e scrittura.
 
-**Delimitata obsolescenza**: Coerenza obsolescenza delimitata garantisce il totale dell'ordine di propagazione delle operazioni di scrittura con la possibilità che legga il ritardo dietro le scrittura al massimo con i prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di KB).
+**Delimitata obsolescenza**: Coerenza obsolescenza delimitata garantisce il totale dell'ordine di propagazione delle operazioni di scrittura con la possibilità che legga il ritardo dietro le scrittura al massimo con i prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di K).
 
 L'obsolescenza associata offre un comportamento più prevedibile per la coerenza delle letture, con latenza minima per le scritture. Poiché le letture vengono confermate da un quorum di maggioranza, la latenza di lettura non è quella minima offerta dal sistema.
 
@@ -89,4 +89,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 -	Werner Vogels. Eventuale coerente, in particolare.[http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

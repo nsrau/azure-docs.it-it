@@ -1,5 +1,19 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Configurazione di Oracle GoldenGate per Azure" description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Configurazione di Oracle GoldenGate per Azure" 
+	description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Configurazione di Oracle GoldenGate per Azure
 In questa esercitazione viene illustrato come configurare Oracle GoldenGate in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla [replica bidirezionale](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) per i database di Oracle non RAC e richiede che entrambi i siti siano attivi.
 
@@ -116,7 +130,7 @@ Quindi eseguire:
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-A questo punto individuare il file INIT<SIDDatabase>.ORA nella cartella %ORACLE_HOME%\\database nei siti A e B e aggiungere i parametri di database seguenti a INITTEST.ora:
+A questo punto individuare il file INIT<SIDDatabase>.ORA nella cartella %ORACLE_HOME%\database nei siti A e B e aggiungere i parametri di database seguenti a INITTEST.ora:
 
 	UNDO_MANAGEMENT=AUTO
 	UNDO_RETENTION=86400
@@ -189,7 +203,7 @@ Infine, arrestare e riavviare il database:
 ##3. Creare tutti gli oggetti necessari per supportare la replica DDL
 In questa sezione sono elencati gli script da usare per creare tutti gli oggetti necessari per supportare la replica DDL. È necessario eseguire gli script specificati in questa sezione sia nel sito A che nel sito B.
 
-Aprire un prompt dei comandi di Windows e passare alla cartella di Oracle GoldenGate, ad esempio C:\\OracleGG. Aprire il prompt dei comandi di SQL*Plus con privilegi di amministratore di database, ad esempio con l'account **SYSDBA**, nei siti A e B.
+Aprire un prompt dei comandi di Windows e passare alla cartella di Oracle GoldenGate, ad esempio C:\OracleGG. Aprire il prompt dei comandi di SQL*Plus con privilegi di amministratore di database, ad esempio con l'account **SYSDBA**, nei siti A e B.
 
 Eseguire quindi gli script seguenti:
 	
@@ -277,7 +291,7 @@ Avviare il processo Manager:
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le informazioni seguenti: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le informazioni seguenti: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
 
 Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le seguenti informazioni:
 
@@ -583,4 +597,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

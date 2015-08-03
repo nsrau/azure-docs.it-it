@@ -57,8 +57,8 @@ Per altre informazioni sui motivi per cui è consigliabile usare Azure Multi-Fac
 
 **Risorse aggiuntive**
 
-* [Che cosa significa Multi-Factor Authentication per me?](multi-factor-authentication-end-user.md)
-* [Impostare Multi-Factor Authentication per Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [Impostare l’autenticazione a più fattori per Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [Che cosa significa Multi-Factor Authentication?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

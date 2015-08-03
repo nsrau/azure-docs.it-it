@@ -243,4 +243,4 @@ La sezione **Analisi** include le quattro schede seguenti.
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

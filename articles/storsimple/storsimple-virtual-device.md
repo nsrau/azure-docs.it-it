@@ -370,4 +370,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 - Fare clic su **Elimina** e scegliere di eliminare tutti i dischi di macchina virtuale.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

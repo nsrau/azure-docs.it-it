@@ -1,7 +1,9 @@
 <properties
 	pageTitle="Configurare una macchina virtuale come server IPython Notebook | Microsoft Azure"
 	description="Configurare una macchina virtuale di Azure per usarla in un ambiente di analisi scientifica dei dati con IPython Server per le analisi avanzate."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -145,4 +147,4 @@ I passaggi successivi del processo ADAPT (Advanced Analytics Process and Technol
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -41,7 +41,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 
 1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
+3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello per cui si desidera abilitare gli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Impostazioni.
 6. Nella sezione Avviso di illecito selezionare Consenti agli utenti di inviare avvisi di illeciti.
@@ -72,7 +72,7 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 
 1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
+3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello che si desidera per visualizzare il report degli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Avviso di illecito in Visualizza un report.
 6. Specificare l'intervallo di date che si desidera visualizzare nel report. È inoltre possibile specificare determinati nomi utente, numeri di telefono e lo stato degli utenti.
@@ -87,7 +87,7 @@ Un bypass monouso consente a un utente di eseguire l'autenticazione una sola vol
 <ol>
 <li>Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)</li>
 <li>A sinistra selezionare Active Directory.</li>
-<li>Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.</li>
+<li>Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.</li>
 <li>Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello associato alla directory per l'utente per cui si desidera creare un bypass monouso e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.</li>
 <li>Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Impostazioni in Amministrazione utenti.</li>
 
@@ -104,7 +104,7 @@ Un bypass monouso consente a un utente di eseguire l'autenticazione una sola vol
 
 1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
+3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello che si desidera per visualizzare il report degli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Bypass monouso in Visualizza un report.
 6. Specificare l'intervallo di date che si desidera visualizzare nel report. È inoltre possibile specificare determinati nomi utente, numeri di telefono e lo stato degli utenti.
@@ -129,7 +129,7 @@ Prima di iniziare, tenere presente quanto segue:
 <li>Creare un messaggio vocale personalizzato usando uno dei formati di file supportati. Vedere le raccomandazioni per i messaggi vocali personalizzati riportate di seguito.</li>
 <li>Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)</li>
 <li>A sinistra selezionare Active Directory.</li>
-<li>Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.</li>
+<li>Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.</li>
 <li>Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello per cui si desidera configurare il messaggio vocale personalizzato e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.</li>
 <li>Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Messaggi vocali.</li>
 
@@ -172,7 +172,7 @@ La memorizzazione nella cache consente di impostare uno specifico periodo di tem
 
 1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore selezionare Provider di Autenticazione a più fattori. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
+3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello per cui si desidera abilitare gli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Memorizzazione nella cache.
 6. Nella pagina Configura memorizzazione nella cache fare clic su Nuova cache
@@ -226,7 +226,7 @@ In alcune app, come Office 2010 o versioni precedenti e Apple Mail, non è possi
 
 >[AZURE.NOTE]Autenticazione moderna per i client di Office 2013
 >
-> I client di Office 2013 (tra cui Outlook) ora supportano nuovi protocolli di autenticazione e possono essere abilitati per supportare Multi-Factor Authentication. Pertanto, una volta attivate, le password dell'app non sono necessarie per l'uso con i client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 ### Informazioni importanti sulle password dell'app
 
@@ -283,7 +283,7 @@ Per impostazione predefinita, gli utenti non possono creare password dell'app. Q
 
 1. Accedere al portale di gestione di Azure.
 2. A sinistra fare clic su Active Directory.
-3. In Directory fare clic sulla directory relativa all'utente che si desidera abilitare.
+3. In Directory fare clic sulla directory relativa all'utente che si desidera attivare.
 4. Nella parte superiore fare clic su Utenti.
 5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
 6. Nella parte superiore della pagina Multi-Factor Authentication fare clic su Impostazioni servizio.
@@ -358,4 +358,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

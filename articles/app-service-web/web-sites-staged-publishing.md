@@ -259,4 +259,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

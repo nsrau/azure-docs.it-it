@@ -31,6 +31,10 @@ La sincronizzazione offline ha diversi usi potenziali:
 
 Se questa è la prima esperienza con App per dispositivi mobili, è consigliabile completare prima l'esercitazione [Creare un'app iOS].
 
+##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>Ottenere l'app di esempio ToDo offline
 
 Nel repository [GitHub degli esempi di app per dispositivi mobili] clonare il repository e aprire il progetto di [esempio offline di iOS] in Xcode.
@@ -278,4 +282,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -81,4 +81,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

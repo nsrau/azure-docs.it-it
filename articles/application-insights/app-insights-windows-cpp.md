@@ -46,11 +46,11 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
     ![Selezionare **Includi versione preliminare** e cercare "Application Insights"](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. Nelle impostazioni del progetto per release e debug:
-  - Aggiungere $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc alle proprietà del progetto -> VC++ Directories -> Include Directories
-  - Aggiungere $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights_Win10-UAP alle proprietà del progetto -> VC++ Directories -> Library Directories
+  - Aggiungere $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc alle proprietà del progetto -> VC++ Directories -> Include Directories
+  - Aggiungere $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP alle proprietà del progetto -> VC++ Directories -> Library Directories
 
-4. Aggiungere ApplicationInsights.winmd come riferimento al progetto da $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DI PIATTAFORMA>\\release\\ApplicationInsights
-5. Aggiungere il file AppInsights_Win10-UAP.dll da $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DI PIATTAFORMA>\\release\\AppInsights_Win10-UAP. Passare alle proprietà e impostare il contenuto su YES per copiare la DLL nella directory di compilazione.
+4. Aggiungere ApplicationInsights.winmd come riferimento al progetto da $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DI PIATTAFORMA>\release\ApplicationInsights
+5. Aggiungere il file AppInsights_Win10-UAP.dll da $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DI PIATTAFORMA>\release\AppInsights_Win10-UAP. Passare alle proprietà e impostare il contenuto su YES per copiare la DLL nella directory di compilazione.
 
 
 #### Per aggiornare l’SDK per le versioni future
@@ -139,4 +139,4 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

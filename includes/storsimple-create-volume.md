@@ -22,4 +22,4 @@
 
 4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -99,4 +99,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

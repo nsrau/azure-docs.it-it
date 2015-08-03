@@ -38,11 +38,11 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 <a name="requirements"></a>
 ## Requisiti e restrizioni
 
-* La funzionalità di backup e ripristino richiede che il sito sia in modalità Standard. Per altre informazioni sul ridimensionamento delle app Web per usare la modalità Standard, vedere [Scalare un'app Web nel servizio app di Azure](web-sites-scale.md). Considerare che la modalità Premium consente l'esecuzione di un numero maggiore di backup quotidiani rispetto alla modalità Standard.
+* La funzionalità di backup e ripristino richiede che il sito sia in modalità Standard. Per ulteriori informazioni sul ridimensionamento delle app Web per utilizzare la modalità Standard, vedere [Scalare un'app Web nel servizio app di Azure](web-sites-scale.md). Considerare che la modalità Premium consente l'esecuzione di un numero maggiore di backup quotidiani rispetto alla modalità Standard.
 
 * Per usufruire della funzionalità di backup e ripristino è necessario un account di archiviazione di Azure che appartenga alla stessa sottoscrizione dell'app Web da sottoporre a backup. Se ancora non si ha un account di archiviazione, è possibile crearne uno facendo clic su **Account di archiviazione** nel pannello **Backup** del [portale di anteprima di Azure](http://portal.azure.com), quindi scegliendo l'**Account di archiviazione** e il **Contenitore** dal pannello **Destinazione**. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) al termine di questo articolo.
 
-* La funzionalità di Backup e ripristino supporta fino a 10 GB di contenuto del sito Web e database. Se non è possibile proseguire a usare la funzionalità di backup perché il payload supera questo limite, verrà riportato un errore nei log operazioni.
+* La funzionalità di Backup e ripristino supporta fino a 10 GB di contenuto del sito Web e database. Se non è possibile proseguire a utilizzare la funzionalità di backup perché il payload supera questo limite, verrà riportato un errore nei log operazioni.
 
 <a name="manualbackup"></a>
 ## Creazione di un backup manuale
@@ -50,7 +50,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 1. Nel portale di Azure, scegliere l'app Web dal pannello App Web. In questo modo vengono visualizzati i dettagli dell'app Web in un nuovo pannello.
 2. Selezionare l'opzione **Impostazioni**. Verrà visualizzato il pannello **Impostazioni** consentendo di modificare l'app Web.
 	
-	![Pagina Backup][ChooseBackupsPage]
+	![Pagina Backups][ChooseBackupsPage]
 
 3. Scegliere l'opzione **Backup** nel pannello **Impostazioni**. Viene visualizzato il pannello **Backup**.
 	
@@ -63,9 +63,9 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 	> [AZURE.NOTE]Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
 	
 6. Nel pannello **Backup**, selezionare la **Destinazione di backup**. È necessario scegliere un account di archiviazione e contenitore esistenti.
-7. Nella barra dei comandi fare clic su **Esegui backup ora**.
+7. Nella barra dei comandi fare clic su **Backup Now**.
 	
-	![Pulsante Esegui backup ora][BackUpNow]
+	![Pulsante BackUp Now][BackUpNow]
 	
 	Durante il processo di backup verrà visualizzato un messaggio di stato.
 	
@@ -85,9 +85,9 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 	
 3. Nella casella **Frequency** specificare la frequenza di esecuzione dei backup automatici. Il numero di giorni deve essere compreso tra 1 e 90 inclusi (da una volta al giorno a una volta ogni 90 giorni).
 	
-4. Usare l'opzione **Inizio** per specificare la data e l'ora di inizio per i backup automatizzati.
+4. Utilizzare l'opzione **Inizio** per specificare la data e l'ora di inizio per i backup automatizzati.
 	
-	> [AZURE.NOTE]In Azure gli orari di backup vengono archiviati in formato UTC, ma vengono visualizzati in base all'ora di sistema impostata nel computer usato per visualizzare il portale.
+	> [AZURE.NOTE]In Azure gli orari di backup vengono archiviati in formato UTC, ma vengono visualizzati in base all'ora di sistema impostata nel computer utilizzato per visualizzare il portale.
 	
 5. Nella sezione **Database inclusi**, selezionare i database connessi all'app Web (MySQL o di SQL Server) di cui eseguire il backup. Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
 	
@@ -115,7 +115,7 @@ In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app We
 -	L'app Web include oltre 10 GB di contenuto, ovvero la quantità massima per volta di cui è possibile eseguire il backup.
 -	Non si vuole eseguire il backup dei file di log.
 
-I backup parziali consentono di scegliere esattamente i file di cui si vuole eseguire il backup.
+I backup parziali consentono di scegliere esattamente i file di cui si desidera eseguire il backup.
 
 ### Escludere file dal backup
 
@@ -139,7 +139,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 
 2. Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel file, ma rimuovere `D:\home`. Elencare una directory o un file per ogni riga. Il contenuto del file dovrebbe essere analogo al seguente:
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Caricare questo file nella directory `D:\home\site\wwwroot` del sito usando [ftp](web-sites-deploy.md#ftp) o qualsiasi altro metodo. Se si vuole, è possibile creare il file direttamente in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e inserire i contenuti nel file.
 
@@ -189,7 +189,7 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 
 
 <a name="moreaboutstorage"></a>
-### Altre informazioni sugli account di archiviazione
+### Ulteriori informazioni sugli account di archiviazione
 
 [Informazioni sull'account di archiviazione](../storage-whatis-account.md)
 
@@ -219,4 +219,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

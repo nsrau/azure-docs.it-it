@@ -200,7 +200,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
 	Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
 
-2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare **_nome_macchina_virtuale_\\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
+2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare **_nome_macchina_virtuale_\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
 
 	![Connetti al server][Image19]
 
@@ -299,17 +299,6 @@ Si è appreso come creare e configurare un'istanza di SQL Server in una macchina
 
 [Preparazione della migrazione a SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
-- Come eseguire la migrazione dello schema e dei file di database di SQL tra macchine virtuali in Azure usando dischi dati
-
-[Distribuzione di SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- Come copiare i file di dati e dell'installazione di SQL Server in un disco dati dall'ambiente locale ad Azure usando CSUpload
-- Come creare una macchina virtuale di base locale utilizzando Hyper-V
-- Come creare una macchina virtuale SQL Server in Azure utilizzando il disco di SQL Server locale
-- Come creare una macchina virtuale SQL Server in Azure utilizzando la macchina virtuale SQL Server locale esistente 
-- Modalità di utilizzo di PowerShell per la configurazione di una macchina virtuale di SQL Server in Azure 
-- Come usare un disco dati collegato per archiviare i file di database
-
 [Considerazioni relative alla connettività per SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 [Considerazioni relative alle prestazioni per SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
@@ -330,21 +319,13 @@ Si è appreso come creare e configurare un'istanza di SQL Server in una macchina
 
 [SQL Server Business Intelligence in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Usare PowerShell per creare una VM di Azure con SQL Server BI e SharePoint 2010
-- Utilizzare PowerShell per creare una VM di Azure con SQL Server BI e SharePoint 2013
-- Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
-
-[SQL Server Data warehouse in Macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[SQL Server Data warehouse e carichi di lavoro transazionali in macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Articoli tecnici relativi a SQL Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
 - [White paper: informazioni sul database SQL di Azure e SQL Server in Macchine virtuali di Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [White paper: modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [White paper: distribuire SQL Server Business Intelligence in Macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [White paper: controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
@@ -381,4 +362,4 @@ Si è appreso come creare e configurare un'istanza di SQL Server in una macchina
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

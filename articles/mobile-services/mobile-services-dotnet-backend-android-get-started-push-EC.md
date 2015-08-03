@@ -237,4 +237,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

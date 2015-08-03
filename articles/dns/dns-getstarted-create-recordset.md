@@ -55,7 +55,7 @@ Nell'esempio seguente verrà illustrato come creare un set di record e i record.
 
 Creare un set di record e assegnarlo a una variabile $rs:
 
-	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 Il set di record ha il nome relativo "www" nella zona DNS "contoso.com" in modo che il nome completo dei record sarà "www.contoso.com". Il tipo di record è "A" e il valore TTL è 60 secondi.
 
@@ -67,8 +67,8 @@ Il set di record è vuoto ed è necessario aggiungere record per poter usare il 
 
 Aggiungere i record IPv4 al set di record "www" usando la variabile $rs assegnata durante la creazione del set di record al passaggio 1:
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 L'aggiunta di record a un set di record usando Add-AzureDnsRecordConfig è un'operazione non in linea. Solo la variabile locale $rs viene aggiornata.
 
@@ -81,7 +81,7 @@ Eseguire il commit delle modifiche al set di record. Usare Set-AzureDnsRecordSet
 Le modifiche sono state completate. È possibile recuperare il set di record dal servizio DNS di Azure usando Get-AzureDnsRecordSet:
 
 
-	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 >[AZURE.NOTE]Come durante la creazione della zona, se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita l'indirizzo del server dei nomi per la propria zona.
 
 
-	C:> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -80,4 +80,4 @@ La proprietà [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.
 
 > [AZURE.NOTE]Per assicurare la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate all'API elenco è consigliabile usare sempre clausole di filtro e selezione.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

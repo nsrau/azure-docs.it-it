@@ -207,4 +207,4 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 ![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

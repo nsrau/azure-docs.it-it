@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 	![Pagina relativa ai processori](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note]I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
+	>[AZURE.NOTE]I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Fare clic sul pulsante SALVA per salvare le modifiche apportate.
 
 	Le nuove unità riservate di codifica vengono allocate non appena si fa clic su SALVA.
 
-	>[Azure.Note]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
+	>[AZURE.NOTE]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
 
 ##Quote e limitazioni
 
@@ -58,4 +58,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

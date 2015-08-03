@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ La configurazione di bilanciamento del carico di Azure supporta il processo NAT 
 
 ![SNAT](./media/load-balancer-overview/load-balancer-snat.png)
 
-Si noti che per ogni nuova connessione in uscita avviata da una macchina virtuale, viene allocata anche una porta in uscita dal bilanciamento del carico di Azure. L'host esterno vedrà il traffico in arrivo come porta allocata VIP. Se gli scenari richiedono un numero elevato di connessioni in uscita, è consigliabile che le macchine virtuali usino indirizzi IP pubblici a livello di istanza, in modo che sia disponibile un IP in uscita dedicato per il processo SNAT (Source Network Address Translation). Ciò consente di ridurre il rischio di esaurimento delle porte.
+
+>[AZURE.NOTE]Si noti che per ogni nuova connessione in uscita avviata da una macchina virtuale, viene allocata anche una porta in uscita dal bilanciamento del carico di Azure. L'host esterno vedrà il traffico in arrivo come porta allocata VIP. Se gli scenari richiedono un numero elevato di connessioni in uscita, è consigliabile che le macchine virtuali usino indirizzi IP pubblici a livello di istanza, in modo che sia disponibile un IP in uscita dedicato per il processo SNAT (Source Network Address Translation). Ciò consente di ridurre il rischio di esaurimento delle porte.
+>
+>Il numero massimo di porte che possono essere usate dall'indirizzo VIP o ILPIP è 64.000. Si tratta di una limitazione standard TCP.
+
 
 **Supporto per più IP con carico bilanciato per le macchine virtuali**
 
@@ -95,4 +99,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

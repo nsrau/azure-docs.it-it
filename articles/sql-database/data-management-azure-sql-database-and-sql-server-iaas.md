@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure
@@ -186,9 +186,9 @@ Per le **macchine virtuali ospitate in Azure**, Microsoft fornisce un contratto 
 
 ###<a name="market"></a>Time-to-market
 
-Il **database SQL di Azure** è la soluzione ideale per le applicazioni progettate per il cloud quando i fattori critici sono la produttività degli sviluppatori e un time-to-market rapido. Con la funzionalità di tipo DBA programmatica, è lo strumento ideale per gli architetti e gli sviluppatori cloud perché riduce la gestione del sistema operativo e del database sottostanti. Aiuta gli sviluppatori a comprendere e configurare le attività relative al database. Ad esempio, è possibile usare i [cmdlet API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e [PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) per automatizzare e gestire le operazioni amministrative di migliaia di database. Con la scalabilità elastica nel cloud, è possibile concentrarsi sul livello dell'applicazione e rilasciare più rapidamente l'applicazione sul mercato.
+Il **database SQL di Azure** è la soluzione ideale per le applicazioni progettate per il cloud quando i fattori critici sono la produttività degli sviluppatori e un time-to-market rapido. Con la funzionalità di tipo DBA programmatica, è lo strumento ideale per gli architetti e gli sviluppatori cloud perché riduce la gestione del sistema operativo e del database sottostanti. Aiuta gli sviluppatori a comprendere e configurare le attività relative al database. Ad esempio, è possibile usare i [cmdlet API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e [PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) per automatizzare e gestire le operazioni amministrative di migliaia di database. Con la [scalabilità elastica](sql-database-elastic-pool.md) nel cloud, è possibile concentrarsi sul livello dell'applicazione e rilasciare più rapidamente l'applicazione sul mercato.
 
-**SQL Server in esecuzione in una macchina virtuale di Azure** è la soluzione ottimale se le applicazioni esistenti e nuove richiedono l'accesso e il controllo per tutte le funzionalità di un'istanza di SQL Server e se si vuole eseguire la migrazione delle applicazioni e dei database locali esistenti al cloud senza modificarli. Poiché non è necessario modificare la presentazione, l'applicazione e i livelli dati, si risparmia il tempo e i costi legati a una nuova progettazione dell'architettura della soluzione esistente. In questo modo, è possibile concentrarsi sulla migrazione di tutti i pacchetti della soluzione alle macchine virtuali e sull'ottimizzazione delle prestazioni richiesta dalla piattaforma Azure. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
+Un **Server SQL in esecuzione in una macchina virtuale di Azure** rappresenta la soluzione ottimale se le applicazioni esistenti e nuove richiedono l'accesso e il controllo per tutte le funzionalità di un'istanza di un Server SQL e se si vuole eseguire la migrazione delle applicazioni e dei database locali esistenti al cloud senza modificarli. Poiché non è necessario modificare la presentazione, l'applicazione e i livelli dati, si risparmia il tempo e i costi legati a una nuova progettazione dell'architettura della soluzione esistente. In questo modo, è possibile concentrarsi sulla migrazione di tutti i pacchetti della soluzione alle macchine virtuali e sull'ottimizzazione delle prestazioni richiesta dalla piattaforma Azure. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
 
 ##<a name="summary"></a>Riepilogo
 
@@ -208,13 +208,16 @@ Scegliere **SQL Server in una macchina virtuale di Azure** se:
 
 - Si hanno risorse IT esistenti, sono necessari diritti amministrativi completi per SQL Server ed è richiesta una compatibilità totale con SQL Server locale (ad esempio, se alcune funzionalità non esistono nel database SQL di Azure). Questo approccio consente di ridurre i costi per lo sviluppo o la modifica delle applicazioni esistenti e offre la flessibilità necessaria ad eseguire la maggior parte delle applicazioni. Inoltre, fornisce il controllo totale sulla macchina virtuale, sul sistema operativo e sulla configurazione del database.
 
+> [AZURE.NOTE]- Desideri provare a utilizzare SQL Server 2016 CTP2? Iscriversi a Microsoft Azure e cliccare[qui](http://aka.ms/sql2016vm "qui")per creare una macchina virtuale con SQL Server 2016 CTP2 già installato.
+
+
 ##<a name="ack"></a>Riconoscimenti
 
 Questo articolo del gruppo Microsoft Cloud and Enterprise Content Services è stato elaborato grazie all'aiuto di molte persone della community Microsoft.
 
 **Autore:** Selcin Turkarslan
 
-**Technical Collaboratori tecnici:** Conor Cunningham
+**Collaboratori tecnici:** Conor Cunningham
 
 **Revisori tecnici:** Joanne Marone (Hodgins), Karthika Raman, Lindsey Allen, Lori Clark, Luis Carlos Vargas Herring, Nosheen Syed Wajahatulla Hussain, Pravin Mittal, Shawn Bice, Silvano Coriani, Tony Petrossian, Tracy Daugherty.
 
@@ -250,4 +253,4 @@ Grazie a tutti per la collaborazione!
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

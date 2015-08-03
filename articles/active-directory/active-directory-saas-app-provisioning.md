@@ -106,4 +106,4 @@ Affinché un'applicazione supporti il provisioning utenti automatizzato, deve in
 
 Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

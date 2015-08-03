@@ -1,13 +1,3 @@
-<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
 
 ## Utilizzare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure
 
@@ -26,7 +16,7 @@ Se si desidera aggiornare la versione dell'interfaccia della riga di comando di 
 
 ### Passaggio 2: Verificare che si utilizza un lavoro o scuola identità con Azure
 
-È possibile utilizzare la modalità di comando ARM solo se si utilizza un [tenant Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o [nome dell'entità servizio](https://msdn.microsoft.com/library/azure/dn132633.aspx). \(Detti anche *ID organizzativo*.\)
+È possibile utilizzare la modalità di comando ARM solo se si utilizza un [tenant Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o [nome dell'entità servizio](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Detti anche *ID organizzativo*.)
 
 Per vedere se si dispone di uno, connettersi digitando `azure login` e l'utilizzo del lavoro o scuola username e password quando richiesto. Se si dispone di uno, si otterrà qualcosa di simile al seguente:
 
@@ -41,11 +31,11 @@ Per vedere se si dispone di uno, connettersi digitando `azure login` e l'utilizz
     +
     info:    login command OK
 
-Se questo non è visualizzato, è necessario creare un nuovo tenant \(o entità servizio\) con l'identità dell'account Microsoft. \(Si tratta spesso avviene per gli abbonamenti MSDN personali o sottoscrizioni di valutazione gratuite.\) Per creare un id di lavoro o scuola dall'account creato con un id di Microsoft Azure, vedere [associare una Directory di Azure AD una nuova sottoscrizione Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se si ritiene di che aver già un id organizzazione, potrebbe essere necessario comunicare con la persona che ha creato l'account per l'utente.
+Se questo non è visualizzato, è necessario creare un nuovo tenant (o entità servizio) con l'identità dell'account Microsoft. (Si tratta spesso avviene per gli abbonamenti MSDN personali o sottoscrizioni di valutazione gratuite.) Per creare un id di lavoro o scuola dall'account creato con un id di Microsoft Azure, vedere [associare una Directory di Azure AD una nuova sottoscrizione Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se si ritiene di che aver già un id organizzazione, potrebbe essere necessario comunicare con la persona che ha creato l'account per l'utente.
 
 ### Passaggio 3: Scegliere la sottoscrizione di Azure
 
-Se si dispone solo una sottoscrizione nell'account Azure, l'interfaccia della riga di comando di Azure viene associata con quell'abbonamento \(impostazione predefinita\). Se si dispone di più di una sottoscrizione, è necessario selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove _nome o id sottoscrizione_ è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente.
+Se si dispone solo una sottoscrizione nell'account Azure, l'interfaccia della riga di comando di Azure viene associata con quell'abbonamento (impostazione predefinita). Se si dispone di più di una sottoscrizione, è necessario selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove _nome o id sottoscrizione_ è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente.
 
 Verrà visualizzata una schermata simile alla seguente:
 
@@ -64,4 +54,4 @@ Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della ri
 
 > [AZURE.NOTE]È possibile passare nuovamente per l'utilizzo di comandi di gestione del servizio di Azure digitando `azure config mode asm`.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO4-->

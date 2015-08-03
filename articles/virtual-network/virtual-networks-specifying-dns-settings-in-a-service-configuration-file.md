@@ -41,4 +41,4 @@ Un file di configurazione del servizio può contenere un elemento DnsServers con
 
 [Informazioni sulle impostazioni della rete virtuale nel portale di gestione](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

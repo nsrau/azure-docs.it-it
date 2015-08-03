@@ -14,4 +14,4 @@
 Il criterio appena aggiunto verrà visualizzato nella visualizzazione tabulare nella pagina **Criteri di backup**.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -529,4 +529,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -188,4 +188,4 @@ Al termine dell'impostazione, il criterio viene visualizzato nel grafico del seg
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -126,7 +126,7 @@ Si noti che **kind** è impostato su **gateway** in modo da indicare al portale 
             },
             {
               "name": "EmaStorage",
-              "value": "D:\\home\\data\\apiapps"
+              "value": "D:\home\data\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -300,4 +300,4 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

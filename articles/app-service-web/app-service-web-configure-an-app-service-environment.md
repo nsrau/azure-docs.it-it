@@ -131,4 +131,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

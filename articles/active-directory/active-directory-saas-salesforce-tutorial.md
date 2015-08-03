@@ -54,7 +54,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 3. Scegliere **Applicazioni** dal menu principale.
 
-	![Fare clic su Applicazioni.][1]
+	![Fare clic su applicazioni.][1]
 
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
 
@@ -257,4 +257,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

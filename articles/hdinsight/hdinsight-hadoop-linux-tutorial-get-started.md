@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/13/2015"
+   ms.date="07/11/2015"
    ms.author="nitinme"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop con Hive in HDInsight in Linux (anteprima)
@@ -22,13 +22,13 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Questa esercitazione di Hadoop consente di iniziare a usare rapidamente Azure HDInsight in Linux illustrando come effettuare il provisioning di un cluster Hadoop in Linux ed eseguire una query Hive per estrarre informazioni significative da dati non strutturati.
+Questa esercitazione di Hadoop consente di iniziare a usare rapidamente Azure HDInsight in Linux illustrando come effettuare il provisioning di un cluster Hadoop in Linux ed eseguire una query Hive.
 
 
 > [AZURE.NOTE]Se non si ha esperienza di Hadoop e dell'uso dei Big Data, sono disponibili altre informazioni su <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop Distributed File System (HDFS)</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Per informazioni sull'abilitazione di Hadoop in Azure tramite HDInsight, vedere [Introduzione a Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 
-## Quali risultati si ottengono con questa esercitazione? ##
+## Quali risultati si ottengono con questa esercitazione? 
 
 Si supponga di avere un set di dati non strutturati di grandi dimensioni e di volere eseguire query sul set di dati per estrarre informazioni significative. Ecco come effettuare questa operazione:
 
@@ -69,7 +69,7 @@ Per semplificare questa esercitazione, verranno usati solo il contenitore BLOB p
 
 3. Immettere le informazioni richieste in **URL**, **LOCALITÀ** e **REPLICA** e quindi fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. I gruppi di affinità non sono supportati. Il nuovo account di archiviazione verrà incluso nell'elenco di archiviazione.
 
-	>[AZURE.NOTE]L'opzione Creazione rapida per il provisioning di un cluster HDInsight Linux, come quella usata in questa esercitazione, non richiede una posizione durante il provisioning del cluster. Per impostazione predefinita, colloca il cluster nello stesso data center dell'account di archiviazione. Assicurarsi di creare l'account di archiviazione nelle aree supportate per il cluster, ovvero: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti Orientali**, **Stati Uniti Occidentali**, **Stati Uniti centro-settentrionali** e **Stati Uniti centro-meridionali**.
+	>[AZURE.NOTE]L'opzione Creazione rapida per il provisioning di un cluster HDInsight Linux, come quella usata in questa esercitazione, non richiede una posizione durante il provisioning del cluster. Per impostazione predefinita, colloca il cluster nello stesso data center dell'account di archiviazione.
 
 4. Attendere che il valore **STATO** del nuovo account di archiviazione venga modificato in **Online**.
 5. Selezionare il nuovo account di archiviazione dall'elenco, quindi fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore della pagina.
@@ -271,4 +271,4 @@ In questa esercitazione di Linux si è appreso come effettuare il provisioning d
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -207,4 +207,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189450.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

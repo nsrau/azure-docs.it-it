@@ -110,4 +110,4 @@ Se si sono seguiti i passaggi da 1 a 3 in questo articolo e si desidera ulterior
 
 [Risolvere i problemi di connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

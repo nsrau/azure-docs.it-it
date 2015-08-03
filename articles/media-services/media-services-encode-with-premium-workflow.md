@@ -265,4 +265,4 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

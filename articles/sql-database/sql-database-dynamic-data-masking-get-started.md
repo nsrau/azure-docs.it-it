@@ -129,4 +129,4 @@ Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/libra
 [Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

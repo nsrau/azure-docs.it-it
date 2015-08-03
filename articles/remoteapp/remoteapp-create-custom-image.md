@@ -120,11 +120,11 @@ I passaggi dettagliati per creare una nuova immagine sono:
 	In alternativa, è possibile impostare o aggiungere il seguente valore DWORD nel Registro di sistema:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	Se si intende creare l'immagine all'interno di una macchina virtuale di Azure, è necessario rinominare il file **\%windir%\\Panther\\Unattend.xml**, poiché impedisce l'esecuzione dello script di caricamento usato in seguito. Cambiare il nome del file in Unattend.old, al fine di disporre del file in caso di ripristinare la distribuzione a uno fase precedente.
+9.	Se si intende creare l'immagine all'interno di una macchina virtuale di Azure, è necessario rinominare il file **\%windir%\Panther\Unattend.xml**, poiché impedisce l'esecuzione dello script di caricamento usato in seguito. Cambiare il nome del file in Unattend.old, al fine di disporre del file in caso di ripristinare la distribuzione a uno fase precedente.
 10.	Andare a Windows Update e installare tutti gli aggiornamenti importanti. Potrebbe essere necessario eseguire più volte Windows Update per ottenere tutti gli aggiornamenti (a volte un aggiornamento installato richiede a sua volta un aggiornamento).
 10.	Preparare l'immagine con SYSPREP. Eseguire il comando seguente a un prompt dei comandi con privilegi elevati:
 
-	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
+	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
 
 	**Nota:** non usare l'opzione **/mode:vm** del comando SYSPREP anche se si tratta di una macchina virtuale.
 
@@ -137,4 +137,4 @@ Ora che si dispone di un'immagine modello personalizzata, è necessario caricarl
 - [Come creare una raccolta RemoteApp nel cloud](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -109,7 +109,7 @@ Se viene eseguita la migrazione a una macchina virtuale di Azure esistente, è n
 
 	- Se è stato specificato un nome per la macchina virtuale nuovo, verrà richiesto di selezionare un'immagine dall'elenco delle immagini della raccolta e di fornire le informazioni seguenti:
 	  - Immagine: selezionare solo SQL Server 2014 o SQL Server 2016
-		- Username
+		- Nome utente
 		- Nuova password
 		- Conferma password
 		- Percorso
@@ -161,4 +161,4 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 
 Utilizzare il [metodo del servizio di Importazione/Esportazione di Windows](../storage-import-export-service/) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

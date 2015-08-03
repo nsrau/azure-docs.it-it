@@ -293,4 +293,4 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -175,7 +175,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Azure Medi
 
 Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
-Se per pubblicare gli asset si usa il portale di gestione di Azure, i localizzatori vengono creati automaticamente e viene fornito un URL basato su OnDemandOrigin (se l'asset contiene un file .ism) o un URL SAS.
+Se per pubblicare gli asset si usa il portale di gestione di Azure, i localizzatori vengono creati automaticamente e viene fornito un URL basato su OnDemand (se l'asset contiene un file .ism) o un URL SAS.
 
 Un URL di firma di accesso condiviso ha il seguente formato:
 
@@ -255,4 +255,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

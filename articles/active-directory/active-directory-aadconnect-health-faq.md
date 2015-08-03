@@ -68,7 +68,7 @@ Eseguire questa operazione in qualsiasi momento prima dell'esecuzione di Registe
 - Passaggio 1: Aggiungere una voce al file machine.config
 
 
-Individuare il file machine.config. Il file si trova in %windir%\\Microsoft.NET\\Framework64[versione]\\config\\machine.config</li>
+Individuare il file machine.config. Il file si trova in %windir%\Microsoft.NET\Framework64[versione]\config\machine.config</li>
 
 Aggiungere la voce seguente nell'elemento <configuration></configuration> nel file machine.config.
  
@@ -125,4 +125,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 È necessario che siano aperte le porte TCP/UDP 80 e 443 perché l'agente di Azure AD Connect Health possa comunicare con gli endpoint del servizio Azure AD Connect Health.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

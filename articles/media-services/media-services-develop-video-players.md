@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -51,7 +51,6 @@ Per altre informazioni:
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [Documentazione di HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework per iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licenza per Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
 - [Sviluppo di applicazioni video per XBox](http://xbox.create.msdn.com/) 
  
@@ -77,4 +76,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

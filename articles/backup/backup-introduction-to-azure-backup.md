@@ -3,7 +3,7 @@
 	description="Questo articolo offre una panoramica del servizio Backup di Azure che consente il backup dei dati in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="prvijay"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor="tysonn"/>
 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+	ms.date="07/13/2015"
+	ms.author="trinadhk"/>
 
 # Introduzione a Backup di Azure
-Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati locali in Azure.
+Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati disponibili in locale o in Azure.
 
 ## Informazioni su Backup di Azure
-Backup di Azure è un servizio multi-tenant di Azure che consente di eseguire il backup dei dati locali in Azure. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione basata su cloud affidabile, sicura e conveniente. Backup di Azure si basa su un'infrastruttura di livello mondiale, scalabile, durevole e a disponibilità elevata. Con questa soluzione è possibile eseguire il backup di dati e applicazioni dai server System Center Data Protection Manager (SCDPM), dai server Windows o dai computer client Windows. Backup di Azure e SCDPM sono le tecnologie fondamentali di cui si compone la soluzione di backup integrata nel cloud di Microsoft.
+Backup di Azure è un servizio di Azure con tenant multipli che consente di eseguire il backup dei dati presenti ovunque: in locale o in Azure. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione basata su cloud affidabile, sicura e conveniente. Offre inoltre la flessibilità di proteggere gli asset in esecuzione nel cloud. Backup di Azure si basa su un'infrastruttura di livello mondiale, scalabile, durevole e a disponibilità elevata. Con questa soluzione è possibile eseguire il backup di dati e applicazioni dai server System Center Data Protection Manager (SCDPM), dai server Windows, dai computer client Windows o da macchine virtuali IaaS di Azure. Backup di Azure e SCDPM sono le tecnologie fondamentali di cui si compone la soluzione di backup integrata nel cloud di Microsoft.
+
+> [AZURE.VIDEO what-is-azure-backup]
 
 ## Punto di progettazione cloud
 Le soluzioni di backup tradizionali si sono evolute e considerano ora un cloud come un endpoint analogo a un disco o a un nastro. Questo approccio è semplice, facile da distribuire e offre un'esperienza coerente, ma ha un uso limitato e non sfrutta appieno la piattaforma sottostante. Ne risulta una soluzione poco efficiente e costosa per i clienti finali. Le soluzioni di backup che considerano Azure come "un semplice endpoint di archiviazione" non sono in grado di sfruttare i vantaggi e la potenza dalla piattaforma cloud pubblica. Backup di Azure garantisce invece un servizio reale che sfrutta i costrutti del cloud per offrire una soluzione di backup efficace e conveniente. Si integra con la soluzione di backup locale (SCDPM) per offrire una soluzione ibrida end-to-end.
@@ -47,23 +49,24 @@ Le funzionalità principali della soluzione sono le seguenti:
 
 6. **Conveniente**: le offerte di Backup di Azure includono una tariffa di gestione del backup per singola istanza e costi dell'archiviazione (prezzo per BLOB in blocchi) utilizzata in Azure. A differenza di altre offerte di backup basate su cloud, Backup di Azure non prevede addebiti per tutte le operazioni di ripristino. Non vengono inoltre addebitati costi per i trasferimenti dei dati in uscita durante le operazioni di ripristino.
 
+7. **Backup nel cloud**: Backup di Azure offre funzionalità di backup coerenti delle applicazioni basate su VSS per le macchine virtuali IaaS di Azure in esecuzione senza la necessità di arrestare la macchina virtuale. È inoltre possibile eseguire il backup delle macchine virtuali Linux in Azure con coerenza del file system.
 
-## Applicazioni e carichi di lavoro di cui è possibile eseguire il backup in Azure
-In associazione a SCDPM, Backup di Azure può eseguire il backup di:
 
-+ File e cartelle da client aziendali e computer server
+## Applicazione e carichi di lavoro
 
-+ Backup delle macchine virtuali a livello di host di macchine virtuali Hyper-V di Microsoft
-
-+ Microsoft SQL Server
-
-+ Microsoft SharePoint
-
-+ Microsoft Exchange
+| Carico di lavoro | Computer di origine | Soluzione di Backup di Azure |
+| --- | --- |---|
+| File e cartelle | Windows Server, client Windows | Agente di Backup di Azure |
+| File e cartelle | Windows Server, client Windows | System Center DPM |
+| Macchina virtuale Hyper-V (Windows) | Windows Server | System Center DPM |
+| Macchina virtuale Hyper-V (Linux) | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | System Center DPM |
+| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft Exchange | Windows Server | System Center DPM |
+| Macchine virtuali IaaS di Azure (Windows)| - | Backup di Azure | | Macchine virtuali IaaS di Azure (Linux) | - | Backup di Azure |
 
 ## Passaggi successivi
 + Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
 + Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

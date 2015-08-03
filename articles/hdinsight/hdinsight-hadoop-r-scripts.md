@@ -3,7 +3,7 @@
 	description="Informazioni su come installare e usare R per personalizzare cluster Hadoop." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Installare e usare R nei cluster Hadoop HDInsight
 
@@ -265,7 +265,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 ### <a name="runApp"></a>Per eseguire l'applicazione
 
-Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto, spostarsi nella directory \\bin\\debug all'interno del progetto, quindi eseguire il comando seguente:
+Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto, spostarsi nella directory \bin\debug all'interno del progetto, quindi eseguire il comando seguente:
 
 	.\CreateRCluster <cluster-name>
 
@@ -283,4 +283,4 @@ Specificare un nome per il cluster e premere INVIO per effettuare il provisionin
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

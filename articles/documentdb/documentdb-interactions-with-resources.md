@@ -249,7 +249,7 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 
 ## Riferimenti
 - [Informazioni di riferimento sulle API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
-- [Esecuzione di query con DocumentDB](../documentdb-sql-query/)
+- [Query DocumentDB](../documentdb-sql-query/)
 - [Riferimento SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [Programmazione di DocumentDB: stored procedure, trigger e funzioni definite dall'utente](../documentdb-programming/)
 - [Documentazione di riferimento di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
@@ -262,4 +262,4 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

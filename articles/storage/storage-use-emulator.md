@@ -80,7 +80,7 @@ Quando la finestra della riga di comando viene chiusa, l'emulatore di archiviazi
 
 La prima volta che si esegue l'emulatore di archiviazione, l'ambiente di archiviazione locale viene inizializzato automaticamente. Il processo di inizializzazione crea un database in LocalDB e riserva le porte HTTP per ogni servizio di archiviazione locale.
 
-L'emulatore di archiviazione viene installato per impostazione predefinita nella directory C:\\Programmi (x86)\\Microsoft SDKs\\Azure\\Storage Emulator.
+L'emulatore di archiviazione viene installato per impostazione predefinita nella directory C:\Programmi (x86)\Microsoft SDKs\Azure\Storage Emulator.
 
 ### Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
 
@@ -93,7 +93,7 @@ L'emulatore di archiviazione viene installato per impostazione predefinita nella
     
 	Per indicare all'emulatore di usare l'istanza di SQL Server predefinita, digitare il comando seguente:
 
-    	AzureStorageEmulator init /server .\\ 
+    	AzureStorageEmulator init /server .\ 
 
 	In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
 
@@ -127,15 +127,13 @@ Gli endpoint di servizio per l'emulatore di archiviazione sono:
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE]Non è possibile usare HTTPS con l'emulatore di archiviazione, sebbene HTTPS sia il protocollo consigliato per l'accesso alle risorse nell'archiviazione di Azure.
- 
 ### Indirizzamento dell'account secondario con RA-GRS
 
 A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta RA-GRS (replica con ridondanza geografica in sola lettura). Per le risorse di archiviazione nel cloud e nell'emulatore locale, è possibile accedere al percorso secondario aggiungendo "-secondary" al nome dell'account. Ad esempio, l'indirizzo seguente può essere usato per accedere a un BLOB mediante il percorso secondario di sola lettura nell'emulatore di archiviazione:
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
 
-> [AZURE.NOTE]Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per altri dettagli, vedere i [riferimenti alla libreria di archiviazione client](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+> [AZURE.NOTE]Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il [riferimento alla libreria client di archiviazione](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 ## Riferimenti dello strumento da riga di comando emulatore di archiviazione
 
@@ -153,10 +151,10 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
 | Opzione | Descrizione | Comando | Argomenti |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Start** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
-| **Stop** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
-| **Status** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
-| **Clear** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
+| **Inizia** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Arresto** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
+| **Stato** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
+| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati blob. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
 | **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server nomeServer*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Ciò richiede che il processo corrente sia stato avviato con autorizzazioni elevate. |
                                                                                                                   
 ## Differenze tra l'emulatore di archiviazione e Archiviazione di Azure
@@ -171,7 +169,7 @@ Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istan
 
 - A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta RA-GRS (replica con ridondanza geografica in sola lettura). Nell'emulatore, RA-GRS è abilitato per tutti gli account e non esiste mai una discordanza tra le repliche primaria e secondaria. Le operazioni Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta `LastSyncTime` come ora corrente in base al database SQL sottostante.
 
-	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per altri dettagli, vedere i [riferimenti alla libreria di archiviazione client](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il [riferimento alla libreria client di archiviazione](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 - Gli endpoint del servizio file e del servizio protocollo SMB non sono attualmente supportati nell'emulatore di archiviazione.
 
@@ -206,7 +204,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 L'eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe*.
 
 ### Versione 3.2
-- L'emulatore di archiviazione supporta ora la versione 2014-02-14 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle. Si noti che gli endpoint del servizio file non sono attualmente supportati nell'emulatore di archiviazione. Vedere [Controllo delle versioni per i servizi Blob, di accodamento e tabelle in Windows Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) per informazioni dettagliate sulla versione 2014-02-14.
+- L'emulatore di archiviazione supporta ora la versione 2014-02-14 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle. Si noti che gli endpoint del servizio file non sono attualmente supportati nell'emulatore di archiviazione. Vedere [Controllo delle versioni per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) per informazioni dettagliate sulla versione 2014-02-14.
 
 ### Versione 3.1
 - Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le API Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il riferimento alla libreria client di archiviazione.
@@ -222,4 +220,4 @@ L'eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorag
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

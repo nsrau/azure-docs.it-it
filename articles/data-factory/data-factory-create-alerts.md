@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Creazione di avvisi per gli eventi di Azure
@@ -109,62 +109,16 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 ## <a name="AvailableOperationsStatuses"></a>Nomi di operazione e valori di stato disponibili
 
-<table>
-<th align="left">Nome operazione</th>
-<th align="left">Stato</th>
-<th align="left">Stato secondario</th>
+| Nome operazione | Stato | Stato secondario |
+| -------------- | ------ | ---------- |
+| RunStarted | Avviato | Avvio in corso |
+| RunFinished | Failed/Succeeded |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
+| SliceOnTime | In Progress | Ontime |
+| SliceDelayed | In Progress | Late |
+| OnDemandClusterCreateStarted | Avviato | |
+| OnDemandClusterCreateSuccessful | Succeeded | | 
+| OnDemandClusterDeleted | Succeeded | |
 
-<tr>
-<td>RunStarted</td>
-<td>Avviato</td>
-<td>Avvio in corso</td>
-</tr>
-
-<tr>
-<td>RunFinished</td>
-<td>Failed/Succeeded</td>
-<td>
-	<p>FailedResourceAllocation </p>
-	<p>Succeeded</p>
-	<p>FailedExecution</p>
-	<p>TimedOut</p>
-	<p>Canceled</p>
-	<p>FailedValidation</p>
-	<p>Abandoned</p>
-</td>
-</tr>
-
-<tr>
-<td>SliceOnTime</td>
-<td>In Progress</td>
-<td>Ontime</td>
-</tr>
-
-<tr>
-<td>SliceDelayed</td>
-<td>In Progress</td>
-<td>Late</td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateStarted</td>
-<td>Avviato</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateSuccessful</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterDeleted</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-</table>
 
 ## Risoluzione dei problemi relativi agli eventi utente
 Eseguire il comando seguente per visualizzare gli eventi generati:
@@ -172,4 +126,4 @@ Eseguire il comando seguente per visualizzare gli eventi generati:
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

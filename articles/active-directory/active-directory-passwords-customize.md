@@ -729,4 +729,4 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 * [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

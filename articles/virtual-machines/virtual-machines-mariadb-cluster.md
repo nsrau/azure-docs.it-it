@@ -370,4 +370,4 @@ Può essere utile consultare gli articoli su [un metodo alternativo per creare u
 [un metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

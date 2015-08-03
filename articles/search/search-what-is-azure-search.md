@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Che cos&#39;è la Ricerca di Azure?"
+	pageTitle="Che cos'è la Ricerca di Azure?"
 	description="Panoramica tecnica di Ricerca di Azure e riepilogo funzionalità"
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

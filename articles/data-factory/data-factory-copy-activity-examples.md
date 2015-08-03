@@ -186,8 +186,8 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 ### Presupposti
 Questo esempio presuppone quanto segue:
 
-- **Host**: il nome del server che ospita il file system è **\\contoso**.
-- **Cartella**: il nome della cartella contenente i file di input è **marketingcampaign\\regionaldata\\{slice}, dove i file sono partizionati in una cartella denominata {slice}, ad esempio 2014121112 (anno 2014, mese 12, giorno 11, ore 12). 
+- **Host**: il nome del server che ospita il file system è **\contoso**.
+- **Cartella**: il nome della cartella contenente i file di input è **marketingcampaign\regionaldata\{slice}, dove i file sono partizionati in una cartella denominata {slice}, ad esempio 2014121112 (anno 2014, mese 12, giorno 11, ore 12). 
 ### Creare un servizio collegato di tipo file system locale
 Il codice JSON di esempio seguente può essere usato per creare un servizio collegato denominato **FolderDataStore** di tipo **OnPremisesFileSystemLinkedService**.
 
@@ -195,14 +195,14 @@ Il codice JSON di esempio seguente può essere usato per creare un servizio coll
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
+	        "host": "\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]Ricordarsi di usare il carattere di escape '' per i nomi di host e cartelle nei file JSON. Per **\\Contoso** usare **\\\\Contoso**.
+> [AZURE.NOTE]Ricordarsi di usare il carattere di escape '' per i nomi di host e cartelle nei file JSON. Per **\Contoso** usare **\\Contoso**.
 
 Per informazioni dettagliate sugli elementi JSON per la definizione di un servizio collegato di tipo file system locale, vedere l'argomento relativo al [servizio collegato di tipo file system locale](https://msdn.microsoft.com/library/dn930836.aspx).
 
@@ -228,7 +228,7 @@ Lo script JSON seguente definisce una tabella di input che fa riferimento a un s
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
+	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@ Si noti che nel codice JSON di esempio è specificato solo **folderPath**.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@ Si noti che l'oggetto **fileFilter** è impostato su ***.csv**.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@ Si noti che l'oggetto **fileFiter** è impostato su un file specifico, **201501.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -491,4 +491,4 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

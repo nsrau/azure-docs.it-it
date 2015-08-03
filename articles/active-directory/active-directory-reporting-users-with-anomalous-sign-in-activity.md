@@ -24,4 +24,4 @@
 
 ![Utenti con anomalie dell'attività di accesso](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

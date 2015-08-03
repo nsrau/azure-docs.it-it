@@ -15,4 +15,4 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

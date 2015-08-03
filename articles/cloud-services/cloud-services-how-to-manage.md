@@ -158,4 +158,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

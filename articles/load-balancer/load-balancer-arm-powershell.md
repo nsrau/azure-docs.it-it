@@ -51,14 +51,14 @@ I passaggi seguenti illustrano come configurare il servizio di bilanciamento del
 Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Passaggio 2
 
 Accedere all'account Azure.
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
@@ -67,7 +67,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 Scegliere le sottoscrizioni ad Azure da utilizzare.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
 
@@ -76,7 +76,7 @@ Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "
 
 Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo di risorse esistente)
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un servizio di bilanciamento del carico usino lo stesso gruppo di risorse.
 
@@ -184,7 +184,7 @@ In questo passaggio viene creata una seconda interfaccia di rete, assegnata allo
 Il risultato finale sarà simile al seguente:
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

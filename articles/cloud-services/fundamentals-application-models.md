@@ -1,6 +1,8 @@
 <properties 
 	pageTitle="Opzioni di hosting di calcolo fornite da Azure" 
 	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Macchine virtuali, Siti Web, Servizi cloud e altre opzioni." 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -38,9 +40,12 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 
 Azure inoltre offre altri modelli di hosting di calcolo per scopi più specifici, ad esempio:
 
-* [Servizi mobili](/services/mobile-services/) Ottimizzato per fornire un back-end del cloud per le app eseguite su dispositivi mobili.
-* [Batch](/services/batch/) Ottimizzato per l'elaborazione di volumi elevati di operazioni simili, idealmente carichi di lavoro che si prestano all'esecuzione di attività parallele su più computer.
-* [HDInsight (Hadoop)](/services/hdinsight/) Ottimizzato per l'esecuzione di processi [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) nei cluster Hadoop. 
+* [Servizi mobili](/services/mobile-services/)  
+  Ottimizzato per fornire un back-end del cloud per le app eseguite su dispositivi mobili.
+* [Batch](/services/batch/)  
+  Ottimizzato per l'elaborazione di volumi elevati di operazioni simili, idealmente carichi di lavoro che si prestano all'esecuzione di attività parallele su più computer.
+* [HDInsight (Hadoop)](/services/hdinsight/)  
+  Ottimizzato per l'esecuzione di processi [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) nei cluster Hadoop. 
 
 ## Scelta del modello da usare
 
@@ -76,4 +81,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Informazioni su [Servizio cloud](services/cloud-services/)
 * Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

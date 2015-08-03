@@ -458,9 +458,9 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 
 1. Salvare il file del set di impostazioni modificato nell'unità disco rigido locale e usare codice simile al seguente per eseguire la codifica con il set di impostazioni personalizzato:
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 
 [Schema XML del Codificatore multimediale di Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

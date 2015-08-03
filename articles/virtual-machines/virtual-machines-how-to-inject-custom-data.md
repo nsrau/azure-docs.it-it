@@ -80,4 +80,4 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->
