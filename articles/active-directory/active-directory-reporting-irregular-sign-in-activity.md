@@ -1,4 +1,11 @@
-< proprietà pageTitle = "Attività di accesso irregolare" description = "Un report che include accessi che sono stati identificati come anomali dagli algoritmi. di apprendimento automatico" "servizi ="active directory"documentationCenter =" "autori ="kenhoff"gestore ="ilanas"editor =" "/ >
+﻿<properties 
+	pageTitle="Attività di accesso irregolare" 
+	description="Un report che include accessi che sono stati identificati come anomali dagli algoritmi. di apprendimento automatico" 
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="ilanas"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
