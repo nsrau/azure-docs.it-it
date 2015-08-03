@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kenhoff"
 	manager="ilanas"
-	editor=""/ >
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
