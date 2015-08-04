@@ -56,7 +56,8 @@ Nel pannello **DATA FACTORY** per la data factory fare clic sul riquadro **Diagr
 ![Vista diagramma di Data factory][image-data-factory-diagram-view]
  
 ### Aprire una pipeline nella vista diagramma
-È possibile visualizzare tutte le attività di una pipeline facendo clic con il pulsante destro del mouse sulla pipeline nella vista diagramma e scegliendo **Apri pipeline**. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività. ![Apri pipeline](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
+È possibile visualizzare tutte le attività di una pipeline facendo clic con il pulsante destro del mouse sulla pipeline nella vista diagramma e scegliendo **Apri pipeline**. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività.
+	![Apri pipeline](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
 Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista diagramma in cui sono visualizzate tutte le pipeline. In questo esempio è stata creata una sola pipeline.
 
@@ -221,4 +222,4 @@ Articolo | Descrizione
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
