@@ -62,7 +62,8 @@ Assicurarsi che il firewall del server logico che è stato creato consenta le co
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Fare clic sul pulsante**Esegui**. Se l'operazione ha esito positivo, si otterrà un risultato analogo al seguente:![Operazione riuscita][5]
+4. Fare clic sul pulsante**Esegui**. Se l'operazione ha esito positivo, si otterrà un risultato analogo al seguente:
+	![Operazione riuscita][5]
 
 
 ## Passaggi successivi
@@ -77,4 +78,4 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Vede
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
