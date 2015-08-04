@@ -78,16 +78,21 @@ Per inviare eventi in modo semplice, seguire questa procedura:
 		</script>
 
 
-###3.1. Limitazioni e supporto browser
+###3.1.	Limitazioni e supporto browser
 Di seguito viene fornita un'implementazione di riferimento così com'è. Tutti i principali browser dovrebbero essere supportati.
 
-###3.2. Tipi di eventi
+###3.2.	Tipi di eventi
 La libreria supporta 5 tipi di eventi: Click, Recommendation Click, Add to Shop Cart, Remove from Shop Cart e Purchase. Esiste un evento aggiuntivo, denominato Login, che viene usato per impostare il contesto dell'utente.
 
 ####3.2.1. Evento Click
 Questo evento deve essere usato ogni volta che un utente fa clic su un elemento. In genere, quando un utente fa clic su un elemento, si apre una nuova pagina contenente i dettagli dell'elemento dove l'evento deve essere attivato.
 
-Parametri: - event (stringa, obbligatorio) – "click" - item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo) – nome dell'elemento - itemDescription (stringa, facoltativo) – descrizione dell'elemento - itemCategory (stringa, facoltativo) – categoria dell'elemento
+Parametri:
+- event (stringa, obbligatorio) – "click"
+- item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo)
+– nome dell'elemento - itemDescription (stringa, facoltativo)
+– descrizione dell'elemento - itemCategory (stringa, facoltativo)
+– categoria dell'elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -105,7 +110,13 @@ In alternativa, con dati facoltativi:
 ####3.2.2. Evento Recommendation Click
 Questo evento deve essere usato ogni volta che un utente fa clic su un elemento ricevuto da Azure ML Recommendations come elemento raccomandato. In genere, quando un utente fa clic su un elemento, si apre una nuova pagina contenente i dettagli dell'elemento dove l'evento deve essere attivato.
 
-Parametri: - event (stringa, obbligatorio) – "recommendationclick" - item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo) – nome dell'elemento - itemDescription (stringa, facoltativo) – descrizione dell'elemento - itemCategory (stringa, facoltativo) – categoria dell'elemento - seeds (matrice di stringhe, facoltativo) – semi che hanno generato la query di raccomandazione - recoList (matrice di stringhe, facoltativo) – risultato della richiesta di raccomandazione che ha generato l'elemento su cui è stato fatto clic
+Parametri:
+- event (stringa, obbligatorio) – "recommendationclick"
+- item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo)
+– nome dell'elemento - itemDescription (stringa, facoltativo) – descrizione dell'elemento
+- itemCategory (stringa, facoltativo) – categoria dell'elemento
+- seeds (matrice di stringhe, facoltativo) – semi che hanno generato la query di raccomandazione
+- recoList (matrice di stringhe, facoltativo) – risultato della richiesta di raccomandazione che ha generato l'elemento su cui è stato fatto clic
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -121,7 +132,12 @@ In alternativa, con dati facoltativi:
 
 
 ####3.2.3. Evento Add Shopping Cart
-Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti. Parametri: * event (stringa, obbligatorio) – "addshopcart" * item (stringa, obbligatorio) – identificatore univoco dell'elemento * itemName (stringa, facoltativo) – nome dell'elemento * itemDescription (stringa, facoltativo) – descrizione dell'elemento * itemCategory (stringa, facoltativo) – categoria dell'elemento
+Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti. Parametri:
+* event (stringa, obbligatorio) – "addshopcart"
+* item (stringa, obbligatorio) – identificatore univoco dell'elemento
+* itemName (stringa, facoltativo) – nome dell'elemento
+* itemDescription (stringa, facoltativo) – descrizione dell'elemento
+* itemCategory (stringa, facoltativo) – categoria dell'elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -131,7 +147,12 @@ Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello
 ####3.2.4. Evento Remove Shopping Cart
 Questo evento deve essere usato quando l'utente rimuove un elemento dal carrello acquisti.
 
-Parametri: * event (stringa, obbligatorio) – "removeshopcart" * item (stringa, obbligatorio) – identificatore univoco dell'elemento * itemName (stringa, facoltativo) – nome dell'elemento * itemDescription (stringa, facoltativo) – descrizione dell'elemento * itemCategory (stringa, facoltativo) – categoria dell'elemento
+Parametri:
+* event (stringa, obbligatorio) – "removeshopcart"
+* item (stringa, obbligatorio) – identificatore univoco dell'elemento
+* itemName (stringa, facoltativo) – nome dell'elemento
+* itemDescription (stringa, facoltativo) – descrizione dell'elemento
+* itemCategory (stringa, facoltativo) – categoria dell'elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -141,7 +162,13 @@ Parametri: * event (stringa, obbligatorio) – "removeshopcart" * item (stringa,
 ####3.2.5. Evento Purchase
 Questo evento deve essere usato quando l'utente ha acquistato gli elementi nel carrello.
 
-Parametri: * event (stringa) - "purchase" * items (Purchased) - Matrice contenente una voce per ciascun elemento acquistato.<br><br> Formato di Purchased: * item (stringa) - identificatore univoco dell'elemento * count (intero o stringa) – numero di elementi acquistati * price (float o stringa) – campo facoltativo – prezzo dell'elemento
+Parametri:
+* event (stringa) - "purchase"
+* items (Purchased) - Matrice contenente una voce per ciascun elemento acquistato.<br><br>
+Formato di Purchased:
+	* item (stringa) - identificatore univoco dell'elemento
+	* count (intero o stringa) – numero di elementi acquistati
+	* price (float o stringa) – campo facoltativo – prezzo dell'elemento
 
 L'esempio seguente illustra l'acquisto di 3 elementi (33, 34, 35), di cui due con tutti i campi popolati (item, count, price) e uno (item 34) privo di prezzo.
 
@@ -155,7 +182,14 @@ La libreria degli eventi di Azure ML Recommendations crea e usa un cookie per id
 
 Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 
-Parametri: * event (stringa) - "userlogin" * user (stringa) - identificazione univoca dell'utente. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+Parametri:
+* event (stringa) - "userlogin"
+* user (stringa) - identificazione univoca dell'utente.
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
+
 
 ##4. Utilizzare le raccomandazioni tramite JavaScript
 Il codice che utilizza la raccomandazione viene attivato da alcuni eventi JavaScript nella pagina Web del client. Le risposta alla raccomandazione include gli ID degli elementi raccomandati con i relativi nomi e valutazioni. È preferibile utilizzare questa opzione solo per la visualizzazione di un elenco degli elementi consigliati. Le attività di gestione più complesse, ad esempio l'aggiunta dei metadati dell'elemento, devono essere eseguite sull'integrazione lato server.
@@ -165,7 +199,15 @@ Per utilizzare le raccomandazioni, è necessario includere nella pagina le libre
 
 Per utilizzare le raccomandazioni per uno o più elementi, è necessario chiamare un metodo denominato AzureMLRecommendationsGetI2IRecommendation.
 
-Parametri: * items (matrice di stringhe) – uno o più elementi per i quali ottenere le raccomandazioni. Se si utilizza una build Fbt, è possibile impostare un solo elemento. * numberOfResults (intero) – numero di risultati obbligatori. * includeMetadata (booleano, facoltativo) – se questo parametro è impostato su true, il campo dei metadati dovrà essere popolato nei risultati. * Funzione di elaborazione – funzione che gestisce le raccomandazioni restituite. I dati vengono restituiti come una serie costituita da: * Item – ID univoco dell'elemento * name – nome dell'elemento (se esistente nel catalogo) * rating – valutazione della raccomandazione * metadata – stringa che rappresenta i metadati dell'elemento.
+Parametri:
+* items (matrice di stringhe) – uno o più elementi per i quali ottenere le raccomandazioni. Se si utilizza una build Fbt, è possibile impostare un solo elemento.
+* numberOfResults (intero) – numero di risultati obbligatori.
+* includeMetadata (booleano, facoltativo) – se questo parametro è impostato su true, il campo dei metadati dovrà essere popolato nei risultati.
+* Funzione di elaborazione – funzione che gestisce le raccomandazioni restituite. I dati vengono restituiti come una serie costituita da:
+	* Item – ID univoco dell'elemento
+	* name – nome dell'elemento (se esistente nel catalogo)
+	* rating – valutazione della raccomandazione
+	* metadata – stringa che rappresenta i metadati dell'elemento.
 
 Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-947a-4c18-a16c-888da9e228ba" e, poiché il parametro includeMetadata non è specificato, è implicito che i metadati non sono obbligatori. I risultati vengono quindi concatenati in un buffer.
 
@@ -185,4 +227,4 @@ Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
