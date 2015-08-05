@@ -28,8 +28,14 @@ Per usare Dropbox Connector, è necessario innanzitutto creare un'istanza dell'a
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Passare a "Web e dispositivi mobili > Azure Marketplace" e cercare "Dropbox Connector".
 3.	Configurare Dropbox Connector nel modo seguente:
-
-	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore- **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di servizio app**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore Dropbox.
+ 
+	![][1]
+	- **Località**: scegliere la località geografica in cui verrà distribuito il connettore
+	- **Sottoscrizione**: scegliere la sottoscrizione in cui verrà creato il connettore
+	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
+	- **Piano di servizio app**: selezionare o creare un piano di hosting Web
+	- **Piano tariffario**: scegliere il piano tariffario per il connettore
+	- **Nome**: assegnare un nome al connettore.
 4. Fare clic su Crea. Verrà creato un nuovo Dropbox Connector.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Dropbox Connector.
 
@@ -74,4 +80,4 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO4-->

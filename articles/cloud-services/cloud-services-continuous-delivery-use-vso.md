@@ -133,7 +133,8 @@ Specificare i valori per le proprietà se si desidera che siano diversi da quell
 <tr><td>Percorso impostazioni di distribuzione</td><td>Percorso del file con estensione pubxml di un’app Web, relativo alla cartella radice del repository. Viene ignorato per i servizi cloud.</td></tr>
 <tr><td>Ambiente di distribuzione SharePoint</td><td>Analoga al nome del servizio</td></tr>
 <tr><td>Ambiente di distribuzione Azure</td><td>Nome dell’app Web o del servizio cloud</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 Se si usano più configurazioni di servizio (file .cscfg), è possibile specificare la configurazione del servizio desiderata nell'impostazione **Compila, Avanzate, Argomenti MSBuild**. Ad esempio, per usare ServiceConfiguration.Test.cscfg, impostare l'opzione della riga degli argomenti di MSBuild /p:TargetProfile=Test.<br/>
 ![][38]

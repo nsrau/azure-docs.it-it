@@ -28,7 +28,8 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Seguire questa procedura per creare un'app Web e abilitare la pubblicazione Git.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-it/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-it/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 
@@ -97,7 +98,8 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
 		git init
 
-	> [AZURE.NOTE]**Comando Git non disponibile?** [Git](http://git-scm.com/%20target="_blank) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Per le istruzioni sull'installazione in una specifica piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**Comando Git non disponibile?** 
+	> [Git](http://git-scm.com/%20target="_blank) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Per le istruzioni sull'installazione in una specifica piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilizzare i comandi seguenti per aggiungere file all'archivio:
 

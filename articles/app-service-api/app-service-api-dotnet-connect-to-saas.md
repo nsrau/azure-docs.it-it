@@ -121,7 +121,7 @@ Gli ambiti disponibili vengono definiti da ogni provider SaaS e si trovano nel p
 	 
 			install-package DropboxRestAPI  
 
-1. Aprire *Controllers\ValuesController.cs* e sostituire tutto il codice nel file con il codice seguente.
+1. Aprire *Controllers\\ValuesController.cs* e sostituire tutto il codice nel file con il codice seguente.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -376,7 +376,12 @@ Note aggiuntive:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Ecco i valori da usare per gli altri provider: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	Ecco i valori da usare per gli altri provider:
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * Il secondo parametro per il metodo `GetConsentLinkAsync()` è l'URL callback a cui il server di consenso reindirizza dopo che l'utente accede a Dropbox e dà il consenso ad accedere all'account dell'utente.
 
@@ -445,6 +450,8 @@ Se si rimuove %3d%3d dalla fine del valore querystring `error`, si ottiene una s
 È stato illustrato come codificare e configurare un'app per le API che si connette a una piattaforma SaaS. Per i collegamenti ad altre esercitazioni su come gestire l'autenticazione nelle app per le api, vedere [Autenticazione per app per le API e per dispositivi mobili - Passaggi successivi](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
+[portale di anteprima di Azure]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
+[portale di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

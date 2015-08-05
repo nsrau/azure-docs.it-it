@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Abilitazione del proxy dell’applicazione di Azure AD
-> [AZURE.NOTE]Il proxy dell’applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Il proxy dell’applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 Il proxy di applicazione di Microsoft Azure AD permette di pubblicare applicazioni, ad esempio siti di SharePoint e app basate su Outlook Web Access e IIS, all'interno della rete privata e fornisce l'accesso sicuro agli utenti esterni alla rete. I dipendenti possono accedere alle app dalla propria abitazione e con i propri dispositivi e possono eseguire l'autenticazione tramite questo proxy basato sul cloud.
 
@@ -41,7 +41,7 @@ Numero della porta | Descrizione
 9090 | Per abilitare la registrazione del connettore (necessaria solo per il processo di registrazione del connettore)
 9091 | Per abilitare il rinnovo automatico dei certificati di attendibilità del connettore
  
-Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Inoltre, assicurarsi di abilitare la porta 8080 per NT Authority\System.
+Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Inoltre, assicurarsi di abilitare la porta 8080 per NT Authority\\System.
 
 
 ##Passaggio 1: abilitare il proxy dell’applicazione in Azure AD
@@ -56,7 +56,10 @@ Se il firewall impone il traffico in base agli utenti di origine, aprire queste 
 1. Eseguire AADApplicationProxyConnectorInstaller.exe sul server preparato (vedere la sezione Prerequisiti del proxy dell’applicazione).
 2. Seguire le istruzioni della procedura guidata da installare.
 3. Durante l'installazione verrà richiesto di registrare il connettore con l'account del proxy dell’applicazione attivo.
-<p>Fornire le credenziali di amministratore globale di Azure AD. Assicurarsi che l'amministratore che registra il connettore sia nella stessa directory in cui è stato abilitato il servizio proxy dell’applicazione, ad esempio se il dominio del tenant è contoso.com, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio. Assicurarsi inoltre di essere un amministratore globale del tenant di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure. - Se la Sicurezza avanzata di Internet Explorer è impostata su Attiva nel server in cui si desidera installare il connettore di Azure AD, la schermata di registrazione potrebbe essere bloccata. In questo caso, seguire le istruzioni nel messaggio di errore per consentire l'accesso. Assicurarsi che la protezione avanzata di Internet Explorer sia disattivata. Se la registrazione del connettore non ha esito positivo, vedere la Risoluzione dei problemi del proxy dell’applicazione.
+<p>Fornire le credenziali di amministratore globale di Azure AD.
+- Assicurarsi che l'amministratore che registra il connettore sia nella stessa directory in cui è stato abilitato il servizio proxy dell’applicazione, ad esempio se il dominio del tenant è contoso.com, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio. Assicurarsi inoltre di essere un amministratore globale del tenant di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
+- Se la Sicurezza avanzata di Internet Explorer è impostata su Attiva nel server in cui si desidera installare il connettore di Azure AD, la schermata di registrazione potrebbe essere bloccata. In questo caso, seguire le istruzioni nel messaggio di errore per consentire l'accesso. Assicurarsi che la protezione avanzata di Internet Explorer sia disattivata.
+- Se la registrazione del connettore non ha esito positivo, vedere la Risoluzione dei problemi del proxy dell’applicazione.
 
 4. Al termine dell'installazione, due nuovi servizi vengono aggiunti al server, come illustrato di seguito. Si tratta del servizio del connettore, che consente la connettività e di un servizio di aggiornamento automatico, che verifica periodicamente la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze. Fare clic su Fine nella finestra di installazione per completare l'installazione ![Servizio del connettore proxy dell’applicazione](http://i.imgur.com/zsVJKOz.png) <p>
 5. A questo punto si è pronti per pubblicare le applicazioni con il proxy dell'applicazione.
@@ -70,4 +73,4 @@ Se si desidera disinstallare il connettore, dopo aver disinstallato il servizio 
 * [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
 * [Identità di Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

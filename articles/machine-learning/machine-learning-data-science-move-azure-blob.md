@@ -40,8 +40,14 @@ Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave 
 Esplora archivi Azure è uno strumento basato su Windows gratuito per analizzare e modificare i dati in un account di archiviazione di Azure. Può essere scaricato da [Esplora archivi Azure](http://azurestorageexplorer.codeplex.com/). I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esplora archivi Azure.
 
 1.  Avviare Esplora archivi Azure 
-2.  Se l'account al quale si desidera accedere non è stato aggiunto a Esplora archivi Azure, fare clic sul pulsante "Aggiungi account" per aggiungere l'account. Se è già stato aggiunto, selezionare l'account nell'elenco a discesa "--Selezionare un account di archiviazione--". ![Creare un'area di lavoro][1] <br>
-3. Immettere il nome e la chiave dell'account di archiviazione, quindi fare clic su Aggiungi account di archiviazione. È possibile aggiungere più account di archiviazione, ognuno dei quali verrà visualizzato in una scheda. I contenitori in questo account di archiviazione vengono visualizzati nel riquadro sinistro. Selezionare un contenitore per visualizzare i BLOB nel contenitore nel riquadro di destra. ![Creare un'area di lavoro][2] <br> ![Creare un'area di lavoro][3] <br>
+2.  Se l'account al quale si desidera accedere non è stato aggiunto a Esplora archivi Azure, fare clic sul pulsante "Aggiungi account" per aggiungere l'account. Se è già stato aggiunto, selezionare l'account nell'elenco a discesa "--Selezionare un account di archiviazione--".  
+![Creare un'area di lavoro][1]
+<br>
+3. Immettere il nome e la chiave dell'account di archiviazione, quindi fare clic su Aggiungi account di archiviazione. È possibile aggiungere più account di archiviazione, ognuno dei quali verrà visualizzato in una scheda. I contenitori in questo account di archiviazione vengono visualizzati nel riquadro sinistro. Selezionare un contenitore per visualizzare i BLOB nel contenitore nel riquadro di destra.  
+![Creare un'area di lavoro][2]
+<br>
+![Creare un'area di lavoro][3]
+<br>
 4. Caricare i dati facendo clic sul pulsante "Carica". Selezionare uno o più file da caricare dal file system e scegliere "Apri" per iniziare a caricare i file.
 5. Scaricare i dati selezionando il BLOB di archiviazione nel contenitore corrispondente e facendo clic sul pulsante "Scarica".
 
@@ -175,4 +181,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

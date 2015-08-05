@@ -81,7 +81,7 @@ Ecco alcuni esempi di riga di comando per importare file JSON:
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Importare da MongoDB ##
 
@@ -137,7 +137,20 @@ Che restituisce i risultati (parziali) seguenti:
 
 Si notino gli alias come Address.AddressType e Address.Location.StateProvinceName. Specificando un separatore di annidamento ".", lo strumento di importazione crea i documenti secondari Address e Address.Location durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
  
 Ecco alcuni esempi di riga di comando per importare da SQL Server:
 
@@ -159,7 +172,18 @@ Come per l'origine SQL, la proprietà del separatore di annidamento può essere 
 
 Si notino gli alias come DomainInfo.Domain_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento ".", lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 Lo strumento di importazione proverà a dedurre le informazioni sul tipo per i valori non racchiusi tra virgolette nei file CSV (i valori tra virgolette vengono sempre considerati come stringhe). I tipi vengono identificati nell'ordine seguente: tipo numerico, datetime, booleano.
 
@@ -247,7 +271,8 @@ Per importare da un'unica raccolta DocumentDB, immettere il nome della raccolta 
 
 L'opzione dell'utilità di importazione dell'origine DocumentDB presenta le seguenti opzioni avanzate:
 
-1. Include Internal Fields: specifica se includere o no le proprietà di sistema dei documenti DocumentDB nell'esportazione (ad esempio, _rid, _ts). 2. Number of Retries on Failure: specifica quante volte ritentare la connessione a DocumentDB in caso di errori temporanei (ad esempio, un'interruzione della connettività di rete).
+1. Include Internal Fields: specifica se includere o no le proprietà di sistema dei documenti DocumentDB nell'esportazione (ad esempio, _rid, _ts).
+2. Number of Retries on Failure: specifica quante volte ritentare la connessione a DocumentDB in caso di errori temporanei (ad esempio, un'interruzione della connettività di rete).
 3. Retry Interval: specifica quanto attendere prima di ritentare la connessione a DocumentDB in caso di errori temporanei (ad esempio, un'interruzione della connettività di rete).
 4. Connection Mode: specifica la modalità di connessione da usare con DocumentDB. Le scelte disponibili sono DirectTcp, DirectHttps e Gateway. Le modalità di connessione diretta sono più veloci, mentre la modalità gateway si integra più facilmente con il firewall perché usa solo la porta 443.
 
@@ -476,4 +501,4 @@ Nella schermata Configurazione avanzata specificare il percorso del file di log 
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

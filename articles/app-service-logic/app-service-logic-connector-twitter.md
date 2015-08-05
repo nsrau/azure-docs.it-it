@@ -73,8 +73,9 @@ Dopo aver creato l'app per le API, si può usare Twitter Connector come trigger 
 
 In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione:
 
-	![][7]
-	![][8]
+![][7]
+![][8]
+
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 

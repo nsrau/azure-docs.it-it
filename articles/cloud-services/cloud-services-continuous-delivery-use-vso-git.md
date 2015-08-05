@@ -139,7 +139,8 @@ Specificare i valori per le proprietà se si desidera che siano diversi da quell
 <tr><td>Percorso impostazioni di distribuzione</td><td>Percorso del file con estensione pubxml di un’app Web, relativo alla cartella radice del repository. Viene ignorato per i servizi cloud.</td></tr>
 <tr><td>Ambiente di distribuzione SharePoint</td><td>Analoga al nome del servizio</td></tr>
 <tr><td>Ambiente di distribuzione Azure</td><td>Nome dell’app Web o del servizio cloud</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 11. A questo punto la compilazione sarà stata completata correttamente.<br/>
 ![][28]
@@ -257,4 +258,4 @@ Per altre informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fw
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

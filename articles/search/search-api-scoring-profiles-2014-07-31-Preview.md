@@ -47,7 +47,8 @@ Fare clic su [Esempio](#bkmk_ex) per esaminare un esempio più dettagliato del p
 
 L'assegnazione di punteggio calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in base a una classificazione. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore. Gli elementi con i punteggi maggiori vengono restituiti all'applicazione. Per impostazione predefinita, vengono restituiti i primi 50 elementi, ma è possibile usare il parametro `$top` per restituire un numero minore o maggiore di elementi, fino a un massimo di 1000 elementi in una singola risposta.
 
-Per impostazione predefinita, un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca di Azure trova documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in base a `searchMode`), preferendo i documenti che includono più istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'insieme di dati, ma comune all'interno del documento. I concetti di base per questo approccio alla rilevanza di calcolo sono noti come TF-IDF (Term Frequency-Inverse Document Frequency). Se non è applicato alcun ordinamento personalizzato, i risultati vengono quindi classificati in base al punteggio di ricerca prima di essere restituiti all'applicazione chiamante. Se non viene specificato `$top`, verranno restituiti i 50 elementi con il punteggio di ricerca maggiore.
+Per impostazione predefinita, un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca di Azure trova documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in base a `searchMode`), preferendo i documenti che includono più istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'insieme di dati, ma comune all'interno del documento. I concetti di base per questo approccio alla rilevanza di calcolo sono noti come TF-IDF (Term Frequency-Inverse Document Frequency). 
+Se non è applicato alcun ordinamento personalizzato, i risultati vengono quindi classificati in base al punteggio di ricerca prima di essere restituiti all'applicazione chiamante. Se non viene specificato `$top`, verranno restituiti i 50 elementi con il punteggio di ricerca maggiore.
 
 I valori dei punteggi di ricerca possono essere ripetuti in un set di risultati. Ad esempio, possono essere presenti 10 elementi con punteggio pari a 1,2, 20 elementi con punteggio pari a 1,0 e 20 elementi con punteggio pari a 0,5. Quando più riscontri hanno lo stesso punteggio di ricerca, l'ordine degli stessi elementi con punteggio non è definito e non è quindi stabile. Se si esegue di nuovo la query, è possibile che gli elementi cambino posizione. Se due elementi hanno punteggio identico, non vi è alcuna garanzia su quale elemento verrà visualizzato per primo.
 
@@ -134,9 +135,11 @@ Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 <table style="font-size:12">
 <thead>
 <tr><td>Elemento</td><td>Descrizione</td></tr></thead>
-<tbody>
-<tr> <td><b>Pesi</b></td>
-<td> Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#bkmk_ex), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
+<tbody
+<tr>
+<td><b>Pesi</b></td>
+<td>
+Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#bkmk_ex), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
 </td>
 </tr>
 <tr>
@@ -150,13 +153,13 @@ Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 <br>
 <b>Regole per l'uso delle funzioni</b>
 <br>
-Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole
+Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole 
 <br>
 Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
 <br>
 Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)]().
 <br>
-Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.
+Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. 
 <td>
 </tr>
 </tbody>
@@ -214,7 +217,8 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 
 ##Riferimento agli attributi dell'indice
 
-**Nota** Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
+**Nota**
+Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
 
 <table style="font-size:12">
 <thead>
@@ -322,4 +326,4 @@ ________________________________________
 
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

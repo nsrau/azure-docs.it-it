@@ -251,7 +251,7 @@ Finora, sono stati raggiunti gli obiettivi seguenti:
 - ADFS ha correttamente autenticato un utente AD e ha reindirizzato l'utente alla home page dell'applicazione
 - ADFS ha correttamente inviato l'attestazione basata su nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) all'applicazione, come indicato dal fatto che il nome utente viene visualizzato in alto a destra. 
 
-In caso di assenza dell'attestazione basata su nome, verrebbe visualizzato solo **Hello, !**. Se si esamina il file Views\Shared\_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
+In caso di assenza dell'attestazione basata su nome, verrebbe visualizzato solo **Hello, !**. Se si esamina il file Views\Shared_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 

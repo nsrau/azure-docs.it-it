@@ -43,7 +43,8 @@ I numeri indicati di seguito sono approssimativi.
 - Utilizzo della CPU: ~1% di aumento
 - Utilizzo della memoria: fino a al 10% della memoria di sistema totale
 - Utilizzo della larghezza di banda di rete: ~1 MB/1000 richieste ADFS
->[AZURE.NOTE]
+>[AZURE.NOTE]Se l'agente non è in grado di comunicare con Azure, archivierà i dati in locale, fino al limite massimo del 10% della memoria di sistema totale. Se l'agente raggiunge il 10% di tale memoria fisica totale e non è stato in grado di caricare i dati nel servizio, le nuove transazioni di ADFS sovrascriveranno tutte le transazioni memorizzate nella cache in base a quelle gestite meno recentemente.
+
 
 - Buffer locale per l'agente per l'integrità di AD: ~20 MB
 - Archiviazione dei dati necessaria per il canale di controllo
@@ -84,7 +85,7 @@ Aggiungere la voce seguente nell'elemento <configuration></configuration> nel fi
 
  
 
-Altre <defaultProxy> informazioni sono disponibili [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)).
+Altre <defaultProxy> informazioni sono disponibili [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
 
 Questa impostazione permette di configurare le applicazioni .NET a livello di sistema in modo che usino il proxy definito in modo esplicito quando effettuano richieste .NET HTTP. La modifica dei singoli file app.config non è consigliata, perché verrà annullata durante gli aggiornamenti automatici. È sufficiente modificare un file e le modifiche verranno mantenute anche in caso di applicazione di aggiornamenti, se si modifica solo il file machine.config.
 

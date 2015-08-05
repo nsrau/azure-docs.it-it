@@ -163,7 +163,7 @@ Le API di streaming di Twitter usano [OAuth](http://oauth.net/) per l'autorizzaz
 
 	- Modello: **Visual C# / Windows Desktop / Console Application**
 	- Nome: **TweetSentimentStreaming** 
-	- Percorso: **C:\Tutorials**
+	- Percorso: **C:\\Tutorials**
 	- Nome soluzione: **TweetSentimentStreaming**
 
 4. Fare clic su **OK** per continuare.
@@ -541,7 +541,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 	- Categoria modello: **Visual C#/Web**
 	- Modello: **Applicazione Web ASP.NET**
 	- Nome: **TweetSentimentWeb**
-	- Percorso: **C:\Tutorials** 
+	- Percorso: **C:\\Tutorials** 
 4. Fare clic su **OK**.
 5. In **Select a template** fare clic su **MVC**. 
 6. In **Microsoft Azure** fare clic su **Gestisci sottoscrizioni**.
@@ -1355,6 +1355,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
+
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
