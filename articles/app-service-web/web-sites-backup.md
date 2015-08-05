@@ -123,7 +123,8 @@ Per escludere i file e le cartelle dai backup, creare un file `_backup.filter` n
 
 Si supponga di avere un'app Web che contiene file di log e immagini statiche degli anni precedenti che non verranno mai modificati e di avere già un backup completo dell'app Web che include le vecchie immagini. Si vuole ora eseguire il backup dell'app Web ogni giorno, ma senza pagare per l'archiviazione di file di log o dei file di immagini statici che non vengono mai modificati.
 
-![Cartella dei log][LogsFolder] ![Cartella delle immagini][ImagesFolder]
+![Cartella dei log][LogsFolder]
+![Cartella delle immagini][ImagesFolder]
 	
 I passaggi seguenti illustrano come escludere tali file dal backup.
 
@@ -219,4 +220,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

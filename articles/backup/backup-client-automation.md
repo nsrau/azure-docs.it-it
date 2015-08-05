@@ -49,7 +49,16 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure\Area di lavoro | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
+| /q | Installazione non interattiva | - |
+| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure |
+| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure\Area di lavoro |
+| /m | Accetta Microsoft Update | - |
+| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
+| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
+| /ph | Indirizzo host proxy | - |
+| /po | Numero porta host proxy | - |
+| /pu | Nome utente host proxy | - |
+| /pw | Password proxy | - |
 
 
 ### Registrazione del servizio Backup di Azure
@@ -435,4 +444,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per Windows server/client, vedere [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

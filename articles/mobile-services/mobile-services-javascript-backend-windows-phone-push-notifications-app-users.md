@@ -87,7 +87,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: mobile-services-windows-phone-get-started-users.md
 [Aggiungere notifiche push all'app]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 
  
 

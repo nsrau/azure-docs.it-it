@@ -197,12 +197,15 @@ Tuttavia, esistono alcuni svantaggi legati all'uso degli alberi delle decisioni:
 
 <a name="anchor-6a"></a> **[Regressione lineare][linear-regression]** La regressione lineare è ampiamente usata per modellare la relazione tra una variabile dipendente scalare Y e una o più variabili esplicative contrassegnate X. Può essere, e solitamente lo è, applicata per stime, previsioni o riduzione. Può essere utilizzata per adattare un modello di stima a un set di dati osservati dei valori X e Y. La regressione lineare presuppone che la struttura sottostante di Y sia una combinazione lineare delle variabili di X. Se un valore aggiuntivo di X viene quindi specificato senza il relativo valore y, il modello di regressione lineare adattato può essere utilizzato per stimare il valore di Y. I modelli di regressione lineare vengono in genere adattati tramite l'approccio dei minimi quadrati. Esistono tuttavia anche altre opzioni per misurare l'adattamento migliore. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
 
-<a name="anchor-6c"></a> **[Regressione della rete neurale][neural-network-regression]** Le reti neurali sono uno strumento statistico utile per la regressione non parametrica. La regressione non parametrica risolve il problema del tentativo di adattamento di un modello per una variabile Y su un set di variabili esplicative possibili X1; : : : ;Xp e dove la relazione tra X e Y può essere più complicata di una relazione lineare semplice. [[A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University)]
+<a name="anchor-6c"></a> **[Regressione della rete neurale][neural-network-regression]** 
+Le reti neurali sono uno strumento statistico utile per la regressione non parametrica. La regressione non parametrica risolve il problema del tentativo di adattamento di un modello per una variabile Y su un set di variabili esplicative possibili X1; : : : ;Xp e dove la relazione tra X e Y può essere più complicata di una relazione lineare semplice. \[[Articolo su una struttura per la regressione non parametrica con reti neurali](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee \(ISDS, Duke University\)\]
 
-<a name="anchor-6d"></a> **[Regressione ordinale][ordinal-regression]** La regressione ordinale è un tipo di analisi di regressione usata per modellare o stimare una variabile dipendente ordinale. Per le variabili dipendenti ordinali, è possibile classificare i valori, ma la distanza reale tra le categorie è sconosciuta. È significativo solo l'ordinamento relativo tra valori differenti. Poiché le etichette o i valori di destinazione dispongono di un ordinamento o classificazione naturale, è possibile utilizzare qualsiasi colonna numerica come destinazione ordinale. L'ordinamento naturale dei numeri viene utilizzato per la loro classificazione. Ad esempio, le patologie vengono valutate in base a una scala che va dalla meno grave alla più grave. Gli intervistati possono scegliere le risposte in base a una scala che va da "molto d'accordo" a "per nulla d'accordo". Gli studenti vengono valutati in base a una scale da A a F. Essenzialmente, la regressione ordinale è un'estensione della regressione logistica basata sul modello di *probabilità proporzionali*.
+<a name="anchor-6d"></a> **[Regressione ordinale][ordinal-regression]** 
+La regressione ordinale è un tipo di analisi di regressione usata per modellare o stimare una variabile dipendente ordinale. Per le variabili dipendenti ordinali, è possibile classificare i valori, ma la distanza reale tra le categorie è sconosciuta. È significativo solo l'ordinamento relativo tra valori differenti. Poiché le etichette o i valori di destinazione dispongono di un ordinamento o classificazione naturale, è possibile utilizzare qualsiasi colonna numerica come destinazione ordinale. L'ordinamento naturale dei numeri viene utilizzato per la loro classificazione. Ad esempio, le patologie vengono valutate in base a una scala che va dalla meno grave alla più grave. Gli intervistati possono scegliere le risposte in base a una scala che va da "molto d'accordo" a "per nulla d'accordo". Gli studenti vengono valutati in base a una scale da A a F. Essenzialmente, la regressione ordinale è un'estensione della regressione logistica basata sul modello di *probabilità proporzionali*.
 
 
-<a name="anchor-6e"></a> **[Regressione Poisson][poisson-regression]** La regressione Poisson viene spesso usata per modellare i dati di conteggio. La regressione Poisson presuppone che la variabile di risposta disponga di una distribuzione Poisson. I dati della distribuzione Poisson vengono valutati intrinsecamente con numeri interi, discreti e positivi, che hanno senso per i dati di conteggio. Dato un set di dati di training, la regressione Poisson tenta di trovare valori ottimali massimizzando la probabilità in forma logaritmica dei parametri presenti negli input. La probabilità dei parametri è la probabilità che i dati di training siano stati campionati da una distribuzione con tali parametri. Ad esempio, la regressione Poisson, potrebbe essere utile per:
+<a name="anchor-6e"></a> **[Regressione Poisson][poisson-regression]** 
+La regressione Poisson viene spesso usata per modellare i dati di conteggio. La regressione Poisson presuppone che la variabile di risposta disponga di una distribuzione Poisson. I dati della distribuzione Poisson vengono valutati intrinsecamente con numeri interi, discreti e positivi, che hanno senso per i dati di conteggio. Dato un set di dati di training, la regressione Poisson tenta di trovare valori ottimali massimizzando la probabilità in forma logaritmica dei parametri presenti negli input. La probabilità dei parametri è la probabilità che i dati di training siano stati campionati da una distribuzione con tali parametri. Ad esempio, la regressione Poisson, potrebbe essere utile per:
 
 * Modellare il numero di colds associati ai voli aerei 
 * Stimare il numero di chiamate relative a un evento o promozione 
@@ -214,39 +217,39 @@ Per un elenco completo con i tipi di algoritmi di Machine Learning disponibili i
 
 Per informazioni più dettagliate su tutti i tipi di algoritmi di Machine Learning, vedere i riferimenti ai seguenti, molti dei quali sono stati usati per la creazione di questo articolo.
 
-* [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+* [Post di blog sulla scelta di un classificatore di Machine Learning](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
 
-* [Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 e E. Konukoglu (Microsoft Research, 2011) report tecnico TR-2011-114.
+* [Articolo sulle foreste delle decisioni per la classificazione, la regressione, la stima della densità, l'apprendimento basato sulle varietà e l'apprendimento semi-supervisionato](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 e E. Konukoglu \(Microsoft Research, 2011\) report tecnico TR-2011-114.
 
-* [A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University).
+* [Articolo su una struttura per la regressione non parametrica con reti neurali](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee \(ISDS, Duke University\).
 
-* Handbook of Computational Statistics: Concepts and Methods edited by James E. Gentle, Wolfgang Karl Härdle, Yuichi Mori (Springer-Verlag Berlin Heidelberg New York, 2004).
+* Manuale sui concetti e i metodi della statistica computazionale di James E. Gentle, Wolfgang Karl Härdle, Yuichi Mori \(Springer-Verlag Berlin Heidelberg New York, 2004\).
 
-* [Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis e Anastasia Tzonou (International Journal of Pediatrics, 2009) ID articolo 952042.
+* [Articolo sulle divergenze e le analogie tra i due metodi statistici regressione logistica e analisi discriminante lineare nei fattori di valutazione associati alla prevalenza dell'asma in bambini di età compresa tra i 10 e i 12 anni](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis e Anastasia Tzonou \(International Journal of Pediatrics, 2009\) ID articolo 952042.
 
-* [The Optimality of Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) (University of New Brunswick 2004) Harry Zhang.
+* [Articolo sull'ottimalità di Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) \(University of New Brunswick 2004\) Harry Zhang.
 
-* [Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001).
+* [Articolo sulle macchine a vettori di supporto](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore \(Carnegie Mellon University 2001\).
 
-* [Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/).
+* [Parte II dell'articolo su Machine Learning: apprendimento supervisionato e non supervisionato](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/).
 
-* [What are the advantages of logistic regression over decision trees?](http://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees) ([Quora](http://www.quora.com/)).
+* [Articolo sui vantaggi della regressione logistica rispetto agli alberi delle decisioni](http://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees) \([Quora](http://www.quora.com/)\).
 
-* [What is the difference between supervised learning and unsupervised learning?](http://stackoverflow.com/questions/1832076/what-is-the-difference-between-supervised-learning-and-unsupervised-learning) ([Stackoverflow](http://stackoverflow.com/)).
+* [Articolo sulla differenza tra apprendimento supervisionato e apprendimento non supervisionato](http://stackoverflow.com/questions/1832076/what-is-the-difference-between-supervised-learning-and-unsupervised-learning) \([Stackoverflow](http://stackoverflow.com/)\).
 
-* [When to choose which machine learning classifier?](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier) ([Stackoverflow](http://stackoverflow.com/)).
+* [Articolo sui vantaggi offerti dalla scelta di un classificatore di Machine Learning](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier) \([Stackoverflow](http://stackoverflow.com/)\).
 
 * [Wikipedia](http://en.wikipedia.org):
-	* [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression)
-	* [Linear regression](http://en.wikipedia.org/wiki/Linear_regression)
-	* [Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification)
-	* [Unsupervised learning](http://en.wikipedia.org/wiki/Unsupervised_learning)
+	* [Pagina sulla regressione lineare Bayesiana](http://en.wikipedia.org/wiki/Bayesian_linear_regression)
+	* [Regressione lineare](https://it.wikipedia.org/wiki/Regressione_lineare)
+	* [Pagina sulla classificazione multiclasse](http://en.wikipedia.org/wiki/Multiclass_classification)
+	* [Apprendimento non supervisionato](https://it.wikipedia.org/wiki/Apprendimento_non_supervisionato))
 
 Vedere anche:
 
-* [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) (Microsoft).
+* [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) \(Microsoft\).
 
-* [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) ([scikit-learn](http://scikit-learn.org/stable/index.html)).
+* [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) \([scikit-learn](http://scikit-learn.org/stable/index.html)\).
 
 
 <!-- Module References -->
@@ -262,4 +265,4 @@ Vedere anche:
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

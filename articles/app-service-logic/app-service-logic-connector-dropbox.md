@@ -47,10 +47,13 @@ Dopo aver creato l'app per le API, è possibile usare Dropbox Connector come azi
 	![][4]
 4.	È possibile trascinare l'app per le API Dropbox Connector nell'editor facendo clic su “Dropbox Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali Dropbox. Fare clic su "Consenti".
 
-	![][5] ![][6] ![][7]
+	![][5]
+	![][6]
+	![][7]
 6.	È ora possibile usare Dropbox Connector nel flusso. È possibile usare l'azione Dropbox "Upload File" per caricare un file nel proprio account Dropbox.
 
-	![][8] ![][9]
+	![][8]
+	![][9]
 
 Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -71,4 +74,4 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -130,7 +130,7 @@ Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un accoun
 </tbody>
 </table>
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whit-iting-premium-storage) section in this article.
+	Per le informazioni più aggiornate, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per informazioni sui dischi di archiviazione Premium e i rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-iting-premium-storage) di questo articolo.
 
 > [AZURE.NOTE]I riscontri nella cache non sono limitati da IOPS/velocità di trasmissione del disco allocati. In altri termini, quando si utilizza un disco dati con l'impostazione della cache ReadOnly in una macchina virtuale della serie DS, le letture servite dalla cache non sono soggette ai limiti relativi ai dischi di Archiviazione Premium. Di conseguenza, è possibile ottenere una velocità di trasmissione molto elevata da un disco se il carico di lavoro è prevalentemente composto da letture. Si noti che la cache è soggetta a limiti di velocità effettiva/IOPS separati a livello della macchina virtuale in base alle dimensioni della macchina virtuale. Le macchine virtuali della serie DS hanno circa 4000 IOPS e 33 MB/sec per core per la cache e gli IO dell’unità SSD locale.
 
@@ -391,4 +391,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

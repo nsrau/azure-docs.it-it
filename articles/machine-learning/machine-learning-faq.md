@@ -92,9 +92,8 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. <!--
-<SEE CLOUD DS PROCESS>
--->
+Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. 
+<!--<SEE CLOUD DS PROCESS>-->
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -303,4 +302,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

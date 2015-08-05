@@ -190,7 +190,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [Introduzione ai dati]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js

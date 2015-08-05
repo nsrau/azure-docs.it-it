@@ -87,7 +87,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Aggiungere l'autenticazione all'app]: mobile-services-windows-store-javascript-get-started-users.md
 [Aggiungere notifiche push all'app]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
 <!---HONumber=July15_HO4-->

@@ -29,8 +29,17 @@ Per usare Twilio Connector, è necessario innanzitutto creare un'istanza dell'ap
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Passare a "App per le API" e cercare "Twilio Connector".
 3.	Configurare Twilio Connector nel modo seguente:
-
-	![][1] - **Località**: scegliere la località geografica in cui verrà distribuito il connettore - **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore - **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Piano di hosting Web**: selezionare o creare un piano di hosting Web - **Piano tariffario**: scegliere il piano tariffario per il connettore - **Nome**: assegnare un nome al connettore Twilio - **Impostazioni pacchetto** - **SID account**: identificatore univoco dell'account. È possibile recuperare il SID dell'account in <https://www.twilio.com/user/account/settings> - **Token autorizzazione** - token di autorizzazione associato all'account. È possibile recuperare il token di autorizzazione per il proprio account da <https://www.twilio.com/user/account/settings>
+ 
+	![][1]
+	- **Località**: scegliere la località geografica in cui verrà distribuito il connettore
+	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
+	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
+	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
+	- **Piano tariffario**: scegliere il piano tariffario per il connettore
+	- **Nome**: assegnare un nome al connettore Twilio
+	- **Impostazioni pacchetto**
+		- **SID account**: identificatore univoco dell'account. È possibile recuperare il SID dell'account in <https://www.twilio.com/user/account/settings>
+		- **Token autorizzazione** - token di autorizzazione associato all'account. È possibile recuperare il token di autorizzazione per il proprio account da <https://www.twilio.com/user/account/settings>
 
 
 4.	Fare clic su Crea. Verrà creato un nuovo Twilio Connector.
@@ -54,8 +63,9 @@ Dopo aver creato l'app per le API, è possibile usare Twilio Connector come trig
 	- **From Phone Number**: immettere un numero di telefono Twilio abilitato per il tipo di messaggio da inviare. Con questo connettore funzioneranno soltanto numeri di telefono o numeri brevi acquistati da Twilio.
 	- **To Phone Number**: numero di telefono di destinazione. Il formato accettato è +, seguito dall'indicativo del paese, quindi dal numero di telefono. Ad esempio, +16175551212. Se si omette il segno +, Twilio userà l'indicativo del paese immesso in 'From Phone Number'.
 	- **Text**: testo del messaggio da inviare.
-
-	![][5] ![][6]
+ 
+	![][5]
+	![][6]
 
 
 
@@ -67,4 +77,4 @@ Dopo aver creato l'app per le API, è possibile usare Twilio Connector come trig
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

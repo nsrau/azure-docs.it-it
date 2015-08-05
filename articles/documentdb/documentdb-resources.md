@@ -105,7 +105,16 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ###Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{_rid}: 
 
-|Valore di _self |Descrizione|-------------------|-----------|/dbs |Feed di database in un account di database. |/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database. |/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}|/dbs/{_rid-db}/users/ |Feed di utenti in un database. |/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database. |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}. 
+|Valore di _self |Descrizione
+|-------------------|-----------
+|/dbs |Feed di database in un account di database. 
+|/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}
+|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database. 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}
+|/dbs/{_rid-db}/users/ |Feed di utenti in un database. 
+|/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database. 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}. 
   
 Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà _rid viene usata per costruire il collegamento _self indirizzabile di una risorsa. 
 
@@ -270,7 +279,8 @@ Poiché il database comprende in modo nativo JSON e JavaScript, non si verifican
 
 Le stored procedure e i trigger interagiscono con una raccolta e con i documenti in una raccolta tramite un modello a oggetti ben definito, che espone il contesto corrente della raccolta.
 
-Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate facilmente usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.
+Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate facilmente usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.   
+
 ##Stored procedure, trigger e funzioni definite dall'utente
 Come illustrato nella sezione precedente, è possibile scrivere logica dell'applicazione per l'esecuzione direttamente in una transazione nel motore del database. La logica dell'applicazione può essere scritta interamente in JavaScript e può essere modellata come stored procedure, trigger o funzione definita dall'utente (UDF, User-Defined Function). Il codice JavaScript in una stored procedure o un trigger può inserire, sostituire, eliminare, leggere o sottoporre a query documenti all'interno di una raccolta. D'altro canto, il codice JavaScript in una funzione definita dall'utente può eseguire calcolo privo di effetti collaterali solo tramite l'enumerazione dei documenti del set di risultati della query e produrre un altro set di risultati. Per il multi-tenancy, DocumentDB applica una rigida governance delle risorse basata sulle prenotazioni. Ogni stored procedure, trigger o funzione UDF ottiene una quantità fissa di risorse del sistema operativo per l'esecuzione delle operazioni. Le stored procedure, i trigger o le funzioni UDF, inoltre, non possono collegarsi a librerie JavaScript esterne e saranno disattivati in caso di superamento dei rispettivi budget di risorse allocati. È possibile eseguire o annullare la registrazione di stored procedure, trigger o funzioni definite dall'utente con una raccolta usando le API REST. Durante la registrazione, una stored procedure, un trigger o una funzione UDF saranno precompilati e archiviati come codice byte, che sarà eseguito in seguito. La sezione seguente mostra come usare JavaScript SDK di DocumentDB per la registrazione, l'esecuzione e l'annullamento della registrazione di una stored procedure, un trigger e una funzione definita dall'utente. JavaScript SDK è un semplice wrapper per le [API REST di DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
@@ -459,4 +469,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

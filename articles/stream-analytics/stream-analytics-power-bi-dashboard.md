@@ -165,7 +165,8 @@ Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui
 
 A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. È consigliabile utilizzare TumblingWindow o HoppingWindow per garantire che il push dei dati sia di al massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile utilizzare l’equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): 
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Pertanto sarà necessario modificare la query originale in:
 
@@ -208,4 +209,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -41,11 +41,12 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
 
 1. [Installare Git][install-git]
 
-	> [AZURE.NOTE]In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+> [AZURE.NOTE]
+> In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
-         {
+		{
              "repositories": [
                  {
                      "type": "pear",
@@ -58,7 +59,7 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-         }
+		}
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 
@@ -430,4 +431,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

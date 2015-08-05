@@ -39,7 +39,9 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Un [account Microsoft Azure](http://azure.microsoft.com/account/) attivo
 -	Visual Studio 2013 con [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web.
+> + È possibile [attivare i benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="deploy"></a>
 ## Distribuire un'app Web di Azure con un endpoint della rete CDN integrato ##
@@ -125,7 +127,15 @@ L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla
 <a name="caching"></a>
 ## Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure ##
 
-Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il codice XML riportato di seguito consente di configurare la cache in modo che scada dopo 3 giorni. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il codice XML riportato di seguito consente di configurare la cache in modo che scada dopo 3 giorni.
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
 A questo punto, tutti i file statici nell'app Web di Azure osserveranno la stessa regola nella cache della rete CDN. Per un controllo più granulare delle impostazioni della cache, aggiungere un file *Web.config* in una cartella e quindi aggiungervi le impostazioni. Ad esempio, aggiungere un file *Web.config* alla cartella *\Content* e sostituire il contenuto con il seguente linguaggio XML:
 
@@ -278,7 +288,15 @@ namespace cdnwebapp.Controllers
 
 5. Pubblicare di nuovo l'app Web di Azure e passare a **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** nel browser.
 
-Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azione `Index_Post` restituisce un collegamento al metodo di azione `Show` con il rispettivo identificatore di input. Facendo clic sul collegamento, si raggiunge il codice seguente: <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azione `Index_Post` restituisce un collegamento al metodo di azione `Show` con il rispettivo identificatore di input. Facendo clic sul collegamento, si raggiunge il codice seguente:
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) 
+{
+     Tuple&lt;string, string&gt; data = null;
+     if (!Memes.TryGetValue(id, out data))
+     {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+     }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -288,7 +306,8 @@ Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azi
     {
         return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 Se il debugger locale è collegato, si avrà una normale esperienza di debug con un reindirizzamento locale. Se viene eseguito nell'app Web di Azure, si viene reindirizzati a:
 
@@ -346,7 +365,7 @@ Ciò consente di eseguire il debug del codice JavaScript nell'ambiente di svilup
 
 Attenersi alla procedura seguente per integrare la creazione di bundle e la minimizzazione ASP.NET con l'endpoint della rete CDN.
 
-1. Tornando a *App_Start\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A questo scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
+1. Tornando a *App_Start\BundleConfig.cs*, modificare i metodi `bundles.Add()` in modo da usare un [costruttore di aggregazioni](http://msdn.microsoft.com/library/jj646464.aspx) diverso, che specifichi un indirizzo di rete CDN. A tale scopo, sostituire la definizione del metodo `RegisterBundles` con il codice seguente:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -374,7 +393,8 @@ public static void RegisterBundles(BundleCollection bundles)
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 }
-</pre>Assicurarsi di sostituire `<yourCDNName>` con il nome della rete CDN.
+	</pre>
+	Assicurarsi di sostituire `<yourCDNName>` con il nome della rete CDN.
 
 	In altri termini, si imposta `bundles.UseCdn = true` e si aggiunge un URL della rete CDN definito con precisione a ogni aggregazione. Ad esempio, il primo costruttore nel codice:
 
@@ -472,7 +492,9 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}</pre>Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
+	}
+	</pre>
+	Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
 	
 	-	`window.jquery` viene definito nel file jquery-{version}.js
 	-	`$.validator` viene definito nel file jquery.validate.js
@@ -494,7 +516,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
-</pre>Questo nuovo metodo di estensione si basa sulla stessa idea di inserire lo script nel linguaggio HTML per cercare in DOM il nome di classe, il nome di regola e il valore di regola corrispondenti definiti nel bundle CSS, eseguendo il fallback sul server Web in caso non riesca a trovare la corrispondenza.
+	</pre>
+	Questo nuovo metodo di estensione si basa sulla stessa idea di inserire lo script nel linguaggio HTML per cercare in DOM il nome di classe, il nome di regola e il valore di regola corrispondenti definiti nel bundle CSS, eseguendo il fallback sul server Web in caso non riesca a trovare la corrispondenza.
 
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
@@ -532,7 +555,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 <mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
 
 ...
-</pre>Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+	</pre>
+	Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -552,4 +576,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso della rete CDN per Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

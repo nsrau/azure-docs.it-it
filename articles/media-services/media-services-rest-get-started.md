@@ -84,7 +84,7 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 	
 	>[AZURE.NOTE]Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 	> 
-	> 
+	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
 3. Invio delle successive chiamate API al nuovo URL. 
 	
 	Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:

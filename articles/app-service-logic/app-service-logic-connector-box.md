@@ -33,79 +33,85 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
 	a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-  <tr>
-    <td><b>Nome parametro</b></td>
-    <td><b>Descrizione</b></td>
-    <td><b>Obbligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Percorso cartella</td>
-    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
-    <td>Sì</td>
-  </tr>
-</table>>[AZURE.NOTE]non restituisce i contenuti dei file.
+	  <tr>
+	    <td><b>Nome parametro</b></td>
+	    <td><b>Descrizione</b></td>
+	    <td><b>Obbligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Percorso cartella</td>
+	    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
+	    <td>Sì</td>
+	  </tr>
+	</table>
+
+	>[AZURE.NOTE]non restituisce i contenuti dei file.
 
 
 
     b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-  <tr>
-    <td><b>Nome parametro</b></td>
-    <td><b>Descrizione</b></td>
-    <td><b>Obbligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Percorso file</td>
-    <td>Percorso della cartella in cui è presente il file.</td>
-    <td>Sì</td>
-  </tr>
-  <tr>
-    <td>Tipo file</td>
-    <td>Specifica se il file è di testo o binario.</td>
-    <td>No</td>
-  </tr>
-</table>>[AZURE.NOTE]questa operazione non eliminerà il file dopo averlo letto.
+	  <tr>
+	    <td><b>Nome parametro</b></td>
+	    <td><b>Descrizione</b></td>
+	    <td><b>Obbligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Percorso file</td>
+	    <td>Percorso della cartella in cui è presente il file.</td>
+	    <td>Sì</td>
+	  </tr>
+	  <tr>
+	    <td>Tipo file</td>
+	    <td>Specifica se il file è di testo o binario.</td>
+	    <td>No</td>
+	  </tr>
+	</table>
+	>[AZURE.NOTE]questa operazione non eliminerà il file dopo averlo letto.
 
 
 
     c. Upload file: questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-  <tr>
-    <td><b>Nome parametro</b></td>
-    <td><b>Descrizione</b></td>
-    <td><b>Obbligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Percorso file</td>
-    <td>Percorso del file.</td>
-    <td>Sì</td>
-  </tr>
-  <tr>
-    <td>Contenuto file</td>
-    <td>Contenuto del file da caricare.</td>
-    <td>Sì</td>
-  </tr>
-  <tr>
-    <td>Codifica trasferimento contenuto</td>
-    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
-    <td> </td>
-  </tr>
-</table>d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+	  <tr>
+	    <td><b>Nome parametro</b></td>
+	    <td><b>Descrizione</b></td>
+	    <td><b>Obbligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Percorso file</td>
+	    <td>Percorso del file.</td>
+	    <td>Sì</td>
+	  </tr>
+	  <tr>
+	    <td>Contenuto file</td>
+	    <td>Contenuto del file da caricare.</td>
+	    <td>Sì</td>
+	  </tr>
+	  <tr>
+	    <td>Codifica trasferimento contenuto</td>
+	    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
+	    <td> </td>
+	  </tr>
+	</table>
+
+
+	d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
  	<table>
-  <tr>
-    <td><b>Nome parametro</b></td>
-    <td><b>Descrizione</b></td>
-    <td><b>Obbligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Percorso file</td>
-    <td>Percorso del file completo incluse le cartelle.</td>
-    <td>Sì</td>
-  </tr>
-</table>
+	  <tr>
+	    <td><b>Nome parametro</b></td>
+	    <td><b>Descrizione</b></td>
+	    <td><b>Obbligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Percorso file</td>
+	    <td>Percorso del file completo incluse le cartelle.</td>
+	    <td>Sì</td>
+	  </tr>
+	</table>
 
 
 
@@ -160,4 +166,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
