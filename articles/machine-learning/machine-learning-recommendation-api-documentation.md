@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Documentazione relativa all'API Recommendations di Machine Learning | Microsoft Azure" 
-	description="Documentazione relativa all'API Recommendations di Azure Machine Learning per un motore di raccomandazione disponibile in Microsoft Azure Marketplace." 
+	description="Documentazione relativa all'API Recommendations di Azure Machine Learning per un motore di raccomandazione disponibile in Microsoft Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 
@@ -259,7 +259,9 @@ XML OData
 
 ###5.4. Aggiornare il modello
 
-È possibile aggiornare la descrizione del modello o l'ID compilazione attiva.<br> <ins>ID compilazione attiva</ins>: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br> Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
+È possibile aggiornare la descrizione del modello o l'ID compilazione attiva.<br>
+<ins>ID compilazione attiva</ins>: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br>
+Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
 
 | Metodo HTTP | URI |
@@ -2868,7 +2870,10 @@ Codice stato HTTP: 200
 
 
 ##15. Note legali
-Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
+Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br>
+Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br>
+Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br>
+© 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
