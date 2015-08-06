@@ -35,7 +35,9 @@ Prima di installare o aggiornare lo StorSimple Snapshot Manager per Microsoft Ma
 
 I passaggi seguenti forniscono una panoramica generale delle attività di configurazione che è necessario completare prima di installare StorSimple Snapshot Manager. Per informazioni complete sulla configurazione e sull’installazione di Microsoft Azure StorSimple, inclusi i requisiti di sistema e istruzioni dettagliate, vedere [Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Prima di iniziare, esaminare l’[elenco di controllo di pre-installazione](storsimple-deployment-walkthrough.md#pre-installation-checklist) e [i prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Prima di iniziare, esaminare l’[elenco di controllo di pre-installazione](storsimple-deployment-walkthrough.md#pre-installation-checklist)
+> e [i prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Prima di installare StorSimple Snapshot Manager
 
@@ -253,4 +255,4 @@ Per ulteriori informazioni su StorSimple Snapshot Manager, passare a[Cos'è Stor
 
 Per ulteriori informazioni sull'interfaccia utente StorSimple Snapshot Manager, passare a[Interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

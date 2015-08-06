@@ -45,7 +45,7 @@ Esistono due modi diversi per scaricare il server Azure Multi-Factor Authenticat
 3. Nella parte superiore della pagina Active Directory, selezionare **Provider Multi-Factor Authentication**
 4. Nella parte inferiore fare clic su **Gestisci**
 5. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
-<center>! [Scarica] (. / media/multi-factor-authentication-sdk/download.png)</center>
+<center>![Scarica](./media/multi-factor-authentication-sdk/download.png)</center>
 6. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
 7. Salvare il download.
 
@@ -188,4 +188,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
