@@ -345,7 +345,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html
 -	Utilizzare qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
 
 
@@ -452,4 +452,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

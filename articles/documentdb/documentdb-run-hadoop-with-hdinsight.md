@@ -19,7 +19,7 @@
 
 #<a name="DocumentDB-HDInsight"></a>Eseguire un processo Hadoop usando DocumentDB e HDInsight
 
-Questa esercitazione illustra come eseguire processi [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce in Azure HDInsight con il connettore Hadoop di DocumentDB. Il connettore Hadoop di DocumentDB consente a quest'ultimo di fungere da origine e sink per i processi Hive, Pig e MapReduce. Questa esercitazione userà DocumentDB come origine e destinazione dati per i processi Hadoop.
+Questa esercitazione illustra come eseguire processi [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce in Azure HDInsight con il connettore Hadoop di DocumentDB. Il connettore Hadoop di DocumentDB consente a quest'ultimo di fungere da origine e sink per i processi Hive, Pig e MapReduce. Questa esercitazione userà DocumentDB come origine e destinazione dati per i processi Hadoop. 
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -70,7 +70,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 
 ## <a name="CreateStorage"></a>Passaggio 1: creare un account di archiviazione di Azure
 
-> [AZURE.IMPORTANT]Se si ha **già** un account di archiviazione di Azure e si vuole creare un nuovo contenitore BLOB all'interno di tale account, passare direttamente al [Passaggio 2: creare un cluster HDInsight personalizzato](#ProvisionHDInsight).
+> [AZURE.IMPORTANT] Se si ha **già** un account di archiviazione di Azure e si vuole creare un nuovo contenitore BLOB all'interno di tale account, passare direttamente al [Passaggio 2: creare un cluster HDInsight personalizzato](#ProvisionHDInsight).
 
 Azure HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
@@ -83,14 +83,13 @@ Quando si effettua il provisioning di un cluster HDInsight, si specifica un acco
 	> [AZURE.NOTE]Azure HDInsight è attualmente supportato nel portale di gestione di Azure, mentre Azure DocumentDB esiste solo nel portale di Microsoft Azure.
 
 2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.
-
 	![Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-storageaccount-quickcreate]
 
-3. Immettere l'**URL**, selezionare i valori **PERCORSO** e **REPLICA**, quindi fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. I gruppi di affinità non sono supportati.
+3. Immettere l'**URL**, selezionare i valori **PERCORSO** e **REPLICA**, quindi fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. I gruppi di affinità non sono supportati. 
 	
 	Il nuovo account di archiviazione verrà incluso nell'elenco di archiviazione.
 
-	> [AZURE.IMPORTANT]Per ottenere le migliori prestazioni, assicurarsi che l'account di archiviazione, il cluster HDInsight e l'account di DocumentDB si trovino nella stessa area di Azure. Aree di Azure che supportano tutti i tre servizi sono: **Asia orientale**, **sud-est asiatico**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali** e **Stati Uniti occidentali**.
+	> [AZURE.IMPORTANT] Per ottenere le migliori prestazioni, assicurarsi che l'account di archiviazione, il cluster HDInsight e l'account di DocumentDB si trovino nella stessa area di Azure. Aree di Azure che supportano tutti i tre servizi sono: **Asia orientale**, **sud-est asiatico**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali** e **Stati Uniti occidentali**.
 
 4. Attendere che il valore di **STATUS** per il nuovo account di archiviazione venga modificato in **Online**.
 
@@ -141,7 +140,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		<tr><td>Password/Conferma password</td>
 			<td>Specificare la password utente del cluster HDInsight.</td></tr>
 	</table>
-
+	
     Fare clic sulla freccia destra.
     
 6. Nella pagina **Account di archiviazione** specificare i valori seguenti:
@@ -193,7 +192,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 1. Installare Azure PowerShell. Le istruzioni sono consultabili [qui][powershell-install-configure].
 
-	> [AZURE.NOTE]In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di gestione di Azure][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
+	> [AZURE.NOTE] In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di gestione di Azure][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
 
 2. Aprire Integrated Scripting Environment di Azure PowerShell:
 	- In un computer che esegue Windows 8 o Windows Server 2012 o versione successiva, è possibile usare la funzionalità di ricerca incorporata. Dalla schermata Start digitare **powershell ise** e fare clic su **Invio**. 
@@ -211,7 +210,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 ## <a name="RunHive"></a>Passaggio 4: Eseguire un processo Hive usando DocumentDB e HDInsight
 
-> [AZURE.IMPORTANT]Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
+> [AZURE.IMPORTANT] Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 
 1. Impostare le variabili seguenti nel riquadro di script di PowerShell.
 
@@ -245,7 +244,9 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
  
 3.  Successivamente, si passa alla creazione di una tabella Hive per la raccolta di output. Le proprietà del documento di output saranno mese, giorno, ora, minuti e numero totale di occorrenze.
 
-	> [AZURE.NOTE]**Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** Sì, si consente l'aggiunta di più raccolte come output:</br>' * DocumentDB.outputCollections*' = ' * < nome della raccolta di DocumentDB Output > 1 *, * < nome della raccolta di DocumentDB Output > 2 *'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola. </br></br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
+	> [AZURE.NOTE]**Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** Sì, si consente l'aggiunta di più raccolte come output:</br>
+    ' * DocumentDB.outputCollections*' = ' * < nome della raccolta di DocumentDB Output > 1 *, * < nome della raccolta di DocumentDB Output > 2 *'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola. </br></br>
+    Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -310,7 +311,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 ## <a name="RunPig"></a>Passaggio 5: Eseguire un processo Pig usando DocumentDB e HDInsight
 
-> [AZURE.IMPORTANT]Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
+> [AZURE.IMPORTANT] Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 
 1. Impostare le variabili seguenti nel riquadro di script di PowerShell.
 
@@ -437,7 +438,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 ## <a name="NextSteps"></a>Passaggi successivi
 
-Congratulazioni. Sono stati eseguiti i primi processi Hive, Pig e MapReduce usando Azure DocumentDB e HDInsight.
+Congratulazioni. Sono stati eseguiti i primi processi Hive, Pig e MapReduce usando Azure DocumentDB e HDInsight. 
 
 Abbiamo reso Open Source il connettore Hadoop. Se si è interessati, è possibile contribuire in [GitHub][documentdb-github].
 
@@ -489,4 +490,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

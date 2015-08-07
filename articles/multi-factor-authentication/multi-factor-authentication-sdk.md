@@ -188,4 +188,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
