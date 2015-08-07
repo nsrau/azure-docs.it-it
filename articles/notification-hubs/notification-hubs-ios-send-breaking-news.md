@@ -346,7 +346,8 @@ In genere potrebbero essere inviate le notifiche da un servizio back-end ma per 
 
 3. Ogni dispositivo iscritto alle notizie riceverà le notifiche relative alle ultime notizie appena inviate.
 
-	![][4] ![][5]
+	![][4]
+	![][5]
 
 
 ## Passaggi successivi
