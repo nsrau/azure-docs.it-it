@@ -310,7 +310,7 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             $scope.refresh();
         });
 
-1. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
+1, Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
