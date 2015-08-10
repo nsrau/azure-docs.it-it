@@ -181,7 +181,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
     4. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Arresta il servizio**.
 
-2. Nel computer host, passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Nel computer host, passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData è una cartella nascosta.
  
@@ -197,7 +197,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
     3. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Riavvia il servizio**.
 
-5. Nel computer host, passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+5. Nel computer host, passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
 6. Eliminare il file XML del catalogo e sostituirlo con la versione di backup creata.
 
@@ -207,4 +207,4 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 Vedere [le attività e i flussi di lavoro di Gestione snapshot StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows) disponibili.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

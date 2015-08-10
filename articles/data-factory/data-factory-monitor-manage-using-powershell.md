@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esercitazione: Creare e monitorare una data factory di Azure mediante Azure PowerShell" 
+	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL" 
 	description="Informazioni su come usare Azure PowerShell per creare e monitorare le data factory di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Azure PowerShell
@@ -38,7 +38,7 @@ Passaggio | Descrizione
 -----| -----------
 [Passaggio 1: Creare un'istanza di Data factory di Azure](#CreateDataFactory) | In questo passaggio si creerà una data factory di Azure denominata **ADFTutorialDataFactoryPSH**. 
 [Passaggio 2: Creare servizi collegati](#CreateLinkedServices) | In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. StorageLinkedService collega un archivio di Azure e AzureSqlLinkedService collega un database SQL di Azure ad ADFTutorialDataFactoryPSH.
-[Passaggio 3: Creare set di dati di input e di output](#CreateInputAndOutputDataSets) | In questo passaggio si definiranno due set di dati (**EmpTableFromBlob** e **EmpSQLTable**) usati come input e output per l'**attività di copia** nella ADFTutorialPipeline creata nel passaggio seguente.
+[Passaggio 3: Creare set di dati di input e di output](#CreateInputAndOutputDataSets) | In questo passaggio si definiranno due set di dati (\*\*EmpTableFromBlob\*\* e **EmpSQLTable**) usati come input e output per l'**attività di copia** nella ADFTutorialPipeline creata nel passaggio seguente.
 [Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio verrà creata una pipeline denominata **ADFTutorialPipeline** nella data factory **ADFTutorialDataFactoryPSH**. La pipeline avrà un'**attività di copia** che copia dati da un BLOB di Azure e li inserisce in una tabella di output del database di Azure.
 [Passaggio 5: Monitorare i set di dati e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio si monitoreranno i set di dati e la pipeline mediante Azure PowerShell.
 
@@ -70,16 +70,19 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. Il servizio collegato StorageLinkedService collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure alla data factory **ADFTutorialDataFactoryPSH**. Più avanti in questa esercitazione si creerà una pipeline che copia i dati da un contenitore BLOB di StorageLinkedService e li inserisce in una tabella SQL di AzureSqlLinkedService.
 
 ### Creare un servizio collegato per un account di archiviazione di Azure
-1.	Creare un file JSON denominato **StorageLinkedService.json** in **C:\ADFGetStartedPSH** con i contenuti seguenti. Creare la cartella ADFGetStartedPSH, se non esiste già.
+1.	Creare un file JSON denominato **StorageLinkedService.json** in **C:\\ADFGetStartedPSH** con i contenuti seguenti. Creare la cartella ADFGetStartedPSH, se non esiste già.
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		  "name": "StorageLinkedService",
+		  "properties": {
+		    "type": "AzureStorage",
+		    "typeProperties": {
+		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 		    }
+		  }
 		}
+
+	Sostituire **accountname** con il nome dell'account di archiviazione e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure.
 2.	In **Azure PowerShell** passare alla cartella **ADFGetStartedPSH**. 
 3.	È possibile usare il cmdlet **New-AzureDataFactoryLinkedService** per creare un servizio collegato. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri **ResourceGroupName** e **DataFactoryName**. In alternativa, è possibile usare **Get-AzureDataFactory** per ottenere un oggetto DataFactory e passare l'oggetto senza digitare ResourceGroupName e DataFactoryName ogni volta che si esegue un cmdlet. Eseguire il comando seguente per assegnare l'output del cmdlet **Get-AzureDataFactory** a una variabile **$df**. 
 
@@ -99,14 +102,18 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 1.	Creare un file JSON denominato AzureSqlLinkedService.json con i contenuti seguenti.
 
 		{
-		    "name": "AzureSqlLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureSqlLinkedService",
-		        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		  "name": "AzureSqlLinkedService",
+		  "properties": {
+		    "type": "AzureSqlDatabase",
+		    "typeProperties": {
+		      "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 		    }
+		  }
 		}
-2.	Eseguire il comando seguente per creare un servizio collegato. 
+
+	Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server di Azure SQL, del database, dell'account utente e della password.
+
+2.	Eseguire il comando seguente per creare un servizio collegato.
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
@@ -135,7 +142,7 @@ Se è stata eseguita l'esercitazione disponibile nell'articolo [Introduzione ad 
 * Creare una tabella denominata **emp** nel database SQL di Azure a cui fa riferimento **AzureSqlLinkedService**.
 
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStartedPSH** sul disco rigido. 
+1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\\ADFGetStartedPSH** sul disco rigido. 
 
         John, Doe
 		Jane, Doe
@@ -161,49 +168,50 @@ Se è stata eseguita l'esercitazione disponibile nell'articolo [Introduzione ad 
 	Se nel computer è installato Visual Studio 2013, nel portale di anteprima di Azure ([http://portal.azure.com](http://portal.sazure.com)) fare clic sull'hub **SFOGLIA** a sinistra, quindi su **Server SQL**, selezionare il database e fare clic su **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server SQL di Azure ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
 		
 ### Creare la tabella di input 
-Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **StorageLinkedService**. Questo contenitore BLOB (**adftutorial**) contiene i dati di input nel file **emp.txt**.
+Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **StorageLinkedService**. Questo contenitore BLOB (\*\*adftutorial\*\*) contiene i dati di input nel file **emp.txt**.
 
-1.	Creare un file JSON denominato **EmpBlobTable.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti:
+1.	Creare un file JSON denominato **EmpBlobTable.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti:
 
 		{
-	    	"name": "EmpTableFromBlob",
-	        "properties":
-	        {
-	            "structure":  
-	                [ 
-	                { "name": "FirstName", "type": "String"},
-	                { "name": "LastName", "type": "String"}
-	            ],
-	            "location": 
-	            {
-	                "type": "AzureBlobLocation",
-	                "folderPath": "adftutorial/",
-	                "format":
-	                {
-	                    "type": "TextFormat",
-	                    "columnDelimiter": ","
-	                },
-	                "linkedServiceName": "StorageLinkedService"
-	            },
-	            "availability": 
-	            {
-	                "frequency": "hour",
-	                "interval": 1,
-	                "waitonexternal": {}
-	                }
-	        }
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "AzureStorageLinkedService1",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 	
 	Tenere presente quanto segue:
 	
-	- L'oggetto **type** di location è impostato su **AzureBlobLocation**.
+	- L'oggetto **type** di location è impostato su **AzureBlob**.
 	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**. 
 	- L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella. Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.  
 	- L'oggetto **type** di format è impostato su **TextFormat**.
-	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).	
-	- L'oggetto **availability** è impostato su **hourly** (**frequency** è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (**adftutorial**) specificato.
+	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (\*\*columnDelimiter\*\*).	
+	- L'oggetto **availability** è impostato su **hourly** (\*\*frequency\*\* è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (\*\*adftutorial\*\*) specificato.
 
-	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (\*\*folderPath\*\*) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
 	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -226,40 +234,42 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
 
 ### Creare la tabella di output
-In questa parte del passaggio si creerà una tabella di output denominata **EmpSQLTable** che punta a una tabella SQL (**emp**) nel database SQL di Azure rappresentata dal servizio collegato **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
+In questa parte del passaggio si creerà una tabella di output denominata **EmpSQLTable** che punta a una tabella SQL (\*\*emp\*\*) nel database SQL di Azure rappresentata dal servizio collegato **AzureSqlLinkedService**. La pipeline copia i dati dal BLOB di input e li inserisce nella tabella **emp**.
 
-1.	Creare un file JSON denominato **EmpSQLTable.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti.
+1.	Creare un file JSON denominato **EmpSQLTable.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti.
 		
 		{
-		    "name": "EmpSQLTable",
-		    "properties":
-		    {
-		        "structure":
-		        [
-		            { "name": "FirstName", "type": "String"},
-		            { "name": "LastName", "type": "String"}
-		        ],
-		        "location":
-		        {
-		            "type": "AzureSqlTableLocation",
-		            "tableName": "emp",
-		            "linkedServiceName": "AzureSqlLinkedService"
-		        },
-		        "availability": 
-		        {
-		            "frequency": "Hour",
-		            "interval": 1            
-		        }
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService1",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
 		    }
+		  }
 		}
 
      Tenere presente quanto segue:
 	
-	* L'oggetto **type** di location è impostato su **AzureSqlTableLocation**.
+	* L'oggetto **type** di location è impostato su **AzureSqlTable**.
 	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService**.
 	* L'oggetto **tablename** è impostato su **emp**.
 	* Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
-	* L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
+	* L'oggetto **availability** è impostato su **hourly** (l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 2.	Eseguire il comando seguente per creare la tabella di Data factory.
 	
@@ -269,56 +279,61 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 ## <a name="CreateAndRunAPipeline"></a>Passaggio 4: Creare ed eseguire una pipeline
 In questo passaggio è possibile creare una pipeline con un'**attività di copia** che usa **EmpTableFromBlob** come input e **EmpSQLTable** come output.
 
-1.	Creare un file JSON denominato **ADFTutorialPipeline.json** nella cartella **C:\ADFGetStartedPSH** con i contenuti seguenti: 
-
-		{
-		    "name": "ADFTutorialPipeline",
-		    "properties":
-		    {   
-		        "description" : "Copy data from an Azure blob to an Azure SQL table",
-		        "activities":   
-		        [
-		            {
-		                "name": "CopyFromBlobToSQL",
-		                "description": "Copy data from the adftutorial blob container to emp SQL table",
-		                "type": "CopyActivity",
-		                "inputs": [ {"name": "EmpTableFromBlob"} ],
-		                "outputs": [ {"name": "EmpSQLTable"} ],     
-		                "transformation":
-		                {
-		                    "source":
-		                    {                               
-		                        "type": "BlobSource"
-		                    },
-		                    "sink":
-		                    {
-		                        "type": "SqlSink"
-		                    }   
-		                },
-		                "Policy":
-		                {
-		                    "concurrency": 1,
-		                    "executionPriorityOrder": "NewestFirst",
-		                    "style": "StartOfInterval",
-		                    "retry": 0,
-		                    "timeout": "01:00:00"
-		                }       
-		            }
+1.	Creare un file JSON denominato **ADFTutorialPipeline.json** nella cartella **C:\\ADFGetStartedPSH** con i contenuti seguenti: 
+	
+		 {
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
 		        ],
-		        "start": "2015-03-03T00:00:00Z",
-		        "end": "2015-03-04T00:00:00Z"
-		    }
-		}  
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z",
+		    "isPaused": false
+		  }
+		}
 
 	Tenere presente quanto segue:
 
-	- Nella sezione activities esiste una sola attività con l'oggetto **type** impostato su **CopyActivity**.
+	- Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**.
 	- L'input per l'attività è impostato su **EmpTableFromBlob** e l'output per l'attività è impostato su **EmpSQLTable**.
 	- Nella sezione **transformation** **BlobSource** viene specificato come tipo di origine e **SqlSink** come tipo di sink.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
 	
 	Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
 	
@@ -430,4 +445,4 @@ Articolo | Descrizione
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

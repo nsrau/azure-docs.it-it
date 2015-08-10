@@ -55,10 +55,10 @@ L'**elasticità basata sui dati** è il fulcro di un'applicazione di scalabilit�
 #### Origini dati di telemetria
 Nel contesto del database SQL di Azure esistono alcune pratiche origini chiave che possono essere usate come origini dati per l'elasticità di partizionamento.
 
-1. La **telemetria delle prestazioni** viene esposta in intervalli della durata di cinque minuti nella vista **sys.resource_stats**. 
-2. La **telemetria della capacità di database** viene esposta nella vista **sys.resource_usage**.  
+1. La **telemetria delle prestazioni** viene esposta in intervalli della durata di cinque minuti nella vista **sys.resource\_stats**. 
+2. La **telemetria della capacità di database** viene esposta nella vista **sys.resource\_usage**.  
 
-È possibile analizzare l'uso di risorse delle prestazioni eseguendo la seguente query sul database master, dove 'Shard_20140623' è il nome del database di destinazione.
+È possibile analizzare l'uso di risorse delle prestazioni eseguendo la seguente query sul database master, dove 'Shard\_20140623' è il nome del database di destinazione.
 
     SELECT TOP 10 *  
     FROM sys.resource_stats  
@@ -81,7 +81,7 @@ La **telemetria delle prestazioni** può essere riepilogata per un intervallo di
     FROM sys.resource_stats  
     WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
-La **capacità di database** può essere misurata con una query simile eseguita sulla vista **sys.resource_usage**. La voce max della colonna **storage_in_megabytes** restituisce le dimensioni correnti del database. I dati di telemetria sono utili per il ridimensionamento orizzontale di un'applicazione quando una determinata partizione raggiunge la propria capacità.
+La **capacità di database** può essere misurata con una query simile eseguita sulla vista **sys.resource\_usage**. La voce max della colonna **storage\_in\_megabytes** restituisce le dimensioni correnti del database. I dati di telemetria sono utili per il ridimensionamento orizzontale di un'applicazione quando una determinata partizione raggiunge la propria capacità.
 
     SELECT TOP 10 * 
     FROM [sys].[resource_usage] 
@@ -155,4 +155,4 @@ Per facilitare l'effettiva implementazione di scenari di ridimensionamento orizz
 [Action]: #action
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

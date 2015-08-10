@@ -2,7 +2,6 @@
 	pageTitle="Creare e caricare dati nelle tabelle Hive dall'archiviazione BLOB | Microsoft Azure" 
 	description="Creare tabelle Hive e caricare dati in BLOB nelle tabelle Hive" 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/22/2015" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -23,11 +22,11 @@
 In questo documento vengono presentate le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
 
 
-Le query Hive vengono condivise nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) e possono essere scaricate da questa posizione.
+Le query Hive vengono condivise nel <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql" target="_blank">repository GitHub</a> e possono essere scaricate da questa posizione.
 
-Se si crea una macchina virtuale di Azure seguendo le istruzioni fornite nell'argomento relativo alla [configurazione di una macchina virtuale di Azure per l'analisi avanzata dei dati](machine-learning-data-science-setup-virtual-machine.md), questo file di script deve essere scaricato nella directory *C:\Users<nome utente>\Documents\Data Science Scripts* della macchina virtuale. Affinché le query Hive siano pronte per l'invio, è necessario solo collegare il proprio schema dei dati e la configurazione dell'archiviazione BLOB di Azure ai campi appropriati.
+Se si crea una macchina virtuale di Azure seguendo le istruzioni fornite nell'articolo [Configurare una macchina virtuale di Azure per l'analisi avanzata](machine-learning-data-science-setup-virtual-machine.md), questo file di script deve essere scaricato nella directory *C:\\Users<nome utente>\\Documents\\Data Science Scripts* della macchina virtuale. Affinché le query Hive siano pronte per l'invio, è necessario solo collegare il proprio schema dei dati e la configurazione dell'archiviazione BLOB di Azure ai campi appropriati.
 
-Si supponga che i dati delle tabelle Hive siano in un formato tabulare **non compresso** e che i dati siano stati caricati nel contenitore predefinito (o in uno aggiuntivo) dell'account di archiviazione usato dal cluster Hadoop. Se gli utenti vogliono fare pratica con i _dati di viaggio dei taxi di NYC_, devono prima scaricare i 24 file relativi ai [dati di viaggio dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) (12 file sui viaggi e 12 file sulle tariffe), **decomprimere** tutti i file in file con estensione csv, quindi caricarli nel contenitore predefinito o appropriato dell'account di archiviazione di Azure usato dalla procedura descritta nell'argomento [Personalizzazione dei cluster Hadoop di HDInsight di Azure per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md).
+Si supponga che i dati delle tabelle Hive siano in un formato tabulare **non compresso** e che i dati siano stati caricati nel contenitore predefinito (o in uno aggiuntivo) dell'account di archiviazione usato dal cluster Hadoop. Se gli utenti vogliono fare pratica con i _dati di viaggio dei taxi di NYC_, devono prima scaricare i 24 file relativi ai <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">dati di viaggio dei taxi di NYC</a> (12 file sui viaggi e 12 file sulle tariffe), **decomprimere** tutti i file in file con estensione csv, quindi caricarli nel contenitore predefinito o appropriato dell'account di archiviazione di Azure usato dalla procedura descritta nell'argomento [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md). Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa[pagina](machine-learning-data-science-process-hive-walkthrough/#upload).
 
 Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop. Per effettuare questa operazione, accedere al nodo head del cluster Hadoop, aprire la console della riga di comando e inviare le query Hive da tale posizione. Per istruzioni su come eseguire questa operazione, vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di analisi scientifica dei dati cloud](machine-learning-data-science-process-hive-tables.md).
 
@@ -66,7 +65,7 @@ Di seguito sono presentate le descrizioni dei campi che gli utenti devono colleg
 - **&#60;database name>**: nome del database che gli utenti desiderano creare. Se gli utenti desiderano usare solo il database predefinito, la query di *creazione del database* può essere omessa. 
 - **&#60;table name>**: nome della tabella che gli utenti desiderano creare nel database specificato. Se gli utenti desiderano usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *&#60;table name>* senza &#60;database name>.
 - **&#60;field separator>**: separatore che delimita i campi nel file di dati da caricare nella tabella Hive. 
-- &#60;line separator>: separatore che delimita le righe nel file di dati. 
+- **&#60;line separator>**: separatore che delimita le righe nel file di dati. 
 - **&#60;storage location>**: percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se gli utenti non specificano un *PERCORSO &#60;storage location>*, il database e le tabelle vengono archiviate per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se un utente vuole specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, verranno create le relative directory nel contenitore predefinito. 
 - **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, gli utenti devono aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query. 
 
@@ -84,7 +83,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
 Se i dati sono di grandi dimensioni, il partizionamento della tabella è utile per le query che devono solo eseguire l'analisi di alcune partizioni della tabella. Ad esempio, è ragionevole partizionare i dati di log di un sito Web per date.
 
-Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione OCR, fare riferimento a [L'utilizzo dei file ORC migliora le prestazioni quando Hive legge, scrive ed elabora dati](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles).
+Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione OCR, vedere il wiki sull'<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
 
 ### Tabella partizionata
 Di seguito è presentata la query Hive che crea una tabella partizionata e vi carica i dati.
@@ -141,7 +140,7 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	[AZURE.NOTE]Se la tabella TEXTFILE *&#60;database name>.&#60;external textfile table name>* presenta partizioni, al PASSAGGIO 3, il comando `SELECT * FROM <database name>.<external textfile table name>` selezionerà la variabile della partizione come un campo nel set di dati restituito. L'inserimento di tale tabella in *&#60;database name>.&#60;ORC table name>* avrà esito negativo poiché *&#60;database name>.&#60;ORC table name>* non dispone della variabile della partizione come un campo nello schema della tabella. In questo caso, gli utenti devono selezionare i campi da inserire in *&#60;database name>.&#60;ORC table name>* come indicato di seguito:
+	>[AZURE.NOTE]Se la tabella TEXTFILE *&#60;database name>.&#60;external textfile table name>* presenta partizioni, al PASSAGGIO 3, il comando `SELECT * FROM <database name>.<external textfile table name>` selezionerà la variabile della partizione come un campo nel set di dati restituito. L'inserimento di tale tabella in *&#60;database name>.&#60;ORC table name>* avrà esito negativo poiché *&#60;database name>.&#60;ORC table name>* non dispone della variabile della partizione come un campo nello schema della tabella. In questo caso, gli utenti devono selezionare i campi da inserire in *&#60;database name>.&#60;ORC table name>* come indicato di seguito:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
@@ -154,4 +153,4 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -540,4 +540,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 
 Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

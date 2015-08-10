@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # Come aggiungere utenti a un pool di database elastici
@@ -32,7 +32,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Seguire la procedura **sp_addrolemember** per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
+3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Seguire la procedura **sp\_addrolemember** per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
 
 ## Passaggi successivi
 
@@ -44,4 +44,4 @@ Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

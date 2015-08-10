@@ -142,4 +142,4 @@ Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
 [Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

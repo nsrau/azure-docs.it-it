@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del bilanciamento del carico interno
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 Il bilanciamento del carico interno di Azure consente di bilanciare il carico tra macchine virtuali che si trovano in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali di area](../regional-virtual-networks.md) nel blog di Azure. Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
 
@@ -230,7 +234,7 @@ La configurazione di ILB deve essere impostata durante la creazione della prima 
 
 ### Passaggio 1
 
-Aprire il file di configurazione del servizio (file cscfg) per la distribuzione cloud in Visual Studio e aggiungere la sezione seguente per creare ILB sotto l'ultimo elemento "</Role>" per la configurazione di rete.
+Aprire il file di configurazione del servizio (file cscfg) per la distribuzione cloud in Visual Studio e aggiungere la sezione seguente per creare il bilanciamento del carico interno sotto l'ultimo elemento "`</Role>`" per la configurazione di rete.
 
 
 
@@ -244,7 +248,7 @@ Aprire il file di configurazione del servizio (file cscfg) per la distribuzione 
 	</NetworkConfiguration>
  
 
-Aggiungere i valori per il file di configurazione di rete per visualizzare come apparirà. Nell'esempio, si supponga di avere creato una subnet denominata "test_vnet" con una subnet 10.0.0.0/24 denominata test_subnet e un IP statico 10.0.0.4. Il servizio di bilanciamento del carico si chiamerà testLB.
+Aggiungere i valori per il file di configurazione di rete per visualizzare come apparirà. Nell'esempio, si supponga di avere creato una subnet denominata "test\_vnet" con una subnet 10.0.0.0/24 denominata test\_subnet e un IP statico 10.0.0.4. Il servizio di bilanciamento del carico si chiamerà testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -331,4 +335,4 @@ Per ottenere altre informazioni sui cmdlet ILB, eseguire i comandi seguenti in u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

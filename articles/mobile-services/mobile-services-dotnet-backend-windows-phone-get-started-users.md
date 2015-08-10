@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione (Windows Phone) | Mobile Dev Center" 
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Phone tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Aggiungere l'autenticazione all'app Windows Phone Silverlight | Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app Windows Phone Silverlight tramite vari provider di identità, tra cui Google, Facebook, Twitter e l'account Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -38,12 +38,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li>In Visual Studio aprire il progetto di app client e assicurarsi che l'istanza di <strong>MobileServiceClient</strong> in App.xaml.cs sia configurata per l'uso dell'URL del servizio mobile nel cloud.</li> 
-<li><p>Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).</p>
-   
-   	<p>L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
-</ol>
+&nbsp;&nbsp;6. In Visual Studio aprire il progetto di app client e assicurarsi che l'istanza di **MobileServiceClient** in App.xaml.cs sia configurata per l'uso dell'URL del servizio mobile nel cloud.
+
+&nbsp;&nbsp;7. Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata quando l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -79,4 +76,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

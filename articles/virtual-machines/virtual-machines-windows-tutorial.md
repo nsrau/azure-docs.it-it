@@ -16,13 +16,13 @@
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
-# Creazione di una macchina virtuale che esegue Windows nel portale di anteprima di Azure#
+# Creare una macchina virtuale con Windows nel portale di anteprima di Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 In questa esercitazione viene illustrato come è facile creare una macchina virtuale di Azure in pochi minuti nel portale di anteprima di Azure. Verrà utilizzata un'immagine di Windows Server 2012 R2 Datacenter come esempio per creare la macchina virtuale in Gestione risorse di Azure, ma è solo una delle molte immagini offerte da Azure. Si noti che le opzioni dell’immagine dipendono dalla sottoscrizione. Ad esempio, gli abbonati MSDN possono usufruire di immagini desktop.
 
@@ -55,7 +55,7 @@ Dopo aver selezionato l'immagine, è possibile utilizzare le impostazioni predef
 
 	![Configurazione delle informazioni di base della macchina virtuale](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**Nome utente** indica l'account amministrativo da utilizzare per la gestione del server. Creare una password difficile da scoprire, ma facile da ricordare. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
+	>[AZURE.NOTE]\*\*Nome utente\*\* indica l'account amministrativo da utilizzare per la gestione del server. Creare una password difficile da scoprire, ma facile da ricordare. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
 
 2. Fare clic su **Dimensioni** e selezionare delle dimensioni della macchina virtuale appropriate per le proprie esigenze. Ogni dimensione specifica il numero di core di calcolo, la memoria e altre funzionalità, come il supporto per Archiviazione Premium, che influiranno sul prezzo. Azure consiglia determinate dimensioni automaticamente a seconda dell'immagine scelta.
 
@@ -102,4 +102,4 @@ Dopo aver creato la VM, sarà possibile accedere alla macchina virtuale per gest
 * Utilizzare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
 * Automatizzare la distribuzione della macchina virtuale e del carico di lavoro e la gestione utilizzando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -69,7 +69,7 @@ In questo esercizio si utilizzerà lo strumento di registrazione del Catalogo da
 
     ![register4][4]
 
-    c. Fare clic sulla freccia per lo spostamento dell’elemento selezionato (**>**). In tal modo si spostano tutti gli oggetti Product nell’elenco **Da registrare**.
+    c. Fare clic sulla freccia per lo spostamento dell’elemento selezionato (\*\*>\*\*). In tal modo si spostano tutti gli oggetti Product nell’elenco **Da registrare**.
 
     ![register5][5]
 
@@ -222,4 +222,4 @@ In questa esercitazione sono state analizzate le funzionalità essenziali dell�
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

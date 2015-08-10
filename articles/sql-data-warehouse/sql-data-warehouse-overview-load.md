@@ -69,4 +69,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

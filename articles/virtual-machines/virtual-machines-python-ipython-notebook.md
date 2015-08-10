@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="IPython Notebook - Esercitazione in Azure" 
-	description="Esercitazione che mostra come distribuire IPython Notebook in Azure usando macchine virtuali (VM, Virtual Machine) Linux o Windows." 
-	services="virtual-machines" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="IPython Notebook - Esercitazione in Azure"
+	description="Esercitazione che mostra come distribuire IPython Notebook in Azure usando macchine virtuali (VM, Virtual Machine) Linux o Windows."
+	services="virtual-machines"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
 
@@ -21,7 +21,7 @@
 
 Il [progetto IPython](http://ipython.org) rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.
 
-IPython Notebook rappresenta la scelta ideale sia per gli utenti poco esperti di Python che desiderano apprenderne il funzionamento in un ambiente interattivo e divertente sia per quelli che si occupano di informatica avanzata in campo tecnico e parallelo. Nella schermata seguente, per un'illustrazione delle funzionalità, viene mostrato l'utilizzo di IPython Notebook in combinazione con i pacchetti SciPy e matplotlib per l'analisi della struttura di una registrazione audio:
+IPython Notebook rappresenta la scelta ideale sia per gli utenti poco esperti di Python che desiderano apprenderne il funzionamento in un ambiente interattivo e divertente sia per quelli che si occupano di informatica avanzata in campo tecnico e parallelo. Nella schermata seguente, per un'illustrazione delle funzionalità, viene mostrato l'utilizzo di IPython Notebook in combinazione con i pacchetti SciPy e Matplotlib per l'analisi della struttura di una registrazione audio:
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 
@@ -45,11 +45,11 @@ Attenersi alle istruzioni riportate [qui][portal-vm-windows] per creare una macc
 
 Questo passaggio si applica alla macchina virtuale sia Linux che Windows. In seguito, IPython verrà configurato per eseguire il proprio server notebook sulla porta 9999. Per rendere questa porta pubblicamente disponibile, è necessario creare un endpoint nel portale di gestione di Azure. Questo endpoint apre una porta nel firewall di Azure e mappa la porta pubblica (HTTPS, 443) alla porta privata sulla VM (9999).
 
-Per creare un endpoint, accedere al dashboard della macchina virtuale, fare clic su "Endpoint", quindi su "Aggiungi endpoint" e creare un nuovo endpoint, in questo esempio denominato `ipython_nb`. Selezionare TCP come protocollo, 443 come porta pubblica e 9999 come porta privata:
+Per creare un endpoint, accedere al dashboard della macchina virtuale, fare clic su **Endpoint**, quindi su **Aggiungi endpoint** e creare un nuovo endpoint (in questo esempio denominato `ipython_nb`). Selezionare **TCP** come protocollo, **443** come porta pubblica e **9999** come porta privata:
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
-Dopo questo passaggio, la scheda "Endpoint" del dashboard avrà l'aspetto seguente:
+Dopo questo passaggio, la scheda**Endpoint**del dashboard avrà il seguente aspetto:
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
 
@@ -61,7 +61,7 @@ Per eseguire IPython Notebook nella VM, è necessario installare prima IPython e
 
 Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
 
-Installare [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e altre dipendenze di IPython eseguendo i comandi:
+Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre dipendenze di IPython eseguendo i comandi:
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
@@ -72,11 +72,11 @@ Installare [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e altre 
 
 Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
 
-Innanzitutto, recuperare i nuovi elenchi dei pacchetti:
+Innanzitutto, recuperare nuovi elenchi di pacchetti con il comando seguente.
 
     sudo apt-get update
 
-Installare [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e altre dipendenze di IPython eseguendo i comandi:
+Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre dipendenze di IPython eseguendo i comandi:
 
     sudo apt-get install python-matplotlib
     sudo apt-get install python-tornado
@@ -87,11 +87,11 @@ Installare [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e altre 
 
 Per installare IPython e le relative dipendenze nella VM Windows, utilizzare Desktop remoto per connettersi alla VM. Quindi completare la procedura seguente, usando Windows PowerShell per eseguire tutte le azioni dalla riga di comando.
 
-**Nota**:per scaricare contenuti tramite Internet Explorer, è necessario modificare alcune impostazioni di sicurezza. In **Gestione server** fare clic su **Server locale**, quindi su **Configurazione sicurezza avanzata IE** e disattivare questa opzione per gli amministratori. È possibile abilitarla di nuovo dopo aver installato IPython.
+**Nota**: per scaricare contenuti tramite Internet Explorer, è necessario modificare alcune impostazioni di sicurezza. In **Gestione server** fare clic su **Server locale**, quindi su **Configurazione sicurezza avanzata IE** e disattivare questa opzione per gli amministratori. È possibile abilitarla di nuovo dopo aver installato IPython.
 
 1.  Scaricare e installare la versione a 32 bit più recente di [Python 2.7][]. È necessario aggiungere `C:\Python27` e `C:\Python27\Scripts` alla variabile di ambiente `PATH`.
 
-1.  Installare [Tornado][tornado] e [PyZMQ][pyzmq] e altre dipendenze di IPython eseguendo i comandi seguenti:
+1.  Installare [Tornado][Tornado], e [PyZMQ][PyZMQ]e altre dipendenze di IPython eseguendo i comandi:
 
         easy_install tornado
         easy_install pyzmq
@@ -100,15 +100,15 @@ Per installare IPython e le relative dipendenze nella VM Windows, utilizzare Des
         easy_install python-dateutil
         easy_install pyparsing
 
-1.  Scaricare e installare [NumPy][numpy] usando il file di installazione binario `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è **numpy-1.9.1-win32-superpack-python2.7.exe**.
+1.  Scaricare e installare [NumPy][NumPy] usando il file di installazione binario `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è numpy-1.9.1-win32-superpack-python2.7.exe.
 
-1.  Installare [Matplotlib][matplotlib] eseguendo i comandi:
+1.  Installare[Matplotlib][Matplotlib]con il comando seguente.
 
         pip install matplotlib==1.4.2
 
 1.  Scaricare e installare [OpenSSL][].
 
-	* Il pacchetto **Visual C++ 2008 Redistributable** è necessario e sarà presente nella stessa pagina di download.
+	* Sono disponibili il necessario Visual C++ 2008 Redistributable nella stessa pagina di download.
 
 	* È necessario aggiungere `C:\OpenSSL-Win32\bin` alla variabile di ambiente `PATH`.
 
@@ -130,25 +130,25 @@ Per installare IPython e le relative dipendenze nella VM Windows, utilizzare Des
 
 	- Nella schermata successiva selezionare **TCP** e immettere **9999** in **Porte locali specifiche**.
 
-	- Accettare le impostazioni predefinite, assegnare un nome alla regola e fare clic su Fine.
+	- Accettare le impostazioni predefinite, assegnare un nome alla regola e fare clic su **Fine**.
 
 ### Configurare IPython Notebook
 
-A questo punto è necessario configurare IPython Notebook. Il primo passaggio consiste nel creare un profilo di configurazione personalizzato di IPython per incapsulare le informazioni di configurazione:
+A questo punto è necessario configurare IPython Notebook. Il primo passaggio consiste nel creare un profilo di configurazione personalizzato di IPython per incapsulare le informazioni di configurazione con il seguente comando:
 
     ipython profile create nbserver
 
 Passare alla directory del profilo tramite `cd` per creare il certificato SSL e modificare il file di configurazione del profilo.
 
-In Linux:
+Utilizzare il comando seguente su Linux.
 
     cd ~/.ipython/profile_nbserver/
 
-In Windows:
+Utilizzare il comando seguente in Windows.
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
-Creare il certificato SSL come indicato di seguito (Linux e Windows):
+Utilizzare il comando seguente per creare il certificato SSL (Linux e Windows).
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -160,38 +160,38 @@ Oltre a utilizzare un certificato, è anche necessario specificare una password 
 
 Verrà richiesto di specificare e confermare una password, quindi la password verrà stampata come segue:
 
-    Enter password: 
-    Verify password: 
+    Enter password:
+    Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
-    
+
 In seguito verrà modificato il file di configurazione del profilo, che corrisponde al file `ipython_notebook_config.py` della directory corrente. Si noti che questo file potrebbe non essere presente: in tal caso, crearlo. Questo file contiene alcuni campi, tutti impostati come commento per impostazione predefinita. È possibile aprire questo file con qualsiasi editor di testo, assicurandosi che includa almeno il contenuto seguente:
 
     c = get_config()
-    
+
     # This starts plotting support always with matplotlib
     c.IPKernelApp.pylab = 'inline'
-    
+
     # You must give the path to the certificate file.
-    
+
     # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-    
+
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
-    
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
-    
+
     # Network and browser details. We use a fixed port (9999) so it matches
     # our Azure setup, where we've allowed traffic on that port
-    
+
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
 
 ### Eseguire IPython Notebook
 
-A questo punto è possibile avviare IPython Notebook. A tale scopo, passare alla directory in cui archiviare i blocchi appunti e avviare il server IPython Notebook:
+A questo punto è possibile avviare IPython Notebook. A tale scopo, passare alla directory in cui si vogliono archiviare i blocchi appunti e avviare il server IPython Notebook con il comando seguente:
 
     ipython notebook --profile=nbserver
 
@@ -201,17 +201,17 @@ La prima volta che si accede al blocco appunti, nella pagina di accesso viene ri
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png)
 
-Dopo l'accesso, verrà visualizzata la pagina "IPython Notebook Dashboard", ossia il centro di controllo per tutte le operazioni sui blocchi appunti. In questa pagina è possibile creare nuovi blocchi appunti, aprire quelli esistenti e così via:
+Dopo l'accesso, verrà visualizzata la pagina "IPython Notebook Dashboard", ossia il centro di controllo per tutte le operazioni sui blocchi appunti. In questa pagina è possibile creare nuovi blocchi appunti e aprire quelli esistenti.
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
 
-Se si fa clic sul pulsante "New Notebook", verrà visualizzata la pagina di apertura seguente:
+Se si fa clic sul pulsante **Nuovo blocco appunti**, verrà visualizzata la seguente pagina di apertura.
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
 
 L'area contrassegnata con `In []:` è l'area di input, in cui è possibile immettere qualsiasi codice Python valido che verrà eseguito premendo `Shift-Enter` oppure facendo clic sull'icona "Play", ossia il triangolo che punta a destra sulla barra degli strumenti.
 
-Poiché il blocco appunti è stato configurato per avviare automaticamente il supporto di NumPy e matplotlib, è anche possibile produrre cifre, ad esempio:
+Poiché il blocco appunti è stato configurato per avviare automaticamente il supporto di NumPy e Matplotlib, è anche possibile produrre cifre, come illustrato nella schermata successiva:
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
@@ -226,7 +226,7 @@ Ma IPython Notebook è molto di più di un elaboratore di testo, in quanto conse
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
 
-in alternativa è possibile incorporare siti Web esterni che rimangono attivi e possono essere usati all'interno di un file del blocco appunti:
+in alternativa, come illustrato nella schermata successiva, è possibile incorporare siti Web esterni che rimangono attivi e possono essere usati all'interno di un file del blocco appunti:
 
 ![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)
 
@@ -242,11 +242,11 @@ Questo paradigma di combinare la potenza del moderno Web con il calcolo in tempo
 
 * Per distribuire e presentare materiale di formazione in tempo reale che implica calcoli, in modo che gli studenti possano sperimentare immediatamente con codice reale, modificarlo e rieseguirlo interattivamente.
 
-* Per fornire "documenti eseguibili" che presentano i risultati di una ricerca in mododa poter essere immediatamente riprodotti, convalidati e ampliati da altri.
+* Per fornire "documenti eseguibili" che presentano i risultati di una ricerca in modo da poter essere immediatamente riprodotti, convalidati e ampliati da altri.
 
-* Come piattaforma per l'informatica collaborativa: più utenti possono accedere allo stesso server Notebook per condividere una sessione di calcolo in tempo reale.
+* Come piattaforma per l'informatica collaborativa: più utenti possono accedere allo stesso server notebook per condividere una sessione di calcolo in tempo reale.
 
-* E altro ancora...
+
 
 Nel [repository][] di codice sorgente di IPython è disponibile un'intera directory con esempi di blocchi appunti che è possibile scaricare e provare nella propria macchina virtuale di Azure IPython. È sufficiente scaricare i file `.ipynb` dal sito e caricarli nel dashboard della macchina virtuale di Azure dei blocchi appunti oppure scaricarli direttamente nella macchina virtuale.
 
@@ -258,19 +258,16 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 
 
 
-[tornado]: http://www.tornadoweb.org/ "Tornado"
-[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
-[numpy]: http://www.numpy.org/ "NumPy"
-[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
+[Tornado]: http://www.tornadoweb.org/ "Tornado"
+[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
+[NumPy]: http://www.numpy.org/ "NumPy"
+[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
-
 [repository]: https://github.com/ipython/ipython
 [python Tools for visual studio]: http://aka.ms/ptvs
+[Python 2.7]: http://www.python.org/download
+[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-[python 2.7]: http://www.python.org/download
-[openssl]: http://slproweb.com/products/Win32OpenSSL.html
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

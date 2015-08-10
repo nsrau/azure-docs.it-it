@@ -44,7 +44,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
-* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
+* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\\_Layout.cshtml
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
@@ -137,7 +137,7 @@ Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
-> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
+> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa\*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "\*irc" non si troverà "Circa".
 
 > [Altre informazioni sulla ricerca diagnostica][diagnostic]
 
@@ -149,7 +149,8 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 
 Per sapere in che modo gli utenti usano l'app, inserire le chiamate nel codice del client e del server per inviare i dati di telemetria ad Application Insights. È possibile, ad esempio, scoprire quanti utenti creano ordini senza completarli, quali sono gli errori di convalida che si verificano con maggiore frequenza oppure qual è il punteggio medio di un gioco.
 
-[Altre informazioni sull'API per gli eventi e le metriche personalizzati][track].
+* [Altre informazioni sull'API per gli eventi e le metriche personalizzati][track].
+* [Informazioni di riferimento sulle API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Telemetria server
 
@@ -177,8 +178,8 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

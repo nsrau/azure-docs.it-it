@@ -52,7 +52,7 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 <tr><th>Nome</th><th>Autorizzazioni</th></tr>
 <tr><td>mysendpolicy</td><td>Invio</td></tr>
 <tr><td>myreceivepolicy</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (* * mysendpolicy * *) e di ascolto (* * myreceivepolicy * *) per l'Hub eventi.
+</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (\* \* mysendpolicy \* \*) e di ascolto (\* \* myreceivepolicy \* \*) per l'Hub eventi.
 
 	![criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Creare criteri di Hub di eventi")
 
@@ -79,7 +79,7 @@ In questa sezione, è possibile creare un notebook [Zeppelin](https://zeppelin.i
 
 	Nella stessa pagina, sotto l’intestazione **Notebook**, verrà visualizzato un nuovo blocco appunti con il nome che inizia con **Nota XXXXXXXXX**. Fare clic su nuovo notebook.
 
-3. Nella pagina web per il nuovo notebook, fare clic sull'intestazione e se si desidera modificare il nome del notebook. Premere INVIO per salvare la modifica del nome. Inoltre, assicurarsi che l'intestazione del notebook mostri lo stato **Connesso** nell'angolo in alto a destra.
+3. Nella pagina web per il nuovo notebook, fare clic sull'intestazione e se si vuole modificare il nome del notebook. Premere INVIO per salvare la modifica del nome. Inoltre, assicurarsi che l'intestazione del notebook mostri lo stato **Connesso** nell'angolo in alto a destra.
 
 	![Stato di notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Stato di notebook Zeppelin")
 
@@ -164,4 +164,4 @@ Istruzioni su come eseguire questi passaggi e un flusso applicazione di esempio 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

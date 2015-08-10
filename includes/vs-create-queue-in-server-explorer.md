@@ -1,11 +1,13 @@
-You can create Azure queues by using Visual Studio **Server Explorer**.
+È possibile creare le code Azure tramite **Esplora Server** di Visual Studio.
 
-![Server Explorer Blobs][Image1]
+![BLOB in Esplora server][Image1]
 
-1. On the **View** menu, choose **Server Explorer**.
-2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.
-3. Select the **Queues** node and choose **Create Queue** from the context menu.
-4. Enter a name for the queue and choose **OK**.   
+1. Scegliere **Esplora server** dal menu **Visualizza**.
+2. In Esplora server espandere il nodo **Azure** per la sottoscrizione, espandere il nodo **Archiviazione** e il nodo per l'account di archiviazione specificato nel servizio Archiviazione di Azure connesso.
+3. Selezionare il nodo**Code**e scegliere**Creare coda**dal menu di scelta rapida.
+4. Immettere un nome per la coda e scegliere**OK**.   
 
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
+
+<!---HONumber=July15_HO5-->

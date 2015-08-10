@@ -63,4 +63,4 @@ Se durante l’installazione dei processi di database elastici viene fornita una
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

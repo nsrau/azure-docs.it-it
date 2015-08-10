@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -94,7 +95,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 
 <br/>
 
-> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms_description per oggetti e colonne. Per ulteriori informazioni, vedere [Utilizzo di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
+> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per ulteriori informazioni, vedere [Utilizzo di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
 
 ## D: quanto tempo deve trascorrere prima che gli asset appena registrati vengano visualizzati nel Catalogo dati di Azure?
 
@@ -157,4 +158,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Ca
 
 Tenere sotto controllo il [forum del Catalogo dati Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

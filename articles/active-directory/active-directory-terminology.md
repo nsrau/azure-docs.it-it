@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Terminologia di Azure AD" 
-	description="Termini e definizioni correlati ad Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Terminologia di Azure AD | Microsoft Azure"
+	description="Termini e definizioni correlati ad Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Terminologia di Azure AD
 
@@ -36,14 +36,11 @@ Assistente per l'accesso a Microsoft Online Services | Assistente per l'accesso 
 Multi-Factor Authentication (nota anche come autenticazione a due fattori o 2FA) | Multi-Factor Authentication aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. Quando si abilita multi-Factor Authentication per un account utente in Azure AD, l'utente dovrà usare il telefono oltre alle proprie credenziali di password standard come metodo di verifica di sicurezza aggiuntiva ogni volta che deve accedere e usare uno qualsiasi dei servizi cloud Microsoft sottoscritti dall'organizzazione.
 Accesso Single Sign-On | Usato per fornire agli utenti un'esperienza di autenticazione più integrata in quanto accedono ai servizi cloud Microsoft mentre sono connessi alla rete aziendale. Per configurare l'accesso Single Sign-On, le organizzazioni devono distribuire un servizio token di sicurezza locale. Dopo aver impostato l'accesso Single Sign-On, gli utenti possono usare le credenziali aziendali di Active Directory (nome utente e password) per accedere ai servizi nel cloud e alle risorse locali esistenti.
 ID utente | Un ID utente è un identificatore univoco fornito dall'utente nella pagina di accesso per accedere ai servizi cloud Microsoft che ha sottoscritto l'organizzazione.
-Account aziendale o dell'istituto di istruzione | Un account utente assegnato da un'organizzazione (ufficio, istituto scolastico, ente senza scopo di lucro) a uno dei componenti (un dipendente, studente, cliente) che consente di accedere a una o più sottoscrizioni del servizio cloud Microsoft dell'organizzazione, ad esempio Office 365 o Azure. Questi account vengono archiviati nella directory di Azure AD di un'organizzazione e in genere vengono eliminati quando l'utente lascia l'organizzazione. Gli account aziendali o dell'istituto di istruzione differiscono dagli account Microsoft, in quanto vengono creati e gestiti dagli amministratori dell'organizzazione e non dall'utente. 
+Account aziendale o dell'istituto di istruzione | Un account utente assegnato da un'organizzazione (ufficio, istituto scolastico, ente senza scopo di lucro) a uno dei componenti (un dipendente, studente, cliente) che consente di accedere a una o più sottoscrizioni del servizio cloud Microsoft dell'organizzazione, ad esempio Office 365 o Azure. Questi account vengono archiviati nella directory di Azure AD di un'organizzazione e in genere vengono eliminati quando l'utente lascia l'organizzazione. Gli account aziendali o dell'istituto di istruzione differiscono dagli account Microsoft, in quanto vengono creati e gestiti dagli amministratori dell'organizzazione e non dall'utente.
 
 ## Passaggi successivi
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrizioni e limiti del servizio Azure AD](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

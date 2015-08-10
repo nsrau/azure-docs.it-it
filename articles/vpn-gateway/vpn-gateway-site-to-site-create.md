@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Configurare una connessione Site-to-Site a una rete virtuale | Microsoft Azure"
+   pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito nel portale di gestione | Microsoft Azure"
    description="Creare una rete virtuale con una connessione VPN Site-to-Site per configurazioni cross-premise e ibride."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="adinah"
-   editor=""/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,12 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/23/2015"
    ms.author="cherylmc"/>
 
-# Configurare una rete virtuale con una connessione VPN Site-to-Site
+# Creare una rete virtuale con una connessione VPN da sito a sito nel portale di gestione
+
+> [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 È possibile connettere il percorso locale con una rete virtuale creando una connessione VPN Site-to-Site. Questa procedura illustra come creare una rete virtuale e una connessione VPN Site-to-Site tra la rete virtuale appena creata e il percorso locale.
+
+Azure dispone attualmente di due modalità di gestione: gestione dei servizi di Azure e gestione delle risorse di Azure (ARM). Il programma di installazione del sito a sito è diverso, a seconda della modalità in cui la rete virtuale è stata creata. Queste istruzioni si applicano alla gestione dei servizi Azure. Se invece si desidera creare una connessione VPN da sito a sito di gestione risorse di Azure, vedere[creare una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Prima di iniziare
@@ -86,7 +93,7 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-Se si desidera configurare una connessione di rete virtuale mediante RRAS, vedere [configurare una VPN da sito a sito utilizzando Windows Server 2012 Routing e accesso remoto (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
+Se si vuole configurare una connessione di rete virtuale con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

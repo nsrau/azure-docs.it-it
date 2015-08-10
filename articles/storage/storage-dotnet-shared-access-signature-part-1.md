@@ -35,11 +35,11 @@ Una firma di accesso condiviso fornisce accesso delegato controllato alle risors
 Uno scenario comune in cui la firma di accesso condiviso risulta utile è costituito da un servizio in cui gli utenti leggono e scrivono i propri dati nell'account di archiviazione di un utente specifico. Uno scenario in cui i dati utente vengono archiviati nell'account di archiviazione è caratterizzato da due modelli di progettazione standard:
 
 
-1. I client caricano e scaricano dati tramite un servizio proxy front-end che esegue l'autenticazione. Tale servizio presenta il vantaggio di consentire la convalida delle regole di business, tuttavia per grandi quantità di dati o per transazioni con volumi elevati, la creazione di un servizio scalabile in base alla domanda può risultare oneroso o complesso.
+1\. I client caricano e scaricano dati tramite un servizio proxy front-end che esegue l'autenticazione. Tale servizio presenta il vantaggio di consentire la convalida delle regole di business, tuttavia per grandi quantità di dati o per transazioni con volumi elevati, la creazione di un servizio scalabile in base alla domanda può risultare oneroso o complesso.
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Dopo aver ricevuto la firma di accesso condiviso, il client può quindi accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma e per l'intervallo consentito dalla firma. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
+2\. Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Dopo aver ricevuto la firma di accesso condiviso, il client può quindi accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma e per l'intervallo consentito dalla firma. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -231,11 +231,9 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
 [Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-[Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

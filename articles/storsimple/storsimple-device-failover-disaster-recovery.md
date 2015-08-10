@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Come eseguire il failover del dispositivo StorSimple"
+   pageTitle="Failover e ripristino di emergenza per il dispositivo StorSimple | Microsoft Azure"
    description="Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un dispositivo virtuale."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/29/2015"
+   ms.date="07/23/2015"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -24,9 +24,11 @@ Questa esercitazione descrive i passaggi necessari per eseguire il failover di u
 ![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
 ## Ripristino di emergenza (DR) e failover del dispositivo
+
 In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*. Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione.
 
 ## Considerazioni per il failover del dispositivo
+
 In caso di emergenza, è possibile eseguire il failover del dispositivo StorSimple:
 
 - In un dispositivo fisico 
@@ -51,7 +53,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 1. Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover a un altro dispositivo.
 
-1. Nella pagina Dispositivi, fare clic su **Failover**.
+1. Nella pagina **Dispositivi**, fare clic su **Failover**.
 
 1. Nella procedura guidata visualizzata, sotto **Scegli contenitore di volumi per il failover**:
 
@@ -117,9 +119,9 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 	
-	>[AZURE.NOTE]**Se il dispositivo fisico esegue l'aggiornamento 1, è possibile eseguire il failover solo a un dispositivo virtuale che esegue l'aggiornamento 1. Se il dispositivo virtuale di destinazione esegue una versione precedente del software, verrà visualizzato un errore per segnalare che il software del dispositivo di destinazione deve essere aggiornato.**
+	>[AZURE.NOTE]**Se il dispositivo fisico esegue l'aggiornamento 1, è possibile eseguire il failover solo su un dispositivo virtuale che esegue l'aggiornamento 1. Se il dispositivo virtuale di destinazione esegue una versione precedente del software, verrà visualizzato un errore per segnalare che il software del dispositivo di destinazione deve essere aggiornato.**
 
-1. Infine, esaminare tutte le impostazioni di failover in Conferma failover. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
 1. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
 													
@@ -127,12 +129,18 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 	
 	b. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
+## Ripristino di emergenza di continuità aziendale (BCDR)
 
-## Vedere anche
+Uno scenario di ripristino di emergenza di continuità aziendale (BCDR) si verifica quando l'intero data center di Azure smette di funzionare. Può influire sul servizio StorSimple Manager e sui dispositivi StorSimple associati.
+
+Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un problema grave, per questi dispositivi StorSimple potrebbe essere necessario eseguire una reimpostazione di fabbrica. Dopo l'emergenza, il dispositivo StorSimple verrà visualizzato come offline. Il dispositivo StorSimple deve essere eliminato dal portale e deve essere eseguita una reimpostazione di fabbrica, seguita da una registrazione aggiornata.
+
+## Passaggi successivi
+
 Dopo aver eseguito il failover, potrebbe essere necessario:
 
-- [Disattivare il dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772379.aspx#deactivate)
-- [Eliminare il dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772379.aspx#delete)
+- [Disattivare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
+- [Eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
 Per informazioni su come gestire il dispositivo tramite il servizio StorSimple Manager, vedere:
 
@@ -140,4 +148,4 @@ Per informazioni su come gestire il dispositivo tramite il servizio StorSimple M
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

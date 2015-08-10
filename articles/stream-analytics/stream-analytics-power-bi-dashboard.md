@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
 	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
-	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
@@ -28,8 +27,9 @@ In questo articolo viene descritto come creare strumenti di business intelligenc
 
 ## Prerequisiti ##
 
-* Account Microsoft Azure tramite ID organizzazione (Power BI funziona solo con ID organizzazione. L’ID organizzazione è l’indirizzo di posta elettronica aziendale o dell’ufficio, ad esempio xyz@mycompany.com. E-mail personali come xyz@hotmail.com non sono ID organizzazione. Per ulteriori informazioni sull'ID organizzazione, fare clic [qui](https://msdn.microsoft.com/subscriptions/dn531048.aspx) ed esaminare anche le domande frequenti che possono essere scaricate da [qui](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409).
+* Account di Microsoft Azure
 * Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.  
+* ID organizzazione di Microsoft Power BI
 
 ## Creare processi di Analisi di flusso di Azure ##
 
@@ -49,7 +49,7 @@ Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un el
 
 ## Specificare l'input del processo ##
 
-Per questa esercitazione, si presuppone che l’utente usi EventHub come input con serializzazione JSON e codifica utf-8.
+Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di eventi come input con serializzazione JSON e codifica UTF-8.
 
 * Fare clic sul nome del processo.
 * Fare clic su **Input** nella parte superiore della pagina, quindi scegliere **Aggiungi input**. La finestra di dialogo visualizzata presenterà un numero di passaggi per l'impostazione dell'input.
@@ -62,9 +62,9 @@ Per questa esercitazione, si presuppone che l’utente usi EventHub come input c
 
 > [AZURE.NOTE]Questo esempio usa il numero predefinito di partizioni, che è pari a 16.
 
-* **Nome hub eventi** - Selezionare il nome dell’hub eventi di Azure disponibile.
-* **Nome criterio hub eventi** - Selezionare il criterio hub eventi per l’eventhub usato. Assicurarsi che il criterio disponga di autorizzazioni di gestione.
-*	**Gruppo utenti hub eventi** – È possibile lasciare il campo vuoto o specificare un gruppo di utenti disponibile sull’hub eventi. Tenere presente che ciascun gruppo di utenti di un hub eventi può avere solo 5 lettori alla volta. Pertanto, è necessario scegliere il gruppo di utenti appropriato al processo. Se si lascia il campo vuoto, verrà utilizzato il gruppo di utenti predefinito.
+* **Nome dell’hub eventi**: selezionare il nome dell’hub eventi di Azure disponibile.
+* **Nome criterio dell’hub eventi**: selezionare il criterio dell’hub eventi per l’hub eventi utilizzato. Assicurarsi che il criterio disponga di autorizzazioni di gestione.
+*	**Gruppo utenti dell’hub eventi**: è possibile lasciare il campo vuoto o specificare un gruppo di utenti disponibile sull’hub eventi. Tenere presente che ogni gruppo di utenti di un hub eventi può avere solo 5 lettori alla volta. Pertanto, è necessario scegliere il gruppo di utenti appropriato al processo. Se si lascia il campo vuoto, verrà utilizzato il gruppo di utenti predefinito.
 
 *	Fare clic sul pulsante a destra.
 *	Specificare i valori seguenti:
@@ -78,14 +78,15 @@ Per questa esercitazione, si presuppone che l’utente usi EventHub come input c
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]L’output di Power BI è disponibile solo per gli account Azure tramite ID organizzazione. Se non si usa un ID organizzazione per l’account Azure (ad esempio, un account Live ID o un account Microsoft personale), non verrà visualizzata l’opzione di output Power BI.
-
 2.  Selezionare **Power BI**, quindi fare clic sul pulsante destro.
 3.  Verrà visualizzata una schermata analoga a quella seguente:
 
 ![graphic3][graphic3]
 
-4.  In questo passaggio è necessario prestare attenzione a usare lo stesso ID organizzazione usato per il processo di Analisi di flusso. A questo punto, l’output di Power BI deve usare lo stesso ID organizzazione usato per il processo di Analisi di flusso. Se si dispone già di un account Power BI, selezionare “Autorizza ora” usando lo stesso ID organizzazione. Altrimenti, scegliere “Registrati ora” e usare lo stesso ID organizzazione dell’account Azure durante la registrazione a Power BI. [In questo blog sono riportati passo passo i dettagli di registrazione a Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In questo passaggio, fornire un ID Ord per l'output del processo di analisi di flusso. Se si dispone già di account Power BI, selezionare **Autorizza ora**. In caso contrario, scegliere **Effettua l’iscrizione ora**. [In questo blog sono riportati passo passo i dettagli di registrazione a Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+
+![graphic11][graphic11]
+
 5.  Successivamente verrà visualizzata una schermata analoga a quella seguente:
 
 ![graphic4][graphic4]
@@ -96,11 +97,11 @@ Fornire i valori come mostrato di seguito:
 * **Nome set di dati** - Fornire un nome set di dati all’output Power BI. Ad esempio, “pbidemo”.
 *	**Nome tabella** - Fornire un nome tabella nel set di dati dell’output Power BI. Ad esempio, “pbidemo”. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati.
 
->	[AZURE.NOTE] Non è necessario creare il set di dati e la tabella nell'account Power BI. Verranno creati automaticamente quando si avvia il processo di analisi di flusso e gli output vengono trasmessi a Power BI. Se la query del processo non restituisce risultati, il set di dati e la tabella non verranno creati.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Fare clic su **OK**, **Connessione di test**. A questo punto la configurazione dell’output è completa.
 
->	[AZURE.WARNING] Inoltre, tenere presente che se Power BI dispone già di un seti di dati e di una tabella caratterizzati dal nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Scrivere query ##
@@ -165,8 +166,7 @@ Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui
 
 A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. È consigliabile utilizzare TumblingWindow o HoppingWindow per garantire che il push dei dati sia di al massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile utilizzare l’equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): 
-![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Pertanto sarà necessario modificare la query originale in:
 
@@ -186,7 +186,7 @@ Pertanto sarà necessario modificare la query originale in:
 
 
 ## Ottenere aiuto ##
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi ##
 
@@ -207,6 +207,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
- 
+[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

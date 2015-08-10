@@ -13,11 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/04/2015"
+   ms.date="07/24/2015"
    ms.author="seanmck"/>
 
 # Configurare l'ambiente di sviluppo di Service Fabric
  Questo articolo fornisce tutte le informazioni necessarie per iniziare a creare applicazioni di [Service Fabric][1], incluse l'installazione del runtime, dell'SDK e degli strumenti e la creazione di un cluster locale.
+
+ >[AZURE.NOTE]Queste istruzioni devono essere usate per l'impostazione di nuovi PC. Se è installata una versione precedente di Service Fabric sul proprio PC, seguire le [istruzioni per aggiornare l'ambiente di sviluppo](service-fabric-update-your-development-environment.md).
 
 ## Prerequisiti
 ### Sistemi operativi supportati
@@ -29,15 +31,15 @@ Sono supportati i sistemi operativi seguenti:
 
 ### Visual Studio 2015
 
-Gli strumenti per Service Fabric Preview 1 dipendono da Visual Studio 2015 RC, disponibile [qui][2].
+Gli strumenti per Service Fabric dipendono da Visual Studio 2015, disponibile [qui][2].
 
-> [AZURE.NOTE]Se non si esegue uno dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 RC nel proprio PC, è possibile [configurare una macchina virtuale di Azure][3] con Windows Server 2012 R2 e Visual Studio 2015 preinstallati usando un'immagine della raccolta di macchine virtuali.
+> [AZURE.NOTE]Se non si esegue uno dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio PC, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati usando un'immagine della raccolta di macchine virtuali.
 
 ## Installare il runtime, l'SDK e gli strumenti
 
 L'installazione dei componenti di Service Fabric viene eseguita mediante l'Installazione guidata piattaforma Web. Per effettuare l'installazione, seguire queste istruzioni:
 
-1. Fare clic [qui][4] per scaricare l'SDK mediante l'Installazione guidata piattaforma Web.
+1. [Scaricare l'SDK][3] mediante l'Installazione guidata piattaforma Web.
 
 2. Fare clic su Installa per avviare il processo di installazione.
 
@@ -56,7 +58,7 @@ Service Fabric usa script di Windows PowerShell per creare un cluster di svilupp
 Un cluster locale rappresenta in un singolo computer di sviluppo la topologia con più computer da usare in produzione. Per installare il cluster locale, seguire questa procedura:
 
 
-1. Chiudere tutte le altre finestre di PowerShell e avviarne una nuova come amministratori.
+1. Chiudere tutte le altre finestre di PowerShell e avviarne una nuova come amministratore.
 
 2. Passare alla directory di installazione del cluster con `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
 
@@ -89,8 +91,6 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "Macchina virtuale di Azure"
-[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
- 
+[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -57,13 +57,13 @@
 		
 5. Nel progetto dell'app di Windows Store, aprire il file di progetto MainPage.xaml e aggiungere il seguente elemento **Button** giusto prima dell'elemento che definisce il pulsante **Save**:
 
-	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                Visibility="Visible">Accesso</Button>
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button>
 
-6. Nel progetto di applicazione Windows Phone Store, aggiungere il seguente elemento **pulsante** nel **ContentPanel** dopo l’elemento **TextBlock**:
+6. Nel progetto di applicazione Windows Phone Store, aggiungere il seguente elemento **Button** nel **ContentPanel** dopo l’elemento **TextBlock**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
+        	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. Aprire il file del progetto App.xaml.cs condiviso e aggiungere l'istruzione using seguente, se non è già presente:
 
@@ -94,4 +94,4 @@
 
 10. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

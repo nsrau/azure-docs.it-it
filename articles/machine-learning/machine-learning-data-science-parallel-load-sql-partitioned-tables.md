@@ -58,7 +58,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 
 **Per creare una tabella di partizione, è necessario:**
 
-- [Creare una funzione di partizione](https://msdn.microsoft.com/library/ms187802.aspx) che definisce l'intervallo di valori/limiti da includere in ogni tabella di partizione, ad esempio, per limitare le partizioni per mese(some_datetime_field) nell'anno 2013:
+- [Creare una funzione di partizione](https://msdn.microsoft.com/library/ms187802.aspx) che definisce l'intervallo di valori/limiti da includere in ogni tabella di partizione, ad esempio, per limitare le partizioni per mese(some\_datetime\_field) nell'anno 2013:
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -95,7 +95,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 
 - È possibile utilizzare BCP, l'INSERIMENTO DI MASSA o altri metodi quali la [migrazione guidata di SQL Server](http://sqlazuremw.codeplex.com/). L'esempio fornito utilizza il metodo BCP.
 
-- [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK_LOGGED per ridurre il sovraccarico della registrazione, ad esempio:
+- [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK\_LOGGED per ridurre il sovraccarico della registrazione, ad esempio:
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
@@ -184,4 +184,4 @@ o
 Per un esempio della procedura dettagliata end-to-end in cui viene usato ADAPT (Advanced Analytics Process and Technology) con un set di dati pubblici, vedere [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

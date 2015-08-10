@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric
@@ -30,14 +30,18 @@ In questa esercitazione viene implementato un servizio senza stato e un servizio
 
 L'esercitazione inizia con un servizio senza stato.
 
-Avviare Visual Studio 2015 RC come **Amministratore** e creare un nuovo progetto di **servizio di Service Fabric senza stato** denominato *HelloWorld*:
+Avviare Visual Studio 2015 RC come **Amministratore** e creare un nuovo progetto **applicazione di Service Fabric** denominato *HelloWorld*:
 
-![Usare la finestra di dialogo New Project per creare un nuovo servizio di Service Fabric senza stato](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Usare la finestra di dialogo New Project per creare una nuova applicazione Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Nella soluzione creata vengono visualizzati due progetti:
+Creare quindi un progetto **servizio senza stato** denominato *HelloWorldStateless*:
 
- + **HelloWorldApplication**: il progetto *applicazione* contenente i *servizi*. Il progetto contiene anche il manifesto dell'applicazione che descrive l'applicazione stessa, oltre ad alcuni script di PowerShell che consentono di distribuirla.
- + **HelloWorld**: il progetto del servizio, contenente l'implementazione del servizio senza stato.
+![Nella seconda finestra di dialogo, creare un servizio senza stato](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+La soluzione ora contiene 2 progetti:
+
+ + **HelloWorld**: il progetto *applicazione* contenente i *servizi*. Il progetto contiene anche il manifesto dell'applicazione che descrive l'applicazione stessa, oltre ad alcuni script di PowerShell che consentono di distribuirla.
+ + **HelloWorldStateless**: il progetto servizio, contenente l'implementazione del servizio senza stato.
 
 
 ## Implementare il servizio
@@ -88,11 +92,11 @@ La piattaforma chiama questo metodo quando si inserisce un'istanza del servizio 
 - Il sistema può spostare le istanze del servizio per il bilanciamento delle risorse.
 - Si sono verificati errori nel codice.
 - Durante gli aggiornamenti di sistema o dell’applicazione.
-- Quando si verifica un'interruzione hardware sottostante. 
+- Quando si verifica un'interruzione hardware sottostante.
 
 Questa orchestrazione viene gestita dal sistema con lo scopo di assicurare l'elevata disponibilità e il corretto bilanciamento del servizio.
 
-`RunAsync()` viene eseguito nella propria **attività**. Si noti che nel frammento di codice si entra direttamente in un ciclo **while** . Non è necessario pianificare un'attività separata per il carico di lavoro. L'annullamento del carico di lavoro è un'operazione cooperativa coordinata dal token di annullamento fornito. Il sistema attende la fine dell'attività (per esito positivo, annullamento o errore) prima di continuare. È **importante** per rispettare il token di annullamento, completare le operazioni e chiudere `RunAsync()` più rapidamente possibile, quando viene richiesto l'annullamento dal sistema.
+`RunAsync()` viene eseguito nella propria **attività**. Si noti che nel frammento di codice si entra direttamente in un ciclo **while**. Non è necessario pianificare un'attività separata per il carico di lavoro. L'annullamento del carico di lavoro è un'operazione cooperativa coordinata dal token di annullamento fornito. Il sistema attende la fine dell'attività (per esito positivo, annullamento o errore) prima di continuare. È **importante** rispettare il token di annullamento, completare le operazioni e chiudere `RunAsync()` più rapidamente possibile, quando viene richiesto l'annullamento dal sistema.
 
 In questo esempio di servizio senza stato il conteggio è archiviato in una variabile locale. Tuttavia, poiché si tratta di un servizio senza stato, il valore archiviato esiste soltanto per il ciclo di vita corrente dell'istanza del servizio. Quando si posta o si riavvia il servizio, il valore viene perso.
 
@@ -148,14 +152,14 @@ Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-**IReliableDictionary** è l'implementazione di un dizionario che consente di archiviare in modo affidabile lo stato del servizio Fa parte delle raccolte [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) integrate di Service Fabric. Grazie a Service Fabric e alle raccolte Reliable Collections è ora possibile archiviare i dati direttamente nel servizio, senza necessità di un archivio esterno persistente, rendendo i dati a disponibilità elevata. Service Fabric ottiene questo risultato creando e gestendo più *repliche* del servizio per conto dell'utente. Fornisce inoltre un'API che consente di evitare la complessità di gestione di tali repliche e delle relative transizioni di stato.
+**IReliableDictionary** è l'implementazione di un dizionario che consente di archiviare in modo affidabile lo stato del servizio. Fa parte delle raccolte [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) integrate di Service Fabric. Grazie a Service Fabric e alle raccolte Reliable Collections è ora possibile archiviare i dati direttamente nel servizio, senza necessità di un archivio esterno persistente, rendendo i dati a disponibilità elevata. Service Fabric ottiene questo risultato creando e gestendo più *repliche* del servizio per conto dell'utente. Fornisce inoltre un'API che consente di evitare la complessità di gestione di tali repliche e delle relative transizioni di stato.
 
 Le raccolte Reliable Collections possono archiviare qualsiasi tipo .NET, inclusi quelli personalizzati, con un paio di avvertimenti:
 
  1. Service Fabric rende lo stato altamente disponibile *replicandolo* sui diversi nodi e archiviandolo sul disco locale. Questo significa che tutte le informazioni archiviate in una raccolta Reliable Collections devono essere *serializzabili*. Per impostazione predefinita, le raccolte Reliable Collections usano [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) per la serializzazione. Quando si usa il serializzatore predefinito, è quindi importante assicurarsi che i tipi siano [supportati da Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
 
  2. Quando si esegue il commit di una transazione in una raccolta Reliable Collections, gli oggetti vengono replicati per assicurare disponibilità elevata. Gli oggetti archiviati nelle raccolte Reliable Collections vengono mantenuti nella memoria locale del servizio. Questo significa che l'utente dispone di un riferimento locale all'oggetto.
- 
+
     È importante non apportare modifiche alle istanze locali degli oggetti senza prima eseguire un'operazione di aggiornamento sulla raccolta Reliable Collections in una transazione. Le modifiche apportate, infatti, non vengono replicate automaticamente.
 
 *StateManager* gestisce le raccolte Reliable Collections per conto dell'utente. In qualunque momento e in qualsiasi posizione del servizio è possibile chiedere semplicemente a StateManager una raccolta di Reliable Collections indicandone il nome: StateManager provvederà a restituire un riferimento. Salvare i riferimenti a istanze di raccolte Reliable Collections in variabili o proprietà membri della classe non è consigliabile. È necessario prestare particolare attenzione per assicurare che il riferimento sia impostato su un'istanza in qualsiasi momento del ciclo di vita del servizio. StateManager, ottimizzato per le visite ripetute, gestisce queste operazioni per conto dell'utente.
@@ -199,6 +203,5 @@ Una volta che i servizi sono in esecuzione, è possibile visualizzare gli eventi
 [Gestire un servizio di Service Fabric](service-fabric-manage-your-service-index.md)
 
 [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

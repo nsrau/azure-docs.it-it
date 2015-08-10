@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -43,7 +43,7 @@ In questa guida si useranno le funzionalità del Servizio tabelle che possono es
 
 Per usare le API del Servizio tabelle di Azure, è necessario:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -218,7 +218,7 @@ Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entit
 
 ## Procedura: recuperare tutte le entità di una partizione
 
-Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità][filters]). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
+Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità][filters]). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -479,4 +479,4 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

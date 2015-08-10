@@ -36,7 +36,7 @@ I frammenti di codice mostrano solo le funzioni e non il codice che crea l’ogg
 
 Per usare il bus di servizio, è necessario installare il pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) oltre agli altri pacchetti di WebJobs SDK.
 
-È anche necessario impostare la stringa di connessione AzureWebJobsServiceBus oltre alle stringhe di connessione di archiviazione. Questa operazione può essere effettuata nella sezione `connectionStrings` del file Web.config, come mostrato nel seguente esempio:
+È anche necessario impostare la stringa di connessione AzureWebJobsServiceBus oltre alle stringhe di connessione di archiviazione. Questa operazione può essere effettuata nella sezione `connectionStrings` del file App.config, come mostrato nell'esempio seguente:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@ Per usare il bus di servizio, è necessario installare il pacchetto NuGet [Micro
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-Per un progetto di esempio, vedere l'[esempio di bus di servizio](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). Per altre informazioni, vedere la pagina di [introduzione a WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+Per un progetto di esempio che include l'impostazione della stringa di connessione del bus di servizio nel file App.config, vedere l'[esempio di bus di servizio](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus).
+
+Le stringhe di connessione possono essere impostate anche nell'ambiente di runtime di Azure, che quindi sostituisce le impostazioni di App.config quando il processo Web viene eseguito in Azure. Per altre informazioni, vedere[Introduzione a WebJobs SDK ](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
 ## <a id="trigger"></a> Come attivare una funzione quando viene ricevuto un messaggio di coda del bus di servizio
 
@@ -157,4 +159,4 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 In questa guida sono stati forniti esempi di codice che illustrano come gestire scenari comuni per l'uso del bus di servizio di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

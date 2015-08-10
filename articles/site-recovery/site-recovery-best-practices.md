@@ -147,12 +147,12 @@ I provider e gli agenti vengono installati su server locali in modo che possano 
 	- Configurare reti logiche e reti correttamente in VMM. Ulteriori informazioni sulle [reti logiche](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) e sulle [reti VM](https://technet.microsoft.com/library/jj721575.aspx).
 	- Assicurarsi che tutte le macchine virtuali nel server VMM di origine siano connesse a una rete VM.
 	- Verificare che le reti VM siano collegate a una rete logica associata al cloud.
-	- Se si esegue la replica in Azure, creare reti virtuali in Azure. Si noti che è possibile mappare più reti VM a una singola rete di Azure. Leggere [Attività di configurazione della rete virtuale](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- Se si esegue la replica in Azure, creare reti virtuali in Azure. Si noti che è possibile mappare più reti VM a una singola rete di Azure. Leggere [Attività di configurazione della rete virtuale](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Ottimizzazione delle prestazioni
 
-- **Dimensioni del volume del sistema operativo**: quando si replica una macchina virtuale in Azure, il volume del sistema operativo deve essere inferiore a 127 GB. Se si dispone di volumi superiori, è possibile spostarli manualmente in un altro disco prima di iniziare la distribuzione.
-- **Dimensioni del disco dati**: se si esegue la replica ad Azure è possibile avere fino a 32 dischi dati in una macchina virtuale, ciascuno con un massimo di 1 TB. È possibile replicare in modo efficiente una macchina virtuale di ~32 TB ed eseguirne il failover.
+- **Dimensioni del volume del sistema operativo**: quando si replica una macchina virtuale in Azure, il volume del sistema operativo deve essere inferiore a 1 TB. Se si dispone di volumi superiori, è possibile spostarli manualmente in un altro disco prima di iniziare la distribuzione.
+- **Dimensioni del disco dati**: se si esegue la replica ad Azure è possibile avere fino a 32 dischi dati in una macchina virtuale, ciascuno con un massimo di 1 TB. È possibile replicare in modo efficiente una macchina virtuale di \~32 TB ed eseguirne il failover.
 - **Limiti del piano di ripristino**: Site Recovery è in grado di supportare migliaia di macchine virtuali. I piani di ripristino sono progettati come modello per le applicazioni devono eseguire il failover insieme. Pertanto, il numero di macchine in un piano di ripristino viene limitato a 50.
 - **Limiti dei servizi Azure**: ogni sottoscrizione ad Azure include un insieme di limiti predefiniti su core, servizi cloud e via di seguito. Si consiglia di eseguire un failover di test per convalidare la disponibilità di risorse nella sottoscrizione. È possibile modificare questi limiti tramite il supporto di Azure.
 - **Pianificazione della capacità**: per indicazioni, utilizzare [lo strumento di pianificazione della capacità per la replica Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
@@ -189,4 +189,4 @@ Dopo aver esaminato queste procedure consigliate, è possibile avviare la distri
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

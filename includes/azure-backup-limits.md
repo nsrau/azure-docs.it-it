@@ -13,4 +13,4 @@ I limiti seguenti si applicano ai Backup di Azure.
 - <sup>1</sup>il limite di 1,65 TB non si applica ai backup VM IaaS.
 - <sup>2</sup>È possibile usare qualsiasi permutazione per arrivare a un numero inferiore a 366.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

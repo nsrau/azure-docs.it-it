@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="07/29/2015" 
 	ms.author="femila"/>
 
 
@@ -59,7 +59,7 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Errore: l'attributo non è supportato | (user.invalidProperty -eq "Valore") | (user.department -eq "valore") La proprietà deve corrispondere a una delle proprietà nell'elenco di proprietà supportate. |
 | Errore: l'operatore non è supportato sull'attributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) La proprietà è di tipo booleano. Usare gli operatori supportati (-eq o - ne) per il tipo boolean nell'elenco precedente. |
-| Errore: si è verificato un errore di compilazione della query. | (user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Vendite") -and (user.department -eq "Marketing") L'operatore logico deve corrispondere a un operatore incluso nel precedente elenco di proprietà supportate. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") Errore nell'espressione regolare. |
+| Errore: si è verificato un errore di compilazione della query. | (user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Vendite") -and (user.department -eq "Marketing") L'operatore logico deve corrispondere a un operatore incluso nel precedente elenco di proprietà supportate. (user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") Errore nell'espressione regolare. |
 | Errore: l'espressione binaria non ha il formato corretto | (user.department –eq "Vendite") (user.department -eq "Vendite")(user.department-eq"Vendite") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") La query include più errori. La parentesi non si trova nella posizione corretta. |
 | Errore: si è verificato un errore sconosciuto durante la configurazione delle appartenenze dinamiche. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") La query include più errori. La parentesi non si trova nella posizione corretta. |
 
@@ -124,7 +124,7 @@ Operatori consentiti
 | passwordPolicies | Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Qualsiasi valore stringa o $null. | (user.physicalDeliveryOfficeName -eq "valore") |
 | postalCode | Qualsiasi valore stringa o $null. | (user.postalCode -eq "valore") |
-| preferredLanguage | Codice ISO 639-1 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | Codice ISO 639-1 | (user.preferredLanguage -eq "it-it") |
 | sipProxyAddress | Qualsiasi valore stringa o $null. | (user.sipProxyAddress -eq "valore") |
 | state | Qualsiasi valore stringa o $null. | (user.state -eq "valore") |
 | streetAddress | Qualsiasi valore stringa o $null. | (user.streetAddress -eq "valore") |
@@ -148,6 +148,16 @@ Operatori consentiti
 | otherMails | Qualsiasi valore stringa. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Regola per i dipendenti diretti
+Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
+Per configurare un gruppo come gruppo "Manager"
+--------------------------------------------------------------------------------
+1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**. 
+2. Digitare la regola con la sintassi seguente: Dipendenti diretti per *Dipendenti diretti per {IDutente\_di\_manager}*
+3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Si noti che possono essere necessari alcuni minuti per il popolamento iniziale del gruppo. 
+
+
+## Informazioni aggiuntive
 Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su Azure Active Directory
 
 * [Risoluzione dei problemi di appartenenza dinamica per i gruppi](active-directory-accessmanagement-troubleshooting.md)
@@ -158,4 +168,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

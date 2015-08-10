@@ -20,4 +20,4 @@
 
 <sup>2</sup>Endpoint di input consentire le comunicazioni a una macchina virtuale da fuori servizio cloud della macchina virtuale. Le macchine virtuali nello stesso servizio cloud o rete virtuale può comunicare automaticamente tra loro. Vedere [Come configurare gli endpoint in una macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

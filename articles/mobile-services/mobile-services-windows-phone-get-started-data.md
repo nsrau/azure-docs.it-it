@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,13 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Panoramica
 
-<p>Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dati in un'app per Windows Phone 8. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">12:54</span></div>
-</div>
+Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dati in un'app per Windows Phone 8. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
+
+È anche possibile vedere la demo a cura di Nick Harris nel video seguente:
+>[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
 ##Prerequisiti 
 
@@ -120,9 +119,9 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Questo codice consente di creare una raccolta di binding compatibile con Servizi mobili (**items**) e una classe proxy per la tabella di database SQL **TodoItem** (**todoTable**).
+   	Questo codice consente di creare una raccolta di binding compatibile con Servizi mobili (\*\*items\*\*) e una classe proxy per la tabella di database SQL **TodoItem** (\*\*todoTable\*\*).
 
-7. Nel metodo **InsertTodoItem** rimuovere la riga di codice per l'impostazione della proprietà **TodoItem**.**Id**, aggiungere il modificatore **async** al metodo e rimuovere il commento dalla riga di codice seguente:
+7. Nel metodo **InsertTodoItem** rimuovere la riga di codice per l'impostazione della proprietà **TodoItem**.\*\*Id\*\*, aggiungere il modificatore **async** al metodo e rimuovere il commento dalla riga di codice seguente:
 
         await todoTable.InsertAsync(todoItem);
 
@@ -194,4 +193,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

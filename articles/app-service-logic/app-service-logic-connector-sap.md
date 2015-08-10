@@ -94,4 +94,4 @@ Completare l'app per la logica per definire il processo aziendale e quindi esegu
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

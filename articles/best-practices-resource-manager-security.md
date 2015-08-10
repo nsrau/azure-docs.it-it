@@ -3,7 +3,7 @@
 	description="Mostra approcci consigliati di Gestione risorse di Azure per la protezione delle risorse con chiavi e segreti, il controllo degli accessi in base al ruolo e i gruppi di sicurezza di rete."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
+	authors="george-moore"
 	manager="georgem"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
-	ms.author="mmercuri"/>
+	ms.date="07/24/2015"
+	ms.author="georgem"/>
 
 
 # Considerazioni sulla sicurezza per Gestione risorse di Azure
@@ -27,7 +27,7 @@ In questo argomento si presuppone che si abbia familiarità con il controllo deg
 
 Macchine virtuali di Azure, Gestione risorse di Azure e Insieme di credenziali chiave di Azure sono completamente integrati per fornire supporto per la gestione protetta dei certificati che devono essere distribuiti nella macchina virtuale. L’utilizzo di Insieme di credenziali chiave con Gestione risorse di Azure per orchestrare e archiviare i certificati e i segreti della macchina virtuale è una procedura consigliata che offre i vantaggi seguenti:
 
-- I modelli contengono solo i riferimenti URI ai segreti, ovvero i segreti effettivi non sono presenti nel repository di codice sorgente, configurazione o codice. In tal modo si impediscono gli attacchi di phishing chiave nei repository interni o esterni, ad esempio harvest-bot in github.
+- I modelli contengono solo i riferimenti URI ai segreti, ovvero i segreti effettivi non sono presenti nel repository di codice sorgente, configurazione o codice. In tal modo si impediscono gli attacchi di phishing chiave nei repository interni o esterni, ad esempio harvest-bot in GitHub.
 - I segreti memorizzati nell'insieme di credenziali chiave sono sotto il controllo RBAC completo di un operatore attendibile. Se l'operatore attendibile lascia la società o si trasferisce in un nuovo gruppo della società, non potrà più accedere alle chiavi che ha creato nell'insieme di credenziali.
 - Contesto completo di tutti gli asset:
       - Modelli per distribuire le chiavi 
@@ -147,9 +147,9 @@ Il seguente frammento di modello viene composto in costrutti di distribuzione or
 
 ## Entità servizio per le interazioni tra sottoscrizioni
 
-Le identità di servizio sono rappresentate dalle entità di servizio di Active Directory. Le entità servizio costituiscono il fulcro degli scenari di abilitazione chiave per organizzazioni IT Enterprise, integratori di sistemi e fornitori di servizi cloud. In particolare, ci sono casi di utilizzo in cui una di queste organizzazioni deve interagire con la sottoscrizione di uno dei clienti.
+Le identità di servizio sono rappresentate dalle entità di servizio di Active Directory. Le entità servizio costituiscono l'aspetto centrale dell'abilitazione degli scenari principali per organizzazioni IT di classe enterprise, integratori di sistemi e fornitori di servizi cloud. In particolare, ci sono casi di utilizzo in cui una di queste organizzazioni deve interagire con la sottoscrizione di uno dei clienti.
 
-L'organizzazione può fornire un'offerta che dovrà monitorare una soluzione distribuita nell’ambiente e nella sottoscrizione dei clienti. In questo caso, sarà necessario ottenere l'accesso ai registri e altri dati all'interno di un account del cliente in modo da poterlo utilizzare nella soluzione di monitoraggio. Nel caso di un'organizzazione IT aziendale, un integratore di sistemi, è possibile fornire un'offerta a un cliente dove si distribuisce e gestisce una funzionalità automaticamente, ad esempio una piattaforma di analisi dati, in cui l'offerta si trova nella sottoscrizione del cliente.
+L'organizzazione può fornire un'offerta che dovrà monitorare una soluzione distribuita nell’ambiente e nella sottoscrizione dei clienti. In questo caso, sarà necessario ottenere l'accesso ai registri e altri dati all'interno di un account del cliente in modo da poterlo utilizzare nella soluzione di monitoraggio. Nel caso di un'azienda IT o di un integratore di sistemi, è possibile presentare al cliente un'offerta per distribuire e gestire una capacità per suo conto, ad esempio una piattaforma di analisi dei dati, in cui l'offerta si trova nella sottoscrizione del cliente.
 
 In questi casi di utilizzo, l'organizzazione richiede un'identità a cui può essere concesso l'accesso per eseguire queste azioni all'interno del contesto di una sottoscrizione del cliente.
 
@@ -166,7 +166,7 @@ Una combinazione di entità servizio e RBAC consente di soddisfare questi requis
 
 ## Gruppi di sicurezza di rete
 
-Molti scenari dispongono dei requisiti che specificano la modalità di controllo del traffico a una o più istanze di macchina virtuale nella rete virtuale. È possibile utilizzare un gruppo di sicurezza di rete (NSG) a tale scopo come parte di una distribuzione del modello ARM.
+Molti scenari dispongono dei requisiti che specificano la modalità di controllo del traffico a una o più istanze di macchina virtuale nella rete virtuale. A tale scopo, è possibile usare un gruppo di sicurezza di rete come parte di una distribuzione di modello di Gestione risorse di Azure.
 
 Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla sottoscrizione. Un NSG contiene le regole di controllo dell’accesso che consentono o negano il traffico alle istanze di macchina virtuale. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per usare un gruppo di sicurezza di rete, è necessario disporre di una rete virtuale associata a una regione (località). I gruppi di sicurezza di rete non sono compatibili con le reti virtuali associate a un gruppo di affinità. Se non si dispone di una rete virtuale regionale e si vuole controllare il traffico verso gli endpoint, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
@@ -186,12 +186,12 @@ Una regola specifica quanto segue:
 
 -	Nome: identificatore univoco per la regola
 -	Tipo: In ingresso/In uscita
--	Priorità: numero intero compreso tra 100 e 4096
+-	Priorità: numero intero compreso tra 100 e 4096 (le regole vengono elaborate dal numero più basso a quello più alto)
 -	Indirizzo IP di origine: CIDR dell'intervallo di indirizzi IP di origine
 -	Intervallo di porte di origine: numero intero o intervallo compreso tra 0 e 65536
 -	Intervallo IP di destinazione: CIDR dell'intervallo di indirizzi IP di destinazione
 -	Intervallo di porte di destinazione: numero intero o intervallo compreso tra 0 e 65536
--	Protocollo: TCP, UDP o ' *'
+-	Protocollo: TCP, UDP o ' \*'
 -	Accesso: Consenti/Nega
 
 ### Regole predefinite
@@ -206,17 +206,17 @@ Nelle tabelle seguenti vengono riportate le regole predefinite.
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL_NETWORK |	* |	VIRTUAL_NETWORK | * |	* | CONSENTI
-CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE_LOADBALANCER | * | * | * | * | CONSENTI
-NEGA TUTTO IN INGRESSO | 65500 | * | * | * | * | * | NEGA
+CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL\_NETWORK |	\* |	VIRTUAL\_NETWORK | \* |	\* | CONSENTI
+CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE\_LOADBALANCER | \* | \* | \* | \* | CONSENTI
+NEGA TUTTO IN INGRESSO | 65500 | \* | \* | \* | \* | \* | NEGA
 
 **Regole predefinite In uscita**
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | CONSENTI
-CONSENTI INTERNET IN USCITA | 65001 | * | * | INTERNET | * | * | CONSENTI
-NEGA TUTTO IN USCITA | 65500 | * | * | * | * | * | NEGA
+CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL\_NETWORK | \* | VIRTUAL\_NETWORK | \* | \* | CONSENTI
+CONSENTI INTERNET IN USCITA | 65001 | \* | \* | INTERNET | \* | \* | CONSENTI
+NEGA TUTTO IN USCITA | 65500 | \* | \* | \* | \* | \* | NEGA
 
 ### Regole speciali per l'infrastruttura
 
@@ -233,17 +233,17 @@ I tag predefiniti sono identificatori forniti dal sistema per risolvere una cate
 
 Tag |	Descrizione
 --- | ---
-VIRTUAL_NETWORK |	Indica tutto lo spazio degli indirizzi di rete. Include lo spazio di indirizzi della rete virtuale (CIDR di IP in Azure), nonché tutto lo spazio di indirizzi locale connesso (reti locali). Include anche gli spazi degli indirizzi da rete virtuale a rete virtuale.
-AZURE_LOADBALANCER | Indica il bilanciamento del carico dell'infrastruttura di Azure e viene convertito in un IP del data center di Azure da cui avranno origine i probe di integrità di Azure. È necessario solo se la macchina virtuale o il set di macchine virtuali associato al gruppo di sicurezza di rete fa parte di un set con carico bilanciato.
+VIRTUAL\_NETWORK |	Indica tutto lo spazio degli indirizzi di rete. Include lo spazio di indirizzi della rete virtuale (CIDR di IP in Azure), nonché tutto lo spazio di indirizzi locale connesso (reti locali). Include anche gli spazi degli indirizzi da rete virtuale a rete virtuale.
+AZURE\_LOADBALANCER | Indica il bilanciamento del carico dell'infrastruttura di Azure e viene convertito in un IP del data center di Azure da cui avranno origine i probe di integrità di Azure. È necessario solo se la macchina virtuale o il set di macchine virtuali associato al gruppo di sicurezza di rete fa parte di un set con carico bilanciato.
 INTERNET | Indica lo spazio degli indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica. Questo intervallo include anche lo spazio di IP pubblici appartenenti ad Azure.
 
 ### Porte e intervalli di porte
 
-Le regole del gruppo di sicurezza di rete possono essere specificate su un'unica porta di origine/destinazione o su un intervallo di porte. Questo approccio è particolarmente utile se si vuole aprire un ampio intervallo di porte per un'applicazione, ad esempio FTP. L'intervallo deve essere sequenziale e non può essere combinato con una specifica di porta singola. Per specificare un intervallo di porte, utilizzare il segno meno (\-). Ad esempio, **100-500**.
+Le regole del gruppo di sicurezza di rete possono essere specificate su un'unica porta di origine/destinazione o su un intervallo di porte. Questo approccio è particolarmente utile se si vuole aprire un ampio intervallo di porte per un'applicazione, ad esempio FTP. L'intervallo deve essere sequenziale e non può essere combinato con una specifica di porta singola. Per specificare un intervallo di porte, utilizzare il segno meno (–). Ad esempio, **100-500**.
 
 ### Traffico ICMP
 
-Con le regole NSG correnti, è possibile specificare come protocolli TCP o UDP, ma non ICMP. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite le regole In ingresso che consentono il traffico da/verso qualsiasi porta e protocollo ("*") all'interno della rete virtuale.
+Con le regole NSG correnti, è possibile specificare come protocolli TCP o UDP, ma non ICMP. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite le regole In ingresso che consentono il traffico da/verso qualsiasi porta e protocollo ("\*") all'interno della rete virtuale.
 
 ### Associazione di un gruppo di sicurezza di rete a una macchina virtuale
 
@@ -267,7 +267,7 @@ Ad esempio, è possibile creare una nuova macchina virtuale e un nuovo gruppo di
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | * | * | 80 | TCP | CONSENTI
+WEB | 100 | INTERNET | \* | \* | 80 | TCP | CONSENTI
 
 ## Route definite dall'utente
 
@@ -281,9 +281,14 @@ Lo stesso sarà true se è stato implementato un dispositivo NAT virtuale per co
 
 I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella di route definita in ogni nodo nella rete fisica. Una tabella di route è un insieme di route singoli utilizzata per decidere dove inoltrare pacchetti in base a indirizzo IP di destinazione. Una route è costituita dai seguenti elementi:
 
--	Prefisso dell'indirizzo IP. CIDR di destinazione a cui viene applicata la route, ad esempio 10.1.0.0/16.
--	Tipo hop successivo. Il tipo di hop Azure il pacchetto deve essere inviato. I valori possibili sono: -Local. Rappresenta la rete virtuale locale. Ad esempio, se si dispone di due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella della route avrà un valore di hop successivo di Local. - Gateway VPN. Rappresenta un Gateway VPN S2S Azure. - Internet. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure. - Dispositivo virtuale. Rappresenta un dispositivo virtuale che è stato aggiunto alla rete virtuale di Azure. - NULL. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto.
--	Valore Nexthop. Il valore di hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*.
+- Prefisso dell'indirizzo IP. CIDR di destinazione a cui viene applicata la route, ad esempio 10.1.0.0/16.
+- Tipo hop successivo. Il tipo di hop Azure il pacchetto deve essere inviato. I valori possibili sono:
+  - Local. Rappresenta la rete virtuale locale. Ad esempio, se sono presenti due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella della route avrà un valore di hop successivo di Local.
+  - Gateway VPN. Rappresenta un Gateway VPN S2S Azure.
+  - Internet. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure
+  - Dispositivo virtuale. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure.
+  - NULL. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto.
+-	Valore Nexthop. Il valore di hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. L'hop successivo deve trovarsi nella subnet (interfaccia locale del dispositivo virtuale in base all'ID di rete) e non in una subnet remota. 
 
 ![Routing.](./media/best-practices-resource-manager-security/routing.png)
 
@@ -291,32 +296,32 @@ I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella d
 
 Ogni subnet creata in una rete virtuale viene associata automaticamente a una tabella di route che contiene le seguenti regole di route predefinite:
 
-- Regola di rete virtuale locale: questa regola viene creata automaticamente per ogni subnet in una rete virtuale. Specifica che vi è un collegamento diretto tra le macchine virtuali nella rete virtuale e che non esiste alcun hop successivo intermediario.
+- Regola di rete virtuale locale: questa regola viene creata automaticamente per ogni subnet in una rete virtuale. Specifica che vi è un collegamento diretto tra le macchine virtuali nella rete virtuale e che non esiste alcun hop successivo intermediario. Questo consente alle macchine virtuali nella stessa subnet, indipendentemente dall'ID di rete delle macchine virtuali, di comunicare tra loro senza richiedere l'uso di un indirizzo gateway predefinito.
 - Regola Locale: questa regola si applica a tutto il traffico destinato ad un intervallo di indirizzi locali e utilizza il gateway VPN come destinazione hop successiva.
 - Regola Internet: questa regola gestisce tutto il traffico destinato all’Internet pubblico e utilizza il gateway internet di infrastruttura come hop successivo per tutto il traffico destinato a Internet.
 
 ### Route BGP
 
-Al momento della stesura di questo articolo, ExpressRoute non è ancora supportato nel provider di risorse di rete per ARM. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute-information.md).
+Al momento della stesura di questo articolo, [ExpressRoute](expressroute/expressroute-introduction.md) non è ancora supportato nel [provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Una volta che ExpressRoute è supportato dal provider di risorse di rete, è possibile configurare l'ambiente Azure per utilizzare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che utilizza il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
+>[AZURE.NOTE]Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
 ### Route definite dall'utente
 
 Non è possibile visualizzare le route predefinite specificate in precedenza nell'ambiente Azure e per la maggior parte degli ambienti, questi sono solo le route che è necessario. Tuttavia, è necessario creare una tabella di route e aggiungere una o più route in casi specifici, ad esempio:
 
--	Il tunneling forzato a Internet tramite la rete locale.
+-	Tunneling forzato a Internet tramite la rete locale.
 -	Utilizzo di dispositivi virtuali nell'ambiente Azure.
 
 Negli scenari precedenti, è necessario creare una tabella di route e aggiungervi route definite dall'utente. È possibile avere più tabelle di routing e la stessa tabella di route può essere associata a una o più subnet. E ogni subnet può essere associato a una tabella singola route. Tutte le macchine virtuali e servizi cloud in uso una subnet la tabella di route associato a tale subnet.
 
-Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta esiste un'associazione, routing viene eseguito in base su più lunga del prefisso corrispondenza (LPM) tra le route definite dall'utente e route predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
+Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta effettuata l'associazione, il routing viene eseguito in base all'algoritmo [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) che seleziona il valore con il prefisso più lungo tra le route definite dall'utente e quelle predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
 
 1.	Route definita utente
 2.	Route BGP (quando viene utilizzato ExpressRoute)
 3.	Route predefinita
 
->[AZURE.NOTE]Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si desidera aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di Azure route che inoltra tutto il traffico verso lo spazio degli indirizzi locale per il dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale flusso attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
+>[AZURE.NOTE]Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale flusso attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
 
 ### Inoltro IP
 
@@ -325,7 +330,9 @@ Come descritto sopra, uno dei motivi principali per creare una route definita da
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire una macchina virtuale ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP nella macchina virtuale.
 
 ## Passaggi successivi
-- Per informazioni su come impostare le entità di sicurezza con l'accesso corretto per utilizzare le risorse dell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
+- Per informazioni su come impostare le entità di sicurezza con l'accesso corretto per usare le risorse dell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
 - Se è necessario bloccare l'accesso a una risorsa, è possibile utilizzare i blocchi di gestione. Vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md)
+- Per informazioni su come configurare il routing e l'inoltro IP, vedere [Come creare route e abilitare l'inoltro IP in Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

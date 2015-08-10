@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#Glossario sugli strumenti di database elastici
+# Glossario sugli strumenti di database elastici
 Di seguito sono elencate le definizioni dei termini usati per gli strumenti dei database elastici, una funzionalità del database SQL di Azure. Gli strumenti includono la libreria client, lo strumento di suddivisione-unione, i pool elastici e le query.
 
 ![Termini della scalabilità elastica][1]
@@ -80,4 +80,4 @@ Di seguito sono elencate le definizioni dei termini usati per gli strumenti dei 
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

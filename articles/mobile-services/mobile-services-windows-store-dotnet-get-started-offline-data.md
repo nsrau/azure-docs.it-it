@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso dei dati offline in Servizi mobili (Windows Store) | Mobile Dev Center" 
-	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Windows Store" 
+	pageTitle="Uso di dati offline nell'app di Windows universale | Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'app di Windows universale." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -13,39 +13,26 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
+Questa esercitazione illustra come aggiungere il supporto offline a un'app di Windows Store universale mediante Servizi mobili di Azure. Il supporto offline consentirà l'interazione con un database locale quando l'app è in uno scenario offline. Una volta che l'app è online con il database back-end, si sincronizzano le modifiche locali con le funzionalità offline.
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Questa esercitazione illustra come aggiungere il supporto offline a un'app di Windows Store universale mediante Servizi mobili di Azure. Il supporto offline consentirà l'interazione con un database locale quando l'app è in uno scenario offline. Una volta che l'app è online con il database back-end, si sincronizzano le modifiche locali con le funzionalità offline. 
-</p>
-<p>Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">14:36:00</span></div>
-</div>
+Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione.
 
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
 
-Questa esercitazione consente di aggiornare il progetto di app universale creato nell'esercitazione [Introduzione a Servizi mobili] per supportare le funzionalità offline di Servizi mobili di Azure. Consente inoltre di aggiungere i dati in uno scenario offline, eseguire la sincronizzazione degli elementi con il database online e di accedere al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
-
+In questa esercitazione si aggiorna il progetto di app universale creato nell'esercitazione [Introduzione a Servizi mobili] per supportare le funzionalità offline di Servizi mobili di Azure. Consente inoltre di aggiungere i dati in uno scenario offline, eseguire la sincronizzazione degli elementi con il database online e di accedere al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
 
 >[AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come Servizi mobili consente di usare Azure per archiviare e recuperare i dati di un'app di Windows Store. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
 >
->Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
->
 >L'esercitazione di Windows Phone 8 meno recente per Visual Studio 2012 è ancora disponibile qui, [Esercitazione di Windows Phone 8 per Visual Studio 2012].
 
-
-Questa esercitazione descrive le operazioni di base seguenti:
-
-1. [Aggiornare l'app per supportare le funzionalità offline]
-2. [Aggiornare il comportamento di sincronizzazione dell'app] 
-3. [Aggiornare l'app per la riconnessione al servizio mobile]
+##Prerequisiti 
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -54,8 +41,7 @@ Per completare questa esercitazione, è necessario disporre di:
 * [Azure Mobile Services SDK 1.3.0 o versione successiva][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store 1.0.0 o versione successiva][SQLite store nuget]
 * [SQLite per Windows 8.1](www.sqlite.org/downloads)
-
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
+* Un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
 
@@ -194,7 +180,7 @@ Servizi mobili di Azure consente di interagire con un database locale quando si 
 
     In questo esempio vengono recuperati tutti i record presenti nella tabella `todoTable` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-    >[AZURE.NOTE]* Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+    >[AZURE.NOTE]\* Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
     Si noti che può verificarsi `MobileServicePushFailedException` per un'operazione sia push che pull. Questo avviene perché l'operazione pull esegue internamente un push per garantire che tutte le tabelle e le eventuali relazioni siano coerenti. L'esercitazione successiva, [Gestione dei conflitti con il supporto offline per Servizi mobili], mostra come gestire queste eccezioni relative alla sincronizzazione.
 
@@ -261,9 +247,9 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 * [Uso dell'eliminazione temporanea in Servizi mobili][Soft Delete]
 
 <!-- Anchors. -->
-[Aggiornare l'app per supportare le funzionalità offline]: #enable-offline-app
-[Aggiornare il comportamento di sincronizzazione dell'app]: #update-sync
-[Aggiornare l'app per la riconnessione al servizio mobile]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your mobile service]: #update-online-app
 [Next Steps]: #next-steps
 
 <!-- Images -->
@@ -297,4 +283,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

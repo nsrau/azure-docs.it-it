@@ -100,7 +100,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -286,9 +286,9 @@ Facoltativo: **acquireTokenSilent**
 
  Il manifesto dell'app dovrà avere le autorizzazioni per usare gli account di AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Tramite questa procedura dettagliata si dovrebbero avere tutte le informazioni necessarie per una corretta integrazione con Azure Active Directory. Per altre informazioni sull'esecuzione di queste operazioni, visitare il repository AzureADSamples/ su GitHub.
@@ -409,7 +409,7 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 ### Richiesta di connessione di Oauth2
 
-La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization_uri dalla richiesta di connessione di Oauth2.
+La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization\_uri dalla richiesta di connessione di Oauth2.
 
 ### Cookie di sessione in Webview
 
@@ -444,4 +444,4 @@ ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tra
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

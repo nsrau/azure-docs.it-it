@@ -1,0 +1,199 @@
+<properties 
+	pageTitle="Visualizzare i dati di Application Insights in Power BI" 
+	description="È possibile usare Power BI per monitorare le prestazioni e l'utilizzo dell'applicazione." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="douge"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
+	ms.author="awills"/>
+ 
+# Viste di Power BI per i dati di Application Insights
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini. È possibile eseguire lo streaming dei dati di telemetria relativi alle prestazioni e all'utilizzo delle app Web o dei dispositivi da Application Insights a Power BI.
+
+![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/010.png)
+
+Questo articolo descrive come esportare i dati da Application Insights e usare Analisi di flusso per spostare i dati in Power BI. [Analisi di flusso](http://azure.microsoft.com/services/stream-analytics/) è un servizio di Azure che verrà usato come un adattatore.
+
+![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/020.png)
+
+## Video
+
+Noam Ben Zeev illustra ciò che verrà descritto in questo articolo.
+
+> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+
+## Monitorare l'app con Application Insights
+
+Se ancora non lo si è provato, è il momento giusto per iniziare. Application Insights è in grado di monitorare qualsiasi dispositivo o app Web in un'ampia gamma di piattaforme, tra cui Windows, iOS, Android, J2EE e altre ancora. [Introduzione](app-insights-get-started.md).
+
+## Creare l'archiviazione in Azure
+
+L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
+
+1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
+
+    ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-power-bi/030.png)
+
+2. Creare un contenitore
+
+    ![Nel nuovo archivio selezionare Contenitori e quindi Aggiungi](./media/app-insights-export-power-bi/040.png)
+
+3. Copiare la chiave di accesso alle risorse di archiviazione.
+
+    Sarà presto necessaria per configurare l'input per il servizio di analisi di flusso.
+
+    ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/app-insights-export-power-bi/045.png)
+
+## Avviare l'esportazione continua nell'archiviazione di Azure
+
+[Esportazione continua](app-insights-export-telemetry.md) sposta i dati da Application Insights nell'archiviazione di Azure.
+
+1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
+
+    ![Scegliere Sfoglia, Application Insights e quindi l'applicazione](./media/app-insights-export-power-bi/050.png)
+
+2. Creare un'esportazione continua.
+
+    ![Scegliere Impostazioni, Esportazione continua, Aggiungi](./media/app-insights-export-power-bi/060.png)
+
+
+    Selezionare l'account di archiviazione creato in precedenza:
+
+    ![Impostare la destinazione di esportazione](./media/app-insights-export-power-bi/070.png)
+    
+    Impostare i tipi di eventi da visualizzare:
+
+    ![Scegliere i tipi di eventi](./media/app-insights-export-power-bi/080.png)
+
+Attendere ora che gli utenti usino l'applicazione per qualche tempo. Quando verranno restituiti i dati di telemetria, sarà possibile esaminare i grafici statistici in [Esplora metriche](app-insights-metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](app-insights-diagnostic-search.md).
+
+I dati verranno inoltre esportati nell'archivio.
+
+## Creare un'istanza di analisi di flusso di Azure
+
+Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
+
+
+![](./media/app-insights-export-power-bi/090.png)
+
+
+
+![](./media/app-insights-export-power-bi/100.png)
+
+Quando viene creato il nuovo processo, espanderne i dettagli:
+
+![](./media/app-insights-export-power-bi/110.png)
+
+
+#### Impostare il percorso BLOB
+
+Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
+
+![](./media/app-insights-export-power-bi/120.png)
+
+A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
+
+![](./media/app-insights-export-power-bi/130.png)
+
+#### Impostare lo schema prefisso percorso 
+
+![](./media/app-insights-export-power-bi/140.png)
+
+Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).
+
+Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
+
+    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+
+Esempio:
+
+* `webapplication27` è il nome della risorsa di Application Insights. 
+* `1000...` è la chiave di strumentazione della risorsa di Application Insights. 
+* `PageViews` è il tipo di dati da analizzare. I tipi disponibili dipendono dal filtro impostato nell'esportazione continua. Esaminare i dati esportati per vedere gli altri tipi disponibili.
+* `/{date}/{time}` è uno schema scritto letteralmente.
+
+Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
+
+#### Completare l'installazione iniziale
+
+Verificare il formato di serializzazione:
+
+![Confermare e chiudere la procedura guidata](./media/app-insights-export-power-bi/150.png)
+
+Chiudere la procedura guidata e attendere il completamento dell'installazione.
+
+## Visualizzare l'output
+
+Selezionare il processo e impostare l'output.
+
+![Selezionare il nuovo canale, fare clic su Output, su Aggiungi e quindi su Power BI](./media/app-insights-export-power-bi/160.png)
+
+Autorizzare Analisi di flusso ad accedere alla risorsa di Power BI, quindi creare un nome per l'output e per la tabella e il set di dati Power BI di destinazione.
+
+![Inventare tre nomi](./media/app-insights-export-power-bi/170.png)
+
+## Impostare la query
+
+La query gestisce la conversione dall'input all'output.
+
+![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-power-bi/180.png)
+
+Incollare questa query:
+
+```SQL
+
+    SELECT
+      flat.ArrayValue.name
+      count(*)
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.[event]) as flat
+    GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
+```
+
+* export-input è l'alias assegnato all'input del flusso
+* pbi-output è l'alias dell'output definito
+* Verrà usato l'oggetto GetElements perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola GROUP BY raggruppa gli elementi in periodi di tempo di 1 minuto.
+
+## Eseguire il processo
+
+Per la data di inizio del processo, è possibile selezionare una data nel passato.
+
+![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-power-bi/190.png)
+
+Attendere fino al termine dell'esecuzione del processo.
+
+## Visualizzare i risultati in Power BI
+
+Aprire Power Bi e selezionare il set di dati e la tabella definiti come output del processo di Analisi di flusso.
+
+![In Power BI selezionare il set di dati e i campi.](./media/app-insights-export-power-bi/200.png)
+
+È ora possibile usare questo set di dati nei report e nei dashboard in [Power BI](https://powerbi.microsoft.com).
+
+
+![In Power BI selezionare il set di dati e i campi.](./media/app-insights-export-power-bi/210.png)
+
+## Video
+
+Noam Ben Zeev spiega come esportare i dati in Power BI.
+
+> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+
+## Risorse correlate
+
+* [Esportazione continua](app-insights-export-telemetry.md)
+* [Application Insights](app-insights-overview.md)
+
+<!---HONumber=July15_HO5-->

@@ -208,7 +208,7 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 
 - Automazione di Azure non supporta l'uso side-by-side di moduli di PowerShell. Questo significa che tutte le configurazioni in un account di automazione devono interagire con l'ultima versione di un modulo di PowerShell importato in tale account e con qualsiasi risorsa DSC PowerShell contenuta nel modulo e usata dalla configurazione.
 
-- Il server di pull DSC di PowerShell tradizionale prevede che i file ZIP dei moduli vengono inseriti con il formato **NomeModulo_Versione.zip**. Automazione di Azure prevede che i moduli di PowerShell vengano importati con nomi nel formato **NomeModulo.zip**. Per altre informazioni sul formato dei moduli di integrazione necessario per importare il modulo in Automazione di Azure, vedere [questo post di blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/).
+- Il server di pull DSC di PowerShell tradizionale prevede che i file ZIP dei moduli vengono inseriti con il formato **NomeModulo\_Versione.zip**. Automazione di Azure prevede che i moduli di PowerShell vengano importati con nomi nel formato **NomeModulo.zip**. Per altre informazioni sul formato dei moduli di integrazione necessario per importare il modulo in Automazione di Azure, vedere [questo post di blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/).
 
 - I moduli di PowerShell che specificano risorse DSC side-by-side all'interno del modulo usando il formato "versione per cartella" al momento non funzioneranno in Automazione di Azure.
 
@@ -226,4 +226,4 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 
 - I nodi DSC caricati in Automazione di Azure DSC mostrano inizialmente lo stato "Conforme", anche se non sono effettivamente conformi con la configurazione del nodo DSC al quale viene eseguito il mapping. Dopo che il nodo ha eseguito il primo pull nodo e inviato il primo report DSC ad Automazione di Azure DSC, è necessario correggere lo stato del nodo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

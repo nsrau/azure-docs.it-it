@@ -56,8 +56,8 @@ Per proteggere ADFS 2.0 con un proxy, installare il Server Azure multi-Factor Au
 23. Se il test della connessione LDAP ha esito positivo, fare clic sul pulsante OK.
 24. Successivamente, fare clic sull'icona Impostazioni società e selezionare la scheda Risoluzione nome utente.
 25. Selezionare l'attributo dell'identificatore univoco utilizza LDAP per il pulsante di opzione nomi utente corrispondenti.
-26. Se gli utenti immetteranno del nome utente nel modulo di accesso proxy ADFS nel formato "dominio\nomeutente", il Server deve essere in grado di eliminare il dominio dal nome utente durante la creazione di query LDAP. Che può essere eseguita tramite un'impostazione del Registro di sistema.
-27. Aprire l'editor del Registro di sistema e passare a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/positivo Networks/PhoneFactor su un server a 64 bit. Se si dispone di un server a 32 bit, eseguire "Wow6432Node" dal percorso. Creare una nuova chiave del Registro di sistema DWORD denominata "UsernameCxz_stripPrefixDomain" e impostare il valore su 1. Il proxy ADFS è ora protetta da Azure multi-Factor Authentication. Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Se si desidera whitelist che gli indirizzi IP interni in modo che l'autenticazione a due fattori non è obbligatorio quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.
+26. Se gli utenti immetteranno del nome utente nel modulo di accesso proxy ADFS nel formato "dominio\\nomeutente", il Server deve essere in grado di eliminare il dominio dal nome utente durante la creazione di query LDAP. Che può essere eseguita tramite un'impostazione del Registro di sistema.
+27. Aprire l'editor del Registro di sistema e passare a HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/positivo Networks/PhoneFactor su un server a 64 bit. Se si dispone di un server a 32 bit, eseguire "Wow6432Node" dal percorso. Creare una nuova chiave del Registro di sistema DWORD denominata "UsernameCxz\_stripPrefixDomain" e impostare il valore su 1. Il proxy ADFS è ora protetta da Azure multi-Factor Authentication. Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Se si desidera whitelist che gli indirizzi IP interni in modo che l'autenticazione a due fattori non è obbligatorio quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.
 
 <center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,4 +93,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 
 <center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

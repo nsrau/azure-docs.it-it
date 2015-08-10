@@ -23,7 +23,7 @@
 
 Il bilanciamento del carico di Azure esegue il mapping dell'indirizzo IP pubblico e del numero di porta del traffico in ingresso all'indirizzo IP privato e al numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale.
 
->[AZURE.NOTE]Quando si configura il bilanciamento del carico del traffico tra più macchine virtuali o servizi usando le impostazioni predefinite, viene fornita una distribuzione casuale del traffico in ingresso. Se si vuole ottenere l'affinità di sessione (o sessioni permanenti), vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]Quando si configura il bilanciamento del carico del traffico tra più macchine virtuali o servizi usando le impostazioni predefinite, viene fornita una distribuzione casuale del traffico in ingresso. Se si vuole ottenere l'affinità di sessione, vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 
 Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è possibile definire un endpoint pubblico nella definizione del servizio (file con estensione csdef).
  
@@ -52,4 +52,4 @@ Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubbli
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

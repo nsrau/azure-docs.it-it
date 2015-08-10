@@ -40,13 +40,12 @@ L'impatto dell'installazione dell'agente per l'integrità delle identità Micros
 
 I numeri indicati di seguito sono approssimativi.
 
-- Utilizzo della CPU: ~1% di aumento
+- Utilizzo della CPU: \~1% di aumento
 - Utilizzo della memoria: fino a al 10% della memoria di sistema totale
-- Utilizzo della larghezza di banda di rete: ~1 MB/1000 richieste ADFS
->[AZURE.NOTE]Se l'agente non è in grado di comunicare con Azure, archivierà i dati in locale, fino al limite massimo del 10% della memoria di sistema totale. Se l'agente raggiunge il 10% di tale memoria fisica totale e non è stato in grado di caricare i dati nel servizio, le nuove transazioni di ADFS sovrascriveranno tutte le transazioni memorizzate nella cache in base a quelle gestite meno recentemente.
+- Utilizzo della larghezza di banda di rete: \~1 MB/1000 richieste ADFS
+>[AZURE.NOTE]
 
-
-- Buffer locale per l'agente per l'integrità di AD: ~20 MB
+- Buffer locale per l'agente per l'integrità di AD: \~20 MB
 - Archiviazione dei dati necessaria per il canale di controllo
 
 
@@ -69,7 +68,7 @@ Eseguire questa operazione in qualsiasi momento prima dell'esecuzione di Registe
 - Passaggio 1: Aggiungere una voce al file machine.config
 
 
-Individuare il file machine.config. Il file si trova in %windir%\Microsoft.NET\Framework64[versione]\config\machine.config</li>
+Individuare il file machine.config. Il file si trova in %windir%\\Microsoft.NET\\Framework64[versione]\\config\\machine.config</li>
 
 Aggiungere la voce seguente nell'elemento <configuration></configuration> nel file machine.config.
  
@@ -85,7 +84,7 @@ Aggiungere la voce seguente nell'elemento <configuration></configuration> nel fi
 
  
 
-Altre <defaultProxy> informazioni sono disponibili [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Altre <defaultProxy> informazioni sono disponibili [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)).
 
 Questa impostazione permette di configurare le applicazioni .NET a livello di sistema in modo che usino il proxy definito in modo esplicito quando effettuano richieste .NET HTTP. La modifica dei singoli file app.config non è consigliata, perché verrà annullata durante gli aggiornamenti automatici. È sufficiente modificare un file e le modifiche verranno mantenute anche in caso di applicazione di aggiornamenti, se si modifica solo il file machine.config.
 
@@ -103,6 +102,9 @@ Selezionare Avanzate SE sono presenti porte proxy diverse per HTTP e HTTPS/Prote
 **D: I servizi di Azure AD Connect Health supportano l'autenticazione di base durante la connessione a proxy HTTP?**
 
 No. Non è attualmente supportato alcun meccanismo per specificare in modo arbitrario un nome utente o una password per l'autenticazione di base.
+
+
+
 
 
 ## Domande sulle operazioni
@@ -126,4 +128,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 È necessario che siano aperte le porte TCP/UDP 80 e 443 perché l'agente di Azure AD Connect Health possa comunicare con gli endpoint del servizio Azure AD Connect Health.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

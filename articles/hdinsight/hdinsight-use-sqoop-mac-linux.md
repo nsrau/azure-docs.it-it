@@ -237,14 +237,11 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazioni, vedere:
 
-- [Usare Oozie con HDInsight][hdinsight-use-oozie]: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
-- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
-- [Caricare i dati in HDInsight][hdinsight-upload-data]: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
+- [Usare Oozie con HDInsight][hdinsight-use-oozie]\: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
+- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]\: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
+- [Caricare i dati in HDInsight][hdinsight-upload-data]\: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 
 
-
-
-[azure-management-portal]: https://manage.windowsazure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -264,4 +261,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

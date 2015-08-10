@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (Windows Store) | Mobile Dev Center" 
-	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione per Windows Store" 
+	pageTitle="Gestire i conflitti relativi ai dati offline in app di Windows universali | Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione di Windows universale" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
@@ -23,15 +23,13 @@
 
 ##Panoramica
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure.</p>
-<p>Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">14:36:00</span></div>
-</div>
+Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure.
 
-In questa esercitazione si scaricherà una soluzione Windows universale scritta in C# per un'app che supporta la gestione dei conflitti di sincronizzazione offline. Si integrerà un servizio mobile con l'app e quindi si eseguiranno i client Windows Store 8.1 e Windows Phone 8.1 per generare un conflitto di sincronizzazione e risolverlo.
+Se si preferisce guardare un video, nel clip seguente vengono eseguiti gli stessi passaggi dell'esercitazione.
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+
+In questa esercitazione si scaricherà una soluzione C# di Windows universale per un'app che supporta la gestione dei conflitti di sincronizzazione offline. Si integrerà un servizio mobile con l'app e quindi si eseguiranno i client Windows Store 8.1 e Windows Phone 8.1 per generare un conflitto di sincronizzazione e risolverlo.
 
 Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati offline]. Prima di iniziare questa esercitazione è necessario completare [Introduzione ai dati offline].
 
@@ -51,7 +49,7 @@ Questa esercitazione è una procedura dettagliata che illustra come usare l'[ese
 
 2. Se SQLite per Windows 8.1 e Windows Phone 8.1 non sono già installati, come indicato nell'esercitazione [Introduzione ai dati offline], installare entrambi i runtime.
 
-3. In Visual Studio 2013 aprire il file della soluzione *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Premere **F5** per ricompilare ed eseguire il progetto. Verificare che i pacchetti NuGet vengano ripristinati e che i riferimenti siano impostati correttamente.
+3. In Visual Studio 2013 aprire il file della soluzione *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Premere **F5** per ricompilare ed eseguire il progetto. Verificare che i pacchetti NuGet vengano ripristinati e che i riferimenti siano impostati correttamente.
 
     >[AZURE.NOTE]Potrebbe essere necessario eliminare i vecchi riferimenti al runtime di SQLite e sostituirli con il riferimento aggiornato, come indicato nell'esercitazione [Introduzione ai dati offline].
 
@@ -166,4 +164,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

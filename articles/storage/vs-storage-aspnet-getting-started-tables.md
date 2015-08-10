@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introduzione all'Archiviazione di Azure (progetti ASP.NET)
@@ -42,12 +42,7 @@ In questo articolo viene illustrato come eseguire attività comuni nelle tabelle
 
 ##Accesso alle tabelle nel codice 
 
-## Accedere all'archiviazione tabelle a livello di programmazione
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
-
-### Dichiarazioni dello spazio dei nomi
-Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
 
 1. Assicurarsi che le dichiarazioni dello spazio dei nomi all'inizio del file C# includano queste istruzioni `using`.
 
@@ -72,7 +67,7 @@ Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio
 
 ###Creazione di una tabella in codice
 
-Per creare la tabella di Azure in codice anziché utilizzando **Esplora Server** di Visual Studio, è sufficiente aggiungere un richiamo a `CreateIfNotExistsAsync()`.
+Per creare la tabella di Azure in codice anziché utilizzando **Esplora Server** di Visual Studio, è sufficiente aggiungere una chiamata a `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -188,7 +183,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 ## Passaggi successivi
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

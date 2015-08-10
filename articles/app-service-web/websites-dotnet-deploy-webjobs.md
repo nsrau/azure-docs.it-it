@@ -24,7 +24,7 @@ Questo argomento illustra come usare Visual Studio per distribuire un progetto d
 
 Quando distribuisce un progetto di applicazione console abilitato per i processi Web, Visual Studio esegue due attività:
 
-* Copia i file di runtime nella cartella appropriata nel sito Web di Azure (*App_Data/jobs/continuous* per i processi Web in modalità continua, *App_Data/jobs/triggered* per i processi Web pianificati e su richiesta).
+* Copia i file di runtime nella cartella appropriata nel sito Web di Azure (\*App\_Data/jobs/continuous\* per i processi Web in modalità continua, *App\_Data/jobs/triggered* per i processi Web pianificati e su richiesta).
 * Configura i [processi dell'utilità di pianificazione di Azure](#scheduler) per i processi Web pianificati per essere eseguiti a orari specifici. Tale operazione non è necessaria per l'esecuzione dei processi Web in modalità continua.
 
 A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguenti:
@@ -200,4 +200,4 @@ Questo articolo ha descritto come distribuire processi Web tramite Visual Studio
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

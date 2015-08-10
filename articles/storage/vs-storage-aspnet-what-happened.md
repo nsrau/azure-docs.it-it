@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Che cosa è successo al progetto?
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">Che cosa è successo al progetto?</span>
+###Che cosa è successo al progetto?</span>
 
 ##### Aggiunta di riferimenti
 
@@ -42,4 +42,4 @@ Nel file web.config del progetto è stato creato un elemento con la stringa di c
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

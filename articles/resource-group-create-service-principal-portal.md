@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Creare una nuova entità servizio di Azure usando il portale di Azure
@@ -94,30 +94,12 @@ A questo punto, l'applicazione è pronta e l'entità servizio è stata creata ne
 * **CHIAVE**: come password.
 
 ## Passaggi successivi
-Introduzione
 
-- [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)  
-- [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md)
-- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Uso del portale di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md)  
-  
-Creazione e distribuzione delle applicazioni
-  
-- [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)  
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)  
-- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)  
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)  
-- [Distribuire le risorse di Azure usando le librerie .NET e un modello](virtual-machines/arm-template-deployment.md)
-  
-Organizzazione delle risorse
-  
-- [Uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md)  
-  
-Gestione e controllo dell'accesso
-  
-- [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)  
-- [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)  
+- Per informazioni su come specificare i criteri di sicurezza, vedere [Gestione e controllo di accesso alle risorse](azure-portal/resource-group-rbac.md)  
+- Per la procedura su come consentire a un'entità servizio di accedere alle risorse, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)  
+- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
+- Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@ Gestione e controllo dell'accesso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/22/2015"
 	ms.author="kathydav"/>
 
 # Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell
@@ -29,7 +29,7 @@ Questi passaggi seguono un approccio basato sul completamento di valori predefin
 
 ## Passaggio 1: Installare Azure PowerShell
 
-È anche necessario disporre di Azure PowerShell 0.9.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](powershell-install-configure.md) per le istruzioni.
+È anche necessario disporre di Azure PowerShell 0.9.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](../powershell-install-configure.md) per le istruzioni.
 
 Per verificare la versione di Azure PowerShell installata, usare il comando seguente al prompt di Azure PowerShell.
 
@@ -41,7 +41,7 @@ Di seguito è fornito un esempio.
 	-------
 	0.9.0
 
-Se non si dispone della versione 0.9.0 o di una versione successiva, è necessario rimuovere Azure PowerShell tramite Programmi e funzionalità del Pannello di controllo e quindi installare la versione più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+Se non si dispone della versione 0.9.0 o di una versione successiva, è necessario rimuovere Azure PowerShell tramite Programmi e funzionalità del Pannello di controllo e quindi installare la versione più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Passaggio 2: Impostare la sottoscrizione
 
@@ -119,6 +119,8 @@ Usare il comando seguente per elencare i set di disponibilità esistenti.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
+Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+
 Le macchine virtuali basate su Gestione risorse richiedono una rete virtuale basata su Gestione risorse. Se necessario, creare una nuova rete virtuale basata su Gestione risorse con almeno una subnet per la nuova macchina virtuale. Di seguito è riportato un esempio di una nuova rete virtuale con due subnet denominati frontendSubnet e backendSubnet.
 
 	$rgName="LOBServers"
@@ -165,9 +167,9 @@ Copiare le righe seguenti nel set di comandi e specificare un nome di rete virtu
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Successivamente, creare una scheda di interfaccia di rete (NIC), richiedere un indirizzo IP pubblico e, facoltativamente, assegnare un'etichetta di nome di dominio DNS. Copiare una delle due opzioni seguenti nel set di comandi e immettere il nome della scheda di interfaccia di rete e l'etichetta del nome di dominio DNS.
+Successivamente, si crea una scheda di rete (NIC). Copiare una delle opzioni seguenti nel set di comandi e immettere le informazioni necessarie.
 
-Opzione 1: specificare un nome di scheda di interfaccia di rete.
+### Opzione 1: Specificare un nome NIC e assegnare un indirizzo IP pubblico
 
 Copiare le righe seguenti nel set di comandi e specificare un nome per la scheda di interfaccia di rete.
 
@@ -175,7 +177,7 @@ Copiare le righe seguenti nel set di comandi e specificare un nome per la scheda
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-Opzione 2: specificare un nome per la scheda di interfaccia di rete e un'etichetta di nome di dominio DNS.
+### Opzione 2: specificare un nome per la scheda di interfaccia di rete e un'etichetta di nome di dominio DNS.
 
 Copiare le righe seguenti nel set di comandi e specificare un nome per la scheda di interfaccia di rete e l'etichetta del nome di dominio univoco globale. Quando si creano macchine virtuali nella modalità di gestione del servizio di Azure PowerShell, questi passaggi vengono eseguiti automaticamente.
 
@@ -183,6 +185,53 @@ Copiare le righe seguenti nel set di comandi e specificare un nome per la scheda
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### Opzione 3: Specificare un nome NIC e assegnare un indirizzo IP privato statico.
+
+Copiare le righe seguenti nel set di comandi e specificare un nome per la scheda di interfaccia di rete.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### Opzione 4: Specificare un nome NIC e un'istanza del servizio di bilanciamento del carico per una regola NAT in entrata.
+
+Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servizio di bilanciamento del carico per una regola NAT in entrata, è necessario:
+
+- Il nome di un'istanza del servizio di bilanciamento del carico creato in precedenza che dispone di una regola NAT in entrata per il traffico che viene inoltrato alla macchina virtuale.
+- Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
+- Il numero di indice della regola NAT in entrata da assegnare alla scheda di interfaccia di rete.
+
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole NAT in entrata, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+La stringa $nicName deve essere univoca per il gruppo di risorse. Una procedura consigliata è quella di incorporare il nome della macchina virtuale nella stringa, ad esempio "LOB07-NIC".
+
+### Opzione 5: Specificare un nome NIC e un'istanza del servizio di bilanciamento del carico per un set con carico bilanciato.
+
+Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servizio di bilanciamento del carico per un set con carico bilanciato, è necessario:
+
+- Il nome di un'istanza del servizio di bilanciamento carico creato in precedenza che dispone di una regola per il traffico con carico bilanciato.
+- Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
+
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Successivamente, creare un oggetto macchina virtuale locale e, facoltativamente, aggiungerlo a un set di disponibilità. Copiare una delle due opzioni seguenti nel set di comandi e immettere il nome, le dimensioni e il nome del set di disponibilità.
 
@@ -268,9 +317,9 @@ Se si ritiene in futuro di dover creare nuovamente questa macchina virtuale o un
 
 È necessario un set di comandi di PowerShell per creare una macchina virtuale aggiuntiva per un carico di lavoro line-of-business basato sul Web che:
 
-- Sia incluso nel gruppo di risorse LOBServers esistente
+- Viene inserito nel gruppo di risorse esistente LOBServers
 - Usi l'immagine Windows Server 2012 R2 Datacenter
-- Presenti il nome LOB07 e sia incluso nel set di disponibilità WEB_AS esistente
+- Presenti il nome LOB07 e sia incluso nel set di disponibilità WEB\_AS esistente
 - Disponga di una scheda di interfaccia di rete con un indirizzo IP pubblico nella subnet FrontEnd (indice subnet 0) della rete virtuale AZDatacenter esistente
 - Disponga di un disco dati aggiuntivo di 200 GB
 
@@ -282,7 +331,7 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -290,7 +339,7 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
@@ -330,12 +379,12 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
+[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
 [Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Come installare e configurare Azure PowerShell](install-configure-powershell.md)
+[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

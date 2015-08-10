@@ -21,7 +21,7 @@
 
 Le macchine virtuali di Azure sono uno dei vari tipi di risorse di calcolo scalabili e su richiesta offerte da Azure. In genere, la scelta ricadrà su una macchina virtuale anziché un'altra opzione se è necessario maggiore controllo dell'ambiente di elaborazione rispetto a quanto offerto dalle altre scelte.
 
-Un altro approccio consiste nell'usare una macchina virtuale su hardware proprio. Rispetto a questo approccio, una macchina virtuale di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico che esegue la macchina virtuale. È comunque necessario gestire la macchina virtuale, ovvero occuparsi di configurazione, applicazione di patch e manutenzione del sistema operativo e di qualsiasi altro software in esecuzione nella macchina virtuale.
+Un altro approccio consiste nell'utilizzare una macchina virtuale su hardware proprio. Rispetto a questo approccio, una macchina virtuale di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la macchina virtuale, ovvero occuparsi di configurazione, applicazione di patch e manutenzione del sistema operativo e di qualsiasi altro software in esecuzione nella macchina virtuale.
 
 Questa tabella consente di confrontare le scelte offerte da Azure.
 
@@ -35,13 +35,13 @@ Provare una macchina virtuale mediante la creazione di una macchina virtuale sem
 
 [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](virtual-machines-windows-tutorial.md)
 
-Poiché queste esercitazioni consentono di creare rapidamente una macchina virtuale, vengono descritte solo le procedure per farlo anziché descrivere i vari strumenti che è possibile usare per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere:
+Poiché queste esercitazioni consentono di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l’esecuzione di tale operazione anziché descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere:
 
 [Diversi modi per creare una macchina virtuale Linux](virtual-machines-linux-choices-create-vm.md)
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, assicurarsi di leggere le [domande frequenti](virtual-machines-questions.md).
+Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, leggere anche le [domande frequenti](virtual-machines-questions.md).
 
 
 <!--links-->
@@ -49,4 +49,4 @@ Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, a
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -87,7 +87,7 @@ Il frammento di codice .NET seguente mostra come impostare criteri di indicizzaz
 
 ### Modalità di indicizzazione
 
-È possibile scegliere tra aggiornamenti dell'indice sincroni (**Consistent**), asincroni (**Lazy**) o nessuno (**None**). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono in ogni azione di inserimento, sostituzione o eliminazione eseguita su un documento della raccolta. Questo consente alle query di rispettare lo stesso livello di coerenza delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
+È possibile scegliere tra aggiornamenti dell'indice sincroni (\*\*Consistent\*\*), asincroni (\*\*Lazy\*\*) o nessuno (\*\*None\*\*). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono in ogni azione di inserimento, sostituzione o eliminazione eseguita su un documento della raccolta. Questo consente alle query di rispettare lo stesso livello di coerenza delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
 
 Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita è ideale per gli scenari in cui i dati vengono scritti in burst e si desidera ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. Questo consente di usare in modo efficiente la velocità effettiva con provisioning e di servire le richieste di scrittura nei momenti di massima attività con latenza minima. Con l'indicizzazione differita attivata, i risultati delle query risulteranno comunque coerenti indipendentemente dal livello di coerenza configurato per l'account di database.
 
@@ -113,9 +113,9 @@ L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK
 
 All'interno dei documenti è possibile scegliere i percorsi da includere o escludere dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti.
 
-I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
+I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per usare SELECT \* FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
 
-I percorsi di indice possono anche usare il carattere jolly * per specificare un comportamento ricorsivo al di sotto del prefisso. Ad esempio, /"payload"/* può essere usato per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
+I percorsi di indice possono anche usare il carattere jolly \* per specificare un comportamento ricorsivo al di sotto del prefisso. Ad esempio, /"payload"/\* può essere usato per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
 
 Di seguito sono indicati i modelli comuni per la definizione di percorsi di indice:
 
@@ -250,7 +250,7 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
     </tbody>
 </table>
 
->[AZURE.NOTE]Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/*".
+>[AZURE.NOTE]Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/\*".
 
 L'esempio seguente configura un percorso specifico con indicizzazione Range e un valore di precisione personalizzato di 20 byte:
 
@@ -296,7 +296,7 @@ La precisione indice consente di raggiungere un compromesso tra l'overhead di ar
 
 La configurazione di precisione indice è più utile con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione indice può compromettere le prestazioni delle query di intervallo di stringhe e influire sulla quantità di spazio di archiviazione indice necessario. Gli indici di intervallo di stringhe possono essere configurati con valori compresi tra 1 e 100 o con il valore di precisione massima (-1). Se è necessaria una query orderby sulle stringhe, è necessario specificarlo nel percorso specificato (-1).
 
-L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Si noti che viene usato il percorso predefinito "/*".
+L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Si noti che viene usato il percorso predefinito "/\*".
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
@@ -318,7 +318,7 @@ L'esempio seguente mostra come aumentare la precisione per gli indici Range di u
 > 
 > Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione x-ms-documentdb-enable-scans nell'API REST o nell'opzione della richiesta EnableScanInQuery usando .NET SDK.
 
-Allo stesso modo i percorsi possono essere completamente esclusi dall'indicizzazione. Nell'esempio seguente viene illustrato come escludere un'intera sezione dei documenti (detta anche sottoalbero) dall'indicizzazione usando il carattere jolly "*".
+Allo stesso modo i percorsi possono essere completamente esclusi dall'indicizzazione. Nell'esempio seguente viene illustrato come escludere un'intera sezione dei documenti (detta anche sottoalbero) dall'indicizzazione usando il carattere jolly "\*".
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -381,7 +381,7 @@ Nella specifica JSON sono state implementate le modifiche seguenti:
 - Ogni percorso può avere più definizioni di indice, uno per ogni tipo di dati
 - La precisione di indicizzazione supporta valori da 1 a 8 per i numeri, da 1 a 100 per le stringhe e -1 (precisione massima)
 - I segmenti di percorsi non richiedono le virgolette doppie per l'escape di ogni percorso. Ad esempio, è possibile aggiungere un percorso per /title/? invece che /"title"/?
-- Il percorso radice che rappresenta "tutti i percorsi" può essere rappresentato come /* (oltre che /)
+- Il percorso radice che rappresenta "tutti i percorsi" può essere rappresentato come /\* (oltre che /)
 
 Se si dispone di codice che esegue il provisioning delle raccolte con un criterio di indicizzazione personalizzato scritto con .NET SDK versione 1.1.0 o precedente, sarà necessario modificare il codice dell'applicazione per gestire queste modifiche e poter passare a SDK versione 1.2.0. Se non si dispone di codice che configura il criterio di indicizzazione o si prevede di continuare a usare una versione precedente dell'SDK, non è richiesta alcuna modifica.
 
@@ -444,4 +444,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

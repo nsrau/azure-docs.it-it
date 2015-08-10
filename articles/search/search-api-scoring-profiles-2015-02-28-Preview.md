@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)" 
-	description="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview) | Microsoft Azure"
+	description="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/24/2015" 
-	ms.author="heidist"/>
-      
-#Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.author="heidist"
+	ms.date="07/24/2015" />
 
-> [AZURE.NOTE]Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e la versione `2015-02-28-Preview` descritta di seguito. Questo articolo fornisce il set completo della documentazione di `2015-02-28-Preview`, anche se l'API sembra invariata.
+# Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
+
+> [AZURE.NOTE]Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e la versione `2015-02-28-Preview` descritta di seguito.
 
 ## Panoramica
 
@@ -36,7 +36,7 @@ Per illustrare un profilo di punteggio, l'esempio seguente mostra un semplice pr
         "text": {
           "weights": { "hotelName": 5 }
         },
-        "functions": [ 
+        "functions": [
           {
             "type": "distance",
             "boost": 5,
@@ -55,7 +55,7 @@ Per usare il profilo di punteggio, la query viene formulata in modo da specifica
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview.md#SearchDocs).
+Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview/#SearchDocs.md).
 
 Fare clic su [Esempio](#example) per esaminare un esempio più dettagliato del profilo di punteggio.
 
@@ -108,7 +108,7 @@ Questo esempio illustra lo schema di un indice con due profili di punteggio (`bo
             "weights": {
               "albumTitle": 1,
               "genre": 5 ,
-              "artistName": 2 
+              "artistName": 2
             }
           }
 	    },
@@ -144,7 +144,7 @@ Questo esempio illustra lo schema di un indice con due profili di punteggio (`bo
           "searchMode": "analyzingInfixMatching",
           "sourceFields": ["albumTitle", "artistName"]
         }
-      ] 
+      ]
     }
 
 
@@ -158,9 +158,50 @@ Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne ag
 
 Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 
-<font> <table> <thead><tr><td><b>Elemento</b></td><td><b>Descrizione</b></td></tr></thead> <tbody> <tr> <td><b>Pesi</b></td> <td> Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#example), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore. </td> </tr> <tr> <td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione ha parametri che la contraddistinguono. <p> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (Edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness. </p><p> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double. </p><p> Per la funzione `magnitude`, è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso. Ad esempio, per aumentare la priorità degli articoli più economici piuttosto che di quelli più cari. Dato un intervallo di prezzi da € 100 a € 1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare la priorità degli articoli più economici. </p><p> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint`. </p><p> - È consigliabile usare `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e '(Collection(Edm.String)'. </p> <p><b>Regole per l'uso delle funzioni</b></p> Il tipo di funzione (freshness, magnitude, distance, tag) deve essere scritto in lettere minuscole. <br/> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore. <br/> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice](search-api-2015-02-28-preview.md#createindex). <br/> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. </td> </tr> </tbody> </table> </font>
+<table>
+<thead>
+<tr><td><b>Elemento</b></td><td><b>Descrizione</b></td></tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <b>Weights</b>
+      </td>
+      <td>
+        Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#example), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Funzioni</b>
+      </td>
+      <td>
+        Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.
+        <p>
+          È consigliabile usare `freshness`quando si desidera aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (Edm.DataTimeOffset). L’attributo 'boostingDuration' viene utilizzato solo con la funzione freshness.
+          </p><p>
+            È consigliabile usare `magnitude`quando si desidera aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.
+          </p><p>
+            Per la funzione `magnitude`, è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso. Ad esempio, per aumentare la priorità degli articoli più economici piuttosto che di quelli più cari. Dato un intervallo di prezzi da € 100 a € 1, è necessario impostare 'boostingRangeStart' su 100 e 'boostingRangeEnd' su 1 per aumentare la priorità degli articoli più economici.
+          </p><p>
+            È consigliabile usare `distance` quando si desidera aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con i campi `Edm.GeographyPoint`.
+          </p><p>
+            È consigliabile usare `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `(Collection(Edm.String).
+          </p>
+             <p><b>Regole per l'uso delle funzioni</b>
+			</p>
+            Il tipo di funzione (freshness, magnitude, distance, tag) deve essere scritto in lettere minuscole.
+            <br/>
+            Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
+            <br/>
+             Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice](search-api-2015-02-28/#createindex).
+             <br/>
+             Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.
+         </td>
+</tr>
+  </tbody>
+</table>
 
-Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice](search-api-2015-02-28-preview.md#createindex) e [Aggiungere o aggiornare documenti](search-api-2015-02-28-preview.md#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
+Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice](search-api-2015-02-28-preview/#createindex) e [Aggiungere o aggiornare documenti](search-api-2015-02-28-preview/#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
 
 <a name="bkmk_template"></a>
 ##Modello
@@ -168,51 +209,51 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 
     ...
     "scoringProfiles": [
-      { 
-        "name": "name of scoring profile", 
-        "text": (optional, only applies to searchable fields) { 
-          "weights": { 
-            "searchable_field_name": relative_weight_value (positive #'s), 
-            ... 
-          } 
-        }, 
+      {
+        "name": "name of scoring profile",
+        "text": (optional, only applies to searchable fields) {
+          "weights": {
+            "searchable_field_name": relative_weight_value (positive #'s),
+            ...
+          }
+        },
         "functions": (optional) [
-          { 
-            "type": "magnitude | freshness | distance | tag", 
-            "boost": # (positive number used as multiplier for raw score != 1), 
-            "fieldName": "...", 
-            "interpolation": "constant | linear (default) | quadratic | logarithmic", 
-            
-            "magnitude": { 
-              "boostingRangeStart": #, 
-              "boostingRangeEnd": #, 
-              "constantBoostBeyondRange": true | false (default) 
+          {
+            "type": "magnitude | freshness | distance | tag",
+            "boost": # (positive number used as multiplier for raw score != 1),
+            "fieldName": "...",
+            "interpolation": "constant | linear (default) | quadratic | logarithmic",
+
+            "magnitude": {
+              "boostingRangeStart": #,
+              "boostingRangeEnd": #,
+              "constantBoostBeyondRange": true | false (default)
             }
 
-            // (- or -) 
-    
-            "freshness": { 
-              "boostingDuration": "..." (value representing timespan over which boosting occurs) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "freshness": {
+              "boostingDuration": "..." (value representing timespan over which boosting occurs)
+            }
 
-            "distance": { 
-              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location) 
-              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "distance": {
+              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+            }
+
+            // (- or -)
 
             "tag": {
               "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field)
             }
-          } 
-        ], 
-        "functionAggregation": (optional, applies only when functions are specified) 
-            "sum (default) | average | minimum | maximum | firstMatching" 
-      } 
-    ], 
+          }
+        ],
+        "functionAggregation": (optional, applies only when functions are specified)
+            "sum (default) | average | minimum | maximum | firstMatching"
+      }
+    ],
     "defaultScoringProfile": (optional) "...",
     ...
 
@@ -221,14 +262,13 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 
 **Nota** Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
 
-<table>
-<thead>
+<table border="1">
 <tr>
-<td>Attributo</td>
-<td>Descrizione</td>
+<th>Attributo</th>
+<th>Descrizione</th>
 </tr>
 <tr>
-<td>Name</td>	<td>Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata). </td>
+<td>Name</td>	<td>Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase 'azureSearch' (distinzione tra maiuscole e minuscole applicata). </td>
 </tr><tr>
 <td>Text</td>	<td>Contiene la proprietà Weights.</td>
 </tr><tr>
@@ -236,7 +276,7 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 <tr>
 <td>Functions</td>	<td>Facoltativo. Si noti che la funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.</td>
 </tr><tr>
-<td>Type</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.</td>
+<td>Tipo</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.</td>
 </tr><tr>
 <td>Boost</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.</td>
 </tr><tr>
@@ -244,9 +284,9 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 </tr><tr>
 <td>Interpolation</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Definisce il coefficiente angolare in base al quale viene incrementato l'aumento di priorità del punteggio dall'inizio alla fine dell'intervallo. I valori validi includono Linear (predefinito), Constant, Quadratic e Logarithmic. Per informazioni dettagliate, vedere [Impostare le interpolazioni](#bkmk_interpolation).</td>
 </tr><tr>
-<td>magnitude</td>	<td>La funzione di assegnazione di punteggio in base al valore magnitude viene usata per modificare le classificazioni in base all'intervallo di valori per un campo numerico. Alcuni degli esempi di utilizzo più comuni sono i seguenti: 
+<td>magnitude</td>	<td>La funzione di assegnazione di punteggio in base al valore magnitude viene usata per modificare le classificazioni in base all'intervallo di valori per un campo numerico. Alcuni degli esempi di utilizzo più comuni sono i seguenti:
 <br>
-- Classificazioni basate su stelle: il punteggio viene modificato in base al valore disponibile nel campo "Star Rating". Quando due elementi sono rilevanti, verrà visualizzato per primo l'elemento con la classificazione superiore.
+Classificazioni basate su stelle: il punteggio viene modificato in base al valore disponibile nel campo "Star Rating". Quando due elementi sono rilevanti, verrà visualizzato per primo l'elemento con la classificazione superiore.
 <br>
 - Margine: quando due documenti sono rilevanti, è possibile che un rivenditore voglia aumentare la priorità dei documenti che presentano il margine più alto.
 <br>
@@ -257,28 +297,27 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 <td>magnitude | boostingRangeStart</td>	<td>Imposta il valore iniziale dell'intervallo su cui è basato il calcolo della funzione magnitude. Il valore deve essere di tipo Integer o Double. Per le classificazioni a stelle da 1 a 4, corrisponde a 1. Per i margini superiori al 50%, corrisponde a 50.</td>
 </tr><tr>
 <td>magnitude | boostingRangeEnd</td>	<td>Imposta il valore finale dell'intervallo su cui è basato il calcolo della funzione magnitude. Il valore deve essere di tipo Integer o Double. Per le classificazioni a stelle da 1 a 4, corrisponde a 4.</td>
-</tr><tr> 
+</tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>I valori validi sono true o false (predefinito). Se impostato su true, l'aumento completo della priorità continuerà a essere applicato a documenti che includono un valore per il campo di destinazione maggiore rispetto al limite superiore dell'intervallo. Se false, l'aumento di priorità di questa funzione non verrà applicato ai documenti che includono un valore per il campo di destinazione che non rientra nell'intervallo.</td>
 </tr><tr>
-<td>freshness</td>	<td>La funzione freshness per l'assegnazione di punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori dei campi DateTimeOffset fields. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti. Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità pari a &lt; 1.</td>
+<td>freshness</td>	<td>La funzione freshness per l'assegnazione di punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori dei campi DateTimeOffset fields. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti. Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità inferiore a 1.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration](#bkmk_boostdur) nella sezione seguente.</td>
+<td>freshness | boostingDuration</td>	<td>Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration][#bkmk_boostdur] nella sezione seguente.</td>
 </tr><tr>
 <td>distance</td>	<td>La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene fornita come parte della query in un parametro, usando l'opzione di stringa 'scoringParameterquery' sotto forma di argomento lon,lat.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs).</td>
+<td>distance | referencePointParameter</td>	<td>Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview/#SearchDocs).</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.</td>
 </tr><tr>
 <td>tag</td>	<td>La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametri di assegnazione dei punteggi in ciascuna richiesta di ricerca (tramite l'opzione di stringa 'scoringParameterquery').</td>
 </tr><tr>
-<td>tag | tagsParameter</td>	<td>Parametro da passare nelle query per specificare i tag per una particolare richiesta. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs).</td>
+<td>tag | tagsParameter</td>	<td>Parametro da passare nelle query per specificare i tag per una particolare richiesta. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview/#SearchDocs).</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>Facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base è basato sul valore tf-idf calcolato dal documento e dalla query di ricerca.</td>
 </tr><tr>
 <td>defaultScoringProfile</td>	<td>Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo. </td>
 </tr>
-</tbody>
 </table>
 
 <a name="bkmk_interpolation"></a>
@@ -293,7 +332,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 - `Quadratic` Rispetto all'interpolazione lineare, che prevede un aumento di priorità costantemente decrescente, l'interpolazione quadratica presenterà una diminuzione iniziale a un ritmo più ridotto e una diminuzione con un intervallo molto più elevato quando si avvicina all'intervallo finale. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.
 
 - `Logarithmic` Rispetto all'interpolazione lineare che presenta un aumento di priorità costantemente decrescente, l'interpolazione logaritmica diminuirà inizialmente a un ritmo più elevato e diminuirà con un intervallo molto più ridotto quando si avvicina all'intervallo finale. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.
- 
+
 <a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
@@ -301,7 +340,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 `boostingDuration` è un attributo della funzione freshness. Consente di impostare un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Ad esempio, per aumentare la priorità di una linea di prodotti o una marca per un periodo promozionale di 10 giorni, è necessario specificare tale periodo come "P10D" per questi documenti.
 
-Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: "P(nD)(T(nH)(nM)(nS))".
+Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: "P[nD][T[nH][nM][nS]]".
 
 La tabella seguente fornisce alcuni esempi.
 
@@ -331,6 +370,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

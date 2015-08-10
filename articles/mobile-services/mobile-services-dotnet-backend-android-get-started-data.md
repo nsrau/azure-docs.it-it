@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/29/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -133,4 +133,4 @@ Successivamente, provare a eseguire una delle esercitazioni seguenti:
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

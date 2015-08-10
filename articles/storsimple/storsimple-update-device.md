@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/15/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # Aggiornare il dispositivo StorSimple
@@ -52,7 +52,6 @@ Per informazioni dettagliate su come installare gli aggiornamenti in modalità m
 
 È possibile utilizzare il portale di gestione per applicare gli aggiornamenti al dispositivo StorSimple.
 
-
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## Installare aggiornamenti regolari tramite Windows PowerShell per StorSimple
@@ -91,8 +90,7 @@ Dopo la connessione alla console, determinare se sono presenti aggiornamenti da 
 Successivamente, installare gli aggiornamenti.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
-
-    
+ 
 ### Passaggio 4: Uscire dalla modalità di manutenzione
 
 Per terminare, uscire dalla modalità manutenzione.
@@ -121,4 +119,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 Altre informazioni su [Windows PowerShell per StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

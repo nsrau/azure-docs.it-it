@@ -47,7 +47,7 @@ Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
    1. Nella casella di testo **Nome**, digitare un nome per il criterio.
 
-   2. Nella casella di testo** Gruppo di volumi **, digitare il nome del gruppo di volumi associati al criterio.
+   2. Nella casella di testo\*\* Gruppo di volumi **, digitare il nome del gruppo di volumi associati al criterio.
 
    3. Selezionare **Snapshot locale** o **Snapshot cloud**.
 
@@ -118,4 +118,4 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

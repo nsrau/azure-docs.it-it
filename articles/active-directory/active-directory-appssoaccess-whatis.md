@@ -78,7 +78,7 @@ In entrambi i casi, le credenziali vengono archiviate in formato crittografato n
 
 Single Sign-On basato su password si basa su un'estensione del browser per recuperare in modo sicuro le informazioni specifiche dell’applicazione e dell'utente da Azure AD e applicarle al servizio. La maggior parte delle applicazioni SaaS di terze parti supportate da Azure AD supportano questa funzionalità.
 
-Per Single Sign-On basato su password, il browser dell'utente finale può essere: * Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10 in Windows 7 o versione successiva * Chrome in Windows 7 o versione successiva oppure MacOS X o versione successiva
+Per Single Sign-On basato su password, il browser dell'utente finale può essere: \* Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10 in Windows 7 o versione successiva \* Chrome in Windows 7 o versione successiva oppure MacOS X o versione successiva
 
 ###Single Sign-On esistente
 
@@ -212,4 +212,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

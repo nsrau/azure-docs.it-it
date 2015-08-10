@@ -81,23 +81,10 @@ Considerare le variabili seguenti.
 
 Ad esempio, presupponendo dimensioni di caricamento giornaliere di 100 KB per ogni agente e il periodo di archiviazione predefinito, per il gruppo di gestione sarà necessario lo spazio di archiviazione seguente:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Numero di agenti</b></td>
-		<td><b>Spazio stimato necessario per il gruppo di gestione</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2,5 MB (5 agenti x 100 KB di dati/giorno x 5 giorni = 2.500 KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25 MB (50 agenti x 100 KB di dati/giorno x 5 giorni = 25.000 KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+Numero di agenti|Spazio stimato necessario per il gruppo di gestione
+---|---
+5|\~2,5 MB (5 agenti x 100 KB di dati/giorno x 5 giorni = 2.500 KB)
+50|\~25 MB (50 agenti x 100 KB di dati/giorno x 5 giorni = 25.000 KB)
 
 ## Account RunAs di Operations Manager per Operational Insights
 
@@ -116,7 +103,7 @@ Le sezioni seguenti illustrano come configurare account RunAs di Operations Mana
 
 #### Per configurare l'account RunAs di SQL in Operations Console
 
-1. In Operations Manager aprire la console Operations e quindi fare clic su **Administration**.
+1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 
 2. In **Run As Configuration** fare clic su **Profiles** e aprire **Operational Insights SQL Assessment Run As Profile**.
 
@@ -176,7 +163,7 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 #### Per impostare credenziali per VMM
 
-1. In Operations Manager aprire la console Operations e quindi fare clic su **Administration**.
+1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 
 2. In **Run As Configuration** fare clic su **Profiles** e aprire **Operational Insights VMM Run As Account**.
 
@@ -194,7 +181,7 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 #### Per impostare le credenziali per un account di Lync
 
-1. In Operations Manager aprire la console Operations e quindi fare clic su **Administration**.
+1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 
 2. In **Run As Configuration** fare clic su **Profiles** e aprire **Operational Insights Lync Run As Account**.
 
@@ -211,7 +198,7 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 #### Per configurare le credenziali per un account di SharePoint
 
-1. In Operations Manager aprire la console Operations e quindi fare clic su **Administration**.
+1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 
 2. In **Run As Configuration** fare clic su **Profiles** e aprire **Operational Insights SharePoint Run As Account**.
 
@@ -228,4 +215,4 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 Per analizzare i dati di server in diverse posizioni geografiche, considerare la configurazione di un gruppo di gestione per posizione. Questo approccio può migliorare le prestazioni per il trasferimento dei dati dall'agente al gruppo di gestione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

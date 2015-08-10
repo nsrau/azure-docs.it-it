@@ -104,7 +104,7 @@ In PowerShell, sostituire gli elementi all'interno dei segni di minore/maggiore 
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:>"
+	$OutputPathForSettingsFile = "<C:\>"
 
 ```
 
@@ -125,7 +125,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:>"
+		$OutputPathForSettingsFile = "<C:\>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -354,7 +354,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 ### Creare un piano di ripristino
 
-1. Creare un file XML come modello per il piano di ripristino utilizzando i dati seguenti e quindi salvarlo come "C:\RPTemplatePath.xml".
+1. Creare un file XML come modello per il piano di ripristino utilizzando i dati seguenti e quindi salvarlo come "C:\\RPTemplatePath.xml".
 2. Cambiare l'ID nodo RecoveryPlan, il nome, il PrimaryServerId e il SecondaryServerId.
 3. Modificare il PrimaryProtectionEntityId del nodo ProtectionEntity (vmid da VMM).
 4. È possibile aggiungere ulteriori macchine virtuali mediante l'aggiunta di più nodi ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

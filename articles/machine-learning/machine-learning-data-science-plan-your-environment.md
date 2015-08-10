@@ -2,7 +2,6 @@
 	pageTitle="Pianificare un ambiente di analisi avanzata dei dati di Machine Learning | Microsoft Azure" 
 	description="Pianificare l'ambiente di analisi avanzata tenendo presenti le domande principali." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -14,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/22/2015" 
 	ms.author="mohabib;bradsev" />
 
 
 # Pianificare l'ambiente di analisi avanzata dei dati di Azure Machine Learning
 
-È necessario prendere alcune decisioni quando si configura un ambiente di analisi avanzata dei dati di Azure Machine Learning. Le decisioni prese si baseranno sul tipo, sulla dimensione e sulla posizione di origine dei dati e sulla destinazione di tali dati nel cloud. Il processo di analisi avanzata dei dai cloud è una serie di attività end-to-end che consentono di accedere dai dati originali in una specifica origine attraverso la creazione e la pubblicazione di un modello come un servizio Web di Azure da utilizzare nelle applicazioni.
+Quale scenario corrisponde ai problemi di analisi quando ci si prepara a configurare un ambiente per eseguire analisi avanzate con Azure Machine Learning? Le decisioni prese in merito alle risorse necessarie si basano sul tipo, sulle dimensioni e sulla posizione di origine dei dati e sulla destinazione di tali dati. Questo articolo illustra queste domande per facilitare l'identificazione del proprio scenario.
 
-Il flusso di Advanced Analytics Process and Technology viene presentato nell'argomento relativo alla [creazione di soluzioni di analisi avanzate dei dati in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md). Per altre informazioni sui singoli passaggi in Advanced Analytics Process and Technology (ADAPT), selezionare gli elementi pertinenti nella Guida.
+Dopo aver identificato lo scenario rilevante, il flusso di lavoro di ADAPT (Advanced Analytics Process and Technology) presentato in [Percorso di apprendimento: Creazione di soluzioni di analisi avanzata in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md) illustra una serie di attività, da come ottenere un set di dati fino alla creazione e pubblicazione di un modello come servizio Web di Azure utilizzabile dalle applicazioni.
 
-Questo articolo illustra le domande da tenere presenti durante la configurazione dell'ambiente di analisi avanzata dei dati, enumera le risorse e gli strumenti utili per questo processo e fornisce indicazioni su come usare la guida di Advanced Analytics Process and Technology.
+Questo argomento enumera anche alcune delle risorse e degli strumenti usati da questo processo di analisi avanzata.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Domande da tenere presenti
-
-Prima di iniziare a creare l'ambiente di analisi avanzata dei dati, tenere presenti le domande seguenti.
+## Rispondere a queste domande
+Rispondere a queste domande per determinare lo scenario in uso prima di creare l'ambiente di analisi avanzata.
 
 1. **Dove si trovano i dati?** (Questo percorso viene definito ***origine dati***.) Ad esempio:
 	- I dati sono disponibili a un indirizzo HTTP.
@@ -50,7 +48,7 @@ Prima di iniziare a creare l'ambiente di analisi avanzata dei dati, tenere prese
 4. **Quanta familiarità si ha con i dati?**
     - È necessario esplorare i dati per individuarne lo schema, le distribuzioni di variabili, i valori mancanti e così via? 
 	- I dati necessitano di pre-elaborazione o pulizia prima di poter essere trasformati in una rappresentazione tabulare? 
-5. **Si prevede (o si è in grado) di spostare tutti i dati in Azure?**
+5. **Si prevede (o si è in grado) di spostare tutti i dati in Archiviazione di Azure?**
     - Sì, si sta pianificando di copiare l'intero set di dati nel cloud per l'elaborazione.
 	- No, solo un set di dati verrà copiato in Azure.
 6. **Qual è la destinazione del cloud di Azure preferita?** Ad esempio:
@@ -59,24 +57,26 @@ Prima di iniziare a creare l'ambiente di analisi avanzata dei dati, tenere prese
 	- Caricare i dati in un database di SQL Server in una macchina virtuale di Azure.
 	- Eseguire il mapping dei dati in tabelle Hive di Azure HDInsight.
 
+## Qual è il proprio scenario?
+Dopo aver risposto alle domande nella sezione precedente, si è pronti per determinare quale scenario è più adatto al caso specifico. Gli scenari di esempio sono descritti in [Scenari relativi ad ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
+
 ## Risorse di analisi avanzata in Azure
+A seconda dello scenario, potrebbero essere necessari alcuni degli strumenti e delle risorse seguenti.
 
-A seconda dello scenario, può essere necessario quanto segue:
-
-1.  Strumenti di Azure: [Azure PowerShell SDK](../install-configure-powershell.md), [Esplora archivi di Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](../storage-use-azcopy.md) e altri
+1.  Strumenti di Azure: 
+	* 	[Azure PowerShell SDK](../install-configure-powershell.md), 
+	* 	[Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
+	* 	[AzCopy](../storage-use-azcopy.md)
 2.  Macchine virtuali di Azure che eseguono SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Reti virtuali di Azure per la condivisione di un file di Azure locale
 5.  Azure Data Factory per lo spostamento dei dati pianificato
 
 
-## Come usare la guida di Advanced Analytics Process and Technology (ADAPT)
 
-La guida fornita nell'argomento relativo alla [creazione di soluzioni di analisi avanzate in Azure](machine-learning-data-science-how-to-create-machine-learning-service.md) presenta numerosi esercizi di analisi scientifica dei dati. La mappa mostra i passaggi fondamentali previsti in un tipico flusso di lavoro di analisi avanzata dei dati. Non tutti i passaggi sono necessari in ogni esercizio di analisi scientifica dei dati. Inoltre, il processo è iterativo per natura e la sequenza dei passaggi potrebbe variare in un determinato esercizio. Le risposte alle domande poste sopra aiuteranno l'utente a decidere i passaggi riguardanti il proprio caso, quando sono necessari nel processo e le condizioni in cui le iterazioni dei passaggi sono necessarie.
 
-Per scenari di esempio basati sulle dimensioni dei dati originali, sul percorso di origine dei dati e sull'archivio di destinazione in Azure, vedere l'argomento relativo agli [scenari di Advanced Analytics Process and Technology in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

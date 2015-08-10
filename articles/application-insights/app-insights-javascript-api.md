@@ -218,4 +218,4 @@ Informazioni che il SDK tenta di estrarre dall'ambiente su utente, dispositivo e
 
 Leggere o contribuire alla[codice per il SDK](https://github.com/Microsoft/ApplicationInsights-js).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

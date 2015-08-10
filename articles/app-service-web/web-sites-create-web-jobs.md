@@ -48,7 +48,7 @@ Sono consentiti i tipi di file seguenti:
 	
 	![Pannello Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. In **Name** indicare un nome per il processo Web. Il nome deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".
+2. In **Name** indicare un nome per il processo Web. Il nome deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "\_".
 	
 4. Nella casella **How to Run** selezionare **Run on Demand**.
 	
@@ -70,7 +70,7 @@ Sono consentiti i tipi di file seguenti:
 	
 > [AZURE.NOTE]Se l'app Web è in esecuzione su più di un'istanza, il processo Web con esecuzione continua verrà eseguito su tutte le istanze. I processi Web su richiesta e pianificati vengono eseguiti su una singola istanza selezionata per il bilanciamento del carico da Microsoft Azure.
 	
-> Per i processi Web continui da eseguire in modo affidabile su tutte le istanze, abilitare l'impostazione di configurazione Always On* per l'app Web, altrimenti è possibile che l'esecuzione dei processi venga interrotta quando il sito host SCM rimane inattivo per troppo tempo.
+> Per i processi Web continui da eseguire in modo affidabile su tutte le istanze, abilitare l'impostazione di configurazione Always On\* per l'app Web, altrimenti è possibile che l'esecuzione dei processi venga interrotta quando il sito host SCM rimane inattivo per troppo tempo.
 
 ## <a name="CreateScheduled"></a>Creare un processo Web pianificato
 
@@ -209,4 +209,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

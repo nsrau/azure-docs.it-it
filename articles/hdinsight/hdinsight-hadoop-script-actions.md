@@ -32,7 +32,7 @@ Nome | Script
 **Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark].
 **Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts].
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+\- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize].
 
@@ -107,12 +107,12 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 
 - Assicurarsi che lo script di personalizzazione del cluster sia idempotente
 
-	È necessario tenere presente che, durante il ciclo di vita di un cluster HDInsight, verrà ricreata l'immagine dei nodi di quest'ultimo. Lo script di personalizzazione del cluster viene eseguito ad ogni nuova creazione dell'immagine del cluster. Questo script deve essere progettato in modo da essere idempotente. In altri termini, quando viene ricreata l'immagine, lo script deve assicurare che il cluster venga riportato allo stesso stato personalizzato in cui si trovava dopo la prima esecuzione dello script, al momento della creazione originaria del cluster. Se, ad esempio, al momento della prima esecuzione uno script personalizzato ha installato un'applicazione in D:\AppLocation, a ogni esecuzione successiva, quando viene ricreata l'immagine, lo script deve verificare la presenza dell'applicazione nel percorso D:\AppLocation prima di procedere con altri passaggi.
+	È necessario tenere presente che, durante il ciclo di vita di un cluster HDInsight, verrà ricreata l'immagine dei nodi di quest'ultimo. Lo script di personalizzazione del cluster viene eseguito ad ogni nuova creazione dell'immagine del cluster. Questo script deve essere progettato in modo da essere idempotente. In altri termini, quando viene ricreata l'immagine, lo script deve assicurare che il cluster venga riportato allo stesso stato personalizzato in cui si trovava dopo la prima esecuzione dello script, al momento della creazione originaria del cluster. Se, ad esempio, al momento della prima esecuzione uno script personalizzato ha installato un'applicazione in D:\\AppLocation, a ogni esecuzione successiva, quando viene ricreata l'immagine, lo script deve verificare la presenza dell'applicazione nel percorso D:\\AppLocation prima di procedere con altri passaggi.
 
 
 - Installare i componenti personalizzati nella posizione ottimale
 
-	Quando vengono ricreate le immagini dei nodi del cluster, l'unità delle risorse C:\ e l'unità di sistema D:\ potrebbero essere riformattate, causando una perdita dei dati e delle applicazioni installate nei driver. Questo problema può verificarsi anche se un nodo della macchina virtuale (VM) di Azure che fa parte del cluster si arresta e viene sostituito da un nuovo nodo. È possibile installare componenti nell'unità D:\ o nel percorso C:\apps del cluster. Tutti gli altri percorsi nell'unità C:\ sono riservati. Specificare il percorso in cui installare le applicazioni o le librerie nello script di personalizzazione del cluster.
+	Quando vengono ricreate le immagini dei nodi del cluster, l'unità delle risorse C:\\ e l'unità di sistema D:\\ potrebbero essere riformattate, causando una perdita dei dati e delle applicazioni installate nei driver. Questo problema può verificarsi anche se un nodo della macchina virtuale (VM) di Azure che fa parte del cluster si arresta e viene sostituito da un nuovo nodo. È possibile installare componenti nell'unità D:\\ o nel percorso C:\\apps del cluster. Tutti gli altri percorsi nell'unità C:\\ sono riservati. Specificare il percorso in cui installare le applicazioni o le librerie nello script di personalizzazione del cluster.
 
 
 - Verificare la disponibilità elevata dell'architettura del cluster
@@ -161,7 +161,7 @@ Spesso nello sviluppo delle azioni script risulterà necessario impostare alcune
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Questa istruzione imposta la variabile di ambiente **MDS_RUNNER_CUSTOM_CLUSTER** sul valore 'true', oltre a impostare l'ambito di questa variabile a livello di computer. In alcuni casi è importante che le variabili di ambiente siano impostate nell'ambito appropriato: computer o utente. Vedere [qui][1] per altre informazioni sull'impostazione delle variabili di ambiente.
+Questa istruzione imposta la variabile di ambiente **MDS\_RUNNER\_CUSTOM\_CLUSTER** sul valore 'true', oltre a impostare l'ambito di questa variabile a livello di computer. In alcuni casi è importante che le variabili di ambiente siano impostate nell'ambito appropriato: computer o utente. Vedere [qui][1] per altre informazioni sull'impostazione delle variabili di ambiente.
 
 ### Accedere alle posizioni in cui sono archiviati gli script personalizzati
 
@@ -201,7 +201,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 2. Aggiungere controlli negli script per garantire che questi vengano eseguiti in modo idempotente, così che sia possibile eseguire più volte lo script nello stesso nodo.
 3. Usare il cmdlet di Azure PowerShell **Write-Output** per stampare in STDOUT e in STDERR. Non usare **Write-Host**.
 4. Usare una cartella di file temporanea, ad esempio $env:TEMP, per conservare il file scaricato usato dagli script e quindi eliminarla dopo aver eseguito gli script stessi.
-5. Installare il software personalizzato solo in D:\ o C:\apps. Non usare altri percorsi dell'unità C: perché sono riservati. Si noti che l'installazione dei file nell'unità C: all'esterno della cartella C:\apps può comportare errori di installazione durante la nuova creazione dell'immagine del nodo.
+5. Installare il software personalizzato solo in D:\\ o C:\\apps. Non usare altri percorsi dell'unità C: perché sono riservati. Si noti che l'installazione dei file nell'unità C: all'esterno della cartella C:\\apps può comportare errori di installazione durante la nuova creazione dell'immagine del nodo.
 6. In caso di modifica delle impostazioni o dei file di configurazione del servizio Hadoop a livello di sistema operativo, è possibile riavviare i servizi HDInsight in modo che possano rilevare qualsiasi impostazione a livello di sistema operativo, ad esempio le variabili di ambiente impostate negli script.
 
 
@@ -239,9 +239,9 @@ In alcuni casi, uno script personalizzato può dipendere effettivamente dai comp
 
 ## Eseguire il debug degli script personalizzati
 
-I log di errore dello script vengono archiviati insieme ad altri output nell'account di archiviazione predefinito specificato per il cluster al momento della creazione. I log vengono archiviati in una tabella con il nome *u<\frammento-nome-cluster><\timestamp>setuplog*. Si tratta di log aggregati contenenti record provenienti da tutti i nodi (nodi head e nodi di lavoro), in cui lo script viene eseguito nel cluster.
+I log di errore dello script vengono archiviati insieme ad altri output nell'account di archiviazione predefinito specificato per il cluster al momento della creazione. I log vengono archiviati in una tabella con il nome *u<\\frammento-nome-cluster><\\timestamp>setuplog*. Si tratta di log aggregati contenenti record provenienti da tutti i nodi (nodi head e nodi di lavoro), in cui lo script viene eseguito nel cluster.
 
-È anche possibile accedere in remoto ai nodi cluster per visualizzare sia STDOUT che STDERR per gli script personalizzati. I log in ciascun nodo sono specifici solo per tale nodo e sono accessibili da **C:\HDInsightLogs\DeploymentAgent.log**. Questi file di log registrano tutti gli output dello script personalizzato. Un frammento di log di esempio per un'azione script Spark è simile a quanto riportato di seguito:
+È anche possibile accedere in remoto ai nodi cluster per visualizzare sia STDOUT che STDERR per gli script personalizzati. I log in ciascun nodo sono specifici solo per tale nodo e sono accessibili da **C:\\HDInsightLogs\\DeploymentAgent.log**. Questi file di log registrano tutti gli output dello script personalizzato. Un frammento di log di esempio per un'azione script Spark è simile a quanto riportato di seguito:
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -304,4 +304,4 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

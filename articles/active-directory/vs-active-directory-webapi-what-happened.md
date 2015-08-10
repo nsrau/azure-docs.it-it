@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2015"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # Che cosa è successo al progetto?
@@ -22,11 +22,9 @@
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
 > - [What Happened](vs-active-directory-webapi-what-happened.md)
 
-###<span id="whathappened">Che cosa è successo al progetto?</span>
+##Sono stati aggiunti riferimenti
 
-Sono stati aggiunti dei riferimenti.
-
-#####Riferimenti al pacchetto NuGet
+###Riferimenti al pacchetto NuGet
 
 - `Microsoft.Owin`
 - `Microsoft.Owin.Host.SystemWeb`
@@ -37,7 +35,7 @@ Sono stati aggiunti dei riferimenti.
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
-#####Riferimenti a .NET
+###Riferimenti a .NET
 
 - `Microsoft.Owin`
 - `Microsoft.Owin.Host.SystemWeb`
@@ -48,16 +46,18 @@ Sono stati aggiunti dei riferimenti.
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
-#####Sono stati aggiunti file di codice al progetto
+##Modifiche al codice
 
-Al progetto è stata aggiunta una classe Startup, **App_Start/Startup.Auth.cs**, contenente la logica di avvio per l'autenticazione di Azure AD.
+###Sono stati aggiunti file di codice al progetto
 
-#####È stato aggiunto un codice di avvio al progetto
+Al progetto è stata aggiunta una classe Startup, **App\_Start/Startup.Auth.cs**, contenente la logica di avvio per l'autenticazione di Azure AD.
 
-Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato per includere una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto.
+###È stato aggiunto un codice di avvio al progetto
+
+Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato includendo una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto.
 
 
-#####Il file app.config o web.config include nuovi valori di configurazione.
+###Il file app.config o web.config include nuovi valori di configurazione.
 
 Sono state aggiunte le voci di configurazione seguenti. <pre> `<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -71,16 +71,16 @@ Un'app Azure AD è stata creata nella directory selezionata nella procedura guid
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-###Se è stata selezionata *Disabilitare l'autenticazione dell'account utente*, quali ulteriori modifiche sono state apportate al progetto?
+##Se è stata selezionata l'opzione *Disabilitare l'autenticazione dell'account utente*, quali altre modifiche sono state apportate al progetto?
 Sono stati rimossi i riferimenti del pacchetto NuGet, i file sono stati rimossi e viene eseguito il backup. A seconda dello stato del progetto, è necessario rimuovere riferimenti aggiuntivi o i file manualmente o modificare codice in modo appropriato.
 
-#####Riferimenti del pacchetto NuGet rimossi (per coloro che sono presenti)
+###Riferimenti del pacchetto NuGet rimossi (per coloro che sono presenti)
 
 - `Microsoft.AspNet.Identity.Core`
 - `Microsoft.AspNet.Identity.EntityFramework`
 - `Microsoft.AspNet.Identity.Owin`
 
-#####È stato eseguito il backup dei file di codice e sono stati rimossi (per quelli presenti)
+###È stato eseguito il backup dei file di codice e sono stati rimossi (per quelli presenti)
 
 Per ognuno dei seguenti file è stato eseguito il backup e rimosso dal progetto. I File di backup si trovano in una cartella 'Backup' alla radice della directory del progetto.
 
@@ -90,24 +90,24 @@ Per ognuno dei seguenti file è stato eseguito il backup e rimosso dal progetto.
 - `Models\IdentityModels.cs`
 - `Providers\ApplicationOAuthProvider.cs`
 
-#####Backup dei file di codice (per coloro che presenti)
+###Backup dei file di codice (per coloro che presenti)
 
 Per ognuno dei seguenti file è stato eseguito il backup prima della sostituzione. I File di backup si trovano in una cartella 'Backup' alla radice della directory del progetto.
 
 - `Startup.cs`
 - `App_Start\Startup.Auth.cs`
 
-###Quali modifiche aggiuntive sono state apportate al progetto dopo aver selezionato *Leggi i dati della directory*?
+##Quali modifiche aggiuntive sono state apportate al progetto dopo aver selezionato *Leggi i dati della directory*?
 
-#####Sono state apportate altre modifiche al file app.config o web.config
+###Sono state apportate altre modifiche al file app.config o web.config
 
-Sono state aggiunte le seguenti voci di configurazione aggiuntive. <pre> `<appSettings>
+Sono state aggiunte le voci di configurazione aggiuntive seguenti. <pre> `<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
 	</appSettings>` </pre>
 
-#####È stata aggiornata l'app Azure Active Directory
+###È stata aggiornata l'app Azure Active Directory
 L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione *Leggi i dati della directory* ed è stata creata una chiave aggiuntiva che è stata quindi usata come *ida:Password* nel file `web.config`.
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

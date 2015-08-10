@@ -100,7 +100,9 @@ Prima di installare Azure AD Connect con Impostazioni rapide, sono necessari alc
  
 - Sottoscrizione di Azure o [sottoscrizione di una versione di valutazione di Azure](http://azure.microsoft.com/pricing/free-trial/). È necessaria solo per l'accesso al portale di Azure, non per l'uso di Azure AD Connect. Se si usa PowerShell o Office 365 non è necessaria una sottoscrizione di Azure per usare Azure AD Connect.
 - Un account amministratore globale di Azure AD per il tenant di Azure AD con cui si vuole eseguire l'integrazione
-- Un controller di dominio o server membro di Active Directory con Windows Server 2008 o versioni successive
+- Azure AD Connect deve essere installato in Windows Server 2008 o versione successiva. Questo server può essere un controller di dominio o un server membro.
+- Il livello della foresta e della versione dello schema di Active Directory deve essere Windows Server 2003 o versione successiva. I controller di dominio possono eseguire qualsiasi versione, purché siano soddisfatti i requisiti del livello dello schema e della foresta.
+- Se viene distribuito Active Directory Federation Services, i server in cui verrà installato ADFS devono essere Windows Server 2012 o versione successiva.
 - Un account amministratore dell'organizzazione per Active Directory locale
 - Facoltativo: un account utente di prova per verificare la sincronizzazione. 
 
@@ -110,11 +112,11 @@ Nella tabella seguente vengono indicati i requisiti minimi per il computer Azure
 | Numero di oggetti in Active Directory | CPU | Memoria | Dimensioni del disco rigido |
 | ------------------------------------- | --- | ------ | --------------- |
 | Meno di 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10.000-50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50.000-100.000 | 1,6 GHz | 16 GB | 100 GB |
+| 10\.000-50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000-100.000 | 1,6 GHz | 16 GB | 100 GB |
 | Per 100.000 o più oggetti, è necessaria la versione completa di SQL Server| | | |
-| 100.000-300.000 | 1,6 GHz | 32 GB | 300 GB |
-| 300.000-600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100\.000-300.000 | 1,6 GHz | 32 GB | 300 GB |
+| 300\.000-600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Più di 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -140,7 +142,7 @@ La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno 
 8. Nella schermata Connessione a Servizi di dominio di Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Next**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "**Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
+	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "\*\*Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale\*\*". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per **Distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Se non si prevede di avere cassette postali di Exchange nel cloud e in locale, non è necessario selezionare questa opzione.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -245,6 +247,8 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md): informazioni sul monitoraggio dell'integrità dell'infrastruttura ADFS locale.
 
+[Domande frequenti su Azure D Connect](active-directory-aadconnect-faq.md) - Domande frequenti relative ad Azure AD Connect.
+
 
 
 
@@ -252,4 +256,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

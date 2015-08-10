@@ -92,4 +92,4 @@ In questa sezione si visualizzeranno le impostazioni di base disponibili nel por
 Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di eseguire rapidamente le attività di iterazione e distribuzione e di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

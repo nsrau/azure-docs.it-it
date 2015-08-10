@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
@@ -389,7 +389,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		
 		module.exports = config;
 
-3. Nel file **config.js** aggiornare i valori HOST e AUTH_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di anteprima Microsoft Azure](http://portal.azure.com):
+3. Nel file **config.js** aggiornare i valori HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di anteprima Microsoft Azure](http://portal.azure.com):
 
 4. Salvare e chiudere il file **config.js**.
  
@@ -498,7 +498,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 	
 	Ciò è tutto quanto è necessario per il funzionamento dell'applicazione.
 
-5. Aprire il file **style.css** nella directory **public\stylesheets** e sostituire il codice con quanto segue:
+5. Aprire il file **style.css** nella directory **public\\stylesheets** e sostituire il codice con quanto segue:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@ Il codice sorgente per l'applicazione di riferimento completa è disponibile per
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

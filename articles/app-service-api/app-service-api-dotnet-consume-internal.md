@@ -71,7 +71,7 @@ I passaggi seguenti sono illustrati in modo più dettagliato in [Usare un'app pe
 
 Per impostazione predefinita, i progetti di app per le API sono abilitati con la generazione automatica dei metadati [Swagger](http://swagger.io/ "Informazioni ufficiali su Swagger"), ma il modello nuovo-progetto di app per le API di Azure disabilita la pagina di test dell'API. In questa sezione viene abilitata la pagina di test.
 
-1. Aprire il file *App_Start/SwaggerConfig.cs* e cercare **EnableSwaggerUI**:
+1. Aprire il file *App\_Start/SwaggerConfig.cs* e cercare **EnableSwaggerUI**:
 
 2. Rimuovere quindi i simboli di commento dalle righe di codice seguenti:
 
@@ -265,4 +265,4 @@ Per altri esempi di codice per chiamare app per le API dai client .NET, scaricar
 Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

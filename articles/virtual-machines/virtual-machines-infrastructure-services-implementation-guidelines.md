@@ -27,7 +27,7 @@ Questo articolo è stato adattato sulla base del contenuto del post di blog rela
 
 > [AZURE.NOTE]I gruppi di affinità sono deprecati e non ne viene descritto l'uso in questo articolo. Per ulteriori informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
-## 1. Convenzioni di denominazione
+## 1\. Convenzioni di denominazione
 
 Prima di creare qualsiasi elemento in Azure, è necessaria una buona convenzione di denominazione Una convenzione di denominazione garantisce la possibilità che tutte le risorse dispongano di un nome stimabile, in modo da ridurre il carico amministrativo associato alla gestione di tali risorse.
 
@@ -66,6 +66,7 @@ Quando si stabiliscono le convenzioni di denominazione, assicurarsi che siano in
 Molte volte è importante determinare la data di creazione dal nome di una risorsa. Microsoft consiglia il formato di data AAAAMMGG. Tale formato garantisce non solo che venga registrata la data completa, ma anche che due risorse i cui nomi si differenziano solo per la data verranno ordinate alfabeticamente e allo stesso tempo in ordine cronologico.
 
 ### Nomi delle risorse
+
 È necessario definire ciascun tipo di risorsa nella convenzione di denominazione, pertanto è necessario avere regole che definiscono come assegnare nomi a ogni risorsa creata. Tali regole devono essere applicate a tutti i tipi di risorse, ad esempio:
 
 - Sottoscrizioni
@@ -81,25 +82,24 @@ Molte volte è importante determinare la data di creazione dal nome di una risor
 - Gruppi di sicurezza di rete
 - Ruoli
 
-I nomi devono quanto più possibile descrittivi, per garantire che il nome sia in grado di fornire informazioni sufficienti per determinare a quali risorse fa riferimento.
+Per assicurarsi che il nome sia in grado di fornire informazioni sufficienti per determinare a quali risorse fa riferimento, è necessario inserire nomi descrittivi.
 
 ### Nomi dei computer
 
 Quando gli amministratori creano una macchina virtuale, Microsoft Azure richiederà di specificare un nome macchina virtuale con lunghezza massima di 15 caratteri. Microsoft Azure utilizzerà il nome della macchina virtuale come nome della risorsa macchina virtuale di Azure. Azure utilizzerà lo stesso nome come nome computer per il sistema operativo installato nella macchina virtuale. È possibile tuttavia che questi nomi non siano sempre gli stessi.
 
-Nei casi in cui viene creata una macchina virtuale da un file VHD che già contiene un sistema operativo, il nome della macchina virtuale in Microsoft Azure potrebbe essere diverso dal nome computer del sistema operativo della macchina virtuale. Questa situazione potrebbe aggiungere un livello di difficoltà alla gestione delle macchine virtuali, pertanto è sconsigliata. Assicurarsi sempre che il nome della risorsa macchina virtuale di Azure sia lo stesso nome del computer assegnato al sistema operativo di tale macchina virtuale.
+Nei casi in cui viene creata una macchina virtuale da un File immagine .VHD che già contiene un sistema operativo, il nome della macchina virtuale in Microsoft Azure può essere diverso dal nome computer del sistema operativo della macchina virtuale. Questa situazione può aggiungere un livello di difficoltà alla gestione delle macchine virtuali, pertanto è sconsigliata. Assicurarsi sempre che il nome della risorsa macchina virtuale di Azure sia lo stesso nome del computer assegnato al sistema operativo di tale macchina virtuale.
 
 È consigliabile che il nome della macchina virtuale di Azure sia identico al nome di computer del sistema operativo. Pertanto, seguire le regole di denominazione NetBIOS, come descritto in [Convenzioni di denominazione di computer NetBIOS Microsoft](https://support.microsoft.com/kb/188997/).
 
 ### Nomi account di archiviazione
 
-Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile utilizzare solo lettere minuscole e numeri e il nome assegnato, concatenato al servizio (BLOB, tabella o coda). Il dominio predefinito (core.windows.net) deve eseguire il rendering di un nome DNS valido a livello globale e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti URL risultanti devono essere nomi DNS univoci validi:
+Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile utilizzare solo lettere minuscole e numeri. Per altre informazioni, vedere l'articolo relativo alla [Creazione di un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell’account di archiviazione, in combinazione con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
-Gli account di archiviazione inoltre possono avvalersi dei contenitori. Questi devono essere conformi alle convenzioni di denominazione come descritto in [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Nomi dei blocchi predefiniti di Azure
 
@@ -117,7 +117,7 @@ Attività:
 
 - Definire le convenzioni di denominazione in termini di affissi, gerarchia, valori di stringa e altri criteri per le risorse di Azure.
 
-## 2. Sottoscrizioni e account
+## 2\. Sottoscrizioni e account
 
 Per lavorare con Azure, sono necessarie una o più sottoscrizioni ad Azure. Le risorse, ad esempio i servizi cloud o le macchine virtuali, esistono nel contesto di tali sottoscrizioni.
 
@@ -153,17 +153,17 @@ Attività:
 
 - Creare il set di sottoscrizioni e account utilizzando la convenzione di denominazione scelta.
 
-## 3. Archiviazione
+## 3\. Archiviazione
 
-L’archiviazione è parte integrante di qualsiasi soluzione Azure, poiché non solo fornisce servizi a livello di applicazione, ma è anche parte dell'infrastruttura di supporto delle macchine virtuali.
- 
-In Azure sono disponibili due tipi di archiviazione: L’archiviazione standard consente di accedere all'archiviazione BLOB, all'archiviazione tabelle, all'archiviazione di accodamento e all'archiviazione file. L’archiviazione Premium è progettata per le applicazioni a prestazioni elevate, ad esempio SQL Server in un cluster AlwaysOn e attualmente supporta solo i dischi di macchine virtuali di Azure.
+Archiviazione di Azure è parte integrante di molte soluzioni di Azure. Archiviazione di Azure fornisce servizi per l'archiviazione dei dati dei file, i dati non strutturati e i messaggi ed è anche parte dell'infrastruttura di supporto alle macchine virtuali.
+
+In Azure sono disponibili due tipi di archiviazione: Un account di archiviazione standard consente di accedere all'archiviazione BLOB (utilizzata per archiviare dischi delle macchine virtuali di Azure), all'archiviazione tabelle, all'archiviazione coda e all'archiviazione file: L’archiviazione Premium è progettata per le applicazioni a prestazioni elevate, ad esempio SQL Server in un cluster AlwaysOn e attualmente supporta solo i dischi di macchine virtuali di Azure.
 
 Gli account di archiviazione sono associati a obiettivi di scalabilità. Vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) per acquisire familiarità con i limiti di archiviazione correnti. Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage-scalability-targets.md).
 
-Azure consente di creare macchine virtuali con un disco del sistema operativo, un disco temporaneo e zero o più dischi dati facoltativi. Il disco del sistema operativo e i dischi dati sono BLOB di Azure, mentre il disco temporaneo viene supportato dall'archiviazione locale del nodo cui si trova il computer. Ciò rende il disco temporaneo non idoneo per i dati che devono essere salvati in modo permanente, poiché il computer potrebbe essere sottoposto a migrazione automatica da un nodo all'altro, perdendo tutti i dati in tale disco. Non archiviare alcun elemento nell’unità temporanea.
+Azure consente di creare macchine virtuali con un disco del sistema operativo, un disco temporaneo e zero o più dischi dati facoltativi. Il disco del sistema operativo e i dischi dati sono BLOB di Azure, mentre il disco temporaneo è archiviato localmente sul nodo in cui si trova il computer. Ciò rende il disco temporaneo non idoneo per i dati che devono essere salvati in modo permanente, poiché il computer potrebbe essere sottoposto a migrazione automatica da un nodo all'altro, perdendo tutti i dati in tale disco. Non archiviare alcun elemento nell’unità temporanea.
 
-I dischi del sistema operativo e i dischi dati hanno una dimensione massima di 1023 GB, poiché la dimensione massima di un BLOB che deve contenere i metadati (piè di pagina) del file del disco rigido virtuale (un GB è composto da 1024<sup>3</sup> byte) è di 1024 GB. Per superare questo limite, è possibile implementare lo striping del disco in Windows.
+I dischi del sistema operativo e i dischi dati hanno una dimensione massima di 1023 GB, poiché la dimensione massima di un BLOB è 1024 GB e deve contenere i metadati (piè di pagina) del file del disco rigido virtuale (un GB è composto da 1024<sup>3</sup> byte). Per superare questo limite, è possibile implementare lo striping del disco in Windows.
 
 ### Dischi con striping
 Oltre a fornire la capacità per creare dischi di dimensioni superiori a 1023 GB, in molti casi, utilizzare lo striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. In questo modo viene parallelizzato l’I/O richiesto per la scrittura e la lettura dei dati da un singolo disco.
@@ -204,13 +204,13 @@ Attività:
 
 - Creare il set di account di archiviazione utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di anteprima di Azure, il portale di gestione di Azure o il cmdlet PowerShell **New-AzureStorageAccount**.
 
-## 4. Servizi cloud
+## 4\. Servizi cloud
 
 I servizi cloud sono un blocco predefinito fondamentale in Gestione servizi di Azure, sia per i servizi PaaS sia per quelli IaaS. Per il modello PaaS, i servizi cloud rappresentano un'associazione di ruoli, le cui istanze possono comunicare tra loro. I servizi cloud sono associati a un indirizzo VIP e a un bilanciamento del carico, che accetta il traffico in ingresso da Internet e ne bilancia il carico ai ruoli configurati per la ricezione di tale traffico.
 
 Nel caso di IaaS, i servizi cloud offrono una funzionalità simile, sebbene nella maggior parte dei casi, la funzionalità di bilanciamento del carico sia utilizzata per inoltrare il traffico a porte TCP o UDP specifiche da Internet alle numerose macchine virtuali all'interno di tale servizio cloud.
 
-> [AZURE.NOTE]I servizi cloud non sono disponibili in Gestione risorse di Azure. Per un’introduzione ai vantaggi di Gestione risorse, vedere [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE]I servizi cloud non sono disponibili in Gestione risorse di Azure. Per un’introduzione ai vantaggi di Gestione Risorse, vedere [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 I nomi dei servizi cloud sono particolarmente importanti in IaaS, dal momento che Azure li utilizza come parte della convenzione di denominazione per i dischi. Il nome del servizio cloud può contenere solo lettere, numeri e trattini. Il primo e l'ultimo carattere nel campo devono essere una lettera o un numero.
 
@@ -232,7 +232,7 @@ Attività:
 
 - Creare il set di servizi cloud utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di gestione di Azure o il cmdlet di PowerShell **New-AzureService**.
 
-## 5. Reti virtuali
+## 5\. Reti virtuali
 
 Il passaggio logico successivo consiste nel creare le reti virtuali necessarie per supportare le comunicazioni tra le macchine virtuali nella soluzione. Sebbene sia possibile eseguire l’hosting di più macchine virtuali di un carico di lavoro IT all'interno di un solo servizio cloud, è consigliabile utilizzare le reti virtuali.
 
@@ -290,7 +290,7 @@ Attività:
 - Per le reti virtuali cross-premise, definire il set di spazi degli indirizzi della rete locale per le sedi locali che devono essere raggiunte dalle macchine virtuali nella rete virtuale.
 - Creare la rete virtuale utilizzando la convenzione di denominazione scelta. È possibile utilizzare il portale di anteprima di Azure o il portale di Azure.
 
-## 6. Set di disponibilità
+## 6\. Set di disponibilità
 
 In Azure PaaS, i servizi cloud contengono uno o più ruoli che eseguono il codice dell'applicazione. I ruoli possono avere una o più istanze di macchine virtuali per le quali l'infrastruttura esegue automaticamente il provisioning. In qualsiasi momento, Azure può aggiornare le istanze di questi ruoli, ma poiché fanno parte dello stesso ruolo, Azure sa di non dover eseguire l'aggiornamento di tutte le istanze contemporaneamente per evitare un'interruzione del servizio per il ruolo.
 
@@ -308,7 +308,7 @@ Attività:
 
 - Definire il set di set di disponibilità utilizzando la convenzione di denominazione scelta. È possibile associare una macchina virtuale a un set di disponibilità quando si creano le macchine virtuali oppure dopo che è stata creata la macchina virtuale.
 
-## 7. Macchine virtuali
+## 7\. Macchine virtuali
 
 In Azure PaaS, Azure consente di gestire le macchine virtuali e i relativi dischi associati. È necessario creare e denominare i servizi cloud e i ruoli e successivamente Azure creerà le istanze associate a tali ruoli. Nel caso di Azure IaaS, è responsabilità dell'utente fornire nomi per i servizi cloud, le macchine virtuali e i dischi associati.
 
@@ -441,4 +441,4 @@ Questa configurazione include:
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

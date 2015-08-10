@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors: scenario dettagliato per la creazione di un servizio HelloWorld canonico
@@ -143,18 +143,10 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 
 ![Finestra di output del debug del Service Fabric][3]
 
-## Distribuzione dell'applicazione
-Da Visual Studio è possibile creare pacchetti e distribuire l'applicazione nel cluster locale anche senza avviare il debugger. A tale fine, selezionare il progetto dell'applicazione di Service Fabric e fare clic con il pulsante destro del mouse.
-
-![Service Fabric - menu progetto per la distribuzione e assemblaggio di applicazioni][4]
-
-* **Distribuisci**: crea i pacchetti dell'app e avvia il processo di distribuzione.
-* **Rimuovi distribuzione**: può essere usato per rimuovere un'applicazione dal cluster locale.
-* **Pacchetto**: crea pacchetti dell'applicazione. Questa azione può essere utile per preparare la distribuzione dell'applicazione in un cluster diverso, ad esempio in Azure.
 
 ## Passaggi successivi
 
-[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md)[documentazione di riferimento API attori](https://msdn.microsoft.com/library/azure/dn971626.aspx)[codice di esempio](https://github.com/Azure/servicefabric-samples)
+[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md) [Documentazione di riferimento delle API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -163,6 +155,5 @@ Da Visual Studio è possibile creare pacchetti e distribuire l'applicazione nel 
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

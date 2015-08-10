@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/21/2015" 
 	ms.author="billmath"/>
 
 # Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
@@ -33,39 +33,42 @@ Poiché le API non hanno accesso agli utenti registrati in Azure Active Director
 
 ## Scaricare il server Azure Multi-Factor Authentication 
 
-Esistono due modi diversi per scaricare il server Azure Multi-Factor Authentication. Il primo consiste nell'effettuare l'accesso al portale di Azure e il secondo modo viene direttamente da [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net). È necessaria una sottoscrizione di Azure per scaricare l’SDK.
+Esistono due modi diversi per scaricare l'SDK di Azure Multi-Factor Authentication. Entrambi vengono eseguiti con il portale di Azure. Il primo prevede la gestione diretta del provider di Multi-Factor Authentication, il secondo l'uso delle impostazioni del servizio. La seconda opzione richiede un provider di Multi-Factor Authentication o una licenza Azure AD Premium.
 
 
+### Per scaricare l'SDK di Azure Multi-Factor Authentication dal portale di Azure
 
-### Per scaricare il server Azure Multi-Factor Authentication dal portale Azure
---------------------------------------------------------------------------------
 
-1. Accedre al portale di Azure come amministratore.
+1. Accedere al portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore della pagina Active Directory, selezionare **Provider Multi-Factor Authentication**
+3. Nella parte superiore della pagina Active Directory selezionare **Provider Multi-Factor Authentication**
 4. Nella parte inferiore fare clic su **Gestisci**
 5. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
-<center>![Scarica](./media/multi-factor-authentication-sdk/download.png)</center>
+<center>! [Scarica] (. / media/multi-factor-authentication-sdk/download.png)</center>
 6. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
 7. Salvare il download.
 
 
 
-### Per scaricare il server Azure Multi-Factor Authentication direttamente
---------------------------------------------------------------------------------
+### Per scaricare l'SDK di Azure Multi-Factor Authentication con le impostazioni del servizio
 
-1. Accedere a [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net).
-2. A sinistra, nella parte inferiore, fare clic su SDK.
-3. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
-4. Salvare il download.
 
+1. Accedere al portale di Azure come amministratore.
+2. A sinistra selezionare Active Directory.
+3. Fare doppio clic sull'istanza di Azure AD.
+4. Nella parte superiore fare clic su **Configura**
+5. Sotto multi-factor authentication selezionare **Gestisci impostazioni del servizio** ![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
+6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**.![Scaricare](./media/multi-factor-authentication-sdk/download3.png)
+7. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
+8. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
+9. Salvare il download.
 
 ## Contenuto dell’SDK di Azure Multi-Factor Authentication
 Nell’SDK sono disponibili i seguenti elementi:
 
 - **README**. Viene illustrato come utilizzare le API di Multi-Factor Authentication in un'applicazione nuova o esistente.
-- **File di origine**per la Multi-Factor Authentication
-- **Certificato client** utilizzato per comunicare con il servizio di Multi-Factor Authentication
+- **File di origine** per Multi-Factor Authentication
+- **Certificato client** usato per comunicare con il servizio Multi-Factor Authentication
 - **Chiave privata** per il certificato
 - **Risultati delle chiamate.** Un elenco di codici risultato chiamata. Per aprire questo file, utilizzare un'applicazione con formattazione del testo, come ad esempio WordPad. Utilizzare i codici risultato chiamata per verificare e risolvere l'implementazione di autenticazione Multi-Factor Authentication nell'applicazione. Non sono codici di stato di autenticazione.
 - **Esempi.** Codice di esempio per un'implementazione di base funzionante di Multi-Factor Authentication.
@@ -88,7 +91,7 @@ Il codice sul lato client non include elementi specifici di autenticazione Multi
 
 Il codice lato server aggiunge l'autenticazione in modalità standard nel passaggio 2. Crea un oggetto PfAuthParams con i parametri necessari per la verifica della modalità standard: nome utente, numero, modalità e il percorso verso il certificato del client (CertFilePath), che è necessario in ogni chiamata. Per una dimostrazione di tutti i parametri in PfAuthParams, vedere il file di esempio nel SDK.
 
-Successivamente, il codice passa l'oggetto PfAuthParams alla funzione pf_authenticate(). Il valore restituito indica l'esito positivo o negativo dell'autenticazione. I parametri out, callStatus ed errorID, contengono informazioni aggiuntive sul risultato della chiamata. I codici di risultato della chiamata sono documentati nel file dei risultati della chiamata nel SDK.
+Successivamente, il codice passa l'oggetto PfAuthParams alla funzione pf\_authenticate(). Il valore restituito indica l'esito positivo o negativo dell'autenticazione. I parametri out, callStatus ed errorID, contengono informazioni aggiuntive sul risultato della chiamata. I codici di risultato della chiamata sono documentati nel file dei risultati della chiamata nel SDK.
 
 Questa implementazione minima può essere scritta in solo poche righe. Nel codice di produzione, tuttavia, è necessario includere la gestione degli errori più sofisticati, il codice di database aggiuntivo e un'esperienza utente avanzata.
 
@@ -130,7 +133,7 @@ Di seguito è riportato il codice di client web per una pagina demo.
 
 ### Codice lato server
 
-Nel seguente codice lato server, la Multi-Factor Authentication è configurata ed eseguita nel passaggio 2. La modalità standard (MODE_STANDARD) è una telefonata a cui l'utente risponde premendo il tasto #.
+Nel seguente codice lato server, la Multi-Factor Authentication è configurata ed eseguita nel passaggio 2. La modalità standard (MODE\_STANDARD) è una telefonata a cui l'utente risponde premendo il tasto #.
 
 	using System;
 	using System.Collections.Generic;
@@ -167,7 +170,7 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	            // NOTE: This file contains the private key for the client
 	            // certificate. It must be stored with appropriate file 
 	            // permissions.
-	            pfAuthParams.CertFilePath = "c:\cert_key.p12";
+	            pfAuthParams.CertFilePath = "c:\\cert_key.p12";
 	
 	            // Perform phone-based authentication
 	            int callStatus;
@@ -188,4 +191,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 
 ## Configurare una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
+Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -69,7 +69,7 @@ La coda seguente crea un oggetto **Azure::QueueService** che consente di usare l
 
 	azure_queue_service = Azure::QueueService.new
 
-Utilizzare il metodo **create_queue()** per creare una coda con il nome specificato.
+Utilizzare il metodo **create\_queue()** per creare una coda con il nome specificato.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,13 +79,13 @@ Utilizzare il metodo **create_queue()** per creare una coda con il nome specific
 
 ## Procedura: inserire un messaggio in una coda
 
-Per inserire un messaggio in una coda, usare il metodo **create_message()** per creare un nuovo messaggio e aggiungerlo alla coda.
+Per inserire un messaggio in una coda, usare il metodo **create\_message()** per creare un nuovo messaggio e aggiungerlo alla coda.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
 ## Procedura: visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek_messages()**. Per impostazione predefinita, **peek_messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()**. Per impostazione predefinita, **peek\_messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -94,11 +94,11 @@ Per inserire un messaggio in una coda, usare il metodo **create_message()** per 
 
 È possibile rimuovere un messaggio da una coda in due passaggi.
 
-1. Per impostazione predefinita, chiamando **list_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. I messaggi restituiti da **list_messages()** diventano invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
+1. Per impostazione predefinita, chiamando **list\_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. I messaggi restituiti da **list\_messages()** diventano invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
 
-2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message()**.
+2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete\_message()**.
 
-Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message()** immediatamente dopo l'elaborazione del messaggio.
+Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete\_message()** immediatamente dopo l'elaborazione del messaggio.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -106,7 +106,7 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 
 ## Procedura: cambiare il contenuto di un messaggio accodato
 
-È possibile cambiare il contenuto di un messaggio inserito nella coda. La coda seguente utilizza il metodo **update_message()** per aggiornare un messaggio. Il metodo restituirà una tupla contenente il Pop Receipt del messaggio in coda e un valore di data e ora UTC che rappresenta il momento in cui il messaggio sarà visibile nella coda.
+È possibile cambiare il contenuto di un messaggio inserito nella coda. La coda seguente utilizza il metodo **update\_message()** per aggiornare un messaggio. Il metodo restituirà una tupla contenente il Pop Receipt del messaggio in coda e un valore di data e ora UTC che rappresenta il momento in cui il messaggio sarà visibile nella coda.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -121,7 +121,7 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 
 2. È possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio.
 
-Nell'esempio di codice seguente viene utilizzato il metodo **list_messages()** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene stampato ed eliminato. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+Nell'esempio di codice seguente viene utilizzato il metodo **list\_messages()** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene stampato ed eliminato. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -131,14 +131,14 @@ Nell'esempio di codice seguente viene utilizzato il metodo **list_messages()** p
 
 ## Procedura: recuperare la lunghezza delle code
 
-È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **get_queue_metadata()** chiede al servizio di accodamento di restituire il conteggio approssimativo dei messaggi e i metadati relativi alla coda.
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **get\_queue\_metadata()** chiede al servizio di accodamento di restituire il conteggio approssimativo dei messaggi e i metadati relativi alla coda.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## Procedura: eliminare una coda
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete_queue()** sull'oggetto coda.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete\_queue()** sull'oggetto coda.
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -153,4 +153,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come utilizzare le code del bus di servizio](/develop/ruby/how-to-guides/service-bus-queues/) vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

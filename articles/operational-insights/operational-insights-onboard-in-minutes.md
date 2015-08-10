@@ -97,4 +97,4 @@ Con Operations Management Suite è possibile eseguire ricerche rapide in log di 
 - Acquisire familiarità con[ricerca](operational-insights-search.md)
 - Utilizzare il[dashboard](operational-insights-use-dashboards.md)per salvare e visualizzare le ricerche personalizzate
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

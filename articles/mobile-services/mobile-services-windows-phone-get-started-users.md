@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/23/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Panoramica
 
-<p>Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">10:50</span></div>
-</div>
+Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
-Questa esercitazione descrive le operazioni di base per abilitare l'autenticazione in un'app:
+Questa esercitazione viene illustrata anche da Nick Harris nel video seguente:
 
-1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
-2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
-3. [Aggiungere l'autenticazione all'app]
+> [AZURE.VIDEO mobile-authorize-users-in-scripts-windows-phone]
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente].
 
@@ -40,20 +34,16 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-
 ##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
-
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-<ol start="3">
-<li>In Visual Studio 2012 Express per Windows Phone aprire il progetto creato dopo avere completato l'esercitazione <strong>Introduzione a Servizi mobili</strong>.</li>
+&nbsp;&nbsp;3. In Visual Studio 2012 Express per Windows Phone aprire il progetto creato dopo avere completato l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-windows-phone-get-started-data.md).
 
-<li>Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</li></ol>
+&nbsp;&nbsp;4. Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -70,9 +60,9 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili](mobile-services-javascript-backend-service-side-authorization.md), il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
 
 <!-- Anchors. -->
-[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
-[Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
-[Aggiungere l'autenticazione all'app]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -90,4 +80,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Autenticazione dell'app per Windows Phone con l'accesso Single Sign-On di Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

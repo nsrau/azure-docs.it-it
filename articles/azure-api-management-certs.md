@@ -21,7 +21,7 @@
 
 I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione del servizio fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) utilizzeranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
 
->[AZURE.WARNING]Pertanto, prestare attenzione prima di effettuare quest’operazione. Questi tipi di certificati consentono a chiunque si autentica con loro di gestire la sottoscrizione in che cui sono associate.
+>[AZURE.WARNING]Pertanto, prestare attenzione prima di effettuare questa operazione. Questi tipi di certificati consentono a chiunque si autentica con loro di gestire la sottoscrizione in che cui sono associate.
 
 Ulteriori informazioni sui certificati Azure (compresa la creazione di un certificato autofirmato sono )[disponibili](cloud-services/cloud-services-certs-create.md#what-are-management-certificates)per l'utente se è necessario.
 
@@ -52,4 +52,4 @@ Dopo aver ottenuto un certificato di gestione creato, (file con estensione .cer 
 
 Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) a livello di programmazione connettersi alla[API REST di Gestione servizio](https://msdn.microsoft.com/library/azure/ee460799.aspx)e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

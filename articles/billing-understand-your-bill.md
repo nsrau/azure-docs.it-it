@@ -9,7 +9,7 @@
    tags="billing"/>
 
 <tags
-   ms.service="na"
+   ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -227,7 +227,7 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 
 - **Informazioni aggiuntive**: nella colonna Informazioni aggiuntive del CSV vengono specificati i metadati specifici del servizio. Ad esempio, un tipo di immagine per una macchina virtuale. Attualmente, un servizio genera metadati specifici del servizio in più colonne: campi Informazioni aggiuntive, Informazioni 1 servizio e Informazioni 2 servizio. I servizi di Microsoft Azure eseguiranno la standardizzazione della generazione dei metadati specifici del servizio solo nella colonna Informazioni aggiuntive. Vedere lo snapshot del formato standardizzato di seguito:
 
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Ulteriori informazioni sull’[uso dei tag per organizzare le risorse di Azure ](/resource-group-using-tags.md/). Di seguito sono indicati i servizi che supportano la creazione di tag:
     - Macchine virtuali
@@ -262,4 +262,4 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

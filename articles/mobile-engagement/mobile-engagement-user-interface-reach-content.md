@@ -50,7 +50,7 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
 
 - **Azioni di Android e iOS**
     - Aprire una pagina Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -74,7 +74,7 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
     - Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Azioni di Windows
     - Aprire una pagina Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -230,4 +230,4 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

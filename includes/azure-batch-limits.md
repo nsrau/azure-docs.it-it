@@ -27,4 +27,4 @@
 </table>
 <sup>1</sup> Il numero di core per account Batch può essere aumentato, ma il numero massimo non è specificato. Contattare il supporto clienti per ottenere informazioni sulle opzioni relative all'aumento. <sup>2</sup> Include i processi attivi eseguibile una sola volta e pianificazioni dei processi attivi.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

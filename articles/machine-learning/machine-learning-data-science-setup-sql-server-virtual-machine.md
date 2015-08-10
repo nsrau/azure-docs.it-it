@@ -61,7 +61,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
     -   Nella casella **AVAILABILITY SET** selezionare **(none)**.
     -   Leggere e accettare le informazioni sui prezzi.
 
-6.	Nella sezione **ENDPOINTS** fare clic sull'elenco a discesa vuoto in **NOME** e selezionare **MSSQL**, quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita).
+6.	Nella sezione **ENDPOINTS** fare clic sull'elenco a discesa vuoto in **NOME** e selezionare **MSSQL**, quindi digitare il numero di porta dell'istanza del motore di database (\*\*1433\*\* per l'istanza predefinita).
 
 7.  La macchina virtuale di SQL Server può inoltre essere utilizzata come server di IPython Notebook, che verrà configurato in un momento successivo. Aggiungere un nuovo endpoint per specificare la porta da utilizzare per il server di IPython Notebook. Immettere un nome nella colonna **NOME**, selezionare un numero di porta scelto dall'utente per la porta pubblica e 9999 per quella privata.
 
@@ -137,7 +137,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
 
-2.  All'apertura verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare ***nome_macchina_virtuale*\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
+2.  All'apertura verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare ***nome\_macchina\_virtuale*\\amministratore\_locale** nella casella **Nome utente**. Fare clic su **Connect**.
 
     ![Connetti al server][6]
 
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

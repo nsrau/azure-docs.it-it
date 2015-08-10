@@ -543,4 +543,4 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

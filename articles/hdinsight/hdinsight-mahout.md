@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop in HDInsight
@@ -92,7 +92,7 @@ Usare lo script di Windows PowerShell seguente per eseguire un processo mediante
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -285,21 +285,13 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 ###Eseguire il processo
 
-1. Questo processo richiede la riga di comando di Hadoop. È quindi necessario abilitare prima Desktop remoto tramite il [portale di Azure][management]. Nel portale selezionare il cluster HDInsight, quindi selezionare __Abilita modalità remota__ nella parte inferiore della pagina __Configurazione__:
-
-    ![Abilita modalità remota][enableremote]
-
-    Quando richiesto, immettere il nome utente e la password da usare per le sessioni remote.
-
-2. Una volta abilitato l'accesso remoto, selezionare __Connetti__ per iniziare la connessione. Verrà scaricato un file con estensione __rdp__ da usare per avviare la sessione Desktop remoto.
-
-    ![Connetti][connect]
+1. Questo processo richiede la riga di comando di Hadoop. Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo le istruzioni disponibili in [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 3. Dopo la connessione usare l'icona della __riga di comando di Hadoop__ per visualizzare la riga di comando.
 
 	![hadoop cli][hadoopcli]
 
-3. Eseguire il comando seguente per generare il descrittore di file (__KDDTrain+.info__) che usa Mahout.
+3. Eseguire il comando seguente per generare il descrittore di file (\_\_KDDTrain+.info\_\_) che usa Mahout.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -351,7 +343,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manualmente nei cluster HDInsight 3.0 o 2.1 con i passaggi seguenti:
 
-1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente di [Azure PowerShell][aps]:
+1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente di [Azure PowerShell][aps]\:
 
     	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
@@ -381,7 +373,7 @@ Per evitare errori durante l'esecuzione dei processi Mahout, eliminare i file te
 I cluster HDInsight 3.1 includono Mahout. Il percorso e il nome file includono il numero della versione di Mahout installata nel cluster. Lo script di esempio di Windows PowerShell in questa esercitazione usa un percorso valido a partire da luglio 2014, ma il numero di versione cambierà nei futuri aggiornamenti di HDInsight. Per determinare il percorso corrente del file JAR di Mahout per il cluster, usare i comandi di Windows PowerShell seguenti e quindi modificare lo script in modo da fare riferimento al percorso del file restituito:
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
 ###<a name="nopowershell"></a>Classi che non funzionano con Windows PowerShell
 
@@ -429,4 +421,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

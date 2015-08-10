@@ -50,6 +50,10 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambie
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
 
+Per una panoramica dell'architettura di rete dell'ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitectureOverview].
+
+Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute, vedere l'articolo seguente su [Express Route e gli ambienti del servizio app][NetworkConfigDetailsForExpressRoute].
+
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
@@ -66,11 +70,13 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
-[SiteToSite]: https://msdn.microsoft.com/library/azure/dn133795.aspx
+[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
+[NetworkArchitectureOverview]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
+[NetworkConfigDetailsForExpressRoute]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

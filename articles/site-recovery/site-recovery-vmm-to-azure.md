@@ -82,7 +82,7 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 
 
 2. Espandere
-3. *Servizi dati*, quindi *Servizi di ripristino* e fare clic su *Insieme di credenziali di Ripristino sito*. *
+3. *Servizi dati*, quindi *Servizi di ripristino* e fare clic su *Insieme di credenziali di Ripristino sito*. \*
 3. Fare clic su *Crea nuovo* e quindi su *Creazione rapida*.
 
 
@@ -321,4 +321,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

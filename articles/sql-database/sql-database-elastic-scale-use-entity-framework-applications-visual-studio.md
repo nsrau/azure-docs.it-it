@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Utilizzo della libreria client dei database elastici con Entity Framework 
+# Libreria client dei database elastici con Entity Framework 
  
 È possibile utilizzare la libreria client dei database elastici di Microsoft Entity Framework (EF) per compilare applicazioni che sfruttano i vantaggi del partizionamento orizzontale dei database, facilitando la scalabilità orizzontale a livello dati dell'applicazione. Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli strumenti dei database elastici. L’attenzione è concentrata sulla [gestione della mappa partizioni](sql-database-elastic-scale-shard-map-management.md) e sul [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l’approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](http://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
   
@@ -53,7 +53,7 @@ Tutti questi approcci si basano sulla classe DbContext per gestire in modo trasp
 
 ## Presupposti degli strumenti dei database elastici 
 
-Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](sql-database-elastic-scale-glossary.md).
+Per le definizioni dei termini, vedere il [Glossario degli strumenti dei database elastici](sql-database-elastic-scale-glossary.md).
 
 La libreria client dei database elastici consente di definire partizioni dei dati applicativi denominate shardlet. Gli shardlet sono identificati da una chiave di partizionamento orizzontale e sono mappati a database specifici. Un'applicazione può disporre di tutti i database necessari e distribuire gli shardlet per fornire capacità o prestazioni sufficienti in base ai requisiti aziendali correnti. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API client dei database elastici. Questa funzionalità è denominata **Gestione mappe partizioni**. La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità viene definita **routing dipendente dai dati**.
  
@@ -238,7 +238,7 @@ Se questi prerequisiti sono soddisfatti, è possibile creare una normale conness
         } 
  
 
-Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (**ElasticScaleContext nell'esempio**) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nel seguente esempio:
+Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (\*\*ElasticScaleContext nell'esempio\*\*) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nel seguente esempio:
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -281,4 +281,4 @@ Le applicazioni Entity Framework possono trarre facilmente vantaggio dagli strum
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

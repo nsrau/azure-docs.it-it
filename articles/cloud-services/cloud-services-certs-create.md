@@ -71,10 +71,10 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 
 ## Passaggi successivi
 
-[Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate.md) (o nel [portale di anteprima](cloud-services-configure-ssl-certificate-portal.md)) e configurarlo per il servizio cloud.
- 
+[Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate.md) (o nel [portale di anteprima](cloud-services-configure-ssl-certificate-portal.md)) e [configurarlo](cloud-services-xml-certs.md) per il servizio cloud.
+
 Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure.
 
 >[AZURE.NOTE]Il portale di anteprima di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

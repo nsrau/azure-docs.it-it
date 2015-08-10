@@ -17,6 +17,6 @@
 </tr>
 </table>
 
-<sup>1</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
+<sup>1</sup>Si intendono in \*ingresso\* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

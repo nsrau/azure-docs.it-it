@@ -55,13 +55,13 @@ Abbiamo fornito un'applicazione client che interagirà con i dati di Twitter tra
 Attenersi alla seguente procedura per configurare l'applicazione:
 
 1.	[Scaricare la soluzione TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Aprire app. config e sostituire oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret con i token di Twitter con i valori.  
+2.	Aprire app. config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i valori.  
 
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Si noti che è necessario eseguire un'applicazione vuota per generare un token.  
 3.	Sostituire i valori EventHubConnectionString ed EventHubName in App. config con la stringa di connessione hub eventi e il nome.
-4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter_keywords in App. config, se necessario.
+4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in App. config, se necessario.
 5.	Compilare la soluzione
 6.	Avviare l’applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
 
@@ -223,7 +223,7 @@ Una volta che il processo è in esecuzione ed elabora il flusso di Twitter in te
 ![Analisi di social media: output dell’analisi dei sentimenti (opinion mining) di Analisi di flusso in un dashboard di Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -235,4 +235,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -39,20 +39,23 @@ I dati di telemetria raccolti dall'applicazione vengono archiviati e analizzati 
 
 ![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)
 
+Per un'analisi più approfondita [Esportare](app-insights-export-telemetry.md) i dati [in SQL](app-insights-code-sample-export-telemetry-sql-database.md), [Power BI](app-insights-export-power-bi.md) o in strumenti personalizzati.
+
+![Visualizzare dati in Power BI](./media/app-insights-overview/210.png)
 
 ## Piattaforme e linguaggi
 
 Sono disponibili SDK per una gamma crescente di piattaforme. Attualmente l'elenco include:
 
- * [Server ASP.NET][greenbrown] in Azure o il server IIS
+ * [Server ASP.NET][greenbrown] in Azure o nel server IIS
  * [Servizi cloud di Azure](app-insights-cloudservices.md)
  * [Server J2EE][java]
- * [Pagine Web][client]: HTML+JavaScript
- * [Windows Phone, Windows Store, app universali di Windows 10 e integrazione di retta con il portale per sviluppatori di Windows 10][windows]
+ * [Pagine Web][client]\: HTML+JavaScript
+ * [Windows Phone, Windows Store, app di Windows 10 universali e integrazione diretta con il portale per sviluppatori di Windows 10][windows]
  * [Desktop di Windows][desktop]
  * [iOS][ios]
  * [Android][android]
- * [Altre piattaforme][platforms]: Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [Altre piattaforme][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
 Application Insights può ottenere dati di telemetria anche dalle app Web ASP.NET esistenti su IIS, senza ricompilarle.
 
@@ -72,14 +75,17 @@ Per i server ASP.NET e le app Web di Azure, è anche possibile installare [Contr
 * Monitorare un'app Web senza doverla compilare o installare nuovamente.
 * Tenere traccia delle chiamate a moduli dipendenti.
 
+
+
 ### Informazioni sul sovraccarico
 
 L'impatto sulle prestazioni è molto ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.
 
 
+
 ## Attività iniziali
 
-1. È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com). È possibile crearla gratuitamente e quindi scegliere il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) gratuito di Application Insights.
+1. È necessaria una sottoscrizione a [Microsoft Azure](http://azure.com). È possibile crearla gratuitamente e quindi scegliere il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) gratuito di Application Insights.
 
 2. Eseguire l'accesso al [portale di anteprima di Azure](http://portal.azure.com).
 3. Creare una risorsa di Application Insights. In questa risorsa verranno visualizzati i dati dell'app.
@@ -102,7 +108,7 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
 * Domande e problemi:
  * [Risoluzione dei problemi][qna]
- * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-it/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bug:
  * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -139,4 +145,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

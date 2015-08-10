@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come distribuire asset di file multimediali" 
-	description="Informazioni sulle opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali in Azure. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	pageTitle="Scaricare asset di file multimediali" 
+	description="Informazioni su come scaricare asset nel computer. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Distribuire un asset mediante download
-
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
 In questo argomento vengono illustrate le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. È possibile scaricare asset di file multimediali oppure accedervi mediante un localizzatore. I contenuti multimediali possono essere inviati a un'altra applicazione o un altro provider di contenuti. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).
 
@@ -74,5 +72,8 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
    
+##Vedere anche 
 
-<!---HONumber=July15_HO4-->
+[Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
+
+<!---HONumber=July15_HO5-->

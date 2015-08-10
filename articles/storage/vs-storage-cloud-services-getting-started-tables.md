@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introduzione all'Archiviazione di Azure (progetti del servizio cloud)
@@ -31,9 +31,7 @@
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
-In questo articolo viene descritto come iniziare a utilizzare l'archiviazione delle tabelle di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto CI usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
-
-L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e aggiunge la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
+In questo articolo viene descritto come iniziare a utilizzare l'archiviazione delle tabelle di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto servizi cloud usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
 Per ulteriori informazioni generali sull'utilizzo dell'archiviazione delle tabelle di Azure, vedere [Come utilizzare l'archiviazione delle tabelle da .NET](storage-dotnet-how-to-use-tables.md).
 
@@ -79,7 +77,7 @@ Per accedere alle tabelle nei progetti di servizio cloud, è necessario includer
 
 ###Creazione di una tabella in codice
 
-Per creare la tabella di Azure in codice anziché utilizzando **Esplora Server** di Visual Studio, è sufficiente aggiungere un richiamo a `CreateIfNotExistsAsync()`.
+Per creare la tabella di Azure in codice anziché utilizzando **Esplora Server** di Visual Studio, è sufficiente aggiungere una chiamata a `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -223,4 +221,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 [Ulteriori informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/) Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -36,7 +36,7 @@ In genere, la condivisione CORS (condivisione di risorse tra le origini) è nece
 
 ### Abilitazione della condivisione CORS per i gateway di app per le API
 
-È possibile configurare i gateway di app per le API per abilitare la condivisione CORS tramite il portale di anteprima di Azure. Se si aggiunge l'*impostazione dell'applicazione* **MS_CrossDomainOrigins** è possibile specificare gli URL autorizzati a chiamare l'app per le API. Questa sezione spiega come usare la proprietà *appSetting* per abilitare la condivisione CORS a livello del gateway dell'API.
+È possibile configurare i gateway di app per le API per abilitare la condivisione CORS tramite il portale di anteprima di Azure. Se si aggiunge l'*impostazione dell'applicazione* **MS\_CrossDomainOrigins** è possibile specificare gli URL autorizzati a chiamare l'app per le API. Questa sezione spiega come usare la proprietà *appSetting* per abilitare la condivisione CORS a livello del gateway dell'API.
 
 1. Passare al pannello del portale di anteprima di Azure relativo all'app per le API per cui si intende abilitare la condivisione CORS. Fare clic sull'icona *Gateway* per l'app per le API. 
 
@@ -54,7 +54,7 @@ In genere, la condivisione CORS (condivisione di risorse tra le origini) è nece
 
 	![Impostazioni applicazione del gateway](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Aggiungere l'impostazione dell'applicazione **MS_CrossDomainOrigins**. Impostare il valore sull'elenco con valori delimitati da virgole relativo agli host HTTP per cui si vuole fornire l'accesso all'app per le API. Se si vuole fornire l'accesso a più host, il valore della proprietà *appSetting* può essere impostato come illustrato nel codice seguente.
+1. Aggiungere l'impostazione dell'applicazione **MS\_CrossDomainOrigins**. Impostare il valore sull'elenco con valori delimitati da virgole relativo agli host HTTP per cui si vuole fornire l'accesso all'app per le API. Se si vuole fornire l'accesso a più host, il valore della proprietà *appSetting* può essere impostato come illustrato nel codice seguente.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ In genere, la condivisione CORS (condivisione di risorse tra le origini) è nece
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-L'impostazione dell'applicazione **MS_CrossDomainOrigins** è descritta in dettaglio nel post di blog relativo agli [aggiornamenti del progetto di servizio mobile di Azure per .NET](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Per altre informazioni sull'impostazione, leggere questo post.
+L'impostazione dell'applicazione **MS\_CrossDomainOrigins** è descritta in dettaglio nel post di blog relativo agli [aggiornamenti del progetto di servizio mobile di Azure per .NET](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Per altre informazioni sull'impostazione, leggere questo post.
 
 ### Abilitazione della condivisione CORS nel codice dell'API Web
 
@@ -80,7 +80,7 @@ La procedura per l'abilitazione della condivisione CORS nell'API Web è descritt
 
 	![File apiapp.json e cartella Metadata in Esplora soluzioni](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Aprire il file *App_Start/WebApiConfig.cs*. Aggiungere la riga di codice seguente al metodo **Register** della classe **WebApiConfig** nel file.
+1. Aprire il file *App\_Start/WebApiConfig.cs*. Aggiungere la riga di codice seguente al metodo **Register** della classe **WebApiConfig** nel file.
 
 		config.EnableCors();
 
@@ -310,7 +310,7 @@ In questa sezione verrà creata un'applicazione Web vuota, verrà installato e u
             $scope.refresh();
         });
 
-1, Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
+1\. Nel codice appena aggiunto al file index.html sostituire il numero di porta nell'URL di base (`http://localhost:1578`) con il numero di porta effettivo per il progetto API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
@@ -371,4 +371,4 @@ In questo esempio è stato descritto come usare AngularJS come piattaforma JavaS
 
 Questo esempio mostra l'accesso non autenticato a un'app per le API. Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

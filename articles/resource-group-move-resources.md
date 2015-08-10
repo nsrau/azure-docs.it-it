@@ -44,6 +44,7 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Mobile Engagement
 - Operational Insights
 - Cache Redis
+- App Web di Azure (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
 
 I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
 
@@ -56,7 +57,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 ## Uso di PowerShell per spostare le risorse
 
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, usare il comando **Move-AzureResource**.
+Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **Move-AzureResource**.
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
@@ -76,7 +77,7 @@ Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione d
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Sostituire **{source-subscription-id}** e **{source-resource-group-name}** con la sottoscrizione o il gruppo di risorse che attualmente contengono le risorse che si desidera spostare. Utilizzare **2015-01-01** per {api-version}.
+Sostituire **{source-subscription-id}** e **{source-resource-group-name}** con la sottoscrizione o il gruppo di risorse che attualmente contengono le risorse da spostare. Usare **2015-01-01** per {versione-api}.
 
 Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di destinazione e le risorse che si desidera spostare.
 
@@ -95,4 +96,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

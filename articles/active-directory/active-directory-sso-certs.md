@@ -80,4 +80,4 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 
 [Accesso alle applicazioni e Single Sign-On in Azure AD](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

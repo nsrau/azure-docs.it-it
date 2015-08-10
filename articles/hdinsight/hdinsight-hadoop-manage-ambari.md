@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight usando Ambari (anteprima)
@@ -40,9 +40,7 @@ Usare i seguenti articoli per creare un tunnel SSH da una porta nel computer loc
 
 ##Interfaccia utente Web Ambari
 
-L'interfaccia utente Web di Ambari è disponibile in ogni cluster HDInsight basato creato in **https://&lt;clustername>.azurehdinsight.net**. È anche possibile passare a questa pagina usando il pulsante **Ambari Web** nella parte inferiore del dashboard del cluster nel portale Azure.
-
-![icona Web Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
+L'interfaccia utente Web di Ambari è disponibile in ogni cluster HDInsight basato creato in **https://&lt;clustername>.azurehdinsight.net**.
 
 Verrà richiesto di eseguire l'autenticazione per la pagina due volte. La prima per l'autenticazione per il cluster HDInsight e la seconda per l'autenticazione per Ambari.
 
@@ -252,4 +250,4 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

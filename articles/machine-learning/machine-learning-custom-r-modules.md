@@ -86,7 +86,7 @@ Per esporre la funzione `CustomAddRows` come modulo di Azure Machine Learning, �
 	</Module>
 
  
-Si noti che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere esattamente ai nomi dei parametri di funzione del codice R (*dataset1*, *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere esattamente al nome della funzione nello script R (*CustomAddRows* nell'esempio). Al contrario, l'attributo **id** per gli elementi di **Output** non corrisponde a nessuna variabile nello script R. Quando è necessario più di un output, restituire semplicemente un elenco dalla funzione R con i risultati posizionati nello stesso ordine in cui sono dichiarati gli output nel file XML.
+Si noti che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere esattamente ai nomi dei parametri di funzione del codice R (\*dataset1\*, *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere esattamente al nome della funzione nello script R (\*CustomAddRows\* nell'esempio). Al contrario, l'attributo **id** per gli elementi di **Output** non corrisponde a nessuna variabile nello script R. Quando è necessario più di un output, restituire semplicemente un elenco dalla funzione R con i risultati posizionati nello stesso ordine in cui sono dichiarati gli output nel file XML.
 
 Salvare questi due file come *CustomAddRows.R* e *CustomAddRows.xml*, quindi comprimerli insieme nel file *CustomAddRows.zip*.
 
@@ -114,7 +114,7 @@ All'interno dell'elemento **Module**, è possibile specificare un elemento **Own
 * Il contenuto dell'elemento **Description** non deve superare i 128 caratteri.
 * Il contenuto dell'elemento **Owner** non deve superare i 32 caratteri.
 
-** Indica se i risultati di un modulo sono deterministici o non deterministici
+\*\* Indica se i risultati di un modulo sono deterministici o non deterministici
 
 Per impostazione predefinita, tutti i moduli sono considerati deterministici. Ovvero, dato un set di parametri non modificabile, il modulo deve restituire gli stessi risultati ogni volta che viene eseguito. In base a tale comportamento, Azure Machine Learning Studio non esegue nuovamente i moduli contrassegnati come deterministici a meno che non sia stato modificato un parametro o i dati di input. Vengono restituiti i risultati memorizzati nella cache con un'esecuzione più rapida dell'esperimento.
 
@@ -325,7 +325,7 @@ Un parametro del modulo viene definito mediante l'elemento figlio **Arg** della 
 
 ### File ausiliari
 
-Qualsiasi file inserito nel file ZIP del modulo personalizzato saranno disponibili all'uso durante la fase di esecuzione. Le strutture di directory eventualmente presenti verranno mantenute. Ciò significa che l'esecuzione del file funziona nello stesso modo, sia localmente, sia in Azure Machine Learning.
+Qualsiasi file inserito nel file ZIP del modulo personalizzato saranno disponibili all'uso durante la fase di esecuzione. Le strutture di directory eventualmente presenti verranno mantenute. Ciò significa che l'esecuzione del file funziona nello stesso modo, sia localmente, sia in Azure Machine Learning. Si noti che tutti i file vengono estratti nella directory 'src' in modo che tutti i percorsi abbiano il prefisso 'src /'.
 
 Ad esempio, si supponga di voler rimuovere tutte le righe con NAs e tutte le righe duplicate nel set di dati prima di eseguire l'output in CustomAddRows e di avere già scritto una funzione R che esegue tale operazione in un file RemoveDupNARows.R:
 
@@ -339,7 +339,7 @@ Ad esempio, si supponga di voler rimuovere tutte le righe con NAs e tutte le rig
 È possibile usare il file ausiliario RemoveDupNARows.R nella funzione CustomAddRows:
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 
@@ -363,4 +363,4 @@ Le **limitazioni dell'ambiente di esecuzione** includono:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

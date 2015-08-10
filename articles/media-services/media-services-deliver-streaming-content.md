@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Procedura: Distribuire contenuti in streaming
-
-
-Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
+ 
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [.NET](media-services-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##Panoramica
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento.
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in[questo](media-services-dotnet-configure-asset-delivery-policy.md)argomento) prima di creare un localizzatore.
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.
 
@@ -34,7 +36,7 @@ Questo argomento illustra come creare un localizzatore di streaming OnDemand, pe
 
 Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
-   1. Definire i criteri di accesso.
+   1. Se il contenuto viene crittografato, definire i criteri di accesso.
    2. Creare un localizzatore di streaming OnDemand.
    3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset. 
    		
@@ -151,5 +153,8 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
  
+##Vedere anche
 
-<!---HONumber=July15_HO4-->
+[Scaricare asset](media-services-deliver-asset-download.md)
+
+<!---HONumber=July15_HO5-->

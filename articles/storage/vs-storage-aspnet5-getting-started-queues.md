@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="Informazioni su come iniziare a usare l'archiviazione di accodamento di Azure in un progetto ASP.NET 5 in Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Introduzione all'Archiviazione di Azure"
+	description="Informazioni su come iniziare a usare l'archiviazione di accodamento di Azure in un progetto ASP.NET 5 in Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/20/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # Introduzione all'Archiviazione di Azure (progetti ASP.NET 5)
@@ -27,11 +27,28 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Come utilizzare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md/ "Come usare l'archiviazione di accodamento da .NET").
+##Panoramica
 
-Per accedere alle code a livello di codice in progetti ASP.NET 5, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
+Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
 
-1. Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di codice:
+In questo articolo viene descritto come iniziare a utilizzare l'archiviazione delle tabelle di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET 5 usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
+
+Per iniziare, è innanzitutto necessario creare una coda di Azure nell'account di archiviazione. Verrà illustrato come creare una coda da **Esplora Server** di Visual Studio. Inoltre verrà descritto come creare una coda in codice.
+
+Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
+
+**NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
+
+Per altre informazioni, vedere [Come utilizzare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md/ "Come usare l'archiviazione di accodamento da .NET").
+
+##Creare una coda in Esplora Server
+[AZURE.INCLUDE [vs-create-queue-in-server-explorer](../../includes/vs-create-queue-in-server-explorer.md)]
+
+##Code di accesso nel codice
+
+Per accedere alle code nei progetti ASP.NET 5, è necessario includere gli elementi seguenti ai file di origine C# che consentono di accedere all'archiviazione delle code di Azure.
+
+1. Assicurarsi che le dichiarazioni dello spazio dei nomi all'inizio del file C# includano queste istruzioni `using`.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -39,70 +56,138 @@ Per accedere alle code a livello di codice in progetti ASP.NET 5, è necessario 
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Usare il codice seguente per ottenere l'impostazione di configurazione.
+2. Ottenere un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure.
 
-		 IConfigurationSourceRoot config = new Configuration()
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-#####Ottenere la stringa di connessione di archiviazione
-Prima di poter eseguire qualsiasi operazione con una coda, è necessario ottenere la stringa di connessione per l'account di archiviazione in cui si troveranno le code. Per rappresentare le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si usa un progetto ASP.NET 5, sarà possibile chiamare il metodo Get dell'oggetto Configuration per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure, come mostrato nel codice seguente.
+3. Ottenere un oggetto **CloudQueueClient** per fare riferimento agli oggetti delle code nell'account di archiviazione.
 
-**Nota:** le API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
+	    // Create the table client.
+    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+4. Ottenere un oggetto **CloudQueue** per fare riferimento a una coda specifica.
 
-#####Creare una coda
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questo argomento viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione di [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
+    	// Get a reference to a table named "messageQueue"
+	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Nota:** le API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
-	// Create the queue client.
-	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+**NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
 
-Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da utilizzare. Il codice tenta di fare riferimento a una coda denominata “myqueue”. Se non è in grado di trovare una coda con tale nome, ne crea una.
+###Creare una coda in codice
 
-	// Get a reference to a queue named “myqueue”.
-	CloudQueue queue = queueClient.GetQueueReference("myqueue");
+Per creare la coda di Azure in codice anziché utilizzando **Esplora Server** di Visual Studio, è sufficiente aggiungere una chiamata a `CreateIfNotExistsAsync()`.
 
-	// If the queue isn’t already there, then create it.
+	// Create the CloudTable if it does not exist
 	await queue.CreateIfNotExistsAsync();
 
-**NOTA:** usare tutto questo codice prima del codice nelle sezioni seguenti.
+##Aggiungere un messaggio a una coda
 
-#####Inserire un messaggio in una coda
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Chiamare quindi il metodo AddMessageAsync(). È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World'.
+Per inserire un messaggio in una coda esistente, creare un nuovo oggetto **CloudQueueMessage**, quindi chiamare il metodo AddMessageAsync().
+
+È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte.
+
+Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
+
+	// Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	await queue.AddMessageAsync(message);
 
-#####Visualizzare il messaggio successivo
+##Leggere un messaggio in una coda
+
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo PeekMessageAsync().
 
-	// Peek at the next message in the queue.
-	CloudQueueMessage peekedMessage = queue.PeekMessage();
+	// Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
 	// Display the message.
-	CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
-
-#####Rimuovere il messaggio successivo
-Il codice può rimuovere un messaggio da una coda in due passaggi.
+	CloudQueueMessage peekedMessage = await messageQueue.PeekMessageAsync();
 
 
-1. Chiamare GetMessageAsync() per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessageAsync() diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 
-2.	Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessageAsync(). 
+##Leggere e rimuovere un messaggio in una coda
+
+Il codice può rimuovere un messaggio da una coda in due passaggi. 1. Chiamare GetMessageAsync() per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessageAsync() diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 2. Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessageAsync().
 
 Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama DeleteMessageAsync() immediatamente dopo l'elaborazione del messaggio.
 
-	// Get the next message in the queue.
-	CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+	// Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
-	// Process the message in less than 30 seconds, and then delete the message.
+	// Get the next message in the queue.
+	CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
+
+	// Process the message in less than 30 seconds
+
+    // Then delete the message.
 	await queue.DeleteMessageAsync(retrievedMessage);
 
-[Ulteriori informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/) Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
- 
+## Usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
 
-<!---HONumber=July15_HO4-->
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
+
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
+
+    // Create the queue client.
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+    // Retrieve a reference to a queue.
+    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+
+    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
+    {
+        // Process all messages in less than 5 minutes, deleting each message after processing.
+        queue.DeleteMessage(message);
+    }
+
+## Recuperare la lunghezza della coda
+
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **FetchAttributes** chiede al servizio di accodamento di recuperare gli attributi della coda, incluso il numero di messaggi. La proprietà **ApproximateMethodCount** restituisce l'ultimo valore recuperato dal metodo **FetchAttributes**, senza chiamare il servizio di accodamento.
+
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
+
+	// Fetch the queue attributes.
+	messageQueue.FetchAttributes();
+
+    // Retrieve the cached approximate message count.
+    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
+
+	// Display number of messages.
+	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+
+## Utilizzare il modello Async-Await modello con API delle code comuni
+
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API delle code comuni. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato. Ciò può essere osservato dal suffisso Async di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
+
+    // Create a message to put in the queue
+    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+
+    // Async enqueue the message
+    await messageQueue.AddMessageAsync(cloudQueueMessage);
+    Console.WriteLine("Message added");
+
+    // Async dequeue the message
+    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
+    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+
+    // Async delete the message
+    await messageQueue.DeleteMessageAsync(retrievedMessage);
+    Console.WriteLine("Deleted message");
+## Eliminare una coda
+
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Delete** sull'oggetto coda.
+
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
+
+    // Delete the queue.
+    messageQueue.Delete();
+
+
+
+##Passaggi successivi
+
+[AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+			
+
+<!---HONumber=July15_HO5-->

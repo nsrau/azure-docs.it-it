@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Software Oracle ospitato su macchine virtuali di Azure"
-	description="Consultare gli argomenti chiave che descrivono come configurare il software Oracle su Windows o sulle macchine virtuali di Azure basate su Linux."
-	documentationCenter=""
+	description="Consultare gli argomenti chiave che descrivono come configurare il software Oracle sulle macchine virtuali di Azure basate su Windows o Linux."
 	services="virtual-machines"
+	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
@@ -19,7 +19,7 @@
 
 # Software Oracle ospitato su macchine virtuali di Azure
 
-Configurare il primo o il successivo database Oracle di sviluppo/test o produzione in esecuzione su una macchina virtuale in servizi infrastruttura di Microsoft Azure. Sfruttare la semplicità di configurazione e la possibilità di espandere rapidamente il carico di lavoro del database Oracle per includere la nuova capacità.
+Configurare il primo o il successivo database Oracle di sviluppo/test o produzione in esecuzione su una macchina virtuale in servizi infrastruttura di Azure. Sfruttare la semplicità di configurazione e la possibilità di espandere rapidamente il carico di lavoro del database Oracle per includere la nuova capacità.
 
 ## Immagini delle macchine virtuali Oracle
 
@@ -39,7 +39,7 @@ In [Creazione di una macchina virtuale Oracle WebLogic Server 12c in Azure](virt
 
 ## Oracle WebLogic Server 12c e Oracle Database 12c
 
-In [Creazione di una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) viene illustrata la procedura per la creazione della macchina virtuale e del database, quindi per la configurazione.
+In [Creazione di una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) viene illustrata la procedura per la creazione e la configurazione della macchina virtuale e del database.
 
 ## Cluster Oracle WebLogic Server 12c
 
@@ -61,4 +61,4 @@ In [Configurazione di Oracle Data Guard per Azure](virtual-machines-configuring-
 
 In [Configurazione di Oracle GoldenGate per Azure](virtual-machines-configuring-oracle-goldengate.md) viene illustrata la procedura per la configurazione del database e della replica.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -37,7 +37,7 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 - 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
 - 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
 - 21: canale di controllo per il servizio FTP. Questa porta può essere bloccata, se non si usa un servizio FTP.
-- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP. **Nota:** i canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.
+- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP. \*\*Nota:\*\* i canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.
 - 4016: porta usata per il debug remoto con Visual Studio 2012. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4018: porta usata per il debug remoto con Visual Studio 2013. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
@@ -78,7 +78,7 @@ Se si desidera usufruire del supporto per FTP, è possibile usare le regole segu
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-**Nota:** l'intervallo delle porte dei canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.
+\*\*Nota:\*\* l'intervallo delle porte dei canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.
 
 Se si usa la funzionalità di debug remoto con Visual Studio, usare le regole seguenti per concedere l'accesso. Esiste una regola separata per ogni versione supportata di Visual Studio, dal momento che ogni versione usa una porta diversa per il debug remoto. Come per l'accesso FTP, il traffico di debug remoto potrebbe non transitare correttamente attraverso un dispositivo proxy o un firewall per applicazioni Web tradizionale. È quindi possibile impostare *SourceAddressPrefix* sull'intervallo di indirizzi IP dei computer di sviluppo che eseguono Visual Studio.
 
@@ -130,4 +130,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

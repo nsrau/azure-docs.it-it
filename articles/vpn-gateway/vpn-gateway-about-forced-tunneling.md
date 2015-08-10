@@ -1,4 +1,5 @@
-<properties pageTitle="Configurazione del tunneling forzato per i gateway VPN di Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+<properties pageTitle="Configurazione del tunneling forzato per i gateway VPN di Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -144,4 +145,4 @@ Utilizzare la procedura seguente per configurare il tunneling forzato.
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

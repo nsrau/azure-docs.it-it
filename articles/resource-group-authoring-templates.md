@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -218,7 +218,7 @@ Le risorse vengono definite con la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio | Descrizione
 | :----------------------: | :------: | :----------
-| apiVersion | Sì | Versione dell'API che supporta la risorsa.
+| apiVersion | Sì | Versione dell'API che supporta la risorsa. Per le versioni disponibili e gli schemi per le risorse, vedere[Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sì | Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa che supporta il provider di risorse.
 | name | Sì | Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986.
 | location | No | Aree geografiche supportate della risorsa specificata.
@@ -311,7 +311,9 @@ L'esempio seguente illustra un valore che viene restituito nella sezione dell'ou
 ## Scenari più avanzati
 Questo argomento offre un'analisi iniziale del modello. Tuttavia, il proprio scenario potrebbe richiedere attività più avanzate.
 
-Potrebbe essere necessario unire due modelli o usare un modello figlio all'interno di un modello padre. Per altre informazioni, vedere [Modelli annidati](../resource-group-advanced-template#nested-template).
+Potrebbe essere necessario unire due modelli o usare un modello figlio all'interno di un modello padre. Per altre informazioni, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md).
+
+Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
 Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](../resource-group-template-functions#resourceid).
 
@@ -319,7 +321,7 @@ Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo d
 Il modello seguente distribuisce un'app Web e fornisce il codice da un file con estensione zip.
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
     }
 
 ## Passaggi successivi
-- [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
-- [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
-- [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
+- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
+- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

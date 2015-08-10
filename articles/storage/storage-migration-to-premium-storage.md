@@ -37,14 +37,14 @@ Di seguito sono riepilogate le dimensioni delle macchine virtuali della serie DS
 
 |Dimensioni macchina virtuale|Core CPU|Max. IOPS|Max. Larghezza di banda del disco|
 |:---:|:---:|:---:|:---:|
-|**STANDARD_DS1**|1|3.200|32 MB al secondo|
-|**STANDARD_DS2**|2|6.400|64 MB al secondo|
-|**STANDARD_DS3**|4|12.800|128 MB al secondo|
-|**STANDARD_DS4**|8|25.600|256 MB al secondo|
-|**STANDARD_DS11**|2|6.400|64 MB al secondo|
-|**STANDARD_DS12**|4|12.800|128 MB al secondo|
-|**STANDARD_DS13**|8|25.600|256 MB al secondo|
-|**STANDARD_DS14**|16|50.000|512 MB al secondo|
+|**STANDARD\_DS1**|1|3\.200|32 MB al secondo|
+|**STANDARD\_DS2**|2|6\.400|64 MB al secondo|
+|**STANDARD\_DS3**|4|12\.800|128 MB al secondo|
+|**STANDARD\_DS4**|8|25\.600|256 MB al secondo|
+|**STANDARD\_DS11**|2|6\.400|64 MB al secondo|
+|**STANDARD\_DS12**|4|12\.800|128 MB al secondo|
+|**STANDARD\_DS13**|8|25\.600|256 MB al secondo|
+|**STANDARD\_DS14**|16|50\.000|512 MB al secondo|
 
 #### Dimensione disco 
 È possibile utilizzare tre tipi di dischi con la macchina virtuale, ciascuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco per la macchina virtuale in base alle esigenze dell’applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
@@ -237,7 +237,7 @@ Copiare e salvare il nome di questo nuovo disco dati di Azure. Nell’esempio pr
 
 ### Creazione di una VM di Azure della serie DS  
 
-Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova istanza di VM di Azure della serie DS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito, viene utilizzata la dimensione VM *Standard_DS2*.
+Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova istanza di VM di Azure della serie DS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito, viene utilizzata la dimensione VM *Standard\_DS2*.
 
 >[AZURE.NOTE]Aggiornare le dimensioni del disco per assicurarsi che corrispondano alla capacità, ai requisiti di prestazione e alle dimensioni dei dischi di Azure disponibili.
 
@@ -315,4 +315,4 @@ Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviaz
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

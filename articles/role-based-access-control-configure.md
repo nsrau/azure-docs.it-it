@@ -84,7 +84,7 @@ Aggiungere innanzitutto l'accesso in lettura a tutte le risorse della sottoscriz
 
 ![][3]
 
-Fare clic su *nome sottoscrizione* ** > Reader > Add**. Nell'elenco di utenti e gruppi, selezionare o digitare il nome del gruppo di Active Directory.
+Fare clic su *nome sottoscrizione* \*\* > Reader > Add\*\*. Nell'elenco di utenti e gruppi, selezionare o digitare il nome del gruppo di Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Di seguito sono riportate altre risorse utili per l'uso del controllo degli acce
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

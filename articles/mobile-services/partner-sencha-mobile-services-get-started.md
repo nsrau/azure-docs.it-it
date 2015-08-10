@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Questa esercitazione illustra come sfruttare Servizi mobili di Azure nell'applicazione Sencha Touch. Sencha Touch verrà utilizzato per creare una semplice app To Do List che utilizza un servizio mobile definito tramite il portale di gestione. Questa esercitazione è destinata a sviluppatori di applicazioni Web di livello da intermedio ad avanzato già esperti di JavaScript e conoscono il framework di Sencha Touch. </p>
-<p>Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione. Nel video Arthur Kay spiega come creare un'applicazione Sencha Touch utilizzando un back-end di Servizi mobili di Azure.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">14:37:00</span></div>
-</div>
+##Panoramica
+
+Questa esercitazione illustra come sfruttare Servizi mobili di Azure nell'applicazione Sencha Touch. Sencha Touch verrà utilizzato per creare una semplice app To Do List che utilizza un servizio mobile definito tramite il portale di gestione. Questa esercitazione è destinata a sviluppatori di applicazioni Web di livello da intermedio ad avanzato già esperti di JavaScript e conoscono il framework di Sencha Touch.
+
+Se si preferisce guardare un video, il clip esegue gli stessi passaggi dell'esercitazione. Nel video Arthur Kay spiega come creare un'applicazione Sencha Touch utilizzando un back-end di Servizi mobili di Azure.
+
+> [AZURE.VIDEO getting-started-with-sencha-touch]
 
 
 Di seguito è riportata una schermata dell'app completata:
@@ -35,9 +35,9 @@ Di seguito è riportata una schermata dell'app completata:
 
 ##Requisiti
 
-- Scaricare e installare [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+- Scaricare e installare [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- Scaricare e installare [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+- Scaricare e installare [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - Java Runtime Environment (JRE) o Java Development Kit (se si intende creare app per Android)
 
@@ -712,4 +712,4 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

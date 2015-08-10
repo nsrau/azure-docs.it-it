@@ -94,7 +94,7 @@ La gestione del cluster e gli strumenti di pianificazione processi consentono di
 
 Azure offre una gamma di servizi di calcolo, gestione dati, reti e servizi correlati che è possibile utilizzare per i flussi di lavoro e le soluzioni Big Compute. Per informazioni dettagliate su ognuno di questi servizi, vedere la documentazione relativa ai servizi di Azure. Vedere [Scenari della soluzione](#solution-scenarios) in questo articolo per alcuni approcci comuni con le applicazioni in Batch e HPC.
 
->[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) o inviare un messaggio di posta elettronica a *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/it-it/search?keyword=azure) o inviare un messaggio di posta elettronica a *bigcompute@microsoft.com*.
 
 ### Servizi di calcolo
 
@@ -222,4 +222,4 @@ Vedere la figura riportata di seguito per un flusso di lavoro tipico, che uno sv
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

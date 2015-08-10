@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Gestione mappe partizioni
@@ -37,12 +37,29 @@ Scalabilità elastica supporta i seguenti tipi di .NET Framework come chiavi di 
 Le mappe partizioni possono essere create usando **elenchi di singoli valori di chiavi di partizionamento orizzontale** oppure tramite **intervalli di valori di chiavi di partizionamento orizzontale**.
 
 ###Mappe partizioni di tipo elenco
-Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partizioni viene gestito da una mappa partizioni. Una **mappa partizioni di tipo elenco** è un'associazione tra i singoli valori di chiave che identificano gli shardlet e i database che fungono da partizioni. I **mapping di tipo elenco** sono espliciti (ad esempio, la chiave 1 è mappata al Database A) ed è possibile mappare valori di chiave diversi allo stesso database (i valori di chiave 3 e 6 fanno riferimento entrambi al Database B). <table> <tr> <td>Chiave</td> <td>Percorso partizione</td> </tr> <tr> <td>1</td> <td>Database_A</td> </tr> <tr> <td>3</td> <td>Database_B</td> </tr> <tr> <td>4</td> <td>Database_C</td> </tr> <tr> <td>6</td> <td>Database_B</td> </tr> <tr> <td>...</td> <td>...</td> </tr> </table>
+Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partizioni viene gestito da una mappa partizioni. Una **mappa partizioni di tipo elenco** è un'associazione tra i singoli valori di chiave che identificano gli shardlet e i database che fungono da partizioni. I **mapping di tipo elenco** sono espliciti (ad esempio, la chiave 1 è mappata al Database A) ed è possibile mappare valori di chiave diversi allo stesso database (i valori di chiave 3 e 6 fanno riferimento entrambi al Database B).
+
+| Chiave | Percorso della partizione |
+|-----|----------------|
+| 1 | Database\_A |
+| 3 | Database\_B |
+| 4 | Database\_C |
+| 6 | Database\_B |
+| ... | ... |
+ 
 
 ### Mappa partizioni di tipo intervallo 
 In una **mappa partizioni di tipo intervallo** l'intervallo chiave è descritto da una coppia di tipo **[Low Value, High Value)**, dove *Low Value* indica la chiave minima dell'intervallo e *High Value* è il primo valore superiore all'intervallo.
 
-Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e inferiori a 100. Si noti che più intervalli possono fare riferimento allo stesso database e che sono supportati intervalli non contigui. Ad esempio, [100,200) e [400,600) fanno entrambi riferimento al Database C nel seguente esempio. <table> <tr> <td><b>Intervallo di chiavi</b></td> <td><b>Percorso partizione</b></td> </tr> <tr> <td>[1, 50)</td> <td>Database_A</td> </tr> <tr> <td>[50, 100)</td> <td>Database_B</td> </tr> <tr> <td>[100, 200)</td> <td>Database_C</td> </tr> <tr> <td>[400, 600)</td> <td>Database_C</td> </tr> <tr> <td>...</td> <td>...</td> </tr> </table>
+Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e inferiori a 100. Si noti che più intervalli possono fare riferimento allo stesso database e che sono supportati intervalli non contigui. Ad esempio, [100,200) e [400,600) fanno entrambi riferimento al Database C nel seguente esempio.
+
+| Chiave | Percorso della partizione |
+|-----------|----------------|
+| [1, 50) | Database\_A |
+| [50, 100) | Database\_B |
+| [100, 200) | Database\_C |
+| [400, 600) | Database\_C |
+| ... | ...            
 
 Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardMap**. Ogni riga costituisce un esempio semplificato di un singolo oggetto **PointMapping** (per la mappa partizioni di tipo elenco) o **RangeMapping** (per la mappa partizioni di tipo intervallo).
 
@@ -50,8 +67,8 @@ Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardM
 
 Il gestore mappe partizioni nella libreria client è una raccolta di mappe partizioni. I dati gestiti da un oggetto .NET **ShardMapManager** sono archiviati in tre posizioni:
 
-1. **Mappa globale partizioni**: quando si crea un oggetto **ShardMapManager**, si specifica un database da usare come repository per tutte le mappe partizioni e i mapping corrispondenti. Vengono create automaticamente tabelle speciali e stored procedure per la gestione delle informazioni. Si tratta in genere di un database di piccole dimensioni e a cui si accede raramente, ma è consigliabile non usarlo per altre esigenze dell'applicazione. Le tabelle si trovano in uno schema speciale denominato **__ShardManagement**. 
-2. **Mappa locale partizioni**: ogni database specificato per l'uso come partizione in una mappa partizioni verrà modificato in modo da includere alcune tabelle di piccole dimensioni e stored procedure speciali, che includono e gestiscono informazioni sulle mappe partizioni specifiche per la partizione indicata. Queste informazioni sono ridondanti rispetto alle informazioni nella mappa globale partizioni, ma permettono all'applicazione di convalidare le informazioni sulla mappa partizioni memorizzate nella cache, senza sovraccaricare la mappa globale partizioni. L'applicazione usa la mappa locale partizioni per determinare se un mapping memorizzato nella cache è ancora valido. Le tabelle corrispondenti alla mappa locale partizioni in ogni partizione sono disponibili nello schema **__ShardManagement**.
+1. **Mappa globale partizioni**: quando si crea un oggetto **ShardMapManager**, si specifica un database da usare come repository per tutte le mappe partizioni e i mapping corrispondenti. Vengono create automaticamente tabelle speciali e stored procedure per la gestione delle informazioni. Si tratta in genere di un database di piccole dimensioni e a cui si accede raramente, ma è consigliabile non usarlo per altre esigenze dell'applicazione. Le tabelle si trovano in uno schema speciale denominato **__ShardManagement\*\*. 
+2. **Mappa locale partizioni**: ogni database specificato per l'uso come partizione in una mappa partizioni verrà modificato in modo da includere alcune tabelle di piccole dimensioni e stored procedure speciali, che includono e gestiscono informazioni sulle mappe partizioni specifiche per la partizione indicata. Queste informazioni sono ridondanti rispetto alle informazioni nella mappa globale partizioni, ma permettono all'applicazione di convalidare le informazioni sulla mappa partizioni memorizzate nella cache, senza sovraccaricare la mappa globale partizioni. L'applicazione usa la mappa locale partizioni per determinare se un mapping memorizzato nella cache è ancora valido. Le tabelle corrispondenti alla mappa locale partizioni in ogni partizione sono disponibili nello schema **__ShardManagement\*\*.
 
 3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping, in cui vengono archiviate le informazioni di routing appena recuperate.
 
@@ -107,7 +124,7 @@ Di seguito è disponibile una sequenza di esempio delle operazioni necessarie pe
 2. Aggiunta di metadati per due partizioni diverse a una mappa partizioni. 
 3. Aggiunta di diversi mapping di intervalli di chiavi e visualizzazione dei contenuti complessivi della mappa partizioni. 
 
-Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo in caso di errore imprevisto. Ogni richiesta verifica se esiste già una partizione o un mapping, prima di tentarne la creazione. Il seguente codice presuppone che i database denominati **sample_shard_0**, **sample_shard_1** e **sample_shard_2** siano già stati creati nel server a cui fa riferimento la stringa **shardServer**.
+Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo in caso di errore imprevisto. Ogni richiesta verifica se esiste già una partizione o un mapping, prima di tentarne la creazione. Il seguente codice presuppone che i database denominati **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** siano già stati creati nel server a cui fa riferimento la stringa **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -183,7 +200,7 @@ Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo
  
 In alternativa, è possibile usare script di PowerShell per ottenere lo stesso risultato.
 
-Dopo il popolamento delle mappe partizioni, sarà possibile creare o modificare le applicazioni di accesso ai dati in modo che usino le mappe. Sarà necessario popolare o modificare di nuovo le **mappe solo se occorrerà modificare il layout delle mappe**.
+Dopo il popolamento delle mappe partizioni, sarà possibile creare o modificare le applicazioni di accesso ai dati in modo che usino le mappe. Sarà necessario popolare o modificare di nuovo le mappe solo se occorrerà modificare il **layout delle mappe**.
 
 ## Routing dipendente dei dati 
 
@@ -234,4 +251,4 @@ Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

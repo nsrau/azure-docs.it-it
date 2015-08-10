@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configurare una connessione ExpressRoute mediante un provider di Exchange
@@ -218,7 +218,7 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
 8. **Configurare la rete virtuale e il gateway.**
 
-	Vedere [Configurare una rete virtuale e un gateway per ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Si noti che la subnet del gateway deve essere /28 per poter usare una connessione ExpressRoute.
+	Vedere [Configurare una rete virtuale e un gateway per ExpressRoute](expressroute-configuring-vnet-gateway.md). Si noti che la subnet del gateway deve essere /28 per poter usare una connessione ExpressRoute.
 
 9. **Collegare la rete al circuito.** Procedere con le istruzioni riportate di seguito solo dopo aver confermato che lo stato del circuito è ora il seguente:
 	- ServiceProviderProvisioningState: Provisioned
@@ -227,5 +227,8 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Passaggi successivi
 
-<!---HONumber=July15_HO4-->
+- Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
+<!---HONumber=July15_HO5-->

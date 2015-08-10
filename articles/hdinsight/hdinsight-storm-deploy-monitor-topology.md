@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Distribuire e gestire topologie Apache Storm in HDInsight
@@ -42,9 +42,7 @@ Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API R
 
 ##Storm Dashboard
 
-Storm Dashboard è disponibile nel cluster Storm. L'URL è **https://&lt;clustername>.azurehdinsight.net/**, dove **NomeCluster** è il nome del cluster Storm in HDInsight. È possibile anche accedere al dashboard usando il collegamento **Storm Dashboard** dal dashboard del cluster nel portale di Azure.
-
-![portale con Storm Dashboard evidenziato][hdinsight-dashboard]
+Dashboard di Storm è una pagina Web disponibile nel cluster Storm. L'URL è **https://&lt;clustername>.azurehdinsight.net/**, dove **NomeCluster** è il nome del cluster Storm in HDInsight.
 
 Nella parte superiore di Storm Dashboard selezionare **Submit Topology**. Seguire le istruzioni visualizzate nella pagina per eseguire una topologia di esempio o per caricare ed eseguire una topologia creata.
 
@@ -178,4 +176,4 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

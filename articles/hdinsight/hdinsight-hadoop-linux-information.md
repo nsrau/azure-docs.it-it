@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Informazioni sull'utilizzo di HDInsight in Linux (anteprima)
@@ -84,9 +84,7 @@ HDInsight consente anche di associare più account di archiviazione BLOB a un cl
 
 ### Quale archivio BLOB viene usato dal cluster?
 
-Durante la creazione del cluster si è scelto se usare un account e un contenitore di archiviazione di Azure esistenti o se crearne di nuovi. Successivamente questa operazione viene probabilmente dimenticata. È possibile trovare l'account e il contenitore di archiviazione usando i metodi seguenti.
-
-**API di Ambari**
+Durante la creazione del cluster si è scelto se usare un account e un contenitore di archiviazione di Azure esistenti o se crearne di nuovi. Successivamente questa operazione viene probabilmente dimenticata. È possibile trovare l'account di archiviazione e il contenitore predefiniti usando l'API REST Ambari.
 
 1. Per recuperare le informazioni di configurazione HDFS, usare il comando seguente:
 
@@ -110,16 +108,6 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Portale di Azure**
-
-1. Nel [portale di Azure](https://manage.windowsazure.com/) selezionare il cluster HDInsight.
-
-2. Selezionare **Dashboard** nella parte superiore della pagina.
-
-3. Gli account e i contenitori di archiviazione sono elencati nella sezione **Risorse collegate** della pagina.
-
-	![linked resources](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### Come si accede all'archivio BLOB?
 
@@ -150,6 +138,5 @@ Oltre che con il comando Hadoop dal cluster, è possibile procedere in diversi m
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

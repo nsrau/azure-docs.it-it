@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Procedura: aggiungere riferimenti alla libreria client di database elastici in un progetto di Visual Studio 
@@ -40,4 +40,4 @@ Il riferimento della libreria client ora è stato aggiunto al progetto.
 [1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -33,11 +33,11 @@ Per determinare la soluzione Multi-Factor Authentication corretta, innanzitutto 
 
 Cosa si intende proteggere| Multi-Factor Authentication nel cloud|Server Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
-App prodotte direttamente da Microsoft|* |* |
-App SaaS nella Raccolta app|* |* |
-Le applicazioni IIS pubblicate tramite proxy app per Azure AD|* |* |
-Le applicazioni IIS non pubblicate tramite proxy app per Azure AD | |* |
-Accesso remoto, ad esempio VPN, RDG| |* |
+App prodotte direttamente da Microsoft|\* |\* |
+App SaaS nella Raccolta app|\* |\* |
+Le applicazioni IIS pubblicate tramite proxy app per Azure AD|\* |\* |
+Le applicazioni IIS non pubblicate tramite proxy app per Azure AD | |\* |
+Accesso remoto, ad esempio VPN, RDG| |\* |
 
 
 
@@ -87,4 +87,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 * [Per gli utenti](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

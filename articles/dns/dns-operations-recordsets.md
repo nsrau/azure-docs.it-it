@@ -47,7 +47,7 @@ New-AzureDnsRecordSet restituisce un oggetto locale che rappresenta il set di re
 ### Record con caratteri jolly
 DNS di Azure supporta[record jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly).
 
->[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
+>[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
 
 >I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
@@ -265,4 +265,4 @@ L'oggetto del set di record può essere anche reindirizzato invece che passato c
 [Introduzione alla creazione di set di record e di record](../dns-getstarted-create-recordset)<BR> [Eseguire operazioni sulle zone DNS](../dns-operations-dnszones)<BR> [Automatizzare le operazioni usando .NET SDK](../dns-sdk)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

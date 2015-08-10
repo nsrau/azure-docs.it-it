@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@ Service Fabric emette eventi ETW per aiutare gli sviluppatori di applicazioni a 
 1. Devono essere installati i prerequisiti seguenti:
    * Visual Studio 2015
    * Service Fabric SDK
-2. Avviare Visual Studio come amministratori.
-3. Creare un progetto o aprire un progetto esistente per un attore o un servizio con stato o senza stato. ![Creare un progetto di Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. Premere F5 per eseguire il debug dell'applicazione. Gli eventi di Service Fabric dovrebbero venire visualizzati nella finestra degli eventi di diagnostica. Per ogni evento sono disponibili informazioni di metadati standard che indicano il nodo, l'applicazione e il servizio da cui proviene l'evento. È anche possibile filtrare l'elenco degli eventi usando la casella del filtro eventi nella parte superiore della finestra. Ad esempio è possibile filtrare in base al nome del nodo o al nome del servizio. ![Visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. Avviare Visual Studio come amministratori.
+
+3. Creare un progetto o aprire un progetto esistente per un attore o un servizio con stato o senza stato.
+
+  ![Creare un’applicazione di Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Creare un servizio di Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. Premere F5 per eseguire il debug dell'applicazione. Gli eventi di Service Fabric dovrebbero venire visualizzati nella finestra degli eventi di diagnostica. Per ogni evento sono disponibili informazioni di metadati standard che indicano il nodo, l'applicazione e il servizio da cui proviene l'evento. È anche possibile filtrare l'elenco degli eventi usando la casella del filtro eventi nella parte superiore della finestra. Ad esempio è possibile filtrare in base al nome del nodo o al nome del servizio.
+
+  ![Visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. Se la finestra degli eventi di diagnostica non viene visualizzata automaticamente, passare alla scheda Esplora server in Visual Studio, fare clic con il pulsante destro del mouse sul cluster di Service Fabric e scegliere "View Diagnostic Events" dal menu di scelta rapida.
 
-![Aprire il visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Aprire il visualizzatore eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Aggiungere tracce personalizzate al codice dell'applicazione
 I modelli di progetto di Visual Studio per Service Fabric contengono codice di esempio. Il codice mostra come aggiungere tracce ETW personalizzate per il codice dell'applicazione da visualizzare nel visualizzatore ETW di Visual Studio insieme alle tracce di sistema di Service Fabric. Questa soluzione ha il vantaggio di consentire l'aggiunta automatica dei metadati alle tracce e inoltre il visualizzatore diagnostico di Visual Studio è già configurato per visualizzarli.
@@ -70,6 +78,5 @@ Lo stesso codice di tracciamento aggiunto all'applicazione precedente per la dia
 * [Configurazione di Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnostica e monitoraggio delle prestazioni per Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

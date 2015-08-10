@@ -195,7 +195,7 @@ Eseguire:
 
 Per personalizzare:
 
-*    -n con l'URL del servizio. Sono supportati caratteri jolly ("CN=*.cloudapp.net") e nomi alternativi ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
+*    -n con l'URL del servizio. Sono supportati caratteri jolly ("CN=\*.cloudapp.net") e nomi alternativi ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
 *    -e con la data di scadenza del certificato creare una password complessa e specificarla quando richiesto.
 
 ## Creare un file PFX per il certificato SSL autofirmato
@@ -204,7 +204,7 @@ Eseguire:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Immettere la password e quindi esportare il certificato con queste opzioni: * Sì, esporta la chiave privata * Esporta tutte le proprietà estese
+Immettere la password e quindi esportare il certificato con queste opzioni: \* Sì, esporta la chiave privata \* Esporta tutte le proprietà estese
 
 ## Esportare il certificato SSL dall'archivio certificati
 
@@ -344,7 +344,7 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà import
     * Includi tutte le proprietà estese.
 
 ## Copiare le identificazioni personali del certificato client
-Ogni utente per il quale è stato rilasciato un certificato client dovrà seguire questa procedura per ottenere l'identificazione personale del proprio certificato, che verrà aggiunto al file di configurazione del servizio: * Eseguire certmgr.exe * Selezionare la scheda personale * Fare doppio clic sul certificato client da utilizzare per l'autenticazione * Nella finestra di dialogo Certificato visualizzata selezionare la scheda Dettagli * Assicurarsi che Mostra visualizzi Tutti * Selezionare il campo denominato identificazione personale nell'elenco * Copiare il valore dell'identificazione personale ** Eliminare i caratteri unicode non visibili dopo la prima cifra ** Eliminare tutti gli spazi
+Ogni utente per il quale è stato rilasciato un certificato client dovrà seguire questa procedura per ottenere l'identificazione personale del proprio certificato, che verrà aggiunto al file di configurazione del servizio: \* Eseguire certmgr.exe \* Selezionare la scheda personale \* Fare doppio clic sul certificato client da utilizzare per l'autenticazione \* Nella finestra di dialogo Certificato visualizzata selezionare la scheda Dettagli \* Assicurarsi che Mostra visualizzi Tutti \* Selezionare il campo denominato identificazione personale nell'elenco \* Copiare il valore dell'identificazione personale \*\* Eliminare i caratteri unicode non visibili dopo la prima cifra \*\* Eliminare tutti gli spazi
 
 ## Configurare i client consentiti nel file di configurazione del servizio
 
@@ -368,7 +368,7 @@ Personalizzazione
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Immettere la password e quindi esportare il certificato con queste opzioni: * Sì, esporta la chiave privata * Esporta tutte le proprietà estese * Quando si carica il certificato nel servizio cloud, sarà necessaria la password.
+Immettere la password e quindi esportare il certificato con queste opzioni: \* Sì, esporta la chiave privata \* Esporta tutte le proprietà estese \* Quando si carica il certificato nel servizio cloud, sarà necessaria la password.
 
 ## Esportare il certificato di crittografia dall'archivio certificati
 
@@ -471,4 +471,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

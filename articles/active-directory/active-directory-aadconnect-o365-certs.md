@@ -39,13 +39,16 @@ Si noti che se si utilizza AD FS 2.0, sarà necessario eseguire prima Add-Pssnap
 
 Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml
 
-dove `<your_FS_name> ` viene sostituito con il nome host del servizio federativo utilizzato dall'organizzazione, ad esempio fs.contoso.com. Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+
+dove `(your_FS_name) ` viene sostituito con il nome host del servizio federativo usato dall'organizzazione, ad esempio fs.contoso.com. Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.
+
+Esempio: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Se la proprietà AutoCertificateRollover è impostata su False
 
-Se la proprietà AutoCertificateRollover è impostata su False, si utilizzano le impostazioni di certificati AD FS non predefiniti. Il motivo più comune è che l'organizzazione gestisce i certificati AD FS registrati da un'autorità di certificazione aziendale. In questo caso è necessario rinnovare e aggiornare manualmente i certificati. Utilizzare le linee guida disponibili [qui](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Se la proprietà AutoCertificateRollover è impostata su False, si utilizzano le impostazioni di certificati AD FS non predefiniti. Il motivo più comune è che l'organizzazione gestisce i certificati AD FS registrati da un'autorità di certificazione aziendale. In questo caso è necessario rinnovare e aggiornare manualmente i certificati. Usare le linee guida disponibili [qui](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 ## Se i metadati non sono accessibili pubblicamente
 Se AutocertificateRollover è impostato su True, ma i metadati di federazione non sono disponibili pubblicamente, utilizzare la procedura riportata di seguito per verificare che i certificati vengano aggiornati in locale e nel cloud:
@@ -77,9 +80,9 @@ A questo punto dovrebbero essere elencati due certificati, uno dei quali ha una 
 1.	Aprire il modulo di Microsoft Azure Active Directory per Windows PowerShell.
 2.	Eseguire $cred=Get-Credential. Quando questo cmdlet richiede le credenziali, digitare le credenziali dell'account amministratore servizio cloud.
 3.	Eseguire Connect-MsolService –Credential $cred. Questo cmdlet consente di connettersi al servizio cloud. La creazione di un contesto che consente di connettersi al servizio cloud è necessaria prima di eseguire i cmdlet aggiuntivi installati dallo strumento.
-4.	Se si eseguono questi comandi in un computer che non è il server federativo primario di AD FS, eseguire Set-MSOLAdfscontext -Computer <AD FS primary server>dove<AD FS primary server> è il nome FQDN interno del server AD FS primario. Questo cmdlet crea un contesto che consente la connessione ad AD FS. 
+4.	Se si eseguono questi comandi in un computer che non è il server federativo primario di ADFS, eseguire Set-MSOLAdfscontext -Computer <AD FS primary server>, dove <AD FS primary server> è il nome FQDN interno del server ADFS primario. Questo cmdlet crea un contesto che consente la connessione ad AD FS. 
 5.	Eseguire Update-MSOLFederatedDomain –DomainName <domain>. Questo cmdlet aggiorna le impostazioni di AD FS nel servizio cloud e configura la relazione di trust tra i due.
 
->[AZURE.NOTE]Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per ulteriori informazioni, vedere Supporto per più domini di primo livello. Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con il rollup [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy non vengono aggiornati con il nuovo certificato, comportando un'interruzione.
+>[AZURE.NOTE]Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per ulteriori informazioni, vedere Supporto per più domini di primo livello. Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con l'aggiornamento cumulativo [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy potrebbero non essere aggiornati con il nuovo certificato, con una conseguente interruzione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

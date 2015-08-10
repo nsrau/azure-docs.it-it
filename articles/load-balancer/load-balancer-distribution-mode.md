@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configurare la modalità di distribuzione del bilanciamento del carico | Microsoft Azure"
-   description="Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine, nota anche come sessioni permanenti"
+   description="Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -149,4 +149,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

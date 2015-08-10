@@ -39,12 +39,12 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da Microsoft.
 
 | Piattaforma | Oper Sys | Librerie<br/>per il download | Versione<br/>del driver | Descrizione<br/>del driver | Ulteriori<br/>informazioni |
 | :--- | :--- | :--- | :--- | :--- | :-- |
-| .NET | Multipiattaforma (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Provider SQL server per .NET Framework | . |
-| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 + | Driver PHP per SQL Server | [Collegamento](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 + | Driver JDBC di tipo 4 che offre connettività di database tramite l’API JDBC standard | [Collegamento](http://msdn.microsoft.com/library/dn425070.aspx) |
-| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 + | Driver Microsoft ODBC per SQL Server | [Collegamento](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server | . |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Driver Microsoft ODBC per SQL Server | . |
+| .NET | Multipiattaforma (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Provider SQL server per .NET Framework | . |
+| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 + | Driver PHP per SQL Server | [Collegamento](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 + | Driver JDBC di tipo 4 che offre connettività di database tramite l’API JDBC standard | [Collegamento](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 + | Driver Microsoft ODBC per SQL Server | [Collegamento](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Driver Microsoft ODBC per SQL Server | . |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Driver Microsoft ODBC per SQL Server | . |
 
 
 ### OLEDB per DB2 e SQL Server, per la progettazione DRDA
@@ -82,4 +82,4 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da terze part
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

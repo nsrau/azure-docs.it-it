@@ -48,7 +48,7 @@ _Figura 1: uso di una cache in memoria in diverse istanze di un'applicazione_
 
 L'uso di una cache condivisa consente di ridurre il problema di differenziazione dei dati in ciascuna cache, come può accadere con la memorizzazione nella cache in memoria. La memorizzazione nella cache condivisa garantisce che diverse istanze di applicazioni abbiano accesso alla stessa visualizzazione di dati memorizzati nella cache individuando quest'ultima in una posizione separata, solitamente ospitata come parte di un servizio separato, in base a quanto mostrato nella Figura 2.
 
-![uso di una cache condivisa_](media/best-practices-caching/Figure2.png)
+![uso di una cache condivisa\_](media/best-practices-caching/Figure2.png)
 
 _Figura 2: uso di una cache condivisa_
 
@@ -123,7 +123,7 @@ Prestare attenzione a non introdurre dipendenze critiche per la disponibilità d
 
 Tuttavia, eseguire il fallback all'archivio dati originale se la cache è temporaneamente non disponibile potrebbe avere un impatto sulla scalabilità del sistema; mentre viene recuperato l'archivio dati, l'archivio dati originale potrebbe essere sovraccaricato con richieste per i dati risultanti in timeout e connessioni non riuscite. Una strategia da considerare consiste nell'implementare una cache locale e privata in ogni istanza di un'applicazione con la cache condivisa a cui accedono tutte le istanze dell'applicazione. Quando l'applicazione recupera un elemento, è possibile verificare innanzitutto nella relativa cache locale, quindi la cache condivisa e infine archiviare i dati originali. La cache locale può essere popolata usando i dati nella cache condivisa o il database se la cache condivisa è disponibile. Questo approccio richiede una configurazione accurata per evitare che la cache locale diventi obsoleta rispetto alla cache condivisa, ma funge da buffer, se la cache condivisa è raggiungibile. Nella Figura 3 viene illustrata questa struttura.
 
-![uso di una cache locale, privata con una cache condivisa_](media/best-practices-caching/Caching3.png) _Figura 3: uso di una cache locale, privata con una cache condivisa_
+![uso di una cache locale, privata con una cache condivisa\_](media/best-practices-caching/Caching3.png) _Figura 3: uso di una cache locale, privata con una cache condivisa_
 
 Per supportare la cache di grandi dimensioni che contengono dati di durata relativamente lunga, alcuni servizi cache forniscono un'opzione di disponibilità elevata che implementa il failover automatico, se la cache non è più disponibile. Questo approccio implica in genere la replica dei dati memorizzati nella cache archiviati in un server primario della cache verso un server secondario della cache e il passaggio al server secondario se il server primario presenta problemi o se viene persa la connessione. Per ridurre la latenza associata a più destinazioni, quando i dati vengono scritti nella cache sul server primario, la replica nel server secondario può verificarsi in modo asincrono. Questo approccio comporta la possibilità che alcune informazioni memorizzate nella cache vengano perse in caso di errore, ma la proporzione di tali eventauli perdite deve essere ridotta rispetto alle dimensioni complessive della cache.
 
@@ -630,7 +630,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### Trovare elementi usati di recente
 
-Un problema comune richiesto da numerose applicazioni consiste nel trovare più elementi usati di recente. Per un sito blog, ad esempio, è possibile visualizzare informazioni sui post di blog letti più di recente. È possibile implementare questa funzionalità usando un elenco di Redis. Un elenco di Redis contiene più elementi che condividono la stessa chiave, ma l'elenco funge da coda doppia. È possibile inserire gli elementi a delle estremità dell'elenco usando i comandi LPUSH (push sinistra) e RPUSH (push destra). È possibile recuperare gli elementi da delle estremità dell'elenco usando i comandi LPOP e RPOP. È inoltre possibile restituire un set di elementi usando i comandi LRANGE e RRANGE. Nei frammenti di codice riportati di seguito viene illustrato come è possibile eseguire queste operazioni tramite la libreria StackExchange. Questo codice usa il tipo di BlogPost degli esempi precedenti. Mentre un post di blog viene letto da un utente, il titolo del post di blog viene inserito in un elenco associato alla chiave "blog:recent_posts" nella cache Redis usando il metodo IDatabase.ListLeftPushAsync:
+Un problema comune richiesto da numerose applicazioni consiste nel trovare più elementi usati di recente. Per un sito blog, ad esempio, è possibile visualizzare informazioni sui post di blog letti più di recente. È possibile implementare questa funzionalità usando un elenco di Redis. Un elenco di Redis contiene più elementi che condividono la stessa chiave, ma l'elenco funge da coda doppia. È possibile inserire gli elementi a delle estremità dell'elenco usando i comandi LPUSH (push sinistra) e RPUSH (push destra). È possibile recuperare gli elementi da delle estremità dell'elenco usando i comandi LPOP e RPOP. È inoltre possibile restituire un set di elementi usando i comandi LRANGE e RRANGE. Nei frammenti di codice riportati di seguito viene illustrato come è possibile eseguire queste operazioni tramite la libreria StackExchange. Questo codice usa il tipo di BlogPost degli esempi precedenti. Mentre un post di blog viene letto da un utente, il titolo del post di blog viene inserito in un elenco associato alla chiave "blog:recent\_posts" nella cache Redis usando il metodo IDatabase.ListLeftPushAsync:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -777,4 +777,4 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - Pagina [Transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nell'archivio Stackexchange.Redis.
 - [Guida partizionamento dati](http://msdn.microsoft.com/library/dn589795.aspx) sul sito Web di Microsoft.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

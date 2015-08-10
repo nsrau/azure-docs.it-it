@@ -84,21 +84,21 @@ Per istruzioni dettagliate sulla creazione e sulla distribuzione di un'applicazi
 
 1. Scaricare la libreria Twilio per PHP da Github ([https://github.com/twilio/twilio-php][twilio_php]) e aggiungere la directory **Services** all'applicazione.
 
-	-OPPURE-
+	\-OPPURE-
 
 2. Installare la libreria Twilio per PHP come pacchetto PEAR. È possibile eseguire l'installazione tramite i comandi seguenti:
 
 		$ pear channel-discover twilio.github.com/pear
 		$ pear install twilio/Services_Twilio
 
-Dopo avere installato la libreria Twilio per PHP, sarà possibile aggiungere un'istruzione **require_once** nella parte superiore del file PHP, in modo che faccia riferimento alla libreria:
+Dopo avere installato la libreria Twilio per PHP, sarà possibile aggiungere un'istruzione **require\_once** nella parte superiore del file PHP, in modo che faccia riferimento alla libreria:
 
     	require_once 'Services/Twilio.php';
 
 Per ulteriori informazioni, vedere [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 
 ## <a id="howto_make_call"></a>Procedura: Effettuare una chiamata in uscita
-Di seguito è illustrato come effettuare una chiamata in uscita tramite la classe **Services_Twilio**. Questo codice utilizza inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori per i numeri di telefono **From** e **To** e assicurarsi di verificare il numero di telefono in **From** per l'account Twilio prima di eseguire il codice.
+Di seguito è illustrato come effettuare una chiamata in uscita tramite la classe **Services\_Twilio**. Questo codice utilizza inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori per i numeri di telefono **From** e **To** e assicurarsi di verificare il numero di telefono in **From** per l'account Twilio prima di eseguire il codice.
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -147,7 +147,7 @@ Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio pe
 
 
 ## <a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
-Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **Services_Twilio**. Il numero in **From** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **To** deve essere verificato per l'account Twilio prima di eseguire il codice.
+Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **Services\_Twilio**. Il numero in **From** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **To** deve essere verificato per l'account Twilio prima di eseguire il codice.
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -192,7 +192,7 @@ La pagina PHP seguente crea una risposta TwiML che pronuncia **Hello World** nel
 		<Say>Hello world.</Say>
 	</Response>
 
-Come si evince dal codice riportato sopra, la risposta TwiML è semplicemente un documento XML. La libreria Twilio per PHP contiene le classi che consentono di generare automaticamente le istruzioni TwiML. Nell'esempio seguente viene creata la stessa risposta descritta sopra, ma utilizzando la classe **Services_Twilio_Twiml** nella libreria Twilio per PHP:
+Come si evince dal codice riportato sopra, la risposta TwiML è semplicemente un documento XML. La libreria Twilio per PHP contiene le classi che consentono di generare automaticamente le istruzioni TwiML. Nell'esempio seguente viene creata la stessa risposta descritta sopra, ma utilizzando la classe **Services\_Twilio\_Twiml** nella libreria Twilio per PHP:
 
 	require_once('Services/Twilio.php');
 
@@ -202,7 +202,7 @@ Come si evince dal codice riportato sopra, la risposta TwiML è semplicemente un
 
 Per ulteriori informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml_reference].
 
-Dopo aver configurato la pagina PHP in modo da fornire risposte TwiML, usare l'URL della pagina PHP come URL passato nel metodo `Services_Twilio->account->calls->create`. Se, ad esempio, si dispone di un'applicazione Web denominata **MyTwiML** distribuita in un servizio ospitato in Azure e il nome della pagina PHP è **mytwiml.php**, è possibile passare l'URL a **Services_Twilio->account->calls->create**, come mostrato nell'esempio seguente:
+Dopo aver configurato la pagina PHP in modo da fornire risposte TwiML, usare l'URL della pagina PHP come URL passato nel metodo `Services_Twilio->account->calls->create`. Se, ad esempio, si dispone di un'applicazione Web denominata **MyTwiML** distribuita in un servizio ospitato in Azure e il nome della pagina PHP è **mytwiml.php**, è possibile passare l'URL a **Services\_Twilio->account->calls->create**, come mostrato nell'esempio seguente:
 
 	require_once 'Services/Twilio.php';
 
@@ -268,4 +268,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, usare 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

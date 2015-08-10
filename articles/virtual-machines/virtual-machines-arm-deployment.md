@@ -1,12 +1,20 @@
-<properties pageTitle="Distribuire Azure delle risorse mediante il calcolo, rete e archiviazione di librerie .NET" description="Viene illustrato come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure" services="macchine virtuali, rete virtuale, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di azure/>
+<properties
+	pageTitle="Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET"
+	description="Informazioni su come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure"
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET
@@ -338,7 +346,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
           }
         }
 
-	>[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Gestire le immagini mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Sostituire {subscription-id} con l'identificatore della sottoscrizione.
 
@@ -380,4 +388,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

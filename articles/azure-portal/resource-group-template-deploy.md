@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -48,9 +48,12 @@ Con i modelli di Gestione risorse di Azure è possibile:
 
 ## Distribuire con il portale di anteprima
 
-Novità Ogni applicazione della raccolta è supportata da un modello di Gestione risorse di Azure! Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure.
+Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuova** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
 
-Per risolvere i problemi di distribuzione tramite il portale di anteprima, fare clic su **Sfoglia** -> **Gruppi di risorse** -> *YourResourceGroupName*. A questo punto, fare clic su riquadro **Eventi** nei filtri di **monitoraggio**. Infine, è possibile selezionare una singola **operazione** e un singolo **evento** per visualizzare i dettagli.
+![Nuovo](./media/resource-group-template-deploy/new.png)
+
+Per altre informazioni sull'uso del portale con Gestione risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
+
 
 ## Distribuire con PowerShell
 
@@ -247,13 +250,11 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
     }
 
 ## Passaggi successivi
-- [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
-- [Distribuire le risorse usando le librerie .NET e un modello](../arm-template-deployment.md)
-- [Distribuire un'applicazione complessa in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Creazione di modelli](../resource-group-authoring-templates.md)
-- [Funzioni di modello](../resource-group-template-functions.md)
-- [Operazioni avanzate con i modelli](../resource-group-advanced-template.md)  
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere[Distribuire le risorse usando le librerie .NET e un modello](../arm-template-deployment.md)
+- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

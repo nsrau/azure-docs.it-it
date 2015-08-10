@@ -147,8 +147,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 	<pre class="prettyprint">&lt;connectionStrings>
   &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
   &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-&lt;/connectionStrings></pre>
-	La stringa di connessione di archiviazione si chiama AzureWebJobsStorage perché questo è il nome usato da WebJobs SDK per impostazione predefinita. Poiché qui viene usato lo stesso nome, è necessario impostare solo un valore della stringa di connessione nell'ambiente di Azure.
+&lt;/connectionStrings></pre>La stringa di connessione di archiviazione si chiama AzureWebJobsStorage perché questo è il nome usato da WebJobs SDK per impostazione predefinita. Poiché qui viene usato lo stesso nome, è necessario impostare solo un valore della stringa di connessione nell'ambiente di Azure.
  
 2. In **Esplora server** fare clic con il pulsante destro del mouse sull'account di archiviazione sotto il nodo **Archiviazione** e quindi scegliere **Proprietà**.
 
@@ -166,19 +165,9 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 4. Aprire il file *App.config* nel progetto ContosoAdsWebJob.
 
-	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. In questa esercitazione sarà usato lo stesso account per entrambe. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt; 
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. In questa esercitazione sarà usato lo stesso account per entrambe. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
-	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. [Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
+	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 1. Sostituire entrambe le stringhe di connessione di archiviazione con la stringa di connessione copiata in precedenza.
 
@@ -301,7 +290,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	È possibile ignorare l'avviso che informa che non ci sono database da pubblicare. Code First di Entity Framework creerà il database che non è necessario pubblicare.
 
-	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto processo Web verranno copiati nella cartella *app_data\jobs\continuous* del sito Web.
+	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto processo Web verranno copiati nella cartella *app\_data\\jobs\\continuous* del sito Web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -313,7 +302,9 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 ### Configurare l'app Web per l'uso del database SQL e dell'account di archiviazione di Azure.
 
-Come procedura consigliata per la sicurezza, [evitare di inserire informazioni sensibili, come le stringhe di connessione, in file archiviati repository di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). A questo scopo, è possibile impostare i valori delle stringhe di connessione e di altre impostazioni nell'ambiente di Azure. Le API di configurazione di ASP.NET rilevano automaticamente questi valori quando l'app viene eseguita in Azure. In questa sezione, si imposteranno i valori delle stringhe di connessione in Azure.
+Come procedura consigliata per la sicurezza, [evitare di inserire informazioni sensibili, come le stringhe di connessione, in file archiviati repository di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). è possibile impostare i valori delle stringhe di connessione e di altre impostazioni nell'ambiente di Azure. Le API di configurazione di ASP.NET rilevano automaticamente questi valori quando l'app viene eseguita in Azure. È possibile impostare questi valori in Azure con **Esplora Server**, il portale, Windows PowerShell o l'interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere il blog sul [funzionamento delle stringhe di applicazione e di connessione](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+
+In questa sezione si userà **Esplora server** per impostare i valori delle stringhe di connessione in Azure.
 
 7. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web sotto il nodo **App Web**, quindi scegliere **Visualizza impostazioni**.
 
@@ -490,9 +481,9 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs* 
-	- Nel *Views\Shared* cartella: <em>cshtml</em> file. 
-	- Nel *Views\Home* cartella: *index. cshtml*. 
-	- Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
+	- Nel *Views\\Shared* cartella: <em>cshtml</em> file. 
+	- Nel *Views\\Home* cartella: *index. cshtml*. 
+	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
 
@@ -623,13 +614,13 @@ Tramite codice analogo si ottiene un riferimento alla coda *blobnamerequest* e s
 		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - __Layout.cshtml
+### ContosoAdsWeb - \__Layout.cshtml
 
-Il file *__Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
+Il file *_\_Layout.cshtml\* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-Il file *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
+Il file *Views\\Home\\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -718,7 +709,7 @@ Di seguito è riportato il codice per l'eliminazione dei BLOB in caso di elimina
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
 
 Il file *Index.cshtml* mostra le anteprime insieme agli altri dati delle inserzioni:
 
@@ -728,7 +719,7 @@ Il file *Details.cshtml* mostra l'immagine con dimensioni normali:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml ed Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml ed Edit.cshtml
 
 I file *Create.cshtml* e *Edit.cshtml* specificano la codifica di moduli che permettere al controller di ottenere l'oggetto `HttpPostedFileBase`.
 
@@ -798,10 +789,7 @@ Per altre informazioni su come scrivere funzioni che usano attributi di WebJobs 
 * [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Se l'app Web viene eseguita su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. In alcuni scenari che può comportare alcune funzioni di elaborazione degli stessi dati due volte, quindi funzioni devono essere idempotenti (scritto in modo che la chiamata più volte con gli stessi dati di input non produce risultati duplicati). 
->* Per informazioni sull'implementazione di arresto normale, vedere [arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* il codice il `ConvertImageToThumbnailJPG` metodo (non mostrato) utilizza le classi nel `System.Drawing` dello spazio dei nomi per motivi di semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE]\* Se l'app Web viene eseguita su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. In alcuni scenari che può comportare alcune funzioni di elaborazione degli stessi dati due volte, quindi funzioni devono essere idempotenti (scritto in modo che la chiamata più volte con gli stessi dati di input non produce risultati duplicati). \* Per informazioni sull'implementazione di arresto normale, vedere [arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). \* il codice il `ConvertImageToThumbnailJPG` metodo (non mostrato) utilizza le classi nel `System.Drawing` dello spazio dei nomi per motivi di semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### WebJobs SDK e ruolo di lavoro dei servizi cloud senza WebJobs SDK
 
@@ -826,6 +814,5 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -268,4 +268,4 @@ Questa sezione illustra come modificare il codice nell'app per le API ContactsLi
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

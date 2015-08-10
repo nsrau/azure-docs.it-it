@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)
@@ -36,9 +36,9 @@ Informazioni sulle opzioni Big Compute in Azure e sulla scelta dell'approccio pi
 
 * [Informazioni di riferimento sulle API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [Forum di Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-
 * [Esercitazione: Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md)
+
+* [Forum di Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Video su Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -48,18 +48,46 @@ Distribuire o estendere il cluster HPC Windows o Linux esistente in Azure per es
 
 ### Microsoft HPC Pack
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) è una soluzione gratuita di programmazione dei processi e di gestione del cluster Microsoft per tecnologie HPC basate su cloud, ibride e locali.
+HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie Microsoft Azure e Windows Server.
 
-* [Potenziare Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Scaricare HPC Pack 2012 R2 Update 2](https://www.microsoft.com/it-it/download/details.aspx?id=47755)
 
-* [HPC Pack nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+* [Documentazione](https://technet.microsoft.com/library/jj899572.aspx)
 
-* [Esercitazione: Configurare un cluster ibrido con HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* **Immagini di macchina virtuale di Azure**
+
+    * [HPC Pack su Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+
+    * [Nodo di calcolo HPC Pack su Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+
+    * [Nodo di calcolo HPC Pack con Excel su Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+
+* **Modelli e script di Guida introduttiva di Azure**
+
+    * [Creare un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+    * [Creare un cluster HPC con un'immagine di nodo di calcolo personalizzata](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+
+    * [Script PowerShell per la distribuzione di HPC Pack IaaS](https://www.microsoft.com/download/details.aspx?id=44949)
+
+* **Esercitazioni di Azure**
+
+    * [Esercitazione: Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [Esercitazione: Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+
+    * [Esercitazione: Configurare un cluster ibrido con HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+    * [HPC Pack nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+
+    * [Potenziare Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+
 
 * [Forum di Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
-### Soluzioni cluster Linux
-Usare questi modelli di Gestione risorse di Azure per distribuire cluster HPC Linux.
+### Soluzioni cluster Linux e OSS
+
+Usare questi modelli di Guida introduttiva di Azure per distribuire cluster HPC Linux con strumenti open source.
 
 * [Avviare un cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) e [post di blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
@@ -79,9 +107,9 @@ Usare questi modelli di Gestione risorse di Azure per distribuire cluster HPC Li
 
 ## Istanze con utilizzo intensivo di calcolo
 
-Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md), tra cui [Istanze A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) a elevato utilizzo di calcolo, per eseguire carichi di HPC in Linux e Windows.
+Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md), tra cui [Istanze A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) a elevato utilizzo di calcolo, per eseguire carichi di lavoro Linux e Windows HPC.
 
-* [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
+* [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
 * [Istanze A8 e A9: Avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -118,4 +146,4 @@ Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](http://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

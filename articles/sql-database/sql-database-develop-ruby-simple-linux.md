@@ -57,7 +57,7 @@ Successivamente, installare TinyTDS.
 
 L'esempio Ruby si basa sul database di esempio AdventureWorks. Se non si dispone già di AdventureWorks, è possibile vedere come crearlo nell'argomento seguente:[creare il primo Database di SQL Azure](sql-database-get-started.md)
 
-L'argomento inoltre illustra come recuperare la stringa di connessione del database.
+Nell’argomento viene inoltre illustrato come recuperare la stringa di connessione del database.
 
 ## Connettersi al database SQL
 
@@ -84,7 +84,7 @@ La funzione[TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds)viene u
 
 ## Inserimento di una riga, passaggio di parametri e recupero del valore di chiave primaria generato
 
-Esempio di codice:
+Nell'esempio di codice:
 
 - Passa i parametri per i valori da inserire in una riga.
 - Inserisce la riga.
@@ -117,4 +117,4 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     puts row
     end 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

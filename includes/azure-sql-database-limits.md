@@ -49,4 +49,4 @@
 
 <sup>2</sup>Se la transazione blocca una risorsa richiesta da un'attività di sistema sottostante, quindi la durata massima è 20 secondi.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

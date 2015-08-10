@@ -23,4 +23,4 @@
 
  >[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

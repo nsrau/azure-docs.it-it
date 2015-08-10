@@ -45,4 +45,4 @@ Per informazioni dettagliate sugli hub di eventi, vedere gli argomenti seguenti.
 [esercitazione di Hub eventi]: service-bus-event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

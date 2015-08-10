@@ -84,7 +84,7 @@ Il modello descritto di replica e coerenza con riconoscimento del data center di
 
 **Distribuzione basata su prossimità:** applicazioni multi-tenant, con mapping chiaro di utenti tenant all’area, possono trarre vantaggio dalle basse latenze del cluster con più aree. Ad esempio, sistemi di gestione della formazione per istituzioni didattiche possono distribuire un cluster distribuito nelle aree degli Stati Uniti orientali e degli Stati Uniti occidentali per servire i rispettivi campus sia per scopi di transazione che di analisi. I dati possono essere coerenti localmente in fase di lettura e scrittura e possono essere alla fine coerenti tra le due aree. Sono disponibili altri esempi quali la distribuzione su supporti, e-commerce, e qualsiasi elemento serva alla base utenti concentrata geograficamente è un buon caso di utilizzo per questo modello di distribuzione.
 
-**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva. Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) * (1-0,999)) * 100); vedere il documento precedente per informazioni dettagliate.
+**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva. Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) \* (1-0,999)) \* 100); vedere il documento precedente per informazioni dettagliate.
 
 **Ripristino di emergenza:** il cluster Cassandra con più aree, se correttamente progettato, può far fronte a potenziali interruzioni irreversibili del centro. Se un'area è inattiva, l'applicazione distribuita in altre aree può iniziare a servire gli utenti finali. Come le altre implementazioni di continuità aziendale, l'applicazione deve tollerare una certa perdita di dati risultante dai dati della pipeline asincrona. Tuttavia, Cassandra rende il ripristino molto più veloce rispetto ai tradizionali processi di ripristino dei database. La figura 2 mostra il tipico modello di distribuzione con più aree con otto nodi in ogni area. Entrambe le aree sono immagini speculari tra loro per simmetria; i progetti reali dipendono dai requisiti relativi a tipo di carico di lavoro (ad esempio transazionale o analitico), RPO, RTO, coerenza dei dati e disponibilità.
 
@@ -96,7 +96,7 @@ Figura 2: Distribuzione di Cassandra con più aree
 I set di macchine virtuali distribuiti in reti private in due aree diverse comunicano tra loro con un tunnel VPN. Il tunnel VPN connette due gateway software di cui viene effettuato il provisioning durante il processo di distribuzione in rete. Entrambe le aree hanno un'architettura di rete simile a livello di subnet Web e di dati. La rete di Azure consente di creare tutte le subnet necessarie e di applicare gli elenchi ACL come richiesto dalla sicurezza di rete. Quando si progetta la topologia del cluster, è necessario tenere in considerazione la latenza della comunicazione tra data center e l'impatto economico del traffico di rete.
 
 ### Coerenza dei dati per la distribuzione in più data center
-Le distribuzioni devono riconoscere l'impatto della topologia del cluster sulla velocità effettiva e sulla disponibilità elevata. Il fattore di replica e il livello di coerenza devono essere selezionati in modo che il quorum non dipenda dalla disponibilità di tutti i data center. Per un sistema che richiede una coerenza elevata, un livello di coerenza LOCAL_QUORUM (per letture e scritture) garantirà che le letture e le scritture locali vengano soddisfatte dai nodi locali mentre i dati vengono replicati in modo asincrono nei data center remoti. La tabella 2 riepiloga i dettagli della configurazione per il cluster in più aree, che verrà illustrata più avanti in questo articolo.
+Le distribuzioni devono riconoscere l'impatto della topologia del cluster sulla velocità effettiva e sulla disponibilità elevata. Il fattore di replica e il livello di coerenza devono essere selezionati in modo che il quorum non dipenda dalla disponibilità di tutti i data center. Per un sistema che richiede una coerenza elevata, un livello di coerenza LOCAL\_QUORUM (per letture e scritture) garantirà che le letture e le scritture locali vengano soddisfatte dai nodi locali mentre i dati vengono replicati in modo asincrono nei data center remoti. La tabella 2 riepiloga i dettagli della configurazione per il cluster in più aree, che verrà illustrata più avanti in questo articolo.
 
 **Configurazione del cluster Cassandra in due aree**
 
@@ -105,8 +105,8 @@ Le distribuzioni devono riconoscere l'impatto della topologia del cluster sulla 
 | ----------------- | ----- | ------- |
 | Number of Nodes (N) | 8 + 8 | Numero totale di nodi nel cluster |
 | Replication Factor (RF) | 3 | Numero di repliche di una determinata riga |
-| Consistency Level (Write) | LOCAL_QUORUM [(sum(RF)/2) +1) = 4] Il risultato della formula viene arrotondato per difetto | 2 nodi verranno scritti nel primo data center in modo sincrono. Gli altri 2 nodi necessari per il quorum verranno scritti in modo asincrono nel secondo data center. |
-| Consistency Level (Read) | LOCAL_QUORUM((RF/2) +1) = 2 Il risultato della formula viene arrotondato per difetto | Le richieste di lettura vengono soddisfatte da una sola area. 2 nodi vengono letti prima che la risposta venga inviata nuovamente al client. |
+| Consistency Level (Write) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Il risultato della formula viene arrotondato per difetto | 2 nodi verranno scritti nel primo data center in modo sincrono. Gli altri 2 nodi necessari per il quorum verranno scritti in modo asincrono nel secondo data center. |
+| Consistency Level (Read) | LOCAL\_QUORUM((RF/2) +1) = 2 Il risultato della formula viene arrotondato per difetto | Le richieste di lettura vengono soddisfatte da una sola area. 2 nodi vengono letti prima che la risposta venga inviata nuovamente al client. |
 | Replication Strategy | NetworkTopologyStrategy: per ulteriori informazioni, vedere [Replica dei dati](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) nella documentazione di Cassandra | Riconosce la topologia della distribuzione e inserisce le repliche nei nodi in modo che tutte le repliche non finiscano nello stesso rack |
 | Snitch | GossipingPropertyFileSnitch: per ulteriori informazioni, vedere [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) nella documentazione di Cassandra | NetworkTopologyStrategy usa il concetto di snitch per conoscere la topologia. GossipingPropertyFileSnitch offre un maggior controllo sul mapping di ogni nodo al data center e al rack. Il cluster usa quindi il protocollo gossip per propagare queste informazioni. Questo è molto più semplice nell'impostazione IP dinamico relativa a PropertyFileSnitch | 
  
@@ -124,7 +124,7 @@ Durante la distribuzione vengono usate le seguenti versioni software:
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
 
-Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/downloads in Windows o ~/downloads in Linux o Mac) nel desktop locale.
+Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/downloads in Windows o \~/downloads in Linux o Mac) nel desktop locale.
 
 ### CREARE UNA MACCHINA VIRTUALE UBUNTU
 In questo passaggio del processo verrà creata l'immagine di Ubuntu con i prerequisiti software per poter riusare l'immagine per il provisioning di più nodi di Cassandra.
@@ -165,7 +165,7 @@ Fare clic sulla freccia destra, lasciare le impostazioni predefinite nella scher
 
 ###INSTALLARE IL SOFTWARE NECESSARIO
 ####PASSAGGIO 1: Caricare i file tarball 
-Con scp o pscp, copiare il software scaricato in precedenza nella directory ~/downloads con il seguente formato del comando:
+Con scp o pscp, copiare il software scaricato in precedenza nella directory \~/downloads con il seguente formato del comando:
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -250,7 +250,7 @@ Accedere alla macchina virtuale e creare la struttura di directory ed estrarre i
 	echo "installation is complete"
 
 
-Se si incolla questo script in una finestra di vim, rimuovere il ritorno a capo (‘\r”) con il comando seguente:
+Se si incolla questo script in una finestra di vim, rimuovere il ritorno a capo (‘\\r”) con il comando seguente:
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -267,7 +267,7 @@ Aggiungere il codice seguente alla fine:
 ####Passaggio 4: Installare JNA per i sistemi di produzione
 Utilizzare la sequenza di comandi seguente: il comando seguente installerà jna-3.2.7.jar e jna-platform 3.2.7.jar nella directory /usr/share.java sudo apt-get install libjna-java
 
-Creare collegamenti simbolici nella directory $CASS_HOME/lib in modo che lo script di avvio di Cassandra possa trovare questi file jar:
+Creare collegamenti simbolici nella directory $CASS\_HOME/lib in modo che lo script di avvio di Cassandra possa trovare questi file jar:
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
@@ -289,7 +289,7 @@ Modificare cassandra.yaml su ciascuna macchina virtuale in modo da rispecchiare 
 Accedere alla macchina virtuale con il nome host (hk-cas-template.cloudapp.net) e la chiave privata SSH creata in precedenza. Per informazioni dettagliate su come accedere con il comando SSH o putty.exe, vedere Come usare SSH con Linux in Azure.
 
 Per acquisire l'immagine, eseguire la sequenza di azioni seguente:
-#####1. Effettuare il deprovisioning
+#####1\. Effettuare il deprovisioning
 Usare il comando "sudo waagent –deprovision+user" per rimuovere le informazioni specifiche dell'istanza della macchina virtuale. Per altri dettagli sul processo di acquisizione di un'immagine, vedere [Come acquisire una macchina virtuale Linux da usare come modello](virtual-machines-linux-capture-image.md).
 
 #####2: Arrestare la macchina virtuale
@@ -409,7 +409,7 @@ Il processo precedente può essere eseguito con il portale di gestione di Azure.
 
 Accedere alla macchina virtuale ed eseguire la procedura seguente:
 
-* Modificare $CASS_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del data center e del rack:
+* Modificare $CASS\_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del data center e del rack:
       
        dc =EASTUS, rack =rack1
 
@@ -442,7 +442,7 @@ Usare i passaggi seguenti per testare il cluster:
 
 1.    Con il commandlet Get-AzureInternalLoadbalancer dei comandi Powershell, ottenere l'indirizzo IP del dispositivo di bilanciamento del carico interno (ad esempio, 10.1.2.101). La sintassi del comando viene mostrata di seguito: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [vengono visualizzati i dettagli del servizio di bilanciamento del carico interno con l'indirizzo IP]
 2.	Accedere alla macchina virtuale della Web farm (ad esempio, hk-w1-west-us) con Putty o SSH
-3.	Eseguire $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 4.	Usare i seguenti comandi CQL per verificare se il cluster è in funzione:
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -461,7 +461,7 @@ I dati visualizzati saranno simili ai seguenti:
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replication_factor pari a 3. SimpleStrategy è consigliato per le distribuzioni in un data center singolo, NetworkTopologyStrategy invece per le distribuzioni in più data center. Un replication_factor pari a 3 garantirà la tolleranza per gli errori dei nodi.
+Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replication\_factor pari a 3. SimpleStrategy è consigliato per le distribuzioni in un data center singolo, NetworkTopologyStrategy invece per le distribuzioni in più data center. Un replication\_factor pari a 3 garantirà la tolleranza per gli errori dei nodi.
 
 ##<a id="tworegion"> </a>Processo di distribuzione in più aree
 Verrà sfruttata la distribuzione in un'area singola completata e si ripeterà lo stesso processo per l'installazione della seconda area. La differenza principale tra la distribuzione in un'area singola e in più aree è la configurazione del tunnel VPN per la comunicazione tra le aree. Si inizierà con l'installazione di rete, il provisioning delle macchine virtuali e la configurazione di Cassandra.
@@ -485,14 +485,14 @@ Aggiungere le subnet seguenti: <table> <tr><th>Nome </th><th>IP iniziale</th><th
 
 
 ###Passaggio 2: Creazione delle reti locali
-Una rete locale nella rete virtuale di Azure è uno spazio di indirizzi proxy che esegue il mapping a un sito remoto, incluso un cloud privato o un'altra area di Azure. Questo spazio di indirizzi proxy è associato a un gateway remoto per il routing della rete alle destinazioni di rete appropriate. Per le istruzioni per stabilire la connessione tra reti virtuali, vedere [Configurare una connessione tra reti virtuali](http://msdn.microsoft.com/library/azure/dn690122.aspx).
+Una rete locale nella rete virtuale di Azure è uno spazio di indirizzi proxy che esegue il mapping a un sito remoto, incluso un cloud privato o un'altra area di Azure. Questo spazio di indirizzi proxy è associato a un gateway remoto per il routing della rete alle destinazioni di rete appropriate. Per le istruzioni per stabilire la connessione tra reti virtuali, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Creare due reti locali con i dettagli seguenti:
 
 | Nome rete | Indirizzo gateway VPN | Spazio di indirizzi | Osservazioni |
 | ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23.1.1.1 | 10.2.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti orientali. |
-| hk-lnet-map-to-west-us | 23.2.2.2 | 10.1.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti occidentali. |
+| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti orientali. |
+| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | Durante la creazione della rete locale assegnare un indirizzo gateway segnaposto. Il vero indirizzo gateway verrà inserito una volta creato il gateway. Verificare che lo spazio di indirizzi corrisponda esattamente alla rispettiva rete virtuale remota, in questo caso la rete virtuale creata nell'area Stati Uniti occidentali. |
 
 
 ###Passaggio 3: Eseguire il mapping della rete "locale" alle rispettive reti virtuali
@@ -528,25 +528,25 @@ Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo g
 
 | Nome computer | Subnet | Indirizzo IP | Set di disponibilità | DC/Rack | Valore di inizializzazione? |
 | ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | data | 10.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Sì |
-| hk-c2-east-us | data | 10.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | No |
-| hk-c3-east-us | data | 10.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | Sì |
-| hk-c5-east-us | data | 10.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Sì |
-| hk-c6-east-us | data | 10.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | No |
-| hk-c7-east-us | data | 10.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Sì |
-| hk-c8-east-us | data | 10.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | No |
-| hk-w1-east-us | Web | 10.2.1.4 | hk-w-aset-1 | N/D | N/D |
-| hk-w2-east-us | Web | 10.2.1.5 | hk-w-aset-1 | N/D | N/D |
+| hk-c1-east-us | data | 10\.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Sì |
+| hk-c2-east-us | data | 10\.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | No |
+| hk-c3-east-us | data | 10\.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | Sì |
+| hk-c5-east-us | data | 10\.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Sì |
+| hk-c6-east-us | data | 10\.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | No |
+| hk-c7-east-us | data | 10\.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Sì |
+| hk-c8-east-us | data | 10\.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | No |
+| hk-w1-east-us | Web | 10\.2.1.4 | hk-w-aset-1 | N/D | N/D |
+| hk-w2-east-us | Web | 10\.2.1.5 | hk-w-aset-1 | N/D | N/D |
 
 
 Seguire le stesse istruzioni dell'area n. 1, ma usare lo spazio di indirizzi 10.2.xxx.xxx.
 ###Passaggio 8: Configurare Cassandra in ogni macchina virtuale
 Accedere alla macchina virtuale ed eseguire la procedura seguente:
 
-1. Modificare $CASS_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del centro dati e del rack nel formato: dc =EASTUS rack =rack1
+1. Modificare $CASS\_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del centro dati e del rack nel formato: dc =EASTUS rack =rack1
 2. Modificare cassandra.yaml per configurare i nodi dei valori di inizializzazione: Valori di inizializzazione: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###Passaggio 9: Avviare Cassandra
-Accedere a ogni macchina virtuale e avviare Cassandra in background eseguendo il comando seguente: $CASS_HOME/bin/cassandra
+Accedere a ogni macchina virtuale e avviare Cassandra in background eseguendo il comando seguente: $CASS\_HOME/bin/cassandra
 
 ## Testare il cluster in più aree
 Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azure. Questi nodi sono nello stesso cluster grazie al nome cluster comune e alla configurazione dei nodi dei valori di inizializzazione. Usare il processo seguente per testare il cluster:
@@ -557,7 +557,7 @@ Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azu
     Prendere nota degli indirizzi IP (ad esempio, west - 10.1.2.101, east - 10.2.2.101) visualizzati.
 
 ###Passaggio 2: Eseguire quanto segue nell'area occidentale dopo l'accesso a hk-w1-west-us
-1.    Eseguire $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 2.	Eseguire i comandi CQL seguenti:
 
 		CREATE KEYSPACE customers_ks
@@ -570,14 +570,14 @@ Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azu
 
 I dati visualizzati saranno simili ai seguenti:
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 | ----------- | --------- | -------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
 
 
 ###Passaggio 3: Eseguire quanto segue nell'area orientale dopo l'accesso a hk-w1-east-us
-1.    Eseguire $CASS_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    Eseguire $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
 2.	Eseguire i comandi CQL seguenti:
 
 		USE customers_ks;
@@ -589,7 +589,7 @@ I dati visualizzati saranno simili ai seguenti:
 I dati visualizzati saranno uguali a quelli dell'area occidentale:
 
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 |------------ | --------- | ---------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
@@ -700,4 +700,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

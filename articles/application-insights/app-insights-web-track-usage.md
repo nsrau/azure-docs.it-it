@@ -347,6 +347,11 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 * Comunicare con gli utenti L'analisi non è sufficiente da sola, ma è complementare per mantenere una buona relazione con i clienti.
 
 
+## Riferimenti
+
+* [Uso dell'API - Panoramica][api]
+* [Informazioni di riferimento all'API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## Video
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

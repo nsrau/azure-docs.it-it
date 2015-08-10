@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="03/13/2015"
+   ms.date="07/22/2015"
    ms.author="john.harvey@microsoft.com"/>
 
 #  Panoramica su Microsoft Azure Government 
 
-<p> Microsoft Azure Government è un'istanza fisica e con isolamento di rete di Microsoft Azure. Questa guida per sviluppatori fornisce i dettagli sulle differenze che gli sviluppatori e gli amministratori di applicazioni devono conoscere per interagire e usare queste aree separate di Azure.
+<p> Microsoft Azure Government è un'istanza fisica e con isolamento di rete di Microsoft Azure. Questa panoramica fornisce un'introduzione all'ambiente e ai servizi nonché collegamenti a informazioni aggiuntive.
 
 
 ## <a name="Overview"></a>Panoramica
@@ -31,7 +31,7 @@ Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei s
 
 ![][2]
 
-Azure Government include i componenti fondamentali di IaaS (infrastruttura distribuita come servizio) e PaaS (piattaforma distribuita come servizio), tra cui l'infrastruttura, la rete, l'archiviazione, la gestione dati, la gestione dell'identità e molti altri servizi. Azure Government supporta le stesse utili funzionalità di cui si sono avvantaggiati i clienti del cloud pubblico di Azure, come la replica dati geografica e sincronica e il ridimensionamento automatico. Microsoft è stato riconosciuto leader in <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> dagli analisti leader del settore.
+Azure Government include i componenti fondamentali di IaaS (infrastruttura distribuita come servizio) e PaaS (piattaforma distribuita come servizio), tra cui l'infrastruttura, la rete, l'archiviazione, la gestione dati, la gestione dell'identità e molti altri servizi. Azure Government supporta le stesse utili funzionalità di cui si sono avvantaggiati i clienti del cloud pubblico di Azure, come la replica dati geografica e sincronica e il ridimensionamento automatico. Microsoft è stato riconosciuto leader in <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> dagli analisti leader del settore.
 
 Oltre a fornire funzionalità e servizi del cloud pubblico di Azure, Azure Government offre una serie di funzionalità per assicurare agli enti governativi statunitensi l'assoluta sicurezza dei dati tramite:
 
@@ -73,6 +73,7 @@ Attualmente Azure Government offre i seguenti servizi disponibili nelle agenzie 
 - Servizi multimediali
 - Gestione traffico
 - Bus di servizio
+- StorSimple
 
 Altri servizi sono già disponibili e altri ancora verranno aggiunti regolarmente. Per l'elenco più aggiornato dei servizi, vedere la [pagina aree](http://azure.microsoft.com/regions/#services) in cui sono evidenziate tutte le aree disponibili e i relativi servizi.
 
@@ -103,4 +104,4 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

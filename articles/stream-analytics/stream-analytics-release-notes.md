@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
+
+## Note per la versione del 30/07/2015 di Analisi di flusso ##
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+<table border="1">
+<tr>
+<th>Titolo</th>
+<th>Descrizione</th>
+</tr>
+<tr>
+<td>ID organizzazione di Power BI separato dall'ID di Azure</td>
+<td>Questa funzionalità abilita l'output di Power BI per i processi ASA in qualsiasi tipo di account di Azure (Live Id o ID organizzazione). Inoltre, è possibile disporre di un ID organizzazione per l'account Azure e utilizzarne uno diverso per l'autorizzazione dell'output di Power BI.</td>
+</tr>
+<tr>
+<td>Supporto per l'output di code del bus di servizio</td>
+<td>Gli output di code del bus di servizio sono ora disponibili nei processi di analisi di flusso.</td>
+</tr>
+<tr>
+<td>Supporto per l'output di argomenti del bus di servizio</td>
+<td>Gli output di argomenti del bus di servizio sono ora disponibili nei processi di analisi di flusso.</td>
+</tr>
+<tr>
+<td>Nuove funzioni di matrice</td>
+<td>Aggiunta delle funzioni di matrice GetArrayElement, GetArrayElements, GetArrayLength</td>
+</tr>
+<tr>
+<td>Nuove funzioni di record</td>
+<td>Aggiunta delle funzioni di record GetRecordProperties e GetRecordPropertyValue</td>
+</tr>
+</table>
 
 ## Note per la versione 09/07/2015 di Analisi di flusso ##
 
@@ -110,7 +141,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </table>
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -118,7 +149,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](../stream.analytics.get.started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

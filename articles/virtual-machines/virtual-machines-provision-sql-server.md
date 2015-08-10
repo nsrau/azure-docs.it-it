@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Provisioning di una macchina virtuale di SQL Server in Azure #
@@ -143,7 +143,7 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 
 3. Nella finestra di dialogo **Creazione guidata nuova regola connessioni in entrata**, nella sezione **Tipo di regola**, selezionare **Porta** e quindi fare clic su **Avanti**.
 
-4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio di creazione dell'endpoint).
+4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (\*\*1433\*\* per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio di creazione dell'endpoint).
 
 	![Porta TCP 1433][Image14]
 
@@ -180,7 +180,7 @@ Aprire altre porte per altri componenti in base alle esigenze. Per ulteriori inf
 
 	![Abilitazione del protocollo TCP][Image10]
 
-5. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (_nome istanza_)** (l'istanza predefinita è **SQL Server (MSSQLSERVER)**), quindi fare clic su **Riavvia** per arrestare e riavviare l'istanza di SQL Server.
+5. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (\_nome istanza\_)** (l'istanza predefinita è **SQL Server (MSSQLSERVER)**), quindi fare clic su **Riavvia** per arrestare e riavviare l'istanza di SQL Server.
 
 	![Riavvio del motore di database][Image11]
 
@@ -200,7 +200,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
 	Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
 
-2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare **_nome_macchina_virtuale_\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connect**.
+2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale da connettere al motore di database con Esplora oggetti. Anziché il nome della macchina virtuale come **Nome server** è inoltre possibile utilizzare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare **_nome\_macchina\_virtuale_\\amministratore\_locale** nella casella **Nome utente**. Fare clic su **Connect**.
 
 	![Connetti al server][Image19]
 
@@ -274,7 +274,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 ### <a id="cde">Eseguire la connessione al motore di database da un altro computer</a>
  
 1. In un computer connesso a Internet aprire SQL Server Management Studio.
-2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella **Server name** immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numeroporta*, ad esempio **tutorialtestVM.cloudapp.net,57500**. Per ottenere il numero di porta, accedere al portale di gestione di Azure e trovare la macchina virtuale. Nel dashboard fare clic su **ENDPOINTS** e usare il valore di **PUBLIC PORT** assegnato a **MSSQL**. ![Public Port][Image36]
+2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella \*\*Server name\*\* immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numeroporta*, ad esempio **tutorialtestVM.cloudapp.net,57500**. Per ottenere il numero di porta, accedere al portale di gestione di Azure e trovare la macchina virtuale. Nel dashboard fare clic su **ENDPOINTS** e usare il valore di **PUBLIC PORT** assegnato a **MSSQL**. ![Public Port][Image36]
 3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 5. Nella casella **Account di accesso** digitare il nome di un account di accesso creato in una delle attività precedenti.
 6. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
@@ -291,7 +291,9 @@ Se è possibile connettersi a un'istanza di SQL Server in esecuzione in una macc
 Per altre informazioni, vedere l'argomento relativo alla [risoluzione dei problemi di connessione al motore di database di SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 ##<a id="Optional">Passaggi successivi</a>
-Si è appreso come creare e configurare un'istanza di SQL Server in una macchina virtuale di Azure usando l'immagine della piattaforma. Per l'utilizzo di SQL Server in Macchine virtuali di Azure, è consigliabile seguire le linee guida dettagliate fornite nel set di documentazione [SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) in MSDN Library. In questo set di documentazione è inclusa una serie di articoli ed esercitazioni che offrono linee guida dettagliate. Nella serie sono incluse le seguenti sezioni:
+Si è appreso come creare e configurare un'istanza di SQL Server in una macchina virtuale di Azure usando l'immagine della piattaforma. In molti casi, il passaggio successivo consiste nella migrazione dei database in questa nuova macchina virtuale di SQL Server. Per linee guida sulla migrazione di database, vedere [Migrazione di un database a SQL Server in una macchina virtuale di Azure](virtual-machines-migrate-onpremises-database.md).
+
+Oltre a queste risorse, è consigliabile seguire le linee guida dettagliate fornite nella documentazione [SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) nella libreria. In questo set di documentazione è inclusa una serie di articoli ed esercitazioni che offrono linee guida dettagliate. Nella serie sono incluse le seguenti sezioni:
 
 [SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -362,4 +364,4 @@ Si è appreso come creare e configurare un'istanza di SQL Server in una macchina
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

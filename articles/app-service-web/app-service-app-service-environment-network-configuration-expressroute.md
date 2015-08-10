@@ -28,7 +28,7 @@ I requisiti per il corretto funzionamento degli ambienti del servizio app sono i
 
 
 -  Connettività di rete in uscita alle risorse di archiviazione di Azure e del database SQL che si trovano nella stessa area dell'ambiente del servizio app. Questo percorso di rete non può attraversare i proxy aziendali interni perché è probabile che verrebbe modificato l'indirizzo NAT effettivo del traffico di rete in uscita. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app diretto agli endpoint di archiviazione di Azure e del database SQL causerà errori di connettività.
--  La configurazione DNS per la rete virtuale deve essere in grado di risolvere gli endpoint all'interno dei seguenti domini controllati da Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*. -  La configurazione DNS per la rete virtuale deve rimanere stabile quando vengono creati ambienti del servizio app, come anche durante le riconfigurazioni e il ridimensionamento delle modifiche apportate agli ambienti del servizio app.   
+-  La configurazione DNS per la rete virtuale deve essere in grado di risolvere gli endpoint all'interno dei seguenti domini controllati da Azure: **.file.core.windows.net\*, **.blob.core.windows.net\*, **.database.windows.net\*. -  La configurazione DNS per la rete virtuale deve rimanere stabile quando vengono creati ambienti del servizio app, come anche durante le riconfigurazioni e il ridimensionamento delle modifiche apportate agli ambienti del servizio app.   
 -  L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito come spiegato in questo [articolo][requiredports].
 
 Per soddisfare i requisiti DNS, assicurare una configurazione DNS valida per la rete virtuale.
@@ -120,4 +120,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

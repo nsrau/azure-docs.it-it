@@ -118,7 +118,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 
 	![Gateway - Pannello Configura][image-data-factory-gateway-configure-blade]
 
-	Si tratta del metodo più semplice (con un clic) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
+	Si tratta del metodo più semplice (con un clic) di scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	È anche possibile scaricare e installare manualmente il gateway usando i collegamenti nel pannello e registrarlo usando il tasto visualizzato nella casella di testo **REGISTRA CON TASTO**.
 	
@@ -167,29 +167,33 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 4.	Nel riquadro JSON, eseguire le operazioni riportate di seguito:
 	1.	Per la proprietà **gatewayName** immettere **adftutorialgateway** in modo da sostituire tutto il testo racchiuso tra virgolette.  
 	2.	Se si usa **Autenticazione SQL**: 
-		1.	Per la proprietà **connectionString**, sostituire **<servername>**, **<databasename>**, **<username>** e **<password>** con i nomi del server SQL locale, del database, l'account utente e la password. Per specificare un nome di istanza, utilizzare il carattere di escape:. Ad esempio:**server\instancename**. 	
-		2.	Rimuovere le ultime due proprietà (**username** e **password**) dal file JSON e il carattere della **virgola (,)** al termine dell'ultima riga dello script JSON rimanente.
+		1.	Per la proprietà **connectionString**, sostituire **<servername>**, **<databasename>**, **<username>** e **<password>** con i nomi del server SQL locale, del database, l'account utente e la password. Per specificare un nome di istanza, utilizzare il carattere di escape:. Ad esempio:**server\\instancename**. 	
+		2.	Rimuovere le ultime due proprietà (\*\*username\*\* e **password**) dal file JSON e il carattere della **virgola (,)** al termine dell'ultima riga dello script JSON rimanente.
 		
 				{
-	    			"name": "SqlServerLinkedService",
-	    			"properties": {
-		        		"type": "OnPremisesSqlLinkedService",
-		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-		        		"gatewayName": "adftutorialgateway"
-	    			}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+				      "gatewayName": "adftutorialgateway"
+				    }
+				  }
 				}
 	3.	Se si usa **Autenticazione di Windows**:
 		1. Per la proprietà **connectionString**, sostituire **<servername>** e **<databasename>** con i nomi del server SQL locale e del database. Impostare **Sicurezza integrata** su **True**. Rimuovere **ID** e **Password** dalla stringa di connessione.
 			
 				{
-    				"name": "SqlServerLinkedService",
-    				"properties": {
-        				"type": "OnPremisesSqlLinkedService",
-        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
-		   				"gatewayName": "adftutorialgateway",
-				        "username": "<Specify user name if you are using Windows Authentication>",
-				        "password": "<Specify password for the user account>"
-    				}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+				      "gatewayName": "adftutorialgateway",
+				      "username": "<Specify user name if you are using Windows Authentication>",
+				      "password": "<Specify password for the user account>"
+				    }
+				  }
 				}		
 		
 6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire SqlServerLinkedService. Controllare che sulla barra del titolo sia visualizzato un messaggio analogo a **CREAZIONE DEL SERVIZIO COLLEGATO COMPLETATA**. Nella visualizzazione albero a sinistra dovrebbe essere visualizzato il servizio **SqlServerLinkedService**.
@@ -250,37 +254,35 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 1.	Nell'**Editor di Data factory**, fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **SQL locale**. 
 2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:    
 
-        {
-    		"name": "EmpOnPremSQLTable",
-    		"properties":
-    		{
-        		"location":
-        		{
-            		"type": "OnPremisesSqlServerTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "SqlServerLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1,       
-	    			"waitOnExternal":
-	    			{
-        				"retryInterval": "00:01:00",
-	        			"retryTimeout": "00:10:00",
-	        			"maximumRetry": 3
-	    			}
-		  
-        		}
-    		}
+		{
+		  "name": "EmpOnPremSQLTable",
+		  "properties": {
+		    "type": "SqlServerTable",
+		    "linkedServiceName": "SqlServerLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
 		}
 
 	Tenere presente quanto segue:
 	
-	- L'oggetto **type** di location è impostato su **OnPremisesSqlServerTableLocation**.
+	- **type** è impostato su **SqlServerTable**.
 	- **tablename** è impostato su **emp**.
 	- **linkedServiceName** è impostato su **SqlServerLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
-	- Per una tabella di input non generata da un'altra pipeline in Data factory di Azure, è necessario specificare la sezione **waitOnExternal** nel JSON. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure.   
+	- Per una tabella di input non generata da un'altra pipeline in Data factory di Azure, è necessario specificare la proprietà **external** su **true**. È possibile specificare facoltativamente i criteri nella sezione **externalData**.   
 
 	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON][json-script-reference].
 
@@ -293,36 +295,32 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente: 
 
 		{
-    		"name": "OutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/outfromonpremdf",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}
-    		}
+		  "name": "OutputBlobTable",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/outfromonpremdf",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
   
 	Tenere presente quanto segue:
 	
-	- L'oggetto **type** di location è impostato su **AzureBlobLocation**.
+	- L'oggetto **type** è impostato su **AzureBlob**.
 	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
-	- L'oggetto **availability** è impostato su **hourly**; l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
+	- L'oggetto **availability** è impostato su **hourly**; l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
-	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input (\*\*folderPath\*\*) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
 	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -352,57 +350,57 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:   
 
 
-        {
-			"name": "ADFTutorialPipelineOnPrem",
-    		"properties":
-    		{
-        		"description" : "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-	       		 "activities":
-	        	[
-			    	{
-						"name": "CopyFromSQLtoBlob",
-						"description": "Copy data from on-prem SQL server to blob",		
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpOnPremSQLTable"} ],
-						"outputs": [ {"name": "OutputBlobTable"} ],
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "SqlSource",
-								"sqlReaderQuery": "select * from emp"
-							},
-							"sink":
-							{
-								"type": "BlobSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-
-				     }
-	        	],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		{
+		  "name": "ADFTutorialPipelineOnPrem",
+		  "properties": {
+		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    "activities": [
+		      {
+		        "name": "CopyFromSQLtoBlob",
+		        "description": "Copy data from on-prem SQL server to blob",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpOnPremSQLTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "OutputBlobTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from emp"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
-
 	Tenere presente quanto segue:
  
-	- Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **CopyActivity**.
+	- Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-	- Nella sezione **transformation**, **SqlSource** viene specificato come **tipo di origine** e **BlobSink **come **tipo di sink**. - La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+	- Nella sezione **transformation**, **SqlSource** viene specificato come **tipo di origine** e **BlobSink **come **tipo di sink**. - La query SQL **select \* from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
 	
 	Si definisce quanto tempo durerà l'elaborazione delle sezioni di dati in base alle proprietà della **disponibilità** definite per ogni tabella di Data factory di Azure.
 	
@@ -513,7 +511,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. In Azure PowerShell, passare alla cartella. **C:\Programmi\Microsoft Data Management Gateway\1.0\PowerShellScript\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
+4. In Azure PowerShell, passare alla cartella. **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\\*\* ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -628,4 +626,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

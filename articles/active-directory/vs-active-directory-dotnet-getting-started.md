@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introduzione ad Azure Active Directory (progetti .NET)
@@ -22,13 +22,13 @@
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
-#####Richiesta di autenticazione ai controller di accesso 
+##Richiesta di autenticazione ai controller di accesso 
 
 Tutti i controller del progetto sono dotati dell'attributo **Authorize**. Questo attributo richiede l'autenticazione dell'utente prima dell'accesso ai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
  
-#####Aggiunta di controlli SignIn/SignOut 
+##Aggiunta di controlli SignIn/SignOut 
 
-Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usare la visualizzazione parziale **_LoginPartial.cshtml** per aggiungere la funzionalità a una delle visualizzazioni. Di seguito è riportato un esempio della funzionalità aggiunta alla visualizzazione standard **_Layout.cshtml**. (Notare l'ultimo elemento nella sezione div con class navbar-collapse):
+Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usare la visualizzazione parziale **_LoginPartial.cshtml\*\* per aggiungere la funzionalità a una delle visualizzazioni. Di seguito è riportato un esempio della funzionalità aggiunta alla visualizzazione standard **_Layout.cshtml\*\*. (Notare l'ultimo elemento nella sezione div con class navbar-collapse):
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

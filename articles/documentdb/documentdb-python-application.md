@@ -56,7 +56,7 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si disp
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 
-1. Aprire Visual Studio, quindi fare clic su **File** -\> **Nuovo progetto** -\> **Python** -\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
+1. Aprire Visual Studio, quindi fare clic su **File** -\\> **Nuovo progetto** -\\> **Python** -\\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
 
 	Se è la prima volta che si usa Flask, si tratta di un framework Web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
 
@@ -273,11 +273,11 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
     	{% endblock %}
 
 
-### Aggiungere un file di configurazione e modificare __init__.py
+### Aggiungere un file di configurazione e modificare \_\_init\_\_.py
 
 1. Fare clic con il pulsante destro del mouse sull'esercitazione relativa al nome di progetto e aggiungere un file: **config.py**. Questo file config è richiesto per i moduli in Flask. È possibile usarlo anche per fornire una chiave privata. Tale chiave non sarà tuttavia necessaria per questa esercitazione.
 
-2. Aggiungere il codice seguente al file config.py Modificare i valori di **DOCUMENTDB_HOST** e **DOCUMENTDB_KEY**.
+2. Aggiungere il codice seguente al file config.py Modificare i valori di **DOCUMENTDB\_HOST** e **DOCUMENTDB\_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. Analogamente, sostituire il contenuto di **__init__.py** con il codice seguente.
+3. Analogamente, sostituire il contenuto di **\_\_init\_\_.py** con il codice seguente.
 
     	from flask import Flask
     	app = Flask(__name__)
@@ -350,4 +350,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

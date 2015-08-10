@@ -86,7 +86,7 @@ DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o
 Per ulteriori informazioni vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
 
 ### Indicizzazione per Order By su tutte le proprietà numeriche
-Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. In questo caso, "/ *" rappresenta tutte le proprietà/tracciati JSON all'interno della raccolta e -1 rappresenta la precisione massima.
+Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. In questo caso, "/ \*" rappresenta tutte le proprietà/tracciati JSON all'interno della raccolta e -1 rappresenta la precisione massima.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -176,4 +176,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

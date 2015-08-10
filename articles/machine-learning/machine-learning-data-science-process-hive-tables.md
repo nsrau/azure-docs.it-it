@@ -2,7 +2,6 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop in Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Elaborare i dati delle tabelle Hive usando query Hive."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -21,7 +20,7 @@
 
 Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning. Il documento illustra inoltre due attività di gestione dei dati: creazione di funzionalità ed esplorazione dei dati. Descrive infine query Hive generiche che illustrano come esplorare i dati o creare funzionalità usando Hive in un cluster Hadoop del servizio HDInsight di Azure. Tali query Hive usano le funzioni definite dall'utente fornite.
 
-Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
+Nell'<a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">archivio GitHub</a> sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai dati dei <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">tragitti dei taxi di NYC</a>. Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
@@ -41,6 +40,8 @@ Questo articolo presuppone che l'utente abbia:
 * IPython Notebook
 * Editor Hive
 * Script di Azure PowerShell
+
+Le query Hive sono simili a SQL. Gli utenti che conoscono SQL possono trovare utile il <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">foglio informativo relativo all'uso di Hive per gli utenti di SQL</a>.
 
 Quando si invia una query Hive, è possibile controllare la destinazione dell'output, sia questo visualizzato sullo schermo o incluso in un file locale nel nodo head o in un BLOB di Azure.
 
@@ -74,19 +75,17 @@ Quando la query Hive è più complessa e dispone di numerose righe, l'operazione
 
 	`hive -f "<path to the .hql file>"`
 
-![Creare un'area di lavoro][15]
-
 
 #### Eliminare la visualizzazione relativa allo stato di avanzamento delle query Hive sullo schermo
 
-Per impostazione predefinita, dopo aver inviato una query Hive nella riga di comando di Hadoop, sullo schermo viene visualizzato lo stato di avanzamento del processo di mapping e di riduzione. Per eliminare la stampa della schermata di avanzamento del processo di mapping e riduzione, è possibile usare l'argomento `-S` ("S" in lettere maiuscole) nella riga di comando nel modo seguente:
+Per impostazione predefinita, dopo aver inviato una query Hive nella riga di comando di Hadoop, sullo schermo viene visualizzato lo stato di avanzamento del processo di mapping e di riduzione. Per eliminare la stampa della schermata di avanzamento del processo di mapping e riduzione, è possibile usare l'argomento `-S` (si applica la distinzione da maiuscole e minuscole) nella riga di comando nel modo seguente:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Inviare query Hive nella console dei comandi di Hive
 
-Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive. Di seguito è fornito un esempio.
+Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
 
 ![Creare un'area di lavoro][11]
 
@@ -100,9 +99,6 @@ Per restituire i risultati delle query Hive in una directory locale nel nodo hea
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-Nell'esempio seguente, l'output della query Hive viene scritto in un file *hivequeryoutput.txt* nella directory *C:\apps\temp*.
-
-![Creare un'area di lavoro][12]
 
 #### Restituire i risultati delle query Hive in un BLOB di Azure
 
@@ -122,7 +118,7 @@ L'output della query Hive può essere visualizzato nell'archiviazione BLOB, apre
 
 Gli utenti possono usare la Console di query (editor Hive) inserendo l'URL del modulo
 
-*https://&#60;Hadoop nome cluster >.azurehdinsight.net/Home/HiveEditor*
+nome cluster *https://&#60;Hadoop>.azurehdinsight.net/Home/HiveEditor*
 
 in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l'accesso. In alternativa, [Inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
@@ -256,7 +252,7 @@ Quando la tabella Hive dispone di un campo di testo con una stringa di parole de
 
 La query descritta in questa sezione può essere applicata direttamente ai dati relativi ai tragitti dei taxi di NYC. Lo scopo della query è quello di dimostrare come applicare una funzione matematica incorporata in Hive, al fine di creare funzionalità.
 
-I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si sale e scende dal taxi, denominati *pickup_longitude*, *pickup_latitude*, *dropoff_longitude* e *dropoff_latitude*. Le query che consentono di calcolare la distanza diretta tra questi due punti sono:
+I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si sale e scende dal taxi, denominati *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* e *dropoff\_latitude*. Le query che consentono di calcolare la distanza diretta tra questi due punti sono:
 
 		set R=3959;
 		set pi=radians(180);
@@ -274,17 +270,17 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat_or_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon\*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creare un'area di lavoro][1]
 
-Nella sezione **Funzionalità integrate** del [Wiki su Hive di Apache](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions), è disponibile un elenco completo relativo alle funzioni definite dall'utente e incorporate di Hive.
+Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite dall'utente e incorporate di Hive.
 
 ## <a name="tuning"></a> Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query
 
 Le impostazioni predefinite per i parametri del cluster Hive potrebbero non essere adatte alle query Hive e ai dati elaborati dalle query. In questa sezione, vengono illustrati alcuni parametri che gli utenti possono regolare per migliorare le prestazioni delle query Hive. Gli utenti devono aggiungere la query di regolazione del parametro prima della query di elaborazione dei dati.
 
-1. **Spazio dell'heap di Java**: nel caso di query che consentono di unire set di dati di grandi dimensioni o di elaborare record estesi, un errore comune è quello di **esaurire lo spazio dell'heap**. Questo può essere ottimizzato mediante l'impostazione di parametri *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* sui valori desiderati. Di seguito è fornito un esempio:
+1. **Spazio dell'heap di Java**: per le query che comportano l'unione di set di dati di grandi dimensioni o l'elaborazione di record estesi, un errore comune è quello di **esaurire lo spazio dell'heap**. Questo può essere ottimizzato mediante l'impostazione di parametri *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* sui valori desiderati. Di seguito è fornito un esempio:
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -323,4 +319,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

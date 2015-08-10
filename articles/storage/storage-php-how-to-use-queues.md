@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione di accodamento da PHP
@@ -42,7 +42,7 @@ In questa guida si useranno le funzionalità del Servizio di accodamento che pos
 
 Per usare le API del Servizio di accodamento di Azure, è necessario:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -384,4 +384,4 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

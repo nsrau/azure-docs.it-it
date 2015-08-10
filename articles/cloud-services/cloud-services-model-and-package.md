@@ -206,8 +206,8 @@ Per distribuire un'applicazione come servizio cloud in Azure, è necessario prim
 ###### Percorso dello strumento CSPack (in Windows)
 | Versione SDK | Path |
 | ----------- | ---- |
-| 1.7+ | C:\Programmi\Microsoft SDKs\Azure\.NET SDK\[versione-sdk]\bin\ |
-| &lt;1.6 | C:\Programmi\Azure SDK\[versione-sdk]\bin\ |
+| 1\.7+ | C:\\Programmi\\Microsoft SDKs\\Azure\\.NET SDK\\[versione-sdk]\\bin\\ |
+| &lt;1.6 | C:\\Programmi\\Azure SDK\\[versione-sdk]\\bin\\ |
 
 >[AZURE.NOTE]CSPack.exe (in Windows) è disponibile eseguendo il collegamento del **prompt dei comandi di Microsoft Azure** installato con l'SDK.
 >  
@@ -274,4 +274,4 @@ Si sta usando Visual Studio e si vuole...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/it-it/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

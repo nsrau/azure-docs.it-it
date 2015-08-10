@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Phone) | Servizi mobili" 
-	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure." 
+	pageTitle="Caricare immagini nell'archiviazione di Azure da un'app Windows Phone Silverlight | Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili per caricare immagini dall'app Windows Phone Silverlight nell'archivio BLOB di Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Caricare immagini in Archiviazione di Azure mediante Servizi mobili
@@ -103,4 +103,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

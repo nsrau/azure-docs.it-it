@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/27/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -51,6 +51,12 @@ L'esempio seguente mostra come combinare più valori per restituirne uno solo.
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+## copyIndex
+
+**copyIndex(offset)**
+
+Restituisce l'indice corrente di un ciclo di iterazione. Per esempio di uso di questa funzione, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
 ## deployment
 
@@ -188,7 +194,7 @@ Consente a un'espressione di derivare il valore dallo stato di runtime di un'alt
 
 La funzione **reference** deriva il proprio valore da uno stato di runtime, quindi non può essere usata nella sezione variables. Può essere usata, invece, nella sezione outputs di un modello.
 
-Usando l'espressione di riferimento è possibile dichiarare che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene eseguito all'interno dello stesso modello.
+Usando l'espressione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene eseguito all'interno dello stesso modello. Non è necessario usare anche la proprietà **dependsOn**. L'espressione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
 
     "outputs": {
       "siteUri": {
@@ -265,7 +271,7 @@ L'esempio seguente mostra come recuperare gli ID risorsa per un sito Web e un da
 Spesso è necessario usare questa funzione quando si usa un account di archiviazione o una rete virtuale in un gruppo di risorse alternative. L'account di archiviazione o la rete virtuale possono essere usati in più gruppi di risorse, quindi non devono essere eliminati quando si elimina un singolo gruppo di risorse. L'esempio seguente mostra come usare facilmente una risorsa di un gruppo di risorse esterno:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -377,9 +383,9 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 
 ## Passaggi successivi
-- [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
-- [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
+- Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
+- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
+- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

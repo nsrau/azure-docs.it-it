@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="07/29/2015"
    ms.author="joaoma"/>
 
 # Creare, avviare o eliminare un gateway applicazione
@@ -22,25 +22,39 @@ In questa versione è possibile creare un gateway applicazione usando PowerShell
 ## Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
-2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida.
-3. Assicurasi di avere server back-end nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
+2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
+3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i loro endpoint siano stati creati nella rete virtuale o che sia stato loro assegnato un indirizzo VIP/IP pubblico.
+
+## Che cosa è necessario per creare un gateway applicazione?
+ 
+
+Quando si usa il comando New-AzureApplicationGateway per creare il gateway applicazione, nessuna configurazione è ancora impostata e la risorsa appena creata dovrà essere configurata usando l'oggetto di configurazione o XML.
 
 
-Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordine indicato.
+I valori possibili sono:
 
-1. [Creare un nuovo gateway applicazione](#create-a-new-application-gateway)
-2. [Configurare il gateway](#configure-the-gateway)
-3. [Definire la configurazione del gateway](#set-the-gateway-configuration)
-4. [Avviare il gateway](#start-the-gateway)
-4. [Verificare lo stato del gateway](#verify-the-gateway-status)
+- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
-Per eliminare un gateway applicazione, passare a [Eliminare un gateway applicazione](#delete-an-application-gateway).
 
+ 
 ## Creare un nuovo gateway applicazione
+
+I passaggi per creare un gateway applicazione devono essere eseguiti nell'ordine seguente:
+
+1. Creare una risorsa per il gateway applicazione
+2. Creare un file XML di configurazione o un oggetto di configurazione
+3. Eseguire il commit della configurazione nella risorsa per il gateway applicazione appena creata
+
+### Creare una risorsa per il gateway applicazione
 
 **Per creare il gateway**, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
-Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
+L'esempio seguente mostra la creazione di un nuovo gateway applicazione con una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1":
+
     
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
@@ -50,9 +64,11 @@ Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Per convalidare** la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
-In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
+ *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi.
+
+
+**Per convalidare** la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
 
 
@@ -68,22 +84,71 @@ In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri
 	VirtualIPs    : {}
 	DnsName       :
 
+>[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
-## Configurare il gateway
 
-La configurazione di un gateway applicazione è costituita da più valori. È possibile collegare tra loro tali valori per creare la configurazione.
+ *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
 
-I valori possibili sono:
+## Configurare il gateway applicazione
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
-- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
+È possibile configurare il gateway applicazione usando i metodi seguenti: XML o oggetto di configurazione.
 
-È possibile definire la configurazione creando un oggetto di configurazione oppure usando un file XML di configurazione. Per definire la configurazione mediante un file XML di configurazione, usare l'esempio seguente.
+## Configurare il gateway applicazione usando XML 
 
- **Esempio di file XML di configurazione**
+Nell'esempio seguente si userà un file XML per configurare tutte le impostazioni del gateway applicazione ed eseguirne il commit nella risorsa per il gateway applicazione.
+
+### Passaggio 1  
+
+Copiare il testo seguente e incollarlo nel Blocco note:
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	    <FrontendPorts>
+	        <FrontendPort>
+	            <Name>(name-of-your-frontend-port)</Name>
+	            <Port>(port number)</Port>
+	        </FrontendPort>
+	    </FrontendPorts>
+	    <BackendAddressPools>
+	        <BackendAddressPool>
+	            <Name>(name-of-your-backend-pool)</Name>
+	            <IPAddresses>
+	                <IPAddress>(your-IP-address-for-backend-pool)</IPAddress>
+	                <IPAddress>(your-second-IP-address-for-backend-pool)</IPAddress>
+	            </IPAddresses>
+	        </BackendAddressPool>
+	    </BackendAddressPools>
+	    <BackendHttpSettingsList>
+	        <BackendHttpSettings>
+	            <Name>(backend-setting-name-to-configure-rule)</Name>
+	            <Port>80</Port>
+	            <Protocol>[Http|Https]</Protocol>
+	            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+	        </BackendHttpSettings>
+	    </BackendHttpSettingsList>
+	    <HttpListeners>
+	        <HttpListener>
+	            <Name>(name-of-the-listener)</Name>
+	            <FrontendPort>(name-of-your-frontend-port)</FrontendPort>
+	            <Protocol>[Http|Https]</Protocol>
+	        </HttpListener>
+	    </HttpListeners>
+	    <HttpLoadBalancingRules>
+	        <HttpLoadBalancingRule>
+	            <Name>(name-of-load-balancing-rule)</Name>
+	            <Type>basic</Type>
+	            <BackendHttpSettings>(backend-setting-name-to-configure-rule)</BackendHttpSettings>
+	            <Listener>(name-of-the-listener)</Listener>
+	            <BackendAddressPool>(name-of-your-backend-pool)</BackendAddressPool>
+	        </HttpLoadBalancingRule>
+	    </HttpLoadBalancingRules>
+	</ApplicationGatewayConfiguration>
+
+Modificare i valori tra parentesi per gli elementi di configurazione. Salvare il file con l'estensione xml
+
+>[AZURE.IMPORTANT]L'elemento del protocollo Http o Https deve rispettare la distinzione tra maiuscole e minuscole.
+
+L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico Http sulla porta pubblica 80 e inviare il traffico di rete alla porta back-end 80 tra 2 indirizzi IP:
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -128,18 +193,127 @@ I valori possibili sono:
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
 
-## Definire la configurazione del gateway
-
-Verrà quindi configurato il gateway applicazione. È possibile usare il cmdlet `Set-AzureApplicationGatewayConfig` con un oggetto di configurazione o con un file XML di configurazione.
 
 
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+
+
+### Passaggio 2
+
+Verrà quindi configurato il gateway applicazione. Si userà il cmdlet `Set-AzureApplicationGatewayConfig` con un file XML di configurazione.
+
+
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 	Name       HTTP Status Code     Operation ID                             Error 
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+
+## Configurare il gateway applicazione usando un oggetto di configurazione
+
+L'esempio seguente mostrerà come configurare il gateway applicazione usando gli oggetti di configurazione. Tutti gli elementi di configurazione dovranno essere configurati singolarmente e quindi aggiunti a un oggetto di configurazione del gateway applicazione. Dopo avere creato l'oggetto di configurazione, si userà il comando `Set-AzureApplicationGateway` per eseguire il commit della configurazione nella risorsa per il gateway applicazione creata in precedenza.
+
+>[AZURE.NOTE]Prima di assegnare un valore a ogni oggetto di configurazione, è necessario dichiarare in quale tipologia di oggetto PowerShell verrà archiviato. La prima riga per creare i singoli elementi definisce quale Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome oggetto) verrà usato.
+
+### Passaggio 1
+
+Creare tutti i singoli elementi di configurazione:
+
+Creare l'IP front-end:
+
+	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration 
+	PS C:\> $fip.Name = "fip1" 
+	PS C:\> $fip.Type = "Private" 
+	PS C:\> $fip.StaticIPAddress = "10.0.0.5" 
+
+Creare la porta front-end:
+	
+	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort 
+	PS C:\> $fep.Name = "fep1" 
+	PS C:\> $fep.Port = 80
+	
+Creare il pool di server back-end:
+
+ Definire gli indirizzi IP che verranno aggiunti al pool di server back-end:
+
+
+	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
+	PS C:\> $servers.Add("10.0.0.1") 
+	PS C:\> $servers.Add("10.0.0.2")
+
+ Usando l'oggetto $server, aggiungere i valori all'oggetto pool back-end ($pool)
+
+	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
+	PS C:\> $pool.BackendServers = $servers 
+	PS C:\> $pool.Name = "pool1"
+
+Creare l'impostazione del pool di server back-end
+
+	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings 
+	PS C:\> $setting.Name = "setting1" 
+	PS C:\> $setting.CookieBasedAffinity = "enabled" 
+	PS C:\> $setting.Port = 80 
+	PS C:\> $setting.Protocol = "http"
+
+Creare il listener
+
+	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener 
+	PS C:\> $listener.Name = "listener1" 
+	PS C:\> $listener.FrontendPort = "fep1" 
+	PS C:\> $listener.FrontendIP = "fip1" 
+	PS C:\> $listener.Protocol = "http" 
+	PS C:\> $listener.SslCert = ""
+
+Creare la regola
+
+	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule 
+	PS C:\> $rule.Name = "rule1" 
+	PS C:\> $rule.Type = "basic" 
+	PS C:\> $rule.BackendHttpSettings = "setting1" 
+	PS C:\> $rule.Listener = "listener1" 
+	PS C:\> $rule.BackendAddressPool = "pool1"
+ 
+### Passaggio 2
+
+Assegnare tutti i singoli elementi di configurazione a un oggetto di configurazione del gateway applicazione ($appgwconfig):
+
+Aggiungere l'IP front-end alla configurazione
+
+	PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]" 
+	PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
+ 
+Aggiungere la porta front-end alla configurazione
+
+	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]" 
+	PS C:\> $appgwconfig.FrontendPorts.Add($fep)
+
+Aggiungere il pool di server back-end alla configurazione
+
+	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]" 
+	PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
+
+Aggiungere l'impostazione del pool back-end alla configurazione
+
+	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]" 
+	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting) 
+
+Aggiungere il listener alla configurazione
+
+	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]" 
+	PS C:\> $appgwconfig.HttpListeners.Add($listener)
+
+Aggiungere la regola alla configurazione
+
+	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]" 
+	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule) 
+
+### Passaggio 3
+
+Eseguire il commit dell'oggetto di configurazione nella risorsa per il gateway applicazione appena usando `Set-AzureApplicationGatewayConfig`:
+ 
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
 ## Avviare il gateway
 
@@ -229,4 +403,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

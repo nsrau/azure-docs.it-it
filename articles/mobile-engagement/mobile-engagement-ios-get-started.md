@@ -19,10 +19,10 @@
 # Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -59,7 +59,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
    	![][8]
 
 	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione (**iOS**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
+	- **Piattaforma**: selezionare la piattaforma di destinazione (\*\*iOS\*\*) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
 	- **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
 	- **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
 	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
@@ -301,4 +301,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

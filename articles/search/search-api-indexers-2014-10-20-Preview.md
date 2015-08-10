@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" 
 	description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" 
-	services="search"
+	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="mblythe" />
@@ -670,4 +670,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -25,7 +25,7 @@ Questo argomento include collegamenti a esempi di codice di avvio rapido che è 
 
 
 - Esempi brevi connessione e query.
-- Gli esempi di riesecuzione connettono e eseguono la query, ma riprovano automaticamente se si riscontrano errori classificati come [*errori temporanei*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)(ad esempio, un timeout di connessione).
+- Gli esempi di riesecuzione connettono e eseguono la query, ma riprovano automaticamente se si riscontrano errori classificati come [*guasti temporanei*](sql-database-develop-error-messages.md#bkmk_connection_errors)(ad esempio, un timeout di connessione).
 
 
 Sono riportati vari tipi di esempi:
@@ -75,11 +75,11 @@ Questa sezione fornisce collegamenti ad argomenti con esempi di codice per progr
 
 | Linguaggio | Breve esempio | Esempio di nuovo tentativo | Relazionale a oggetti |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personalizzato](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Driver ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC personalizzato](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -88,9 +88,9 @@ Questa sezione fornisce collegamenti ad argomenti con esempi di codice per progr
 
 - [Download di SDK e strumenti per numerosi linguaggi e piattaforme](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
-- [Elenco di codici numerici per gli errori temporanei](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)<br/>&nbsp;
+- [Elenco di codici numerici per gli errori temporanei](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Sviluppo per il database SQL di Azure: procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
 - [Creare il primo database SQL di Azure](sql-database-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

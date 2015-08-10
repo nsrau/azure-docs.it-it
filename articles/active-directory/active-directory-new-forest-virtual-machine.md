@@ -3,7 +3,7 @@
 	description="Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Installazione di una nuova foresta Active Directory in una rete virtuale di Azure
@@ -25,7 +25,7 @@ In questo argomento viene illustrato come creare un nuovo ambiente Windows Serve
 Altri argomenti di interesse:
 
 - Per un video che illustra questa procedura, vedere [Come installare una nuova foresta Active Directory in una rete virtuale di Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- Facoltativamente, è possibile [configurare una VPN da sito a sito](https://msdn.microsoft.com/library/azure/dn133795.aspx) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- Facoltativamente, è possibile [configurare una VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Diagramma dello scenario
@@ -42,7 +42,7 @@ Configurazione | Locale | Rete virtuale di Azure
 ------------- | -------------  | ------------
 **Indirizzo IP del controller di dominio** | Assegnare un indirizzo IP statico nelle proprietà della scheda di rete | Eseguire il cmdlet Set-AzureStaticVNetIP per assegnare un indirizzo IP statico
 **Resolver del client DNS** | Impostare l'indirizzo del server DNS preferito e quello alternativo nelle proprietà della scheda di rete dei membri del dominio | Impostare l'indirizzo del server DNS nelle proprietà della rete virtuale
-**Archiviazione del database di Active Directory** | Modificare facoltativamente il percorso di archiviazione predefinito da C:\ | È necessario modificare il percorso di archiviazione predefinito da C:\
+**Archiviazione del database di Active Directory** | Modificare facoltativamente il percorso di archiviazione predefinito da C:\\ | È necessario modificare il percorso di archiviazione predefinito da C:\\
 
 
 
@@ -121,7 +121,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 -  [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Creare una rete virtuale solo cloud](https://msdn.microsoft.com/library/dn631643.aspx)
--  [Configura una VPN da sito a sito](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [Configura una VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -139,4 +139,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

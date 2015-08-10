@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -95,6 +95,11 @@ Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, v
 ## In quale area è consigliabile posizionare la cache?
 
 Per ottenere le prestazioni migliori e la latenza più bassa, posizionare la Cache Redis di Azure nella stessa area in cui si trova l'applicazione client della cache.
+
+<a name="cache-billing"></a>
+## Quali sono i costi addebitati per Cache Redis di Azure?
+
+I prezzi di Cache Redis di Azure sono indicati [in questa pagina](http://azure.microsoft.com/pricing/details/cache/). come tariffa oraria. Le cache vengono fatturate a minuto dal momento in cui la cache viene creata fino a quando viene eliminata. Non è disponibile alcuna opzione per interrompere o sospendere la fatturazione di una cache.
 
 <a name="cache-timeouts"></a>
 ## Perché vengono visualizzati timeout?
@@ -204,12 +209,14 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 <a name="cache-commands"></a>
 ## Come si eseguono i comandi Redis?
 
-È possibile usare qualsiasi comando elencato in [Comandi Redis](http://redis.io/commands#). Per eseguire questi comandi, è possibile usare gli strumenti seguenti.
+È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#) ad eccezione dei comandi elencati nella pagina sui [comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
 
--	Scaricare gli [strumenti da riga di comando Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
--	Connettersi alla cache usando `redis-cli.exe`. Passare l'endpoint della cache mediante l'opzione -h e la chiave mediante -a, come illustrato nell'esempio seguente.
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	Si noti che gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta SSL seguendo le istruzioni disponibili nel post di blog [Annuncio del provider di stato della sessione ASP.NET per la versione di anteprima di Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+-	Se si ha una cache Standard, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di Azure.
+-	È anche possibile usare gli strumenti da riga di comando di Redis. A questo scopo, eseguire la procedura seguente.
+	-	Scaricare gli [strumenti da riga di comando Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Connettersi alla cache usando `redis-cli.exe`. Passare l'endpoint della cache mediante l'opzione -h e la chiave mediante -a, come illustrato nell'esempio seguente.
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	Si noti che gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta SSL seguendo le istruzioni disponibili nel post di blog [Annuncio del provider di stato della sessione ASP.NET per la versione di anteprima di Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 <a name="cache-common-patterns"></a>
 ## Quali sono i modelli e le considerazioni comuni sulle cache?
@@ -226,4 +233,4 @@ La Cache Redis di Microsoft Azure è basata sulla popolare cache Redis open sour
 
 Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, nella pagina relativa alla [documentazione sulla Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/) sono disponibili alcune esercitazioni su Azure.com, che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

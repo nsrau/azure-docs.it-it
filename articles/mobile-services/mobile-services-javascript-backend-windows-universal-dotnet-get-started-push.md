@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione alle notifiche push mediante un servizio mobile back-end JavaScript" 
-	description="Informazioni su come usare Servizi mobili di Azure e Hub di notifica per inviare notifiche push all'app di Windows universale." 
+	pageTitle="Aggiungere notifiche push all'app per piattaforma UWP 8.1 | Servizi mobili di Azure" 
+	description="Informazioni su come inviare notifiche push all'app di Windows 8.1 universale dal servizio mobile back-end JavaScript usando Hub di notifica di Azure." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 
@@ -40,12 +40,13 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Passare alla cartella di progetto <code>\Services\MobileServices\nome_servizio</code>, aprire i file di codice push.register.cs generato e individuare il metodo <strong>UploadChannel</strong> che registra l'URL del canale del dispositivo con l'hub di notifica.</p></li> 
-<li><p>Aprire il file di codice App.xaml.cs condiviso. Si noti come una chiamata al nuovo metodo <strong>UploadChannel</strong> è stata aggiunta al gestore dell'evento <strong>OnLaunched</strong>.</p> <p>In questo modo verrà effettuato un tentativo di registrazione del dispositivo a ogni avvio dell'app.</p></li>
-<li><p>Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store. Quindi, nel file App.xaml.cs condiviso, rimuovere la chiamata supplementare a <strong>UploadChannel</strong> e il wrapper condizionale <code>#if...#endif</code> restante.</p> <p>Ora entrambi i progetti possono condividere un'unica chiamata a <strong>UploadChannel</strong>.</p>
-<p>Si noti che è anche possibile semplificare il codice generato unendo le definizioni <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> con wrapping <code>#if...#endif</code> in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.</p></li>
-</ol>
+&nbsp;&nbsp;6. Passare alla cartella del progetto `\Services\MobileServices\your_service_name`, aprire il file di codice push.register.cs generato ed esaminare il metodo **UploadChannel** che registra l'URL del canale del dispositivo con l'hub di notifica.
+
+&nbsp;&nbsp;7. Aprire il file di codice App.xaml.cs condiviso. Si noti come una chiamata al nuovo metodo **UploadChannel** è stata aggiunta al gestore dell'evento **OnLaunched**. In questo modo verrà effettuato un tentativo di registrazione del dispositivo a ogni avvio dell'app.
+
+&nbsp;&nbsp;8. Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store, quindi nel file App.xaml.cs condiviso rimuovere la chiamata supplementare a **UploadChannel** e il wrapper condizionale `#if...#endif` restante. Ora entrambi i progetti possono condividere un'unica chiamata a **UploadChannel**.
+
+&nbsp;&nbsp;Si noti che è anche possibile semplificare il codice generato unendo le definizioni con wrapping `#if...#endif` [MobileServiceClient] in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
 
 Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il servizio mobile per l'invio delle notifiche push.
 
@@ -97,6 +98,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

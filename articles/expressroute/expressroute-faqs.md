@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # Domande frequenti su ExpressRoute
@@ -124,7 +124,7 @@ Sì. È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute.
 ### Sono disponibili più sottoscrizioni di Azure che contengono reti virtuali. È possibile connettere reti virtuali di sottoscrizioni distinte a un singolo circuito ExpressRoute?
 Sì. È possibile autorizzare fino a 10 sottoscrizioni di Azure a usare un unico circuito ExpressRoute. Per aumentare questo limite, abilitare la funzionalità Premium di ExpressRoute.
 
-Per altri dettagli, vedere [Condivisione di un circuito ExpressRoute tra più sottoscrizioni](https://msdn.microsoft.com/library/azure/dn835110.aspx).
+Per altri dettagli, vedere [Condivisione di un circuito ExpressRoute tra più sottoscrizioni](expressroute-share-circuit.md).
 
 ### Le reti virtuali connesse allo stesso circuito sono isolate tra loro?
 No. Tutte le reti virtuali collegate allo stesso circuito ExpressRoute appartengono allo stesso dominio di routing e non sono isolate tra loro dal punto di vista del routing. Se è necessario l'isolamento delle route, creare un circuito ExpressRoute separato.
@@ -286,4 +286,4 @@ La connettività ai servizi di Office 365 è supportata sia tramite i provider d
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

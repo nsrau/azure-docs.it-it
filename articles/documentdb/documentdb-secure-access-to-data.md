@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

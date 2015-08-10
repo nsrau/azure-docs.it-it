@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Amministrazione di un servizio mobile dalla riga di comando - Esercitazione su Azure" 
+	pageTitle="Amministrazione di un servizio mobile dalla riga di comando | Servizi mobili di Azure" 
 	description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando 
@@ -25,10 +25,6 @@ Questo argomento illustra come usare gli strumenti da riga di comando di Azure p
 Se combinati in un unico script o file batch, questi singoli comandi consentono di automatizzare i processi di creazione, verifica ed eliminazione di un servizio mobile.
 
 Questo argomento illustra alcune attività di amministrazione comuni supportate dagli strumenti da riga di comando di Azure. Per altre informazioni, vedere la [documentazione degli strumenti da riga di comando di Azure][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Installare gli strumenti da riga di comando di Azure
 
@@ -110,11 +106,7 @@ Usare il comando seguente per creare una nuova tabella con autorizzazione `read`
 
 La tabella seguente illustra il valore dell'autorizzazione dello script rispetto al valore dell'autorizzazione nel [portale di gestione di Azure].
 
-<table border="1" width="100%"><tr><th>Valore script</th><th>Valore portale di gestione</th></tr>
-<tr><td><code>public</code></td><td>Tutti</td></tr>
-<tr><td><code>application</code> (predefinito)</td><td>Chiunque con la chiave applicazione</td></tr>
-<tr><td><code>user</code></td><td>Solo gli utenti autenticati</td></tr>
-<tr><td><code>admin</code></td><td>Solo script e amministratori</td></tr></table>
+|Valore script|Valore portale di gestione| |========|========| |`public`|Tutti| |`application`(impostazione predefinita)|Chiunque con la chiave applicazione| |`user`|Solo gli utenti autenticati| |`admin`|Solo script e amministratori|
 
 Il comando `mobile table create` ha esito negativo quando la tabella specificata esiste già. Negli script di automazione, provare a eliminare una tabella prima di tentare di ricrearla.
 
@@ -192,4 +184,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

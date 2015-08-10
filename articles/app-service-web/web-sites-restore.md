@@ -96,4 +96,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

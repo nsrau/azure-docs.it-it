@@ -52,7 +52,7 @@ Il codice del flusso di lavoro di PowerShell è quasi identico al relativo codic
 
 Un'attività è un'operazione specifica in un flusso di lavoro. Così come uno script è costituito da uno o più comandi, un flusso di lavoro è costituito da una o più attività eseguite in sequenza. Il flusso di lavoro di Windows PowerShell converte automaticamente molti dei cmdlet di Windows PowerShell in attività quando esegue un flusso di lavoro. Quando si specifica uno di questi cmdlet in un Runbook, l'attività corrispondente viene in realtà eseguita da Windows Workflow Foundation. I cmdlet senza un'attività corrispondente vengono eseguiti automaticamente dal flusso di lavoro di Windows PowerShell in un'attività [InlineScript](#inlinescript). Esiste un set di cmdlet che sono esclusi e non possono essere usati in un flusso di lavoro, a meno che non vengano inclusi in modo esplicito in un blocco InlineScript. Per altri dettagli su questi concetti, vedere l'articolo relativo all'[uso di attività in flussi di lavoro di script](http://technet.microsoft.com/library/jj574194.aspx).
 
-Le attività dei flussi di lavoro condividono un set di parametri comuni per configurare il proprio funzionamento. Per informazioni dettagliate sui parametri comuni dei flussi di lavoro, vedere [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Le attività dei flussi di lavoro condividono un set di parametri comuni per configurare il proprio funzionamento. Per informazioni dettagliate sui parametri comuni dei flussi di lavoro, vedere [about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### Parametri posizionali
 
@@ -144,7 +144,7 @@ Anche se possono rivelarsi di importanza critica in alcuni flussi di lavoro, le 
 - Non è possibile utilizzare [l'esecuzione parallela](#parallel-execution) all'interno di un InlineScriptBlock.
 - L'attività InlineScript influisce sulla scalabilità del Runbook perché vincola la sessione di Windows PowerShell per l'intera lunghezza del blocco InlineScript.
 
-Per altri dettagli sull'uso di InlineScript, vedere [Esecuzione dei comandi di Windows PowerShell in un flusso di lavoro](http://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Per altri dettagli sull'uso di InlineScript, vedere [Esecuzione dei comandi di Windows PowerShell in un flusso di lavoro](http://technet.microsoft.com/library/jj574197.aspx) e [about\_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 
 ## Elaborazione parallela
@@ -163,9 +163,9 @@ Uno dei vantaggi offerti dai flussi di lavoro di Windows PowerShell consiste nel
 
 Ad esempio, considerare i seguenti comandi PowerShell che consentono di copiare più file in una destinazione di rete. Questi comandi vengono eseguiti in sequenza in modo che finisca la copia di un file prima che venga avviata la successiva.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 Nel flusso di lavoro seguente vengono eseguiti questi stessi comandi in parallelo in modo che inizi la copia di tutti nello stesso momento. Solo dopo che stati tutti copiati completamente, viene visualizzato il messaggio di completamento.
 
@@ -173,9 +173,9 @@ Nel flusso di lavoro seguente vengono eseguiti questi stessi comandi in parallel
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ L'esempio seguente è simile all'esempio precedente in cui vengono copiati i fil
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ Nell'esempio seguente vengono copiati più file in un percorso di rete e viene i
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta 
 
 - [Introduzione al flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

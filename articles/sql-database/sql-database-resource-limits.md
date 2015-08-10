@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/13/2015"
+   ms.date="07/24/2015"
    ms.author="jroth" />
 
 # Limiti delle risorse del database SQL di Azure
@@ -64,7 +64,7 @@ Il resto di questo argomento vengono illustrati i possibili codici di errore in 
 | **Condizione** | Il Database SQL regola il limite dei numeri di accessi simultanei che possono avvenire in un database. Quando viene raggiunto il limite di accessi simultanei di un database, le nuove richieste di accesso al database verranno rifiutate e verrà restituito il codice di errore 10928. |
 | **Codice di errore** | **10928**: ID risorsa: 3. Il limite di %s per il database è %d ed è stato raggiunto. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza. |
 | **Limite** | Dipende dal [livello di servizio e dal livello di prestazioni](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Raccomandazione** | Controllare dm_exec_connections per visualizzare le connessioni utente attualmente attive.<br><br>Interrompere e riprovare l'accesso dopo 10 secondi. |
+| **Raccomandazione** | Controllare dm\_exec\_connections per visualizzare le connessioni utente attualmente attive.<br><br>Interrompere e riprovare l'accesso dopo 10 secondi. |
 
 > [AZURE.NOTE]Il valore di ID di risorsa nel messaggio di errore indica la risorsa per cui è stato raggiunto il limite. Per gli accessi, ID risorsa = 3.
 
@@ -85,7 +85,7 @@ Il resto di questo argomento vengono illustrati i possibili codici di errore in 
 | **Condizione** | Il Database SQL regola il limite sul numero di sessioni simultanee che possono essere stabilite su un database. Quando viene raggiunto il limite di sessioni simultanee per un database, verranno rifiutate le nuove richieste di connessioni al database e verrà visualizzato il codice di errore 10928. Tuttavia, le sessioni esistenti del database non verranno terminate. |
 | **Codice di errore** | **10928**: ID risorsa: 2. Il limite di %s per il database è %d ed è stato raggiunto. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza. |
 | **Limite** | Dipende dal [livello di servizio e dal livello di prestazioni](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Raccomandazione** | Controllare dm_exec_requests per visualizzare le richieste utente attualmente in esecuzione. |
+| **Raccomandazione** | Controllare dm\_exec\_requests per visualizzare le richieste utente attualmente in esecuzione. |
 
 > [AZURE.NOTE]Il valore di ID di risorsa nel messaggio di errore indica la risorsa per cui è stato raggiunto il limite. Per le sessioni, ID risorsa = 2.
 
@@ -93,9 +93,9 @@ Il resto di questo argomento vengono illustrati i possibili codici di errore in 
 
 | & nbsp; | Ulteriori informazioni |
 | :--- | :--- |
-| **Condizione** | Le richieste in tempdb possono essere rifiutate per una delle tre condizioni seguenti:<br><br>* * stato 1: * * quando una sessione utilizza più di 5 GB di spazio di tempdb, la sessione viene terminata.<br><br>* * Stato 2: * * le transazioni in tempdb con log di dimensioni superiori a 2 GB vengono troncate. Esempi di operazioni che possono occupare spazio nei log in tempdb: inserire, aggiornare, eliminare, unire, creare indici.<br><br>* * Stato 3: * * le transazioni non salvate in tempdb possono bloccare il troncamento dei file di log. Per evitare questo problema, la distanza tra il numero di sequenza log (LSN) transazione attiva meno recente e la parte finale del log (LSN corrente) nel database tempdb non può superare il 20% delle dimensioni del file di log. Quando viene violata, la transazione problematica in tempdb viene terminata e ripristina di modo che sia possibile troncare il log. |
+| **Condizione** | Le richieste in tempdb possono essere rifiutate per una delle tre condizioni seguenti:<br><br>\* \* stato 1: \* \* quando una sessione utilizza più di 5 GB di spazio di tempdb, la sessione viene terminata.<br><br>\* \* Stato 2: \* \* le transazioni in tempdb con log di dimensioni superiori a 2 GB vengono troncate. Esempi di operazioni che possono occupare spazio nei log in tempdb: inserire, aggiornare, eliminare, unire, creare indici.<br><br>\* \* Stato 3: \* \* le transazioni non salvate in tempdb possono bloccare il troncamento dei file di log. Per evitare questo problema, la distanza tra il numero di sequenza log (LSN) transazione attiva meno recente e la parte finale del log (LSN corrente) nel database tempdb non può superare il 20% delle dimensioni del file di log. Quando viene violata, la transazione problematica in tempdb viene terminata e ripristina di modo che sia possibile troncare il log. |
 | **Codice di errore** | **40551**: sessione è stata terminata a causa dell'utilizzo eccessivo di tempdb. Provare a modificare la query per ridurre l'utilizzo dello spazio di tabella temporanea. |
-| **Limite** | **Stato 1:**5 GB di spazio di tempdb<br><br>**stato 2:**2 GB per transazione in tempdb<br><br>* * stato 3: * * 20% di spazio totale di log in tempdb |
+| **Limite** | **Stato 1:**5 GB di spazio di tempdb<br><br>**stato 2:**2 GB per transazione in tempdb<br><br>\* \* stato 3: \* \* 20% di spazio totale di log in tempdb |
 | **Tipo di richieste rifiutate** | Qualsiasi istruzione DDL o DML in tempdb. |
 | **Raccomandazione** | Modificare le query per ridurre l'utilizzo dello spazio di tabella temporaneo, eliminare oggetti temporanei quando essi non sono più necessari, troncare tabelle o rimuovere tabelle inutilizzate. Ridurre le dimensioni dei dati nella transazione in tempdb diminuendo il numero di righe o suddividendo l'operazione in più transazioni. |
 
@@ -105,7 +105,7 @@ Il resto di questo argomento vengono illustrati i possibili codici di errore in 
 | :--- | :--- |
 | **Condizione** | Le transazioni richiedono blocchi sulle risorse, ad esempio righe, pagine o tabelle, sulle quali dipende la transazione e liberano i blocchi quando non sono più una dipendenza dalle risorse bloccate. Le richieste possono essere rifiutate per una delle due condizioni: Stato 1: se una transazione è stata eseguita per più di 24 ore, viene terminata. Stato 2: Se una transazione blocca una risorsa richiesta da un'attività del sistema sottostante per oltre 20 secondi, viene terminata. |
 | **Codice di errore** | **40549**: sessione terminata perché è presente una transazione con esecuzione prolungata. Provare ad abbreviare la transazione. |
-| **Limite** | **Stato 1:**24 ore<br><br>* * stato 2: * * 20 secondi se una transazione blocca una risorsa richiesta da un sistema sottostante di attività |
+| **Limite** | **Stato 1:**24 ore<br><br>\* \* stato 2: \* \* 20 secondi se una transazione blocca una risorsa richiesta da un sistema sottostante di attività |
 | **Tipo di richieste rifiutate** | Qualsiasi transazione che è stata eseguita per più di 24 ore o qualsiasi istruzione DDL o DML che accetta un blocco, che di conseguenza blocca un’attività di sistema. |
 | **Raccomandazione** | Le operazioni nel Database SQL non devono bloccarsi su input dell'utente o avere altre dipendenze che generano transazioni a esecuzione prolungata. |
 
@@ -117,26 +117,26 @@ Il resto di questo argomento vengono illustrati i possibili codici di errore in 
 | **Codice di errore** | **40550**: sessione terminata perché ha acquisito troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione. |
 | **Limite** | 1 milione di blocchi per transazione |
 | **Tipo di richieste rifiutate** | Qualsiasi istruzione DDL o DML. |
-| **Raccomandazione** | I Seguenti DMV possono essere utilizzati per monitorare le transazioni:**DM tran_active_transactions****sys.dm_tran_database_transactions****dm_tran_locks**e**DM tran_session_transactions**. A seconda del tipo di applicazione, è possibile utilizzare hint di blocco granularità grossolana, ad esempio**PAGLOCK**o**TABLOCK**per ridurre il numero di blocchi acquisiti in una determinata istruzione/transazione. Si noti che questo può influire negativamente sulle concorrenza di applicazioni. |
+| **Raccomandazione** | I Seguenti DMV possono essere utilizzati per monitorare le transazioni:**DM tran\_active\_transactions****sys.dm\_tran\_database\_transactions****dm\_tran\_locks**e**DM tran\_session\_transactions**. A seconda del tipo di applicazione, è possibile utilizzare hint di blocco granularità grossolana, ad esempio**PAGLOCK**o**TABLOCK**per ridurre il numero di blocchi acquisiti in una determinata istruzione/transazione. Si noti che questo può influire negativamente sulle concorrenza di applicazioni. |
 
 ## Lunghezza del Log delle transazioni
 
 | & nbsp; | Ulteriori informazioni |
 | :--- | :--- |
-| **Condizione** | Le richieste potrebbero essere rifiutate per una delle due condizioni seguenti:<br><br>* * stato 1: * * il Database SQL regge transazioni che generano log fino a 2 GB di dimensioni. Le transazioni con log oltre questo limite vengono troncate. Esempi di operazioni che possono occupare spazio nei log con questo volume: inserire, aggiornare, eliminare, unire, creare indici.<br><br>* * Stato 2: * * le transazioni possono impedire il troncamento dei file di log. Per evitare questo problema, la distanza tra il numero di sequenza log (LSN) transazione attiva meno recente e la parte finale del log (LSN corrente) non può superare il 20% delle dimensioni del file di log. Quando viene violata, la transazione problematica viene terminata e viene ripristinata di modo che sia possibile troncare il log. |
+| **Condizione** | Le richieste potrebbero essere rifiutate per una delle due condizioni seguenti:<br><br>\* \* stato 1: \* \* il Database SQL regge transazioni che generano log fino a 2 GB di dimensioni. Le transazioni con log oltre questo limite vengono troncate. Esempi di operazioni che possono occupare spazio nei log con questo volume: inserire, aggiornare, eliminare, unire, creare indici.<br><br>\* \* Stato 2: \* \* le transazioni possono impedire il troncamento dei file di log. Per evitare questo problema, la distanza tra il numero di sequenza log (LSN) transazione attiva meno recente e la parte finale del log (LSN corrente) non può superare il 20% delle dimensioni del file di log. Quando viene violata, la transazione problematica viene terminata e viene ripristinata di modo che sia possibile troncare il log. |
 | **Codice di errore** | **40552**: La sessione è stata terminata a causa l'utilizzo dello spazio del log delle transazioni in eccesso. Provare a modificare meno righe in una singola transazione. |
-| **Limite** | **Stato 1:**2 GB per transazione<br><br>* * stato 2: * * 20% di spazio totale di log |
+| **Limite** | **Stato 1:**2 GB per transazione<br><br>\* \* stato 2: \* \* 20% di spazio totale di log |
 | **Tipo di richieste rifiutate** | Qualsiasi istruzione DDL o DML. |
-| **Raccomandazione** | Per le operazioni di riga, ridurre le dimensioni dei dati della transazione, ad esempio diminuendo il numero di righe o suddividendo l'operazione in più transazioni. Per le operazioni di tabella/indice che richiedono una singola transazione, verificare che venga rispettata la seguente formula: numero di righe interessate nella tabella * (dimensione media del campo aggiornato in byte + 80) < 2 GB (in caso di ricompilazione dell'indice, dimensione media del campo da aggiornare deve essere sostituiti da dimensione media dell'indice). |
+| **Raccomandazione** | Per le operazioni di riga, ridurre le dimensioni dei dati della transazione, ad esempio diminuendo il numero di righe o suddividendo l'operazione in più transazioni. Per le operazioni di tabella/indice che richiedono una singola transazione, verificare che venga rispettata la seguente formula: numero di righe interessate nella tabella \* (dimensione media del campo aggiornato in byte + 80) < 2 GB (in caso di ricompilazione dell'indice, dimensione media del campo da aggiornare deve essere sostituiti da dimensione media dell'indice). |
 
 ## Thread di lavoro (massime richieste simultanee)
 
 | & nbsp; | Ulteriori informazioni |
 | :--- | :--- |
 | **Condizione** | Il Database SQL regola il limite sul numero di thread di lavoro (richieste simultanee) a un database. A qualsiasi database con oltre il limite di richieste simultanee consentito verrà restituito l'errore 10928 e ulteriori richieste su questo database possono essere rifiutate. |
-| **Codici di errore** | **10928**: ID risorsa: 1. Il limite di %s per il database è %d ed è stato raggiunto. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza.<br><br>* * 10929 * *: ID risorsa: 1. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza. Altrimenti, riprovare più tardi. |
+| **Codici di errore** | **10928**: ID risorsa: 1. Il limite di %s per il database è %d ed è stato raggiunto. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza.<br><br>\* \* 10929 \* \*: ID risorsa: 1. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Vederehttp://go.microsoft.com/fwlink/?LinkId=267637per assistenza. Altrimenti, riprovare più tardi. |
 | **Limite** | Per i livelli Basic, Standard e Premium, dipende dal[livello di prestazioni](https://msdn.microsoft.com/library/azure/dn741336.aspx). Per i database edizione Web/Business precedenti, il limite massimo di richieste simultanee è 180 e può essere inferiore a seconda dell'attività del sistema. |
-| **Raccomandazione** | Controllare dm_exec_requests per visualizzare le richieste utente attualmente in esecuzione.<br><br>Ripristinare e ripetere la richiesta dopo 10 secondi. |
+| **Raccomandazione** | Controllare dm\_exec\_requests per visualizzare le richieste utente attualmente in esecuzione.<br><br>Ripristinare e ripetere la richiesta dopo 10 secondi. |
 
 > [AZURE.NOTE]Il valore di ID di risorsa nel messaggio di errore indica la risorsa per cui è stato raggiunto il limite. Per i thread di lavoro, ID risorsa = 1.
 
@@ -148,8 +148,8 @@ In determinati scenari come l'utilizzo della funzionalità di database federati,
 
 [Gestione delle risorse del database SQL di Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-[Messaggi di errore (Database SQL Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
+[Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
 [Database SQL di Azure procedure consigliate per impedire rifiuti di richieste o interruzioni di connessione](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

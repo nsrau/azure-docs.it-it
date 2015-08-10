@@ -49,7 +49,7 @@ Argomento di riferimento: [CREATE MASTER KEY (Transact-SQL)][].
 ## Creare una credenziale con ambito di database
 Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenziale con ambito di database che archivia informazioni di autenticazione per l'account di archiviazione Azure. Connettersi al database del data warehouse e creare una credenziale con ambito di database per ogni account di archiviazione Azure a cui si vuole accedere. Specificare un nome di identità e la chiave dell'account di archiviazione Azure come segreto. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure.
 
-Per verificare l'esistenza di una credenziale con ambito database, utilizzare sys.database_credentials, non sys.credentials che mostra solo le credenziali del server.
+Per verificare l'esistenza di una credenziale con ambito database, utilizzare sys.database\_credentials, non sys.credentials che mostra solo le credenziali del server.
 
 ```
 -- Check for existing database-scoped credentials.
@@ -207,4 +207,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

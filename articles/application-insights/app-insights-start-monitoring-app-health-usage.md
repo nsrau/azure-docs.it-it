@@ -128,9 +128,9 @@ Accedere al server con diritti di amministratore, quindi installare [Application
 
 Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Application Insights.
 
-![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Nelle app Web, Strumenti, Monitoraggio delle prestazioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-Questa estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
 
 ## Aggiungere il monitoraggio sul lato client
 
@@ -171,7 +171,7 @@ Saranno necessari [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?
 
 #### Se è un nuovo progetto...
 
-Quando si crea un nuovo progetto in Visual Studio, assicuarsi che Application Insights sia selezionato.
+Quando si crea un nuovo progetto in Visual Studio, assicurarsi che Application Insights sia selezionato.
 
 
 ![Creazione di un progetto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -231,4 +231,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

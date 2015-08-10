@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'uso di Data factory di Azure" 
+	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL" 
 	description="Questa esercitazione illustra come creare una pipeline di dati di esempio che consente di copiare dati da un BLOB a un'istanza del database SQL di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante l'editor di Data factory
@@ -111,47 +111,49 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 1. Nell'**editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti e scegliere **Tabella BLOB** dal menu a discesa. 
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente: 
 
-        {
-     	    "name": "EmpTableFromBlob",
-		    "properties":
-    		{
-        		"structure":  
-       			 [ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "hour",
-            		"interval": 1,
-            		"waitOnExternal": {}
-       		 	}
-    		}
+		{
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+			  "fileName": "emp.txt",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 		
      Tenere presente quanto segue:
 	
-	- L'oggetto **type** di location è impostato su **AzureBlobLocation**.
+	- L'oggetto **type** di location è impostato su **AzureBlob**.
 	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
 	- L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella. Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.  
 	- L'oggetto **type** di format è impostato su **TextFormat**.
-	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).	
-	- L'oggetto **availability** è impostato su **hourly** (**frequency** è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (**adftutorial**) specificato. 
+	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (\*\*columnDelimiter\*\*).	
+	- L'oggetto **availability** è impostato su **hourly** (\*\*frequency\*\* è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (\*\*adftutorial\*\*) specificato. 
 	
 
-	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (\*\*folderPath\*\*) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
 	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il formato seguente: Data.&lt;Guid&gt;.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -177,29 +179,30 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 1. Nell'**editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti e scegliere **Tabella SQL di Azure** dal menu a discesa. 
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente:
 
-        {
-    		"name": "EmpSQLTable",
-    		"properties":
-    		{
-        		"structure":
-        		[
-                	{ "name": "FirstName", "type": "String"},
-                	{ "name": "LastName", "type": "String"}
-        		],
-        		"location":
-        		{
-            		"type": "AzureSqlTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "AzureSqlLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1            
-        		}
-    		}
+		{
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
 		
      Tenere presente quanto segue:
@@ -208,7 +211,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService** (questo servizio collegato è stato creato nel passaggio 2).
 	* L'oggetto **tablename** è impostato su **emp**.
 	* Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
-	* L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
+	* L'oggetto **availability** è impostato su **hourly** (l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **EmpSQLTable**.
@@ -222,46 +225,48 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 	![Pulsante Nuova pipeline dell'editor][image-editor-newpipeline-button]
  
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente:
-
-         {
-			"name": "ADFTutorialPipeline",
-			"properties":
-			{	
-				"description" : "Copy data from a blob to Azure SQL table",
-				"activities":	
-				[
-					{
-						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpTableFromBlob"} ],
-						"outputs": [ {"name": "EmpSQLTable"} ],		
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "BlobSource"
-							},
-							"sink":
-							{
-								"type": "SqlSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-					}
-        		],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-      		}
+		
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z"
+		  }
 		} 
 
 	Tenere presente quanto segue:
@@ -274,7 +279,7 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 	
 	Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
 	
 	Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
 	
@@ -316,7 +321,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 5. Nel pannello **Set di dati** fare clic su **EmpTableFromBlob**. Questa è la tabella di input per **ADFTutorialPipeline**.
 
 	![Set di dati con tabella EmpTableFromBlob selezionata][image-data-factory-get-started-datasets-emptable-selected]   
-5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
+5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
 
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
     
@@ -358,7 +363,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 	
 12. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialDataFactory**.
-14. (Facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (**Utilizzate**) o di output (**Prodotte**).
+14. (Facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (\*\*Utilizzate\*\*) o di output (\*\*Prodotte\*\*).
 15. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
 
 	![Risultati della query SQL][image-data-factory-get-started-sql-query-results]
@@ -508,4 +513,4 @@ Articolo | Descrizione
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

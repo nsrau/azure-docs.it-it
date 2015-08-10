@@ -593,4 +593,4 @@ Per un'esercitazione sulla creazione di un nuovo database SQL Azure, vedere [Int
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

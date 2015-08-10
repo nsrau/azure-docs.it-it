@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-encode-asset.md)
+- [.NET](media-services-dotnet-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Panoramica
 
@@ -218,4 +222,4 @@ Il metodo **CreateChainedTaskEncodingJob** seguente crea un processo contenente 
 [Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

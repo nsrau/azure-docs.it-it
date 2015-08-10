@@ -40,7 +40,7 @@ I metadati strutturali sono metadati estratti da un'origine dati che descrive la
 
 ## Metadati descrittivi
 
-I metadati descrittivi sono metadati che descrivono lo scopo o l'intenzione di un asset di dati. In genere i metadati descrittivi vengono aggiunti dagli utenti del catalogo tramite il portale del Catalogo dati di Azure, ma possono anche essere estratti durante la registrazione dell'origine dati. Lo strumento di registrazione del Catalogo dati di Azure estrae le descrizioni dalla proprietà Description in SQL Server Analysis Services e SQL Server Reporting Services e dalla [proprietà estesa ms_description](https://technet.microsoft.com/library/ms190243.aspx) nei database di SQL Server, se queste proprietà sono popolate con valori.
+I metadati descrittivi sono metadati che descrivono lo scopo o l'intenzione di un asset di dati. In genere i metadati descrittivi vengono aggiunti dagli utenti del catalogo tramite il portale del Catalogo dati di Azure, ma possono anche essere estratti durante la registrazione dell'origine dati. Lo strumento di registrazione del Catalogo dati di Azure estrae le descrizioni dalla proprietà Description in SQL Server Analysis Services e SQL Server Reporting Services e dalla [proprietà estesa ms\_description](https://technet.microsoft.com/library/ms190243.aspx) nei database di SQL Server, se queste proprietà sono popolate con valori.
 
 ## Anteprime
 
@@ -71,4 +71,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

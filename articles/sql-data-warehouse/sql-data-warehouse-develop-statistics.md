@@ -31,7 +31,7 @@ Le statistiche a colonna singola sono oggetti che includono informazioni sull'in
 
 Le statistiche a più colonne sono statistiche create su un elenco di colonne. Includono statistiche a colonna singola nella prima colonna dell'elenco, oltre ad alcune informazioni di correlazione tra colonne definite densità. Le statistiche a più colonne possono migliorare le prestazioni delle query per alcune operazioni, ad esempio nelle clausole JOIN composite e GROUP BY.
 
-Per altri dettagli, vedere [DBCC SHOW_STATISTICS][] su MSDN.
+Per altri dettagli, vedere [DBCC SHOW\_STATISTICS][] su MSDN.
 
 ## Importanza delle statistiche
 Senza statistiche appropriate, non sarà possibile ottenere le prestazioni che SQL Data Warehouse è in grado di offrire. SQL Data Warehouse non genera automaticamente statistiche per le tabelle e le colonne, quindi sarà necessario crearle manualmente. È consigliabile creale quando si creano le tabelle e quindi aggiornarle dopo averle popolate.
@@ -152,13 +152,13 @@ Per creare statistiche a più colonne, è sufficiente usare gli esempi precedent
 
 > [AZURE.NOTE]L'istogramma, che viene usato per stimare il numero di righe nei risultati delle query, sarà disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product_category*. Le statistiche tra le colonne vengono calcolate su *product_category* e *product_sub_c\ategory*:
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su *product\_category* e *product\_sub\_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché è presente una correlazione tra *product_category* e *product_sub_category*, una statistica a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché è presente una correlazione tra *product\_category* e *product\_sub\_category*, una statistica a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 ### G. Creare statistiche su tutte le colonne in una tabella
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H. Usare una stored procedure per creare statistiche su tutte le colonne in un database
 
-SQL Data Warehouse non include una stored procedure di sistema equivalente a [sp_create_stats][] in SQL Server. Questa stored procedure crea un oggetto statistiche a colonna singola su ogni colonna del database che non include già statistiche.
+SQL Data Warehouse non include una stored procedure di sistema equivalente a [sp\_create\_stats][] in SQL Server. Questa stored procedure crea un oggetto statistiche a colonna singola su ogni colonna del database che non include già statistiche.
 
 Ciò permetterà di iniziare a progettare il database. È possibile adattare l'operazione alle proprie esigenze.
 
@@ -325,9 +325,9 @@ Queste visualizzazioni di sistema forniscono informazioni sulle statistiche:
 | [sys.objects][] | Una riga per ogni oggetto del database. | |
 | [sys.schemas][] | Una riga per ogni schema del database. | |
 | [sys.stats][] | Una riga per ogni oggetto statistiche. |
-| [sys.stats_columns][] | Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
+| [sys.stats\_columns][] | Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
 | [sys.tables][] | Una riga per ogni tabella (include le tabelle esterne). |
-| [sys.table_types][] | Una riga per ogni tipo di dati. |
+| [sys.table\_types][] | Una riga per ogni tipo di dati. |
 
 
 ### Funzioni di sistema per le statistiche
@@ -335,12 +335,12 @@ Queste funzioni di sistema sono utili per usare le statistiche:
 
 | Funzioni di sistema | Descrizione |
 | :-------------- | :---------- |
-| [STATS_DATE][] | Data dell'ultimo aggiornamento dell'oggetto statistiche. |
-| [DBCC SHOW_STATISTICS][] | Fornisce informazioni a livello di riepilogo e dettagliate sulla distribuzione di valori riconosciute dall'oggetto statistiche. |
+| [STATS\_DATE][] | Data dell'ultimo aggiornamento dell'oggetto statistiche. |
+| [DBCC SHOW\_STATISTICS][] | Fornisce informazioni a livello di riepilogo e dettagliate sulla distribuzione di valori riconosciute dall'oggetto statistiche. |
 
 ### Combinare le colonne delle statistiche e le funzioni in un'unica visualizzazione
 
-Questa visualizzazione riunisce le colonne relative alle statistiche e i risultati della funzione [STATS_DATE()][].
+Questa visualizzazione riunisce le colonne relative alle statistiche e i risultati della funzione [STATS\_DATE()][].
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## Esempi di DBCC SHOW_STATISTICS()
+## Esempi di DBCC SHOW\_STATISTICS()
 
-DBCC SHOW_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi dati sono costituiti da tre parti.
+DBCC SHOW\_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi dati sono costituiti da tre parti.
 
 1. Intestazione
 2. Vettore di densità
@@ -402,7 +402,7 @@ Ad esempio:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Mostrare una o più parti di DBCC SHOW_STATISTICS();
+### Mostrare una o più parti di DBCC SHOW\_STATISTICS();
 
 Se si è interessati a visualizzare solo parti specifiche, usare la clausola `WITH` e specificare le parti da visualizzare:
 
@@ -416,13 +416,13 @@ Ad esempio:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Differenze di DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() viene implementato in modo più rigoroso in SQL Data Warehouse rispetto a SQL Server.
+## Differenze di DBCC SHOW\_STATISTICS()
+DBCC SHOW\_STATISTICS() viene implementato in modo più rigoroso in SQL Data Warehouse rispetto a SQL Server.
 
 1. Le funzionalità non documentate non sono supportate
-- Non è possibile usare Stats_stream
-- Non è possibile unire i risultati per sottoinsiemi specifici di dati statistici, ad esempio (STAT_HEADER JOIN DENSITY_VECTOR)
-2. NO_INFOMSGS non può essere impostato per l'eliminazione del messaggio
+- Non è possibile usare Stats\_stream
+- Non è possibile unire i risultati per sottoinsiemi specifici di dati statistici, ad esempio (STAT\_HEADER JOIN DENSITY\_VECTOR)
+2. NO\_INFOMSGS non può essere impostato per l'eliminazione del messaggio
 3. Non è possibile usare le parentesi quadre per i nomi delle statistiche
 4. Non è possibile usare i nomi di colonna per identificare gli oggetti statistiche
 5. L'errore personalizzato 2767 non è supportato
@@ -440,16 +440,16 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!-- External Links -->
 [Stima della cardinalità]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Statistiche]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

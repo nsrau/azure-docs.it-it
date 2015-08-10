@@ -31,7 +31,7 @@ La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione
 
 ## Selezione dell'immagine
 
-Andare in Azure Marketplace nel portale di anteprima per individuare l'immagine della macchina virtuale di Windows Server desiderata.
+Andare in Azure Marketplace nel portale di anteprima per individuare l'immagine della macchina virtuale Windows Server desiderata.
 
 1. Accedere al [portale di anteprima](https://portal.azure.com).
 
@@ -126,4 +126,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -51,7 +51,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ott
 
 Utilizzare le istruzioni in[Configurazione base dell’Ambiente di Test](../virtual-machines/virtual-machines-base-configuration-test-environment.md) per configurare i computer DC1, APP1 e CLIENT1 in una rete virtuale Azure denominata TestLab.
 
-Dal portale di gestione di Azure nel computer locale connettersi a DC1 con le credenziali CORP\User1. Per configurare il dominio CORP in modo che i computer e gli utenti usino il controller di dominio locale per l'autenticazione, eseguire questi comandi da un prompt dei comandi di Windows PowerShell a livello di amministratore.
+Dal portale di gestione di Azure nel computer locale connettersi a DC1 con le credenziali CORP\\User1. Per configurare il dominio CORP in modo che i computer e gli utenti usino il controller di dominio locale per l'autenticazione, eseguire questi comandi da un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -79,7 +79,7 @@ Creare prima di tutto una nuova rete virtuale denominata TestVNET.
 
 Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell per installare Azure PowerShell nel computer locale](../install-configure-powershell.md).
 
-Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome *TestVNET-**UniqueSequence*, in cui **UniqueSequence** è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome **TestVNET-Tailspin** al servizio cloud.
+Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome *TestVNET-*\*UniqueSequence\*, in cui **UniqueSequence** è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome **TestVNET-Tailspin** al servizio cloud.
 
 Per verificare l'univocità del nome, è possibile usare questo comando di Azure PowerShell nel computer locale.
 
@@ -171,7 +171,7 @@ Accedere quindi alla nuova macchina virtuale DC2.
 3.	Quando viene richiesto di aprire DC2.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-- Nome: **DC2\**[Nome dell'account amministratore locale]
+- Nome: **DC2\\**[Nome dell'account amministratore locale]
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -200,7 +200,7 @@ Configurare quindi DC2 come controller di dominio di replica per il dominio corp
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Si noti che viene richiesto di specificare sia la password per CORP\User1 che la password per la Modalità ripristino servizi directory (DSRM, Directory Services Restore Mode) e quindi di riavviare DC2.
+Si noti che viene richiesto di specificare sia la password per CORP\\User1 che la password per la Modalità ripristino servizi directory (DSRM, Directory Services Restore Mode) e quindi di riavviare DC2.
 
 Quando la rete virtuale TestVNET è stata associata a un server DNS specifico (DC2), sarà necessario configurare la rete virtuale TestVNET per l'uso di tale server DNS.
 
@@ -226,7 +226,7 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurare una connessione tra reti virtuali](http://msdn.microsoft.com/library/azure/dn690122.aspx)
+[Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 [Ambiente di test di configurazione di base](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
 
@@ -236,7 +236,7 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 ## <a id="costs"></a>Ridurre al minimo i costi di esercizio dell'ambiente
 
-Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nelle reti virtuali TestLab e Test_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md). Quando si avviano di nuovo le macchine virtuali nella subnet Corpnet, avviare prima di tutto DC1.
+Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nelle reti virtuali TestLab e Test\_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md). Quando si avviano di nuovo le macchine virtuali nella subnet Corpnet, avviare prima di tutto DC1.
 
 Un gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi dei due gateway VPN (uno per TestLab e uno per TestVNET), creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare i gateway eseguendo i passaggi seguenti.
  
@@ -273,4 +273,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -105,9 +105,9 @@ Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessar
 
     ![][9]
 
-    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
+    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps\_development.cer</strong>.
 
-7. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
+7. Fare doppio clic sul certificato push scaricato **aps\_development.cer**.
 
     Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
 
@@ -315,7 +315,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
    >[AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un testo significativo, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un testo significativo, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (\*\*+\*\*).
 
     ![][24]
 
@@ -399,4 +399,4 @@ L'esercitazione è stata completata.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

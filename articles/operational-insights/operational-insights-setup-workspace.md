@@ -50,7 +50,7 @@ A ogni area di lavoro possono essere associati più account utente, ciascuno dei
 
 ## Eseguire l'aggiornamento dell'area di lavoro a un piano a pagamento
 
-In Operational Insights sono disponibili tre tipi di piano per l'area di lavoro: **Free**, **Standard** e **Premium**. Si supponga di avere sottoscritto un piano di tipo *Free* e di avere raggiunto il limite massimo di 500 MB di dati. Per raccogliere dati oltre questo limite, è necessario aggiornare l'area di lavoro a un '**piano con pagamento in base al consumo**'. Il tipo di piano può essere cambiato in qualsiasi momento. Per altre informazioni sui prezzi di Operational Insights, vedere l'articolo relativo ai [dettagli sui prezzi](http://azure.microsoft.com/pricing/operational-insights/)
+In Operational Insights sono disponibili tre tipi di piano per l'area di lavoro: **Free**, **Standard** e **Premium**. Si supponga di avere sottoscritto un piano di tipo *Free* e di avere raggiunto il limite massimo di 500 MB di dati. Per raccogliere dati oltre questo limite, è necessario aggiornare l'area di lavoro a un '\*\*piano con pagamento in base al consumo\*\*'. Il tipo di piano può essere cambiato in qualsiasi momento. Per altre informazioni sui prezzi di Operational Insights, vedere l'articolo relativo ai [dettagli sui prezzi](http://azure.microsoft.com/pricing/operational-insights/)
 
 >[AZURE.IMPORTANT]È possibile modificare i piani relativi alle aree di lavoro solo se queste sono *collegate* a una sottoscrizione di Azure. Se l'area di lavoro è stata creata in Azure o se è *già* stata collegata, è possibile ignorare questo messaggio. Se l'area di lavoro è stata creata da [opinsights.azure.com](http://opinsights.azure.com), seguire la procedura riportata in [Collegare un'area di lavoro esistente a una sottoscrizione di Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -180,4 +180,4 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 
 3. Fare clic su **Close workspace**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

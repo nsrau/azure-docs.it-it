@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>Il nuovo progetto Web è stato creato ma l'aggiunta di Application Insights ha avuto esito negativo.
 
-Può succedere se la comunicazione con il portale Application Insights non è riuscita o in caso di problemi con l'account.
+Ciò può verificarsi se:
 
-+ Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. Le credenziali di Microsoft Azure, visualizzate nella finestra di dialogo Nuovo progetto, possono essere diverse da quelle di Visual Studio Online visualizzate nella parte superiore destra di Visual Studio.
-+ Attendere qualche istante, poi [aggiungere Application Insights al progetto esistente][start].
-+ Passare alle impostazioni dell'account Microsoft Azure e verificare la presenza di eventuali limitazioni. Provare ad aggiungere manualmente un'applicazione di Application Insights.
+* la comunicazione con il portale Application Insights si interrompe;
+* se si verificano problemi con l'account;
+* se si ha [accesso in sola lettura alla sottoscrizione o al gruppo in cui è stato effettuato il tentativo di creare la nuova risorsa](app-insights-resources-roles-access-control.md).
+
+Soluzione:
+
++ Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. In alcune versioni precedenti degli strumenti, le credenziali di Microsoft Azure, visualizzate nella finestra di dialogo Nuovo progetto, possono essere diverse da quelle di Visual Studio Online visualizzate nella parte superiore destra di Visual Studio.
++ Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
++ [Aggiungere Application Insights a un nuovo progetto][start]\: in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere "Aggiungi Application Insights".
++ Se il problema continua a verificarsi, seguire la [procedura manuale](app-insights-start-monitoring-app-health-usage.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
 
 #### <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 
@@ -90,7 +97,7 @@ Dipende dal tipo di progetto. Per un'applicazione Web:
 
  - packages.config
 
-+ (Solo per i nuovi progetti, se si [aggiunge Application Insights a un progetto esistente][start], l'operazione deve essere eseguita manualmente.) Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
++ (Solo per i nuovi progetti, se si [aggiunge Application Insights a un progetto esistente][start], l'operazione deve essere eseguita manualmente.) Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/\_Layout.cshtml
 
 ####<a name="NuGetBuild"></a>Un messaggio sul server di compilazione informa che i pacchetti NuGet sono mancanti, nonostante tutto proceda correttamente sui computer di sviluppo
 
@@ -232,4 +239,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

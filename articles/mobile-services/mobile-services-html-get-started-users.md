@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" 
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Aggiungere l'autenticazione all'app HTML/JavaScript | Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e l'account Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili 
@@ -53,7 +53,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
->[AZURE.NOTE]Poiché l'accesso viene eseguito in una finestra popup, richiamare il metodo <strong>login</strong> da un evento clic del pulsante. In caso contrario, in molti browser non sarà visualizzata la finestra di accesso.
+>[AZURE.NOTE]Poiché l'accesso viene eseguito in una finestra popup, richiamare il metodo **login** da un evento clic del pulsante. In caso contrario, in molti browser non sarà visualizzata la finestra di accesso.
 
 1. Aprire il file di progetto, individuare l'elemento H1 e sotto di esso aggiungere il frammento di codice seguente:
 
@@ -109,7 +109,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 	   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-	>[AZURE.NOTE]Se si usa Internet Explorer, dopo l'accesso è possibile che venga visualizzato un errore che indica che <code>non è possibile accedere all'oggetto opener della finestra, in quanto potrebbe trovarsi in un'area di Internet Explorer diversa</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in <strong>Opzioni Internet</strong> aprire la scheda <strong>Sicurezza</strong>, fare clic su <strong>Intranet locale</strong>, quindi su <strong>Siti</strong> e disabilitare <strong>Rileva automaticamente rete Intranet</strong>. Ricordare di tornare a modificare questa opzione al termine del test.
+	>[AZURE.NOTE]Se si usa Internet Explorer, dopo l'accesso è possibile che venga visualizzato un errore che indica che <code>non è possibile accedere all'oggetto opener della finestra, in quanto potrebbe trovarsi in un'area di Internet Explorer diversa</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in **Opzioni Internet** aprire la scheda **Sicurezza**, fare clic su **Intranet locale**, quindi su **Siti** e disabilitare **Rileva automaticamente rete Intranet**. Ricordare di tornare a modificare questa opzione al termine del test.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -138,4 +138,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

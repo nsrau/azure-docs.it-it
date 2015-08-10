@@ -37,7 +37,7 @@ Quando lo script è in esecuzione, il cluster entra nella fase **ClusterCustomiz
 
 > [AZURE.NOTE]Perché durante la fase **ClusterCustomization** si dispone dei privilegi di amministratore sui nodi del cluster, è possibile usare lo script per eseguire operazioni come arresto e avvio dei servizi, inclusi quelli correlati a Hadoop. Pertanto, come parte dello script, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati a Hadoop siano attivi prima che lo script termini l'esecuzione. Questi servizi sono necessari per verificare correttamente l'integrità e lo stato del cluster durante la creazione. Se si modifica qualsiasi configurazione del cluster che influisce su questi servizi, è necessario usare le funzioni di supporto fornite. Per altre informazioni sulle funzioni di supporto, vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script].
 
-L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\frammento-nome-cluster><\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
+L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\\frammento-nome-cluster><\\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
 
 
 Ogni cluster può accettare più azioni script che vengono richiamate nell'ordine in cui sono specificate. Uno script può essere eseguito nel nodo head, nei nodi di lavoro o in entrambi.
@@ -53,7 +53,7 @@ Nome | Script
 **Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark].
 **Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-install-r].
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+\- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
@@ -155,7 +155,7 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 ## Vedere anche
 
-- [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision-cluster]: questo argomento fornisce istruzioni relative al provisioning di un cluster HDInsight con altre opzioni personalizzate.
+- [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision-cluster]\: questo argomento fornisce istruzioni relative al provisioning di un cluster HDInsight con altre opzioni personalizzate.
 - [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
 - [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 - [Installare e usare R nei cluster HDInsight][hdinsight-install-r]
@@ -172,4 +172,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

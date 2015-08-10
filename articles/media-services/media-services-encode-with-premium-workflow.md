@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
-#Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale (anteprima pubblica)
+#Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 
 **Nota** Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
 
 ##Panoramica
 
-Servizi multimediali di Microsoft Azure offre l'anteprima pubblica del processore di contenuti multimediali **Flusso di lavoro Premium del codificatore multimediale**. Questo processore offre funzionalità di codifica avanzata per i flussi di lavoro Premium su richiesta.
+Servizi multimediali di Microsoft Azure offre il processore di contenuti multimediali **Flusso di lavoro Premium del codificatore multimediale**. Questo processore offre funzionalità di codifica avanzata per i flussi di lavoro Premium su richiesta.
 
 Nei seguenti argomenti sono incluse informazioni dettagliate su **Flusso di lavoro Premium del codificatore multimediale**:
 
@@ -265,4 +265,4 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

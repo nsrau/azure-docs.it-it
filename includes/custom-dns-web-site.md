@@ -28,7 +28,7 @@ Un record CNAME consente di eseguire il mapping di un dominio *specifico*, ad es
 
 ###Record A
 
-Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio ***.contoso.com**, a un indirizzo IP. Nel caso di un sito Web di Azure, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per il sito. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
+Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio **\*.contoso.com**, a un indirizzo IP. Nel caso di un sito Web di Azure, si tratta dell'indirizzo IP virtuale del servizio o di uno specifico indirizzo IP acquistato per il sito. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, non sarà possibile risolvere automaticamente le modifiche apportate all'indirizzo IP del sito Web. Quando si configurano le impostazioni di un nome di dominio personalizzato per il sito Web, viene fornito un indirizzo IP da usare con i record A. Questo valore può però cambiare se si elimina e si ricrea il sito Web o nel caso in cui lo si riporti in modalità gratuita.
 
@@ -92,7 +92,7 @@ Il record CNAME seguente, ad esempio, inoltra tutto il traffico da **www.contoso
 
 A un visitatore di **www.contoso.com** non verrà mai visualizzato il nome dell'host reale (contoso.azurewebsite.net), pertanto il processo di inoltro risulta totalmente invisibile all'utente finale.
 
-> [AZURE.NOTE]Se si usa Gestione traffico con un sito Web, non è necessario eseguire i passaggi delle sezioni seguenti, ossia '**Aggiungere un record CNAME per il dominio personalizzato**' e '**Aggiungere un record A per il dominio personalizzato**'. Il record CNAME creato nei passaggi precedenti indirizzerà il traffico a Gestione traffico, che a sua volta lo indirizzerà agli endpoint del sito Web.
+> [AZURE.NOTE]Se si usa Gestione traffico con un sito Web, non è necessario eseguire i passaggi delle sezioni seguenti, ossia '\*\*Aggiungere un record CNAME per il dominio personalizzato\*\*' e '\*\*Aggiungere un record A per il dominio personalizzato\*\*'. Il record CNAME creato nei passaggi precedenti indirizzerà il traffico a Gestione traffico, che a sua volta lo indirizzerà agli endpoint del sito Web.
 
 <a name="bkmk_configurecname"></a><h2>Aggiungere un record CNAME per il dominio personalizzato</h2>
 
@@ -116,7 +116,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
 4. Trovare la sezione in cui è possibile selezionare o immettere i record CNAME. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate. Individuare i termini **CNAME**, **Alias** o **Subdomains**.
 
-5. È necessario fornire anche l'alias di dominio o sottodominio per il record CNAME, ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare un alias per il dominio radice, è possibile che sia elencato con il simbolo '**@**' negli strumenti DNS del registrar.
+5. È necessario fornire anche l'alias di dominio o sottodominio per il record CNAME, ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare un alias per il dominio radice, è possibile che sia elencato con il simbolo '\*\*@\*\*' negli strumenti DNS del registrar.
 
 5. È inoltre necessario fornire un nome host corrispondente al nome di dominio canonico per l'alias CNAME. Questo sarà il nome **.azurewebsite.net** per il sito Web.
 
@@ -195,9 +195,9 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del si
 
 7. Procedere come descritto di seguito per creare il record A:
 
-	1. Selezionare o immettere il dominio o sottodominio che userà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+	1. Selezionare o immettere il dominio o sottodominio che userà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_\*\_\_'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
-		Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo '**@**' negli strumenti DNS del registrar.
+		Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo '\*\*@\*\*' negli strumenti DNS del registrar.
 
 	2. Immettere l'indirizzo IP del servizio cloud nell'apposito campo. La voce del dominio usata nel record A verrà associata all'indirizzo IP della distribuzione del servizio cloud.
 
@@ -212,7 +212,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP del si
 <td>@</td>
 <td>137.135.70.239</td>
 </tr>
-</table>In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__' come sottodominio.
+</table>In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_\*\_\_' come sottodominio.
 
 7. Creare quindi un record CNAME con un alias di **awverify** e un dominio canonico di **awverify.mysite.azurewebsites.net** ottenuto in precedenza.
 
@@ -311,4 +311,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

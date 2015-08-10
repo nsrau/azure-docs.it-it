@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 
 <tags 
@@ -13,19 +13,21 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/25/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configurare una rete virtuale per ExpressRoute
 
+Questa procedura illustra la configurazione di una rete virtuale e un gateway per ExpressRoute.
+
 1. Accedere al **portale di gestione**.
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
-3. Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti: Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere il [pagina dettagli rete virtuale](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+3. Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti:
 
 	- **Nome**: assegnare un nome alla rete virtuale. Questo nome della rete virtuale viene usato quando si distribuiscono le macchine virtuali e le istanze PaaS e pertanto è consigliabile non specificare un nome troppo complicato.
 	- **Località**: la località è direttamente correlata alla posizione fisica (regione) in cui si desidera che risiedano le risorse (macchine virtuali). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare l’area associata alla rete virtuale dopo averla creata.
 
-4. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [DNS Servers and VPN Connectivity](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+4. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra.
 
 	- **Server DNS**: immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, consente di specificare i server DNS che si desidera utilizzare per la risoluzione dei nomi per la rete virtuale.
 	- **Configura una VPN Site-To-Site**: selezionare la casella di controllo **Configura una VPN Site-To-Site**.
@@ -34,15 +36,13 @@
 
 	Se si seleziona una rete locale esistente, ignorare il passaggio 5.
 
-5. Se si crea una nuova rete locale, verrà visualizzato la pagina **Connettività Site-to-Site**. Se si seleziona una rete locale creata in precedenza, questa pagina non verrà visualizzata nella procedura guidata e sarà possibile passare alla sezione successiva. Per configurare la rete locale, immettere le informazioni seguenti e quindi fare clic sulla freccia avanti. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere la pagina [Connettività Site-to-Site](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
+5. Se si crea una nuova rete locale, verrà visualizzato la pagina **Connettività Site-to-Site**. Se si seleziona una rete locale creata in precedenza, questa pagina non verrà visualizzata nella procedura guidata e sarà possibile passare alla sezione successiva. Per configurare la rete locale, immettere le informazioni seguenti e quindi fare clic sulla freccia avanti.
 
 	- **Nome**: nome da assegnare al sito di rete locale.
 	- **Spazio di indirizzi**: inclusi IP iniziale e CIDR (conteggio indirizzi). È possibile specificare qualsiasi intervallo di indirizzi, purché non si sovrapponga all'intervallo di indirizzi della rete virtuale.
-	- **Aggiungi spazio di indirizzi**: questa impostazione non è rilevante per ExpressRoute.
-	- 
-**Nota:** è necessario creare un sito di rete locale per ExpressRoute. I prefissi di indirizzo specificati per il sito di rete locale verranno ignorati. Prefissi di indirizzo annunciati a Microsoft tramite il circuito ExpressRoute verranno usati per il routing.
+	- **Aggiungi spazio di indirizzi**: questa impostazione non è rilevante per ExpressRoute. **Nota**: è necessario creare un sito di rete locale per ExpressRoute. I prefissi di indirizzo specificati per il sito di rete locale verranno ignorati. Prefissi di indirizzo annunciati a Microsoft tramite il circuito ExpressRoute verranno usati per il routing.
 
-6. Nella pagina **Virtual Network Address Spaces** immettere le informazioni seguenti e quindi fare clic sul segno di spunta in basso a destra per configurare la rete. Esistono diverse regole relative allo spazio degli indirizzi della rete virtuale; è possibile fare riferimento alla pagina [Web dedicata](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) per ulteriori informazioni.
+6. Nella pagina **Virtual Network Address Spaces** immettere le informazioni seguenti e quindi fare clic sul segno di spunta in basso a destra per configurare la rete.
 
 	- **Spazio di indirizzi**: inclusi IP iniziale e conteggio indirizzi. Verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
 	- **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP dinamici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze PaaS.
@@ -70,8 +70,7 @@ Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare
 
 Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](expressroute-introduction.md).
 
-Per altre informazioni sulle reti virtuali, vedere [Domande frequenti su Rete virtuale](https://msdn.microsoft.com/library/azure/dn133803.aspx).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

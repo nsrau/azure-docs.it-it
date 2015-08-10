@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/24/2015" 
 	ms.author="sidneyh"/>
 
 # Gestione delle credenziali nella libreria client dei database elastici
 
-La [libreria client dei database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilizza credenziali per i diversi tipi di operazioni, in particolare per creare o modificare un database del gestore mappe partizioni, per fare riferimento a un [database del gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md) esistente per ottenere informazioni sulle partizioni, nonché per connettersi alle partizioni. Di seguito vengono illustrate le credenziali per questi tipi di operazioni.
+La [libreria client dei database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilizza credenziali per i diversi tipi di operazioni, in particolare per creare o modificare un [gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md), facendo riferimento a un gestore mappe partizioni esistente per ottenere informazioni sulle partizioni, nonché per connettersi alle partizioni. Di seguito vengono illustrate le credenziali per questi tipi di operazioni.
 
 
 * **Credenziali di gestione per l'accesso alle mappe partizioni**: le credenziali di gestione vengono usate quando si crea un'istanza di un oggetto **ShardMapManager** per applicazioni che modificano le mappe partizioni. L'utente della libreria client dei database elastici deve creare gli utenti SQL e gli account di accesso SQL necessari e assicurarsi di concedere loro autorizzazioni in lettura/scrittura per il database della mappa globale partizioni, nonché per tutti i database delle partizioni. Queste credenziali vengono usate per la gestione della mappa globale partizioni e delle mappe locali partizioni quando si apportano modifiche alla mappa partizioni. Usare ad esempio le credenziali di gestione per creare un'istanza dell'oggetto di gestione mappa partizioni, come illustrato nel seguente codice: 
@@ -60,4 +60,4 @@ La [libreria client dei database elastici](http://www.nuget.org/packages/Microso
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,131 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Introduzione al servizio Data factory di Azure
-<!--
-The **Azure Data Factory** service is a fully managed service for composing data storage, processing, and movement services into streamlined, scalable, and reliable data production pipelines.  Developers can use Data Factory to transform semi-structured, unstructured and structured data from on-premises and cloud sources into trusted information. Developers build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their on-premises, cloud-based and internet services, and set up complex data processing through simple JSON scripting. The Azure Data Factory service provides monitoring and management of these pipelines at a glance with a rich visual experience offered through the Azure Preview Portal. The information produced by pipelines can be easily consumed using BI and analytics tools, and other applications to reliably drive key business insights and decisions.
--->
-
-
-**Data factory di Azure** è un servizio completamente gestito per la composizione di servizi di archiviazione, elaborazione e spostamento dei dati in pipeline di produzione dei dati ottimizzate, scalabili e affidabili. Il servizio Data factory consente di:
-
-- Creare flussi di lavoro guidati dai dati (pipeline) per riunire, aggregare e trasformare dati originati da archivi dati Internet, locali e basati sul cloud. 
-- Trasformare in informazioni attendibili dati semistrutturati, non strutturati e strutturati provenienti da origini dati diversificate.
-- Produrre dati facilmente utilizzabili mediante strumenti di business intelligence (BI) e di analisi e altre applicazioni. 
-- Configurare un'elaborazione dati complessa attraverso semplici script JSON.
-- Monitorare e gestire pipeline in modo immediato con una ricca esperienza visiva, offerta dal portale di anteprima di Azure.  
-
-Il video seguente fornisce una rapida panoramica del servizio Data factory di Azure.
-
-
-- [Video: Introduzione a Data factory di Azure](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
-
-
-<!--
-> [AZURE.VIDEO azure-data-factory-overview]
-
-This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
--->
 
 ## Panoramica
-In passato i progetti di integrazione dei dati si basavano sulla creazione di processi ETL (Extract-Transform-Load) che consentivano di estrarre i dati da diverse origini dati in un'organizzazione, di trasformarli in modo che fossero conformi allo schema di destinazione di un data warehouse aziendale e di caricarli in un data warehouse aziendale. L'EDW a cui veniva eseguito l'accesso rappresentava quindi l'unica fonte di veridicità per le soluzioni di analisi BI.
+Data factory è un servizio di gestione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati.
 
-![ETL tradizionale][image-data-factory-introduction-traditional-ETL]
+Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
 
-L'attuale scenario di gestione dei dati per le aziende continua a crescere in misura esponenziale in termini di volume, varietà e complessità. Si tratta di uno scenario diversificato, con dati locali e generati su cloud di diversi formati e velocità. L'elaborazione dei dati deve essere eseguita tra aree geografiche diverse e include una combinazione di software open source, soluzioni commerciali e servizi di elaborazione personalizzati costosi e difficili da integrare e gestire. La flessibilità necessaria per adattarsi al mutevole scenario dei Big Data rappresenta un'opportunità per unire il tradizionale EDW con le capacità richieste in un moderno sistema di produzione delle informazioni.
+Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per inserire, preparare, trasformare, analizzare e pubblicare i dati. È possibile usare Data factory per la composizione di servizi in pipeline di flussi di dati gestite per trasformare i dati mediante servizi quali [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) per le esigenze di calcolo relative ai Big Data e tramite [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) per rendere operative le soluzioni di analisi, in modo da superare le visualizzazioni di monitoraggio tabulari e avvalersi delle visualizzazioni avanzate offerte da Data factory per visualizzare rapidamente le derivazioni e le dipendenze tra le pipeline di dati. Data factory permette di monitorare tutte le pipeline dei flussi di dati da un'unica visualizzazione unificata per individuare rapidamente i problemi e configurare avvisi di monitoraggio.
 
-![Scenario attuale di elaborazione diversificata][image-data-factory-introduction-todays-diverse-processing-landspace]
+![Panoramica](./media/data-factory-introduction/overview.png) **Figura 1.** Data factory permette di raccogliere i dati da molte origini dati locali diverse, quindi di inserirli, prepararli, organizzarli e analizzarli tramite una serie di trasformazioni e infine di pubblicare dati pronti per l'uso.
 
-Il servizio **Data factory di Azure** è la piattaforma di composizione che integra i data warehouse aziendali tradizionali nello scenario dei dati in continua evoluzione per consentire alle aziende di sfruttare tutte le informazioni disponibili per un processo decisionale basato sui dati. Il servizio permette inoltre alle aziende di sfruttare questa diversità grazie a una piattaforma in grado di riunire servizi di elaborazione, archiviazione e spostamento dei dati in pipeline di produzione delle informazioni e di gestire asset di dati attendibili.
-
-Il servizio Data factory di Azure consente di:
-
-- **Usare agevolmente diversi sistemi di archiviazione ed elaborazione dei dati.** Il servizio Data factory consente di creare pipeline di produzione delle informazioni per spostare ed elaborare origini dati locali (come SQL Server) e basate sul cloud, come il database SQL di Azure e tabelle e BLOB di Azure. 
-- **Trasformare i dati in informazioni attendibili.** Il servizio Data factory supporta l'elaborazione Hive, Pig e C#, oltre alle principali funzionalità di elaborazione, come la gestione automatica dei cluster Hadoop (HDInsight), la ripetizione di tentativi in caso di errori temporanei, i criteri di timeout configurabili e gli avvisi.  
-- **Monitorare la pipeline di dati in un'unica posizione.** Il servizio Data factory offre una visione completa dei servizi di archiviazione, elaborazione e spostamento dei dati e consente di valutare rapidamente l'integrità della pipeline di dati end-to-end, individuare i problemi e adottare le eventuali misure correttive necessarie. È anche possibile tenere visivamente traccia della derivazione dei dati e delle relazioni tra i dati delle diverse origini, nonché visualizzare una presentazione cronologica completa di esecuzione dei processi, integrità del sistema e dipendenze da un unico dashboard di monitoraggio.
-- **Ottenere informazioni accurate complete dai dati trasformati**. Il servizio Data factory permette di creare pipeline di dati in grado di produrre dati attendibili, che possono quindi essere usati da strumenti di business intelligence e analisi e da altre applicazioni.
-
-<!--
-Today, to take advantage of the benefits of Data Factory, developers interact directly with individual data pipelines, storage services, and compute services.  As the Data Factory service evolves over time, we will introduce additional storage and processing services, and new mechanisms of grouping compute and storage services and data pipelines together into ‘Hubs’.  We describe Hubs here in our introduction, as this nascent concept appears throughout the service as a precursor for future releases.
-
-An Azure Data Factory Hub is a container for storage and compute services (both referred to as Linked services), as well as for the data pipelines that use and run on those resources. The Hub container allows the Data Factory to be divided into logical or domain specific groupings.  For example, an enterprise may have a “West US Azure Hub” which manages all of the Linked services and pipelines focused in the West US data center, or a “Sales EDW Hub” which manages all the Linked services and pipelines associated with populating and processing data for the Sales EDW.  An important characteristic of Hubs is that a pipeline runs on a single hub. This means that when defining a pipeline, all of the Linked services referenced by tables or activities within that pipeline must have the same Hub name as the pipeline itself.
-
-Hubs will help to encapsulate storage and compute in a way where pipelines can reference only a Hub rather than the specific services and tables it uses. The Hub can then use policies to decide where to run a pipeline. This will have several important impacts. One is that it will provide easier scale-up as more Linked services can be added to a Hub, and pipelines can be load-balanced across these new Linked services. Another is that it will reuse of pipeline definitions on different Hubs.
-
--->
-
-## Modello applicativo
-Il diagramma seguente mostra il modello applicativo supportato dal servizio Data factory di Azure.
-
-![Modello applicativo][image-data-factory-application-model]
-
-Una data factory di Azure comprende tre fasi di produzione delle informazioni:
-
-- **Connect & Collect**. In questa fase, i dati di più origini vengono importati negli hub di dati. Una pipeline in una data factory può comprendere una o più attività. È possibile usare una o più attività di **copia** in una pipeline di dati per raccogliere dati da archivi di origine e inserirli in un archivio di destinazione con un hub di dati per l'elaborazione aggiuntiva. Un cluster HDInsight (calcolo) e l'archiviazione BLOB di Azure associata (archiviazione) insieme costituiscono un hub di dati, ovvero un hub di dati HDInsight. Per usare un hub di dati HDInsight, copiare tutti i dati di origine in un archivio BLOB di Azure associato a HDInsight, in modo che i dati possano essere elaborati dal cluster HDInsight. Una pipeline viene eseguita su una risorsa di calcolo in un hub di dati, ad esempio un cluster HDInsight.      
-- **Transform & Enrich**. In questa fase, i dati raccolti vengono elaborati. Ad esempio, un'**attività di HDInsight** in una pipeline può elaborare i dati archiviati nell'archivio BLOB di Azure associato eseguendo trasformazioni con script Hive/Pig per produrre informazioni attendibili. Le pipeline possono essere concatenate (come mostrato nel diagramma) in modo che i set di dati di output di una pipeline possano diventare i set di dati di input per un'altra pipeline nello stesso hub di dati o in uno diverso.  
-- **Publish**. In questa fase, i dati sono pubblicati in modo da poter essere usati dagli strumenti BI, dagli strumenti di analisi e da altre applicazioni. Ad esempio, un'attività di copia nella pipeline può copiare i dati di output dall'elaborazione eseguita nella fase Transform & Enrich in un archivio dati (ad esempio, SQL Server locale) sulla base del quale è possibile creare soluzioni di business intelligence.   
-
-<!--
-
-Data Factories enable developers to create pipelines which are groups of data movement and/or processing activities that accept one or more input datasets and produce one or more output datasets. Pipelines can be executed once or on a flexible range of schedules (hourly, daily, weekly, etc…). A dataset is a named view of data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way to tables or models.
-
-Pipelines comprised of data movement activities (for example: Copy Activity) are often used to import/export data from all the data sources (databases, files, SaaS services, etc…) used by the organization into a data hub.
- 
-Once data is in a **hub**, **pipelines** hosted by the compute services of the hub, are used to transform data into a form suitable for consumption (by BI tools, applications, customers, etc.).  
-  
-Finally, **pipelines** can be chained (as shown in the diagram) such that the output **dataset(s)** of one are the input(s) of another.  This allows complex data flows to be factored into **pipelines** that run within a data hub or span multiple hubs.  Using **pipelines** in this way provides organizations the building blocks to compose the best of breed on-premises, cloud and Software-as-a-Service (SaaS) services all through the lens of a single, easily managed data factory.
--->
+È possibile usare Data factory ogni volta che è necessario raccogliere dati con forme e dimensioni diverse, trasformarli e pubblicarli per estrarre informazioni dettagliate, il tutto con tempi affidabili. Con Data factory è possibile creare pipeline dei flussi di dati con disponibilità elevata per diversi scenari, ad esempio per consentire ai rivenditori online di generare raccomandazioni sui prodotti personalizzate in base al comportamento di esplorazione del cliente.
 
 
-##Passaggi successivi
-1. [Introduzione a Data factory di Azure][datafactory-getstarted]. Questo articolo fornisce un'esercitazione end-to-end che mostra come creare un'istanza di Data factory di Azure di esempio che copia i dati da un BLOB di Azure a un database SQL di Azure.
-2. [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial]. Questo articolo fornisce una **procedura dettagliata end-to-end** che mostra come implementare uno **scenario quasi reale** usando Data factory di Azure per trasformare i dati da file di log in informazioni accurate.
+## Concetti principali
 
-## Vedere anche
-- [Data Factory di Azure - Terminologia][adf-terminology]. Questo articolo presenta la terminologia usata nella creazione di data factory mediante il servizio Data factory di Azure. 
-- [Data Factory di Azure - Domande frequenti][adf-faq]. Questo articolo contiene un elenco di domande frequenti e le rispettive risposte.
-- [Scenari comuni di utilizzo di Data factory di Azure][adf-common-scenarios]. Questo articolo descrive alcuni scenari comuni di utilizzo del servizio Data factory di Azure. 
+Le entità principali di Data factory di Azure interagiscono tra loro per definire i dati di input e di output, gli eventi di elaborazione e la pianificazione e le risorse necessarie per eseguire il flusso di dati desiderato.
+
+![Concetti principali](./media/data-factory-introduction/key-concepts.png) **Figura 2.** Relazioni tra set di dati, attività, pipeline e servizio collegato
 
 
-[Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
-[Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
-[Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
-[Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
+### Attività
+Le attività definiscono le azioni da eseguire sui dati. Ogni attività accetta zero o più set di dati come input e genera uno o più set di dati come output. Un'attività è un'unità di orchestrazione in Data factory di Azure. Ad esempio, è possibile usare un'attività Copia per orchestrare la copia dei dati da un set di dati a un altro. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster di Azure HDInsight per trasformare o analizzare i dati. Data factory di Azure offre un'ampia gamma di attività di trasformazione, analisi e spostamento dei dati.
 
-[adf-faq]: data-factory-faq.md
-[adf-terminology]: data-factory-terminology.md
-[copy-data-with-adf]: data-factory-copy-activity.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
-[azure-ml-adf]: data-factory-create-predictive-pipelines.md
-[adf-common-scenarios]: data-factory-common-scenarios.md
-[create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
-[data-factory-editor]: data-factory-editor.md
-[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
+### Pipeline
+Le pipeline sono un raggruppamento logico di attività. Vengono usate per raggruppare in un'unità attività che insieme eseguono un'operazione. Ad esempio, per pulire i dati dei file di log potrebbe essere necessaria una sequenza di più attività di trasformazione. Questa sequenza potrebbe prevedere una pianificazione complessa e dipendenze che devono essere orchestrate e automatizzate. In questo caso, è possibile raggruppare tutte queste attività in una singola pipeline denominata "PuliziaFileLog" e distribuirla, pianificarla o eliminarla come una singola unità invece di gestire in modo indipendente ogni attività specifica.
 
-[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+### Set di dati
+I set di dati sono riferimenti denominati o puntatori ai dati da usare come input o output di un'attività. I set di dati identificano le strutture di dati all'interno di archivi dati diversi, tra cui tabelle, file, cartelle e documenti.
 
+### Servizio collegato
+I servizi collegati definiscono le informazioni necessarie affinché il servizio Data factory si connetta a risorse esterne. In Data factory i servizi collegati vengono usati per i due scopi seguenti:
 
-[msdn-stored-procedure-activity]: https://msdn.microsoft.com/library/dn912649.aspx
-[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
-[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+- Per rappresentare un archivio dati, inclusi, a titolo esemplificativo, un'istanza di SQL Server locale, un database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Come indicato in precedenza, i set di dati rappresentano le strutture all'interno degli archivi dati connessi a Data factory tramite un servizio collegato.
+- Per rappresentare una risorsa di calcolo che può ospitare l'esecuzione di un'attività. Ad esempio, l'attività "HDInsightHive" viene eseguita in un cluster HDInsight Hadoop.
 
-[adf-tutorial]: data-factory-tutorial.md
-[datafactory-getstarted]: data-factory-get-started.md
+Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [creare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nel [post di blog](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
 
-[image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.PNG
-
-[image-data-factory-introduction-todays-diverse-processing-landspace]: ./media/data-factory-introduction/TodaysDiverseDataProcessingLandscape.PNG
-
-[image-data-factory-application-model]: ./media/data-factory-introduction/DataFactoryApplicationModel.png
-
-[image-data-factory-data-flow]: ./media/data-factory-introduction/DataFactoryDataFlow.png
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

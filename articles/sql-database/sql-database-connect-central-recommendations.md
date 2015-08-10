@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -88,9 +88,9 @@ Durante lo spostamento, il database potrebbe essere temporaneamente non disponib
 Quando si verifica un errore con il Database SQL, viene generata un'eccezione [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx). La `SqlException`contiene un codice di errore numerico nella relativa proprietà **Numero**. Se il codice di errore identifica un errore temporaneo, il programma deve ritentare la chiamata.
 
 
-- [Messaggi di errore (Database SQL Azure)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
  - Nella sezione**errori temporanei, errori di perdita della connessione**è riportato un elenco degli errori temporanei per i quali si garantisce una ripetizione automatica.
- - Ad esempio, riprovare se si verifica il numero di errore 40613, con un testo simile a <br/>*Il database 'miodatabase' nel server 'ilserver' non è attualmente disponibile.*
+ - Ad esempio, riprovare se si verifica il numero di errore 40613, con un testo simile a <br/>\*Il database 'miodatabase' nel server 'ilserver' non è attualmente disponibile.\*
 
 
 Gli *errori* temporanei sono talvolta denominati *guasti* temporanei. In questo argomento si considerano questi due termini come sinonimi.
@@ -135,7 +135,7 @@ Il gateway è riuscito a gestire alcuni errori temporanei per l'utente. A questo
  - Vengono forniti collegamenti a esempi di codice che contengono la logica di riesecuzione e a esempi più semplici di tale connessione-e-query.
 - [Procedura: effettuare una connessione affidabile a un database SQL di Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [Procedura: connettersi al database SQL di Azure utilizzando ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Procedura: connettersi al database SQL di Azure mediante ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Codice di esempio: logica di tentativi in C# per la connessione al database SQL](sql-database-develop-csharp-retry-windows.md)
 
 
 ## Tecnologie
@@ -174,4 +174,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

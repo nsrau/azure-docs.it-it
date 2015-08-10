@@ -4,11 +4,11 @@
 
 È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. Questo articolo illustra come configurare HTTPS per un'app Web nel servizio app di Azure. Questo articolo non comprende l'autenticazione del certificato client. Per informazioni, vedere [Come configurare l’autenticazione reciproca TLS per le applicazioni Web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio *.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio \*.azurewebsites.net
 
-Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio *.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTPS è già abilitato nel sito con un certificato fornito da Microsoft. È possibile usare **https://mywebsite.azurewebsites.net** per accedere all'app, tuttavia *.azurewebsites.net è un dominio con caratteri jolly. Come [tutti i domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato. 
+Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio \*.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTPS è già abilitato nel sito con un certificato fornito da Microsoft. È possibile usare **https://mywebsite.azurewebsites.net** per accedere all'app, tuttavia \*.azurewebsites.net è un dominio con caratteri jolly. Come [tutti i domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato. 
 
-Questo documento fornisce anche informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o ***.contoso.com**.
+Questo documento fornisce anche informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o **\*.contoso.com**.
 
 ##<a name="bkmk_domainname"></a>Abilitare SSL per il dominio personalizzato
 
@@ -38,7 +38,7 @@ Per ottenere un certificato SSL da usare con il servizio app di Azure, è necess
 - [Ottenere un certificato SubjectAltName tramite OpenSSL](#bkmk_subjectaltname)
 - [Generare certificati autofirmati (solo per scopi di test)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere *.nomedominio (ad esempio, *.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale *.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
+> [AZURE.NOTE]Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere \*.nomedominio (ad esempio, \*.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale \*.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
 >
 > I certificati di crittografia a curva ellittica (ECC) sono supportati nel servizio app di Azure, ma sono relativamente nuovi e per la procedura da seguire per la richiesta di firma del certificato è opportuno rivolgersi alla propria Autorità di certificazione.
 
@@ -164,7 +164,7 @@ Certreq.exe è un'utilità Windows per la creazione di richieste di certificato.
 
 5. Dalla riga di comando oppure da una sessione Bash o terminal, usare il comando seguente per convertire **myserver.key** e **myserver.crt** in **myserver.pfx**, che è il formato richiesto dal servizio app di Azure:
 
-		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Quando richiesto, immettere una password per proteggere il file con estensione pfx.
 
@@ -174,7 +174,7 @@ Certreq.exe è un'utilità Windows per la creazione di richieste di certificato.
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Dopo l'esecuzione di questo comando, dovrebbe essere disponibile un file **myserver.pfx** appropriato per l'uso con il servizio app di Azure.
@@ -236,7 +236,7 @@ Se si ha familiarità con Gestione IIS, è possibile usarlo per generare un cert
 
 		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-	Non è necessario modificare il campo commonName_default, poiché verrà richiesto di immettere il nome comune in uno dei passaggi successivi.
+	Non è necessario modificare il campo commonName\_default, poiché verrà richiesto di immettere il nome comune in uno dei passaggi successivi.
 
 2. Salvare il file __sancert.cnf__.
 
@@ -293,7 +293,7 @@ Se si ha familiarità con Gestione IIS, è possibile usarlo per generare un cert
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Dopo l'esecuzione di questo comando, dovrebbe essere disponibile un file **myserver.pfx** appropriato per l'uso con il servizio app di Azure.
@@ -445,7 +445,7 @@ Il servizio app di Azure *non* applica HTTPS. I visitatori possono comunque acce
 
 Le regole di Riscrittura URL sono definite in un file **web.config** archiviato nella radice dell'applicazione. Il seguente esempio contiene una regole di Riscrittura URL di base che forza l'uso di HTTPS per tutto il traffico in ingresso.
 
-<a name="example"></a>**Esempio di Riscrittura URL Web.Config**
+<a name="example"></a>\*\*Esempio di Riscrittura URL Web.Config\*\*
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -541,4 +541,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
+	ms.date="07/25/2015"
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile. È inoltre possibile visualizzare una versione video dell'esercitazione facendo clic sul fotogramma a destra.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">03:51:00</span></div>
-</div>
+##Panoramica 
 
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. È possibile visualizzare la versione video seguente di questa esercitazione.
+
+> [AZURE.VIDEO mobile-get-started-html]
+ 
 Di seguito è riportata una schermata dell'app completata:
 
 ![][0]
 
-Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app HTML.
+Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app HTML. Per un'app PhoneGap/Cordova, vedere la [versione PhoneGap/Cordova](mobile-services-javascript-backend-phonegap-get-started.md) di questa esercitazione.
 
-> [AZURE.IMPORTANT]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
+##Prerequisiti
 
-###Requisiti aggiuntivi
+Per completare l'esercitazione è necessario quanto segue:
 
-+ Per completare questa esercitazione, è necessario che nel computer locale sia in esecuzione uno dei seguenti server Web:
++ Nel computer locale deve essere in esecuzione uno dei server Web seguenti:
 
 	+  **In Windows**: IIS Express. IIS Express viene installato tramite l'[Installazione guidata piattaforma Web Microsoft].
 	+  **In MacOS X**: Python, che dovrebbe essere già installato.
@@ -47,6 +46,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 	È possibile utilizzare qualsiasi server Web per ospitare l'app, tuttavia quelli indicati sono i server Web supportati dagli script scaricati.
 
 + Un Web browser che supporta HTML5.
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
@@ -134,10 +134,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 <!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
-
-
-
-
 [6]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
 [7]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
 
@@ -148,15 +144,15 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-html
-[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-html
+[Introduzione ai dati]: mobile-services-html-get-started-data.md
+[Introduzione all'autenticazione]: mobile-services-html-get-started-users.md
 [Chiamare un'API personalizzata da un'applicazione HTML]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [versione più recente di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
-[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

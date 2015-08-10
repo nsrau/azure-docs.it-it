@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Indicizzazione di file multimediali con Azure Media Indexer
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.
 
@@ -48,7 +51,7 @@ Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [bl
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Indicizzare un asset
 
@@ -180,7 +183,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -343,4 +346,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

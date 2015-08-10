@@ -103,7 +103,7 @@ In questo caso lo *stato della replica* viene indicato come critico; *Visualizza
 
 ### Opzioni di registrazione di replica Hyper-V
 
-Tutti gli eventi relativi alla Replica Hyper-V vengono registrati nel Registro di Hyper-V-VMMS\Admin in **Applicazioni e Servizi\Microsoft\Windows**. Inoltre, può essere abilitato un registro analitico per Hyper-V a VMM. Per abilitare questo registro, rendere i registri analitici e di debug visibili nel Visualizzatore eventi. Aprire il Visualizzatore eventi, quindi nel **dal menu Visualizza**, fare clic su **Visualizza registri analitici e Debug**.
+Tutti gli eventi relativi alla Replica Hyper-V vengono registrati nel Registro di Hyper-V-VMMS\\Admin in **Applicazioni e Servizi\\Microsoft\\Windows**. Inoltre, può essere abilitato un registro analitico per Hyper-V a VMM. Per abilitare questo registro, rendere i registri analitici e di debug visibili nel Visualizzatore eventi. Aprire il Visualizzatore eventi, quindi nel **dal menu Visualizza**, fare clic su **Visualizza registri analitici e Debug**.
 
 ![Risoluzione dei problemi di Hyper-V a livello locale](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ Per Hyper-V Branch Office and SMB Site protection, scaricare lo [strumento](http
 
 Per gli scenari di VMware/fisici, fare riferimento a [Azure Site Recovery Log Collection for VMware and Physical site protection](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx) per raccogliere le informazioni necessarie.
 
-Lo strumento SDP raccoglie il file di log in locale che è anche possibile individuare in una sottocartella denominata in modo casuale **%LocalAppData%\ElevatedDiagnostics**
+Lo strumento SDP raccoglie il file di log in locale che è anche possibile individuare in una sottocartella denominata in modo casuale **%LocalAppData%\\ElevatedDiagnostics**
 
 ### Apertura di un ticket di supporto
 
@@ -164,8 +164,6 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 
 ### Impostazione
 
--   [Impossibile convalidare il certificato selezionato. Selezionare un certificato diverso.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [Impossibile registrare il server VMM a causa di un errore interno. Fare riferimento alla visualizzazione processi nel portale di Ripristino sito per ulteriori informazioni sull'errore. Eseguire nuovamente l'installazione per registrare il server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
 -   [Impossibile stabilire una connessione all'insieme di credenziali per la gestione del ripristino Hyper-V. Verificare le impostazioni del proxy o riprovare più tardi.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
@@ -174,15 +172,9 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 
 -   [Il cluster host Hyper-V contiene almeno una scheda di rete statica oppure nessuna scheda collegata è configurata per utilizzare DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
--   [Il profilo Hyper-V non è abilitato nei profili di capacità per il cloud](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [Impossibile applicare la configurazione della protezione per '%CloudName;'. Impossibile configurare un cluster o un host Hyper-V appena aggiunto perché la protezione del cloud non è configurata.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
-
 -   [VMM non dispone delle autorizzazioni necessarie per completare un'azione](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### Protezione
-
--   [Il sistema operativo non è supportato](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
 
 -   [L’abilitazione della protezione non è riuscita perché l'agente non è installato nel computer host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
@@ -198,7 +190,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 
     -   [Failover sul punto di ripristino selezionato per la macchina virtuale: errore generico di accesso negato.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [ Hyper-V: impossibile eseguire il failover al punto di ripristino selezionato per la macchina virtuale. L’operazione è stata interrotta. Provare un punto di ripristino più recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Hyper-V: impossibile eseguire il failover al punto di ripristino selezionato per la macchina virtuale. L’operazione è stata interrotta. Provare un punto di ripristino più recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   Impossibile stabilire una connessione con il server (0x00002EFD)
 
@@ -220,9 +212,6 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   Specifico per il ripristino in Azure
-
-    -   [Impossibile avviare il failover a causa di caratteri non supportati nel nome della macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
 
@@ -230,4 +219,7 @@ Server di configurazione, server di elaborazione, server master di destinazione
 
 -   [L'host ESXi in cui è ospitato PS/CS come macchina virtuale ha esito negativo con una schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### Risoluzione dei problemi del desktop remoto dopo il failover
+Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. Utilizzare il documento sulla risoluzione dei problemi per RDP nella macchina virtuale. [Collegamento al documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

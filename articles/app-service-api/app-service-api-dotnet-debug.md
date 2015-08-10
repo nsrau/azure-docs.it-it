@@ -95,15 +95,15 @@ A volte potrebbe essere opportuno eseguire il debug dell'app per le API in local
 	![Host di app per le API - Impostazioni dell'applicazione per il debug locale](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. Da **Impostazioni app**, cercare ciascuno dei valori seguenti e aggiungerli alla sezione **appSettings** del file *web.config*.
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	Al termine, la sezione **appSettings** del file *web.config* avrà un aspetto simile al seguente.
 
 	![Host di app per le API - Impostazioni dell'applicazione per il debug locale](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Nota:** i valori *EMA_* aggiunti al file *web.config* in questa sezione contengono informazioni di autorizzazione riservate. Di conseguenza, è consigliabile prestare attenzione durante il commit di questo file in un supporto di controllo sorgente pubblico (ad esempio *github*) perché questi segreti saranno visibili ad altri utenti. Per altre informazioni, vedere l'articolo [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Siti Web di Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	**Nota:** i valori *EMA\_* aggiunti al file *web.config* in questa sezione contengono informazioni di autorizzazione riservate. Di conseguenza, è consigliabile prestare attenzione durante il commit di questo file in un supporto di controllo sorgente pubblico (ad esempio *github*) perché questi segreti saranno visibili ad altri utenti. Per altre informazioni, vedere l'articolo [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Siti Web di Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 10. Inserire uno o più punti di interruzione nel codice del controller dell'app per le API (nei metodi `Get` e `Post`).
 
@@ -139,4 +139,4 @@ Le app per le API del servizio app sono app Web del servizio app con funzionalit
 L'app per le API creata in questa serie è disponibile pubblicamente per la chiamata da parte di qualsiasi utente. Per informazioni su come proteggere le app per le API in modo che solo gli utenti autenticati possano chiamarle, vedere [Autenticazione per app per le API e per dispositivi mobili nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

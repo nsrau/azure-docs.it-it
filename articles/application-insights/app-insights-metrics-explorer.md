@@ -179,8 +179,13 @@ Gli elementi visualizzati sono quelli che vengono esportati. È pertanto necessa
 
 *Esporta attualmente funziona solo per Internet Explorer e Chrome. In futuro verrà aggiunto il supporto per altri browser.*
 
+### Esportazione continua
+
 Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare esternamente, considerare la possibilità di usare l'[esportazione continua](app-insights-export-telemetry.md).
 
+### Power BI
+
+Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Power BI](app-insights-export-power-bi.md).
 
 ## Passaggi successivi
 
@@ -196,4 +201,4 @@ Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

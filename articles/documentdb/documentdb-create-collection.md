@@ -62,4 +62,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) e [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti utilizzando il [Explorer Query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno del [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

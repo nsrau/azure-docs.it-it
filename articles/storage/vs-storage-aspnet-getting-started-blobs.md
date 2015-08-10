@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introduzione all'Archiviazione di Azure (progetti ASP.NET)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
->[AZURE.NOTE]In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un'app ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. Per ulteriori informazioni generali sull'utilizzo dell'archiviazione BLOB di Azure, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md).
+In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un'app ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. Per ulteriori informazioni generali sull'utilizzo dell'archiviazione BLOB di Azure, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md).
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 
@@ -318,4 +318,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefiss
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Aggiunta di una partizione utilizzando gli strumenti di database elastici
@@ -25,7 +25,7 @@ Le applicazioni devono spesso aggiungere semplicemente nuove partizioni per gest
 Se il nuovo intervallo di valori di chiave non è già incluso in una mappa esistente, l'aggiunta della nuova partizione e l'associazione della nuova chiave o del nuovo intervallo alla partizione risulteranno molto semplici.
 
 ### Esempio: aggiungere una partizione e il relativo intervallo a una mappa partizioni esistente
-Nel seguente esempio un database denominato **sample_shard_2** e tutti gli oggetti di schema necessari in esso contenuti sono stati creati per contenere l'intervallo [300, 400).
+Nel seguente esempio un database denominato **sample\_shard\_2** e tutti gli oggetti di schema necessari in esso contenuti sono stati creati per contenere l'intervallo [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@ In alcuni casi è possibile che pur avendo già eseguito il mapping di un interv
 
 ### Esempio: suddividere un intervallo e assegnare la parte vuota a una partizione appena aggiunta
 
-È stato creato un database denominato "sample_shard_2" contenente tutti gli oggetti di schema necessari.
+È stato creato un database denominato "sample\_shard\_2" contenente tutti gli oggetti di schema necessari.
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@ In alcuni casi è possibile che pur avendo già eseguito il mapping di un interv
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

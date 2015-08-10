@@ -28,7 +28,7 @@ Se l'app Web ASP.NET usa lo stato della sessione, sarà necessario usare un prov
 Per creare la cache, attenersi a [queste istruzioni](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
 ##<a id="configureproject"></a>Aggiungere il pacchetto NuGet RedisSessionStateProvider all'app Web
-Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (\*\*Strumenti\*\* > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -108,4 +108,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

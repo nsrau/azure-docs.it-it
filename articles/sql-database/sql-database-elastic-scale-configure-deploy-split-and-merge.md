@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Esercitazione relativa allo strumento divisione-unione del database elastico | Microsoft Azure"
 	description="Suddivisione e unione con gli strumenti di database elastico"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -22,7 +21,7 @@
 2. Aprire un prompt dei comandi e passare alla directory in cui si è scaricato il file nuget.exe.
 3. Scaricare il pacchetto di divisione e unione più recente nella directory corrente usando il seguente comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-I passaggi precedenti consentono di scaricare i file di divisione e unione nella directory corrente. I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. Trovare i file del servizio di divisione e unione nella sottodirectory **content\splitmerge\service** e gli script di PowerShell di divisione e unione (compresi i file DLL client necessari) nella sottodirectory **content\splitmerge\powershell**.
+I passaggi precedenti consentono di scaricare i file di divisione e unione nella directory corrente. I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. Trovare i file del servizio di divisione e unione nella sottodirectory **content\\splitmerge\\service** e gli script di PowerShell di divisione e unione (compresi i file DLL client necessari) nella sottodirectory **content\\splitmerge\\powershell**.
 
 ## Prerequisiti
 
@@ -329,4 +328,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

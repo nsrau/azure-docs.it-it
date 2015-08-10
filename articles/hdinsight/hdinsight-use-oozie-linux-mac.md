@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 
@@ -47,9 +47,9 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al seguente:
 
-		8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        it-it   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        it-it   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        it-it   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
@@ -215,7 +215,7 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Si noti il nome del server restituito da questo comando (**i1qwc540ts** nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Si noti il nome del server restituito da questo comando (\*\*i1qwc540ts\*\* nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
 
 2. Usare il comando seguente per creare un database denominato **oozietest** nel server di database SQL:
 
@@ -276,7 +276,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 
 1. Usare il comando seguente per ottenere l'indirizzo WASB completo della risorsa di archiviazione predefinita. Verrà usato nel file di configurazione tra poco:
 
-		sed -n '/<name>fs.default/,/</value>/p' /etc/hadoop/conf/core-site.xml
+		sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
 
 	Dovrebbero essere restituiti informazioni simili alle seguenti:
 
@@ -383,7 +383,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
 1. Usare quanto segue per ottenere l'URL del servizio di Oozie:
 
-		sed -n '/<name>oozie.base.url/,/</value>/p' /etc/oozie/conf/oozie-site.xml
+		sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
 
 	Verrà restituito un valore simile al seguente:
 
@@ -622,7 +622,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 ###JA009: Cannot initialize cluster
 
-**Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
+**Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START\_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -632,7 +632,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 ###JA002: Oozie is not allowed to impersonate &lt;USER>
 
-**Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
+**Sintomi**: lo stato del processo cambia in **SUSPENDED**. I dettagli del processo mostreranno lo stato di RunHiveScript come **START\_MANUAL**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -686,7 +686,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -704,7 +703,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -725,4 +723,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -185,7 +185,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, sui valori delle prop
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE]Assicurarsi di non registrare informazioni personali identificabili nelle proprietà.
@@ -561,7 +561,7 @@ Usare gli inizializzatori di telemetria per eseguire l'override del comportament
 
 Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
 
-In tal modo, verrà chiamato ogni volta che viene chiamato il metodo Track*(). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
+In tal modo, verrà chiamato ogni volta che viene chiamato il metodo Track\*(). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
 
 **Definire l'inizializzatore**
 
@@ -715,7 +715,7 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
  * L'**ID**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare "Elementi correlati"
  * **Nome**: l'URL della richiesta HTTP
  * **SyntheticSource**: se non è null o vuota, questa stringa indica che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita verranno esclusi dai calcoli in Esplora metriche.
-* **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace*.
+* **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace\*.
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo.
 * **Utente** consente agli utenti di essere conteggiati. In un'app Web l'ID utente viene preso da un cookie, se esiste. Se non c'è, ne viene generato uno nuovo. Se gli utenti devono accedere all'app, è possibile impostare l'ID da quello autenticato, in modo da fornire un conteggio più affidabile che sia corretto anche se l'utente accede da un computer diverso. 
 
@@ -740,10 +740,11 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Riferimento Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Informazioni di riferimento su JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Domande
 
-* *Le chiamate Track* quali eccezioni potrebbero generare?*
+* *Le chiamate Track\* quali eccezioni potrebbero generare?*
     
     Nessuna. Non è necessario eseguirne il wrapping in clausole catch.
 
@@ -778,4 +779,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

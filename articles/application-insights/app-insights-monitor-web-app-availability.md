@@ -129,7 +129,7 @@ In alternativa, scaricare il file dei risultati ed esaminarlo in Visual Studio.
 
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
-#### 1. Registrare uno scenario
+#### 1\. Registrare uno scenario
 
 Usare Visual Studio Ultimate per registrare una sessione Web.
 
@@ -156,7 +156,7 @@ Usare Visual Studio Ultimate per registrare una sessione Web.
 
 Non inserire cicli nel codice del test Web.
 
-#### 2. Caricare il test Web in Application Insights
+#### 2\. Caricare il test Web in Application Insights
 
 1. Nel portale Application Insights, creare un nuovo test Web.
 
@@ -229,4 +229,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

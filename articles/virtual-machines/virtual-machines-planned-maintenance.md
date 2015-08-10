@@ -3,7 +3,7 @@
 	description="Informazioni sulla manutenzione pianificata di Azure e sul relativo impatto sulle macchine virtuali in esecuzione in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk" 
+	authors="kenazk"
 	manager="timlt"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 
@@ -24,7 +24,7 @@
 
 Tuttavia, alcuni aggiornamenti richiedono un riavvio delle macchine virtuali per applicare gli aggiornamenti necessari all'infrastruttura. Le macchine virtuali vengono arrestate durante l'applicazione delle patch all'infrastruttura e quindi riavviate.
 
-Esistono due tipi di manutenzione che possono influire sulla disponibilità delle macchine virtuali: pianificata e non pianificata. Questa pagina descrive come Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sulla manutenzione non pianificata, vedere la pagina relativa al [confronto tra manutenzione pianificata e non pianificata].
+Esistono due tipi di manutenzione che possono influire sulla disponibilità delle macchine virtuali: pianificata e non pianificata. Questa pagina descrive come Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sulla manutenzione non pianificata, vedere la pagina relativa al [confronto tra manutenzione pianificata e non pianificata](virtual-machines-manage-availability.md).
 
 ## Aggiornamenti con mantenimento della memoria
 Per una classe di aggiornamenti in Microsoft Azure, i clienti non visualizzeranno alcun impatto sulle macchine virtuali in esecuzione. Molti di questi aggiornamenti sono componenti o servizi che possono essere aggiornati senza interferire con l'istanza in esecuzione. Alcuni di questi aggiornamenti sono aggiornamenti dell’infrastruttura della piattaforma nel sistema operativo host che possono essere applicati senza richiedere un riavvio completo delle macchine virtuali.
@@ -40,7 +40,7 @@ Esistono due tipi di configurazioni delle macchine virtuali: a istanza multipla 
 
 La configurazione a istanza multipla fornisce la ridondanza ed è consigliata per garantire la disponibilità dell'applicazione. Tutte le macchine virtuali nel set di disponibilità devono essere quasi identiche e avere la stessa funzione nell'applicazione.
 
-Per ulteriori informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Gestione della disponibilità delle macchine virtuali</a>.
+Per ulteriori informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
 
 Al contrario, una configurazione a istanza singola viene utilizzata per le macchine virtuali autonome che non vengono inserite in un set di disponibilità. Tali macchine virtuali non sono idonee per il contratto di servizio che richiede due o più macchine virtuali distribuite nello stesso set di disponibilità.
 
@@ -54,7 +54,7 @@ In un aggiornamento della configurazione a istanza multipla, le macchine virtual
 
 A ciascuna macchina virtuale nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Ciascun dominio di aggiornamento è un gruppo di macchine virtuali che verranno riavviate nello stesso intervallo di tempo. Ciascun dominio di errore è un gruppo di macchine virtuali che condividono un'unità di alimentazione o un commutatore di rete comune.
 
-Per ulteriori informazioni sui domini di aggiornamento e sui domini di errore, vedere <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configurazione di più macchine virtuali in un set di disponibilità per la ridondanza</a>.
+Per ulteriori informazioni sui domini di aggiornamento e sui domini di errore, vedere [Configurazione di più macchine virtuali in un set di disponibilità per la ridondanza](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
 
 Per impedire che i domini di aggiornamento passino offline contemporaneamente, la manutenzione viene eseguita arrestando tutte le macchine virtuali in un dominio di aggiornamento, applicando l'aggiornamento sulle macchine host, riavviando le macchine virtuali e passando al dominio di aggiornamento successivo. L'evento di manutenzione pianificata termina quando tutti i domini di aggiornamento sono stati aggiornati.
 
@@ -108,6 +108,6 @@ Ad esempio, durante una manutenzione pianificata, Azure non implementerà un agg
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[confronto tra manutenzione pianificata e non pianificata]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

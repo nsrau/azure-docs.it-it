@@ -3,7 +3,7 @@
    description="Panoramica dell'uso di indirizzi VIP multipli e delle modalità di impostazione di più indirizzi VIP in un servizio cloud"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2015"
-   ms.author="telmos" />
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # Indirizzi VIP multipli per un servizio cloud
 È possibile accedere ai servizi cloud di Azure tramite la rete Internet pubblica usando un indirizzo IP fornito da Azure. Questo indirizzo IP pubblico è detto indirizzo VIP (Virtual IP, IP virtuale) poiché è collegato al bilanciamento del carico di Azure e non alle istanze di macchine virtuali nel servizio cloud. È possibile accedere a qualsiasi istanza di macchina virtuale in un servizio cloud usando un singolo indirizzo VIP.
@@ -38,7 +38,6 @@ A questo punto, la funzionalità con più indirizzi VIP è limitata agli scenari
 
 - **Solo IaaS**. È possibile abilitare più indirizzi VIP per servizi cloud che contengono le macchine virtuali. Non è possibile usare più indirizzi VIP negli scenari PaaS con le istanze del ruolo.
 - **Solo PowerShell**. È possibile gestire più indirizzi VIP solo con PowerShell.
-- **Nessun supporto ARM**. Non è previsto alcun supporto per più indirizzi VIP in Gestione risorse di Azure.
 
 >[AZURE.IMPORTANT]Queste limitazioni sono temporanee e possono cambiare in qualsiasi momento. Assicurarsi di visualizzare nuovamente questa pagina per verificare le modifiche future.
 
@@ -156,4 +155,4 @@ L'output sarà simile ai risultati seguenti:
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -78,7 +78,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
 
-3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (**+**).
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (\*\*+\*\*).
 
 	![][10]
 
@@ -134,4 +134,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

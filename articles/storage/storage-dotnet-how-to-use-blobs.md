@@ -304,4 +304,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

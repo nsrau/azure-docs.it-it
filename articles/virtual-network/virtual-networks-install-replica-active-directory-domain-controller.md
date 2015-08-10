@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Installare un controller di dominio di replica in Azure" 
-	description="Esercitazione che illustra come installare un controller di dominio da una foresta Active Directory locale in una macchina virtuale di Azure." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Installare un controller di dominio di replica in Azure | Microsoft Azure"
+	description="Esercitazione che illustra come installare un controller di dominio da una foresta Active Directory locale in una macchina virtuale di Azure."
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
@@ -30,7 +30,7 @@ Altri argomenti di interesse:
 
 ## Diagramma dello scenario
 
-In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite nei server aggiunti al dominio. Le macchine virtuali che eseguono i server applicazioni e i controller di dominio di replica vengono installati in una rete virtuale di Azure. La rete virtuale può essere connessa alla rete locale mediante una [connessione VPN da sito a sito](https://msdn.microsoft.com/library/azure/dn133795.aspx), come mostrato nel diagramma seguente, oppure è possibile usare [ExpressRoute](../../services/expressroute/) per una connessione più veloce.
+In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite nei server aggiunti al dominio. Le macchine virtuali che eseguono i server applicazioni e i controller di dominio di replica vengono installati in una rete virtuale di Azure. La rete virtuale può essere connessa alla rete locale mediante una [connessione VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md), come mostrato nel diagramma seguente, oppure è possibile usare [ExpressRoute](../../services/expressroute/) per una connessione più veloce.
 
 I server dell’applicazione e i controller di dominio vengono distribuiti all'interno di [servizi cloud](../cloud-services-what-is.md) separati per distribuire l'elaborazione del calcolo e all'interno dei [set di disponibilità](../virtual-machines/virtual-machines-manage-availability.md) per una migliore tolleranza di errore. I controller di dominio eseguono la replica reciproca e con controller di dominio locali usando la replica di Active Directory. Non sono necessari strumenti di sincronizzazione.
 
@@ -87,7 +87,7 @@ Accedere a una macchina virtuale e verificare che sia disponibile la connettivit
 ## Riconfigurare il server DNS per la rete virtuale
 
 1. Nel portale di Azure classico, fare clic sul nome della rete virtuale, quindi fare clic sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](https://msdn.microsoft.com/library/azure/dn275925.aspx) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
- 
+
 2. Per garantire che tutte le macchine virtuali dei controller di dominio di replica sulla rete virtuale siano configurati per usare i server DNS sulla rete virtuale, fare clic su **Macchine virtuali**, fare clic sulla colonna di stato per ciascuna macchina virtuale, quindi fare clic su **Riavvia**. Attendere fino a quando la macchina virtuale mostra lo stato **In esecuzione** prima di provare a effettuare l'accesso.
 
 ## Creare macchine virtuali per server applicazioni
@@ -121,6 +121,5 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

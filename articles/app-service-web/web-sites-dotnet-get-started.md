@@ -172,9 +172,9 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 		Consente di ridurre i tempi di preparazione della prima richiesta per le applicazioni di grandi dimensioni.
 
-	* Escludi file dalla cartella App_Data.
+	* Escludi file dalla cartella App\_Data.
 
-		Per eseguire test, è talvolta necessario disporre in App_Data di un file di database SQL Server da non distribuire in produzione.
+		Per eseguire test, è talvolta necessario disporre in App\_Data di un file di database SQL Server da non distribuire in produzione.
 
 11. Nella scheda **Preview** fare clic su **Start Preview**.
 
@@ -316,4 +316,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

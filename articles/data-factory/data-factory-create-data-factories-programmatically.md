@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK
@@ -74,7 +74,7 @@
 6. Aggiungere al metodo **Main** il codice seguente che crea un'istanza della classe **DataPipelineManagementClient**. Si userà questo oggetto per creare un'istanza di Data factory, un servizio collegato, tabelle di input e di output e una pipeline. Sarà anche possibile usare l'oggetto per monitorare le sezioni di una tabella in fase di esecuzione.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]Sostituire **resourcegroupname** con il nome del gruppo di risorse di Azure. Per creare un gruppo di risorse, usare il cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Aggiungere al metodo **Main** il codice seguente che crea una **data factory**.
 
@@ -103,7 +105,7 @@
         );
 
 8. Aggiungere al metodo **Main** il codice seguente che crea un **servizio collegato**.
-	> [AZURE.NOTE]Usare il **nome account** e la **chiave dell'account** di archiviazione di Azure per la stringa **ConnectionString**.
+	> [AZURE.NOTE]Usare il **nome account** e la **chiave dell'account** dell'account di archiviazione di Azure per **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -366,9 +368,9 @@
         John, Doe
 		Jane, Doe
 	 
-17. Eseguire l'esempio scegliendo **Debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile a **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
+17. Eseguire l'esempio scegliendo **Debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
 18. Usare il portale di anteprima di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti: 
-	- Servizio collegato: **LinkedService_AzureStorage**. 
+	- Servizio collegato: **LinkedService\_AzureStorage**. 
 	- Tabelle: **TableBlobSource** e **TableBlobDestination**.
 	- Pipeline: **PipelineBlobSample**. 
 18. Verificare che venga creato un file di output nella cartella **apifactoryoutput** nel contenitore **adftutorial**.
@@ -392,4 +394,4 @@ Articolo | Descrizione
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

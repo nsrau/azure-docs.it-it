@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Creare un'applicazione Web con MVC ASP.NET usando DocumentDB
@@ -202,7 +202,7 @@ A questo punto è necessario creare le visualizzazioni **V** in MVC:
 	- Nella casella **Modello** selezionare ***Elenco***.
 	- Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
 	- Lasciare vuota la casella **Classe contesto dati**. 
-	- Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
+	- Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
 	
 	![Schermata con la finestra di dialogo Aggiungi visualizzazione](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +219,7 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
     - Nella casella **Modello** selezionare ***Create***.
     - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
     - Lasciare vuota la casella **Classe contesto dati**.
-    - Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
+    - Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
     - Fare clic su **Aggiungi**.
 
 #### <a name="_Toc395888515"></a>Aggiungere una visualizzazione Modifica elemento
@@ -233,7 +233,7 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
     - Nella casella **Modello** selezionare ***Edit***.
     - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
     - Lasciare vuota la casella **Classe contesto dati**. 
-    - Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
+    - Nella casella della pagina di layout digitare ***\~/Views/Shared/\_Layout.cshtml***.
     - Fare clic su **Aggiungi**.
 
 Al termine, chiudere tutti i documenti con estensione cshtml in Visual Studio. Si tornerà a queste visualizzazioni in un secondo momento.
@@ -441,13 +441,13 @@ A questo punto dovrebbe essere possibile compilare la soluzione senza errori.
 
 Se si eseguisse l'applicazione a questo punto, si passerebbe a **HomeController** e alla visualizzazione **Index** di tale controller. Questo è il comportamento predefinito per il progetto di modello MVC scelto inizialmente, ma è possibile cambiarlo. Per modificare questo comportamento, è possibile cambiare il routing nell'applicazione MVC.
 
-Aprire ***App\_Start\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
+Aprire ***App\\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\\\*\*Item\*\*\\\*\*Index\*\*.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -650,7 +650,7 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 7. È ora possibile [eseguire l'applicazione localmente](#_Toc395637773) e quindi [distribuirla in Siti Web di Azure](#_Toc395637774).
 
 
-[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

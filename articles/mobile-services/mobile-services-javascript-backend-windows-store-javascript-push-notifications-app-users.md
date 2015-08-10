@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Inviare notifiche push agli utenti autenticati" 
-	description="Informazioni su come inviare notifiche push a utenti specifici" 
+	description="Informazioni su come inviare notifiche push da Servizi mobili di Azure a utenti specifici dell'app JavaScript di Windows universale." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+##Panoramica
 
 Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione [Aggiungere notifiche push all'app], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine lo script del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
  
@@ -38,20 +40,21 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-<ol start="5"><li><p>Sostituire la funzione insert con il codice seguente, quindi fare clic su <strong>Salva</strong>:</p>
-<pre><code>function insert(item, user, request) {
-    // Definire un payload per la notifica di tipo avviso popup di Windows Store.
-    var payload = '&lt;?xml version="1.0" encoding="utf-8"?>&lt;toast>&lt;visual>' +    
-    '&lt;binding template="ToastText01">&lt;text id="1">' +
-    item.text + '&lt;/text>&lt;/binding>&lt;/visual>&lt;/toast>';
+&nbsp;&nbsp;5. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
 
-    // Ottenere l'ID dell'utente che ha eseguito l'accesso.
+	function insert(item, user, request) {
+    // Define a payload for the Windows Store toast notification.
+    var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
+    '<binding template="ToastText01"><text id="1">' +
+    item.text + '</text></binding></visual></toast>';
+
+    // Get the ID of the logged-in user.
     var userId = user.userId;		
 
     request.execute({
         success: function() {
-            // Se l'inserimento ha esito positivo, inviare una notifica a tutti i dispositivi 
-	    	// registrati con l'utente che ha eseguito l'accesso come tag.
+            // If the insert succeeds, send a notification to all devices 
+	    	// registered to the logged-in user as a tag.
             	push.wns.send(userId, payload, 'wns/toast', {
                 success: function(pushResponse) {
                     console.log("Sent push:", pushResponse);
@@ -64,9 +67,9 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
                     });
                 }
             });
-}</code></pre>
+	}
 
-<p>Questo script insert usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni di app di Windows Store create dall'utente connesso.</p></li></ol>
+&nbsp;&nbsp;Questo script insert usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni di app di Windows Store create dall'utente connesso.
 
 ##<a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
 
@@ -87,7 +90,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Aggiungere l'autenticazione all'app]: mobile-services-windows-store-javascript-get-started-users.md
 [Aggiungere notifiche push all'app]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

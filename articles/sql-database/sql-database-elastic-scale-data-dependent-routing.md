@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #Routing dipendente dei dati
 
 La classe **ShardMapManager** consente alle applicazioni ADO.NET di indirizzare facilmente query e comandi al database fisico corretto in un ambiente condiviso. Questo comportamento viene definito **routing dipendente dai dati** e costituisce un criterio fondamentale quando si usano database condivisi. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati viene limitata all'accesso a un singolo database per richiesta.
 
-Se si usa il routing dipendente dai dati, non è necessario che l'applicazione rilevi le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. Piuttosto, il [Gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md) si occupa di fornire connessioni aperte al database corretto, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Questa chiave è in genere *customer_id*, *tenant_id*, *date_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
+Se si usa il routing dipendente dai dati, non è necessario che l'applicazione rilevi le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. Piuttosto, il [Gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md) si occupa di fornire connessioni aperte al database corretto, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Questa chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
 
 ## Uso di ShardMapManager in un'applicazione di routing dipendente dai dati 
 
@@ -117,4 +117,4 @@ Le proprietà transazionali sono garantite per tutte le operazioni locali rispet
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

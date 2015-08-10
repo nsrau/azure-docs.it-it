@@ -123,8 +123,7 @@ Per escludere i file e le cartelle dai backup, creare un file `_backup.filter` n
 
 Si supponga di avere un'app Web che contiene file di log e immagini statiche degli anni precedenti che non verranno mai modificati e di avere già un backup completo dell'app Web che include le vecchie immagini. Si vuole ora eseguire il backup dell'app Web ogni giorno, ma senza pagare per l'archiviazione di file di log o dei file di immagini statici che non vengono mai modificati.
 
-![Cartella dei log][LogsFolder]
-![Cartella delle immagini][ImagesFolder]
+![Cartella dei log][LogsFolder] ![Cartella delle immagini][ImagesFolder]
 	
 I passaggi seguenti illustrano come escludere tali file dal backup.
 
@@ -140,7 +139,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 
 2. Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel file, ma rimuovere `D:\home`. Elencare una directory o un file per ogni riga. Il contenuto del file dovrebbe essere analogo al seguente:
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. Caricare questo file nella directory `D:\home\site\wwwroot` del sito usando [ftp](web-sites-deploy.md#ftp) o qualsiasi altro metodo. Se si vuole, è possibile creare il file direttamente in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e inserire i contenuti nel file.
 
@@ -220,4 +219,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

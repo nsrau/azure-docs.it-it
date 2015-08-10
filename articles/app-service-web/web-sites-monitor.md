@@ -122,25 +122,25 @@ La sezione **site diagnostics** della pagina di gestione **Configure** consente 
 
 Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salva** nella parte inferiore della pagina di gestione **Configurazione** per applicare le opzioni impostate.
 
-> [AZURE.IMPORTANT]La registrazione e la traccia sottopongono il sito Web a una domanda significativa. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.
+> [AZURE.IMPORTANT]Messaggi di errore dettagliati e Traccia delle richieste non riuscite sottopongono un'app Web a condizioni impegnative. È consigliabile disattivare queste funzionalità non appena sono stati riprodotti i problemi da risolvere.
 
 ### Configurazione avanzata ###
 
 È possibile modificare ulteriormente la diagnostica aggiungendo coppie chiave-valore nella sezione **app settings** della pagina di gestione **Configure**. Di seguito sono riportate le impostazioni che possono essere configurate da **app settings**:
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - Posizione in cui verranno salvati i log dell'applicazione, relativi alla radice Web.
 
-- Valore predefinito:.. \.. \LogFiles\Application
+- Valore predefinito:.. \\.. \\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - Dimensione massima del buffer da utilizzare durante l'acquisizione dei log dell'applicazione. Le informazioni vengono inizialmente scritte nel buffer prima di essere scaricate nel file o nell'archivio. Se nel buffer vengono scritte nuove informazioni prima che possano essere scaricate, è possibile che le informazioni registrate in precedenza vengano perse. Se l'applicazione genera grandi quantità di informazioni di log, valutare la possibilità di aumentare la dimensione del buffer.
 
 - Valore predefinito: 10MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - Dimensione massima della cartella **Application** in cui sono archiviati le informazioni diagnostiche dell'applicazione scritte nel file.
 
@@ -277,4 +277,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

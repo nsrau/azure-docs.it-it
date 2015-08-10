@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/23/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -75,13 +75,22 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D15. È possibile eseguire la migrazione dei dati di backup tra sottoscrizioni?** <br/> R15: No
 
-**D16: È possibile eseguire la migrazione dell'insieme di credenziali per il backup tra sottoscrizioni?** <br/> R16: No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
+**D16. È possibile eseguire la migrazione dell'insieme di credenziali per il backup tra sottoscrizioni?** <br/> R16: No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
 
-**Q17: Utilizzare l'agente Azure Backup in un server che utilizza la deduplicazione di Windows Server 2012?** <br/>A17: Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi l'ottimizzazione dei dati per il backup, i dati vengono crittografati e quindi invia i dati crittografati al servizio di backup in linea.
+**D17. L'agente di Azure Backup funziona in un server che usa la deduplicazione di Windows Server 2012?** <br/>A17: Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi l'ottimizzazione dei dati per il backup, i dati vengono crittografati e quindi invia i dati crittografati al servizio di backup in linea.
 
-**Q18: I dati di backup vengono eliminati se si annulla un backup dopo l'avvio?** <br/>A18: No. Credenziali per il backup vengono archiviati i backup dei dati trasferiti fino al punto dell'annullamento. Backup di Azure utilizza un meccanismo di checkpoint in modo che i dati di backup Ottiene il controllo a cui fa riferimento in alcuni casi durante il backup e il successivo processo di backup può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Questo fornisce un migliore utilizzo della larghezza di banda in modo che non è necessario trasferire ripetutamente gli stessi dati.
+**D18. I dati di backup vengono eliminati se si annulla un backup successivamente all'avvio?** <br/>A18: No. Credenziali per il backup vengono archiviati i backup dei dati trasferiti fino al punto dell'annullamento. Backup di Azure utilizza un meccanismo di checkpoint in modo che i dati di backup Ottiene il controllo a cui fa riferimento in alcuni casi durante il backup e il successivo processo di backup può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Questo fornisce un migliore utilizzo della larghezza di banda in modo che non è necessario trasferire ripetutamente gli stessi dati.
 
-**Q19: Perché viene visualizzato l'avviso "Backup di Azure non sono stati configurati per il server" anche se pianificati backup regolari in precedenza?** <br/>A19: Ciò può verificarsi quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'archivio di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è necessario riconfigurare i criteri di backup e quindi**eseguire subito il backup**per risincronizzare il server locale con Azure.
+**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/>A19: Ciò può verificarsi quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'archivio di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è necessario riconfigurare i criteri di backup e quindi**eseguire subito il backup**per risincronizzare il server locale con Azure.
+
+**D20. Quali regole del firewall devono essere configurate per il backup di Azure Backup?** <br/> R20. Assicurarsi che le regole del firewall consentano la comunicazione con gli URL seguenti per facilitare il backup locale per la protezione in Azure e la protezione del carico di lavoro in Azure:
+
+- www.msftncsi.com
+- \*.Microsoft.com
+- windowsazure.com
+- \*.microsoftonline.com
+- \*.windows.net
+
 
 ## Backup e conservazione
 **D1. Esiste un limite alle dimensioni di ogni origine dati sottoposta a backup?** <br/> R1. A partire da marzo 2015, le dimensioni di ogni origine dati deve essere minore o uguale a 1,7 TB. Un'origine dati può essere
@@ -100,7 +109,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D5. È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera ma non annuale e mensile?**<br/> R5. Con i criteri verrà visualizzato il set completo di funzionalità per definire in modo ottimale i requisiti di conformità/conservazione.
 
-**D6. È possibile "pianificare un backup" alle 18.00 e specificare i "criteri di conservazione" a un orario diverso?**<br/> R6. No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18.00. <br/>
+**D6. È possibile "pianificare un backup" alle 18.00 e specificare i "criteri di conservazione" a un orario diverso?**<br/> R6. No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente vengono specificati i criteri di conservazione per i backup eseguiti a mezzanotte e alle 18.00. <br/>
 
 ![Pianifica backup e conservazione](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -132,4 +141,4 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

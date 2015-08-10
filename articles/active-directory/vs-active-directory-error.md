@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Errore durante il rilevamento dell'autenticazione
 
 Durante il rilevamento di codice di autenticazione precedente, la procedura guidata ha rilevato un tipo di autenticazione non compatibile.
 
-###Elementi verificati
+##Elementi verificati
 
 **Nota:** per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia compilato. Se si è verificato questo errore e non si ha il precedente codice di autenticazione del progetto, ricompilare e riprovare.
 
-####Tipi di progetto
+###Tipi di progetto
 
 La procedura guidata verifica il tipo di progetto di cui è in corso lo sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva da `ApiController`, verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, verrà considerato come un progetto MVC. Qualsiasi altro elemento verrà considerato come non supportato dalla procedura guidata. I progetti WebForms non sono al momento supportati.
 
-#####Codice di autenticazione compatibile
+###Codice di autenticazione compatibile
 
 La procedura guidata cerca inoltre le impostazioni di autenticazione configurate in precedenza o che sono compatibili. Se sono presenti tutte le impostazioni, viene considerato come caso rientrante, di conseguenza la procedura guidata verrà aperta e visualizzerà le impostazioni. Se sono presenti solo alcune impostazioni, verrà considerato come caso di errore.
 
@@ -45,7 +45,7 @@ La procedura guidata cerca inoltre le impostazioni seguenti di un progetto API W
 	<add key="ida:Tenant" value="" />
 	<add key="ida:Audience" value="" />
 
-#####Codice di autenticazione incompatibile
+###Codice di autenticazione incompatibile
 
 La procedura guidata prova infine a rilevare le versioni del codice di autenticazione configurate con le versioni precedenti di Visual Studio. Se viene visualizzato questo errore, significa che il progetto contiene un tipo di autenticazione non compatibile. La procedura guidata rileva i tipi seguenti di autenticazione dalle versioni precedenti di Visual Studio:
 
@@ -97,4 +97,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

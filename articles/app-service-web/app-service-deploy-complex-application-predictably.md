@@ -274,7 +274,7 @@ I passaggi in questa sezione hanno eseguito principalmente le operazioni seguent
 2.	Creazione di un file di parametri da usare con il file modello
 3.	Distribuzione del file modello con il file di parametri
 
-L'ultimo passaggio viene eseguito facilmente da un cmdlet di PowerShell. Per vedere le operazioni eseguite da Visual Studio durante la distribuzione dell'applicazione, aprire Scripts\Deploy-AzureResourceGroup.ps1. In questo file è presente una quantità elevata di codice, ma verrà evidenziato solo tutto il codice pertinente e necessario per la distribuzione del file modello con il file di parametri.
+L'ultimo passaggio viene eseguito facilmente da un cmdlet di PowerShell. Per vedere le operazioni eseguite da Visual Studio durante la distribuzione dell'applicazione, aprire Scripts\\Deploy-AzureResourceGroup.ps1. In questo file è presente una quantità elevata di codice, ma verrà evidenziato solo tutto il codice pertinente e necessario per la distribuzione del file modello con il file di parametri.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -304,4 +304,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

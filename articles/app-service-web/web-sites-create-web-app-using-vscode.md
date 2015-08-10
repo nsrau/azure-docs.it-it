@@ -187,8 +187,8 @@ Git è un sistema di controllo delle versioni distribuite che è possibile usare
 
 	![Credenziali di distribuzione di Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà eseguita la distribuzione è visualizzato in **
-10.  URL**.
+9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà eseguita la distribuzione è visualizzato in \*\*
+10.  URL\*\*.
 
 10. Copiare il valore dell'opzione **URL GIT**, che sarà necessario più avanti nell'esercitazione.
 
@@ -256,4 +256,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo sui [vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

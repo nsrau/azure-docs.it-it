@@ -74,7 +74,7 @@ La data e ora sono UTC e lo sono quando i dati di telemetria sono stati deposita
 
 ## <a name="format"></a> Formato dati
 
-* Ogni BLOB è un file di testo che contiene più righe separate da '\n'.
+* Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
 * Ogni riga è un documento JSON non formattato. Se si vuole stare seduti e esaminali, usare un visualizzatore, ad esempio Blocco note++ con il plug-in JSON:
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
@@ -110,17 +110,7 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
 
 Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
 
-#### Eseguire l'esportazione in SQL
 
-È anche possibile spostare i dati in un database SQL, dove è possibile eseguire analisi più dettagliate.
-
-Gli esempi disponibili illustrano i due metodi alternativi per spostare i dati dall'archivio BLOB a un database:
-
-* [Eseguire l'esportazione in SQL usando un ruolo di lavoro][exportcode]
-* [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
-
-
-Su scala più estesa considerare la possibilità di usare cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
 
 ## <a name="delete"></a>Eliminare i vecchi dati
 Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario.
@@ -134,6 +124,27 @@ Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare
 ![Modificare l'esportazione continua, aprire e chiudere tre destinazioni di esportazione.](./media/app-insights-export-telemetry/07-resetstore.png)
 
 L'esportazione continua verrà riavviata.
+
+## Esportare in Power BI
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini. È possibile eseguire lo streaming dei dati di telemetria relativi alle prestazioni e all'utilizzo delle app da Application Insights a Power BI.
+
+[Flusso da Application Insights a Power BI](app-insights-export-power-bi.md)
+
+![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-telemetry/210.png)
+
+## Eseguire l'esportazione in SQL
+
+È anche possibile spostare i dati in un database SQL, dove è possibile eseguire analisi più dettagliate.
+
+Gli esempi disponibili illustrano i due metodi alternativi per spostare i dati dall'archivio BLOB a un database:
+
+* [Eseguire l'esportazione in SQL usando un ruolo di lavoro][exportcode]
+* [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
+
+
+Su scala più estesa considerare la possibilità di usare cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
+
 
 
 ## Domande e risposte
@@ -183,4 +194,4 @@ L'esportazione continua verrà riavviata.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

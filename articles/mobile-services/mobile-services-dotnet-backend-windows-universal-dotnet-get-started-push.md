@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -34,14 +34,13 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Passare alla cartella di progetto <code>\Services\MobileServices\nome_servizio</code>, aprire i file di codice push.register.cs generato e individuare il metodo <strong>UploadChannel</strong> che registra l'URL del canale del dispositivo con l'hub di notifica.</p></li> 
-<li><p>Aprire il file di codice App.xaml.cs condiviso. Si noti come una chiamata al nuovo metodo <strong>UploadChannel</strong> è stata aggiunta al gestore dell'evento <strong>OnLaunched</strong>.</p> <p>In questo modo verrà effettuato un tentativo di registrazione del dispositivo a ogni avvio dell'app.</p></li>
-<li><p>Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store. Quindi, nel file App.xaml.cs condiviso, rimuovere la chiamata supplementare a <strong>UploadChannel</strong> e il wrapper condizionale <code>#if...#endif</code> restante.</p> <p>Ora entrambi i progetti possono condividere un'unica chiamata a <strong>UploadChannel</strong>.</p>
-</li>
-</ol>
+&nbsp;&nbsp;6. Passare alla cartella del progetto `\Services\MobileServices\your_service_name`, aprire il file di codice push.register.cs generato ed esaminare il metodo **UploadChannel** che registra l'URL del canale del dispositivo con l'hub di notifica.
+ 
+&nbsp;&nbsp;7. Aprire il file di codice App.xaml.cs condiviso. Si noti come una chiamata al nuovo metodo **UploadChannel** è stata aggiunta al gestore dell'evento **OnLaunched**. In questo modo verrà effettuato un tentativo di registrazione del dispositivo a ogni avvio dell'app.
 
-> [AZURE.NOTE]È anche possibile semplificare il codice generato unendo le definizioni [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) con wrapping <code>#if...#endif</code> in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
+&nbsp;&nbsp;8. Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store, quindi nel file App.xaml.cs condiviso rimuovere la chiamata supplementare a **UploadChannel** e il wrapper condizionale `#if...#endif` restante. Ora entrambi i progetti possono condividere un'unica chiamata a **UploadChannel**.
+
+> [AZURE.NOTE]È anche possibile semplificare il codice generato unendo le definizioni con wrapping `#if...#endif` [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
 
 Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il servizio mobile per l'invio delle notifiche push.
 
@@ -59,16 +58,17 @@ I seguenti passaggi di questa sezione sono facoltativi e consentono di testare l
 
 >[AZURE.NOTE]Non usare mai un servizio mobile di produzione per operazioni di test e sviluppo. Pubblicare sempre il proprio progetto di servizio mobile in un ambiente di gestione temporanea per i test.
 
-<ol start="5">
-<li><p>Aprire il file di progetto App.xaml.cs condiviso e individuare qualsiasi riga di codice che crei una nuova istanza della classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> per accedere al servizio mobile in esecuzione su Azure.</p></li>
-<li><p>Impostare questo codice come commento e aggiungere codice per creare una nuova classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> con lo stesso nome, ma che usa l'URL dell'host locale nel costruttore, analogamente a quanto segue:</p>
-<pre><code>// Questa classe MobileServiceClient è stata configurata per comunicare con il progetto
-// di test locale a scopo di debug.
-public static MobileServiceClient todolistClient = new MobileServiceClient(
-	"http://localhost:4584"
-);
-</code></pre><p>Usando questo <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, l'app si connetterà al servizio locale anziché alla versione ospitata in Azure. Quando si desidera tornare indietro ed eseguire l'app sul servizio mobile ospitato in Azure, tornare alle definizioni di <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> originali.</p></li>
-</ol>
+&nbsp;&nbsp;5. Aprire il file di progetto App.xaml.cs condiviso e individuare qualsiasi riga di codice che crei una nuova istanza della classe [MobileServiceClient] per accedere al servizio mobile in esecuzione su Azure.
+
+&nbsp;&nbsp;6. Impostare questo codice come commento e aggiungere codice per creare una nuova classe [MobileServiceClient] con lo stesso nome, ma che usa l'URL dell'host locale nel costruttore, analogamente a quanto segue:
+
+	// This MobileServiceClient has been configured to communicate with your local
+	// test project for debugging purposes.
+	public static MobileServiceClient todolistClient = new MobileServiceClient(
+		"http://localhost:4584"
+	);
+
+&nbsp;&nbsp;Usando questo [MobileServiceClient], l'app si connetterà al servizio locale anziché alla versione ospitata in Azure. Quando si desidera tornare indietro ed eseguire l'app sul servizio mobile ospitato in Azure, tornare alle definizioni di [MobileServiceClient] originali.
 
 ##<a id="test"></a> Testare le notifiche push nell'app
 
@@ -76,7 +76,7 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows Store di utilizzare Servizi mobili e Hub di notifica per l'invio delle notifiche push. In seguito si consiglia di passare all'esercitazione seguente, [Invio di notifiche push agli utenti autenticati], che spiega come usare i tag per inviare notifiche push da un servizio mobile unicamente agli utenti autenticati.
+In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows Store di utilizzare Servizi mobili e Hub di notifica per l'invio delle notifiche push. In seguito si consiglia di passare all'esercitazione seguente, [Invio di notifiche push agli utenti autenticati], che spiega come utilizzare i tag per inviare notifiche push da un servizio mobile unicamente agli utenti autenticati.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
@@ -86,7 +86,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 * [Informazioni su Hub di notifica] <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
-* [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive per la risoluzione dei problemi e il debug delle soluzioni di Hub di notifica.
+* [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni di Hub di notifica.
 
 * [Come usare un client .NET per Servizi mobili di Azure] <br/>Altre informazioni su come usare Servizi mobili dalle app C# per Windows.
 
@@ -107,6 +107,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
- 
+[MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

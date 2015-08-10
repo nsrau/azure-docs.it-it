@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure | Microsoft Azure"
+   pageTitle="Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure | Microsoft Azure"
    description="Come creare regole di bilanciamento del carico, regole NAT e probe per Gestione risorse di Azure. Procedura dettagliata che illustra il processo end-to-end per creare una risorsa di bilanciamento del carico."
    services="load-balancer"
    documentationCenter="na"
@@ -12,31 +12,37 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure
+# Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure
 
-La procedura seguente illustra come creare un servizio di bilanciamento del carico con Gestione risorse di Azure con PowerShell. Con Gestione risorse di Azure gli elementi per creare un servizio di bilanciamento del carico vengono configurati singolarmente e quindi integrati per creare una risorsa.
+
+> [AZURE.SELECTOR]
+- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+
+La procedura seguente illustra come creare un servizio di bilanciamento del carico Internet usando Gestione risorse di Azure con PowerShell. Con Gestione risorse di Azure gli elementi per creare un servizio di bilanciamento del carico Internet vengono configurati singolarmente e quindi integrati per creare una risorsa.
 
 In questa pagina verrà illustrata la sequenza delle singole attività da eseguire per creare un servizio di bilanciamento del carico e viene illustrato in dettaglio cosa viene fatto per raggiungere l'obiettivo di creare un servizio di bilanciamento del carico.
 
 
-## Elementi necessari per creare un servizio di bilanciamento del carico
+## Elementi necessari per creare un servizio di bilanciamento del carico Internet
 
 Gli elementi seguenti devono essere configurati prima di creare un servizio di bilanciamento del carico:
 
-- Configurazione di indirizzi IP front-end 
+- Configurazione IP front end: aggiungerà un indirizzo IP pubblico al pool di IP front end per il traffico di rete in ingresso per il bilanciamento del carico. 
 
-- Pool di indirizzi back-end
+- Pool di indirizzi back end: configurerà le interfacce di rete che riceveranno il traffico con carico bilanciato proveniente dal pool di IP front end.
 
-- Regole di bilanciamento del carico
+- Regole di bilanciamento del carico: configurazione delle porte di origine e locali per il servizio di bilanciamento del carico.
 
-- Probe
+- Probe: configurazione del probe dello stato di integrità per le istanze di macchina virtuale.
 
-- Regole NAT in ingresso
+- Regole NAT in ingresso: configurazione delle regole della porta per accedere direttamente a una delle istanze di macchina virtuale.
 
-È possibile ottenere altre informazioni sui componenti di bilanciamento del carico con Gestione risorse di Azure in [Supporto di Gestione risorse di Azure per il bilanciamento del carico](load-balancer-arm.md).
+È possibile ottenere altre informazioni sui componenti del servizio di bilanciamento del carico con Gestione risorse di Azure in [Supporto di Gestione risorse di Azure per il bilanciamento del carico](load-balancer-arm.md).
 
 I passaggi seguenti illustrano come configurare il servizio di bilanciamento del carico in modo che il carico sia bilanciato tra 2 macchine virtuali.
 
@@ -245,4 +251,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

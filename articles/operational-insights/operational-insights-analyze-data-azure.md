@@ -87,54 +87,18 @@ Diagnostica di Azure è un'estensione di Azure che consente di raccogliere i dat
 
 Diagnostica Azure può raccogliere i tipi di telemetria seguenti:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Origine dati</b></td>
-		<td><b> Descrizione</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Log di IIS</td>
-		<td>Informazioni sui siti Web di IIS.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Log dell'infrastruttura diagnostica di Azure</td>
-		<td>Informazioni su Diagnostica.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Log delle richieste non riuscite di IIS </td>
-		<td>Informazioni sulle richieste non riuscite a un sito o a un'applicazione di IIS.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Registri eventi di Windows</td>
-		<td>Informazioni inviate al sistema di registrazione eventi di Windows.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Contatori delle prestazioni</td>
-		<td>Contatori delle prestazioni personalizzati e del sistema operativo.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Dump di arresto anomalo del sistema</td>
-		<td>Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Log degli errori personalizzati</td>
-		<td>Log creati dall'applicazione o dal servizio.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>EventSource .NET</td>
-		<td>Eventi generati dal codice con la classe <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource .NET.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>ETW basato su manifesto</td>
-		<td>Eventi ETW generati da un processo qualsiasi.</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>Eventi inviati ai daemon Syslog o Rsyslog</td>
-    </tr>
-    </tbody>
-    </table>
+Origine dati|Descrizione
+ ---|--- 
+Log di IIS|Informazioni sui siti Web di IIS.
+Log dell'infrastruttura diagnostica di Azure|Informazioni su Diagnostica.
+Log delle richieste non riuscite di IIS |Informazioni sulle richieste non riuscite a un sito o a un'applicazione di IIS.
+Registri eventi di Windows|Informazioni inviate al sistema di registrazione eventi di Windows.
+Contatori delle prestazioni|Contatori delle prestazioni personalizzati e del sistema operativo.
+Dump di arresto anomalo del sistema|Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione.
+Log degli errori personalizzati|Log creati dall'applicazione o dal servizio.
+EventSource .NET|Eventi generati dal codice con la classe .NET [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+ETW basato su manifesto|Eventi ETW generati da qualsiasi processo
+Syslog|Eventi inviati ai daemon Syslog o Rsyslog
 
 
 Attualmente, Operational Insights è in grado di analizzare:
@@ -151,13 +115,13 @@ I log devono trovarsi nei percorsi seguenti:
 
  >[AZURE.NOTE]I log IIS provenienti dai siti Web di Azure non sono attualmente supportati.
 
-Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare Operational Insights. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
+Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare Informazioni operative. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
 
-È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in Operational Insights nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in Informazioni operative nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
 ## Abilitare Diagnostica di Azure in un ruolo Web per la raccolta di eventi e log IIS
 
-Fare riferimento a [Come abilitare il modulo Diagnostica in un servizio cloud](https://msdn.microsoft.com/library/azure/dn482131.aspx). Le informazioni di base contenute in tale articolo consentiranno di personalizzare i passaggi da eseguire qui per usare Microsoft Azure Operational Insights.
+Vedere [Come abilitare il modulo Diagnostica in un servizio cloud](https://msdn.microsoft.com/library/azure/dn482131.aspx). Le informazioni di base contenute in tale articolo consentiranno di personalizzare i passaggi da eseguire qui per usare Microsoft Azure Operational Insights.
 
 Con Diagnostica di Azure abilitata:
 
@@ -167,7 +131,7 @@ Con Diagnostica di Azure abilitata:
 
 ### Per abilitare la diagnostica
 
-Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare la diagnostica di Azure utilizzando il file di configurazione XML (diagnostics.wadcfg), come illustrato in [Passaggio 2: aggiungere il file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e [Passaggio 3: Configurare la diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell’argomento Come abilitare la diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
+Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare la diagnostica di Azure usando il file di configurazione XML (diagnostics.wadcfg), come illustrato in [Passaggio 2: aggiungere il file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e [Passaggio 3: Configurare la diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell’argomento Come abilitare la diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -209,7 +173,7 @@ Utilizzare la procedura seguente per abilitare la diagnostica di Azure in una ma
 ### Per abilitare la diagnostica di Azure in una macchina virtuale con il portale di gestione di Azure
 
 1. Installare l'agente di macchine virtuali quando si crea una macchina virtuale. Se la macchina virtuale esiste già, verificare che l'agente di macchine virtuali sia già installato.
-	- Se si utilizza il portale di gestione di Azure predefinito per creare la macchina virtuale, eseguire una **Creazione personalizzata** e selezionare **Installare l'agente VM**.
+	- Se si usa il portale di gestione di Azure predefinito per creare la macchina virtuale, eseguire una **Creazione personalizzata** e selezionare **Installa l'agente VM**.
 	- Se si usa il nuovo portale di gestione di Azure per creare una macchina virtuale, selezionare **Configurazione facoltativa**, quindi **Diagnostica** e impostare **Stato** su **Attivato**.
 
 	Al termine, nella macchina virtuale risulterà automaticamente installata e in esecuzione l'estensione Diagnostica di Azure che sarà responsabile della raccolta dei dati di diagnostica.
@@ -267,11 +231,11 @@ Per configurare Operational Insights per la lettura dall'account di archiviazion
 
 ### Per abilitare l'analisi con Operational Insights
 
-1. Nel portale di Azure predefinito, passare all'area di lavoro di Operational Insights e selezionare la scheda **Storage**. ![scheda archiviazione dell'area di lavoro](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. Fare clic su **Add a Storage Account** per aprire la casella **Add a Storage Account**.
+1. Nel portale di Azure predefinito, passare all'area di lavoro di Informazioni operative e selezionare la scheda **Archiviazione**. ![scheda archiviazione dell'area di lavoro](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+2. Fare clic su **Aggiungi un account di archiviazione** per aprire la casella **Aggiungi un account di archiviazione**.
 3. Selezionare l'account di archiviazione che si desidera usare.
-4. Nell’elenco **Data Type** selezionare un tipo di dati: **Events**, **IIS Logs** o **Syslog (Linux)**.
-5. Fare clic sull’immagine **OK**. ![casella account di archiviazione](./media/operational-insights-analyze-data-azure/storage-account.png)
+4. Nell’elenco **Tipo di dati** selezionare un tipo di dati: **Eventi**, **Log IIS** o **Syslog (Linux)**.
+5. Fare clic sull’immagine **OK**.<br> ![casella account di archiviazione](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Ripetere i passaggi precedenti per ogni combinazione di tipo di dati e account di archiviazione che si vuole raccogliere.
 
 Entro 1 ora circa i dati dell'account di archiviazione inizieranno a essere disponibili per l'analisi in Operational Insights.
@@ -285,4 +249,4 @@ Entro 1 ora circa i dati dell'account di archiviazione inizieranno a essere disp
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

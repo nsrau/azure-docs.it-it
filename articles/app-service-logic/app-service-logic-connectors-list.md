@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Elenco di connettori e app per le API | Azure" 
-	description="Informazioni sui connettori e le app per le API nel servizio app di Azure; architettura dei microservizi" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Elenco di connettori e app per le API | Azure"
+	description="Informazioni sui connettori e le app per le API nel servizio app di Azure; architettura dei microservizi"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,6 @@ Nome | Descrizione
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Usare questo connettore per creare un cluster Hadoop in Azure e inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Con questo connettore, è anche possibile avviare un cluster, inviare un processo e attendere il completamento del processo.
 [Bus di servizio di Azure](app-service-logic-connector-azureservicebus.md) | Usando questo connettore è possibile inviare messaggi da entità del bus di servizio, come code e argomenti, e ricevere messaggi da entità del bus di servizio, come code e sottoscrizioni.
 [BLOB di Archiviazione di Azure](app-service-logic-connector-azurestorageblob.md) | Si connette all'archivio BLOB e può caricare, ottenere ed eliminare BLOB, elencare BLOB nel contenitore, eseguire snapshot di BLOB, copiare BLOB e usare un trigger per recuperare BLOB.
-Processi Web di Azure | Si connette a Processi Web.
 [Box](app-service-logic-connector-box.md) | Si connette a Box e può caricare, ottenere, eliminare ed elencare file, nonché usare un trigger per recuperare file.
 [Chatter](app-service-logic-connector-chatter.md) | Si connette a Chatter e può inviare e cercare messaggi, nonché usare un trigger per recuperare nuovi messaggi.
 [Dropbox](app-service-logic-connector-dropbox.md) | Si connette a Dropbox e può caricare, ottenere, eliminare ed elencare file, nonché usare un trigger per recuperare i file.
@@ -94,4 +93,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)<br/> [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

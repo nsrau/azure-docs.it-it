@@ -39,31 +39,31 @@ Per configurare lo shim Memcache, è necessario creare tre impostazioni di app. 
 
 ![Pannello Impostazioni di Cache Redis di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Aggiungere l'impostazione di app REDIS_HOST
+### Aggiungere l'impostazione di app REDIS\_HOST
 
-La prima impostazione di app che è necessario creare è **REDIS_HOST**. Questa impostazione definisce la destinazione a cui lo shim inoltra le informazioni della cache. Il valore richiesto per l'impostazione di app REDIS_HOST può essere recuperato dal pannello **Proprietà** dell'istanza di Cache Redis.
+La prima impostazione di app che è necessario creare è **REDIS\_HOST**. Questa impostazione definisce la destinazione a cui lo shim inoltra le informazioni della cache. Il valore richiesto per l'impostazione di app REDIS\_HOST può essere recuperato dal pannello **Proprietà** dell'istanza di Cache Redis.
 
 ![Nome host di Cache Redis di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Impostare la chiave dell'impostazione di app su **REDIS_HOST** e il valore dell'impostazione di app sul **nome host** dell'istanza di Cache Redis.
+Impostare la chiave dell'impostazione di app su **REDIS\_HOST** e il valore dell'impostazione di app sul **nome host** dell'istanza di Cache Redis.
 
-![Impostazione REDIS_HOST per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Impostazione REDIS\_HOST per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Aggiungere l'impostazione di app REDIS_KEY
+### Aggiungere l'impostazione di app REDIS\_KEY
 
-La seconda impostazione di app che è necessario creare è **REDIS_KEY**. Questa impostazione fornisce il token di autenticazione necessario per accedere in modo sicuro all'istanza di Cache Redis. Il valore richiesto per l'impostazione di app REDIS_KEY può essere recuperato dal pannello **Chiavi di accesso** dell'istanza di Cache Redis.
+La seconda impostazione di app che è necessario creare è **REDIS\_KEY**. Questa impostazione fornisce il token di autenticazione necessario per accedere in modo sicuro all'istanza di Cache Redis. Il valore richiesto per l'impostazione di app REDIS\_KEY può essere recuperato dal pannello **Chiavi di accesso** dell'istanza di Cache Redis.
 
 ![Chiave primaria di Cache Redis di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-Impostare la chiave dell'impostazione di app su **REDIS_KEY** e il valore dell'impostazione di app sulla **chiave primaria** dell'istanza di Cache Redis.
+Impostare la chiave dell'impostazione di app su **REDIS\_KEY** e il valore dell'impostazione di app sulla **chiave primaria** dell'istanza di Cache Redis.
 
-![Impostazione REDIS_KEY per siti Web di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Impostazione REDIS\_KEY per siti Web di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Aggiungere l'impostazione di app MEMCACHESHIM_REDIS_ENABLE
+### Aggiungere l'impostazione di app MEMCACHESHIM\_REDIS\_ENABLE
 
-L'ultima impostazione di app viene usata per abilitare lo shim Memcache in app Web che useranno REDIS_HOST e REDIS_KEY per la connessione a Cache Redis di Azure e per l'inoltro delle chiamate alla cache. Impostare la chiave dell'impostazione di app su **MEMCACHESHIM_REDIS_ENABLE** e il valore su **true**.
+L'ultima impostazione di app viene usata per abilitare lo shim Memcache in app Web che useranno REDIS\_HOST e REDIS\_KEY per la connessione a Cache Redis di Azure e per l'inoltro delle chiamate alla cache. Impostare la chiave dell'impostazione di app su **MEMCACHESHIM\_REDIS\_ENABLE** e il valore su **true**.
 
-![Impostazione MEMCACHESHIM_REDIS_ENABLE per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![Impostazione MEMCACHESHIM\_REDIS\_ENABLE per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 Dopo aver aggiunto le tre (3) impostazioni di app, fare clic su **Salva**.
 
@@ -71,7 +71,7 @@ Dopo aver aggiunto le tre (3) impostazioni di app, fare clic su **Salva**.
 
 Affinché l'applicazione supporti il protocollo Memcache, è necessario installare l'estensione Memcache per PHP (framework del linguaggio per il sito WordPress).
 
-### Scaricare l'estensione php_memcache
+### Scaricare l'estensione php\_memcache
 
 Passare a [PECL][6]. Nella categoria di memorizzazione nella cache fare clic su [memcache][7]. Nella colonna dei download fare clic sul collegamento relativo alle DLL.
 
@@ -81,14 +81,14 @@ Scaricare il link Non-Thread Safe (NTS) x86 per la versione di PHP abilitata nel
 
 ![Pacchetto Memcache sul sito Web di PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Abilitare l'estensione php_memcache
+### Abilitare l'estensione php\_memcache
 
-Dopo il download del file, decomprimerlo e caricare il file **php_memcache.dll** nella directory **d:\home\site\wwwroot\bin\ext\**. Dopo il caricamento del file php_memcache.dll nell'app Web, è necessario abilitare l'estensione nel runtime PHP. Per abilitare l'estensione Memcache nel portale di Azure, aprire il pannello **Impostazioni applicazione** per l'app Web e quindi aggiungere una nuova impostazione di app con chiave **PHP_EXTENSIONS** e valore **bin\ext\php_memcache.dll**.
+Dopo il download del file, decomprimerlo e caricare il file **php\_memcache.dll** nella directory **d:\\home\\site\\wwwroot\\bin\\ext\\**. Dopo il caricamento del file php\_memcache.dll nell'app Web, è necessario abilitare l'estensione nel runtime PHP. Per abilitare l'estensione Memcache nel portale di Azure, aprire il pannello **Impostazioni applicazione** per l'app Web e quindi aggiungere una nuova impostazione di app con chiave **PHP\_EXTENSIONS** e valore **bin\\ext\\php\_memcache.dll**.
 
 
-> Se l'app Web deve caricare più estensioni PHP, il valore di PHP_EXTENSIONS deve essere un elenco di percorsi relativi di file DLL delimitati da virgole.
+> Se l'app Web deve caricare più estensioni PHP, il valore di PHP\_EXTENSIONS deve essere un elenco di percorsi relativi di file DLL delimitati da virgole.
 
-![Impostazione PHP_EXTENSIONS per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![Impostazione PHP\_EXTENSIONS per app Web](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 Al termine, fare clic su **Salva**.
 
@@ -197,4 +197,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

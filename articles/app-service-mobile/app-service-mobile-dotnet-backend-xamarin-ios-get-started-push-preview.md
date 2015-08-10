@@ -107,9 +107,9 @@ Per poter inviare notifiche push a un dispositivo iOS dall'app mobile, è necess
 
     ![][9]
 
-    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
+    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps\_development.cer</strong>.
 
-7. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
+7. Fare doppio clic sul certificato push scaricato **aps\_development.cer**.
 
     Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
 
@@ -266,7 +266,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (\*\*+\*\*).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -340,4 +340,4 @@ L'esercitazione è stata completata.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

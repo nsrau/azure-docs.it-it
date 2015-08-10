@@ -157,7 +157,7 @@ Dopo aver creato la macchina virtuale, vedere [Come accedere a una macchina virt
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
-- Salvare questo set di comandi come file di script di PowerShell (*.ps1)
+- Salvare questo set di comandi come file di script di PowerShell (\*.ps1)
 - Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure
 
 ## <a id="examples"></a>Esempi:
@@ -260,4 +260,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Utilizzo di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

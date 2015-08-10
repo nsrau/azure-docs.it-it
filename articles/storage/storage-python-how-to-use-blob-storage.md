@@ -58,9 +58,9 @@ Dopo questa modifica, i BLOB in un contenitore pubblico saranno visibili a tutti
 
 ## Procedura: caricare un BLOB in un contenitore
 
-Per caricare i dati in un BLOB, usare i metodi **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** o **put_block_blob_from_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per caricare i dati in un BLOB, usare i metodi **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
-**put_block_blob_from_path** carica i contenuti di un file dal percorso specificato, **put_block_blob_from_file** carica i contenuti da un file/flusso già aperto. **put_block_blob_from_bytes** carica una matrice di byte e **put_block_blob_from_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
+**put\_block\_blob\_from\_path** carica i contenuti di un file dal percorso specificato, **put\_block\_blob\_from\_file** carica i contenuti da un file/flusso già aperto. **put\_block\_blob\_from\_bytes** carica una matrice di byte e **put\_block\_blob\_from\_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
 
 Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BLOB **myblob**.
 
@@ -73,24 +73,36 @@ Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BL
 
 ## Procedura: elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, utilizzare il metodo **list_blobs** con un ciclo **for** per visualizzare il nome di ogni BLOB nel contenitore. Il codice seguente consente di inviare alla console il valore di **name** e di **url** di ogni BLOB in un contenitore.
+Per elencare i BLOB in un contenitore, utilizzare il metodo **list\_blobs** con un ciclo **for** per visualizzare il nome di ogni BLOB nel contenitore. Il codice seguente consente di inviare alla console il valore **name** di ogni BLOB in un contenitore.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
-		print(blob.url)
+
+**list\_blobs** restituirà solo un numero massimo di 5000 BLOB. Se il contenitore include più di 5000 BLOB utilizzare il codice seguente.
+
+	blobs = []
+	marker = None
+	while True:
+		batch = blob_service.list_blobs('mycontainer', marker=marker)
+		blobs.extend(batch)
+		if not batch.next_marker:
+			break
+		marker = batch.next_marker
+	for blob in blobs:
+		print(blob.name)
 
 ## Procedura: scaricare i BLOB
 
-Per scaricare i dati da un BLOB, usare **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** o **get_blob_to_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per scaricare i dati da un BLOB, usare **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
-Nell'esempio seguente viene illustrato l'uso di **get_blob_to_path** per scaricare il contenuto del BLOB **myblob** e archiviarlo nel file **out-sunset.png**:
+Nell'esempio seguente viene illustrato l'uso di **get\_blob\_to\_path** per scaricare il contenuto del BLOB **myblob** e archiviarlo nel file **out-sunset.png**:
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
 ## Procedura: eliminare un BLOB
 
-Per eliminare un BLOB, infine, chiamare **delete_blob**.
+Per eliminare un BLOB, infine, chiamare **delete\_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
@@ -106,4 +118,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

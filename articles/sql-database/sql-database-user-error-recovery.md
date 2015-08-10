@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="07/23/2015"
    ms.author="elfish"/>
 
-# Ripristino di un database SQL di Azure a seguito di un errore causato dall'utente
+# Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente
 
 I database SQL di Azure offre due funzionalità principali per il ripristino a seguito di errori causati dagli utenti o a seguito di una modifica imprevista dei dati.
 
@@ -109,4 +109,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

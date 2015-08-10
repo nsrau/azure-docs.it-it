@@ -126,4 +126,4 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

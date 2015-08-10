@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Store) | Mobile Dev Center" 
+	pageTitle="Aggiungere Servizi mobili a un'app di Windows Store universale esistente | Servizi mobili di Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Store." 
 	services="mobile-services" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/21/2015" 
+	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
 
@@ -34,7 +34,7 @@ Il servizio mobile che viene creato in questa esercitazione è un servizio mobil
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> Update 3 o versione successiva. 
 
 ##Scaricare il progetto GetStartedWithData
@@ -45,19 +45,17 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
-<ol start="7"><li><p>In Esplora soluzioni, aprire il file di codice App.xaml.cs nella cartella di progetto GetStartedWithData.Shared e notare il nuovo campo statico aggiunto alla classe <strong>App</strong> al'interno di un blocco di compilazione condizionale di un'app di Windows Store, il cui aspetto ricorda quello illustrato nel seguente esempio:</p> 
+&nbsp;&nbsp;7. In Esplora soluzioni, aprire il file di codice App.xaml.cs nella cartella di progetto GetStartedWithData.Shared e notare il nuovo campo statico aggiunto alla classe **App** al'interno di un blocco di compilazione condizionale di un'app di Windows Store, il cui aspetto ricorda quello illustrato nel seguente esempio:
 
-		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-		        "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		</code></pre>
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+	        "https://todolist.azure-mobile.net/",
+	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		
 
-	<p>Questo codice consente di accedere al nuovo servizio mobile nell'app tramite un'istanza della <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">classe MobileServiceClient</a>. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Questo campo static è disponibile in tutte le pagine dell'app.</p>
-</li>
-<li><p>Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare <strong>Aggiungi</strong> e fare clic su <strong>Servizio connesso...</strong>, quindi selezionare il servizio mobile appena creato e fare clic su <strong>OK</strong>. </p>
-<p>Il medesimo codice viene aggiunto al file App.xaml.cs condiviso, ma questa volta all'interno di un blocco di compilazione condizionale di un'app di Windows Phone.</p></li>
-</ol>
+&nbsp;&nbsp;Questo codice consente di accedere al nuovo servizio mobile nell'app tramite un'istanza della classe [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Questo campo static è disponibile in tutte le pagine dell'app.
+
+&nbsp;&nbsp;8. Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare **Aggiungi** e fare clic su **Servizio connesso...**, quindi selezionare il servizio mobile appena creato e fare clic su **OK**. Il medesimo codice viene aggiunto al file App.xaml.cs condiviso, ma questa volta all'interno di un blocco di compilazione condizionale di un'app di Windows Phone.
 
 A questo punto, l'app di Windows Store e l'app di Windows Phone Store sono entrambe connesse al nuovo sevizio mobile. Il passaggio successivo consiste nel testare il nuovo progetto di servizio mobile.
 
@@ -123,4 +121,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

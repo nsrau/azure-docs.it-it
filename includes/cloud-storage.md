@@ -24,7 +24,7 @@ Per usare i BLOB, è necessario creare innanzitutto un *account di archiviazione
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
 
-&lt;*StorageAccount*&gt; è un identificatore univoco assegnato quando viene creato un nuovo account di archiviazione, mentre &lt;*Container*&gt; e &lt;*BlobName*&gt; sono i nomi di un contenitore specifico e di un oggetto BLOB in tale contenitore.
+&lt;\*StorageAccount\*&gt; è un identificatore univoco assegnato quando viene creato un nuovo account di archiviazione, mentre &lt;\*Container\*&gt; e &lt;\*BlobName\*&gt; sono i nomi di un contenitore specifico e di un oggetto BLOB in tale contenitore.
 
 In Azure sono disponibili due tipi diversi di oggetti BLOB. Le opzioni disponibili sono:
 
@@ -181,4 +181,4 @@ In genere, i dati di qualsiasi tipo sono molto importanti. Azure include quindi 
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

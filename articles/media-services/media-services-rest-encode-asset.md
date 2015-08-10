@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Panoramica
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
@@ -38,7 +42,7 @@ Ogni processo può includere una o più attività in base al tipo di elaborazion
 Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
 
->[AZURE.NOTE]Prima di iniziare a fare riferimento ai supporti multimediali, verificare di avere il corretto processore ID del supporto. Per ulteriori informazioni, vedere[ottenere processori dei supporti](media-services-rest-get-media-processor.md).
+>[AZURE.NOTE]Prima di iniziare a fare riferimento ai supporti multimediali, verificare di avere il corretto processore ID del supporto. Per altre informazioni, vedere[Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md).
 
 ##Creare un processo con una singola attività di codifica 
 
@@ -86,9 +90,9 @@ Il seguente esempio mostra impostare l'attributo assetName:
 - È possibile specificare JobInputAsset o JobOutputAsset come asset di input di un'attività.
 - Le attività non devono formare un ciclo.
 - Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job. 
-- Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
+- Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "\_\_metadata : uri".
 - La proprietà InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
-- Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob". 
+- Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)\_NewJob". 
 
 
 ##Creare un processo con attività concatenate
@@ -258,8 +262,8 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-rest-check-job-progress.md).
 
 
- ##See Also
+##Vedere anche
 
-[Ottenere i processori per supporti](media-services-rest-get-media-processor.md)
+[Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

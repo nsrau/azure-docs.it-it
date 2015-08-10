@@ -97,4 +97,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

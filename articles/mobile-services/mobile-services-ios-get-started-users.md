@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Questa esercitazione consente di aggiungere l'autenticazione all’[esercitazione Guida introduttiva per Servizi mobili] tramite un provider di identità supportato. È necessario innanzitutto completare l’[esercitazione Guida introduttiva per Servizi mobili].
+Questa esercitazione consente di aggiungere l'autenticazione all’[esercitazione Guida introduttiva per Servizi mobili] tramite un provider di identità supportato.
+
+È consigliabile completare prima di tutto l'[Esercitazione Guida introduttiva per Servizi mobili]. In alternativa scaricare semplicemente il progetto iOS di avvio rapido: fare clic sul portale di Azure > **Servizi mobili** > servizio mobile personalizzato > l'accesso cloud in alto a sinistra > **iOS** > **Crea una nuova app iOS** > **Scaricare ed eseguire l'applicazione** > **Objective-C** > **Scarica**. Fare clic su **Crea tabella TodoItem** prima di fare clic su **Scarica**, se la tabella non è ancora stata creata.
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione
 
@@ -82,4 +84,4 @@ Quindi, leggere le informazioni su [come utilizzare il valore dell'ID utente per
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

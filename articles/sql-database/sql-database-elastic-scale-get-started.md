@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Iniziare a utilizzare gli strumenti di database elastico" 
+	pageTitle="Iniziare a utilizzare gli strumenti di database elastici" 
 	description="Spiegazione di base della funzionalità relativa agli strumenti di database elastici del database SQL di Azure, che include un'app di esempio di facile esecuzione." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
-#Iniziare a utilizzare gli strumenti di database elastico
+#Iniziare a utilizzare gli strumenti di database elastici
 
 L'aumento o la riduzione della capacità su richiesta è una delle promesse principali del cloud computing. Nel caso delle applicazioni di database, una tecnica importante per realizzare soluzioni scalabili è rappresentata dal modello definito "partizione". In tale modello, i dati vengono sottoposti a partizionamento fisico su una serie di database strutturati in modo identico. In generale, la creazione e la gestione di applicazioni che usano la partizione richiede molto codice esterno alla logica di business.
 
@@ -24,21 +24,21 @@ Gli strumenti di database elastici facilitano la creazione e la gestione di appl
 
 In questo documento viene presentata l'esperienza di sviluppo usando la libreria client del database elastico.
 
-Per ulteriori informazioni sul funzionamento degli strumenti di database elastici, vedere [Panoramica sugli strumenti di database elastici](sql-database-elastic-scale-introduction.md)
+Per ulteriori informazioni sul funzionamento degli strumenti di database elastici, vedere [Panoramica degli strumenti di database elastici](sql-database-elastic-scale-introduction.md)
 
-Per un elenco di tutti gli argomenti relativi agli strumenti di database elastici, consultare la [relativa mappa del documento](sql-database-elastic-scale-documentation-map.md)
+Per un elenco di tutti gli argomenti relativi agli strumenti di database elastici, consultare la [mappa di apprendimento](sql-database-elastic-scale-documentation-map.md)
 
 ## Applicazione di esempio relativa al database elastico
 
-Nell'esempio viene creata una semplice applicazione partizionata si esplorano le funzionalità chiave degli strumenti di database elastici. Per scaricare ed eseguire l'applicazione, attenersi alla procedura seguente o nel video [introduttivo alla scalabilità elastica](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
+Nell'esempio viene creata una semplice applicazione partizionata si esplorano le funzionalità chiave degli strumenti di database elastici. Per scaricare ed eseguire l'applicazione, attenersi alla procedura descritta di seguito o nel video di [introduzione alla scalabilità elastica](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
 
-### Prerequisiti
+## Prerequisiti
 Per eseguire l'app di esempio è necessario usare Visual Studio e avere accesso a un database SQL di Azure in esecuzione su Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile effettuare la [sottoscrizione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
-#### Visual Studio e Nuget
+### Visual Studio e Nuget
 
 1. È richiesto Visual Studio 2012 o versioni successive con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 o versioni successive. Per ottenere la versione più recente, vedere il documento relativo all'[installazione di NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-#### Creare un database SQL di Azure
+### Creare un database SQL di Azure
 
 * Vedere [Introduzione al database SQL di Microsoft Azure](sql-database-get-started.md).
 
@@ -115,4 +115,4 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

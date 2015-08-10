@@ -148,4 +148,4 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

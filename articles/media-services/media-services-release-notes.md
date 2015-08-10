@@ -68,7 +68,7 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 
 È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium **. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
+Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium \*\*. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
 
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
@@ -76,10 +76,10 @@ Il codificatore multimediale standard usa i set di impostazioni descritti in [qu
 Azure Media Services .NET SDK è ora disponibile nella versione 3.4.0.0. In questa versione è stata aggiunta la seguente funzionalità:
 
 - Implementazione del supporto per l'archivio live. Si noti che non è possibile scaricare un asset che contiene un archivio live.
-- Implementazione del supporto per i filtri dinamici
-- Implementazione della funzionalità che consente agli utenti di conservare il contenitore di archiviazione durante l'eliminazione dell'asset
-- Correzioni di bug relativi a criteri di ripetizione nei canali
-- Abilitazione del **flusso di lavoro Premium del codificatore multimediale**
+- Implementazione del supporto per i filtri dinamici.
+- Implementazione della funzionalità che consente agli utenti di conservare il contenitore di archiviazione durante l'eliminazione dell'asset.
+- Correzioni di bug relativi a criteri di ripetizione nei canali.
+- Abilitazione del **flusso di lavoro Premium del codificatore multimediale**.
 
 ##<a id="june_changes_15"></a>Versione di giugno 2015
 
@@ -331,7 +331,7 @@ Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 * Dipendenze dell'archiviazione di Azure aggiornate per usare la versione 3.0.3.0. 
 
-* È stato risolto il problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.*.
+* È stato risolto il problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.\*.\*.
 
 
 ##<a id="december_changes_13"></a>Versione di dicembre 2013
@@ -554,4 +554,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

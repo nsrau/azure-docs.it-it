@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 
 #Caricamento di file in un account di Servizi multimediali mediante l'API REST
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+ 
 
 In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
 
->[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+>[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !\*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 Il flusso di lavoro di base per l'inserimento degli asset si divide nelle seguenti sezioni:
 
@@ -367,4 +367,4 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

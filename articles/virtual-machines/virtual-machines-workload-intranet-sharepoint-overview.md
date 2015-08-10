@@ -5,15 +5,16 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure
@@ -69,4 +70,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

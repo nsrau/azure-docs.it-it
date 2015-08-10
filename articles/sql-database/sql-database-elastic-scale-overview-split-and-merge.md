@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Scalabilità utilizzando lo strumento di suddivisione-unione elastica di database" 
+    pageTitle="Scalabilità tramite lo strumento di suddivisione-unione del database elastico" 
     description="Illustra come gestire partizioni e spostare dati tramite un servizio self-hosted usando API di database elastici." 
     services="sql-database" 
     documentationCenter="" 
@@ -12,24 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/24/2015" 
+    ms.date="07/29/2015" 
     ms.author="sidneyh" />
 
-# Scalabilità utilizzando lo strumento di suddivisione-unione elastica di database
+# Scalabilità tramite lo strumento di suddivisione-unione del database elastico
 
-Azure SQL Database offre un'ampia gamma di possibilità di scalare il livello di dati di un'applicazione quando le esigenze aziendali cambiano. Situazioni di esempio includono la gestione di applicazioni che diventano virali o di tenant particolari che spingono un database al limite. Le opzioni per la scalabilità includono:
+Se si sceglie di non utilizzare il modello semplice di allocazione di database separati a ciascun shardlet (tenant), l'applicazione potrebbe richiedere la distribuzione flessibile dei dati tra database quando variano le esigenze relative alla capacità. Gli strumenti dei database elastici includono uno strumento di suddivisione-unione ospitato dal cliente per ribilanciare la distribuzione dei dati e la gestione di hotspot per le applicazioni partizionate. Si basa su una funzionalità sottostante per lo spostamento su richiesta di shardlet tra database diversi e si integra con la gestione delle mappe partizioni per mantenere mapping coerenti.
 
-* Pool di database elastici consentono ai database all'interno di un pool di aumentare e ridurre individualmente le risorse utilizzate in base alle esigenze, pur mantenendo un prezzo totale prevedibile per il pool nel suo complesso. I database possono anche essere aggiunti o rimossi dal pool per supportare tenant nuovi o in fase di eliminazione. Per ulteriori informazioni, vedere [Pool elastico del database SQL di Azure (anteprima)](sql-database-elastic-pool.md). 
+Lo strumento di suddivisione-unione gestisce la riduzione e l’aumento della scala; è possibile aggiungere o rimuovere database dal set di partizioni e utilizzare lo strumento di suddivisione-unione per ribilanciare la distribuzione di shardlet tra di essi. (Per le definizioni dei termini, vedere il [Glossario della scalabilità elastica](sql-database-elastic-scale-glossary.md)).
 
-* Aumento o riduzione espliciti delle risorse di un database modificando le edizioni o i livelli di prestazioni, manualmente o in base a criteri (vedere [Elasticità condivisa](sql-database-elastic-scale-elasticity.md))
-
-* Modifica della distribuzione dei dati tra partizioni, spesso in combinazione con l'aumento o la riduzione del numero totale di database per un set di partizioni. Ciò è noto come suddivisione-unione e spesso è necessario quando più utenti finali (tenant) vengono gestiti all'interno della stessa partizione.
-
-Quest'ultimo scenario è preso in considerazione dallo **strumento di suddivisione-unione elastica dei database** ed è importante quando le alternative più semplici di scalabilità verticale o la semplice aggiunta di un nuovo database per un nuovo tenant non sono sufficienti. Lo strumento di suddivisione-unione gestisce la riduzione e l’aumento della scala; è possibile aggiungere o rimuovere database dal set di partizioni e utilizzare lo strumento di suddivisione-unione per ribilanciare la distribuzione di shardlet tra di essi. (Per le definizioni dei termini, vedere il [Glossario della scalabilità elastica](sql-database-elastic-scale-glossary.md)).
-
-Considerate le possibilità di scelta attuali tra le edizioni del database SQL di Azure, è anche possibile gestire la capacità aumentando o riducendo la capacità di un singolo database SQL DB di Azure. La dimensione di aumento/riduzione della gestione della capacità elastica non viene trattata dalla suddivisione-unione, vedere invece [Elasticità di partizionamento](sql-database-elastic-scale-elasticity.md).
-
- 
 ## Novità della suddivisione-unione
 
 Le versioni più recenti dello strumento di suddivisione-unione forniscono i seguenti miglioramenti:
@@ -110,7 +101,7 @@ Le informazioni relative al confronto tra tabelle di riferimento e tabelle parti
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-Le tabelle "area" e "nazione" sono definite come tabelle di riferimento e vengono copiate con operazioni di suddivisione/unione/spostamento. "cliente" e "ordini" a loro volta sono definite come tabelle partizionate. C_CUSTKEY e O_CUSTKEY fungono da chiave di partizionamento orizzontale.
+Le tabelle "area" e "nazione" sono definite come tabelle di riferimento e vengono copiate con operazioni di suddivisione/unione/spostamento. "cliente" e "ordini" a loro volta sono definite come tabelle partizionate. C\_CUSTKEY e O\_CUSTKEY fungono da chiave di partizionamento orizzontale.
 
 **Integrità referenziale**: il servizio di suddivisione-unione analizza le dipendenze tra le tabelle e usa relazioni di tipo chiave esterna-chiave primaria per la gestione temporanea delle operazioni per lo spostamento di tabelle di riferimento e shardlet. Le tabelle di riferimento vengono in genere copiate per prime in ordine di dipendenza, quindi vengono copiati gli shardlet, in base al rispettivo ordine di dipendenza in ogni batch. Ciò è necessario per permettere il rispetto dei vincoli di chiave esterna-chiave primaria nella partizione di destinazione all'arrivo di nuovi dati.
 
@@ -212,7 +203,7 @@ Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione del
 
 ## Recupero della diagnostica 
 
-È possibile accedere con facilità alla diagnostica da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su Visualizza, quindi su Esplora server. Fare clic sull'icona di Azure per connettersi alla sottoscrizione Azure. Passare ad Azure -> Archiviazione -> <your storage account> -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+È possibile accedere con facilità alla diagnostica da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su Visualizza, quindi su Esplora server. Fare clic sull'icona di Azure per connettersi alla sottoscrizione Azure. Passare ad Azure -> Archiviazione -> <your storage account> -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 ![WADLogsTable][2]
 
@@ -252,4 +243,4 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

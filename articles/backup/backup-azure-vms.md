@@ -24,7 +24,7 @@ L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi princ
 
 ![Three steps to backup an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1. Individuare le macchine virtuali di Azure
+## 1\. Individuare le macchine virtuali di Azure
 Il processo di individuazione esegue una query su Azure per ottenere l'elenco di macchine virtuali nella sottoscrizione, insieme ad altre informazioni quali il nome del servizio cloud e l'area.
 
 > [AZURE.NOTE]Il processo di individuazione deve sempre essere eseguito come primo passaggio. Ciò consente di verificare che eventuali nuove macchine virtuali aggiunte alla sottoscrizione vengano identificate.
@@ -41,7 +41,7 @@ Il processo di individuazione esegue una query su Azure per ottenere l'elenco di
 
 5. Al termine del processo di individuazione, viene visualizzata una notifica di tipo avviso popup. ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-##  2. Registrare le macchine virtuali di Azure
+##  2\. Registrare le macchine virtuali di Azure
 Per poter essere protetta, una macchina virtuale deve essere registrata nel servizio Backup di Azure. Il processo di registrazione ha due obiettivi principali:
 
 1. Inserire l'estensione di backup nell'agente VM della macchina virtuale.
@@ -70,7 +70,7 @@ La registrazione è in genere un'attività da eseguire una sola volta. Il serviz
 
 7. Al termine dell'operazione, lo stato nel portale viene modificato per rispecchiare lo stato registrato. ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## 3. Protezione: eseguire il backup di macchine virtuali di Azure
+## 3\. Protezione: eseguire il backup di macchine virtuali di Azure
 Questo passaggio implica l'impostazione di un criterio di backup e conservazione per la macchina virtuale. Per proteggere una macchina virtuale, eseguire la procedura seguente:
 
 ### Per eseguire il backup di macchine virtuali di Azure
@@ -142,7 +142,7 @@ L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [fil
 #### Convalida dell'installazione dell'agente di VM
 Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
-1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*, che dovrebbe includere il file WaAppAgent.exe.
+1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\\WindowsAzure\\Packages*, che dovrebbe includere il file WaAppAgent.exe.
 2. Fare clic con il pulsante destro del mouse sul file, passare a **Proprietà**, quindi scegliere la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
 
 ### Risoluzione del problemi di rete
@@ -182,4 +182,4 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

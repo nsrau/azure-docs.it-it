@@ -15,7 +15,7 @@
    ms.date="05/01/2015"
    ms.author="joaoma" />
 
-# SQL AlwaysOn
+# Configurare il bilanciamento del carico per SQL AlwaysOn
 
 I gruppi di disponibilità AlwaysOn di SQL Server ora possono essere eseguiti con ILB. Un gruppo di disponibilità è la soluzione principale di SQL Server per il ripristino di emergenza e la disponibilità elevata. Il listener del gruppo di disponibilità consente alle applicazioni client di connettersi facilmente alla replica primaria, indipendentemente dal numero di repliche nella configurazione.
 
@@ -28,7 +28,7 @@ Usando ILB sul listener, l'endpoint SQL Server (ad esempio, Server=tcp:ListenerN
 
 Servizi e macchine virtuali negli stessi servizi di rete virtuale e macchine virtuali da servizi di rete locali connessi e macchine virtuali da reti virtuali interconnesse
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
 
 
 Il bilanciamento del carico interno può essere configurato solo tramite PowerShell.
@@ -47,8 +47,9 @@ Passaggio 2.
 ## Aggiungere gli endpoint con carico bilanciato per ILB in ogni macchina virtuale
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
-	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+
+ 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 
 ## Vedere anche
@@ -62,4 +63,4 @@ Passaggio 2.
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

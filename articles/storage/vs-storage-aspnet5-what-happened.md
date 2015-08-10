@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Che cosa è successo al progetto?
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###<span id="whathappened">Che cosa è successo al progetto?</span>
+###Che cosa è successo al progetto?</span>
 
 ##### Aggiunta di riferimenti
 
@@ -50,4 +50,4 @@ Nel file config.json del progetto è stato creato un elemento con la stringa di 
 Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

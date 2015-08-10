@@ -272,7 +272,7 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 | lmPerm | Test di permutazione per modelli lineari |
 | lmtest | Test dei modelli di regressione lineare |
 | locfit | Regressione locale, probabilità e stima della densità |
-| lpSolve | Interfaccia di Lp_solve v. 5.5 per la risoluzione di programmi lineari/interi |
+| lpSolve | Interfaccia di Lp\_solve v. 5.5 per la risoluzione di programmi lineari/interi |
 
 
 ###Moduli R da M a R
@@ -503,4 +503,4 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

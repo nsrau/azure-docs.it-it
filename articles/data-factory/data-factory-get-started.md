@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'uso di Data factory di Azure"
+	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL"
 	description="Questa esercitazione illustra come creare una pipeline di dati di esempio che consente di copiare dati da un BLOB a un'istanza del database SQL di Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Introduzione a Data factory di Azure
+# Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -67,7 +67,7 @@ Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **A
 ### Preparare l'archiviazione BLOB di Azure e il database SQL Azure per l'esercitazione
 Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazione seguendo questa procedura:
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStarted** sul disco rigido.
+1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\\ADFGetStarted** sul disco rigido.
 
         John, Doe
 		Jane, Doe
@@ -110,4 +110,4 @@ Eseguire le operazioni seguenti:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

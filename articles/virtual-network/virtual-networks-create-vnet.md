@@ -19,7 +19,7 @@
 
 Quando si crea una rete virtuale (o VNet), i servizi e le macchine virtuali al suo interno possono comunicare tra loro in modo sicuro senza dover passare attraverso Internet. La creazione di una rete virtuale di Azure è un processo relativamente semplice e veloce se tale rete non deve essere connessa ad altre VNet o alla rete locale, in quanto non sarà necessario acquisire e configurare un dispositivo VPN o coordinare gli indirizzi IP scelti con altre VNet o con la rete locale.
 
->[AZURE.WARNING]Non usare questa procedura per creare una rete virtuale da connettere successivamente ad altre VNet o alla rete locale. Se si vuole creare una connessione ibrida o cross-premise sicura, vedere [Informazioni sulla connettività cross-premise protetta della rete virtuale](https://msdn.microsoft.com/library/azure/dn133798.aspx). Se si vuole creare una rete virtuale che si connette a un'altra VNet, vedere [Configurare una connessione tra reti virtuali](https://msdn.microsoft.com/library/azure/dn690122.aspx).
+>[AZURE.WARNING]Non usare questa procedura per creare una rete virtuale da connettere successivamente ad altre VNet o alla rete locale. Se si vuole creare una connessione ibrida o cross-premise sicura, vedere [Informazioni sulla connettività cross-premise protetta della rete virtuale](https://msdn.microsoft.com/library/azure/dn133798.aspx). Se si vuole creare una rete virtuale che si connette a un'altra VNet, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configurare la rete virtuale
 
@@ -66,4 +66,4 @@ Dopo aver creato la rete virtuale, è possibile aggiungervi nuove macchine virtu
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

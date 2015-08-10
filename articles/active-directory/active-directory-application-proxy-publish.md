@@ -79,4 +79,4 @@ Dopo la pubblicazione di applicazioni mediante il proxy dell’applicazione di A
 
 * [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

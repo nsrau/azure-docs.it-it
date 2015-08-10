@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Gestire i contenuti con Servizi multimediali di Azure tramite il portale di gestione di Azure
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
 Questo argomento descrive come usare il portale di gestione di Azure per gestire i contenuti multimediali nell'account di Servizi multimediali.
 
@@ -37,6 +36,9 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 ##<a id="upload"></a>Procedura: Caricare contenuto 
 
 
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
+
 1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Media Services** e quindi sul nome dell'account di Servizi multimediali.
 2. Selezionare la pagina CONTENT. 
 3. Fare clic sul pulsante **Upload** nella pagina o nella parte inferiore del portale. 
@@ -49,13 +51,17 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 
 	![Stato processo][status]
 
-Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco dei contenuti. Per convenzione, al nome verrà aggiunto il suffisso "**-Source**" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
+Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco dei contenuti. Per convenzione, al nome verrà aggiunto il suffisso "\*\*-Source\*\*" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
 
 ![ContentPage][contentpage]
 
 Se il valore delle dimensioni del file non viene aggiornato al termine del processo di caricamento, premere il pulsante **Sync Metadata**. Le dimensioni del file di asset verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina dei contenuti.
 
 ##<a id="index"></a>Procedura: Indicizzare i contenuti.
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. L'indicizzazione del contenuto può essere eseguita dal portale di gestione con la procedura riportata di seguito. Tuttavia, per avere più controllo sui file e sulle modalità del processo di indicizzazione, è possibile usare l'SDK di Servizi multimediali per .NET o le API REST. Per altre informazioni, vedere [Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
 
@@ -69,6 +75,11 @@ I seguenti passaggi mostrano come usare il portale di gestione per indicizzare i
 	![Process][process]
 
 ##<a id="encode"></a>Procedura: Codificare contenuti
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. Servizi multimediali fornisce un codificatore multimediale che consente di specificare la modalità di codifica dei contenuti (ad esempio, i codec da usare, il formato di file, la risoluzione e la velocità in bit).
 
@@ -88,7 +99,7 @@ Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservat
 Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di gestione.
 
 1.  Selezionare il file da codificare. Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
-4. Nella finestra di dialogo **Elabora** scegliere il ** **processore Azure Media Encoder.5. Scegliere una delle **configurazioni di codifica**.
+4. Nella finestra di dialogo **Elabora** scegliere il \*\* **processore Azure Media Encoder.5. Scegliere una delle **configurazioni di codifica**.
 
 	![Process2][process2]
 
@@ -131,6 +142,11 @@ Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali co
 	Dopo aver abilitato la crittografia, ogni volta che un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
 ##<a id="publish"></a>Procedura: Pubblicare contenuti
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ###Panoramica
 
@@ -198,4 +214,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -121,7 +121,7 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Utilizzare la stored procedure **sp_addrolemember** per concedere all'account utente il livello appropriato di autorizzazioni per il database. Per altre informazioni, vedere [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). L'istruzione seguente concede a **login1User** autorizzazioni di sola lettura del database mediante l'aggiunta di **login1User** al ruolo **db_datareader**.
+-   Utilizzare la stored procedure **sp\_addrolemember** per concedere all'account utente il livello appropriato di autorizzazioni per il database. Per altre informazioni, vedere [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). L'istruzione seguente concede a **login1User** autorizzazioni di sola lettura del database mediante l'aggiunta di **login1User** al ruolo **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -137,7 +137,7 @@ Il database **master** tiene traccia degli account di accesso riconoscendo quell
 
         DROP LOGIN login1;
 
--   Il database master presenta la vista **sys.sql_logins** che può essere utilizzata per visualizzare gli account di accesso. Per visualizzare tutti gli account di accesso esistenti, eseguire la seguente istruzione:
+-   Il database master presenta la vista **sys.sql\_logins** che può essere utilizzata per visualizzare gli account di accesso. Per visualizzare tutti gli account di accesso esistenti, eseguire la seguente istruzione:
 
         SELECT * FROM sys.sql_logins;
 
@@ -149,12 +149,12 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Utilizzare la vista **sys.dm_db_partition_stats** per calcolare la dimensione del database. La vista **sys.dm_db_partition_stats** restituisce informazioni sulle pagine e sul numero di righe per ogni partizione del database, che possono essere utilizzate per calcolare la dimensione del database. La seguente query restituisce la dimensione del database in megabyte:
+-   Utilizzare la vista **sys.dm\_db\_partition\_stats** per calcolare la dimensione del database. La vista **sys.dm\_db\_partition\_stats** restituisce informazioni sulle pagine e sul numero di righe per ogni partizione del database, che possono essere utilizzate per calcolare la dimensione del database. La seguente query restituisce la dimensione del database in megabyte:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Utilizzare le viste **sys.dm_exec_connections** e **sys.dm_exec_sessions** per recuperare informazioni sulle attuali connessioni degli utenti e sulle attività interne relative al database. La seguente query restituisce informazioni relative alla connessione corrente:
+-   Utilizzare le viste **sys.dm\_exec\_connections** e **sys.dm\_exec\_sessions** per recuperare informazioni sulle attuali connessioni degli utenti e sulle attività interne relative al database. La seguente query restituisce informazioni relative alla connessione corrente:
 
         SELECT
             e.connection_id,
@@ -167,7 +167,7 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Utilizzare la vista **sys.dm_exec_query_stats** per recuperare statistiche aggregate sulle prestazioni per piani di query nella cache. La seguente query restituisce informazioni sulle cinque principali query classificate per tempo medio CPU.
+-   Utilizzare la vista **sys.dm\_exec\_query\_stats** per recuperare statistiche aggregate sulle prestazioni per piani di query nella cache. La seguente query restituisce informazioni sulle cinque principali query classificate per tempo medio CPU.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -186,4 +186,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -23,8 +23,8 @@
 
 Visual Studio Application Insights consente di monitorare un'applicazione monitorata per le operazioni seguenti:
 
-* [**Uso**][windowsUsage]: acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
-* [**Arresti anomali**][windowsCrash]: ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
+* [**Uso**][windowsUsage]\: acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
+* [**Arresti anomali**][windowsCrash]\: ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 * Una sottoscrizione a [Microsoft Azure][azure].
 * Visual Studio 2013 o versione successiva.
 
-## 1. Creare una risorsa Application Insights 
+## 1\. Creare una risorsa Application Insights 
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
@@ -50,7 +50,7 @@ La chiave identifica la risorsa. È necessaria subito per configurare SDK per l'
 ![Aprire il cassetto a discesa Informazioni di base e selezionare la chiave di strumentazione](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Aggiungere Application Insights SDK alle app
+## 2\. Aggiungere Application Insights SDK alle app
 
 In Visual Studio aggiungere l'SDK appropriato al progetto.
 
@@ -66,18 +66,20 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 
 3. Selezionare **Application Insights per applicazioni Windows**.
 
-4. Aggiungere un file ApplicationInsights.config alla radice della soluzione e inserire la chiave di strumentazione copiata in precedenza. Di seguito è riportato un file XML di esempio per questo file di configurazione. **Assicurarsi di impostare l'Azione di compilazione del file ApplicationInsights.config su "Contenuto" e Copia nella directory di output su "Copia sempre"**.
+4. Aggiungere un file ApplicationInsights.config alla radice del progetto e inserire la chiave di strumentazione copiata in precedenza. Di seguito è riportato un file XML di esempio per questo file di configurazione.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Impostare le proprietà del file ApplicationInsights.config: **Azione di compilazione** == **Contenuto** e **Copia nella directory di output** == **Copia sempre**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Aggiungere il codice di inizializzazione seguente. È consigliabile aggiungere questo codice al costruttore `App()`. Se questa inizializzazione non viene eseguita nel costruttore dell'app, è possibile che non venga eseguita la raccolta automatica iniziale di PageViews.
+5. Aggiungere il codice di inizializzazione seguente. È preferibile aggiungere questo codice al costruttore `App()`. Se si esegue in un'altra operazione, si potrebbe perdere la raccolta automatica delle prime PageViews.
 
 ```C#
 	public App()
@@ -90,7 +92,7 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 	}  
 ```
 
-**App di Windows universali**: ripetere i passaggi per il progetto di Phone e Store. [Esempio di app di Windows 8.1 universale](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+**App universali di Windows**: ripetere i passaggi per i progetti Phone e Store. [Esempio di app universale di Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Abilitare l'accesso alla rete per l'app
 
@@ -194,7 +196,7 @@ Aggiungere Application Insights da Esplora soluzioni.
 
 ## Per eseguire l'aggiornamento a una nuova versione dell’SDK
 
-Quando [viene rilasciata una nuova versione di SDK](app-insights-release-notes-windows.md): * Fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. * Selezionare i pacchetti di Application Insights installati e scegliere Azione: aggiornamento.
+Quando [viene rilasciata una nuova versione di SDK](app-insights-release-notes-windows.md): \* Fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. \* Selezionare i pacchetti di Application Insights installati e scegliere Azione: aggiornamento.
 
 
 ## <a name="usage"></a>Passaggi successivi
@@ -227,4 +229,4 @@ Quando [viene rilasciata una nuova versione di SDK](app-insights-release-notes-w
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

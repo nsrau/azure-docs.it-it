@@ -69,8 +69,13 @@
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
+<tr>
+   <td valign="middle"><p>Regole di avviso per ogni sottoscrizione</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+</tr>
 </table>
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

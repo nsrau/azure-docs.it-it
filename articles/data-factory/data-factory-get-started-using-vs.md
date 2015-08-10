@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'uso di Data factory di Azure" 
+	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL" 
 	description="Questa esercitazione illustra come creare una pipeline di dati di esempio che consente di copiare dati da un BLOB a un'istanza del database SQL di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Visual Studio
@@ -249,4 +249,4 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 
 Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

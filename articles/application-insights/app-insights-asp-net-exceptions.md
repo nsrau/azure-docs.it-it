@@ -160,7 +160,7 @@ Se la pagina Web include file di script provenienti da reti per la distribuzione
 
 Per Web Form, il modulo HTTP potrà raccogliere le eccezioni quando non sono configurati reindirizzamenti con CustomErrors.
 
-Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti alla funzione Application_Error in Global.asax.cs. Aggiungere un file Global.asax se non ne esiste già uno.
+Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti alla funzione Application\_Error in Global.asax.cs. Aggiungere un file Global.asax se non ne esiste già uno.
 
 *C#*
 
@@ -441,4 +441,4 @@ Aggiungere l'attributo alle implementazioni del servizio:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

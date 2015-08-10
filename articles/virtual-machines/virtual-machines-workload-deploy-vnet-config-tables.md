@@ -28,7 +28,7 @@ I passaggi di questo argomento illustrano la creazione di una rete virtuale cros
 
 Queste tabelle in genere vengono compilate in un argomento che descrive la configurazione di un carico di lavoro IT in Azure e include una rete virtuale cross-premise. Per un esempio, vedere [Fase 1: Configurare Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-La procedura seguente fa riferimento alle informazioni riportate in queste tabelle come guida nel processo di configurazione della rete virtuale in Gestione dei servizi. Se non sono già state specificate le impostazioni in queste tabelle in un altro argomento, ma si desidera comunque configurare una rete virtuale cross-premise, vedere [Configurazione di una connessione da sito a sito cross-premise a una rete virtuale di Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+La procedura seguente fa riferimento alle informazioni in queste tabelle come guida nel processo di configurazione della rete virtuale. Se non sono già state specificate le impostazioni in queste tabelle in un altro argomento, ma si desidera comunque configurare una rete virtuale cross-premise, vedere [Configurazione di una connessione da sito a sito cross-premise a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -65,6 +65,6 @@ La procedura seguente fa riferimento alle informazioni riportate in queste tabel
 
 [Attività di configurazione della rete virtuale](https://msdn.microsoft.com/library/jj156206.aspx)
 
-[Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](https://msdn.microsoft.com/library/dn133795.aspx)
+[Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

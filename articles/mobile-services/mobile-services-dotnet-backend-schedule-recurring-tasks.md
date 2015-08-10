@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" 
+	pageTitle="Pianificare i processi ricorrenti in Servizi mobili di Azure" 
 	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Pianificare i processi ricorrenti in Servizi mobili 
@@ -36,16 +36,14 @@ Questa esercitazione descrive come usare la pianificazione processi per creare u
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>In Esplora soluzioni di Visual Studio aprire il file web.config relativo al progetto di servizio mobile, individuare le impostazioni dell'app <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e sostituire i valori di queste chiavi con i valori di chiave e segreto consumer di Twitter configurate nel portale.</p></li>
+&nbsp;&nbsp;7. In Esplora soluzioni di Visual Studio aprire il file web.config relativo al progetto di servizio mobile, individuare le impostazioni dell'app `MS_TwitterConsumerKey` e `MS_TwitterConsumerSecret` e sostituire i valori di queste chiavi con i valori di chiave e segreto consumer di Twitter configurate nel portale.
 
-<li><p>Nella stessa sezione, aggiungere le nuove impostazioni dell'app elencate di seguito, sostituendo i segnaposto con i valori di token di accesso e di segreto token di accesso configurati come impostazioni app nel portale:</p>
+&nbsp;&nbsp;8. Nella stessa sezione, aggiungere le nuove impostazioni dell'app elencate di seguito, sostituendo i segnaposto con i valori di token di accesso e di segreto token di accesso configurati come impostazioni app nel portale:
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori configurati nel portale, ignorando le impostazioni di progetto.  </p></li>
-</ol>
+Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori configurati nel portale, ignorando le impostazioni di progetto.
 
 ##<a name="install-linq2twitter"></a>Scaricare e installare la libreria LINQ to Twitter
 
@@ -88,7 +86,7 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 	        public DateTime Date { get; set; }
     	}
 
-4. Espandere la cartella Models, aprire il file del contesto modello di dati (denominato <em>service_name</em>Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet** tipizzata:
+4. Espandere la cartella Models, aprire il file del contesto modello di dati (denominato *nome\_servizio\*Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet**tipizzata:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		    }
 		}
 
-	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente <em>nome&#95;servizio&#95;mobile</em>Service e <em>nome&#95;servizio&#95;mobile</em>Contex.
+	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente *nome&#95;servizio&#95;mobile\*Servizio e *nome&#95;servizio&#95;mobile\*Contesto. 
    	
 	Inoltre, il metodo di override **ExecuteAsync** chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
@@ -301,4 +300,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

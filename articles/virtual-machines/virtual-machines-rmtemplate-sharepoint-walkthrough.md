@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Il modello di gestione risorse di farm di SharePoint a tre server
 
 In questo argomento viene descritta la struttura del file di modello azuredeploy.json per la farm di SharePoint a tree server. È possibile visualizzare il contenuto di questo modello nel browser da [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-In alternativa, per esaminare una copia locale del file azuredeploy.json, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\Azure\Templates\SharePointFarm). Inserire il nome della cartella ed eseguire questi comandi nel prompt dei comandi di Azure PowerShell.
+In alternativa, per esaminare una copia locale del file azuredeploy.json, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\SharePointFarm). Inserire il nome della cartella ed eseguire questi comandi nel prompt dei comandi di Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -376,4 +377,4 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

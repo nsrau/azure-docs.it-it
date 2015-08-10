@@ -29,19 +29,19 @@ Azure Active Directory è una soluzione completa di gestione dell’identità e 
 All'interno di Azure Active Directory, una delle caratteristiche principali è la possibilità di gestire l'accesso alle risorse. Queste risorse possono far parte della directory, come nel caso delle autorizzazioni per gestire oggetti tramite i ruoli nella directory, o risorse che sono esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure e i siti di SharePoint o in risorse locali. Esistono 4 modalità con le quali possono assegnare a un utente i diritti di accesso a una risorsa:
 
 
-1. Assegnazione diretta
+1\. Assegnazione diretta
 
 Agli utenti può essere assegnata direttamente una risorsa dal proprietario della risorsa.
 
-2. Appartenenza al gruppo
+2\. Appartenenza al gruppo
 
 Un gruppo può essere assegnato a una risorsa dal proprietario della risorsa, così facendo, si garantisce ai membri di quel gruppo l'accesso alla risorsa. L’appartenenza al gruppo può quindi essere gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
 
-3. Basato sulla regola
+3\. Basato sulla regola
 
 Il proprietario della risorsa può utilizzare una regola per esprimere a quali utenti deve essere assegnato l'accesso a una risorsa. Il risultato della regola dipende dagli attributi utilizzati nella regola e, dai relativi valori per utenti specifici, così facendo, il proprietario della risorsa delega in modo efficiente il diritto di gestire l'accesso alle sue risorse alla fonte autorevole per le attribuzioni utilizzate nella regola. Si noti che il proprietario della risorsa gestisce ancora la regola stessa e determina quali attributi e valori forniscono l'accesso alle risorse.
 
-4. Autorità esterna
+4\. Autorità esterna
 
 L'accesso a una risorsa è derivato da un'origine esterna, ad esempio, un gruppo che è sincronizzato da un'origine attendibile come ad esempio una directory locale o da un'applicazione SaaS, ad esempio WorkDay. Il proprietario della risorsa assegna al gruppo il compito di fornire l'accesso alla risorsa, e la fonte esterna gestisce i membri del gruppo.
 
@@ -92,4 +92,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Query di elenco efficienti" 
-	description="Informazioni su come ridurre il numero di elementi restituiti in un elenco e la quantità di informazioni restituite per ogni elemento" 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Query di elenco efficienti"
+	description="Informazioni su come ridurre il numero di elementi restituiti in un elenco e la quantità di informazioni restituite per ogni elemento"
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Query di elenco efficienti
@@ -80,4 +81,4 @@ La proprietà [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.
 
 > [AZURE.NOTE]Per assicurare la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate all'API elenco è consigliabile usare sempre clausole di filtro e selezione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

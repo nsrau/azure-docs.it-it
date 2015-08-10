@@ -324,4 +324,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

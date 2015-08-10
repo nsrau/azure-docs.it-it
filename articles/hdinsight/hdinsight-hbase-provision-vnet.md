@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Effettuare il provisioning di cluster HBase in una rete virtuale | Microsoft Azure" 
 	description="Introduzione all'uso di HBase in Azure HDInsight. Informazioni su come creare cluster HBase di HDInsight in Rete virtuale di Azure." 
-	keywords=""	
 	services="hdinsight,virtual-network" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -26,6 +25,13 @@ Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere dis
 - Connettività diretta dell'applicazione Web con i nodi del cluster HBase, che consente le comunicazioni tramite le API RPC (Remote Procedure Call) Java di HBase.
 - Miglioramento delle prestazioni, poiché il traffico non deve attraversare più gateway e servizi di bilanciamento del carico.
 - Possibilità di elaborare le informazioni sensibili in modo più sicuro, senza esporre un endpoint pubblico.
+
+>[AZURE.NOTE]Azure HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su gruppi di affinità. Usare il cmdlet Get-AzureVNetConfig di Azure PowerShell per verificare se una rete virtuale esistente di Azure è basata sulla posizione. Se la rete virtuale non è basata sulla posizione, saranno disponibili le opzioni seguenti:
+>
+> - Esportare la configurazione di rete virtuale esistente, quindi creare una nuova rete virtuale. Per impostazione predefinita, tutte le nuove reti virtuali sono basate sulla posizione.
+> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere il post di blog relativo alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+
+
 
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -194,7 +200,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
+		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host\_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -427,4 +433,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

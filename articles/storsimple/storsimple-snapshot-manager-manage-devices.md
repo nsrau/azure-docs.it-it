@@ -152,7 +152,7 @@ Utilizzare la procedura seguente per visualizzare i dettagli di un dispositivo S
 
 3. Nel riquadro **Risultati**, fare clic con il pulsante destro del mouse sul nome del dispositivo, quindi fare clic su **Dettagli**.
 
-4. Viene visualizzata la finestra di dialogo **Dettagli dispositivo**. In questa casella vengono mostrati il nome, il modello, la versione, il numero di serie, lo stato, il nome qualificato iSCSI (IQN) di destinazione e la data e l’ora dell’ultima sincronizzazione.
+4\. Viene visualizzata la finestra di dialogo **Dettagli dispositivo**. In questa casella vengono mostrati il nome, il modello, la versione, il numero di serie, lo stato, il nome qualificato iSCSI (IQN) di destinazione e la data e l’ora dell’ultima sincronizzazione.
 
    - Fare clic su **Risincronizza** per sincronizzare il dispositivo.
 
@@ -238,7 +238,7 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 3. Rimuovere le informazioni di configurazione correlate al dispositivo precedente:
 
-    1. In Esplora file, passare a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+    1. In Esplora file, passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog. 
 
     2. Eliminare i file nella cartella BACatalog.
 
@@ -262,4 +262,4 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

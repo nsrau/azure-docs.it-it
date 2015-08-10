@@ -48,7 +48,7 @@ Come illustrato nel diagramma seguente, POST può essere rilasciato solo per una
 ## Creare una nuova risorsa con POST 
 Per acquisire maggiore familiarità con il modello di interazione, si consideri l'eventualità di creare una nuova risorsa (INSERT). Per creare una nuova risorsa è necessario inviare una richiesta HTTP POST con il corpo della richiesta contenente la rappresentazione della risorsa rispetto all'URI del feed contenitore a cui questa appartiene. L'unica proprietà obbligatoria per la richiesta è l'ID della risorsa.
 
-Ad esempio, per creare un nuovo database, si registra una risorsa del database (impostando la proprietà id con un nome univoco) su /dbs. Analogamente, per creare una nuova raccolta, è necessario registrare una risorsa della raccolta su /dbs/_rid/colls/e così via. La risposta contiene la risorsa completamente impegnata insieme alle proprietà generate dal sistema, compreso il collegamento _self della risorsa, che può essere usato per passare ad altre risorse. Come esempio di modello di interazione semplice basato su HTTP, un client può inviare una richiesta HTTP per creare un nuovo database all'interno di un account. 
+Ad esempio, per creare un nuovo database, si registra una risorsa del database (impostando la proprietà id con un nome univoco) su /dbs. Analogamente, per creare una nuova raccolta, è necessario registrare una risorsa della raccolta su /dbs/\_rid/colls/e così via. La risposta contiene la risorsa completamente impegnata insieme alle proprietà generate dal sistema, compreso il collegamento _self della risorsa, che può essere usato per passare ad altre risorse. Come esempio di modello di interazione semplice basato su HTTP, un client può inviare una richiesta HTTP per creare un nuovo database all'interno di un account. 
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -82,7 +82,7 @@ Per un altro esempio di creazione ed esecuzione di una risorsa, valutare la segu
         response.setBody("Hello, World");
      }
 
-La stored procedure può essere registrata in una raccolta in MyDb mediante l'invio di un POST a /dbs/_rid-db/colls/_rid-coll/sprocs.
+La stored procedure può essere registrata in una raccolta in MyDb mediante l'invio di un POST a /dbs/\_rid-db/colls/\_rid-coll/sprocs.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
@@ -253,13 +253,13 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 - [Riferimento SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [Programmazione di DocumentDB: stored procedure, trigger e funzioni definite dall'utente](../documentdb-programming/)
 - [Documentazione di riferimento di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - Specifica JSON [http://-www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - Specifica HTTP [ http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- Tag di entità [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- Tag di entità [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

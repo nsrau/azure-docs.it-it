@@ -49,9 +49,9 @@ Inoltre, durante la pianificazione di modifiche da apportare a un sito Web attiv
 
 È possibile usare gratuitamente un dominio di App Web del servizio app di Azure o eseguire il mapping al nome di dominio registrato e proteggere il proprio marchio con il certificato SSL firmato da un'Autorità di certificazione.
 
-Quando si esegue il proprio sito Web su App Web, il dominio ***.azurewebsites.net** è gratuito. In alternativa, è possibile eseguire il mapping del sito Web a un [dominio personalizzato], ad esempio contoso.com, ottenuto da qualsiasi registro DNS come GoDaddy.
+Quando si esegue il proprio sito Web su App Web, il dominio **\*.azurewebsites.net** è gratuito. In alternativa, è possibile eseguire il mapping del sito Web a un [dominio personalizzato], ad esempio contoso.com, ottenuto da qualsiasi registro DNS come GoDaddy.
 
-Se si raccolgono informazioni sugli utenti, si pratica l'e-commerce o si gestiscono altri dati di natura sensibile, è possibile proteggere l'immagine del marchio e i propri clienti mediante [HTTPS]. Il nome di dominio ***.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL in App Web. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi del servizio app di Azure].
+Se si raccolgono informazioni sugli utenti, si pratica l'e-commerce o si gestiscono altri dati di natura sensibile, è possibile proteggere l'immagine del marchio e i propri clienti mediante [HTTPS]. Il nome di dominio **\*.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL in App Web. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi del servizio app di Azure].
 
 ## Operare a livello internazionale
 
@@ -140,4 +140,4 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

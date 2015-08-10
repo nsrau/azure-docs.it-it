@@ -57,6 +57,13 @@ Nel diagramma precedente:
 - Poiché l'indirizzo VIP pubblico dell'ambiente del servizio app è 192.23.1.2, questo sarà l'indirizzo IP in uscita usato quando si effettuano chiamate agli endpoint "Internet".
 - L'intervallo CIDR della subnet contenitore per l'ambiente del servizio app è 10.0.1.0/26. Gli altri endpoint all'interno della stessa infrastruttura di rete virtuale visualizzeranno le chiamate dalle app come provenienti da un punto compreso in questo intervallo di indirizzi.
 
+## Chiamate tra gli ambienti del servizio app ##
+Se si distribuiscono più ambienti del servizio app nella stessa rete virtuale e si effettuano chiamate in uscita da un ambiente del servizio app a un altro ambiente del servizio app, può verificarsi uno scenario più complesso. Anche questi tipi di chiamate tra ambienti del servizio app saranno considerati come chiamate "Internet".
+
+Esempio di uso dell'ambiente del servizio app precedente con l'indirizzo IP in uscita 192.23.1.2: se un'applicazione in esecuzione nell'ambiente del servizio app effettua una chiamata in uscita a un'app in esecuzione in un secondo ambiente del servizio app che si trova nella stessa rete virtuale, le chiamate in uscita che arrivano al secondo ambiente del servizio app sembreranno provenienti dall'indirizzo 192.23.1.2 (vale a dire non dall'intervallo di indirizzi della subnet del primo ambiente del servizio app).
+
+Anche se le chiamate tra ambienti del servizio app diversi sono considerate come chiamate "Internet", quando entrambi gli ambienti del servizio app si trovano nella stessa area Azure, il traffico di rete rimarrà nella rete dell'area di Azure e non transiterà fisicamente attraverso la rete Internet pubblica. Di conseguenza è possibile usare un gruppo di sicurezza di rete nella subnet del secondo ambiente del servizio app per consentire solo chiamate in ingresso da 192.23.1.2, garantendo comunicazioni sicure tra gli ambienti del servizio app.
+
 ## Informazioni e collegamenti aggiuntivi ##
 Informazioni dettagliate sulle porte in ingresso usate dagli ambienti del servizio app e sull'uso di gruppi di sicurezza di rete per controllare il traffico in ingresso sono disponibili [qui][controllinginboundtraffic].
 
@@ -72,4 +79,4 @@ Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Migrazione al database SQL di Azure" 
+   pageTitle="Migrazione di database nel database SQL di Azure" 
    description="Database SQL di Microsoft Azure, distribuzione del database, migrazione del database, importazione del database, esportazione del database, migrazione guidata" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,8 @@
    ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-# Panoramica
+# Migrazione di database nel database SQL di Azure
+
 La versione 12 del database SQL di Azure offre una compatibilità quasi completa con SQL Server 2014 e quindi semplifica notevolmente l'attività di migrazione della maggior parte dei database da SQL Server al database SQL di Azure. La migrazione di molti database è un'operazione di spostamento semplice che richiede poche modifiche allo schema, con una minima o addirittura nessuna attività di riprogettazione delle applicazioni. Anche quando è necessario apportare modifiche ai database, l'ambito di tali modifiche è più limitato.
 
 Per impostazione predefinita, le funzionalità con ambito server di SQL Server non sono supportate dal database SQL. Pertanto, le applicazioni e i database basati su queste funzionalità continueranno a richiedere alcune attività di riprogettazione prima di poter essere sottoposti a migrazione. Anche se nella versione 12 del database SQL è stata migliorata la compatibilità con SQL Server, la migrazione deve comunque essere pianificata ed eseguita con attenzione, soprattutto per i database più complessi di dimensioni maggiori.
@@ -81,4 +82,4 @@ Utilizzare il[più recente SQL Server Data Tools per Visual Studio](https://msdn
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

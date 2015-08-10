@@ -47,8 +47,8 @@ Per accedere all'interfaccia della riga di comando di Azure, usare il comando `a
 
 	info:             _    _____   _ ___ ___
 	info:            /_\  |_  / | | | _ \ __|
-	info:      _ ___/ _ __/ /| |_| |   / _|___ _ _
-	info:    (___  /_/ _/___|___/|_|____| _____)
+	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
@@ -252,9 +252,7 @@ Se si scrive uno script che si basa sullo stato di uscita, verificare che i coma
 
 ## Risorse aggiuntive
 
-* [Elenco di comandi dettagliati di gestione del servizio][Using the Azure CLI]
-
-* [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows](cli-cli-azure-resource-manager)
+* [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi][Using the Azure CLI]
 
 * [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse][cliarm]
 
@@ -283,4 +281,4 @@ Se si scrive uno script che si basa sullo stato di uscita, verificare che i coma
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

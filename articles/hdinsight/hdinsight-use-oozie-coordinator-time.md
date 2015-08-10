@@ -96,7 +96,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 
 1. **L'istruzione DROP TABLE** consente di eliminare la tabella di Hive log4j, se esistente.
 2. **L'istruzione CREATE TABLE** consente di creare una tabella di Hive log4j esterna che punti al percorso del file di log log4j.
-3.  **Il percorso del file di log log4j**. Il delimitatore di campo è ",". Il delimitatore di riga predefinito è "\n". La tabella esterna di Hive viene usata per evitare che il file di dati venga rimosso dal percorso originale, nel caso in cui si desideri eseguire il flusso di lavoro di Oozie più volte.
+3.  **Il percorso del file di log log4j**. Il delimitatore di campo è ",". Il delimitatore di riga predefinito è "\\n". La tabella esterna di Hive viene usata per evitare che il file di dati venga rimosso dal percorso originale, nel caso in cui si desideri eseguire il flusso di lavoro di Oozie più volte.
 3. **L'istruzione INSERT OVERWRITE** conta le occorrenze di ogni tipo di livello di log nella tabella di Hive log4j e salva l'output in un percorso dell'archivio BLOB di Azure.
 
 **Nota**: il percorso di Hive è caratterizzato da un problema noto che si verifica durante l'invio di un processo Oozie. Le istruzioni per la correzione del problema sono disponibili nell'articolo della sezione Wiki di TechNet relativo all'[errore di HDInsight Hive "Impossibile rinominare"][technetwiki-hive-error].
@@ -117,7 +117,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 
 	Il file di definizione del flusso di lavoro (workflow.xml in questa esercitazione) passerà questi valori allo script HiveQL in fase di esecuzione.
 
-2. Salvare il file come **C:\Tutorials\UseOozie\useooziewf.hql** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione. Il file di script verrà distribuito nel cluster HDInsight più avanti in questa esercitazione.
+2. Salvare il file come **C:\\Tutorials\\UseOozie\\useooziewf.hql** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione. Il file di script verrà distribuito nel cluster HDInsight più avanti in questa esercitazione.
 
 
 
@@ -201,7 +201,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 <tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
 </table>Per altre informazioni sul flusso di lavoro di Oozie e sull'utilizzo di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per cluster HDInsight versione 2.1).
 
-2. Salvare il file come **C:\Tutorials\UseOozie\workflow.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
+2. Salvare il file come **C:\\Tutorials\\UseOozie\\workflow.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
 
 **Per definire il coordinatore**
 
@@ -225,7 +225,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
     | ${coordTimezone} | Oozie elabora i processi del coordinatore in un fuso orario predefinito che non tiene conto dell'ora legale (in genere rappresentato dall'acronimo UTC). Questo fuso orario viene definito "Fuso orario di elaborazione Oozie". |
 	| ${wfPath} | Percorso del file workflow.xml. Se il nome file del flusso di lavoro non è quello predefinito (workflow.xml) sarà necessario specificarlo. |
 
-2. Salvare il file come **C:\Tutorials\UseOozie\coordinator.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
+2. Salvare il file come **C:\\Tutorials\\UseOozie\\coordinator.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
 
 ##<a id="deploy"></a>Distribuire il progetto Oozie e operazioni preliminari all'esercitazione
 
@@ -273,7 +273,7 @@ Per altre informazioni, vedere l'[articolo introduttivo alle tabelle interne ed 
 
 **Operazioni preliminari all'esercitazione**
 
-1. Aprire Windows PowerShell ISE (nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
+1. Aprire Windows PowerShell ISE (nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
 2. Nel riquadro inferiore eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
 
 		Add-AzureAccount
@@ -370,7 +370,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per inviare un processo Oozie**
 
-1. Aprire Windows PowerShell ISE (nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
+1. Aprire Windows PowerShell ISE (nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Per altre informazioni, vedere la pagina dedicata all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
 
 3. Copiare lo script seguente nel riquadro di script e impostare le prime 14 variabili (ignorare **$storageUri**).
 
@@ -634,7 +634,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di gestione][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di gestione][hdinsight-admin-portal].
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -733,4 +733,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

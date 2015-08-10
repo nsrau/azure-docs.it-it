@@ -60,4 +60,4 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

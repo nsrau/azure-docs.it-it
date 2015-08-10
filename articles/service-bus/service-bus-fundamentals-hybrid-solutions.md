@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Bus di servizio di Azure
@@ -25,7 +25,7 @@ A seconda delle situazioni, possono essere necessari stili di comunicazione dive
 
 Il bus di servizio è un servizio cloud multi-tenant, il che significa che il servizio è condiviso da più utenti. Ogni utente, ad esempio uno sviluppatore di applicazioni, crea uno *spazio dei nomi* e quindi definisce i meccanismi di comunicazione necessari all'interno di tale spazio dei nomi, come illustrato nella figura 1.
 
-![Diagramma del bus di servizio di Azure][svc-bus]
+![][1]
  
 **Figura 1: il bus di servizio offre un servizio multi-tenant per la connessione di applicazioni attraverso il cloud.**
 
@@ -42,12 +42,11 @@ Le applicazioni Windows possono usare questi oggetti tramite Windows Communicati
 
 È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione generico nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
-
 ## Queues
 
 Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. Nella figura 2 è illustrato questo scenario.
 
-![Diagramma delle code del bus di servizio][queues]
+![][2]
  
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
@@ -67,12 +66,11 @@ Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, a
 
 Le code risultano utili in un numero limitato di situazioni. Consentono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, pertanto sono ideali per l'utilizzo con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
-
 ## Argomenti
 
 Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. Talvolta, sono più indicati gli argomenti del bus di servizio. Nella figura 3 viene illustrato questo concetto.
 
-![Diagramma degli argomenti e delle sottoscrizioni del bus di servizio][topics-subs]
+![][3]
  
 **Figura 3**: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.
 
@@ -84,12 +82,11 @@ Un argomento e una coda presentano caratteristiche simili. I mittenti inviano me
 
 Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione ReceiveAndDelete o PeekLock. Diversamente dalle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrittori. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 
-
 ## Inoltri
 
 Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi casi nel bus di servizio sono disponibili gli inoltri, come illustrato nella Figura 4.
 
-![Diagramma dell'inoltro del bus di servizio][relay]
+![][4]
  
 **Figura 4: l'inoltro del bus di servizio garantisce la comunicazione sincrona bidirezionale tra applicazioni.**
 
@@ -128,4 +125,9 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
 
-<!---HONumber=July15_HO4-->
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+
+<!---HONumber=July15_HO5-->

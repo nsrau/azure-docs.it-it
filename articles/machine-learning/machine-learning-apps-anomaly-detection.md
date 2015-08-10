@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="05/05/2015" 
+	ms.date="07/28/2015" 
 	ms.author="luisca"/>
 
 
@@ -125,4 +125,4 @@ che è una rappresentazione della tabella riportata di seguito:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

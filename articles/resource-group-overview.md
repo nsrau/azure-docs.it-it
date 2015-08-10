@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -38,13 +38,15 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 
 Nel portale di anteprima di Azure, tutte le nuove risorse vengono create in un gruppo di risorse. Anche se si crea un'unica risorsa, ad esempio un sito Web, è necessario decidere se aggiungere tale risorsa a un gruppo esistente o creare un nuovo gruppo per tale risorsa.
 
-Nell'immagine seguente viene illustrato un gruppo di risorse con un sito Web, un database e Application Insights.
+L'immagine seguente mostra un gruppo di risorse con Application Insights, server di database, database, piano di servizio app e sito web.
 
-![riepilogo del gruppo di risorse](./media/resource-group-overview/resourcegroupsummary.png)
+![riepilogo del gruppo di risorse](./media/resource-group-overview/resourcegroupsummary2.png)
 
-Un gruppo di risorse può inoltre essere collegato a una risorsa in un altro gruppo di risorse. Una risorsa viene considerata collegata quando esiste una dipendenza di distribuzione tra le risorse in diversi gruppi di risorse. Ad esempio, se un'app Web in un gruppo di risorse si connette al database in un altro gruppo di risorse, tali risorse sono collegate.
+Un gruppo di risorse può inoltre essere collegato a una risorsa in un altro gruppo di risorse. Una risorsa viene considerata collegata quando esiste una dipendenza di distribuzione tra le risorse in diversi gruppi di risorse. Ad esempio, se un'app Web in un gruppo di risorse si connette al database in un altro gruppo di risorse, tali risorse sono collegate. È anche possibile definire in modo esplicito i collegamenti tra le risorse in altri gruppi di risorse.
 
-![risorsa collegata](./media/resource-group-overview/linkedresource.png)
+Per altre informazioni sul collegamento di risorse, vedere [Collegamento di risorse in Gestione risorse di Azure](resource-group-link-resources.md)
+
+Per spostare una risorsa in un nuovo gruppo di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 
 Dal portale di anteprima è facile visualizzare i costi, monitorare gli eventi e gestire gli avvisi. Nell'immagine seguente viene illustrata la fatturazione consolidata per un gruppo.
 
@@ -72,6 +74,8 @@ Per gli schemi del modello, vedere [Schemi di Gestione risorse di Azure](https:/
 
 Per informazioni sull'utilizzo di un modello per la distribuzione, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md) e [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
+Per informazioni aggiuntive sulla struttura dei modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md).
+
 ## Tag
 
 Gestione risorse di Azure offre una funzionalità di assegnazione di tag che consente di classificare le risorse in base ai requisiti di gestione o fatturazione. È possibile utilizzare i tag quando si dispone di un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse in modo più significativo per l'utente. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto.
@@ -94,11 +98,13 @@ Nel portale di anteprima, è possibile definire il controllo di accesso facendo 
 
 Gestione risorse di Azure registra automaticamente le azioni dell'utente per il controllo.
 
-È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle.
+È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
 Per ulteriori informazioni sul controllo di accesso basato sui ruoli, vedere [Controllo dell'accesso basato sui ruoli nel portale di anteprima di Microsoft Azure](./role-based-access-control-configure.md).
 
 Per esempi di impostazione dei criteri di accesso, vedere [Gestione e controllo di accesso alle risorse](azure-portal/resource-group-rbac.md).
+
+Per le procedure consigliate, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 
 ## Livello di gestione coerente
 
@@ -110,33 +116,13 @@ Per informazioni sull'interfaccia della riga di comando di Azure, vedere [Utiliz
 
 Per informazioni sull'API REST, vedere [Informazioni si riferimento sull'API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+Per altre informazioni sull'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md).
+
 ## Passaggi successivi
-Introduzione
 
-- [Utilizzo di Azure PowerShell con Gestione risorse](./powershell-azure-resource-manager.md)
-- [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
+- Per informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md)
+- Per distribuire il modello creato, vedere [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
+- Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni modello](./resource-group-template-functions.md)
+- Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
 
-Creazione e distribuzione delle applicazioni
-
-- [Creazione di modelli](./resource-group-authoring-templates.md)
-- [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
-- [Risoluzione dei problemi delle distribuzioni](virtual-machines/resource-group-deploy-debug.md)
-- [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Distribuire le risorse usando le librerie .NET e un modello](virtual-machines/arm-template-deployment.md)
-- [Funzioni di modello](./resource-group-template-functions.md)
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
-- [Schemi del modello](https://github.com/Azure/azure-resource-manager-schemas)
-
-Organizzazione delle risorse
-
-- [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
-
-Gestione e controllo dell'accesso
-
-- [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
-- [Controllo degli accessi in base al ruolo nel portale di anteprima](./role-based-access-control-configure.md)
-- [Autenticazione di un'entità servizio](./resource-group-authenticate-service-principal.md)
-- [Creare una nuova entità servizio utilizzando il portale di Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
