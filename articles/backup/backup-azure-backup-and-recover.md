@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure Backup - backup e ripristino da un Client di Windows o Windows Server
-	description="Informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor=""/>
+   pageTitle="Azure Backup - backup e ripristino da un Client di Windows o Windows Server | Microsoft Azure"
+   description="Informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="jwhit"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"

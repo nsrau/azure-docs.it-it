@@ -1,11 +1,11 @@
-<properties 
-	pageTitle="Accessi da più aree geografiche" 
-	description="Un report che indica agli utenti laddove due accessi avere avuto luogo da diverse aree e l’intervallo tra i due accessi fa sì che sia impossibile che l'utente si sia spostato tra tali aree."
-	services="active directory"
-	documentationCenter =" "
+<properties
+	pageTitle="Accessi da più aree geografiche"
+	description="Un report che indica agli utenti laddove due accessi avere avuto luogo da diverse aree e l’intervallo tra i due accessi fa sì che sia impossibile che l'utente si sia spostato tra tali aree.""
+	services="active-directory"
+	documentationCenter=""
 	authors="kenhoff"
 	manager="ilanas"
-	editor=" "/ >
+	editor=""/>
 
 <tags
 	ms.service="active-directory"

@@ -1,11 +1,11 @@
-<properties 
-	pageTitle="Attività di accesso irregolare" 
-	description="Un report che include accessi che sono stati identificati come anomali dagli algoritmi. di apprendimento automatico" 
-	services="active directory"
-	documentationCenter=" "
+<properties
+	pageTitle="Attività di accesso irregolare"
+	description="Un report che include accessi che sono stati identificati come anomali dagli algoritmi. di apprendimento automatico""
+	services="active-directory"
+	documentationCenter=""
 	authors="kenhoff"
 	manager="ilanas"
-	editor=" "/ >
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
