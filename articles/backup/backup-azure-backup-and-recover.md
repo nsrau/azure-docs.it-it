@@ -1,6 +1,20 @@
-< proprietà pageTitle = "Azure Backup - backup e ripristino da un Client di Windows o Windows Server" | Descrizione di Microsoft Azure = "informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"servizi = documentationCenter"backup"=" "autori = manager"Jim Parker"="jwhit"editor =" "/ >
+<properties
+	pageTitle="Azure Backup - backup e ripristino da un Client di Windows o Windows Server
+	description="Informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="jwhit"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="07/01/2015"
+	 ms.author="jimpark"; "aashishr"/>
 
 # Backup e ripristino da un computer che esegue Windows Server o un client Windows
 Questo articolo illustra i passaggi necessari per eseguire il backup da un computer che esegue Windows Server o un client Windows. L'articolo descrive anche i passaggi necessari per ripristinare i file di backup nello stesso computer e quelli necessari per ripristinare tali file in un altro computer.

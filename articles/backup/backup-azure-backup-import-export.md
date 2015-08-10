@@ -1,12 +1,20 @@
 <properties
-   pageTitle="Backup di Azure: Backup offline o seeding iniziale tramite il servizio di importazione/esportazione di Azure"
-   description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+	pageTitle="Backup di Azure: Backup offline o seeding iniziale tramite il servizio di importazione/esportazione di Azure"
+	description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
+
+<tags 
+	ms.service="backup" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/14/2015" 
+	ms.author="aashishr"; "jimpark"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 

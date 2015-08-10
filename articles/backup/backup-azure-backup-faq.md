@@ -1,13 +1,20 @@
 <properties
-   pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-   description="Domande frequenti sul servizio Backup di Azure"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
+	description="Domande frequenti sul servizio Backup di Azure"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/23/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
+	ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.

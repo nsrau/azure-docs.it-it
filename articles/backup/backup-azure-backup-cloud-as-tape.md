@@ -1,12 +1,20 @@
 <properties
-   pageTitle="Usare Backup di Azure per sostituire l'infrastruttura basata su nastro"
-   description="Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+	pageTitle="Usare Backup di Azure per sostituire l'infrastruttura basata su nastro"
+	description="Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="jwhit"
+	editor=""/>
+
+<tags 
+	ms.service="backup" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/01/2015" 
+	ms.author="jimpark"; "aashishr"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 I clienti di Azure Backup e System Center Data Protection Manager possono: - backup dei dati nelle pianificazioni che sia più adatto alle loro organizzazione - conservare i dati di backup per periodi più lunghi - è necessario rendere Azure necessita di una parte del loro memorizzazione a lungo termine (anziché a nastro).

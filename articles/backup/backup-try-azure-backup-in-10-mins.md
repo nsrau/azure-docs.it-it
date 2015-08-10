@@ -1,13 +1,20 @@
 <properties
-   pageTitle="Backup di Azure in 10 min. | Microsoft Azure"
-   description="Introduzione a Backup di Azure in 10 minuti"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Backup di Azure in 10 min. | Microsoft Azure"
+	description="Introduzione a Backup di Azure in 10 minuti"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="07/06/2015" 
+	ms.author="aashishr"; "jimpark"/>
 
 # Provare Backup di Azure in 10 minuti
 La configurazione di Backup di Azure è estremamente semplice e i video procedurali seguenti forniscono informazioni utili per iniziare.
