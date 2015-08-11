@@ -127,7 +127,8 @@ Il progetto **AdventureWorksWebGeo** dimostra come ASP.NET MVC 4 possa essere ut
 
 +	La funzione **Search** recupera le ubicazioni dei negozi che, a loro volta, vengono trasferite e aggiunte come PushPins alla mappa Bing.
 
-4.	In **Controllers** aprire HomeController.cs e cercare la funzione **Search**. Si noti come effettua una chiamata a _storeSearch.Search (lat, lon, 10000). Ciò provoca l'esecuzione di una query per la ricerca di tutti i negozi entro 10.000 km dalla latitudine (lat) e dalla longitudine (lon) specificate. I risultati della query vengono elaborati e inviati a vista Index siano elaborati come simboli sovrapposta nella mappa di Bing. 
+4.	In **Controllers** aprire HomeController.cs e cercare la funzione **Search**. Si noti come effettua una chiamata a _storeSearch.Search (lat, lon, 10000). Ciò provoca l'esecuzione di una query per la ricerca di tutti i negozi entro 10.000 km dalla latitudine (lat) e dalla longitudine (lon) specificate. I risultati della query vengono elaborati e inviati a vista Index siano elaborati come simboli sovrapposta nella mappa di Bing.
+
 La demo è terminata. Sono stati descritti i principali aspetti relativi alla compilazione di una mappa basata su un'applicazione ASP.NET MVC4 usando Ricerca di Azure.
 
 
@@ -166,4 +167,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di ulteriori c
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

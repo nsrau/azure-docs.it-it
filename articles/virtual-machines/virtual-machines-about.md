@@ -45,8 +45,8 @@ Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, l
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[Servizio app]: app-service-choose-me.md
+[Macchine virtuali]: #tellmevm
+[Servizi cloud]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

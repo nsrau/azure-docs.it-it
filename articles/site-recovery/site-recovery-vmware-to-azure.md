@@ -105,9 +105,9 @@ Nella tabella 2 sono riepilogate le linee guida per il server di elaborazione.
 
 **Frequenza di modifica dei dati** | **CPU** | **Memoria** | **Dimensione disco cache**| **Velocità effettiva disco cache** | **Ingresso/uscita larghezza di banda**
 --- | --- | --- | --- | --- | ---
-Meno di 300 GB | 4 vCPU (2 socket \* 2 core a 2,5 GHz) | 4 GB | 600 GB | Da 7 a 10 MB al secondo | 30 Mbps/21 Mbps
-Da 300 a 600 GB | 8 vCPU (2 socket \* 4 core a 2,5 GHz) | 6 GB | 600 GB | Da 11 a 15 MB al secondo | 60 Mbps/42 Mbps
-Da 600 GB a 1 TB | 12 vCPU (2 socket \* 6 core a 2,5 GHz) | 8 GB | 600 GB | Da 16 a 20 MB al secondo | 100 Mbps/70 Mbps
+Meno di 300 GB | 4 vCPU (2 socket * 2 core a 2,5 GHz) | 4 GB | 600 GB | Da 7 a 10 MB al secondo | 30 Mbps/21 Mbps
+Da 300 a 600 GB | 8 vCPU (2 socket * 4 core a 2,5 GHz) | 6 GB | 600 GB | Da 11 a 15 MB al secondo | 60 Mbps/42 Mbps
+Da 600 GB a 1 TB | 12 vCPU (2 socket * 6 core a 2,5 GHz) | 8 GB | 600 GB | Da 16 a 20 MB al secondo | 100 Mbps/70 Mbps
 Più di 1 TB | Distribuire un altro server di elaborazione | | | | 
 
 **Tabella 2**
@@ -130,8 +130,8 @@ L'archiviazione per ogni server di destinazione master è costituita da un disco
 **Istanza** | **Disco del sistema operativo** | **Conservazione** | **Dischi dati**
 --- | --- | --- | ---
  | | **Conservazione** | **Dischi dati**
-A4 standard | 1 disco (1 \* 1023 GB) | 1 disco (1 \* 1023 GB) | 15 dischi (15 \* 1023 GB)
-D14 standard | 1 disco (1 \* 1023 GB) | 1 disco (1 \* 1023 GB) | 31 dischi (15 \* 1023 GB)
+A4 standard | 1 disco (1 * 1023 GB) | 1 disco (1 * 1023 GB) | 15 dischi (15 * 1023 GB)
+D14 standard | 1 disco (1 * 1023 GB) | 1 disco (1 * 1023 GB) | 31 dischi (15 * 1023 GB)
 
 **Tabella 3**
 
@@ -273,7 +273,12 @@ Il server di configurazione viene distribuito in un servizio cloud di Azure crea
 	- Facendo clic su **Next**, verrà eseguito un test per verificare la connessione al proxy.
 	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo, la porta e le credenziali.
 	- Gli URL seguenti dovranno essere accessibili tramite il proxy:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Se sono presenti regole firewall basate sull'indirizzo IP, verificare che siano impostate per autorizzare la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://msdn.microsoft.com/it-it/library/azure/dn175718.aspx) e per il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+		- *.hypervrecoverymanager.windowsazure.com 
+		- *.accesscontrol.windows.net 
+		- *.backup.windowsazure.com 
+		- *.blob.core.windows.net 
+		- *.store.core.windows.net 
+	- Se sono presenti regole firewall basate sull'indirizzo IP, verificare che siano impostate per autorizzare la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://msdn.microsoft.com/it-it/library/azure/dn175718.aspx) e per il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 	![Registrazione del proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -376,7 +381,7 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
 	3. Estrarre i file dal programma di installazione compresso con gzip eseguendo: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64**\* ![Server di destinazione master Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Accertarsi di essere nella directory nella quale è stato estratto il contenuto del file TAR.
 	5. Copiare la passphrase del server di configurazione in un file locale usando il comando **echo *`<passphrase>`* >passphrase.txt**
-	6. Eseguire il comando “\*\*sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt\*\*”.
+	6. Eseguire il comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
 
 	![Registrare il server di destinazione](./media/site-recovery-vmware-to-azure/Linux-MT-install.png)
 
@@ -762,4 +767,4 @@ Le informazioni nella sezione B riguardano i componenti del Codice di terze part
 
 Il file completo è disponibile nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft si riserva tutti i diritti non espressamente disciplinati dal presente documento, sia tacitamente, per preclusione o per qualsivoglia altro motivo.
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->
