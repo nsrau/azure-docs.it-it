@@ -100,7 +100,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -270,7 +270,8 @@ Facoltativo: **acquireTokenSilent**
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Gestore**: l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
+11. **Gestore**:
+  l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -282,13 +283,14 @@ Facoltativo: **acquireTokenSilent**
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` Se l'account è valido, verrà restituito l'utente gestore.
+ ``` 
+Se l'account è valido, verrà restituito l'utente gestore.
 
  Il manifesto dell'app dovrà avere le autorizzazioni per usare gli account di AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Tramite questa procedura dettagliata si dovrebbero avere tutte le informazioni necessarie per una corretta integrazione con Azure Active Directory. Per altre informazioni sull'esecuzione di queste operazioni, visitare il repository AzureADSamples/ su GitHub.
@@ -311,9 +313,12 @@ L'URL dell'autorità richiede un'istanza del servizio token di sicurezza e il no
 
 ### Esecuzione di query sugli elementi della cache
 
-ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con: ```Java
+ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con: 
+```Java
  ITokenCacheStore cache = mContext.getCache();
-``` È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla. ```Java
+``` 
+È anche possibile fornire la propria implementazione di cache, se si vuole personalizzarla. 
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -359,7 +364,8 @@ Questo è ovviamente il primo evento di diagnostica. Vengono forniti messaggi di
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` I messaggi possono essere scritti in un file di log personalizzato, come illustrato di seguito. Non esiste purtroppo un metodo standard per ottenere i log da un dispositivo. A questo scopo, sono disponibili alcuni servizi che possono risultare utili. È anche possibile crearne di personalizzati, ad esempio per l'invio del file a un server.
+ ``` 
+I messaggi possono essere scritti in un file di log personalizzato, come illustrato di seguito. Non esiste purtroppo un metodo standard per ottenere i log da un dispositivo. A questo scopo, sono disponibili alcuni servizi che possono risultare utili. È anche possibile crearne di personalizzati, ad esempio per l'invio del file a un server.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -380,15 +386,18 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (a scopo informativo)
 + Verbose (più dettagli)
 
-Il livello di registrazione viene impostato nel modo seguente: ```Java
+Il livello di registrazione viene impostato nel modo seguente: 
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati.
+ È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` 
+Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Tracce di rete
 
@@ -409,16 +418,18 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 ### Richiesta di connessione di Oauth2
 
-La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization\_uri dalla richiesta di connessione di Oauth2.
+La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization_uri dalla richiesta di connessione di Oauth2.
 
 ### Cookie di sessione in Webview
 
-Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: ```java
+Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: 
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` 
+Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Override delle risorse
 
@@ -444,4 +455,4 @@ ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tra
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

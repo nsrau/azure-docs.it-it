@@ -36,8 +36,9 @@ Poiché le API non hanno accesso agli utenti registrati in Azure Active Director
 Esistono due modi diversi per scaricare l'SDK di Azure Multi-Factor Authentication. Entrambi vengono eseguiti con il portale di Azure. Il primo prevede la gestione diretta del provider di Multi-Factor Authentication, il secondo l'uso delle impostazioni del servizio. La seconda opzione richiede un provider di Multi-Factor Authentication o una licenza Azure AD Premium.
 
 
-### Per scaricare l'SDK di Azure Multi-Factor Authentication dal portale di Azure
 
+### Per scaricare il server Azure Multi-Factor Authentication dal portale Azure
+--------------------------------------------------------------------------------
 
 1. Accedere al portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
@@ -50,8 +51,8 @@ Esistono due modi diversi per scaricare l'SDK di Azure Multi-Factor Authenticati
 
 
 
-### Per scaricare l'SDK di Azure Multi-Factor Authentication con le impostazioni del servizio
-
+### Per scaricare il server Azure Multi-Factor Authentication direttamente
+--------------------------------------------------------------------------------
 
 1. Accedere al portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
@@ -191,4 +192,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

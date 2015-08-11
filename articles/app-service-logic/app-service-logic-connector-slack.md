@@ -36,7 +36,9 @@ Nessuno | Post Message
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Slack Connector".
-3. Immettere il nome, il piano di servizio app e altre proprietà: <br/> ![][1] 
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
+<br/> 
+![][1] 
 
 4. Fare clic su **Crea**.
 
@@ -92,4 +94,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

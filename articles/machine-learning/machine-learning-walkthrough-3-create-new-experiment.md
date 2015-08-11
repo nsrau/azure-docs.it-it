@@ -53,7 +53,8 @@ Le intestazioni di colonna non sono indispensabili ma semplificheranno l'uso dei
 3.	Connettere il set di dati a [Metadata Editor][metadata-editor]: fare clic sulla porta di output del set di dati, trascinarla sulla porta di input di [Metadata Editor][metadata-editor], quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
 4.	Con [Metadata Editor][metadata-editor] ancora selezionato, nel riquadro **Properties** a destra dell'area di disegno fare clic su **Launch column selector**.
 5.	Nella finestra di dialogo **Select columns** impostare il campo **Begin With** su "All columns".
-6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Metadata Editor][metadata-editor]. Poiché si desidera modificare tutte le colonne, eliminare la riga facendo clic sul segno meno ("-") a destra della riga. La finestra di dialogo dovrebbe essere simile alla seguente: ![Selettore di colonna con tutte le colonne selezionate][4]
+6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Metadata Editor][metadata-editor]. Poiché si desidera modificare tutte le colonne, eliminare la riga facendo clic sul segno meno ("-") a destra della riga. La finestra di dialogo dovrebbe essere simile alla seguente:  
+    ![Selettore di colonna con tutte le colonne selezionate][4]
 7.	Fare clic sul segno di spunta **OK**. 
 8.	Nel riquadro **Properties** cercare il parametro **New column names**. In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità è possibile copiare e incollare i nomi seguenti:  
 
@@ -78,7 +79,7 @@ Il prossimo passaggio dell'esperimento consiste nel generare set di dati separat
 
 1.	Trovare il modulo [Dividi][split], trascinarlo nell'area di disegno, quindi connetterlo all'ultimo modulo [Editor metadati][metadata-editor].
 2.	Per impostazione predefinita, il rapporto di suddivisione è impostato su 0,5 e il parametro **Suddivisione casuale** è impostato. Questo significa che una metà casuale dei dati verrà inviata all'output attraverso una porta del modulo [Dividi][split] e l'altra metà attraverso l'altra. È possibile regolare queste impostazioni, così come il parametro **Valore di inizializzazione casuale** per modificare la suddivisione tra dati di training e dati di assegnazione del punteggio. Per questo esempio i parametri verranno lasciati inalterati.
-	> [AZURE.TIP]  
+	> [AZURE.TIP]  Il rapporto di suddivisione determina in sostanza la quantità di dati che viene inviata all'output attraverso la relativa porta.Se ad esempio si imposta il rapporto su 0,7, il 70% dei dati verrà inviato alla porta sinistra e il 30% alla porta destra.
 	
 È possibile usare gli output del modulo [Dividi][split] in qualsiasi modo si preferisca, in questo caso si sceglierà di usare l'output sinistro per i dati di training e quello destro per i dati di assegnazione del punteggio.
 
@@ -125,4 +126,4 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

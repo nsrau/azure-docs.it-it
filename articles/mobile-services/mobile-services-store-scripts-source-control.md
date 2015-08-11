@@ -36,7 +36,8 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-	> [AZURE.NOTE]In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
+	> [AZURE.NOTE]
+	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -59,7 +60,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 	In questo caso, è stata creata una nuova directory con il nome del servizio mobile che rappresenta il repository locale per il servizio dati.
 
-7. Aprire la sottocartella .\service\table e osservare che contiene un file TodoItem.json che è una rappresentazione JSON delle autorizzazioni per le operazioni sulla tabella TodoItem.
+7. Aprire la sottocartella .\\service\\table e osservare che contiene un file TodoItem.json che è una rappresentazione JSON delle autorizzazioni per le operazioni sulla tabella TodoItem.
 
 	Dopo avere definito gli script del server su questa tabella, saranno presenti uno o più file denominati <code>TodoItem._&lt;operation&gt;_.js</code> che contengono gli script per una determinata operazione sulla tabella. Gli script dell'utilità di pianificazione e dell'API personalizzata sono conservati in cartelle separate con i rispettivi nomi. Per altre informazioni, vedere [Controllo del codice sorgente].
 
@@ -67,7 +68,7 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 
 ##<a name="deploy-scripts"></a>Distribuire i file di script aggiornati nel servizio mobile
 
-1. Passare alla sottocartella .\service\table e se non è presente un file todoitem.insert.js crearlo adesso.
+1. Passare alla sottocartella .\\service\\table e se non è presente un file todoitem.insert.js crearlo adesso.
 
 2. Aprire il nuovo file todoitem.insert.js in un'editor di testo, incollarvi il codice seguente e salvare le modifiche:
 
@@ -109,7 +110,7 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 
 	>[AZURE.NOTE]Questo aggiornamento del file package.json provocherà un riavvio del servizio mobile dopo il push del commit.
 
-4. Passare alla sottocartella .\service\table, aprire il file todoitem.insert.js e modificarlo come illustrato di seguito:
+4. Passare alla sottocartella .\\service\\table, aprire il file todoitem.insert.js e modificarlo come illustrato di seguito:
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -132,9 +133,11 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 
 In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sugli script del server e sulle API personalizzate, vedere:
 
-+ [Utilizzo degli script del server in Servizi mobili] <br/>Altre informazioni su come usare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
++ [Utilizzo degli script del server in Servizi mobili] 
+	<br/>Altre informazioni su come usare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
 
-+ [Chiamare un'API personalizzata dal client] <br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
++ [Chiamare un'API personalizzata dal client] 
+	<br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -155,9 +158,10 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-ios-get-started-data.md
 [Utilizzo degli script del server in Servizi mobili]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Chiamare un'API personalizzata dal client]: mobile-services-ios-call-custom-api.md
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

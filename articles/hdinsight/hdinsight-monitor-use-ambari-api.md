@@ -44,11 +44,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Un cluster HDInsight di Azure**. Per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
 	<table border="1">
-<tr><th>Proprietà del cluster</th><th>Nome variabile di Azure PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
-<tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Il nome del cluster HDInsight.</td></tr>
-<tr><td>Nome utente cluster</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster specificato al momento del provisioning.</td></tr>
-<tr><td>Password cluster</td><td>$clusterPassword</td><td></td><td>Password dell'utente del cluster.</td></tr>
-</table>> [AZURE.NOTE]Specificare i valori nella tabella. Questa operazione sarà utile per completare l'esercitazione.
+	<tr><th>Proprietà del cluster</th><th>Nome variabile di Azure PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
+	<tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Il nome del cluster HDInsight.</td></tr>
+	<tr><td>Nome utente cluster</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster specificato al momento del provisioning.</td></tr>
+	<tr><td>Password cluster</td><td>$clusterPassword</td><td></td><td>Password dell'utente del cluster.</td></tr>
+	</table>
+
+	> [AZURE.NOTE] Specificare i valori nella tabella. Questa operazione sarà utile per completare l'esercitazione.
 
 
 
@@ -176,4 +178,4 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

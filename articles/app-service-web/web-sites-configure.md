@@ -36,7 +36,8 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 **Versioni del framework**. Impostare le opzioni seguenti se l'app usa uno dei seguenti framework:
 
 - **.NET Framework**: consente di impostare la versione di .NET Framework. 
-- **PHP**: consente di impostare la versione PHP oppure impostare **DISATTIVATO **per disabilitare la funzionalità PHP.- **Java**: consente di selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
+- **PHP**: consente di impostare la versione PHP oppure impostare **DISATTIVATO **per disabilitare la funzionalità PHP.
+- **Java**: consente di selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
 - **Python**: consente di selezionare la versione Python oppure impostare **DISATTIVATO** per disabilitare Python.
 
 Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzioni di .NET, PHP e Python.
@@ -174,4 +175,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

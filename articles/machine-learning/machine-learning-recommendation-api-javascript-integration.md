@@ -89,10 +89,10 @@ Questo evento deve essere usato ogni volta che un utente fa clic su un elemento.
 
 Parametri:
 - event (stringa, obbligatorio) – "click"
-- item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo)
-– nome dell'elemento - itemDescription (stringa, facoltativo)
-– descrizione dell'elemento - itemCategory (stringa, facoltativo)
-– categoria dell'elemento
+- item (stringa, obbligatorio) – identificatore univoco dell'elemento
+- itemName (stringa, facoltativo) – nome dell'elemento
+- itemDescription (stringa, facoltativo) – descrizione dell'elemento
+- itemCategory (stringa, facoltativo) – categoria dell'elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -112,8 +112,9 @@ Questo evento deve essere usato ogni volta che un utente fa clic su un elemento 
 
 Parametri:
 - event (stringa, obbligatorio) – "recommendationclick"
-- item (stringa, obbligatorio) – identificatore univoco dell'elemento - itemName (stringa, facoltativo)
-– nome dell'elemento - itemDescription (stringa, facoltativo) – descrizione dell'elemento
+- item (stringa, obbligatorio) – identificatore univoco dell'elemento
+- itemName (stringa, facoltativo) – nome dell'elemento
+- itemDescription (stringa, facoltativo) – descrizione dell'elemento
 - itemCategory (stringa, facoltativo) – categoria dell'elemento
 - seeds (matrice di stringhe, facoltativo) – semi che hanno generato la query di raccomandazione
 - recoList (matrice di stringhe, facoltativo) – risultato della richiesta di raccomandazione che ha generato l'elemento su cui è stato fatto clic
@@ -132,9 +133,9 @@ In alternativa, con dati facoltativi:
 
 
 ####3.2.3. Evento Add Shopping Cart
-Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti. Parametri:
-* event (stringa, obbligatorio) – "addshopcart"
-* item (stringa, obbligatorio) – identificatore univoco dell'elemento
+Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti.
+Parametri:
+* event (stringa, obbligatorio) – "addshopcart" * item (stringa, obbligatorio) – identificatore univoco dell'elemento
 * itemName (stringa, facoltativo) – nome dell'elemento
 * itemDescription (stringa, facoltativo) – descrizione dell'elemento
 * itemCategory (stringa, facoltativo) – categoria dell'elemento
@@ -185,8 +186,8 @@ Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 Parametri:
 * event (stringa) - "userlogin"
 * user (stringa) - identificazione univoca dell'utente.
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+		<script> 
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
 			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
@@ -227,4 +228,4 @@ Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->
