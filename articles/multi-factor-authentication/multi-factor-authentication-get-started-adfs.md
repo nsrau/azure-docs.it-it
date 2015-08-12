@@ -20,7 +20,7 @@
 
 
 
-<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Se l'azienda ha federato la Active Directory locale con Azure Active Directory tramite ADFS, le due opzioni seguenti per l'utilizzo di Azure Multi-Factor Authentication sono disponibili.
 
@@ -55,4 +55,4 @@ Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Se
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
