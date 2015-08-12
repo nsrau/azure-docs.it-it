@@ -159,7 +159,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
       		}
 		}
 
-	> [AZURE.NOTE]Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
+	> [AZURE.NOTE]Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://it.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
 	> 
 	> Sostituire **l'account di archiviazione** nel codice JSON con il nome dell'account di archiviazione usato.
 	
@@ -353,4 +353,4 @@ Articolo | Descrizione
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

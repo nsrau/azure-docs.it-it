@@ -113,13 +113,13 @@ In questa sezione verrà creata una nuova applicazione Node nell'ambiente di svi
 
 1. Dalla riga di comando passare alla directory **tasklist**. Se la directory **tasklist** non esiste, crearla.
 
-	> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\node\tasklist**
+> [AZURE.NOTE]In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\node\tasklist**
 
 2. Immettere il comando seguente per installare il comando express.
 
 	npm install express-generator -g
 
-	> [AZURE.NOTE]Quando si utilizza il '-g' parametro in alcuni sistemi operativi, è possibile che venga visualizzato un errore di ___errore: EPERM, chmod '/ / locale usr/express bin'___ e una richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando `sudo` per eseguire npm a un livello di privilegi più elevato.
+> [AZURE.NOTE]Quando si utilizza il '-g' parametro in alcuni sistemi operativi, è possibile che venga visualizzato un errore di ___errore: EPERM, chmod '/ / locale usr/express bin'___ e una richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando `sudo` per eseguire npm a un livello di privilegi più elevato.
 
     L'output di questo comando dovrebbe apparire simile al seguente:
 
@@ -571,4 +571,4 @@ Per ulteriori informazioni su come proteggere MongoDB, vedere l'articolo relativ
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->
