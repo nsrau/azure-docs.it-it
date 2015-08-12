@@ -30,7 +30,7 @@ Per proteggere ADFS 2.0 con un proxy, installare il Server Azure multi-Factor Au
 1. Nel Server Azure multi-Factor Authentication fare clic sull'icona autenticazione IIS nel menu a sinistra.
 2. Fare clic sulla scheda basata su Form.
 3. Fare quindi clic su Add.
-<center>! [Installazione] (. / media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di accesso (ad esempio https://sso.contoso.com/adfs/ls) nella finestra di dialogo Configura automaticamente sito Web e fare clic su OK.
 5. Selezionare la casella di corrispondenza utente di richiedere Azure multi-Factor Authentication se tutti gli utenti sono già stati o verranno importati nel Server e soggetto a multi-factor authentication. Se un numero significativo di utenti non è ancora stato importato nel Server e/o esenti dall'autenticazione a più fattori, lasciare deselezionata la casella. Vedere il file della Guida per ulteriori informazioni su questa funzionalità.
 6. Se le variabili di pagina non possono essere rilevate automaticamente, fare clic su specifica manualmente... pulsante nella finestra di dialogo Configura automaticamente sito Web.
