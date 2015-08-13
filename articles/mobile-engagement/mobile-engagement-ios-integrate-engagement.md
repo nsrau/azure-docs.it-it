@@ -43,7 +43,7 @@ Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'are
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA <ios-sdk-engagement-idfa> per conformarsi ai nuovi criteri Apple relativi a questo ID.
+> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
 ##Inizializzare l'SDK di Engagement
 
@@ -208,4 +208,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
  
 
-<!-----HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->
