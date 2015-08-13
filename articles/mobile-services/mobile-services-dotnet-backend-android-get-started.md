@@ -26,7 +26,7 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][0]
+![][88]
 
 Per completare questa esercitazione, è necessario disporre di [Android Developer Tools][Android Studio] che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
 
@@ -100,7 +100,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -129,4 +129,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [portale di gestione]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
