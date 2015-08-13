@@ -191,16 +191,16 @@ Questo esempio presuppone quanto segue:
 ### Creare un servizio collegato di tipo file system locale
 Il codice JSON di esempio seguente può essere usato per creare un servizio collegato denominato **FolderDataStore** di tipo **OnPremisesFileSystemLinkedService**.
 
-	{
-	    "name": "FolderDataStore",
-	    "properties": {
-	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
-	        "userId": "username",
-	        "password": "password",
-	        "gatewayName": "ContosoGateway"
-	    }
-	}
+		{
+		    "name": "FolderDataStore",
+	    	"properties": {
+		        "type": "OnPremisesFileSystemLinkedService",
+	        	"host": "\\contoso",
+	        	"userId": "username",
+	        	"password": "password",
+	        	"gatewayName": "ContosoGateway"
+	    	}
+		}
 
 > [AZURE.NOTE]Ricordarsi di usare il carattere di escape '' per i nomi di host e cartelle nei file JSON. Per **\Contoso** usare **\\Contoso**.
 
@@ -491,4 +491,4 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

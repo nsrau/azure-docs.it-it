@@ -173,10 +173,10 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 
 È possibile ottenere ulteriori informazioni su BLOB, tabelle e code visitando i collegamenti seguenti:
 
-[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
-[Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
-[Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md)
+[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)  
+[Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md)  
+[Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md)  
 [Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->
