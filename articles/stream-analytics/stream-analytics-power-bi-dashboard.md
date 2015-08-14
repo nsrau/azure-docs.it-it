@@ -1,7 +1,8 @@
-<properties 
+﻿<properties 
 	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
 	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
-	documentationCenter="" 
+services="stream-analytics"	
+documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
